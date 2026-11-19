@@ -1,0 +1,205 @@
+{
+ "stand": "2026-11-18",
+ "quelle": "Zusammengestellt am 18.11.2026 aus Presseberichten zu Rating-Entscheidungen der Agenturen, Wikipedia (List of countries by credit rating) und der OeBFA (Österreich). Ratings werden von Hand gepflegt.",
+ "hinweis": "Ratings werden von Hand gepflegt. Nach Prüfung bei den Agenturen \"geprueft\" auf true setzen und \"stand\" aktualisieren. Skala: S&P und Fitch AAA bis D, Moody's Aaa bis C. unsicher = Quellen widersprachen sich.",
+ "laender": {
+  "AT": {
+   "sp": "AA+",
+   "moodys": "Aa1",
+   "fitch": "AA",
+   "unsicher": []
+  },
+  "BE": {
+   "sp": "AA-",
+   "moodys": "A1",
+   "fitch": "A+",
+   "unsicher": []
+  },
+  "BG": {
+   "sp": "BBB+",
+   "moodys": "Baa1",
+   "fitch": "BBB+",
+   "unsicher": []
+  },
+  "CY": {
+   "sp": "A",
+   "moodys": "A3",
+   "fitch": "A",
+   "unsicher": [
+    "fitch"
+   ]
+  },
+  "CZ": {
+   "sp": "AA-",
+   "moodys": "Aa3",
+   "fitch": "AA-",
+   "unsicher": []
+  },
+  "DE": {
+   "sp": "AAA",
+   "moodys": "Aaa",
+   "fitch": "AAA",
+   "unsicher": []
+  },
+  "DK": {
+   "sp": "AAA",
+   "moodys": "Aaa",
+   "fitch": "AAA",
+   "unsicher": []
+  },
+  "EE": {
+   "sp": "A+",
+   "moodys": "A1",
+   "fitch": "A+",
+   "unsicher": [
+    "sp"
+   ]
+  },
+  "EL": {
+   "sp": "BBB",
+   "moodys": "Baa3",
+   "fitch": "BBB",
+   "unsicher": []
+  },
+  "ES": {
+   "sp": "A+",
+   "moodys": "A3",
+   "fitch": "A",
+   "unsicher": []
+  },
+  "FI": {
+   "sp": "AA+",
+   "moodys": "Aa1",
+   "fitch": "AA",
+   "unsicher": []
+  },
+  "FR": {
+   "sp": "A+",
+   "moodys": "Aa3",
+   "fitch": "A+",
+   "unsicher": []
+  },
+  "HR": {
+   "sp": "A",
+   "moodys": "A3",
+   "fitch": "A-",
+   "unsicher": []
+  },
+  "HU": {
+   "sp": "BBB-",
+   "moodys": "Baa2",
+   "fitch": "BBB",
+   "unsicher": []
+  },
+  "IE": {
+   "sp": "AA+",
+   "moodys": "Aa3",
+   "fitch": "AA",
+   "unsicher": []
+  },
+  "IT": {
+   "sp": "BBB+",
+   "moodys": "Baa2",
+   "fitch": "BBB+",
+   "unsicher": []
+  },
+  "LT": {
+   "sp": "A",
+   "moodys": "A2",
+   "fitch": "A",
+   "unsicher": []
+  },
+  "LU": {
+   "sp": "AAA",
+   "moodys": "Aaa",
+   "fitch": "AAA",
+   "unsicher": []
+  },
+  "LV": {
+   "sp": "A",
+   "moodys": "A3",
+   "fitch": "A-",
+   "unsicher": []
+  },
+  "MT": {
+   "sp": "A-",
+   "moodys": "A2",
+   "fitch": "A+",
+   "unsicher": []
+  },
+  "NL": {
+   "sp": "AAA",
+   "moodys": "Aaa",
+   "fitch": "AAA",
+   "unsicher": []
+  },
+  "PL": {
+   "sp": "A-",
+   "moodys": "A2",
+   "fitch": "A-",
+   "unsicher": []
+  },
+  "PT": {
+   "sp": "A+",
+   "moodys": "A3",
+   "fitch": "A",
+   "unsicher": []
+  },
+  "RO": {
+   "sp": "BBB-",
+   "moodys": "Baa3",
+   "fitch": "BBB-",
+   "unsicher": []
+  },
+  "SE": {
+   "sp": "AAA",
+   "moodys": "Aaa",
+   "fitch": "AAA",
+   "unsicher": []
+  },
+  "SI": {
+   "sp": "AA",
+   "moodys": "A2",
+   "fitch": "A+",
+   "unsicher": []
+  },
+  "SK": {
+   "sp": "A",
+   "moodys": "A3",
+   "fitch": "A-",
+   "unsicher": []
+  }
+ },
+ "schweiz": {
+  "sp": "AAA",
+  "moodys": "Aaa",
+  "fitch": "AAA",
+  "unsicher": [
+   "sp",
+   "moodys",
+   "fitch"
+  ]
+ },
+ "vorher": {
+  "stand": "2025-03-03",
+  "hinweis": "Stand bei Amtsantritt der Regierung (3.3.2025), nur dort eingetragen, wo er belegt ist: Österreich (S&P AA+, Moody's Aa1, Fitch AA+; Fitch senkte am 6.6.2025 auf AA), Zypern (S&P BBB+, Moody's Baa2, Fitch A-), Ungarn (BBB-, Baa2, BBB), Belgien (nur S&P AA, im April 2026 auf AA- gesenkt). Bei Teilangaben gelten die übrigen Noten als unverändert.",
+  "AT": {
+   "sp": "AA+",
+   "moodys": "Aa1",
+   "fitch": "AA+"
+  },
+  "CY": {
+   "sp": "BBB+",
+   "moodys": "Baa2",
+   "fitch": "A-"
+  },
+  "HU": {
+   "sp": "BBB-",
+   "moodys": "Baa2",
+   "fitch": "BBB"
+  },
+  "BE": {
+   "sp": "AA"
+  }
+ }
+}

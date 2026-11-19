@@ -1,0 +1,164 @@
+{
+ "stand": "2026-07-16",
+ "quelle": "KSV1870 Insolvenzstatistik (Jahreswerte 2006 bis 2025 laut WKO-Statistikjahrbuch, Stand Jänner 2026; Halbjahr 2026 laut KSV1870 vom 16.7.2026)",
+ "hinweis": "Gezählt werden Unternehmensinsolvenzen: eröffnete Verfahren plus Verfahren, die mangels Vermögen nicht eröffnet wurden. Die Passiva des Jahres 2025 sind vorläufig.",
+ "jahre": {
+  "2006": {
+   "eroeffnet": 3084,
+   "nichtEroeffnet": 3623,
+   "gesamt": 6707,
+   "passivaMrd": 2.6,
+   "dienstnehmer": 21800
+  },
+  "2007": {
+   "eroeffnet": 3023,
+   "nichtEroeffnet": 3272,
+   "gesamt": 6295,
+   "passivaMrd": 2.4,
+   "dienstnehmer": 18200
+  },
+  "2008": {
+   "eroeffnet": 3270,
+   "nichtEroeffnet": 3045,
+   "gesamt": 6315,
+   "passivaMrd": 3.0,
+   "dienstnehmer": 21200
+  },
+  "2009": {
+   "eroeffnet": 3741,
+   "nichtEroeffnet": 3161,
+   "gesamt": 6902,
+   "passivaMrd": 4.0,
+   "dienstnehmer": 28100
+  },
+  "2010": {
+   "eroeffnet": 3522,
+   "nichtEroeffnet": 2854,
+   "gesamt": 6376,
+   "passivaMrd": 4.7,
+   "dienstnehmer": 24000
+  },
+  "2011": {
+   "eroeffnet": 3260,
+   "nichtEroeffnet": 2609,
+   "gesamt": 5869,
+   "passivaMrd": 2.8,
+   "dienstnehmer": 20600
+  },
+  "2012": {
+   "eroeffnet": 3505,
+   "nichtEroeffnet": 2536,
+   "gesamt": 6041,
+   "passivaMrd": 3.2,
+   "dienstnehmer": 23300
+  },
+  "2013": {
+   "eroeffnet": 3266,
+   "nichtEroeffnet": 2193,
+   "gesamt": 5459,
+   "passivaMrd": 6.3,
+   "dienstnehmer": 31800
+  },
+  "2014": {
+   "eroeffnet": 3275,
+   "nichtEroeffnet": 2148,
+   "gesamt": 5423,
+   "passivaMrd": 2.9,
+   "dienstnehmer": 20900
+  },
+  "2015": {
+   "eroeffnet": 3115,
+   "nichtEroeffnet": 2035,
+   "gesamt": 5150,
+   "passivaMrd": 2.4,
+   "dienstnehmer": 21800
+  },
+  "2016": {
+   "eroeffnet": 3163,
+   "nichtEroeffnet": 2063,
+   "gesamt": 5226,
+   "passivaMrd": 2.9,
+   "dienstnehmer": 19200
+  },
+  "2017": {
+   "eroeffnet": 3025,
+   "nichtEroeffnet": 2054,
+   "gesamt": 5079,
+   "passivaMrd": 1.9,
+   "dienstnehmer": 16300
+  },
+  "2018": {
+   "eroeffnet": 2985,
+   "nichtEroeffnet": 1995,
+   "gesamt": 4980,
+   "passivaMrd": 2.1,
+   "dienstnehmer": 19000
+  },
+  "2019": {
+   "eroeffnet": 3044,
+   "nichtEroeffnet": 1974,
+   "gesamt": 5018,
+   "passivaMrd": 1.7,
+   "dienstnehmer": 17200
+  },
+  "2020": {
+   "eroeffnet": 1804,
+   "nichtEroeffnet": 1230,
+   "gesamt": 3034,
+   "passivaMrd": 3.1,
+   "dienstnehmer": 16300
+  },
+  "2021": {
+   "eroeffnet": 2060,
+   "nichtEroeffnet": 974,
+   "gesamt": 3034,
+   "passivaMrd": 1.8,
+   "dienstnehmer": 9900
+  },
+  "2022": {
+   "eroeffnet": 2904,
+   "nichtEroeffnet": 1871,
+   "gesamt": 4775,
+   "passivaMrd": 2.2,
+   "dienstnehmer": 15500
+  },
+  "2023": {
+   "eroeffnet": 3374,
+   "nichtEroeffnet": 2006,
+   "gesamt": 5380,
+   "passivaMrd": 14.0,
+   "dienstnehmer": 23700
+  },
+  "2024": {
+   "eroeffnet": 4158,
+   "nichtEroeffnet": 2429,
+   "gesamt": 6587,
+   "passivaMrd": 19.0,
+   "dienstnehmer": 29600
+  },
+  "2025": {
+   "eroeffnet": 4186,
+   "nichtEroeffnet": 2624,
+   "gesamt": 6810,
+   "passivaMrd": 8.5,
+   "dienstnehmer": 21900
+  }
+ },
+ "halbjahr": {
+  "2026": {
+   "gesamt": 3449,
+   "eroeffnet": 2005,
+   "nichtEroeffnet": 1444
+  },
+  "2025": {
+   "gesamt": 3491,
+   "eroeffnet": 2173,
+   "nichtEroeffnet": 1318
+  }
+ },
+ "krisen": {
+  "2009": "Finanzkrise",
+  "2020": "Corona-Jahr",
+  "2021": "Corona-Jahr"
+ }
+}

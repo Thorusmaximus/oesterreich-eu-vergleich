@@ -1,0 +1,38 @@
+{
+ "titel": "Geburtenrate nach Staatsangehörigkeit",
+ "quelle": "Statistik Austria, Demographie 2024: Strukturen und Trends (Übersicht 9), Gesamtfertilitätsrate nach Staatsangehörigkeit der Mutter",
+ "stand": "2026-11-19",
+ "hinweis": "Für 2025 liegt die Aufteilung nach Staatsangehörigkeit noch nicht vor. Der Gesamtwert für 2025 beträgt laut Statistik Austria 1,30. Es zählt die Staatsangehörigkeit, nicht die Herkunft: Eingebürgerte Frauen zählen zu den österreichischen Staatsangehörigen.",
+ "reihen": [
+  {
+   "name": "Österreichische Staatsangehörige",
+   "werte": {
+    "2015": 1.39,
+    "2016": 1.41,
+    "2017": 1.4,
+    "2018": 1.37,
+    "2019": 1.35,
+    "2020": 1.35,
+    "2021": 1.4,
+    "2022": 1.33,
+    "2023": 1.23,
+    "2024": 1.22
+   }
+  },
+  {
+   "name": "Nichtösterreichische Staatsangehörige",
+   "werte": {
+    "2015": 1.94,
+    "2016": 2.0,
+    "2017": 1.95,
+    "2018": 1.86,
+    "2019": 1.85,
+    "2020": 1.76,
+    "2021": 1.75,
+    "2022": 1.64,
+    "2023": 1.56,
+    "2024": 1.58
+   }
+  }
+ ]
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
+<title>Indikator im EU-Vergleich</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<a class="back" href="index.html">← Überblick</a>
+<div id="app"><p>Lade Daten …</p></div>
+</main>
+<script src="daten.js"></script>
+<script src="common.js"></script>
+<script>
+var app = document.getElementById("app");
+var id = new URLSearchParams(location.search).get("id");
+var ind = D && D.indikatoren.filter(function(i){return i.id===id})[0];
+var CS = null;
+if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
+else if(!ind){ app.innerHTML = '<p>Diesen Indikator gibt es nicht. Zurück zum <a href="index.html">Überblick</a>.</p>'; }
+else if(!ind.oesterreich){ app.innerHTML = '<h1>'+ind.name+'</h1><p class="warn">Keine Daten verfügbar: '+(ind.fehler||"")+'</p>'; }
+else { document.title = ind.name + " im EU-Vergleich"; if(ind.art==="rating") detailRating(ind); else if(ind.art==="nurAT") detailInsolvenz(ind); else detail(ind); }
+
+function detail(i){
+  setzeEinheit(i);
+  var a = i.oesterreich, q = i.takt==="quartal", j = i.takt==="jahr", hb = i.takt==="halbjahr";
+  var rangDiff = a.rangVorher==null ? "" : a.rang===a.rangVorher ? "unverändert" : (a.rang<a.rangVorher ? "verbessert um " : "verschlechtert um ") + Math.abs(a.rang-a.rangVorher);
+  var trendTitel = hb ? "Trend gegenüber dem gleichen Halbjahr des Vorjahres" : q ? "Trend gegenüber dem Vorquartal" : j ? "Trend gegenüber dem Vorjahr" : "Trend gegenüber vor 3 Monaten";
+  var trendText = hb
+    ? 'Verglichen wird der Preis im aktuellen Halbjahr ('+f(a.schnitt)+SUF+') mit dem im gleichen Halbjahr des Vorjahres ('+f(a.schnittVorher)+SUF+'), damit Jahreszeiten den Vergleich nicht verzerren.'
+    : q
+    ? 'Verglichen wird die Wachstumsrate des aktuellen Quartals ('+f(a.schnitt)+SUF+') mit der des Vorquartals ('+f(a.schnittVorher)+SUF+'). Jede Rate misst das Quartal gegenüber dem gleichen Quartal des Vorjahres.'
+    : j ? 'Verglichen wird der Wert des aktuellen Jahres ('+f(a.schnitt)+SUF+') mit dem des Vorjahres ('+f(a.schnittVorher)+SUF+').'
+    : 'Verglichen werden die Durchschnitte der letzten 3 Monate ('+f(a.schnitt)+SUF+') und der 3 Monate davor ('+f(a.schnittVorher)+SUF+'), damit einzelne Ausreißer den Trend nicht verzerren.';
+  var h = banner();
+  h += '<div class="card"><h2>'+i.name+'</h2><div class="rank">Platz '+a.rang+' <small>von '+i.anzahlLaender+'</small></div>'
+     + '<p class="note">'+i.rangText+'. Stand: '+periode(i.periode)+'. Einheit: '+i.einheit+'</p>'
+     + (i.hinweis ? '<p class="note">'+i.hinweis+'</p>' : '')
+     + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
+     + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
+     + '<div class="grid">'
+     + '<div><div class="k">Österreich</div><div class="v">'+f(a.wert)+SUF+'</div></div>'
+     + '<div><div class="k">EU-Durchschnitt</div><div class="v">'+f(i.eu)+SUF+'</div></div>'
+     + '<div><div class="k">'+(i.typ==='neutral'?'Höchster Wert':'Bester Rang')+'</div><div class="v">'+f(i.beste.value)+SUF+'</div><div class="k">'+i.beste.name+'</div></div>'
+     + '<div><div class="k">'+(i.typ==='neutral'?'Niedrigster Wert':'Schlechtester Rang')+'</div><div class="v">'+f(i.schlechteste.value)+SUF+'</div><div class="k">'+i.schlechteste.name+'</div></div>'
+     + '</div></div>';
+  if(i.zusatz){
+    var z = i.zusatz, jj = Object.keys(z.reihen[0].werte).sort(), last = jj[jj.length-1], cols = ["var(--at)","var(--eu)"];
+    h += '<div class="card"><h2>Nur Österreich: '+z.titel+'</h2><div class="grid">'
+       + z.reihen.map(function(r,k){ return '<div><div class="k"><span style="color:'+cols[k]+'">●</span> '+r.name+'</div><div class="v">'+f(r.werte[last])+'</div><div class="k">Kinder pro Frau, '+last+'</div></div>'; }).join('')
+       + '</div>' + linienChart(z.reihen, jj, cols)
+       + '<p class="note">'+z.hinweis+' Quelle: '+z.quelle+'.</p></div>';
+  }
+  h += '<div class="card"><h2>'+trendTitel+'</h2>'
+     + '<div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+sgn(a.veraenderung)+' '+DIFF+', '+a.richtung+')</span></div>'
+     + '<p class="note">'+trendText
+     + (rangDiff ? ' Der Rang hat sich seit '+periode(i.vorherPeriode)+' '+rangDiff+'.' : '')+'</p></div>';
+  var ss = i.seitStart;
+  if(ss && D.regierung){
+      h += '<div class="card"><h2>Seit der '+D.regierung.name+'</h2>'
+       + '<div class="v '+urteilCls(ss.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,ss.urteil,ss.richtung)+'</span> '+trendWort(ss.urteil)+' <span class="k">('+sgn(ss.veraenderung)+' '+DIFF+', '+ss.richtung+')</span></div>'
+       + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+'). Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+''+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Platz '+ss.rang+' damals, Platz '+a.rang+' jetzt. Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.</p></div>';
+  }
+  var rv = (i.rangVergleich||[]).filter(Boolean);
+  if(rv.length){
+    h += '<div class="card"><h2>Entwicklung des Rangs</h2>'
+       + rv.map(function(v){ var r=rangTrend(a.rang,v.rang); return '<div class="v '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Platz '+a.rang+' statt Platz '+v.rang+' '+v.label+' <span class="k">('+periode(v.t)+', '+r.text+')</span></div>'; }).join('')
+       + '<p class="note">Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.</p>'
+       + rangChart(i.rangVerlauf||[]) + '</div>';
+  }
+  h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
+  h += '<div class="card"><h2>Alle EU-Länder</h2>'+ranking(i)+'</div>';
+  h += fussnote();
+  app.innerHTML = h;
+  bindChart();
+}
+
+function pfeilSpan(u, sym){ return '<span class="ta '+urteilCls(u)+'" title="'+(u?trendWort(u):"")+'" aria-label="'+(u?trendWort(u):"kein Trend")+'">'+(u?(sym||trendPfeil(u)):"")+'</span>'; }
+function f2(x){ return x.toLocaleString("de-AT",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function mark(x, ag){ return x.unsicher && x.unsicher.indexOf(ag)>=0 ? '<span title="Quellen widersprachen sich oder nicht bestätigt">†</span>' : ""; }
+
+// Kreditrating: Tabelle statt Balken, da keine Zeitreihe
+function detailInsolvenz(i){
+  var a = i.oesterreich, hj = i.halbjahr, h = banner();
+  h += '<div class="card"><h2>'+i.name+'</h2><div class="rank">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
+     + '<p class="note">'+i.einheit+'. Nur Österreich, kein EU-Vergleich. Stand: '+periode(i.periode)+'.</p>'
+     + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
+     + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
+     + '<div class="grid">'
+     + '<div><div class="k">Rang seit '+i.ersteJahr+'</div><div class="v">Platz '+a.platzHoechste+' von '+i.anzahlJahre+'</div><div class="k">Platz 1 = Jahr mit den meisten Insolvenzen</div></div>'
+     + '<div><div class="k">Vorjahr ('+i.vorherPeriode+')</div><div class="v">'+zahl(a.wertVorher)+'</div></div>'
+     + '<div><div class="k">Durchschnitt '+i.ersteJahr+' bis '+i.periode+'</div><div class="v">'+zahl(a.schnitt)+'</div></div>'
+     + '<div><div class="k">Höchster Wert</div><div class="v bad">'+zahl(a.hoechstes.wert)+'</div><div class="k">'+a.hoechstes.jahr+'</div></div>'
+     + '<div><div class="k">Niedrigster Wert</div><div class="v good">'+zahl(a.niedrigstes.wert)+'</div><div class="k">'+a.niedrigstes.jahr+'</div></div>'
+     + '</div></div>';
+  h += '<div class="card"><h2>Trend gegenüber dem Vorjahr</h2><div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+prozent(a.veraenderungProzent)+', '+zahl(a.wertVorher)+' auf '+zahl(a.wert)+')</span></div>'
+     + (hj ? '<div class="v '+urteilCls(hj.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(hj.richtung)+'</span> 1. Halbjahr '+hj.jahr+': '+trendWort(hj.urteil)+' <span class="k">('+prozent(hj.veraenderungProzent)+', '+zahl(hj.wertVorher)+' auf '+zahl(hj.wert)+' im Vergleich zum 1. Halbjahr '+hj.vorjahr+')</span></div>' : '')
+     + '<p class="note">Weniger Insolvenzen gelten als besser. Eine Veränderung unter 3 % wird als unverändert gewertet. Pfeil = Richtung des Wertes (↑ steigt, ↓ sinkt), grün = besser, rot = schlechter.</p></div>';
+  h += '<div class="card"><h2>Insolvenzen der letzten '+i.anzahlJahre+' Jahre</h2><div class="chartwrap" id="iwrap">'+insolvenzChart(i)+'<div class="tip r" id="itip" style="display:none"></div></div>'
+     + '<p class="note"><span style="color:var(--at)">■</span> eröffnete Verfahren &nbsp; <span style="color:var(--bar)">■</span> nicht eröffnet (mangels Vermögen). Mit der Maus oder dem Finger über einen Balken fahren zeigt die Werte.</p>'
+     + '<p class="note">Die Krisen sind markiert. In den Corona-Jahren 2020 und 2021 lagen die Zahlen wegen staatlicher Hilfen und ausgesetzter Antragspflichten deutlich niedriger. Dass sie danach wieder stiegen, ist teilweise ein Aufholeffekt. Die hohen Verbindlichkeiten 2023 und 2024 gehen vor allem auf einzelne Großinsolvenzen zurück.</p></div>';
+  h += '<div class="card"><details><summary><strong>Alle Zahlen als Tabelle</strong></summary><table class="rt"><thead><tr><th>Jahr</th><th>Gesamt</th><th>Eröffnet</th><th>Nicht eröffnet</th><th>Passiva (Mrd. €)</th><th>Dienstnehmer</th></tr></thead><tbody>'
+     + i.jahre.slice().reverse().map(function(y){ return '<tr><td>'+y.jahr+'</td><td>'+zahl(y.gesamt)+'</td><td>'+zahl(y.eroeffnet)+'</td><td>'+zahl(y.nichtEroeffnet)+'</td><td>'+y.passivaMrd.toLocaleString("de-AT",{minimumFractionDigits:1})+'</td><td>'+zahl(y.dienstnehmer)+'</td></tr>'; }).join('')
+     + '</tbody></table></details></div>';
+  h += '<div class="card"><p class="note">'+i.hinweis+' Quelle: '+i.quelle+'.</p></div>';
+  h += fussnote();
+  app.innerHTML = h;
+  bindInsolvenz(i);
+}
+function insolvenzChart(i){
+  var J = i.jahre, W=640, H=230, pl=44, pr=10, pt=26, pb=24, mx = Math.max.apply(null, J.map(function(y){return y.gesamt;})), top = Math.ceil(mx/1000)*1000;
+  var bw = (W-pl-pr)/J.length, Y = function(v){ return pt+(H-pt-pb)*(1-v/top); }, out = '<svg id="isvg" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Insolvenzen pro Jahr">';
+  for(var v=0; v<=top; v+=1000){ out += '<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+Y(v).toFixed(1)+'" y2="'+Y(v).toFixed(1)+'" stroke="var(--line)"/><text x="'+(pl-6)+'" y="'+(Y(v)+4).toFixed(1)+'" text-anchor="end" font-size="11" fill="var(--mut)">'+zahl(v)+'</text>'; }
+  J.forEach(function(y,k){
+    var x = pl + k*bw + bw*0.12, w = bw*0.76, he = (H-pt-pb)*y.eroeffnet/top, hn = (H-pt-pb)*y.nichtEroeffnet/top, kr = i.krisen[y.jahr];
+    out += '<g data-k="'+k+'"><rect x="'+x.toFixed(1)+'" y="'+(Y(0)-he).toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+he.toFixed(1)+'" fill="var(--at)"/>'
+        + '<rect x="'+x.toFixed(1)+'" y="'+(Y(0)-he-hn).toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+hn.toFixed(1)+'" fill="var(--bar)"/></g>';
+    if(k%2===0 || kr) out += '<text x="'+(x+w/2).toFixed(1)+'" y="'+(H-7)+'" text-anchor="middle" font-size="10" fill="var(--mut)">'+y.jahr+'</text>';
+    if(kr && (!i.krisen[J[k-1] && J[k-1].jahr] )) out += '<text x="'+(x+w/2).toFixed(1)+'" y="'+(Y(y.gesamt)-6).toFixed(1)+'" text-anchor="middle" font-size="10" font-weight="700" fill="var(--ink)">'+kr+'</text>';
+  });
+  return out + '<line id="ivl" x1="0" x2="0" y1="'+pt+'" y2="'+(H-pb)+'" stroke="var(--mut)" stroke-dasharray="3 3" style="display:none"/></svg>';
+}
+function bindInsolvenz(i){
+  var svg = document.getElementById("isvg"), tip = document.getElementById("itip"), wrap = document.getElementById("iwrap"), vl = document.getElementById("ivl");
+  if(!svg) return;
+  var J = i.jahre, W = 640, pl = 44, pr = 10, bw = (W-pl-pr)/J.length, cur = -1;
+  function zeige(k){
+    cur = Math.max(0, Math.min(J.length-1, k)); var y = J[cur], cx = pl + (cur+0.5)*bw;
+    tip.innerHTML = '<strong>'+y.jahr+'</strong>Gesamt: '+zahl(y.gesamt)+'<br>eröffnet: '+zahl(y.eroeffnet)+'<br>nicht eröffnet: '+zahl(y.nichtEroeffnet)+'<br>Passiva: '+y.passivaMrd.toLocaleString("de-AT",{minimumFractionDigits:1})+' Mrd. €'+(i.krisen[y.jahr] ? '<br><em>'+i.krisen[y.jahr]+'</em>' : '');
+    var r = svg.getBoundingClientRect(), px = cx / W * r.width;
+    tip.style.display = "block"; tip.style.left = px + "px"; tip.className = "tip " + (px > r.width * 0.6 ? "l" : "r");
+    vl.setAttribute("x1", cx); vl.setAttribute("x2", cx); vl.style.display = "";
+  }
+  function weg(){ tip.style.display = "none"; vl.style.display = "none"; }
+  function ausEvent(e){ var r = svg.getBoundingClientRect(); zeige(Math.floor(((e.clientX - r.left) / r.width * W - pl) / bw)); }
+  svg.addEventListener("pointermove", ausEvent); svg.addEventListener("pointerdown", ausEvent); svg.addEventListener("pointerleave", weg);
+  svg.setAttribute("tabindex", "0");
+  svg.addEventListener("keydown", function(e){ if(e.key==="ArrowLeft"){ zeige(cur<0 ? J.length-1 : cur-1); e.preventDefault(); } else if(e.key==="ArrowRight"){ zeige(cur<0 ? 0 : cur+1); e.preventDefault(); } else if(e.key==="Escape"){ weg(); } });
+  svg.addEventListener("blur", weg);
+}
+function detailRating(i){
+  var a = i.oesterreich, h = banner();
+  h += '<div class="card"><h2>'+i.name+'</h2><div class="rank">Platz '+a.rang+' <small>von '+i.anzahlLaender+'</small></div>'
+     + '<p class="note">'+i.rangText+'. Stand: '+datum(i.stand)+'.</p>'
+     + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
+     + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
+     + '<div class="grid">'
+     + '<div><div class="k">Durchschnitt Österreich</div><div class="v">'+a.schnittText+'</div><div class="k">Notenstufe '+f2(a.schnitt)+'</div></div>'
+     + '<div><div class="k">S&amp;P</div><div class="v">'+a.sp+mark(a,"sp")+'</div></div>'
+     + '<div><div class="k">Moody\'s</div><div class="v">'+a.moodys+mark(a,"moodys")+'</div></div>'
+     + '<div><div class="k">Fitch</div><div class="v">'+a.fitch+mark(a,"fitch")+'</div></div>'
+     + '</div></div>';
+  if(a.urteil){
+    h += '<div class="card"><h2>Trend seit Regierungsantritt</h2><div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+trendPfeil(a.urteil)+'</span> '+trendWort(a.urteil)+' <span class="k">(Notenstufe '+f2(a.schnittVorher)+' auf '+f2(a.schnitt)+')</span></div>'
+       + '<p class="note">Verglichen wird der Durchschnitt heute mit dem Stand vom '+datum(a.vorherStand)+' (Amtsantritt der Regierung). Eine kleinere Stufe ist besser. Der Vergleich ist nur für Länder hinterlegt, deren damalige Ratings belegt sind (siehe Tabelle).</p></div>';
+  }
+  h += '<div class="card"><h2>Die Notenskala</h2>'
+     + '<div class="grid"><div><div class="k">Bestwert</div><div class="v good">AAA</div><div class="k">Moody\'s: Aaa (Stufe 1). Ein „AAA+“ gibt es nicht.</div></div>'
+     + '<div><div class="k">Schlechtester Wert</div><div class="v bad">D</div><div class="k">Zahlungsausfall (Stufe 22). Moody\'s: C (Stufe 21).</div></div>'
+     + '<div><div class="k">Beste EU-Note jetzt</div><div class="v">'+i.beste.schnittText+'</div><div class="k">'+i.beste.name+(i.laender.filter(function(x){return x.rank===1;}).length>1?' u. a.':'')+'</div></div>'
+     + '<div><div class="k">Schlechteste EU-Note jetzt</div><div class="v">'+i.schlechteste.schnittText+'</div><div class="k">'+i.schlechteste.name+'</div></div></div>'
+     + '<p class="note">Die Skala von S&amp;P und Fitch: AAA, AA+, AA, AA-, A+, A, A-, BBB+, BBB, BBB-, dann BB+ bis B- und CCC bis C, am Ende D. Bei Moody\'s: Aaa, Aa1 bis Aa3, A1 bis A3, Baa1 bis Baa3, dann Ba, B, Caa, Ca, C. Ab BBB- (Moody\'s Baa3) gilt ein Staat als „Investment Grade“, also als solide. Alles darunter heißt „Ramschniveau“. Alle EU-Länder liegen derzeit im Investment-Grade-Bereich.</p></div>';
+  h += '<div class="card"><h2>Alle EU-Länder</h2>'+ratingTabelle(i)+'</div>';
+  h += '<div class="card"><h2>So wird gerechnet</h2><p class="note">Jede Note wird in eine Stufe von 1 (AAA bzw. Aaa) abwärts umgerechnet: AA+ ist 2, AA ist 3, AA- ist 4 und so weiter. Daraus wird der Mittelwert der drei Agenturen S&amp;P, Moody\'s und Fitch gebildet, und nach diesem Mittelwert werden die Länder gereiht. Wer denselben Mittelwert hat, teilt sich den Platz. Beispiel Österreich: '
+     + a.sp+' ('+a.stufen[0]+'), '+a.moodys+' ('+a.stufen[1]+'), '+a.fitch+' ('+a.stufen[2]+') ergeben im Schnitt '+f2(a.schnitt)+', also etwa '+a.schnittText+'.</p></div>';
+  h += '<p class="note">Ratings ändern sich nur gelegentlich und werden von Hand gepflegt, nicht automatisch aktualisiert. Quelle: '+i.quelle+'</p>';
+  app.innerHTML = h;
+}
+function ratingTabelle(i){
+  var zeilen = function(x, extra){
+    return '<tr class="'+(extra||(x.code==="AT"?"at":""))+'"><td>'+(x.rank!=null ? x.rank+'.' : '*')+'</td><td>'+x.name+'</td>'
+      + '<td>'+x.sp+mark(x,"sp")+'</td><td>'+x.moodys+mark(x,"moodys")+'</td><td>'+x.fitch+mark(x,"fitch")+'</td>'
+      + '<td><strong>'+x.schnittText+'</strong></td><td>'+pfeilSpan(x.urteil)+'</td></tr>';
+  };
+  var s = '<table class="rt"><thead><tr><th></th><th>Land</th><th>S&amp;P</th><th>Moody\'s</th><th>Fitch</th><th>Ø</th><th title="seit Regierungsantritt">Trend</th></tr></thead><tbody>'
+        + i.laender.map(function(x){return zeilen(x);}).join("")
+        + (i.schweiz ? zeilen(i.schweiz,"ch") : "") + '</tbody></table>';
+  if(i.schweiz) s += '<p class="note">* Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Die Werte dienen nur zum Vergleich.</p>';
+  s += '<p class="note">† Die Quellen widersprachen sich oder der Wert ließ sich nicht bestätigen. Bitte bei der Agentur prüfen.</p>';
+  return s;
+}
+
+// Balken mit gemeinsamer Nulllinie: negative Werte ragen nach links vom Nullpunkt, positive nach rechts
+function ranking(i){
+  var vals = i.laender.map(function(x){return x.value});
+  if(i.schweiz) vals.push(i.schweiz.wert);
+  var mn = Math.min.apply(null, vals.concat([0])), mx = Math.max.apply(null, vals.concat([0])), span = (mx-mn)||1;
+  var bar = function(v){
+    var left = (Math.min(v,0)-mn)/span*100, w = Math.max(.8, Math.abs(v)/span*100);
+    return '<span class="trk"><span class="bb" style="left:'+left+'%;width:'+w+'%"></span></span>';
+  };
+  var s = '<p class="note">Pfeil rechts: Trend des Landes ('+trendVergleich(i)+'). '+pfeilHinweis(i)+'</p>' + i.laender.map(function(x){
+    return '<div class="row'+(x.code==="AT"?" at":"")+'"><span>'+x.rank+'. '+x.name+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
+  }).join("");
+  if(i.schweiz){
+    s += '<div class="row ch"><span>* Schweiz</span>'+bar(i.schweiz.wert)+'<span class="n">'+f(i.schweiz.wert)+'</span><span class="ta"></span></div>'
+      + '<p class="note">* Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Der Wert dient nur zum Vergleich'
+      + (i.schweiz.periode!==i.periode ? ' (Stand: '+periode(i.schweiz.periode)+')' : '') + '.</p>';
+  } else {
+    s += '<p class="note">* Für die Schweiz liegen bei Eurostat zu diesem Indikator keine Daten vor.</p>';
+  }
+  return s;
+}
+
+function chart(i){
+  var H = i.verlauf.filter(function(p){return p.at!=null}), W=640, Hh=220, L=36, R=10, T=10, B=24;
+  var vals = []; H.forEach(function(p){ vals.push(p.at); if(p.eu!=null) vals.push(p.eu); });
+  var lo = Math.floor(Math.min.apply(null,vals)-.3), hi = Math.ceil(Math.max.apply(null,vals)+.3);
+  var step = Math.max(1, Math.ceil((hi-lo)/6));
+  var x = function(k){ return L + k*(W-L-R)/Math.max(1,H.length-1); };
+  var y = function(v){ return T + (hi-v)*(Hh-T-B)/(hi-lo); };
+  var line = function(key,color){
+    var d = H.map(function(p,k){ return p[key]==null ? "" : (k&&H[k-1][key]!=null ? "L":"M")+x(k).toFixed(1)+" "+y(p[key]).toFixed(1); }).join("");
+    return '<path d="'+d+'" fill="none" stroke="'+color+'" stroke-width="2.5" stroke-linejoin="round"/>';
+  };
+  var s = '<div class="chartwrap"><svg id="csvg" viewBox="0 0 '+W+' '+Hh+'" role="img" tabindex="0" aria-label="Verlauf '+i.name+' Österreich und EU. Mit Maus, Touch oder Pfeiltasten einzelne Perioden ansehen.">';
+  for(var g=lo; g<=hi; g+=step){ s += '<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(g)+'" y2="'+y(g)+'" stroke="var(--line)"/><text x="'+(L-6)+'" y="'+(y(g)+4)+'" text-anchor="end" font-size="11" fill="var(--mut)">'+g+'</text>'; }
+  if(lo<0 && hi>0) s += '<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(0)+'" y2="'+y(0)+'" stroke="var(--mut)"/>';
+  s += line("eu","var(--eu)") + line("at","var(--at)");
+  s += '<line id="cvl" y1="'+T+'" y2="'+(Hh-B)+'" stroke="var(--mut)" stroke-dasharray="3 3" style="display:none"/>'
+     + '<circle id="cca" r="5" fill="var(--at)" stroke="var(--card)" stroke-width="2" style="display:none"/>'
+     + '<circle id="cce" r="5" fill="var(--eu)" stroke="var(--card)" stroke-width="2" style="display:none"/>';
+  // x-Achse: eine Marke pro Jahr (bei Jahresdaten jeder Punkt); sonst Start und Ende
+  var ticks = []; H.forEach(function(p,k){ if(/^\d{4}$/.test(p.t) || /-01$/.test(p.t) || /-Q1$/.test(p.t) || /-S1$/.test(p.t)) ticks.push(k); });
+  if(ticks.length>=2){
+    ticks.forEach(function(k){
+      var px = x(k), anchor = px < L+14 ? "start" : px > W-R-14 ? "end" : "middle";
+      s += '<line x1="'+px+'" x2="'+px+'" y1="'+(Hh-B)+'" y2="'+(Hh-B+4)+'" stroke="var(--mut)"/>'
+         + '<text class="xl" x="'+px+'" y="'+(Hh-6)+'" text-anchor="'+anchor+'" font-size="11" fill="var(--mut)">'+H[k].t.slice(0,4)+'</text>';
+    });
+  } else {
+    s += '<text class="xl" x="'+L+'" y="'+(Hh-6)+'" font-size="11" fill="var(--mut)">'+periode(H[0].t)+'</text>'
+       + '<text class="xl" x="'+(W-R)+'" y="'+(Hh-6)+'" text-anchor="end" font-size="11" fill="var(--mut)">'+periode(H[H.length-1].t)+'</text>';
+  }
+  s += '</svg>'
+     + '<div class="tip r" id="ctip" style="display:none"></div></div>'
+     + '<p class="note"><span style="color:var(--at)">●</span> Österreich &nbsp; <span style="color:var(--eu)">●</span> EU-Durchschnitt &nbsp; Fahre mit der Maus über das Diagramm, um die einzelnen Werte zu sehen.</p>';
+  CS = {H:H, W:W, L:L, R:R, x:x, y:y};
+  return s;
+}
+
+// Hover (Maus), Antippen/Wischen (Touch) und Pfeiltasten (Tastatur) zeigen Periode und Werte
+function bindChart(){
+  if(!CS) return;
+  var svg = document.getElementById("csvg"), tip = document.getElementById("ctip"),
+      vl = document.getElementById("cvl"), ca = document.getElementById("cca"), ce = document.getElementById("cce"),
+      H = CS.H, cur = -1;
+  function show(k){
+    k = Math.max(0, Math.min(H.length-1, k)); cur = k;
+    var p = H[k], px = CS.x(k);
+    vl.setAttribute("x1", px); vl.setAttribute("x2", px); vl.style.display = "";
+    ca.setAttribute("cx", px); ca.setAttribute("cy", CS.y(p.at)); ca.style.display = "";
+    if(p.eu!=null){ ce.setAttribute("cx", px); ce.setAttribute("cy", CS.y(p.eu)); ce.style.display = ""; } else { ce.style.display = "none"; }
+    tip.innerHTML = '<strong>'+periode(p.t)+'</strong><span style="color:var(--at)">●</span> Österreich: '+f(p.at)+SUF+''
+      + (p.eu!=null ? '<br><span style="color:var(--eu)">●</span> EU: '+f(p.eu)+SUF+'' : '');
+    tip.style.display = ""; tip.style.left = (px/CS.W*100)+"%"; tip.className = "tip "+(k > H.length/2 ? "l" : "r");
+  }
+  function hide(){ cur = -1; tip.style.display = "none"; vl.style.display = "none"; ca.style.display = "none"; ce.style.display = "none"; }
+  function fromEvent(e){
+    var r = svg.getBoundingClientRect(), vx = (e.clientX - r.left)/r.width*CS.W;
+    return Math.round((vx - CS.L)/(CS.W - CS.L - CS.R)*(H.length-1));
+  }
+  svg.addEventListener("pointermove", function(e){ show(fromEvent(e)); });
+  svg.addEventListener("pointerdown", function(e){ show(fromEvent(e)); });
+  svg.addEventListener("pointerleave", function(e){ if(e.pointerType==="mouse") hide(); });
+  svg.addEventListener("keydown", function(e){
+    if(e.key==="ArrowLeft" || e.key==="ArrowRight"){ e.preventDefault(); show(cur<0 ? H.length-1 : cur + (e.key==="ArrowRight" ? 1 : -1)); }
+    else if(e.key==="Escape"){ hide(); }
+  });
+  svg.addEventListener("blur", hide);
+  document.addEventListener("pointerdown", function(e){ if(!svg.contains(e.target)) hide(); });
+}
+</script>
+</body>
+</html>
