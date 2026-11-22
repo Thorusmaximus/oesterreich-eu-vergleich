@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
-<title>Indikator im EU-Vergleich</title>
+<title>Regierungstracker Österreich</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +22,7 @@ var CS = null;
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
 else if(!ind){ app.innerHTML = '<p>Diesen Indikator gibt es nicht. Zurück zum <a href="index.html">Überblick</a>.</p>'; }
 else if(!ind.oesterreich){ app.innerHTML = '<h1>'+ind.name+'</h1><p class="warn">Keine Daten verfügbar: '+(ind.fehler||"")+'</p>'; }
-else { document.title = ind.name + " im EU-Vergleich"; if(ind.art==="rating") detailRating(ind); else if(ind.art==="nurAT") detailInsolvenz(ind); else detail(ind); }
+else { document.title = ind.name + " | Regierungstracker Österreich"; if(ind.art==="rating") detailRating(ind); else if(ind.art==="nurAT") detailInsolvenz(ind); else detail(ind); }
 
 function detail(i){
   setzeEinheit(i);
@@ -199,8 +199,6 @@ function ranking(i){
     s += '<div class="row ch"><span>* Schweiz</span>'+bar(i.schweiz.wert)+'<span class="n">'+f(i.schweiz.wert)+'</span><span class="ta"></span></div>'
       + '<p class="note">* Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Der Wert dient nur zum Vergleich'
       + (i.schweiz.periode!==i.periode ? ' (Stand: '+periode(i.schweiz.periode)+')' : '') + '.</p>';
-  } else {
-    s += '<p class="note">* Für die Schweiz liegen bei Eurostat zu diesem Indikator keine Daten vor.</p>';
   }
   return s;
 }

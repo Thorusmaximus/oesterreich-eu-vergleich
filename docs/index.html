@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
-<title>Österreich seit der Regierung</title>
+<title>Regierungstracker Österreich</title>
+<meta name="description" content="Wie entwickelt sich Österreich seit dem Amtsantritt der Bundesregierung? Arbeitslosigkeit, Inflation, Schulden, Geburtenrate, Strompreise und mehr im Ranking der 27 EU-Länder.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
-<h1 id="h1">Österreich im EU-Vergleich</h1>
+<h1 id="h1">Regierungstracker Österreich</h1>
 <p class="sub" id="sub">Platz unter den EU-Ländern, pro Indikator. Tippe auf eine Karte für die Details.</p>
 <div id="app"><p>Lade Daten …</p></div>
 </main>
@@ -18,9 +19,7 @@
 <script>
 var app = document.getElementById("app");
 if(D && D.regierung){
-  document.getElementById("h1").textContent = "Österreich seit der "+D.regierung.name;
-  document.title = "Österreich seit der "+D.regierung.name;
-  document.getElementById("sub").textContent = "Entwicklung seit dem Amtsantritt am "+datum(D.regierung.start)+" ("+D.regierung.parteien+") und Platz unter den EU-Ländern. Tippe auf eine Karte für die Details.";
+  document.getElementById("sub").textContent = "Entwicklung seit dem Amtsantritt der "+D.regierung.name+" am "+datum(D.regierung.start)+" ("+D.regierung.parteien+") und Platz unter den EU-Ländern. Tippe auf eine Karte für die Details.";
 }
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
 else {
