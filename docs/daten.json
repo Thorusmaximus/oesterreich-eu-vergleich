@@ -3817,7 +3817,8 @@
   {
    "id": "abgabenquote",
    "name": "Steuer- und Abgabenquote",
-   "fehler": "Filter unvollständig: Dimension \"na_item\" hat 0 Werte. Filter im Skript anpassen."
+   "fehler": "Filter unvollständig: Dimension \"na_item\" hat 0 Werte. Filter im Skript anpassen.",
+   "veraltet": true
   },
   {
    "id": "strompreis",
