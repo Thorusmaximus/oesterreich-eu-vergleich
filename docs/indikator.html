@@ -72,7 +72,7 @@ function detail(i){
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
   h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
-  h += '<div class="card"><h2>Alle EU-Länder</h2>'+ranking(i)+'</div>';
+  h += '<div class="card"><h2>Alle EU-Länder <span class="note">(Datenstand: '+periode(i.periode)+')</span></h2>'+ranking(i)+'</div>';
   h += fussnote();
   app.innerHTML = h;
   bindChart();
@@ -163,7 +163,7 @@ function detailRating(i){
      + '<div><div class="k">Beste EU-Note jetzt</div><div class="v">'+i.beste.schnittText+'</div><div class="k">'+i.beste.name+(i.laender.filter(function(x){return x.rank===1;}).length>1?' u. a.':'')+'</div></div>'
      + '<div><div class="k">Schlechteste EU-Note jetzt</div><div class="v">'+i.schlechteste.schnittText+'</div><div class="k">'+i.schlechteste.name+'</div></div></div>'
      + '<p class="note">Die Skala von S&amp;P und Fitch: AAA, AA+, AA, AA-, A+, A, A-, BBB+, BBB, BBB-, dann BB+ bis B- und CCC bis C, am Ende D. Bei Moody\'s: Aaa, Aa1 bis Aa3, A1 bis A3, Baa1 bis Baa3, dann Ba, B, Caa, Ca, C. Ab BBB- (Moody\'s Baa3) gilt ein Staat als „Investment Grade“, also als solide. Alles darunter heißt „Ramschniveau“. Alle EU-Länder liegen derzeit im Investment-Grade-Bereich.</p></div>';
-  h += '<div class="card"><h2>Alle EU-Länder</h2>'+ratingTabelle(i)+'</div>';
+  h += '<div class="card"><h2>Alle EU-Länder <span class="note">(Datenstand: '+datum(i.stand)+')</span></h2>'+ratingTabelle(i)+'</div>';
   h += '<div class="card"><h2>So wird gerechnet</h2><p class="note">Jede Note wird in eine Stufe von 1 (AAA bzw. Aaa) abwärts umgerechnet: AA+ ist 2, AA ist 3, AA- ist 4 und so weiter. Daraus wird der Mittelwert der drei Agenturen S&amp;P, Moody\'s und Fitch gebildet, und nach diesem Mittelwert werden die Länder gereiht. Wer denselben Mittelwert hat, teilt sich den Platz. Beispiel Österreich: '
      + a.sp+' ('+a.stufen[0]+'), '+a.moodys+' ('+a.stufen[1]+'), '+a.fitch+' ('+a.stufen[2]+') ergeben im Schnitt '+f2(a.schnitt)+', also etwa '+a.schnittText+'.</p></div>';
   h += '<p class="note">Ratings ändern sich nur gelegentlich und werden von Hand gepflegt, nicht automatisch aktualisiert. Quelle: '+i.quelle+'</p>';
