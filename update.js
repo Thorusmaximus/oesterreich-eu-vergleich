@@ -72,6 +72,8 @@ const INDICATORS = [
     alternativen: [ // falls Eurostat die Codes anders benennt, werden diese der Reihe nach probiert
       { dataset: "gov_10a_taxag", filter: "unit=PC_GDP&sector=S13&na_item=D2_D5_D61_D91_D995" },
       { dataset: "gov_10a_taxag", filter: "unit=PC_GDP&sector=S13_S212&na_item=D2_D5_D61_D91_D995_XD995" } ],
+    entdecke: { basis: "unit=PC_GDP", sektoren: ["S13_S212", "S13"], // Notlösung: Codes bei Eurostat nachschlagen (Summe aus Steuern D2, D5 und Sozialbeiträgen D61)
+      passt: c => /D2/.test(c) && /D5/.test(c) && /D61/.test(c) } ,
     einheit: "% des BIP: Steuern und Sozialbeiträge",
     rangText: "Rang 1 = niedrigste Steuer- und Abgabenquote",
     trendNeutral: true, // Trend wird ohne Wertung als höher/niedriger gezeigt, das Ranking bleibt gewertet
@@ -297,6 +299,21 @@ function berechneRating() {
   };
 }
 
+// Notlösung, wenn feste Filter nicht passen: fragt Eurostat, welche Codes es wirklich gibt, und baut daraus Kandidaten
+async function entdecke(ind) {
+  const e = ind.entdecke; if (TEST || !e) return [];
+  const res = await fetch(`${BASE}${ind.dataset}?format=JSON&lang=EN&geo=AT&${e.basis}&sinceTimePeriod=${TAKT[ind.takt].seit}`);
+  if (!res.ok) throw new Error("Eurostat: HTTP " + res.status);
+  const js = await res.json(), cat = d => js.dimension[d] ? Object.keys(js.dimension[d].category.index) : [];
+  const items = cat("na_item"), sektoren = cat("sector");
+  console.error(`   Entdeckt in ${ind.dataset}: na_item = ${items.join(", ")}; sector = ${sektoren.join(", ")}`);
+  const passend = items.filter(e.passt).sort((a, b) => (/D995/.test(b) ? 1 : 0) - (/D995/.test(a) ? 1 : 0) || a.length - b.length);
+  const sek = e.sektoren.filter(x => sektoren.includes(x));
+  const out = [];
+  for (const n of passend) for (const x of (sek.length ? sek : [null])) out.push({ dataset: ind.dataset, filter: `${e.basis}${x ? "&sector=" + x : ""}&na_item=${n}` });
+  return out;
+}
+
 // Bei einem Fehler: zeigt, welche Werte die Dimensionen im Datensatz wirklich haben (nur für die Fehlersuche)
 async function diagnose(ind) {
   if (TEST) return;
@@ -355,6 +372,17 @@ function berechneInsolvenzen() {
           }
           r = berechne(ind, js); break;
         } catch (e) { letzterFehler = e; if (kandidaten.length > 1) console.error(`   (${k.dataset} mit ${k.filter} hat nicht funktioniert: ${e.message})`); }
+      }
+      if (!r && ind.entdecke) {
+        try {
+          for (const k of await entdecke(ind)) {
+            try {
+              const res = await fetch(`${BASE}${k.dataset}?format=JSON&lang=EN&${k.filter}&sinceTimePeriod=${TAKT[ind.takt].seit}`);
+              if (!res.ok) throw new Error("HTTP " + res.status);
+              r = berechne(ind, await res.json()); console.error(`   (gefunden: ${k.filter})`); break;
+            } catch (e) { console.error(`   (${k.filter} hat nicht funktioniert: ${e.message})`); }
+          }
+        } catch (e) { console.error("   Entdeckung fehlgeschlagen: " + e.message); }
       }
       if (!r) { await diagnose(ind); throw letzterFehler; }
       result.push(r);
