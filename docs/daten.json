@@ -1,6 +1,6 @@
 {
  "beispiel": false,
- "aktualisiert": "2026-11-19",
+ "aktualisiert": "2026-11-22",
  "quelle": "Eurostat",
  "regierung": {
   "name": "Regierung Stocker",
@@ -574,8 +574,8 @@
     {
      "code": "SE",
      "name": "Schweden",
-     "value": 8.6,
-     "rank": 25,
+     "value": 8.5,
+     "rank": 24,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
@@ -1830,12 +1830,12 @@
    },
    "eu": 1.4,
    "beste": {
-    "code": "DK",
-    "name": "Dänemark",
-    "value": 5.7,
+    "code": "MT",
+    "name": "Malta",
+    "value": 5,
     "rank": 1,
-    "richtung": "sinkend",
-    "urteil": "schlechter"
+    "richtung": "steigend",
+    "urteil": "besser"
    },
    "schlechteste": {
     "code": "RO",
@@ -1968,20 +1968,20 @@
    },
    "laender": [
     {
-     "code": "DK",
-     "name": "Dänemark",
-     "value": 5.7,
-     "rank": 1,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
-    },
-    {
      "code": "MT",
      "name": "Malta",
      "value": 5,
-     "rank": 2,
+     "rank": 1,
      "richtung": "steigend",
      "urteil": "besser"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 4.8,
+     "rank": 2,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "SI",
@@ -3813,6 +3813,11 @@
      "eu": 48.8
     }
    ]
+  },
+  {
+   "id": "abgabenquote",
+   "name": "Steuer- und Abgabenquote",
+   "fehler": "Filter unvollständig: Dimension \"na_item\" hat 0 Werte. Filter im Skript anpassen."
   },
   {
    "id": "strompreis",
