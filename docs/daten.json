@@ -16989,51 +16989,128 @@
    "trendNeutral": true,
    "ohneTrend": true,
    "umstritten": true,
-   "einheit": "Anteil der Bevölkerung in %, Österreich 2021",
-   "periode": "2021",
+   "einheit": "Anteil in %",
+   "periode": "Schuljahr 2024/25",
    "stand": "2026-11-23",
-   "quelle": "Statistik Austria, Mikrozensus 2021 (laut APA, Vienna.at 11.01.2023); katholische Zahl laut Österreichischer Bischofskonferenz",
-   "quelleUrl": "https://www.vienna.at/bekenntnislose-in-oesterreich-zweitgroesste-religions-gruppe/7839565",
-   "hinweisDaten": "Seit der Volkszählung 2001 wird die Religion nicht mehr bei Volkszählungen erhoben. Die Zahlen für 2021 stammen aus einer freiwilligen Befragung. Angaben zu Muslimen und Orthodoxen gelten laut Quelle nur eingeschränkt als verlässlich. Nur Österreich, kein EU-Vergleich.",
+   "quelle": "Österreichischer Integrationsfonds (ÖIF), Factsheet „Schule und Integration“, berichtet von oe24 am 30.08.2025",
+   "quelleUrl": "https://www.oe24.at/oesterreich/politik/neue-zahlen-zeigen-mehr-muslime-als-christen-an-wiener-pflichtschulen/646703383",
    "oesterreich": {
-    "wert": 77.6,
+    "wert": 41.2,
     "rang": null,
     "urteil": null,
     "richtung": null
    },
+   "anteileTitel": "Schülerinnen und Schüler in Wien",
    "anteile": [
     {
-     "name": "Römisch-katholisch",
-     "wert": 54
+     "name": "Islamisch",
+     "wert": 41.2
     },
     {
      "name": "Ohne Bekenntnis",
-     "wert": 22.4
+     "wert": 23
     },
     {
-     "name": "Islamisch",
-     "wert": 8.3
+     "name": "Römisch-katholisch",
+     "wert": 17.5
     },
     {
      "name": "Orthodox",
-     "wert": 4.9
+     "wert": 14.5
     },
     {
      "name": "Evangelisch",
-     "wert": 3.8
+     "wert": 1.7
     },
     {
-     "name": "Altkatholisch",
-     "wert": 0.1
+     "name": "Buddhistisch",
+     "wert": 0.2
     },
     {
      "name": "Jüdisch",
      "wert": 0.1
     }
    ],
-   "bekenntnis": 77.6,
+   "bloecke": [
+    {
+     "titel": "Schülerinnen und Schüler in Wien",
+     "periode": "Schuljahr 2024/25",
+     "scope": "Die Religion wird nur an den Schulen erhoben (Bildungsdokumentation). Die Zahlen gelten nur für die öffentlichen Volks-, Mittel-, Sonder- und Polytechnischen Schulen in Wien (rund 112.600 Kinder), nicht für Österreich insgesamt.",
+     "anteile": [
+      {
+       "name": "Islamisch",
+       "wert": 41.2
+      },
+      {
+       "name": "Ohne Bekenntnis",
+       "wert": 23
+      },
+      {
+       "name": "Römisch-katholisch",
+       "wert": 17.5
+      },
+      {
+       "name": "Orthodox",
+       "wert": 14.5
+      },
+      {
+       "name": "Evangelisch",
+       "wert": 1.7
+      },
+      {
+       "name": "Buddhistisch",
+       "wert": 0.2
+      },
+      {
+       "name": "Jüdisch",
+       "wert": 0.1
+      }
+     ],
+     "quelle": "Österreichischer Integrationsfonds (ÖIF), Factsheet „Schule und Integration“, berichtet von oe24 am 30.08.2025",
+     "url": "https://www.oe24.at/oesterreich/politik/neue-zahlen-zeigen-mehr-muslime-als-christen-an-wiener-pflichtschulen/646703383",
+     "hinweis": "Bundesweite Schulzahlen nach Religion sind nicht veröffentlicht. Die Summe der Angaben ergibt 99 %, die christlichen Teilgruppen weichen vom Gesamtwert der Quelle (34,5 %) leicht ab."
+    },
+    {
+     "titel": "Gesamtbevölkerung Österreich",
+     "periode": "2021",
+     "anteile": [
+      {
+       "name": "Römisch-katholisch",
+       "wert": 54
+      },
+      {
+       "name": "Ohne Bekenntnis",
+       "wert": 22.4
+      },
+      {
+       "name": "Islamisch",
+       "wert": 8.3
+      },
+      {
+       "name": "Orthodox",
+       "wert": 4.9
+      },
+      {
+       "name": "Evangelisch",
+       "wert": 3.8
+      },
+      {
+       "name": "Altkatholisch",
+       "wert": 0.1
+      },
+      {
+       "name": "Jüdisch",
+       "wert": 0.1
+      }
+     ],
+     "bekenntnis": 77.6,
+     "quelle": "Statistik Austria, Mikrozensus 2021 (laut APA, Vienna.at 11.01.2023); katholische Zahl laut Österreichischer Bischofskonferenz",
+     "url": "https://www.vienna.at/bekenntnislose-in-oesterreich-zweitgroesste-religions-gruppe/7839565",
+     "hinweis": "Seit der Volkszählung 2001 wird die Religion nicht mehr bei Volkszählungen erhoben. Die Zahlen für 2021 stammen aus einer freiwilligen Befragung. Angaben zu Muslimen und Orthodoxen gelten laut Quelle nur eingeschränkt als verlässlich. Nur Österreich, kein EU-Vergleich."
+    }
+   ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie sich die Bevölkerung Österreichs auf Religionen und Konfessionen verteilt, laut der letzten Erhebung von Statistik Austria (2021).",
+   "erklaerung": "Wie sich Schülerinnen und Schüler (Wiener Pflichtschulen) und die Bevölkerung Österreichs auf Religionen und Konfessionen verteilen. Die Religion wird in Österreich nur an den Schulen laufend erhoben, bundesweit gibt es dazu nur die Befragung von 2021.",
    "gruppe": "Gesellschaft"
   },
   {
