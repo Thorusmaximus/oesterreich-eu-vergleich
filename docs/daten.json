@@ -911,7 +911,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab.",
-   "gruppe": "Wirtschaft und Arbeit"
+   "gruppe": "Wirtschaft und Arbeit",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "inflation",
@@ -1809,7 +1811,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie stark die Verbraucherpreise gegenüber dem gleichen Monat des Vorjahres gestiegen sind (harmonisierter Verbraucherpreisindex HVPI). Zeigt, wie schnell Einkäufe und Dienstleistungen im Schnitt teurer werden.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "wachstum",
@@ -2307,7 +2311,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Um wie viel Prozent die gesamte Wirtschaftsleistung (BIP) gegenüber dem gleichen Quartal des Vorjahres gewachsen ist, bereinigt um Preissteigerungen. Ein Minus bedeutet, dass die Wirtschaft schrumpft.",
-   "gruppe": "Wirtschaft und Arbeit"
+   "gruppe": "Wirtschaft und Arbeit",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "schulden",
@@ -2802,7 +2808,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie hoch die Schulden des Staates (Bund, Länder, Gemeinden, Sozialversicherung) im Verhältnis zur Jahreswirtschaftsleistung sind. 60 % des BIP ist der Referenzwert aus den EU-Verträgen.",
-   "gruppe": "Staatsfinanzen"
+   "gruppe": "Staatsfinanzen",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "defizit",
@@ -3147,7 +3155,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Einnahmen minus Ausgaben des Staates in % des BIP. Ein Minus ist ein Defizit, das neue Schulden bedeutet. Die EU-Regeln sehen als Obergrenze 3 % des BIP vor.",
-   "gruppe": "Staatsfinanzen"
+   "gruppe": "Staatsfinanzen",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "geburtenrate",
@@ -3515,7 +3525,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Gesamtfertilitätsrate: Wie viele Kinder eine Frau im Schnitt bekäme, wenn die Geburtenhäufigkeit des Jahres ein Leben lang gleich bliebe. Rund 2,1 wären nötig, damit die Bevölkerung ohne Zuwanderung stabil bleibt.",
-   "gruppe": "Gesellschaft"
+   "gruppe": "Gesellschaft",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "staatsquote",
@@ -3863,7 +3875,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Anteil der gesamten Staatsausgaben (Verwaltung, Pensionen, Gesundheit, Bildung, Soziales, Zinsen) an der Wirtschaftsleistung. Zeigt, wie groß der Staatsanteil an der Wirtschaft ist.",
-   "gruppe": "Staatsfinanzen"
+   "gruppe": "Staatsfinanzen",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "abgabenquote",
@@ -4361,7 +4375,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Anteil der Steuern und Sozialversicherungsbeiträge am BIP. Zeigt, wie viel der Wirtschaftsleistung als Abgaben an den Staat geht (ohne Gebühren und Entgelte für Leistungen).",
-   "gruppe": "Staatsfinanzen"
+   "gruppe": "Staatsfinanzen",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "beschaeftigung",
@@ -4859,7 +4875,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Anteil der 20- bis 64-Jährigen, die erwerbstätig sind, an der gleichaltrigen Bevölkerung. Teilzeit zählt wie Vollzeit, die Quote sagt also nichts über die geleisteten Arbeitsstunden.",
-   "gruppe": "Wirtschaft und Arbeit"
+   "gruppe": "Wirtschaft und Arbeit",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "bevoelkerung",
@@ -5258,7 +5276,9 @@
    "bestandEU": 451.99,
    "geaendert": "2026-11-23",
    "erklaerung": "Wie stark die Einwohnerzahl gegenüber dem Vorjahr (jeweils 1. Jänner) gewachsen oder geschrumpft ist. Das Wachstum entsteht aus Geburten, Sterbefällen und Zu- beziehungsweise Abwanderung. Die Einwohnerzahl selbst steht daneben.",
-   "gruppe": "Gesellschaft"
+   "gruppe": "Gesellschaft",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "wachstum-pro-kopf",
@@ -5606,7 +5626,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie stark die preisbereinigte Wirtschaftsleistung je Einwohner gewachsen ist. Das zeigt, ob der Wohlstand im Schnitt wächst, auch wenn die Bevölkerung wächst oder schrumpft.",
-   "gruppe": "Wirtschaft und Arbeit"
+   "gruppe": "Wirtschaft und Arbeit",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "lebenshaltung",
@@ -5937,7 +5959,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Preisniveau-Index: Wie viel ein typischer Warenkorb im Land im Vergleich zum EU-Durchschnitt (= 100) kostet. 120 heißt, die Preise sind 20 % höher als im EU-Schnitt. Zeigt keine Teuerung über die Zeit.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "immobilien",
@@ -6407,7 +6431,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie stark sich die Preise für Wohnimmobilien (gekaufte Wohnungen und Häuser, neu und gebraucht) seit dem Amtsantritt der Regierung verändert haben, laut Eurostat-Preisindex. Der Index zeigt die Veränderung, nicht den Preis pro Quadratmeter.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "einkommen",
@@ -6754,7 +6780,9 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Die Hälfte der Menschen im Land hat weniger, die andere Hälfte mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Sozialleistungen, je Person (bei Haushalten nach Größe gewichtet). Es ist kein reiner Lohn: Pensionen und Sozialleistungen sind enthalten. Die Erhebung (EU-SILC) fragt nach dem Einkommen des Vorjahres."
+   "erklaerung": "Die Hälfte der Menschen im Land hat weniger, die andere Hälfte mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Sozialleistungen, je Person (bei Haushalten nach Größe gewichtet). Es ist kein reiner Lohn: Pensionen und Sozialleistungen sind enthalten. Die Erhebung (EU-SILC) fragt nach dem Einkommen des Vorjahres.",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "strompreis",
@@ -7149,7 +7177,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Was ein Haushalt mit mittlerem Verbrauch (2.500 bis 5.000 kWh pro Jahr) inklusive Steuern und Abgaben pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "strompreis-industrie",
@@ -7544,7 +7574,9 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Was ein mittelgroßer Industriekunde (2 bis 20 GWh pro Jahr) ohne Mehrwertsteuer pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "veraltet": true,
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
   },
   {
    "id": "rating",
