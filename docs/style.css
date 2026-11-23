@@ -73,3 +73,5 @@ svg{width:100%;height:auto;display:block}
 .filter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
 .filter button{font:inherit;font-size:.85rem;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
 .filter button.on{border-color:var(--at);font-weight:700}
+
+.altdaten{border-left:4px solid var(--muted,#999);padding-left:10px;color:var(--muted,#666);font-size:.85rem;margin:8px 0}

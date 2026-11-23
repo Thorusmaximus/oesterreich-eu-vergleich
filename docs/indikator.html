@@ -41,6 +41,7 @@ function detail(i){
      + '<p class="note">'+i.rangText+'. Stand: '+periode(i.periode)+'. Einheit: '+i.einheit+'</p>'
      + (i.hinweis ? '<p class="note">'+i.hinweis+'</p>' : '')
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
+     + (i.datenHinweis ? '<p class="altdaten">⏳ '+i.datenHinweis+'</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
      + '<div class="grid">'
      + '<div><div class="k">Österreich</div><div class="v">'+f(a.wert)+SUF+'</div></div>'

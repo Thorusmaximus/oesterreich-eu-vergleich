@@ -835,6 +835,10 @@ function berechneInsolvenzen() {
     if (r.veraltet && p) { r.geaendert = p.geaendert || prevDatum; continue; } // Abruf fehlgeschlagen: nichts Neues
     r.geaendert = p && fingerabdruck(p) === fingerabdruck(r) ? (p.geaendert || prevDatum) : heute;
   }
+  // Jahresdaten, die älter als das Vorjahr sind: Hinweis, dass Eurostat noch nichts Neueres hat (wird beim nächsten Lauf automatisch ersetzt)
+  const jetzt = new Date().getFullYear();
+  for (const r of result) { const jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : null;
+    if (r.takt === "jahr" && jahr && jahr < jetzt - 1 && r.id !== "terror") r.datenHinweis = `Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: ${jahr}). Sobald sie vorliegen, ersetzt die Seite sie automatisch.`; }
   for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
   if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };
