@@ -73,6 +73,11 @@ function detail(i){
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
   h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
+  if(i.oesterreich.anzahl!=null){
+    h += '<div class="card"><h2>Anschläge in Zahlen</h2><div class="v">Österreich: '+i.oesterreich.anzahl+(i.oesterreich.anzahl===1?' Anschlag':' Anschläge')+' <span class="k">im Jahr '+i.periode+' (Vorjahr: '+i.oesterreich.anzahlVorher+')</span></div>'
+       + '<div class="v">EU insgesamt: '+i.euGesamt+' <span class="k">gemeldete Anschläge '+i.periode+'</span></div>'
+       + '<p class="note">Quelle: '+i.quelle+'. Stand der Eingabe: '+datum(i.stand)+'. '+i.hinweisDaten+'</p></div>';
+  }
   if(i.komponenten){
     var kp=i.komponenten, fz=function(v){ return (v>0?'+':v<0?'−':'')+Math.abs(v).toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1}); };
     h += '<div class="card"><h2>So setzt sich das Wachstum zusammen</h2>'
@@ -214,7 +219,7 @@ function ranking(i){
     return '<span class="trk"><span class="bb" style="left:'+left+'%;width:'+w+'%"></span></span>';
   };
   var s = '<p class="note">Pfeil rechts: Trend des Landes ('+trendVergleich(i)+'). '+pfeilHinweis(i)+'</p>' + i.laender.map(function(x){
-    return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.ppsRang?" mitb":"")+'"><span>'+x.rank+'. '+x.name+(x.ppsRang?' <small class="note">Kaufkraft: Platz '+x.ppsRang+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
+    return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.ppsRang||x.zus?" mitb":"")+'"><span>'+x.rank+'. '+x.name+(x.ppsRang?' <small class="note">Kaufkraft: Platz '+x.ppsRang+'</small>':'')+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
   }).join("");
   if(i.schweiz){
     s += '<div class="row ch'+(i.schweiz.bestand!=null?" mitb":"")+'"><span>* Schweiz'+(i.schweiz.bestand!=null?' <small class="note">'+mioText(i.schweiz.bestand)+' Mio.</small>':'')+'</span>'+bar(i.schweiz.wert)+'<span class="n">'+f(i.schweiz.wert)+'</span><span class="ta"></span></div>'

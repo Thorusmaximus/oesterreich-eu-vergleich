@@ -47,7 +47,7 @@ const GRUPPE_VON = {
   wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, einkommen: 0, durchschnittseinkommen: 0, kaufkraft: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
+  bevoelkerung: 3, geburtenrate: 3, terror: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab.",
@@ -77,6 +77,7 @@ const ERKLAERUNG = {
   sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil Definition, Zählweise und Anzeigebereitschaft stark abweichen und die Dunkelziffer hoch ist.",
   durchschnittseinkommen: "Das durchschnittliche Nettoeinkommen je Person nach Steuern und Abgaben, einschließlich Pensionen und Sozialleistungen. Der Durchschnitt wird von sehr hohen Einkommen nach oben gezogen und liegt deshalb über dem Median.",
   kaufkraft: "Das mittlere Nettoeinkommen, umgerechnet in Kaufkraftstandards (PPS). Ein Euro ist nicht überall gleich viel wert: In teuren Ländern kauft man dafür weniger. PPS rechnet das heraus und zeigt, was man sich mit dem Einkommen im jeweiligen Land tatsächlich leisten kann, gemessen an einem EU-weiten Warenkorb.",
+  terror: "Wie viele Terroranschläge (vollendete, gescheiterte und von den Behörden vereitelte) ein Land pro Jahr an Europol gemeldet hat, umgerechnet auf 10 Millionen Einwohner. Die Zahlen stammen aus dem jährlichen EU-Lagebericht zum Terrorismus (TE-SAT) und werden von Hand eingetragen.",
   rating: "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -641,6 +642,28 @@ async function diagnose(ind) {
   } catch (e) { console.error("   Fehlersuche nicht möglich: " + e.message); }
 }
 
+// ===== Terroranschläge: von Hand gepflegt (terror.json, Quelle Europol TE-SAT), pro 10 Mio. Einwohner =====
+function berechneTerror(result) {
+  const raw = JSON.parse(fs.readFileSync("terror.json", "utf8")), jahre = Object.keys(raw.jahre).sort();
+  const bev = result.find(x => x.id === "bevoelkerung"), pop = {};
+  if (!bev || !bev.laender) throw new Error("Bevölkerungsdaten fehlen (für die Rechnung pro Einwohner)");
+  bev.laender.forEach(x => { pop[x.code] = x.bestand; });
+  const codes = Object.keys(NAMES), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
+  const js = { id: ["geo", "time"], size: [codes.length, jahre.length], dimension: { geo: { category: { index: idx(codes) } }, time: { category: { index: idx(jahre) } } },
+    value: codes.flatMap(c => jahre.map(y => pop[c] ? (raw.jahre[y][c] || 0) / pop[c] * 10 : null)) };
+  const ind = TERROR_IND, r = berechne(ind, js), n = (c, y) => raw.jahre[y]?.[c] || 0;
+  r.laender.forEach(x => { x.zus = n(x.code, r.periode) + (n(x.code, r.periode) === 1 ? " Anschlag" : " Anschläge"); });
+  r.oesterreich.anzahl = n("AT", r.periode); r.oesterreich.anzahlVorher = n("AT", String(+r.periode - 1));
+  r.stand = raw.stand; r.quelle = raw.quelle; r.hinweisDaten = raw.hinweis;
+  r.euGesamt = Object.values(raw.jahre[r.periode] || {}).reduce((a, b) => a + b, 0);
+  r.schweiz = null;
+  return r;
+}
+const TERROR_IND = { id: "terror", name: "Terroranschläge", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: "", diffEinheit: "Anschläge pro 10 Mio. Einwohner",
+  einheit: "Anschläge (vollendet, gescheitert und vereitelt) pro 10 Mio. Einwohner, laut Europol", rangText: "Rang 1 = niedrigste Quote (ohne Wertung der Zahlen)",
+  hinweis: "Hier gibt es keine Wertung: Gezählt werden auch vereitelte Anschläge, eine hohe Zahl kann also auch für erfolgreiche Terrorabwehr sprechen. Die Länder melden unterschiedlich, und die Einzelzahlen sind klein, ein einzelner Anschlag verändert das Ergebnis deutlich. Gemeldet sind nur Anschläge, die den Terrorismus-Definitionen der Mitgliedstaaten entsprechen.",
+  typ: "neutral", rangNiedrigZuerst: true, trendNeutral: true, umstritten: true, schwelle: 0.5, maxAlter: 26 };
+
 // ===== Insolvenzen: nur Österreich, von Hand gepflegt (insolvenzen.json, Quelle KSV1870) =====
 function berechneInsolvenzen() {
   const raw = JSON.parse(fs.readFileSync("insolvenzen.json", "utf8")), ys = Object.keys(raw.jahre).sort();
@@ -781,6 +804,13 @@ function berechneInsolvenzen() {
     result.push(prev.rating ? { ...prev.rating, veraltet: true, fehler: e.message } : { id: "rating", name: "Kreditrating", fehler: e.message });
   }
   try {
+    const r = berechneTerror(result); result.push(r);
+    console.log(`OK  Terroranschläge: ${r.periode}, Österreich ${r.oesterreich.anzahl} Anschläge, Platz ${r.oesterreich.rang}/${r.anzahlLaender}`);
+  } catch (e) {
+    fehler++; console.error(`FEHLER Terroranschläge: ${e.message}`);
+    result.push(prev.terror ? { ...prev.terror, veraltet: true, fehler: e.message } : { id: "terror", name: "Terroranschläge", fehler: e.message });
+  }
+  try {
     const r = berechneInsolvenzen(); result.push(r);
     console.log(`OK  Insolvenzen: ${r.periode}, ${r.oesterreich.wert} (${r.oesterreich.veraenderungProzent} % zum Vorjahr), ${r.oesterreich.urteil}${r.warnung ? "  HINWEIS: " + r.warnung : ""}`);
   } catch (e) {
@@ -802,5 +832,5 @@ function berechneInsolvenzen() {
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync("docs/daten.json", JSON.stringify(out, null, 1));
   fs.writeFileSync("docs/daten.js", "window.DATEN = " + JSON.stringify(out) + ";\n");
-  if (fehler === INDICATORS.length + 2) process.exit(1);
+  if (fehler === INDICATORS.length + 3) process.exit(1);
 })();
