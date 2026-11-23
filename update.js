@@ -399,6 +399,8 @@ function berechneInsolvenzen() {
             try {
               const ra = await fetch(`${BASE}${q.dataset}?format=JSON&lang=EN&${q.filter}&sector=${sek}&sinceTimePeriod=${seit}`), rb = await fetch(`${BASE}${q.bipDataset}?format=JSON&lang=EN&${q.bipFilter}&sinceTimePeriod=${seit}`);
               if (!ra.ok || !rb.ok) throw new Error(`HTTP ${ra.status}/${rb.status}`);
+              try { const ja = await ra.clone().json(), jb = await rb.clone().json(); const pa = parse(ja), pb = parse(jb); const lt = o => { const ts = [...new Set(Object.values(o).flatMap(x => Object.keys(x)))].sort(); return ts.length ? ts[0] + ".." + ts[ts.length - 1] : "leer"; };
+                console.error(`   Diagnose: Steuern ${Object.keys(pa).length} Länder, ${lt(pa)}, AT ${JSON.stringify(pa.AT || {}).slice(0, 120)}; BIP ${Object.keys(pb).length} Länder, ${lt(pb)}, AT ${JSON.stringify(pb.AT || {}).slice(0, 120)}`); } catch (e3) { console.error("   Diagnose: " + e3.message); }
               const jq = quotientJs(await ra.json(), await rb.json()), dd = parse(jq), ts = [...new Set(Object.values(dd).flatMap(o => Object.keys(o)))].sort();
               console.error(`   Quartalsquote (${sek}): ${Object.keys(dd).length} Länder, Perioden ${ts[0]}..${ts[ts.length - 1]}, AT: ${JSON.stringify(dd.AT || {}).slice(0, 160)}`);
               const r3 = berechne({ ...ind, takt: "quartal", rueckblick: 4, maxAlter: 8 }, jq);
