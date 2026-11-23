@@ -19,7 +19,7 @@ function pfeil(r){ return r==="steigend" ? "↑" : r==="sinkend" ? "↓" : "→"
 function trendPfeil(u){ return u==="besser" ? "↑" : u==="schlechter" ? "↓" : u==="unverändert" ? "→" : ""; }
 // Pfeilsymbol: "urteil" = nach oben heißt besser; "wert" = Pfeil folgt dem Zahlenwert (z. B. Arbeitslosenquote sinkt = Pfeil nach unten, grün)
 function pfeilFuer(i, u, r){ return i.pfeilModus==="wert" ? (r ? pfeil(r) : "") : trendPfeil(u); }
-function pfeilHinweis(i){ return i.trendNeutral ? "Pfeil = Richtung des Wertes (↓ sinkt, ↑ steigt), ohne Wertung." : i.pfeilModus==="wert" ? "Pfeil = Richtung des Wertes (↓ sinkt, ↑ steigt). Grün = besser, rot = schlechter." : "↑ besser, → unverändert, ↓ schlechter."; }
+function pfeilHinweis(i){ return i.trendNeutral ? "Pfeil = Richtung des Wertes (↓ sinkt, ↑ steigt)." : i.pfeilModus==="wert" ? "Pfeil = Richtung des Wertes (↓ sinkt, ↑ steigt). Grün = besser, rot = schlechter." : "↑ besser, → unverändert, ↓ schlechter."; }
 function trendWort(u){ return u==="besser" ? "besser" : u==="schlechter" ? "schlechter" : u==="höher" ? "höher" : u==="niedriger" ? "niedriger" : "unverändert"; }
 function trendVergleich(i){ return i.art==="rating" ? "seit Regierungsantritt" : i.takt==="quartal" ? (i.rueckblick===4 ? "zum gleichen Quartal des Vorjahres" : "zum Vorquartal") : i.takt==="jahr" ? "zum Vorjahr" : i.takt==="halbjahr" ? "zum gleichen Halbjahr des Vorjahres" : "zu vor 3 Monaten"; }
 function urteilCls(u){ return u==="besser" ? "good" : u==="schlechter" ? "bad" : ""; }

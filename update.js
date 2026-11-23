@@ -74,8 +74,8 @@ const ERKLAERUNG = {
   raub: "Wie viele Raubdelikte (Diebstahl mit Gewalt oder Drohung) die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
   einbruch: "Wie viele Einbrüche in Privatwohnungen die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
   gefaengnis: "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt: Es sind mehr Menschen inhaftiert, als Plätze vorhanden sind (Überbelegung).",
-  koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil die Zählweise und die Anzeigebereitschaft zwischen den Ländern stark unterschiedlich sind.",
-  sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil Definition, Zählweise und Anzeigebereitschaft stark abweichen und die Dunkelziffer hoch ist.",
+  koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Die Zählweise und die Anzeigebereitschaft zwischen den Ländern stark unterschiedlich sind.",
+  sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definition, Zählweise und Anzeigebereitschaft stark abweichen und die Dunkelziffer hoch ist.",
   durchschnittseinkommen: "Das durchschnittliche Nettoeinkommen je Person nach Steuern und Abgaben, einschließlich Pensionen und Sozialleistungen. Der Durchschnitt wird von sehr hohen Einkommen nach oben gezogen und liegt deshalb über dem Median.",
   kaufkraft: "Das mittlere Nettoeinkommen, umgerechnet in Kaufkraftstandards (PPS). Ein Euro ist nicht überall gleich viel wert: In teuren Ländern kauft man dafür weniger. PPS rechnet das heraus und zeigt, was man sich mit dem Einkommen im jeweiligen Land tatsächlich leisten kann, gemessen an einem EU-weiten Warenkorb.",
   terror: "Wie viele Terroranschläge (vollendete, gescheiterte und von den Behörden vereitelte) ein Land pro Jahr an Europol gemeldet hat, umgerechnet auf 10 Millionen Einwohner. Die Zahlen stammen aus dem jährlichen EU-Lagebericht zum Terrorismus (TE-SAT) und werden von Hand eingetragen.",
@@ -92,7 +92,7 @@ const ERKLAERUNG = {
   gesundeJahre: "Wie viele Jahre ein neugeborenes Kind durchschnittlich ohne gesundheitliche Einschränkungen im Alltag leben wird (Healthy Life Years, nach Selbstauskunft in der EU-Befragung). Das sind meist deutlich weniger als die Lebenserwartung.",
   abhaengigkeit: "Wie viele Menschen ab 65 auf 100 Menschen im Alter von 15 bis 64 kommen. Je höher der Wert, desto mehr ältere Menschen müssen von den Jüngeren mitgetragen werden, etwa über das Pensionssystem.",
   aktionaersquote: "Wie viele Haushalte börsennotierte Aktien besitzen (direkt gehalten, ohne Fonds), laut der Haushaltsbefragung der Europäischen Zentralbank und der Notenbanken. Die Erhebung gibt es nur alle paar Jahre.",
-  religion: "Wie sich die Bevölkerung Österreichs auf Religionen und Konfessionen verteilt, laut der letzten Erhebung von Statistik Austria (2021). Es ist eine reine Zahlenübersicht ohne Wertung.",
+  religion: "Wie sich die Bevölkerung Österreichs auf Religionen und Konfessionen verteilt, laut der letzten Erhebung von Statistik Austria (2021).",
   insolvenzenEU: "Index der gemeldeten Unternehmensinsolvenzen, 2021 = 100. Er zeigt, wie stark sich die Zahl der Insolvenzen seit 2021 verändert hat, nicht wie viele es gibt. Absolute Zahlen sind zwischen den Ländern wegen unterschiedlicher Insolvenzrechte nicht vergleichbar.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -168,7 +168,7 @@ const INDICATORS = [
     filter: "indic_de=JAN", // Einwohner am 1. Jänner (demo_gind ist aktueller als demo_pjan); daraus wird das Wachstum zum Vorjahr berechnet
     alternativen: [ { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ],
     wachstum: true, dez: 2, suffix: " %", diffEinheit: "Prozentpunkte",
-    einheit: "% Veränderung der Einwohnerzahl (1. Jänner gegenüber 1. Jänner des Vorjahres)", rangText: "Rang 1 = stärkstes Bevölkerungswachstum, ohne Wertung",
+    einheit: "% Veränderung der Einwohnerzahl (1. Jänner gegenüber 1. Jänner des Vorjahres)", rangText: "Rang 1 = stärkstes Bevölkerungswachstum",
     maxAlter: 26, typ: "neutral", schwelle: 0.15, mock: { base: 5000000, step: 1900000 } }
   ,{ id: "wachstum-pro-kopf", name: "Wachstum pro Kopf", takt: "jahr", dataset: "nama_10_pc",
     filter: "unit=CLV_PCH_PRE_HAB&na_item=B1GQ", // reales BIP je Einwohner (preisbereinigt), Veränderung zum Vorjahr
@@ -192,9 +192,9 @@ const INDICATORS = [
     keinStart: true, // der Rang beim Amtsantritt wäre für alle gleich, deshalb kein Vergleich "seit Regierungsantritt"
     maxAlter: 8, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte",
     einheit: "% Preisänderung von Wohnimmobilien seit dem Quartal des Regierungsantritts (Preisindex, ohne Inflationsbereinigung)",
-    rangText: "Rang 1 = stärkster Preisanstieg seit Regierungsantritt, ohne Wertung",
+    rangText: "Rang 1 = stärkster Preisanstieg seit Regierungsantritt",
     typ: "neutral", umstritten: true,
-    hinweis: "Hier gibt es keine Wertung: Steigende Immobilienpreise nützen Eigentümern und belasten Käufer, Mieter und Familien, die erst kaufen wollen. Gezeigt wird die Veränderung des Preisindex der Wohnimmobilien (Wohnungen und Häuser, neu und gebraucht) gegenüber dem Quartal des Regierungsantritts. Das ist die Preisentwicklung, nicht der Preis pro Quadratmeter, und die Preise sind nicht um die Inflation bereinigt.",
+    hinweis: "Steigende Immobilienpreise nützen Eigentümern und belasten Käufer, Mieter und Familien, die erst kaufen wollen. Gezeigt wird die Veränderung des Preisindex der Wohnimmobilien (Wohnungen und Häuser, neu und gebraucht) gegenüber dem Quartal des Regierungsantritts. Das ist die Preisentwicklung, nicht der Preis pro Quadratmeter, und die Preise sind nicht um die Inflation bereinigt.",
     schwelle: 0.5, mock: { base: 100, step: 3 } }
   ,{ id: "einkommen", name: "Medianeinkommen", takt: "jahr", dataset: "ilc_di03",
     filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=EUR", // mittleres (Median-)Nettoeinkommen je Person, nach Haushaltsgröße gewichtet (EU-SILC)
@@ -259,13 +259,13 @@ const INDICATORS = [
   ,{ id: "erwerbsdauer", name: "Dauer des Erwerbslebens", takt: "jahr", dataset: "lfsi_exi_a",
     filter: "sex=T", alternativen: [ { dataset: "lfsi_dwl_a", filter: "sex=T" } ],
     maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
-    einheit: "Erwartete Jahre im Erwerbsleben (Erwerbstätige und Arbeitssuchende), in Jahren", rangText: "Rang 1 = längstes Erwerbsleben (ohne Wertung)",
+    einheit: "Erwartete Jahre im Erwerbsleben (Erwerbstätige und Arbeitssuchende), in Jahren", rangText: "Rang 1 = längstes Erwerbsleben",
     hinweis: "Eurostat veröffentlicht das durchschnittliche Pensionsantrittsalter derzeit nicht mehr, deshalb zeigt diese Seite die Dauer des Erwerbslebens als Ersatz. Ob ein längeres Erwerbsleben besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber mehr Arbeitsjahre für den Einzelnen.",
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, mock: { base: 61, step: 0.4 } }
   ,{ id: "pensionsausgaben", name: "Pensionsausgaben", takt: "jahr", dataset: "spr_exp_pens",
     filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL", alternativen: [ { dataset: "spr_exp_pens", filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL" } ],
     maxAlter: 36, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte des BIP", minLaender: 20,
-    einheit: "Pensionsausgaben in % des BIP", rangText: "Rang 1 = niedrigste Pensionsausgaben (ohne Wertung)",
+    einheit: "Pensionsausgaben in % des BIP", rangText: "Rang 1 = niedrigste Pensionsausgaben",
     hinweis: "Die Ausgaben hängen vom Altersaufbau der Bevölkerung ab und sagen nicht allein, wie großzügig das System ist. Ob hohe Ausgaben gut oder schlecht sind, ist umstritten: Sie bedeuten höhere Pensionen, aber auch eine größere Last für den Staatshaushalt.",
     typ: "neutral", trendNeutral: true, umstritten: true, rangNiedrigZuerst: true, schwelle: 0.2, mock: { base: 11, step: 0.4 } }
   ,{ id: "ersatzquote", name: "Pensionshöhe (Ersatzquote)", takt: "jahr", dataset: "ilc_pnp3", faktor: 100,
@@ -288,7 +288,7 @@ const INDICATORS = [
   ,{ id: "durchschnittsalter", name: "Alter der Bevölkerung", takt: "jahr", dataset: "demo_pjanind",
     filter: "indic_de=MEDAGEPOP", alternativen: [ { dataset: "demo_pjanind", filter: "indic_de=MEDAGEPOP" }, { dataset: "demo_pjanind", filter: "indic_de=MEANAGEPOP" }, { dataset: "demo_pjanind", filter: "indic_de=MEDAGE" } ],
     maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
-    einheit: "Medianalter der Bevölkerung zum 1. Jänner (die Hälfte ist jünger, die Hälfte älter)", rangText: "Rang 1 = höchstes Alter (ohne Wertung)",
+    einheit: "Medianalter der Bevölkerung zum 1. Jänner (die Hälfte ist jünger, die Hälfte älter)", rangText: "Rang 1 = höchstes Alter",
     hinweis: "Es ist das Medianalter, nicht der Durchschnitt: Die eine Hälfte der Bevölkerung ist jünger, die andere älter. Eine ältere Bevölkerung belastet das Pensionssystem, bedeutet aber auch Wohlstand und gute Gesundheitsversorgung.",
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, mock: { base: 43, step: 0.4 } }
   ,{ id: "lebenserwartung", name: "Lebenserwartung", takt: "jahr", dataset: "demo_mlexpec",
@@ -305,9 +305,9 @@ const INDICATORS = [
   ,{ id: "abhaengigkeit", name: "Altersabhängigkeitsquote", takt: "jahr", dataset: "demo_pjanind",
     filter: "indic_de=OLDDEP1", alternativen: [ { dataset: "demo_pjanind", filter: "indic_de=OLDDEP1" }, { dataset: "demo_pjanind", filter: "indic_de=OLDDEP" }, { dataset: "demo_pjanind", filter: "indic_de=OLDDEP2" } ],
     maxAlter: 26, dez: 1, suffix: "", diffEinheit: "Personen je 100", minLaender: 20,
-    einheit: "Menschen ab 65 je 100 Menschen im Alter von 15 bis 64 Jahren", rangText: "Rang 1 = niedrigste Quote (ohne Wertung)",
-    hinweis: "Zeigt die Altersstruktur, keine Leistung der Regierung. Eine höhere Quote bedeutet mehr Ältere je Erwerbsfähigem und damit mehr Druck auf das Pensionssystem. Sie hängt auch von der Zuwanderung und der Beschäftigung ab.",
-    typ: "neutral", trendNeutral: true, umstritten: true, rangNiedrigZuerst: true, schwelle: 0.5, mock: { base: 28, step: 1.5 } }
+    einheit: "Menschen ab 65 je 100 Menschen im Alter von 15 bis 64 Jahren", rangText: "Rang 1 = niedrigste Quote",
+    hinweis: "Zeigt die Altersstruktur. Eine höhere Quote bedeutet mehr Ältere je Erwerbsfähigem und damit mehr Druck auf das Pensionssystem. Sie hängt auch von der Zuwanderung und der Beschäftigung ab.",
+    typ: "niedrig", schwelle: 0.5, mock: { base: 28, step: 1.5 } }
   ,{ id: "toetung", name: "Tötungsdelikte", takt: "jahr", dataset: "crim_off_cat",
     filter: "iccs=ICCS0101&unit=P_HTHAB", // vorsätzliche Tötung, von der Polizei erfasst, pro 100.000 Einwohner
     alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS0101&unit=P_HTHAB" } ],
@@ -338,15 +338,15 @@ const INDICATORS = [
     filter: "iccs=ICCS02011&unit=P_HTHAB", // schwere Körperverletzung (Polizeistatistik), pro 100.000 Einwohner
     alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS0201&unit=P_HTHAB" }, { dataset: "crim_off_cat", filter: "iccs=ICCS020111&unit=P_HTHAB" } ],
     maxAlter: 26, dez: 0, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 18,
-    einheit: "Von der Polizei erfasste Fälle schwerer Körperverletzung pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote (ohne Wertung der Zahlen)", rangNiedrigZuerst: true,
-    hinweis: "Hier gibt es keine Wertung: Die Polizeizahlen messen auch mit, wie viel angezeigt wird und wo die Grenze zwischen leichter und schwerer Körperverletzung gezogen wird. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+    einheit: "Von der Polizei erfasste Fälle schwerer Körperverletzung pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote", rangNiedrigZuerst: true,
+    hinweis: "Die Polizeizahlen messen auch mit, wie viel angezeigt wird und wo die Grenze zwischen leichter und schwerer Körperverletzung gezogen wird. Ein höherer Wert heißt nicht automatisch mehr Taten.",
     typ: "neutral", schwelle: 10, mock: { base: 40, step: 12 } }
   ,{ id: "sexualdelikte", name: "Sexualdelikte", takt: "jahr", dataset: "crim_off_cat",
     filter: "iccs=ICCS0301&unit=P_HTHAB", // sexuelle Gewalt (Vergewaltigung und sexuelle Übergriffe), pro 100.000 Einwohner
     alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS03&unit=P_HTHAB" }, { dataset: "crim_off_cat", filter: "iccs=ICCS03011&unit=P_HTHAB" } ],
     maxAlter: 26, dez: 0, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 18,
-    einheit: "Von der Polizei erfasste Sexualdelikte (sexuelle Gewalt) pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote (ohne Wertung der Zahlen)", rangNiedrigZuerst: true,
-    hinweis: "Hier gibt es bewusst keine Wertung: Die Länder definieren und zählen Sexualdelikte unterschiedlich (etwa pro Tat oder pro Opfer), und die Dunkelziffer ist hoch. Länder mit hoher Anzeigebereitschaft und weiter Definition haben oft höhere Werte. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+    einheit: "Von der Polizei erfasste Sexualdelikte (sexuelle Gewalt) pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote", rangNiedrigZuerst: true,
+    hinweis: "Die Länder definieren und zählen Sexualdelikte unterschiedlich (etwa pro Tat oder pro Opfer), und die Dunkelziffer ist hoch. Länder mit hoher Anzeigebereitschaft und weiter Definition haben oft höhere Werte. Ein höherer Wert heißt nicht automatisch mehr Taten.",
     typ: "neutral", schwelle: 5, mock: { base: 30, step: 14 } }
   ,{ id: "strompreis", name: "Strompreis für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
     filter: "siec=E7000&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive aller Steuern und Abgaben
@@ -425,7 +425,7 @@ const REGIERUNG = { name: "Regierung Stocker", kurz: "Stocker", parteien: "ÖVP,
 
 let DEZ = 1; // Dezimalstellen des aktuellen Indikators (Geburtenrate: 2)
 const r1 = x => Math.round(x * 10 ** DEZ) / 10 ** DEZ;
-const scoreOf = ind => v => ind.typ === "niedrig" || ind.rangNiedrigZuerst ? v : -v; // kleiner = besser; neutral: höchster Wert = Rang 1 (ohne Wertung)
+const scoreOf = ind => v => ind.typ === "niedrig" || ind.rangNiedrigZuerst ? v : -v; // kleiner = besser; neutral: höchster Wert = Rang 1
 
 // Rang 1 = bester Score; gleiche (auf eine Dezimale gerundete) Scores teilen sich den Platz
 function rankAt(data, t, sc) {
@@ -746,11 +746,11 @@ function berechneHand(id, ind) {
 }
 const HAND_IND = {
   pensionsantrittsalter: { id: "pensionsantrittsalter", name: "Gesetzliches Pensionsantrittsalter", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " Jahre", diffEinheit: "Jahre",
-    einheit: "Gesetzliches Regelpensionsalter der Männer in Jahren (Stand 2026)", rangText: "Rang 1 = höchstes Pensionsalter (ohne Wertung)",
+    einheit: "Gesetzliches Regelpensionsalter der Männer in Jahren (Stand 2026)", rangText: "Rang 1 = höchstes Pensionsalter",
     hinweis: "Ob ein höheres Pensionsalter besser ist, ist umstritten: Es entlastet die Pensionskassen, bedeutet aber später in Pension zu gehen. In Österreich gilt für Frauen derzeit noch ein niedrigeres Alter, das bis 2033 schrittweise auf 65 steigt.",
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, maxAlter: 26, minLaender: 20 },
   aktionaersquote: { id: "aktionaersquote", name: "Aktionärsquote", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " %", diffEinheit: "Prozentpunkte",
-    einheit: "Anteil der Haushalte mit börsennotierten Aktien in % (Befragung 2021)", rangText: "Rang 1 = höchster Anteil (ohne Wertung, nur 22 EU-Länder)",
+    einheit: "Anteil der Haushalte mit börsennotierten Aktien in % (Befragung 2021)", rangText: "Rang 1 = höchster Anteil (nur 22 EU-Länder)",
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.5, maxAlter: 80, minLaender: 18 },
   marsh: { id: "marsh", name: "Finanzierbarkeit des Pensionssystems", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " Punkte", diffEinheit: "Punkte",
     einheit: "Teilindex Nachhaltigkeit des Marsh CFA Institute Global Pension Index (0 bis 100 Punkte)", rangText: "Rang 1 = beste Nachhaltigkeitsbewertung (nur 14 EU-Länder im Index)",
@@ -782,8 +782,8 @@ function berechneTerror(result) {
   return r;
 }
 const TERROR_IND = { id: "terror", name: "Terroranschläge", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: "", diffEinheit: "Anschläge pro 10 Mio. Einwohner",
-  einheit: "Anschläge (vollendet, gescheitert und vereitelt) pro 10 Mio. Einwohner, laut Europol", rangText: "Rang 1 = niedrigste Quote (ohne Wertung der Zahlen)",
-  hinweis: "Hier gibt es keine Wertung: Gezählt werden auch vereitelte Anschläge, eine hohe Zahl kann also auch für erfolgreiche Terrorabwehr sprechen. Die Länder melden unterschiedlich, und die Einzelzahlen sind klein, ein einzelner Anschlag verändert das Ergebnis deutlich. Gemeldet sind nur Anschläge, die den Terrorismus-Definitionen der Mitgliedstaaten entsprechen.",
+  einheit: "Anschläge (vollendet, gescheitert und vereitelt) pro 10 Mio. Einwohner, laut Europol", rangText: "Rang 1 = niedrigste Quote",
+  hinweis: "Gezählt werden auch vereitelte Anschläge, eine hohe Zahl kann also auch für erfolgreiche Terrorabwehr sprechen. Die Länder melden unterschiedlich, und die Einzelzahlen sind klein, ein einzelner Anschlag verändert das Ergebnis deutlich. Gemeldet sind nur Anschläge, die den Terrorismus-Definitionen der Mitgliedstaaten entsprechen.",
   typ: "neutral", rangNiedrigZuerst: true, trendNeutral: true, umstritten: true, schwelle: 0.5, maxAlter: 26 };
 
 // ===== Insolvenzen: nur Österreich, von Hand gepflegt (insolvenzen.json, Quelle KSV1870) =====
