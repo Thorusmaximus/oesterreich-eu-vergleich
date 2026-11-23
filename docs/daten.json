@@ -3545,7 +3545,7 @@
    "dez": 1,
    "suffix": " %",
    "diffEinheit": "Prozentpunkte",
-   "hinweis": "Die Wertung ist umstritten: Im Ranking gilt eine niedrigere Staatsquote als besser (weniger Staatsanteil an der Wirtschaft). Der Trend wird dagegen neutral als höher oder niedriger angezeigt. Andere sehen einen hohen Staatsanteil als Vorteil, etwa für soziale Absicherung, Gesundheit und Bildung. Die Staatsquote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) über den Staat ausgegeben wird.",
+   "hinweis": "Der Trend wird neutral als höher oder niedriger angezeigt. Andere sehen einen hohen Staatsanteil als Vorteil, etwa für soziale Absicherung, Gesundheit und Bildung. Die Staatsquote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) über den Staat ausgegeben wird.",
    "umstritten": true,
    "trendNeutral": true,
    "zusatz": null,
@@ -3894,7 +3894,7 @@
    "dez": 1,
    "suffix": " %",
    "diffEinheit": "Prozentpunkte",
-   "hinweis": "Die Wertung ist umstritten: Im Ranking gilt eine niedrigere Quote als besser (geringere Belastung durch Steuern und Sozialbeiträge). Der Trend wird dagegen neutral als höher oder niedriger angezeigt. Andere sehen hohe Abgaben als Voraussetzung für Leistungen wie Pensionen, Gesundheit und Bildung. Die Quote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) als Steuern und Sozialbeiträge an den Staat geht.",
+   "hinweis": "Der Trend wird neutral als höher oder niedriger angezeigt. Andere sehen hohe Abgaben als Voraussetzung für Leistungen wie Pensionen, Gesundheit und Bildung. Die Quote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) als Steuern und Sozialbeiträge an den Staat geht.",
    "umstritten": true,
    "trendNeutral": true,
    "zusatz": null,
@@ -5641,7 +5641,7 @@
    "dez": 1,
    "suffix": "",
    "diffEinheit": "Indexpunkte",
-   "hinweis": "Die Wertung ist umstritten: Ein höheres Preisniveau gilt hier als schlechter (höhere Lebenshaltungskosten). Es geht aber oft mit hohen Einkommen einher, und ein Anstieg gegenüber dem EU-Schnitt kann auch Aufholen bedeuten. Der Index vergleicht die Preise zwischen den Ländern, nicht die Teuerung über die Zeit (dafür siehe Inflation).",
+   "hinweis": "Ein höheres Preisniveau gilt hier als schlechter (höhere Lebenshaltungskosten). Es geht aber oft mit hohen Einkommen einher, und ein Anstieg gegenüber dem EU-Schnitt kann auch Aufholen bedeuten. Der Index vergleicht die Preise zwischen den Ländern, nicht die Teuerung über die Zeit (dafür siehe Inflation).",
    "umstritten": true,
    "trendNeutral": false,
    "zusatz": null,
@@ -11209,7 +11209,7 @@
    "dez": 1,
    "suffix": " %",
    "diffEinheit": "Prozentpunkte",
-   "hinweis": "Eine höhere Ersatzquote bedeutet höhere Pensionen im Verhältnis zum früheren Einkommen, kostet das System aber mehr. Die Wertung ist deshalb umstritten.",
+   "hinweis": "Eine höhere Ersatzquote bedeutet höhere Pensionen im Verhältnis zum früheren Einkommen, kostet das System aber mehr.",
    "umstritten": true,
    "trendNeutral": false,
    "zusatz": null,
@@ -17854,13 +17854,13 @@
    "id": "terror",
    "name": "Terroranschläge",
    "pfeilModus": "wert",
-   "typ": "neutral",
+   "typ": "niedrig",
    "dez": 1,
    "suffix": "",
    "diffEinheit": "Anschläge pro 10 Mio. Einwohner",
    "hinweis": "Gezählt werden auch vereitelte Anschläge, eine hohe Zahl kann also auch für erfolgreiche Terrorabwehr sprechen. Die Länder melden unterschiedlich, und die Einzelzahlen sind klein, ein einzelner Anschlag verändert das Ergebnis deutlich. Gemeldet sind nur Anschläge, die den Terrorismus-Definitionen der Mitgliedstaaten entsprechen.",
-   "umstritten": true,
-   "trendNeutral": true,
+   "umstritten": false,
+   "trendNeutral": false,
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Anschläge (vollendet, gescheitert und vereitelt) pro 10 Mio. Einwohner, laut Europol",
@@ -17879,7 +17879,7 @@
     "schnittVorher": 3.3,
     "veraenderung": 4.3,
     "richtung": "steigend",
-    "urteil": "höher",
+    "urteil": "schlechter",
     "anzahl": 7,
     "anzahlVorher": 3
    },
@@ -17915,7 +17915,15 @@
      "n": 27
     }
    ],
-   "rangVergleich": [],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2024",
+     "rang": 23,
+     "n": 27,
+     "regierung": true
+    }
+   ],
    "seitStart": {
     "t": "2024",
     "wert": 3.255208333333334,
@@ -17924,7 +17932,7 @@
     "schnitt": 3.3,
     "veraenderung": 4.3,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "schlechter"
    },
    "rueckblick": null,
    "laender": [
@@ -17943,7 +17951,7 @@
      "value": 0,
      "rank": 1,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "zus": "0 Anschläge"
     },
     {
@@ -17988,7 +17996,7 @@
      "value": 0,
      "rank": 1,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "zus": "0 Anschläge"
     },
     {
@@ -18042,7 +18050,7 @@
      "value": 0,
      "rank": 1,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "zus": "0 Anschläge"
     },
     {
@@ -18060,7 +18068,7 @@
      "value": 0,
      "rank": 1,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "zus": "0 Anschläge"
     },
     {
@@ -18114,7 +18122,7 @@
      "value": 1.672940192388122,
      "rank": 21,
      "richtung": "steigend",
-     "urteil": "höher",
+     "urteil": "schlechter",
      "zus": "2 Anschläge"
     },
     {
@@ -18123,7 +18131,7 @@
      "value": 1.9291984180572972,
      "rank": 22,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "zus": "2 Anschläge"
     },
     {
@@ -18132,7 +18140,7 @@
      "value": 1.8662097280423462,
      "rank": 22,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "zus": "11 Anschläge"
     },
     {
@@ -18150,7 +18158,7 @@
      "value": 3.629105425512611,
      "rank": 25,
      "richtung": "steigend",
-     "urteil": "höher",
+     "urteil": "schlechter",
      "zus": "2 Anschläge"
     },
     {
@@ -18159,7 +18167,7 @@
      "value": 7.595486111111112,
      "rank": 26,
      "richtung": "steigend",
-     "urteil": "höher",
+     "urteil": "schlechter",
      "zus": "7 Anschläge"
     },
     {
