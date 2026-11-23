@@ -25,7 +25,7 @@ const NAMES = {AT:"Österreich",BE:"Belgien",BG:"Bulgarien",CY:"Zypern",CZ:"Tsch
   DK:"Dänemark",EE:"Estland",EL:"Griechenland",ES:"Spanien",FI:"Finnland",FR:"Frankreich",HR:"Kroatien",
   HU:"Ungarn",IE:"Irland",IT:"Italien",LT:"Litauen",LU:"Luxemburg",LV:"Lettland",MT:"Malta",NL:"Niederlande",
   PL:"Polen",PT:"Portugal",RO:"Rumänien",SE:"Schweden",SI:"Slowenien",SK:"Slowakei"};
-const MIN_LAENDER = 24; // Berichtsperiode: neueste Periode mit mindestens so vielen Ländern
+let MIN_LAENDER = 24; // Berichtsperiode: neueste Periode mit mindestens so vielen Ländern
 
 // Zeitraster: monatlich ("2026-08"), quartalsweise ("2026-Q3"), halbjährlich ("2026-S1") oder jährlich ("2025")
 //  seit: ab wann Daten geholt werden, glaettung: Zahl der Perioden für den Trend-Durchschnitt,
@@ -42,12 +42,12 @@ const TAKT = {
 // takt: "monat", "quartal", "halbjahr" oder "jahr".  typ "niedrig": niedriger Wert ist besser.  typ "hoch": höherer Wert ist besser.
 // schwelle: ab welcher Änderung (in Prozentpunkten) der Trend als besser/schlechter gilt.
 // Themengruppen der Startseite (Reihenfolge = Reihenfolge auf der Seite)
-const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft"];
+const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft", "Sicherheit"];
 const GRUPPE_VON = {
   wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, einkommen: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3 };
+  bevoelkerung: 3, geburtenrate: 3, toetung: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab.",
@@ -69,6 +69,10 @@ const ERKLAERUNG = {
   "wachstum-privat": "Wie stark die Wirtschaft ohne den Beitrag des Staates gewachsen wäre: Vom BIP-Wachstum wird abgezogen, was der Staat selbst beigetragen hat (Anteil des Staatskonsums am BIP mal dessen Wachstum). Spart der Staat, gibt es einen Bonus.",
   benzin: "Was ein Liter Euro-super 95 im Schnitt an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die Wochenpreise des EU-Ölbulletins, hier als Monatsdurchschnitt.",
   diesel: "Was ein Liter Diesel im Schnitt an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die Wochenpreise des EU-Ölbulletins, hier als Monatsdurchschnitt.",
+  toetung: "Wie viele vorsätzliche Tötungen (Mord, Totschlag) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Tötungsdelikte gelten als am besten vergleichbarer Kriminalitätswert, weil sie kaum unbemerkt bleiben.",
+  raub: "Wie viele Raubdelikte (Diebstahl mit Gewalt oder Drohung) die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
+  einbruch: "Wie viele Einbrüche in Privatwohnungen die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
+  gefaengnis: "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt: Es sind mehr Menschen inhaftiert, als Plätze vorhanden sind (Überbelegung).",
   rating: "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -201,6 +205,32 @@ const INDICATORS = [
     rangText: "Rang 1 = niedrigster Dieselpreis", maxAlter: 3,
     hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
     typ: "niedrig", schwelle: 2, mock: { base: 135, step: 4 } }
+  ,{ id: "toetung", name: "Tötungsdelikte", takt: "jahr", dataset: "crim_off_cat",
+    filter: "iccs=ICCS0101&unit=P_HTHAB", // vorsätzliche Tötung, von der Polizei erfasst, pro 100.000 Einwohner
+    alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS0101&unit=P_HTHAB" } ],
+    maxAlter: 26, dez: 2, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 20,
+    einheit: "Von der Polizei erfasste Fälle vorsätzlicher Tötung pro 100.000 Einwohner", rangText: "Rang 1 = wenigste Tötungsdelikte pro Einwohner",
+    typ: "niedrig", schwelle: 0.05, mock: { base: 0.5, step: 0.2 } }
+  ,{ id: "raub", name: "Raubdelikte", takt: "jahr", dataset: "crim_off_cat",
+    filter: "iccs=ICCS0401&unit=P_HTHAB", // Raub, von der Polizei erfasst, pro 100.000 Einwohner
+    maxAlter: 26, dez: 1, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 20,
+    einheit: "Von der Polizei erfasste Raubdelikte pro 100.000 Einwohner", rangText: "Rang 1 = wenigste Raubdelikte pro Einwohner",
+    hinweis: "Die Zahlen beruhen auf Polizeistatistiken. Wie Delikte gezählt und erfasst werden, unterscheidet sich zwischen den Ländern, ein hoher Wert kann auch an besserer Erfassung oder höherer Anzeigebereitschaft liegen.",
+    typ: "niedrig", schwelle: 2, mock: { base: 15, step: 6 } }
+  ,{ id: "einbruch", name: "Wohnungseinbrüche", takt: "jahr", dataset: "crim_off_cat",
+    filter: "iccs=ICCS050211&unit=P_HTHAB", // Einbruch in Privatwohnungen, pro 100.000 Einwohner
+    alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS05012&unit=P_HTHAB" }, { dataset: "crim_off_cat", filter: "iccs=ICCS0501&unit=P_HTHAB" } ],
+    maxAlter: 26, dez: 0, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 20,
+    einheit: "Von der Polizei erfasste Einbrüche pro 100.000 Einwohner", rangText: "Rang 1 = wenigste Einbrüche pro Einwohner",
+    hinweis: "Die Zahlen beruhen auf Polizeistatistiken. Wie Delikte gezählt und erfasst werden, unterscheidet sich zwischen den Ländern, ein hoher Wert kann auch an besserer Erfassung oder höherer Anzeigebereitschaft liegen.",
+    typ: "niedrig", schwelle: 15, mock: { base: 100, step: 60 } }
+  ,{ id: "gefaengnis", name: "Gefängnisauslastung", takt: "jahr", dataset: "crim_pris_cap",
+    filter: "unit=P_CAP", // Häftlinge in Prozent der Haftplätze
+    alternativen: [ { dataset: "crim_pris_cap", filter: "unit=PC_CAP" }, { dataset: "crim_pris_cap", filter: "indic_cr=PRIS_OCC" } ],
+    maxAlter: 26, dez: 0, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 15,
+    einheit: "% der Haftplätze, die belegt sind (über 100 % = überbelegt)", rangText: "Rang 1 = geringste Auslastung",
+    hinweis: "Nicht alle EU-Länder melden Haftplätze und Häftlinge, deshalb fehlen manche Länder in der Tabelle.",
+    typ: "niedrig", schwelle: 2, mock: { base: 70, step: 6 } }
   ,{ id: "strompreis", name: "Strompreis für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
     filter: "siec=E7000&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive aller Steuern und Abgaben
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
@@ -299,7 +329,7 @@ function ladeZusatz(ind) {
 }
 
 function berechne(ind, js) {
-  DEZ = ind.dez || 1;
+  DEZ = ind.dez || 1; MIN_LAENDER = ind.minLaender || 24; // manche Datensätze (z. B. Gefängnisse) haben weniger Länder
   const takt = ind.takt, cfg = TAKT[takt], data = parse(js), sc = scoreOf(ind);
   if (ind.faktor) for (const c in data) for (const t in data[c]) data[c][t] = data[c][t] * ind.faktor; // z. B. EUR/kWh in Cent/kWh
   const urt = (ds, dv) => (ind.typ === "neutral" || ind.trendNeutral)
@@ -565,7 +595,7 @@ async function diagnose(ind) {
     console.error(`   Fehlersuche ${ind.dataset}: Dimensionen und Werte (Auszug)`);
     js.id.forEach(d => {
       const cat = js.dimension[d].category, labels = cat.label || {};
-      console.error(`   ${d}: ` + Object.keys(cat.index).slice(0, 25).map(c => c + (labels[c] ? " (" + labels[c].slice(0, 40) + ")" : "")).join("; "));
+      console.error(`   ${d}: ` + Object.keys(cat.index).slice(0, 70).map(c => c + (labels[c] ? " (" + labels[c].slice(0, 40) + ")" : "")).join("; "));
     });
   } catch (e) { console.error("   Fehlersuche nicht möglich: " + e.message); }
 }

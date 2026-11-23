@@ -57,10 +57,10 @@ else {
       + '<div class="more">Details →</div></a>';
   return k;
   };
-  var GRUPPEN = D.gruppen || ["Wirtschaft und Arbeit","Staatsfinanzen","Preise und Kosten","Gesellschaft"];
+  var GRUPPEN = D.gruppen || ["Wirtschaft und Arbeit","Staatsfinanzen","Preise und Kosten","Gesellschaft","Sicherheit"];
   var bilanz = function(i){ var u=i.oesterreich && i.oesterreich.urteil; return u==="besser"?"besser":u==="schlechter"?"schlechter":u==="unverändert"?"gleich":"neutral"; };
   var gruppenHtml = GRUPPEN.concat(["Weitere"]).map(function(g){
-    var liste = D.indikatoren.filter(function(i){ return (i.gruppe||"Weitere")===g; });
+    var liste = D.indikatoren.filter(function(i){ return (i.gruppe||"Weitere")===g; }).sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
     if(!liste.length) return "";
     var z = {besser:0, schlechter:0, gleich:0, neutral:0}; liste.forEach(function(i){ z[bilanz(i)]++; });
     var bil = '<span class="bil">'+(z.besser?'<span class="good">'+z.besser+' besser</span>':'')+(z.schlechter?'<span class="bad">'+z.schlechter+' schlechter</span>':'')+(z.gleich?'<span>'+z.gleich+' unverändert</span>':'')+(z.neutral?'<span>'+z.neutral+' ohne Wertung</span>':'')+'</span>';
