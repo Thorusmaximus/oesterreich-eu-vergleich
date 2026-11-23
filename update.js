@@ -840,7 +840,7 @@ function berechneInsolvenzen() {
   // Jahresdaten, die älter als das Vorjahr sind: Hinweis, dass Eurostat noch nichts Neueres hat (wird beim nächsten Lauf automatisch ersetzt)
   const jetzt = new Date().getFullYear();
   for (const r of result) { const jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : null;
-    if (r.takt === "jahr" && jahr && jahr < jetzt - 1 && r.id !== "terror") r.datenHinweis = `Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: ${jahr}). Sobald sie vorliegen, ersetzt die Seite sie automatisch.`; }
+    if (r.takt === "jahr" && jahr && jahr < jetzt - 1 && r.id !== "terror") r.datenHinweis = `Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: ${jahr}).`; }
   // Österreich-Nachtrag (von Hand) für Indikatoren, bei denen Eurostat noch nichts Neueres hat
   try { const nt = JSON.parse(fs.readFileSync("at-nachtrag.json", "utf8"));
     for (const r of result) { const e = nt.eintraege[r.id], jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : 0;
