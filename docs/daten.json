@@ -3834,7 +3834,7 @@
    "trendNeutral": true,
    "zusatz": null,
    "takt": "quartal",
-   "einheit": "% des BIP: Steuern und Sozialbeiträge",
+   "einheit": "% des BIP: Steuern und Sozialbeiträge (Quartalswerte: Summe der letzten 4 Quartale, ohne EU-Steuern)",
    "rangText": "Rang 1 = niedrigste Steuer- und Abgabenquote",
    "periode": "2026-Q2",
    "vorherPeriode": "2025-Q2",
