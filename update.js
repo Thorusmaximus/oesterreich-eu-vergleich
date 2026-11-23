@@ -249,13 +249,13 @@ const INDICATORS = [
     hinweis: "Zählweise und Insolvenzrecht unterscheiden sich je Land, deshalb vergleicht dieser Index nur die Entwicklung gegenüber dem jeweils eigenen Land im Jahr 2021. 2021 war wegen Corona-Hilfen und Aussetzungen ein ungewöhnlich insolvenzarmes Jahr, der Anstieg danach ist daher teils ein Aufholeffekt. Nicht alle EU-Länder melden.",
     typ: "niedrig", umstritten: true, schwelle: 5, mock: { base: 110, step: 6 } }
   ,{ id: "pensionsalter", name: "Tatsächliches Pensionsantrittsalter", takt: "jahr", dataset: "lfsi_exi_a",
-    filter: "sex=T", alternativen: [ { dataset: "lfsi_exi_a", filter: "sex=T&indic_em=AVG_EXIT_AGE" }, { dataset: "lfsi_exi_a", filter: "sex=T&indic_em=EXIT_AGE" }, { dataset: "lfsi_exi_a", filter: "sex=T&indic_em=AGE_EXIT" } ],
+    filter: "sex=T", alternativen: [ { dataset: "lfsi_dwl_a", filter: "sex=T" } ],
     maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
     einheit: "Durchschnittsalter beim Ausscheiden aus dem Arbeitsmarkt, in Jahren", rangText: "Rang 1 = höchstes durchschnittliches Austrittsalter (ohne Wertung)",
     hinweis: "Ob ein höheres Austrittsalter besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber für den Einzelnen später in Pension zu gehen.",
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, mock: { base: 61, step: 0.4 } }
   ,{ id: "pensionsausgaben", name: "Pensionsausgaben", takt: "jahr", dataset: "spr_exp_pens",
-    filter: "unit=PC_GDP", alternativen: [ { dataset: "spr_exp_pens", filter: "unit=PC_GDP&spscheme=PENS" }, { dataset: "spr_exp_pens", filter: "unit=PC_GDP&spsfunct=TOTAL" }, { dataset: "tps00103", filter: "" } ],
+    filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL", alternativen: [ { dataset: "spr_exp_pens", filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL" } ],
     maxAlter: 36, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte des BIP", minLaender: 20,
     einheit: "Pensionsausgaben in % des BIP", rangText: "Rang 1 = niedrigste Pensionsausgaben (ohne Wertung)",
     hinweis: "Die Ausgaben hängen vom Altersaufbau der Bevölkerung ab und sagen nicht allein, wie großzügig das System ist. Ob hohe Ausgaben gut oder schlecht sind, ist umstritten: Sie bedeuten höhere Pensionen, aber auch eine größere Last für den Staatshaushalt.",
@@ -267,7 +267,7 @@ const INDICATORS = [
     hinweis: "Eine höhere Ersatzquote bedeutet höhere Pensionen im Verhältnis zum früheren Einkommen, kostet das System aber mehr. Die Wertung ist deshalb umstritten.",
     typ: "hoch", umstritten: true, schwelle: 1, mock: { base: 55, step: 3 } }
   ,{ id: "altersarmut", name: "Armutsgefährdung ab 65", takt: "jahr", dataset: "ilc_li02",
-    filter: "age=Y_GE65&sex=T&unit=PC&indic_il=LI_R_MD60", alternativen: [ { dataset: "ilc_li02", filter: "age=Y_GE65&sex=T&unit=PC" }, { dataset: "ilc_li02", filter: "age=Y_GE65&sex=T" } ],
+    filter: "statinfo=MED_EI&age=Y_GE65&sex=T&unit=PC&rskpovth=B_60", alternativen: [ { dataset: "ilc_li02", filter: "statinfo=MEAN_EI&age=Y_GE65&sex=T&unit=PC&rskpovth=B_60" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil der Menschen ab 65 mit weniger als 60 % des mittleren Einkommens", rangText: "Rang 1 = niedrigste Armutsgefährdung ab 65",
     hinweis: "Die Armutsgefährdungsschwelle liegt bei 60 % des mittleren Einkommens im jeweiligen Land. Das misst die Ungleichheit im Land, nicht den absoluten Lebensstandard.",
