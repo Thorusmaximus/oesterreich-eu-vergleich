@@ -9833,6 +9833,14 @@
    "gruppe": "Preise und Kosten"
   },
   {
+   "id": "sicherheitsgefuehl",
+   "name": "Wahrgenommene Kriminalität im Wohnumfeld",
+   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"INCGRP\\\" is not defined\"}]}",
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie viele Menschen in einer Befragung (EU-SILC) angeben, dass es in ihrer Wohngegend Kriminalität, Gewalt oder Vandalismus gibt. Es ist ein subjektives Empfinden und sagt nichts darüber, wie viele Straftaten tatsächlich geschehen.",
+   "gruppe": "Sicherheit"
+  },
+  {
    "id": "toetung",
    "name": "Tötungsdelikte",
    "pfeilModus": "wert",
