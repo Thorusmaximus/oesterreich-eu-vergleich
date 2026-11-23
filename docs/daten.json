@@ -6412,7 +6412,347 @@
   {
    "id": "einkommen",
    "name": "Medianeinkommen",
-   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"INDIC_IL\\\" is not defined\"}]}",
+   "pfeilModus": "wert",
+   "typ": "hoch",
+   "dez": 1,
+   "suffix": " €",
+   "diffEinheit": "Euro",
+   "hinweis": null,
+   "umstritten": false,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Euro pro Jahr: Median des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
+   "rangText": "Rang 1 = höchstes Medianeinkommen",
+   "periode": "2025",
+   "vorherPeriode": "2024",
+   "anzahlLaender": 27,
+   "alter": 11,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 36546,
+    "rang": 2,
+    "wertVorher": 33210,
+    "rangVorher": 3,
+    "schnitt": 36546,
+    "schnittVorher": 33210,
+    "veraenderung": 3336,
+    "richtung": "steigend",
+    "urteil": "besser"
+   },
+   "eu": 22939,
+   "beste": {
+    "code": "LU",
+    "name": "Luxemburg",
+    "value": 50046,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "schlechter"
+   },
+   "schlechteste": {
+    "code": "RO",
+    "name": "Rumänien",
+    "value": 8187,
+    "rank": 27,
+    "richtung": "steigend",
+    "urteil": "besser"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021",
+     "rang": 5,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 5,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2025",
+     "rang": 2,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2024",
+     "rang": 3,
+     "n": 27,
+     "regierung": true
+    }
+   ],
+   "seitStart": {
+    "t": "2024",
+    "wert": 33210,
+    "rang": 3,
+    "n": 27,
+    "schnitt": 33210,
+    "veraenderung": 3336,
+    "richtung": "steigend",
+    "urteil": "besser"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 50046,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 36546,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 36192,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 35138,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 34466,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 31299,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 29740,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 28891,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 28574,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 26459,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 22066,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 22062,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 22034,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 20416,
+     "rank": 14,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 20367,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 17146,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 15199,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 15057,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 14465,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 14394,
+     "rank": 20,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 13983,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 13982,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 12990,
+     "rank": 23,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 11700,
+     "rank": 24,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 8862,
+     "rank": 25,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 8792,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 8187,
+     "rank": 27,
+     "richtung": "steigend",
+     "urteil": "besser"
+    }
+   ],
+   "schweiz": {
+    "wert": 51926,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2021",
+     "at": 27428,
+     "eu": 18381
+    },
+    {
+     "t": "2022",
+     "at": 27844,
+     "eu": 19092
+    },
+    {
+     "t": "2023",
+     "at": 31443,
+     "eu": 20290
+    },
+    {
+     "t": "2024",
+     "at": 33210,
+     "eu": 21582
+    },
+    {
+     "t": "2025",
+     "at": 36546,
+     "eu": 22939
+    }
+   ],
    "geaendert": "2026-11-23",
    "erklaerung": "Die Hälfte der Menschen im Land hat weniger, die andere Hälfte mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Sozialleistungen, je Person (bei Haushalten nach Größe gewichtet). Es ist kein reiner Lohn: Pensionen und Sozialleistungen sind enthalten. Die Erhebung (EU-SILC) fragt nach dem Einkommen des Vorjahres."
   },
