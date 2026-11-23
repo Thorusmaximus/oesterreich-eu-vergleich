@@ -112,4 +112,4 @@ svg{width:100%;height:auto;display:block}
   .fbox.offen{display:block}
 }
 
-.teil{color:var(--ink) !important;font-weight:800 !important}
+.teil{color:var(--ink) !important;font-weight:900 !important;font-size:.5em !important}
