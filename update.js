@@ -72,7 +72,7 @@ const INDICATORS = [
     alternativen: [ // falls Eurostat die Codes anders benennt, werden diese der Reihe nach probiert
       { dataset: "gov_10a_taxag", filter: "unit=PC_GDP&sector=S13&na_item=D2_D5_D61_D91_D995" },
       { dataset: "gov_10a_taxag", filter: "unit=PC_GDP&sector=S13_S212&na_item=D2_D5_D61_D91_D995_XD995" } ],
-    vorab: { dataset: "gov_10q_ggnfa", takt: "quartal", rueckblick: 4, maxAlter: 8, plausibel: [25, 60], basis: "unit=PC_GDP", sektoren: ["S13"], // Quartalsdaten (Vorjahresquartal als Vergleich, wegen Saisoneffekten)
+    vorab: { dataset: "gov_10q_ggnfa", takt: "quartal", rueckblick: 4, maxAlter: 8, plausibel: [25, 60], basis: "unit=PC_GDP&s_adj=NSA", sektoren: ["S13"], // Quartalsdaten (Vorjahresquartal als Vergleich, wegen Saisoneffekten)
       passt: c => /D2/.test(c) && /D5/.test(c) && /D61/.test(c) },
     entdecke: { basis: "unit=PC_GDP", sektoren: ["S13_S212", "S13"], // Notlösung: Codes bei Eurostat nachschlagen (Summe aus Steuern D2, D5 und Sozialbeiträgen D61)
       passt: c => /D2/.test(c) && /D5/.test(c) && /D61/.test(c) } ,
