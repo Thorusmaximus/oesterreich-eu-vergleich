@@ -80,7 +80,7 @@ const INDICATORS = [
     rangText: "Rang 1 = höchste Geburtenrate (eine höhere Geburtenrate gilt hier als besser)",
     typ: "hoch", schwelle: 0.03, zusatzDatei: "zusatz-geburten.json", mock: { base: 1.1, step: 0.05 } },
   { id: "staatsquote", name: "Staatsquote", takt: "jahr", dataset: "gov_10a_exp",
-    filter: "unit=PC_GDP&sector=S13&cofog99=TOTAL&na_item=TE", // Gesamtausgaben des Staates in % des BIP
+    filter: "unit=PC_GDP&sector=S13&na_item=TE", // Gesamtausgaben des Staates in % des BIP (gov_10a_main ist aktueller als gov_10a_exp)
     einheit: "% des BIP: gesamte Staatsausgaben", diffEinheit: "Prozentpunkte",
     rangText: "Rang 1 = niedrigste Staatsquote",
     trendNeutral: true, // Trend wird ohne Wertung als höher/niedriger gezeigt, das Ranking bleibt gewertet
@@ -111,8 +111,9 @@ const INDICATORS = [
       { dataset: "lfsi_emp_a", filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP" } ],
     einheit: "% der 20- bis 64-Jährigen, saisonbereinigt", rangText: "Rang 1 = höchste Beschäftigungsquote",
     maxAlter: 12, typ: "hoch", schwelle: 0.3, mock: { base: 66, step: 1.2 } }
-  ,{ id: "bevoelkerung", name: "Bevölkerungswachstum", takt: "jahr", dataset: "demo_pjan",
-    filter: "age=TOTAL&sex=T&unit=NR", // Einwohner am 1. Jänner; daraus wird das Wachstum zum Vorjahr berechnet
+  ,{ id: "bevoelkerung", name: "Bevölkerungswachstum", takt: "jahr", dataset: "demo_gind",
+    filter: "indic_de=JAN", // Einwohner am 1. Jänner (demo_gind ist aktueller als demo_pjan); daraus wird das Wachstum zum Vorjahr berechnet
+    alternativen: [ { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ],
     wachstum: true, dez: 2, suffix: " %", diffEinheit: "Prozentpunkte",
     einheit: "% Veränderung der Einwohnerzahl (1. Jänner gegenüber 1. Jänner des Vorjahres)", rangText: "Rang 1 = stärkstes Bevölkerungswachstum, ohne Wertung",
     maxAlter: 26, typ: "neutral", schwelle: 0.15, mock: { base: 5000000, step: 1900000 } }
@@ -542,27 +543,6 @@ function berechneInsolvenzen() {
     r.geaendert = p && fingerabdruck(p) === fingerabdruck(r) ? (p.geaendert || prevDatum) : heute;
   }
   for (const r of result) if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id];
-  if (!TEST) { // TEMPORÄR: Suche nach aktuelleren Jahreswerten
-    const P = [
-      ["Staatsquote gov_10a_exp", "gov_10a_exp", "unit=PC_GDP&sector=S13&cofog99=TOTAL&na_item=TE", "2022"],
-      ["Staatsquote gov_10a_main", "gov_10a_main", "unit=PC_GDP&sector=S13&na_item=TE", "2022"],
-      ["Geburtenrate demo_find", "demo_find", "indic_de=TOTFERRT", "2022"],
-      ["Geburtenrate demo_gind", "demo_gind", "indic_de=GFERRT", "2022"],
-      ["Bevölkerung demo_pjan", "demo_pjan", "age=TOTAL&sex=T&unit=NR", "2022"],
-      ["Bevölkerung demo_gind JAN", "demo_gind", "indic_de=JAN", "2022"],
-      ["Lebenshaltung prc_ppp_ind", "prc_ppp_ind", "na_item=PLI_EU27_2020&ppp_cat=A01", "2022"],
-      ["Wachstum pro Kopf nama_10_pc", "nama_10_pc", "unit=CLV_PCH_PRE_HAB&na_item=B1GQ", "2022"],
-      ["Budgetsaldo gov_10dd_edpt1", "gov_10dd_edpt1", "unit=PC_GDP&sector=S13&na_item=B9", "2022"],
-      ["Schulden gov_10q_ggdebt", "gov_10q_ggdebt", "unit=PC_GDP&sector=S13&na_item=GD", "2025-Q1"] ];
-    for (const [n, ds, f, seit] of P) {
-      try {
-        const rs = await fetch(`${BASE}${ds}?format=JSON&lang=EN&${f}&sinceTimePeriod=${seit}`);
-        if (!rs.ok) { console.error(`   PROBE ${n}: HTTP ${rs.status}`); continue; }
-        const d = parse(await rs.json()), ts = [...new Set(Object.values(d).flatMap(o => Object.keys(o)))].sort().slice(-3);
-        console.error(`   PROBE ${n}: ` + ts.map(t => `${t}=${Object.keys(NAMES).filter(c => d[c]?.[t] !== undefined).length} Länder, AT ${d.AT?.[t] ?? "-"}`).join(" | "));
-      } catch (e) { console.error(`   PROBE ${n}: ${e.message.slice(0, 120)}`); }
-    }
-  }
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, indikatoren: result };
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync("docs/daten.json", JSON.stringify(out, null, 1));
