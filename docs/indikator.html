@@ -129,7 +129,7 @@ function detailAnteile(i){
 }
 function detailInsolvenz(i){
   var a = i.oesterreich, hj = i.halbjahr, h = banner();
-  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
+  h += '<div class="card"><h2>'+i.name+'</h2>'+'<div class="rank">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
      + '<p class="note">'+i.einheit+'. Nur Österreich, kein EU-Vergleich. Stand: '+periode(i.periode)+'.</p>'
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
@@ -144,8 +144,9 @@ function detailInsolvenz(i){
      + (hj ? '<div class="v '+urteilCls(hj.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(hj.richtung)+'</span> 1. Halbjahr '+hj.jahr+': '+trendWort(hj.urteil)+' <span class="k">('+prozent(hj.veraenderungProzent)+', '+zahl(hj.wertVorher)+' auf '+zahl(hj.wert)+' im Vergleich zum 1. Halbjahr '+hj.vorjahr+')</span></div>' : '')
      + '<p class="note">Wertung '+infoIcon('Weniger Insolvenzen gelten als besser. Eine Veränderung unter 3 % wird als unverändert gewertet. Pfeil = Richtung des Wertes (↑ steigt, ↓ sinkt), grün = besser, rot = schlechter.')+'</p></div>';
   h += '<div class="card"><h2>Insolvenzen der letzten '+i.anzahlJahre+' Jahre</h2><div class="chartwrap" id="iwrap">'+insolvenzChart(i)+'<div class="tip r" id="itip" style="display:none"></div></div>'
-     + '<p class="note"><span style="color:var(--at)">■</span> eröffnete Verfahren &nbsp; <span style="color:var(--bar)">■</span> nicht eröffnet (mangels Vermögen). Mit der Maus oder dem Finger über einen Balken fahren zeigt die Werte.</p>'
+     + '<p class="note"><span style="color:var(--at)">■</span> eröffnete Verfahren &nbsp; <span style="color:var(--bar)">■</span> nicht eröffnet (mangels Vermögen)'+infoIcon('Eröffnet: Das Gericht eröffnet ein Insolvenzverfahren, weil das Vermögen des Unternehmens mindestens die Verfahrenskosten deckt. Es wird dann saniert oder verwertet. Nicht eröffnet (mangels Vermögen): Der Antrag wird abgewiesen, weil nicht einmal die Verfahrenskosten gedeckt wären. Solche Unternehmen werden meist aufgelöst und gelten ebenfalls als insolvent.')+'. Mit der Maus oder dem Finger über einen Balken fahren zeigt die Werte.</p>'
      + '<p class="note">Krisen '+infoIcon('Die Krisen sind markiert. In den Corona-Jahren 2020 und 2021 lagen die Zahlen wegen staatlicher Hilfen und ausgesetzter Antragspflichten deutlich niedriger. Dass sie danach wieder stiegen, ist teilweise ein Aufholeffekt. Die hohen Verbindlichkeiten 2023 und 2024 gehen vor allem auf einzelne Großinsolvenzen zurück.')+'</p></div>';
+  h += '<div class="card"><h2>Passiva der insolventen Unternehmen'+infoIcon('Passiva sind die Schulden, die insolvente Unternehmen zum Zeitpunkt der Insolvenz hatten, also offene Rechnungen, Kredite und andere Verbindlichkeiten. Hier die Summe pro Jahr in Milliarden Euro. Einzelne Großinsolvenzen können den Wert stark nach oben treiben, auch wenn es insgesamt nicht mehr Fälle gibt.')+'</h2>'+passivaChart(i)+'<p class="note">Milliarden Euro pro Jahr. Mit dem Finger oder der Maus über einen Balken fahren zeigt den Wert.</p></div>';
   h += '<div class="card"><details><summary><strong>Alle Zahlen als Tabelle</strong></summary><table class="rt"><thead><tr><th>Jahr</th><th>Gesamt</th><th>Eröffnet</th><th>Nicht eröffnet</th><th>Passiva (Mrd. €)</th><th>Dienstnehmer</th></tr></thead><tbody>'
      + i.jahre.slice().reverse().map(function(y){ return '<tr><td>'+y.jahr+'</td><td>'+zahl(y.gesamt)+'</td><td>'+zahl(y.eroeffnet)+'</td><td>'+zahl(y.nichtEroeffnet)+'</td><td>'+y.passivaMrd.toLocaleString("de-AT",{minimumFractionDigits:1})+'</td><td>'+zahl(y.dienstnehmer)+'</td></tr>'; }).join('')
      + '</tbody></table></details></div>';
@@ -153,6 +154,17 @@ function detailInsolvenz(i){
   h += fussnote();
   app.innerHTML = h;
   bindInsolvenz(i);
+}
+function passivaChart(i){
+  var J=i.jahre, W=640, H=210, pl=44, pr=10, pt=14, pb=24, mx=Math.max.apply(null,J.map(function(y){return y.passivaMrd;})), top=Math.ceil(mx/2)*2||2;
+  var bw=(W-pl-pr)/J.length, Y=function(v){return pt+(H-pt-pb)*(1-v/top);}, o='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Passiva pro Jahr in Milliarden Euro" style="width:100%;height:auto">';
+  for(var v=0; v<=top; v+=2){ o+='<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+Y(v).toFixed(1)+'" y2="'+Y(v).toFixed(1)+'" stroke="var(--line)"/><text x="'+(pl-6)+'" y="'+(Y(v)+4).toFixed(1)+'" text-anchor="end" font-size="11" fill="var(--mut)">'+v+'</text>'; }
+  J.forEach(function(y,k){
+    var x=pl+k*bw+bw*0.12, w=bw*0.76, he=(H-pt-pb)*y.passivaMrd/top;
+    o+='<g><title>'+y.jahr+': '+y.passivaMrd.toLocaleString("de-AT",{minimumFractionDigits:1})+' Mrd. €</title><rect x="'+x.toFixed(1)+'" y="'+(Y(0)-he).toFixed(1)+'" width="'+w.toFixed(1)+'" height="'+he.toFixed(1)+'" fill="var(--at)"/></g>';
+    if(k%2===0) o+='<text x="'+(x+w/2).toFixed(1)+'" y="'+(H-7)+'" text-anchor="middle" font-size="10" fill="var(--mut)">'+y.jahr+'</text>';
+  });
+  return o+'</svg>';
 }
 function insolvenzChart(i){
   var J = i.jahre, W=640, H=230, pl=44, pr=10, pt=26, pb=24, mx = Math.max.apply(null, J.map(function(y){return y.gesamt;})), top = Math.ceil(mx/1000)*1000;
