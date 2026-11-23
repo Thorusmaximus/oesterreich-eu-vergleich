@@ -76,10 +76,17 @@ function neuesteLeiste(){
     return {i:i, g:i.geaendert||D.aktualisiert||"", e:periodeEnde(i), p:i.art==="rating"?datum(i.stand):periode(i.periode),
       ar:i.art==="nurAT"?pfeil(i.oesterreich.richtung):pfeilFuer(i,i.oesterreich.urteil,i.oesterreich.richtung)};
   }).sort(function(x,y){ return x.g<y.g ? 1 : x.g>y.g ? -1 : y.e-x.e; }); // zuletzt aktualisiert links, bei gleichem Tag der neuere Datenstand zuerst
-  el.innerHTML='<div class="neu" role="list" aria-label="Zuletzt aktualisiert">'+liste.map(function(x){
+  var chips=liste.map(function(x){
     var a=x.i.oesterreich;
     return '<a class="chip '+urteilCls(a.urteil)+'" role="listitem" href="indikator.html?id='+encodeURIComponent(x.i.id)+'" title="Neue Zahl am '+datum(x.g)+', Datenstand '+x.p+'"><span class="p">'+datum(x.g)+'</span> <b>'+x.i.name+'</b> <span class="ar" aria-hidden="true">'+x.ar+'</span> '+trendWort(a.urteil)+' <span class="p">('+x.p+')</span></a>';
-  }).join('')+'</div>';
+  }).join('');
+  // Laufband: Inhalt doppelt, damit die Schleife nahtlos läuft; Geschwindigkeit nach Länge
+  el.innerHTML='<div class="neu" role="list" aria-label="Zuletzt aktualisiert"><div class="track">'+chips+'<span class="dup" aria-hidden="true">'+chips.replace(/<a /g,'<a tabindex="-1" ')+'</span></div></div>';
+  var tr=el.querySelector(".track");
+  if(tr && !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)){
+    tr.style.animationDuration=Math.max(20, Math.round(tr.scrollWidth/2/45))+"s"; // ca. 45 Pixel pro Sekunde
+    tr.classList.add("lauf");
+  } else { el.firstChild.style.overflowX="auto"; }
 }
 </script>
 </body>
