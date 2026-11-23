@@ -227,7 +227,7 @@ const INDICATORS = [
     typ: "niedrig", schwelle: 2, mock: { base: 135, step: 4 } }
   ,{ id: "sicherheitsgefuehl", name: "Wahrgenommene Kriminalität im Wohnumfeld", takt: "jahr", dataset: "sdg_16_20",
     filter: "hhcomp=TOTAL&rskpovth=TOTAL&unit=PC", alternativen: [ { dataset: "sdg_16_20", filter: "hhcomp=TOTAL&rskpovth=TOTAL&unit=PC" } ],
-    maxAlter: 48, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    maxAlter: 48, rueckblick: 3, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil der Bevölkerung, der Kriminalität, Gewalt oder Vandalismus in der Wohngegend meldet (Befragung EU-SILC)", rangText: "Rang 1 = geringster Anteil, der Kriminalität in der Gegend meldet",
     hinweis: "Subjektives Empfinden aus einer Haushaltsbefragung, kein Maß für tatsächliche Straftaten. Das Sicherheitsgefühl hängt auch von Medien, Stadtanteil und Erwartungen ab.",
     typ: "niedrig", umstritten: true, schwelle: 1, mock: { base: 12, step: 1 } }
