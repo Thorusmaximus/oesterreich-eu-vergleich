@@ -5,6 +5,21 @@
 const fs = require("fs");
 const TEST = process.argv.includes("--test");
 const BASE = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/";
+
+// Eurostat liefert gelegentlich kurzzeitig eine HTML-Fehlerseite statt JSON: bis zu 4 Versuche mit Wartezeit
+const _fetch = globalThis.fetch;
+globalThis.fetch = async (url, opt) => {
+  const eurostat = String(url).includes("ec.europa.eu/eurostat");
+  for (let n = 1; ; n++) {
+    try {
+      const res = await _fetch(url, opt);
+      const ct = res.headers.get("content-type") || "";
+      if (!eurostat || n >= 4 || (res.status < 500 && !/text\/html/i.test(ct))) return res;
+      console.error(`   (Eurostat antwortet mit ${res.status} ${ct.split(";")[0]}, Versuch ${n}/4, warte ...)`);
+    } catch (e) { if (!eurostat || n >= 4) throw e; console.error(`   (Netzwerkfehler: ${e.message}, Versuch ${n}/4, warte ...)`); }
+    await new Promise(r => setTimeout(r, 4000 * n));
+  }
+};
 const NAMES = {AT:"Österreich",BE:"Belgien",BG:"Bulgarien",CY:"Zypern",CZ:"Tschechien",DE:"Deutschland",
   DK:"Dänemark",EE:"Estland",EL:"Griechenland",ES:"Spanien",FI:"Finnland",FR:"Frankreich",HR:"Kroatien",
   HU:"Ungarn",IE:"Irland",IT:"Italien",LT:"Litauen",LU:"Luxemburg",LV:"Lettland",MT:"Malta",NL:"Niederlande",
@@ -595,6 +610,7 @@ function berechneInsolvenzen() {
     r.geaendert = p && fingerabdruck(p) === fingerabdruck(r) ? (p.geaendert || prevDatum) : heute;
   }
   for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
+  if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync("docs/daten.json", JSON.stringify(out, null, 1));
