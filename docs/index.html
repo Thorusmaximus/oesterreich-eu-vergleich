@@ -31,6 +31,15 @@ else {
       k += '<div class="card"><div class="t">'+i.name+'</div><p class="warn">Keine Daten verfügbar.</p></div>'; return k;
     }
     var a = i.oesterreich;
+    if(i.art==="anteile"){
+      k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
+        + '<div class="t"'+(i.erklaerung?' title="'+i.erklaerung.replace(/"/g,"&quot;")+'"':'')+'>'+i.name+'</div>'
+        + '<div class="r">'+i.anteile.slice(0,3).map(function(x){return x.name+' '+x.wert.toLocaleString("de-AT")+' %';}).join('<br>')+'</div>'
+        + '<div class="note">Nur Österreich, kein EU-Vergleich, ohne Wertung</div>'
+        + '<div class="note">Stand: '+i.periode+'</div>'
+        + '<div class="more">Details →</div></a>';
+      return k;
+    }
     if(i.art==="nurAT"){
       var hj = i.halbjahr;
       k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'

@@ -22,7 +22,7 @@ var CS = null;
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
 else if(!ind){ app.innerHTML = '<p>Diesen Indikator gibt es nicht. Zurück zum <a href="index.html">Überblick</a>.</p>'; }
 else if(!ind.oesterreich){ app.innerHTML = '<h1>'+ind.name+'</h1><p class="warn">Keine Daten verfügbar: '+(ind.fehler||"")+'</p>'; }
-else { document.title = ind.name + " | Regierungstracker Österreich"; if(ind.art==="rating") detailRating(ind); else if(ind.art==="nurAT") detailInsolvenz(ind); else detail(ind); }
+else { document.title = ind.name + " | Regierungstracker Österreich"; if(ind.art==="rating") detailRating(ind); else if(ind.art==="nurAT") detailInsolvenz(ind); else if(ind.art==="anteile") detailAnteile(ind); else detail(ind); }
 
 function erkl(i){ return i.erklaerung ? '<p class="erkl">'+i.erklaerung+'</p>' : ''; }
 function detail(i){
@@ -115,6 +115,14 @@ function f2(x){ return x.toLocaleString("de-AT",{minimumFractionDigits:2,maximum
 function mark(x, ag){ return x.unsicher && x.unsicher.indexOf(ag)>=0 ? '<span title="Quellen widersprachen sich oder nicht bestätigt">†</span>' : ""; }
 
 // Kreditrating: Tabelle statt Balken, da keine Zeitreihe
+function detailAnteile(i){
+  var h = banner(), z=function(v){return v.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1});};
+  h += '<div class="card"><h2>'+i.name+'</h2>'+erkl(i)+'<p class="note">'+i.einheit+'. Nur Österreich, kein EU-Vergleich, ohne Wertung. Stand: '+i.periode+'.</p>'
+     + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
+     + i.anteile.map(function(x){ return '<div class="v">'+x.name+': '+z(x.wert)+' %</div><div style="height:8px;background:var(--line);border-radius:4px;margin:2px 0 10px"><div style="height:8px;width:'+Math.min(100,x.wert)+'%;background:var(--at);border-radius:4px"></div></div>'; }).join('')
+     + '<p class="note">'+i.hinweisDaten+' Quelle: <a href="'+i.quelleUrl+'" target="_blank" rel="noopener">'+i.quelle+'</a>. Stand der Eingabe: '+datum(i.stand)+'.</p></div>';
+  app.innerHTML = h;
+}
 function detailInsolvenz(i){
   var a = i.oesterreich, hj = i.halbjahr, h = banner();
   h += '<div class="card"><h2>'+i.name+'</h2>'+erkl(i)+'<div class="rank">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'

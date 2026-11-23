@@ -47,7 +47,7 @@ const GRUPPE_VON = {
   wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, insolvenzenEU: 0, einkommen: 0, durchschnittseinkommen: 0, kaufkraft: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, terror: 4, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
+  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab.",
@@ -91,6 +91,8 @@ const ERKLAERUNG = {
   lebenserwartung: "Wie viele Jahre ein heute geborenes Kind nach den aktuellen Sterberaten durchschnittlich leben würde. Beide Geschlechter zusammen.",
   gesundeJahre: "Wie viele Jahre ein neugeborenes Kind durchschnittlich ohne gesundheitliche Einschränkungen im Alltag leben wird (Healthy Life Years, nach Selbstauskunft in der EU-Befragung). Das sind meist deutlich weniger als die Lebenserwartung.",
   abhaengigkeit: "Wie viele Menschen ab 65 auf 100 Menschen im Alter von 15 bis 64 kommen. Je höher der Wert, desto mehr ältere Menschen müssen von den Jüngeren mitgetragen werden, etwa über das Pensionssystem.",
+  aktionaersquote: "Wie viele Haushalte börsennotierte Aktien besitzen (direkt gehalten, ohne Fonds), laut der Haushaltsbefragung der Europäischen Zentralbank und der Notenbanken. Die Erhebung gibt es nur alle paar Jahre.",
+  religion: "Wie sich die Bevölkerung Österreichs auf Religionen und Konfessionen verteilt, laut der letzten Erhebung von Statistik Austria (2021). Es ist eine reine Zahlenübersicht ohne Wertung.",
   insolvenzenEU: "Index der gemeldeten Unternehmensinsolvenzen, 2021 = 100. Er zeigt, wie stark sich die Zahl der Insolvenzen seit 2021 verändert hat, nicht wie viele es gibt. Absolute Zahlen sind zwischen den Ländern wegen unterschiedlicher Insolvenzrechte nicht vergleichbar.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -747,12 +749,21 @@ const HAND_IND = {
     einheit: "Gesetzliches Regelpensionsalter der Männer in Jahren (Stand 2026)", rangText: "Rang 1 = höchstes Pensionsalter (ohne Wertung)",
     hinweis: "Ob ein höheres Pensionsalter besser ist, ist umstritten: Es entlastet die Pensionskassen, bedeutet aber später in Pension zu gehen. In Österreich gilt für Frauen derzeit noch ein niedrigeres Alter, das bis 2033 schrittweise auf 65 steigt.",
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, maxAlter: 26, minLaender: 20 },
+  aktionaersquote: { id: "aktionaersquote", name: "Aktionärsquote", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " %", diffEinheit: "Prozentpunkte",
+    einheit: "Anteil der Haushalte mit börsennotierten Aktien in % (Befragung 2021)", rangText: "Rang 1 = höchster Anteil (ohne Wertung, nur 22 EU-Länder)",
+    typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.5, maxAlter: 80, minLaender: 18 },
   marsh: { id: "marsh", name: "Finanzierbarkeit des Pensionssystems", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " Punkte", diffEinheit: "Punkte",
     einheit: "Teilindex Nachhaltigkeit des Marsh CFA Institute Global Pension Index (0 bis 100 Punkte)", rangText: "Rang 1 = beste Nachhaltigkeitsbewertung (nur 14 EU-Länder im Index)",
     hinweis: "Einschätzung einer privaten Studie, keine amtliche Statistik. Berücksichtigt unter anderem Pensionsvermögen, Altersstruktur, Staatsschulden und Erwerbsquote Älterer.",
     typ: "hoch", umstritten: true, schwelle: 1, maxAlter: 26, minLaender: 12 }
 };
 
+function berechneReligion() {
+  const raw = JSON.parse(fs.readFileSync("handdaten.json", "utf8")), d = raw.religion;
+  return { id: "religion", name: "Religionszugehörigkeit", art: "anteile", takt: "jahr", typ: "neutral", trendNeutral: true, ohneTrend: true, umstritten: true,
+    einheit: "Anteil der Bevölkerung in %, Österreich 2021", periode: String(d.jahr), stand: raw.stand, quelle: d.quelle, quelleUrl: d.url, hinweisDaten: d.hinweis,
+    oesterreich: { wert: d.bekenntnis, rang: null, urteil: null, richtung: null }, anteile: d.anteile, bekenntnis: d.bekenntnis };
+}
 // ===== Terroranschläge: von Hand gepflegt (terror.json, Quelle Europol TE-SAT), pro 10 Mio. Einwohner =====
 function berechneTerror(result) {
   const raw = JSON.parse(fs.readFileSync("terror.json", "utf8")), jahre = Object.keys(raw.jahre).sort();
@@ -914,6 +925,8 @@ function berechneInsolvenzen() {
     fehler++; console.error(`FEHLER Kreditrating: ${e.message}`);
     result.push(prev.rating ? { ...prev.rating, veraltet: true, fehler: e.message } : { id: "rating", name: "Kreditrating", fehler: e.message });
   }
+  try { const r = berechneReligion(); result.push(r); console.log(`OK  Religionszugehörigkeit: ${r.periode}, ${r.bekenntnis} % mit Bekenntnis`); }
+  catch (e) { fehler++; console.error(`FEHLER Religion: ${e.message}`); result.push(prev.religion ? { ...prev.religion, veraltet: true, fehler: e.message } : { id: "religion", name: "Religionszugehörigkeit", fehler: e.message }); }
   for (const id of Object.keys(HAND_IND)) {
     try { const r = berechneHand(id, HAND_IND[id]); result.push(r); console.log(`OK  ${r.name}: ${r.periode}, Österreich ${r.oesterreich.wert}, Platz ${r.oesterreich.rang}/${r.anzahlLaender}`); }
     catch (e) { fehler++; console.error(`FEHLER ${HAND_IND[id].name}: ${e.message}`); result.push(prev[id] ? { ...prev[id], veraltet: true, fehler: e.message } : { id, name: HAND_IND[id].name, fehler: e.message }); }
@@ -944,7 +957,7 @@ function berechneInsolvenzen() {
   // Jahresdaten, die älter als das Vorjahr sind: Hinweis, dass Eurostat noch nichts Neueres hat (wird beim nächsten Lauf automatisch ersetzt)
   const jetzt = new Date().getFullYear();
   for (const r of result) { const jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : null;
-    if (r.takt === "jahr" && jahr && jahr < jetzt - 1 && r.id !== "terror") r.datenHinweis = `Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: ${jahr}).`; }
+    if (r.takt === "jahr" && jahr && jahr < jetzt - 1 && r.id !== "terror" && !r.ohneTrend && !r.art) r.datenHinweis = `Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: ${jahr}).`; }
   // Verläufe beginnen beim ersten vorhandenen Wert (keine leere Vorlaufstrecke im Diagramm)
   for (const r of result) {
     if (Array.isArray(r.rangVerlauf)) { let k = 0; while (k < r.rangVerlauf.length - 2 && r.rangVerlauf[k].rang == null) k++; r.rangVerlauf = r.rangVerlauf.slice(k); }
@@ -961,5 +974,5 @@ function berechneInsolvenzen() {
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync("docs/daten.json", JSON.stringify(out, null, 1));
   fs.writeFileSync("docs/daten.js", "window.DATEN = " + JSON.stringify(out) + ";\n");
-  if (fehler === INDICATORS.length + 5) process.exit(1);
+  if (fehler === INDICATORS.length + 7) process.exit(1);
 })();
