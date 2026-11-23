@@ -47,10 +47,11 @@ function detail(i){
          + (n.aufklaerung!=null ? '<div class="v">Aufklärungsquote: '+z(n.aufklaerung)+' % <span class="k">(Vorjahr '+z(n.aufklaerungVorjahr)+' %)</span></div>' : '')
          + (n.gesamtAufklaerung ? '<div class="v">Aufklärungsquote aller Straftaten: '+z(n.gesamtAufklaerung.wert)+' % <span class="k">(Vorjahr '+z(n.gesamtAufklaerung.vorjahr)+' %)</span></div>' : '')
          + '<p class="note">Nur Österreich, kein EU-Vergleich. Die Zählweise kann von Eurostat abweichen. Quelle: <a href="'+n.url+'" target="_blank" rel="noopener">'+n.quelle+'</a>. Stand der Eingabe: '+n.stand+'.</p></div>'; })(i.nachtrag) : '')
+     + (i.ohneTrend && i.hinweisDaten ? '<p class="note">'+i.hinweisDaten+' Quelle: <a href="'+i.quelleUrl+'" target="_blank" rel="noopener">'+i.quelle+'</a>. Stand der Eingabe: '+datum(i.stand)+'.</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
      + '<div class="grid">'
      + '<div><div class="k">Österreich</div><div class="v">'+f(a.wert)+SUF+'</div></div>'
-     + '<div><div class="k">EU-Durchschnitt'+(i.euMittelwert?' (ungewichtet)':'')+'</div><div class="v">'+f(i.eu)+SUF+'</div></div>'
+     + (i.eu!=null ? '<div><div class="k">EU-Durchschnitt'+(i.euMittelwert?' (ungewichtet)':'')+'</div><div class="v">'+f(i.eu)+SUF+'</div></div>' : '')
      + '<div><div class="k">'+(i.typ==='neutral'?'Höchster Wert':'Bester Rang')+'</div><div class="v">'+f(i.beste.value)+SUF+'</div><div class="k">'+i.beste.name+'</div></div>'
      + '<div><div class="k">'+(i.typ==='neutral'?'Niedrigster Wert':'Schlechtester Rang')+'</div><div class="v">'+f(i.schlechteste.value)+SUF+'</div><div class="k">'+i.schlechteste.name+'</div></div>'
      + '</div></div>';
@@ -61,7 +62,7 @@ function detail(i){
        + '</div>' + linienChart(z.reihen, jj, cols)
        + '<p class="note">'+z.hinweis+' Quelle: '+z.quelle+'.</p></div>';
   }
-  h += '<div class="card"><h2>'+trendTitel+'</h2>'
+  if(!i.ohneTrend) h += '<div class="card"><h2>'+trendTitel+'</h2>'
      + '<div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+sgn(a.veraenderung)+' '+DIFF+', '+a.richtung+')</span></div>'
      + '<p class="note">'+trendText
      + (rangDiff ? ' Der Rang hat sich seit '+periode(i.vorherPeriode)+' '+rangDiff+'.' : '')+'</p></div>';
@@ -78,7 +79,7 @@ function detail(i){
        + '<p class="note">Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.</p>'
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
-  h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
+  if(i.verlauf && i.verlauf.length>1) h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
   if(i.oesterreich.anzahl!=null){
     h += '<div class="card"><h2>Anschläge in Zahlen</h2><div class="v">Österreich: '+i.oesterreich.anzahl+(i.oesterreich.anzahl===1?' Anschlag':' Anschläge')+' <span class="k">im Jahr '+i.periode+' (Vorjahr: '+i.oesterreich.anzahlVorher+')</span></div>'
        + '<div class="v">EU insgesamt: '+i.euGesamt+' <span class="k">gemeldete Anschläge '+i.periode+'</span></div>'

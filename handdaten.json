@@ -1,0 +1,21 @@
+{
+  "stand": "2026-11-23",
+  "indikatoren": {
+    "pensionsantrittsalter": {
+      "jahr": 2026,
+      "quelle": "Finnish Centre for Pensions (ETK), Retirement Ages (Stand 2026)",
+      "url": "https://www.etk.fi/en/the-pension-system/international-comparison/retirement-ages/",
+      "hinweis": "Gesetzliches Regelpensionsalter für Männer (Stand 2026), Monate als Dezimalzahl. Bei Frauen oder in einzelnen Ländern gelten andere Altersgrenzen, siehe Zusatzangabe. Bulgarien fehlt, weil die Quelle uneindeutig ist. Von Hand gepflegt.",
+      "werte": { "AT":65, "BE":66, "CY":65, "CZ":64.5, "DE":66.33, "DK":67, "EE":65, "EL":67, "ES":66.83, "FI":64.75, "FR":62.75, "HR":65, "HU":65, "IE":66, "IT":67, "LT":65, "LU":65, "LV":65, "MT":64, "NL":67, "PL":65, "PT":66.75, "RO":65, "SE":67, "SI":65, "SK":63.5 },
+      "zus": { "AT":"Frauen 61,5 (steigt bis 2033 auf 65)", "PL":"Frauen 60", "HR":"Frauen 64", "RO":"Frauen 62,5", "DK":"steigt bis 2040 auf 70", "DE":"steigt bis 2031 auf 67", "FR":"steigt bis 2032 auf 64", "CZ":"steigt bis 2056 auf 67" }
+    },
+    "marsh": {
+      "jahr": 2026,
+      "quelle": "Marsh CFA Institute Global Pension Index 2026, Teilindex Nachhaltigkeit",
+      "url": "https://cri.georgetown.edu/wp-content/uploads/2026/10/pdf-2026-marsh-cfa-institute-global-pension-index-main.pdf",
+      "hinweis": "Der Index bewertet nur 14 der 27 EU-Länder (Belgien, Dänemark, Deutschland, Finnland, Frankreich, Irland, Italien, Kroatien, Niederlande, Österreich, Polen, Portugal, Schweden, Spanien). Der Weltrang bezieht sich auf alle 55 untersuchten Systeme. Er misst die langfristige Finanzierbarkeit (Pensionsvermögen, Demografie, Staatsschulden, Erwerbsquote Älterer) und ist eine Einschätzung der Studie, keine amtliche Statistik. Von Hand gepflegt.",
+      "werte": { "AT":23.9, "BE":41.2, "HR":58.3, "DK":84.8, "FI":66.5, "FR":49.3, "DE":47.2, "IE":55.1, "IT":27.0, "NL":82.6, "PL":45.6, "PT":41.5, "ES":33.0, "SE":76.2 },
+      "zus": { "AT":"Weltrang 55 von 55", "BE":"Weltrang 47", "HR":"Weltrang 21", "DK":"Weltrang 1", "FI":"Weltrang 13", "FR":"Weltrang 36", "DE":"Weltrang 41", "IE":"Weltrang 26", "IT":"Weltrang 54", "NL":"Weltrang 3", "PL":"Weltrang 42", "PT":"Weltrang 46", "ES":"Weltrang 50", "SE":"Weltrang 6" }
+    }
+  }
+}

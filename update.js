@@ -47,7 +47,7 @@ const GRUPPE_VON = {
   wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, insolvenzenEU: 0, einkommen: 0, durchschnittseinkommen: 0, kaufkraft: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, terror: 4, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
+  bevoelkerung: 3, geburtenrate: 3, terror: 4, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab.",
@@ -85,6 +85,12 @@ const ERKLAERUNG = {
   ersatzquote: "Wie hoch die Pensionen der 65- bis 74-Jährigen im Vergleich zu den Einkommen der 50- bis 59-Jährigen sind. 60 % heißt: Die Pension beträgt im Schnitt 60 % des früheren Arbeitseinkommens, vor Steuern.",
   altersarmut: "Wie viele Menschen ab 65 weniger als 60 % des mittleren Einkommens im Land zur Verfügung haben und damit nach EU-Definition armutsgefährdet sind. Das ist ein Maß für Ungleichheit im Alter, nicht für absolute Armut.",
   beschaeftigung5564: "Wie viele der 55- bis 64-Jährigen erwerbstätig sind. Ein Wert, der zeigt, wie viele Ältere bis zur Pension im Arbeitsleben bleiben.",
+  pensionsantrittsalter: "Das Alter, ab dem man in Österreich und den anderen EU-Ländern nach dem Gesetz die reguläre Alterspension bekommt, hier für Männer. Wer früher geht, muss meist mit Abschlägen rechnen. Das tatsächliche Antrittsalter liegt oft darunter.",
+  marsh: "Wie gut ein Pensionssystem langfristig finanzierbar ist, laut dem Marsh CFA Institute Global Pension Index (Teilindex Nachhaltigkeit). Berücksichtigt unter anderem Pensionsvermögen, Altersstruktur, Staatsschulden und Erwerbsquote Älterer. Nur 14 der 27 EU-Länder sind im Index enthalten.",
+  durchschnittsalter: "Das Alter, das die Bevölkerung in der Mitte teilt: Die eine Hälfte der Menschen ist jünger, die andere älter (Medianalter, zum 1. Jänner). Ein höherer Wert bedeutet eine ältere Bevölkerung.",
+  lebenserwartung: "Wie viele Jahre ein heute geborenes Kind nach den aktuellen Sterberaten durchschnittlich leben würde. Beide Geschlechter zusammen.",
+  gesundeJahre: "Wie viele Jahre ein neugeborenes Kind durchschnittlich ohne gesundheitliche Einschränkungen im Alltag leben wird (Healthy Life Years, nach Selbstauskunft in der EU-Befragung). Das sind meist deutlich weniger als die Lebenserwartung.",
+  abhaengigkeit: "Wie viele Menschen ab 65 auf 100 Menschen im Alter von 15 bis 64 kommen. Je höher der Wert, desto mehr ältere Menschen müssen von den Jüngeren mitgetragen werden, etwa über das Pensionssystem.",
   insolvenzenEU: "Index der gemeldeten Unternehmensinsolvenzen, 2021 = 100. Er zeigt, wie stark sich die Zahl der Insolvenzen seit 2021 verändert hat, nicht wie viele es gibt. Absolute Zahlen sind zwischen den Ländern wegen unterschiedlicher Insolvenzrechte nicht vergleichbar.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -277,6 +283,29 @@ const INDICATORS = [
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Erwerbstätige 55 bis 64 Jahre in % der Bevölkerung dieser Altersgruppe", rangText: "Rang 1 = höchste Beschäftigungsquote Älterer",
     typ: "hoch", schwelle: 0.5, mock: { base: 55, step: 1.5 } }
+  ,{ id: "durchschnittsalter", name: "Alter der Bevölkerung", takt: "jahr", dataset: "demo_pjanind",
+    filter: "indic_de=MEDAGEPOP", alternativen: [ { dataset: "demo_pjanind", filter: "indic_de=MEDAGEPOP" }, { dataset: "demo_pjanind", filter: "indic_de=MEANAGEPOP" }, { dataset: "demo_pjanind", filter: "indic_de=MEDAGE" } ],
+    maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
+    einheit: "Medianalter der Bevölkerung zum 1. Jänner (die Hälfte ist jünger, die Hälfte älter)", rangText: "Rang 1 = höchstes Alter (ohne Wertung)",
+    hinweis: "Es ist das Medianalter, nicht der Durchschnitt: Die eine Hälfte der Bevölkerung ist jünger, die andere älter. Eine ältere Bevölkerung belastet das Pensionssystem, bedeutet aber auch Wohlstand und gute Gesundheitsversorgung.",
+    typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, mock: { base: 43, step: 0.4 } }
+  ,{ id: "lebenserwartung", name: "Lebenserwartung", takt: "jahr", dataset: "demo_mlexpec",
+    filter: "sex=T&age=Y_LT1&unit=YR", alternativen: [ { dataset: "demo_mlexpec", filter: "sex=T&age=Y_LT1" }, { dataset: "demo_mlexpec", filter: "sex=T&age=Y0" } ],
+    maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
+    einheit: "Lebenserwartung bei der Geburt in Jahren, Frauen und Männer zusammen", rangText: "Rang 1 = höchste Lebenserwartung",
+    typ: "hoch", schwelle: 0.1, mock: { base: 79, step: 0.5 } }
+  ,{ id: "gesundeJahre", name: "Gesunde Lebensjahre", takt: "jahr", dataset: "hlth_hlye",
+    filter: "sex=T&indic_he=HLY_0&unit=YR", alternativen: [ { dataset: "hlth_hlye", filter: "sex=T&indic_he=HLY_0" }, { dataset: "hlth_hlye", filter: "sex=T&age=Y_LT1&indic_he=HLY&unit=YR" }, { dataset: "hlth_hlye", filter: "sex=T&unit=YR" } ],
+    maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
+    einheit: "Gesunde Lebensjahre bei der Geburt (Jahre ohne gesundheitliche Einschränkung), Frauen und Männer zusammen", rangText: "Rang 1 = meiste gesunde Lebensjahre",
+    hinweis: "Beruht auf der Selbsteinschätzung in der EU-Haushaltsbefragung (EU-SILC), nicht auf ärztlichen Untersuchungen. Die Fragestellung wird in den Ländern unterschiedlich verstanden.",
+    typ: "hoch", schwelle: 0.3, mock: { base: 62, step: 1.2 } }
+  ,{ id: "abhaengigkeit", name: "Altersabhängigkeitsquote", takt: "jahr", dataset: "demo_pjanind",
+    filter: "indic_de=OLDDEP1", alternativen: [ { dataset: "demo_pjanind", filter: "indic_de=OLDDEP1" }, { dataset: "demo_pjanind", filter: "indic_de=OLDDEP" }, { dataset: "demo_pjanind", filter: "indic_de=OLDDEP2" } ],
+    maxAlter: 26, dez: 1, suffix: "", diffEinheit: "Personen je 100", minLaender: 20,
+    einheit: "Menschen ab 65 je 100 Menschen im Alter von 15 bis 64 Jahren", rangText: "Rang 1 = niedrigste Quote (ohne Wertung)",
+    hinweis: "Zeigt die Altersstruktur, keine Leistung der Regierung. Eine höhere Quote bedeutet mehr Ältere je Erwerbsfähigem und damit mehr Druck auf das Pensionssystem. Sie hängt auch von der Zuwanderung und der Beschäftigung ab.",
+    typ: "neutral", trendNeutral: true, umstritten: true, rangNiedrigZuerst: true, schwelle: 0.5, mock: { base: 28, step: 1.5 } }
   ,{ id: "toetung", name: "Tötungsdelikte", takt: "jahr", dataset: "crim_off_cat",
     filter: "iccs=ICCS0101&unit=P_HTHAB", // vorsätzliche Tötung, von der Polizei erfasst, pro 100.000 Einwohner
     alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS0101&unit=P_HTHAB" } ],
@@ -699,6 +728,31 @@ async function diagnose(ind) {
   } catch (e) { console.error("   Fehlersuche nicht möglich: " + e.message); }
 }
 
+// ===== Von Hand gepflegte Tabellen (handdaten.json): eine Ausgabe, kein Verlauf =====
+function berechneHand(id, ind) {
+  const raw = JSON.parse(fs.readFileSync("handdaten.json", "utf8")), d = raw.indikatoren[id];
+  const codes = Object.keys(NAMES), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
+  const jahre = [String(d.jahr - 1), String(d.jahr)]; // Vorjahr = gleiche Werte, damit die Rechnung läuft; der Trend wird danach ausgeblendet
+  const js = { id: ["geo", "time"], size: [codes.length, 2], dimension: { geo: { category: { index: idx(codes) } }, time: { category: { index: idx(jahre) } } },
+    value: codes.flatMap(c => jahre.map(() => d.werte[c] ?? null)) };
+  const r = berechne(ind, js);
+  r.laender.forEach(x => { if (d.zus?.[x.code]) x.zus = d.zus[x.code]; });
+  Object.assign(r.oesterreich, { urteil: null, richtung: null, veraenderung: 0, rangVorher: null, wertVorher: null });
+  r.rangVerlauf = []; r.rangVergleich = []; r.seitStart = null; r.verlauf = []; r.ohneTrend = true;
+  r.stand = raw.stand; r.quelle = d.quelle; r.quelleUrl = d.url; r.hinweisDaten = d.hinweis; r.schweiz = null; r.eu = null;
+  return r;
+}
+const HAND_IND = {
+  pensionsantrittsalter: { id: "pensionsantrittsalter", name: "Gesetzliches Pensionsantrittsalter", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " Jahre", diffEinheit: "Jahre",
+    einheit: "Gesetzliches Regelpensionsalter der Männer in Jahren (Stand 2026)", rangText: "Rang 1 = höchstes Pensionsalter (ohne Wertung)",
+    hinweis: "Ob ein höheres Pensionsalter besser ist, ist umstritten: Es entlastet die Pensionskassen, bedeutet aber später in Pension zu gehen. In Österreich gilt für Frauen derzeit noch ein niedrigeres Alter, das bis 2033 schrittweise auf 65 steigt.",
+    typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, maxAlter: 26, minLaender: 20 },
+  marsh: { id: "marsh", name: "Finanzierbarkeit des Pensionssystems", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " Punkte", diffEinheit: "Punkte",
+    einheit: "Teilindex Nachhaltigkeit des Marsh CFA Institute Global Pension Index (0 bis 100 Punkte)", rangText: "Rang 1 = beste Nachhaltigkeitsbewertung (nur 14 EU-Länder im Index)",
+    hinweis: "Einschätzung einer privaten Studie, keine amtliche Statistik. Berücksichtigt unter anderem Pensionsvermögen, Altersstruktur, Staatsschulden und Erwerbsquote Älterer.",
+    typ: "hoch", umstritten: true, schwelle: 1, maxAlter: 26, minLaender: 12 }
+};
+
 // ===== Terroranschläge: von Hand gepflegt (terror.json, Quelle Europol TE-SAT), pro 10 Mio. Einwohner =====
 function berechneTerror(result) {
   const raw = JSON.parse(fs.readFileSync("terror.json", "utf8")), jahre = Object.keys(raw.jahre).sort();
@@ -860,6 +914,10 @@ function berechneInsolvenzen() {
     fehler++; console.error(`FEHLER Kreditrating: ${e.message}`);
     result.push(prev.rating ? { ...prev.rating, veraltet: true, fehler: e.message } : { id: "rating", name: "Kreditrating", fehler: e.message });
   }
+  for (const id of Object.keys(HAND_IND)) {
+    try { const r = berechneHand(id, HAND_IND[id]); result.push(r); console.log(`OK  ${r.name}: ${r.periode}, Österreich ${r.oesterreich.wert}, Platz ${r.oesterreich.rang}/${r.anzahlLaender}`); }
+    catch (e) { fehler++; console.error(`FEHLER ${HAND_IND[id].name}: ${e.message}`); result.push(prev[id] ? { ...prev[id], veraltet: true, fehler: e.message } : { id, name: HAND_IND[id].name, fehler: e.message }); }
+  }
   try {
     const r = berechneTerror(result); result.push(r);
     console.log(`OK  Terroranschläge: ${r.periode}, Österreich ${r.oesterreich.anzahl} Anschläge, Platz ${r.oesterreich.rang}/${r.anzahlLaender}`);
@@ -903,5 +961,5 @@ function berechneInsolvenzen() {
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync("docs/daten.json", JSON.stringify(out, null, 1));
   fs.writeFileSync("docs/daten.js", "window.DATEN = " + JSON.stringify(out) + ";\n");
-  if (fehler === INDICATORS.length + 3) process.exit(1);
+  if (fehler === INDICATORS.length + 5) process.exit(1);
 })();
