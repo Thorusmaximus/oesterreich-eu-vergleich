@@ -63,3 +63,5 @@ svg{width:100%;height:auto;display:block}
 .neu .chip .p{color:var(--mut);font-size:12px}
 .neu .chip:hover{border-color:var(--at)}
 .erkl{margin:2px 0 12px;color:var(--ink);font-size:.95rem}
+.row.mitb{grid-template-columns:14.5em 1fr 3.4em 1.2em}.row.mitb>span:first-child{white-space:nowrap}.row.mitb small{font-size:.8em;font-weight:400}
+@media (max-width:440px){.row.mitb{grid-template-columns:13em 1fr 3.2em 1.2em;font-size:.82rem}}
