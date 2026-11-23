@@ -88,3 +88,9 @@ svg{width:100%;height:auto;display:block}
   .tile .more{font-size:.78rem}
   .teil{padding:0 6px}
 }
+/* PC: Übersicht breiter, vier Kacheln pro Zeile */
+@media (min-width:900px){
+  main:has(.tiles){max-width:1020px}
+  .tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .tile .r{font-size:2.2rem}
+}
