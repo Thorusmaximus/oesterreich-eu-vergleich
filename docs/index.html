@@ -74,7 +74,7 @@ function neuesteLeiste(){
   var liste=D.indikatoren.filter(function(i){return i.oesterreich && i.oesterreich.urteil;}).map(function(i){
     return {i:i, g:i.geaendert||D.aktualisiert||"", e:periodeEnde(i), p:i.art==="rating"?datum(i.stand):periode(i.periode),
       ar:i.art==="nurAT"?pfeil(i.oesterreich.richtung):pfeilFuer(i,i.oesterreich.urteil,i.oesterreich.richtung)};
-  }).sort(function(x,y){ return x.g<y.g ? 1 : x.g>y.g ? -1 : y.e-x.e; }); // zuletzt aktualisiert links, bei gleichem Tag der neuere Datenstand zuerst
+  }).sort(function(x,y){ return x.g<y.g ? 1 : x.g>y.g ? -1 : y.e-x.e; }).slice(0,6); // zuletzt aktualisiert links, bei gleichem Tag der neuere Datenstand zuerst
   el.innerHTML='<div class="neu" role="list" aria-label="Zuletzt aktualisiert">'+liste.map(function(x){
     var a=x.i.oesterreich;
     return '<a class="chip '+urteilCls(a.urteil)+'" role="listitem" href="indikator.html?id='+encodeURIComponent(x.i.id)+'" title="Neue Zahl am '+datum(x.g)+', Datenstand '+x.p+'"><span class="p">'+datum(x.g)+'</span> <b>'+x.i.name+'</b> <span class="ar" aria-hidden="true">'+x.ar+'</span> '+trendWort(a.urteil)+' <span class="p">('+x.p+')</span></a>';
