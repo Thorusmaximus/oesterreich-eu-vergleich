@@ -9835,11 +9835,333 @@
   {
    "id": "sicherheitsgefuehl",
    "name": "Wahrgenommene Kriminalität im Wohnumfeld",
-   "fehler": "Für Österreich fehlen Werte für den Vergleich mit der Vorperiode",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte",
+   "hinweis": "Subjektives Empfinden aus einer Haushaltsbefragung, kein Maß für tatsächliche Straftaten. Das Sicherheitsgefühl hängt auch von Medien, Stadtanteil und Erwartungen ab.",
+   "umstritten": true,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Anteil der Bevölkerung, der Kriminalität, Gewalt oder Vandalismus in der Wohngegend meldet (Befragung EU-SILC)",
+   "rangText": "Rang 1 = geringster Anteil, der Kriminalität in der Gegend meldet",
+   "periode": "2023",
+   "vorherPeriode": "2020",
+   "anzahlLaender": 27,
+   "alter": 35,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 7,
+    "rang": 14,
+    "wertVorher": 5.7,
+    "rangVorher": 7,
+    "schnitt": 7,
+    "schnittVorher": 5.7,
+    "veraenderung": 1.3,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "eu": 10,
+   "euMittelwert": false,
+   "beste": {
+    "code": "HR",
+    "name": "Kroatien",
+    "value": 1.4,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "EL",
+    "name": "Griechenland",
+    "value": 20.9,
+    "rank": 27,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2019",
+     "rang": 14,
+     "n": 27
+    },
+    {
+     "t": "2020",
+     "rang": 7,
+     "n": 26
+    },
+    {
+     "t": "2021",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2022",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2023",
+     "rang": 14,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": 3,
+   "laender": [
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 1.4,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 2.7,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 2.8,
+     "rank": 3,
+     "urteil": null
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 3.4,
+     "rank": 4,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 4.3,
+     "rank": 5,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 5.4,
+     "rank": 6,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 5.9,
+     "rank": 7,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 6.1,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 6.3,
+     "rank": 9,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 6.4,
+     "rank": 10,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 6.6,
+     "rank": 11,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 6.8,
+     "rank": 12,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 6.9,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 7,
+     "rank": 14,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 7.4,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 7.4,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 9.4,
+     "rank": 17,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 9.6,
+     "rank": 18,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 9.6,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 10.7,
+     "rank": 20,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 11.5,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 12.4,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 13.6,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 14.7,
+     "rank": 24,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 15.6,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 16.7,
+     "rank": 26,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 20.9,
+     "rank": 27,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    }
+   ],
+   "schweiz": {
+    "wert": 8.5,
+    "periode": "2023"
+   },
+   "verlauf": [
+    {
+     "t": "2019",
+     "at": 8.4,
+     "eu": 11
+    },
+    {
+     "t": "2020",
+     "at": 5.7,
+     "eu": 10.7
+    },
+    {
+     "t": "2021",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2022",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2023",
+     "at": 7,
+     "eu": 10
+    }
+   ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie viele Menschen in einer Befragung (EU-SILC) angeben, dass es in ihrer Wohngegend Kriminalität, Gewalt oder Vandalismus gibt. Es ist ein subjektives Empfinden und sagt nichts darüber, wie viele Straftaten tatsächlich geschehen.",
-   "gruppe": "Sicherheit",
-   "veraltet": true
+   "gruppe": "Sicherheit"
   },
   {
    "id": "toetung",
