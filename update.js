@@ -392,6 +392,12 @@ function berechneInsolvenzen() {
           r = berechne(ind, js); break;
         } catch (e) { letzterFehler = e; if (kandidaten.length > 1) console.error(`   (${k.dataset} mit ${k.filter} hat nicht funktioniert: ${e.message})`); }
       }
+      if (ind.quote && !TEST) { // Fehlersuche: welche Kombinationen haben Werte für Österreich?
+        try { for (const u of ["MIO_EUR", "MIO_NAC", "PC_GDP"]) for (const sa of ["NSA", "SCA", "CA"]) for (const nit of ["D2_D5_D91_D61_M_D995", "TR", "D2REC"]) {
+          const rr = await fetch(`${BASE}gov_10q_ggnfa?format=JSON&lang=EN&geo=AT&sector=S13&unit=${u}&s_adj=${sa}&na_item=${nit}&sinceTimePeriod=2024-Q1`);
+          if (!rr.ok) { console.error(`   Test ${u}/${sa}/${nit}: HTTP ${rr.status}`); continue; }
+          const jj = await rr.json(); const n = Object.keys(jj.value || {}).length; if (n) console.error(`   Test ${u}/${sa}/${nit}: ${n} Werte, z. B. ${JSON.stringify(Object.values(jj.value).slice(-2))}`); } } catch (e4) { console.error("   Test: " + e4.message); }
+      }
       if (ind.quote && !TEST) { // Quartalsquote aus Steuern (ggnfa) und BIP (namq) selbst berechnen
         try {
           const q = ind.quote, seit = TAKT.quartal.seit;
