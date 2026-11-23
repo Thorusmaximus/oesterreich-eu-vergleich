@@ -11058,7 +11058,7 @@
   {
    "id": "sicherheitsgefuehl",
    "name": "Kriminalität im Wohnumfeld",
-   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"SEX\\\" is not defined\"}]}",
+   "fehler": "Filter unvollständig: Dimension \"hhcomp\" hat 0 Werte. Filter im Skript anpassen.",
    "geaendert": "2026-11-23",
    "erklaerung": "Wie viele Menschen auf die Frage, ob es in ihrer Wohngegend Kriminalität, Gewalt oder Vandalismus gibt, mit Ja antworten (EU-weite Haushaltsbefragung). Das misst das Empfinden der Menschen, nicht die tatsächliche Zahl der Taten.",
    "gruppe": "Sicherheit",
