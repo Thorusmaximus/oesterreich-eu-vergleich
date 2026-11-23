@@ -44,7 +44,7 @@ function detail(i){
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
      + '<div class="grid">'
      + '<div><div class="k">Österreich</div><div class="v">'+f(a.wert)+SUF+'</div></div>'
-     + '<div><div class="k">EU-Durchschnitt</div><div class="v">'+f(i.eu)+SUF+'</div></div>'
+     + '<div><div class="k">EU-Durchschnitt'+(i.euMittelwert?' (ungewichtet)':'')+'</div><div class="v">'+f(i.eu)+SUF+'</div></div>'
      + '<div><div class="k">'+(i.typ==='neutral'?'Höchster Wert':'Bester Rang')+'</div><div class="v">'+f(i.beste.value)+SUF+'</div><div class="k">'+i.beste.name+'</div></div>'
      + '<div><div class="k">'+(i.typ==='neutral'?'Niedrigster Wert':'Schlechtester Rang')+'</div><div class="v">'+f(i.schlechteste.value)+SUF+'</div><div class="k">'+i.schlechteste.name+'</div></div>'
      + '</div></div>';

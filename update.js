@@ -417,8 +417,10 @@ function berechne(ind, js) {
       urteil: urt(ds, dd) };
   }
   const rangVergleich = seitStart && ind.typ !== "neutral" ? [{ label: "seit Regierungsantritt", t: startP, rang: seitStart.rang, n: seitStart.n, regierung: true }] : [];
+  // Gibt es bei Eurostat keinen EU-Gesamtwert (z. B. Kriminalität), nehmen wir den einfachen Mittelwert der EU-Länder
+  const euMittel = t => { const v = rankAt(data, t, sc).map(x => x.value).filter(x => x != null); return v.length >= MIN_LAENDER ? Math.round(v.reduce((p, q) => p + q, 0) / v.length * 100) / 100 : null; };
   const verlauf = [];
-  for (let i = cfg.verlaufN - 1; i >= 0; i--) { const t = shift(latest, -i, takt); verlauf.push({ t, at: data.AT?.[t] ?? null, eu: data.EU27_2020?.[t] ?? null }); }
+  for (let i = cfg.verlaufN - 1; i >= 0; i--) { const t = shift(latest, -i, takt); verlauf.push({ t, at: data.AT?.[t] ?? null, eu: data.EU27_2020?.[t] ?? euMittel(t) }); }
   return {
     id: ind.id, name: ind.name, pfeilModus: "wert", typ: ind.typ, dez: DEZ, suffix: ind.suffix ?? " %", diffEinheit: ind.diffEinheit || "Prozentpunkte", hinweis: ind.hinweis || null, umstritten: !!ind.umstritten, trendNeutral: !!(ind.trendNeutral || ind.typ === "neutral"), zusatz: ladeZusatz(ind), takt, einheit: ind.einheit, rangText: ind.rangText,
     periode: latest, vorherPeriode: vorher, anzahlLaender: ranks.length, alter,
@@ -427,7 +429,7 @@ function berechne(ind, js) {
       schnitt: r1(avgNow), schnittVorher: r1(avgPrev), veraenderung: r1(delta),
       richtung: delta > ind.schwelle ? "steigend" : delta < -ind.schwelle ? "sinkend" : "stabil",
       urteil: urt(dScore, delta) },
-    eu: data.EU27_2020?.[latest] ?? null, beste: ranks[0], schlechteste: ranks[ranks.length - 1],
+    eu: data.EU27_2020?.[latest] ?? euMittel(latest), euMittelwert: data.EU27_2020?.[latest] == null, beste: ranks[0], schlechteste: ranks[ranks.length - 1],
     rangVerlauf, rangVergleich, seitStart, rueckblick: ind.rueckblick || null,
     laender: ranks, schweiz, verlauf
   };
