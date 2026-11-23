@@ -226,8 +226,8 @@ const INDICATORS = [
     hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
     typ: "niedrig", schwelle: 2, mock: { base: 135, step: 4 } }
   ,{ id: "sicherheitsgefuehl", name: "Wahrgenommene Kriminalität im Wohnumfeld", takt: "jahr", dataset: "sdg_16_20",
-    filter: "", alternativen: [ { dataset: "sdg_16_20", filter: "" }, { dataset: "ilc_mddw03", filter: "hhtyp=TOTAL&incgrp=TOTAL&deg_urb=TOTAL" } ],
-    maxAlter: 36, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    filter: "hhcomp=TOTAL&rskpovth=TOTAL&unit=PC", alternativen: [ { dataset: "sdg_16_20", filter: "hhcomp=TOTAL&rskpovth=TOTAL&unit=PC" } ],
+    maxAlter: 48, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil der Bevölkerung, der Kriminalität, Gewalt oder Vandalismus in der Wohngegend meldet (Befragung EU-SILC)", rangText: "Rang 1 = geringster Anteil, der Kriminalität in der Gegend meldet",
     hinweis: "Subjektives Empfinden aus einer Haushaltsbefragung, kein Maß für tatsächliche Straftaten. Das Sicherheitsgefühl hängt auch von Medien, Stadtanteil und Erwartungen ab.",
     typ: "niedrig", umstritten: true, schwelle: 1, mock: { base: 12, step: 1 } }
