@@ -4898,7 +4898,7 @@
    "zusatz": null,
    "takt": "jahr",
    "einheit": "% Veränderung der Einwohnerzahl (1. Jänner gegenüber 1. Jänner des Vorjahres)",
-   "rangText": "Rang 1 = stärkstes Bevölkerungswachstum, ohne Wertung",
+   "rangText": "Rang 1 = stärkstes Bevölkerungswachstum",
    "periode": "2026",
    "vorherPeriode": "2025",
    "anzahlLaender": 27,
@@ -5974,13 +5974,13 @@
    "dez": 1,
    "suffix": " %",
    "diffEinheit": "Prozentpunkte",
-   "hinweis": "Hier gibt es keine Wertung: Steigende Immobilienpreise nützen Eigentümern und belasten Käufer, Mieter und Familien, die erst kaufen wollen. Gezeigt wird die Veränderung des Preisindex der Wohnimmobilien (Wohnungen und Häuser, neu und gebraucht) gegenüber dem Quartal des Regierungsantritts. Das ist die Preisentwicklung, nicht der Preis pro Quadratmeter, und die Preise sind nicht um die Inflation bereinigt.",
+   "hinweis": "Steigende Immobilienpreise nützen Eigentümern und belasten Käufer, Mieter und Familien, die erst kaufen wollen. Gezeigt wird die Veränderung des Preisindex der Wohnimmobilien (Wohnungen und Häuser, neu und gebraucht) gegenüber dem Quartal des Regierungsantritts. Das ist die Preisentwicklung, nicht der Preis pro Quadratmeter, und die Preise sind nicht um die Inflation bereinigt.",
    "umstritten": true,
    "trendNeutral": true,
    "zusatz": null,
    "takt": "quartal",
    "einheit": "% Preisänderung von Wohnimmobilien seit dem Quartal des Regierungsantritts (Preisindex, ohne Inflationsbereinigung)",
-   "rangText": "Rang 1 = stärkster Preisanstieg seit Regierungsantritt, ohne Wertung",
+   "rangText": "Rang 1 = stärkster Preisanstieg seit Regierungsantritt",
    "periode": "2026-Q2",
    "vorherPeriode": "2026-Q1",
    "anzahlLaender": 26,
@@ -10538,7 +10538,7 @@
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Erwartete Jahre im Erwerbsleben (Erwerbstätige und Arbeitssuchende), in Jahren",
-   "rangText": "Rang 1 = längstes Erwerbsleben (ohne Wertung)",
+   "rangText": "Rang 1 = längstes Erwerbsleben",
    "periode": "2025",
    "vorherPeriode": "2024",
    "anzahlLaender": 27,
@@ -10879,7 +10879,7 @@
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Pensionsausgaben in % des BIP",
-   "rangText": "Rang 1 = niedrigste Pensionsausgaben (ohne Wertung)",
+   "rangText": "Rang 1 = niedrigste Pensionsausgaben",
    "periode": "2024",
    "vorherPeriode": "2023",
    "anzahlLaender": 27,
@@ -12259,7 +12259,7 @@
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Medianalter der Bevölkerung zum 1. Jänner (die Hälfte ist jünger, die Hälfte älter)",
-   "rangText": "Rang 1 = höchstes Alter (ohne Wertung)",
+   "rangText": "Rang 1 = höchstes Alter",
    "periode": "2025",
    "vorherPeriode": "2024",
    "anzahlLaender": 27,
@@ -13248,17 +13248,17 @@
    "id": "abhaengigkeit",
    "name": "Altersabhängigkeitsquote",
    "pfeilModus": "wert",
-   "typ": "neutral",
+   "typ": "niedrig",
    "dez": 1,
    "suffix": "",
    "diffEinheit": "Personen je 100",
-   "hinweis": "Zeigt die Altersstruktur, keine Leistung der Regierung. Eine höhere Quote bedeutet mehr Ältere je Erwerbsfähigem und damit mehr Druck auf das Pensionssystem. Sie hängt auch von der Zuwanderung und der Beschäftigung ab.",
-   "umstritten": true,
-   "trendNeutral": true,
+   "hinweis": "Zeigt die Altersstruktur. Eine höhere Quote bedeutet mehr Ältere je Erwerbsfähigem und damit mehr Druck auf das Pensionssystem. Sie hängt auch von der Zuwanderung und der Beschäftigung ab.",
+   "umstritten": false,
+   "trendNeutral": false,
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Menschen ab 65 je 100 Menschen im Alter von 15 bis 64 Jahren",
-   "rangText": "Rang 1 = niedrigste Quote (ohne Wertung)",
+   "rangText": "Rang 1 = niedrigste Quote",
    "periode": "2025",
    "vorherPeriode": "2024",
    "anzahlLaender": 27,
@@ -13273,7 +13273,7 @@
     "schnittVorher": 30.2,
     "veraenderung": 0.7,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "schlechter"
    },
    "eu": 34.4,
    "euMittelwert": false,
@@ -13291,7 +13291,7 @@
     "value": 39,
     "rank": 27,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "schlechter"
    },
    "rangVerlauf": [
     {
@@ -13320,7 +13320,15 @@
      "n": 27
     }
    ],
-   "rangVergleich": [],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2024",
+     "rang": 6,
+     "n": 27,
+     "regierung": true
+    }
+   ],
    "seitStart": {
     "t": "2024",
     "wert": 30.2,
@@ -13329,7 +13337,7 @@
     "schnitt": 30.2,
     "veraenderung": 0.7,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "schlechter"
    },
    "rueckblick": null,
    "laender": [
@@ -13363,7 +13371,7 @@
      "value": 27.4,
      "rank": 4,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "SK",
@@ -13371,7 +13379,7 @@
      "value": 28.7,
      "rank": 5,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "AT",
@@ -13379,7 +13387,7 @@
      "value": 30.9,
      "rank": 6,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "ES",
@@ -13411,7 +13419,7 @@
      "value": 32.1,
      "rank": 10,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "HU",
@@ -13427,7 +13435,7 @@
      "value": 32.4,
      "rank": 12,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "CZ",
@@ -13443,7 +13451,7 @@
      "value": 32.7,
      "rank": 14,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "DK",
@@ -13459,7 +13467,7 @@
      "value": 32.9,
      "rank": 16,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "SE",
@@ -13475,7 +13483,7 @@
      "value": 34.7,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "SI",
@@ -13483,7 +13491,7 @@
      "value": 34.9,
      "rank": 19,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "FR",
@@ -13491,7 +13499,7 @@
      "value": 35.5,
      "rank": 20,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "PT",
@@ -13507,7 +13515,7 @@
      "value": 35.9,
      "rank": 22,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "HR",
@@ -13523,7 +13531,7 @@
      "value": 37.4,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "FI",
@@ -13547,7 +13555,7 @@
      "value": 39,
      "rank": 27,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     }
    ],
    "schweiz": {
@@ -14937,13 +14945,13 @@
    "dez": 1,
    "suffix": "",
    "diffEinheit": "Fälle pro 100.000 Einwohner",
-   "hinweis": "Hier gibt es keine Wertung: Die Polizeizahlen messen auch mit, wie viel angezeigt wird und wo die Grenze zwischen leichter und schwerer Körperverletzung gezogen wird. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+   "hinweis": "Die Polizeizahlen messen auch mit, wie viel angezeigt wird und wo die Grenze zwischen leichter und schwerer Körperverletzung gezogen wird. Ein höherer Wert heißt nicht automatisch mehr Taten.",
    "umstritten": false,
    "trendNeutral": true,
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Von der Polizei erfasste Fälle schwerer Körperverletzung pro 100.000 Einwohner",
-   "rangText": "Rang 1 = niedrigste Quote (ohne Wertung der Zahlen)",
+   "rangText": "Rang 1 = niedrigste Quote",
    "periode": "2024",
    "vorherPeriode": "2023",
    "anzahlLaender": 26,
@@ -15264,7 +15272,7 @@
     "stand": "2026-11-23",
     "gesamtAufklaerung": null
    },
-   "erklaerung": "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil die Zählweise und die Anzeigebereitschaft zwischen den Ländern stark unterschiedlich sind.",
+   "erklaerung": "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Die Zählweise und die Anzeigebereitschaft zwischen den Ländern stark unterschiedlich sind.",
    "gruppe": "Sicherheit"
   },
   {
@@ -15275,13 +15283,13 @@
    "dez": 1,
    "suffix": "",
    "diffEinheit": "Fälle pro 100.000 Einwohner",
-   "hinweis": "Hier gibt es bewusst keine Wertung: Die Länder definieren und zählen Sexualdelikte unterschiedlich (etwa pro Tat oder pro Opfer), und die Dunkelziffer ist hoch. Länder mit hoher Anzeigebereitschaft und weiter Definition haben oft höhere Werte. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+   "hinweis": "Die Länder definieren und zählen Sexualdelikte unterschiedlich (etwa pro Tat oder pro Opfer), und die Dunkelziffer ist hoch. Länder mit hoher Anzeigebereitschaft und weiter Definition haben oft höhere Werte. Ein höherer Wert heißt nicht automatisch mehr Taten.",
    "umstritten": false,
    "trendNeutral": true,
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Von der Polizei erfasste Sexualdelikte (sexuelle Gewalt) pro 100.000 Einwohner",
-   "rangText": "Rang 1 = niedrigste Quote (ohne Wertung der Zahlen)",
+   "rangText": "Rang 1 = niedrigste Quote",
    "periode": "2024",
    "vorherPeriode": "2023",
    "anzahlLaender": 27,
@@ -15615,7 +15623,7 @@
      "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
     }
    },
-   "erklaerung": "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil Definition, Zählweise und Anzeigebereitschaft stark abweichen und die Dunkelziffer hoch ist.",
+   "erklaerung": "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definition, Zählweise und Anzeigebereitschaft stark abweichen und die Dunkelziffer hoch ist.",
    "gruppe": "Sicherheit"
   },
   {
@@ -16986,7 +16994,7 @@
    "stand": "2026-11-23",
    "quelle": "Statistik Austria, Mikrozensus 2021 (laut APA, Vienna.at 11.01.2023); katholische Zahl laut Österreichischer Bischofskonferenz",
    "quelleUrl": "https://www.vienna.at/bekenntnislose-in-oesterreich-zweitgroesste-religions-gruppe/7839565",
-   "hinweisDaten": "Seit der Volkszählung 2001 wird die Religion nicht mehr bei Volkszählungen erhoben. Die Zahlen für 2021 stammen aus einer freiwilligen Befragung. Angaben zu Muslimen und Orthodoxen gelten laut Quelle nur eingeschränkt als verlässlich. Nur Österreich, kein EU-Vergleich, ohne Wertung.",
+   "hinweisDaten": "Seit der Volkszählung 2001 wird die Religion nicht mehr bei Volkszählungen erhoben. Die Zahlen für 2021 stammen aus einer freiwilligen Befragung. Angaben zu Muslimen und Orthodoxen gelten laut Quelle nur eingeschränkt als verlässlich. Nur Österreich, kein EU-Vergleich.",
    "oesterreich": {
     "wert": 77.6,
     "rang": null,
@@ -17025,7 +17033,7 @@
    ],
    "bekenntnis": 77.6,
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie sich die Bevölkerung Österreichs auf Religionen und Konfessionen verteilt, laut der letzten Erhebung von Statistik Austria (2021). Es ist eine reine Zahlenübersicht ohne Wertung.",
+   "erklaerung": "Wie sich die Bevölkerung Österreichs auf Religionen und Konfessionen verteilt, laut der letzten Erhebung von Statistik Austria (2021).",
    "gruppe": "Gesellschaft"
   },
   {
@@ -17042,7 +17050,7 @@
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Gesetzliches Regelpensionsalter der Männer in Jahren (Stand 2026)",
-   "rangText": "Rang 1 = höchstes Pensionsalter (ohne Wertung)",
+   "rangText": "Rang 1 = höchstes Pensionsalter",
    "periode": "2026",
    "vorherPeriode": "2025",
    "anzahlLaender": 26,
@@ -17326,7 +17334,7 @@
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Anteil der Haushalte mit börsennotierten Aktien in % (Befragung 2021)",
-   "rangText": "Rang 1 = höchster Anteil (ohne Wertung, nur 22 EU-Länder)",
+   "rangText": "Rang 1 = höchster Anteil (nur 22 EU-Länder)",
    "periode": "2021",
    "vorherPeriode": "2020",
    "anzahlLaender": 22,
@@ -17756,13 +17764,13 @@
    "dez": 1,
    "suffix": "",
    "diffEinheit": "Anschläge pro 10 Mio. Einwohner",
-   "hinweis": "Hier gibt es keine Wertung: Gezählt werden auch vereitelte Anschläge, eine hohe Zahl kann also auch für erfolgreiche Terrorabwehr sprechen. Die Länder melden unterschiedlich, und die Einzelzahlen sind klein, ein einzelner Anschlag verändert das Ergebnis deutlich. Gemeldet sind nur Anschläge, die den Terrorismus-Definitionen der Mitgliedstaaten entsprechen.",
+   "hinweis": "Gezählt werden auch vereitelte Anschläge, eine hohe Zahl kann also auch für erfolgreiche Terrorabwehr sprechen. Die Länder melden unterschiedlich, und die Einzelzahlen sind klein, ein einzelner Anschlag verändert das Ergebnis deutlich. Gemeldet sind nur Anschläge, die den Terrorismus-Definitionen der Mitgliedstaaten entsprechen.",
    "umstritten": true,
    "trendNeutral": true,
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Anschläge (vollendet, gescheitert und vereitelt) pro 10 Mio. Einwohner, laut Europol",
-   "rangText": "Rang 1 = niedrigste Quote (ohne Wertung der Zahlen)",
+   "rangText": "Rang 1 = niedrigste Quote",
    "periode": "2025",
    "vorherPeriode": "2024",
    "anzahlLaender": 27,
