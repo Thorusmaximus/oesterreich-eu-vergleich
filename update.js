@@ -46,7 +46,7 @@ const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten",
 const GRUPPE_VON = {
   wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, einkommen: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
-  inflation: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
+  inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
   bevoelkerung: 3, geburtenrate: 3 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
@@ -67,6 +67,8 @@ const ERKLAERUNG = {
   immobilien: "Wie stark sich die Preise für Wohnimmobilien (gekaufte Wohnungen und Häuser, neu und gebraucht) seit dem Amtsantritt der Regierung verändert haben, laut Eurostat-Preisindex. Der Index zeigt die Veränderung, nicht den Preis pro Quadratmeter.",
   einkommen: "Die Hälfte der Menschen im Land hat weniger, die andere Hälfte mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Sozialleistungen, je Person (bei Haushalten nach Größe gewichtet). Es ist kein reiner Lohn: Pensionen und Sozialleistungen sind enthalten. Die Erhebung (EU-SILC) fragt nach dem Einkommen des Vorjahres.",
   "wachstum-privat": "Wie stark die Wirtschaft ohne den Beitrag des Staates gewachsen wäre: Vom BIP-Wachstum wird abgezogen, was der Staat selbst beigetragen hat (Anteil des Staatskonsums am BIP mal dessen Wachstum). Spart der Staat, gibt es einen Bonus.",
+  benzin: "Was ein Liter Euro-super 95 im Schnitt an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die Wochenpreise des EU-Ölbulletins, hier als Monatsdurchschnitt.",
+  diesel: "Was ein Liter Diesel im Schnitt an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die Wochenpreise des EU-Ölbulletins, hier als Monatsdurchschnitt.",
   rating: "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -187,6 +189,18 @@ const INDICATORS = [
     umstritten: true,
     hinweis: "Die Rechnung ist eine Näherung: Der Beitrag des Staates wird über die Kosten gemessen (Gehälter und Käufe des Staates), nicht über den Nutzen von Schulen, Spitälern oder Polizei. Staatsinvestitionen sind in den Quartalsdaten nicht getrennt ausgewiesen und fehlen deshalb. Pensionen und andere Sozialleistungen zählen nicht als Staatsausgaben im BIP, sie wirken erst über den Konsum der Empfänger.",
     typ: "hoch", schwelle: 0.3, mock: { base: -0.6, step: 0.3 } }
+  ,{ id: "benzin", name: "Benzinpreis", takt: "monat", dataset: "une_rt_m", filter: "x=y", // Platzhalter, echte Quelle: Ölbulletin (berechneOel)
+    oel: { spalte: 1 }, // Euro-super 95
+    einheit: "Cent pro Liter Euro-super 95 an der Tankstelle, inklusive Steuern, Monatsdurchschnitt", suffix: " ct", diffEinheit: "Cent pro Liter", dez: 1,
+    rangText: "Rang 1 = niedrigster Benzinpreis", maxAlter: 3,
+    hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
+    typ: "niedrig", schwelle: 2, mock: { base: 130, step: 4 } }
+  ,{ id: "diesel", name: "Dieselpreis", takt: "monat", dataset: "une_rt_m", filter: "x=y",
+    oel: { spalte: 2 }, // Diesel
+    einheit: "Cent pro Liter Diesel an der Tankstelle, inklusive Steuern, Monatsdurchschnitt", suffix: " ct", diffEinheit: "Cent pro Liter", dez: 1,
+    rangText: "Rang 1 = niedrigster Dieselpreis", maxAlter: 3,
+    hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
+    typ: "niedrig", schwelle: 2, mock: { base: 135, step: 4 } }
   ,{ id: "strompreis", name: "Strompreis für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
     filter: "siec=E7000&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive aller Steuern und Abgaben
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
@@ -461,18 +475,27 @@ async function oelBulletin() {
   console.error(`   Ölbulletin-Datei: ${buf.length} Bytes`);
   return leseExcel(buf);
 }
-async function diagnoseOel() {
-  try {
-    const b = await oelBulletin(), rows = b["Prices with taxes"], h1 = rows[0] || [], r4 = rows[3] || [], r3 = rows[2] || [];
-    const spalten = []; h1.forEach((v, i) => { if (v === "CTR") spalten.push(i); });
-    console.error(`   OEL Spalten mit CTR in Zeile 1: ${spalten.join(",")} (Breite ${h1.length})`);
-    console.error("   OEL Zeile 4 Codes: " + r4.map((v, i) => typeof v === "string" ? `${i}:${v}` : null).filter(Boolean).join(" ").slice(0, 700));
-    const at = r4.findIndex(v => v === "AT_" || v === "AT");
-    console.error(`   OEL AT-Block ab Spalte ${at}: Kopf ` + JSON.stringify(h1.slice(at, at + 8)) + " Werte " + JSON.stringify(r4.slice(at, at + 8)));
-    const alt = rows.findIndex((r, i) => i > 3 && r && typeof r[0] === "number" && r[0] < 38000);
-    console.error(`   OEL Datumszeilen: Z4=${rows[3]?.[0]}, letzte=${rows[rows.length - 1]?.[0]}, Zeilen ${rows.length}, erste Zeile unter 38000: ${alt}`);
-    const dr = rows.slice(3).filter(r => r && typeof r[0] === "number").map(r => r[0]); console.error(`   OEL Datumsbereich: ${Math.min(...dr)}..${Math.max(...dr)}, ${dr.length} Wochen`);
-  } catch (e) { console.error("   OEL-Diagnose fehlgeschlagen: " + e.message); }
+let _oel = null;
+const oelDatum = n => new Date(Date.UTC(1899, 11, 30) + n * 86400000).toISOString().slice(0, 7); // Excel-Datum -> "JJJJ-MM"
+// Spritpreise aus dem Ölbulletin: Wochenpreise (EUR pro 1000 Liter, inkl. Steuern) -> Monatsdurchschnitt in Cent pro Liter
+async function berechneOel(ind) {
+  _oel ??= oelBulletin();
+  const rows = (await _oel)["Prices with taxes"]; if (!rows) throw new Error("Blatt 'Prices with taxes' fehlt");
+  const kopf = rows[3] || [], bloecke = {};
+  kopf.forEach((v, i) => { if (typeof v === "string" && /^[A-Z]{2,3}_$/.test(v)) bloecke[v.slice(0, -1) === "GR" ? "EL" : v.slice(0, -1) === "EU" ? "EU27_2020" : v.slice(0, -1)] = i; });
+  const sum = {}, anz = {};
+  for (const r of rows.slice(3)) {
+    if (!r || typeof r[0] !== "number") continue;
+    const m = oelDatum(r[0]); if (m < TAKT.monat.seit) continue;
+    for (const [g, c] of Object.entries(bloecke)) {
+      const v = r[c + ind.oel.spalte]; if (typeof v !== "number" || v <= 0) continue;
+      (sum[g] ??= {})[m] = (sum[g][m] ?? 0) + v / 10; (anz[g] ??= {})[m] = (anz[g][m] ?? 0) + 1; // v/10: EUR je 1000 l = Cent je Liter x 10
+    }
+  }
+  const geos = Object.keys(sum), times = [...new Set(geos.flatMap(g => Object.keys(sum[g])))].sort(), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
+  const js = { id: ["geo", "time"], size: [geos.length, times.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(times) } } },
+    value: geos.flatMap(g => times.map(t => sum[g][t] != null ? Math.round(sum[g][t] / anz[g][t] * 10) / 10 : null)) };
+  return berechne(ind, js);
 }
 
 // Aus Einwohnerzahlen (1. Jänner) das Wachstum zum Vorjahr in % berechnen
@@ -579,6 +602,7 @@ function berechneInsolvenzen() {
     try {
       let r = null, letzterFehler = null, pop = null;
       const kandidaten = [{ dataset: ind.dataset, filter: ind.filter }, ...(ind.alternativen || [])];
+      if (ind.oel && !TEST) { try { r = await berechneOel(ind); } catch (e) { letzterFehler = e; console.error(`   (Ölbulletin hat nicht funktioniert: ${e.message})`); } }
       if (ind.privat && !TEST) { try { r = await berechnePrivat(ind); } catch (e) { letzterFehler = e; console.error(`   (Wachstum ohne Staat hat nicht funktioniert: ${e.message})`); } }
       for (const k of (r ? [] : kandidaten)) {
         try {
@@ -701,7 +725,6 @@ function berechneInsolvenzen() {
   }
   for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
   if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
-  if (!TEST) await diagnoseOel(); // TEMPORÄR
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync("docs/daten.json", JSON.stringify(out, null, 1));
