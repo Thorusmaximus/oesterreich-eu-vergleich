@@ -47,7 +47,7 @@ const GRUPPE_VON = {
   wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, einkommen: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, toetung: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
+  bevoelkerung: 3, geburtenrate: 3, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, sicherheitsgefuehl: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab.",
@@ -73,6 +73,9 @@ const ERKLAERUNG = {
   raub: "Wie viele Raubdelikte (Diebstahl mit Gewalt oder Drohung) die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
   einbruch: "Wie viele Einbrüche in Privatwohnungen die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
   gefaengnis: "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt: Es sind mehr Menschen inhaftiert, als Plätze vorhanden sind (Überbelegung).",
+  koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil die Zählweise und die Anzeigebereitschaft zwischen den Ländern stark unterschiedlich sind.",
+  sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil Definition, Zählweise und Anzeigebereitschaft stark abweichen und die Dunkelziffer hoch ist.",
+  sicherheitsgefuehl: "Wie viele Menschen auf die Frage, ob es in ihrer Wohngegend Kriminalität, Gewalt oder Vandalismus gibt, mit Ja antworten (EU-weite Haushaltsbefragung). Das misst das Empfinden der Menschen, nicht die tatsächliche Zahl der Taten.",
   rating: "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -231,6 +234,27 @@ const INDICATORS = [
     einheit: "% der Haftplätze, die belegt sind (über 100 % = überbelegt)", rangText: "Rang 1 = geringste Auslastung",
     hinweis: "Nicht alle EU-Länder melden Haftplätze und Häftlinge, deshalb fehlen manche Länder in der Tabelle.",
     typ: "niedrig", schwelle: 2, mock: { base: 70, step: 6 } }
+  ,{ id: "koerperverletzung", name: "Schwere Körperverletzung", takt: "jahr", dataset: "crim_off_cat",
+    filter: "iccs=ICCS02011&unit=P_HTHAB", // schwere Körperverletzung (Polizeistatistik), pro 100.000 Einwohner
+    alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS0201&unit=P_HTHAB" }, { dataset: "crim_off_cat", filter: "iccs=ICCS020111&unit=P_HTHAB" } ],
+    maxAlter: 26, dez: 0, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 18,
+    einheit: "Von der Polizei erfasste Fälle schwerer Körperverletzung pro 100.000 Einwohner", rangText: "Rang 1 = höchster Wert, ohne Wertung",
+    hinweis: "Hier gibt es keine Wertung: Die Polizeizahlen messen auch mit, wie viel angezeigt wird und wo die Grenze zwischen leichter und schwerer Körperverletzung gezogen wird. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+    typ: "neutral", schwelle: 10, mock: { base: 40, step: 12 } }
+  ,{ id: "sexualdelikte", name: "Sexualdelikte", takt: "jahr", dataset: "crim_off_cat",
+    filter: "iccs=ICCS0301&unit=P_HTHAB", // sexuelle Gewalt (Vergewaltigung und sexuelle Übergriffe), pro 100.000 Einwohner
+    alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS03&unit=P_HTHAB" }, { dataset: "crim_off_cat", filter: "iccs=ICCS03011&unit=P_HTHAB" } ],
+    maxAlter: 26, dez: 0, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 18,
+    einheit: "Von der Polizei erfasste Sexualdelikte (sexuelle Gewalt) pro 100.000 Einwohner", rangText: "Rang 1 = höchster Wert, ohne Wertung",
+    hinweis: "Hier gibt es bewusst keine Wertung: Die Länder definieren und zählen Sexualdelikte unterschiedlich (etwa pro Tat oder pro Opfer), und die Dunkelziffer ist hoch. Länder mit hoher Anzeigebereitschaft und weiter Definition haben oft höhere Werte. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+    typ: "neutral", schwelle: 5, mock: { base: 30, step: 14 } }
+  ,{ id: "sicherheitsgefuehl", name: "Kriminalität im Wohnumfeld", takt: "jahr", dataset: "ilc_mddw03",
+    filter: "hhtyp=TOTAL&incgrp=TOTAL&unit=PC", // Anteil der Bevölkerung, der Kriminalität, Gewalt oder Vandalismus in der Wohngegend meldet
+    alternativen: [ { dataset: "ilc_mddw03", filter: "hhtyp=TOTAL&unit=PC" }, { dataset: "ilc_mddw03", filter: "incgrp=TOTAL&unit=PC" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte",
+    einheit: "% der Bevölkerung, die Kriminalität, Gewalt oder Vandalismus in ihrer Wohngegend angibt (Befragung)", rangText: "Rang 1 = geringster Anteil",
+    hinweis: "Das ist keine Polizeistatistik, sondern eine einheitliche Befragung (EU-SILC). Sie misst die Wahrnehmung der Menschen, nicht die tatsächliche Zahl der Taten.",
+    typ: "niedrig", schwelle: 1, mock: { base: 8, step: 2.4 } }
   ,{ id: "strompreis", name: "Strompreis für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
     filter: "siec=E7000&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive aller Steuern und Abgaben
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
