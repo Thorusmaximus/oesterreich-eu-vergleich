@@ -78,7 +78,7 @@ const INDICATORS = [
       passt: c => /D2/.test(c) && /D5/.test(c) && /D61/.test(c) },
     entdecke: { basis: "unit=PC_GDP", sektoren: ["S13_S212", "S13"], // Notlösung: Codes bei Eurostat nachschlagen (Summe aus Steuern D2, D5 und Sozialbeiträgen D61)
       passt: c => /D2/.test(c) && /D5/.test(c) && /D61/.test(c) } ,
-    einheit: "% des BIP: Steuern und Sozialbeiträge",
+    einheit: "% des BIP: Steuern und Sozialbeiträge (Quartalswerte: Summe der letzten 4 Quartale, ohne EU-Steuern)",
     rangText: "Rang 1 = niedrigste Steuer- und Abgabenquote",
     trendNeutral: true, // Trend wird ohne Wertung als höher/niedriger gezeigt, das Ranking bleibt gewertet
     umstritten: true,
