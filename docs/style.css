@@ -83,7 +83,8 @@ svg{width:100%;height:auto;display:block}
   .tiles .card{padding:10px}
   .tile{overflow-wrap:anywhere;hyphens:auto}
   .tile .t{font-size:.9rem;line-height:1.25}
-  .tile .r{font-size:1.7rem;margin:4px 0 2px}
+  .tile .r{font-size:1.7rem;margin:4px 0 2px;white-space:nowrap}
+  .tile .r:has(.pille){font-size:1.5rem}
   .tile .note,.tile .trend,.tile .rtrend,.tile .warn,.tile .altdaten{font-size:.74rem;line-height:1.3;margin:3px 0}
   .tile .more{font-size:.78rem}
   
@@ -113,4 +114,4 @@ svg{width:100%;height:auto;display:block}
 }
 
 
-.info.pille{width:auto;height:auto;border-radius:999px;padding:.1em .6em;margin-left:.5em;font-weight:600;font-size:.95rem;line-height:1.3;font-family:inherit;font-style:normal;vertical-align:.25em;white-space:nowrap;display:inline-block}
+.info.pille{width:auto;height:auto;border-radius:999px;padding:.06em .4em;margin-left:.3em;font-weight:600;font-size:.78rem;line-height:1.3;font-family:inherit;font-style:normal;vertical-align:.25em;white-space:nowrap;display:inline-block}
