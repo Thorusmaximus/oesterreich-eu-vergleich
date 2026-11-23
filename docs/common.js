@@ -54,7 +54,7 @@ function rangChart(rv){
     +'<path d="'+path+'" fill="none" stroke="var(--at)" stroke-width="2"/>'+dots
     +'<line class="hl" x1="0" x2="0" y1="'+pt+'" y2="'+(H-pb)+'" stroke="var(--mut)" stroke-dasharray="3 3" style="display:none"/><circle class="hc" r="6" fill="none" stroke="var(--at)" stroke-width="2" style="display:none"/>'
     +'<text x="'+pl+'" y="'+(H-4)+'" font-size="11" fill="var(--mut)">'+periode(rv[0].t)+'</text><text x="'+(W-pr)+'" y="'+(H-4)+'" text-anchor="end" font-size="11" fill="var(--mut)">'+periode(rv[rv.length-1].t)+'</text></svg>'
-    +'<div class="hvtip" style="display:none;position:absolute;top:0;pointer-events:none;background:var(--card,#1a2440);color:var(--fg,#fff);border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:13px;white-space:nowrap"></div></div>';
+    +'<div class="hvtip" style="display:none;position:absolute;top:0;pointer-events:none;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:13px;white-space:nowrap"></div></div>';
 }
 // Hover/Touch über dem Rang-Diagramm: zeigt Zeitpunkt und Platz des nächsten Punkts
 (function(){

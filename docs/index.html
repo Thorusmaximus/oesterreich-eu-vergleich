@@ -10,6 +10,7 @@
 </head>
 <body>
 <main>
+<div id="neu"></div>
 <h1 id="h1">Regierungstracker Österreich</h1>
 <p class="sub" id="sub">Platz unter den EU-Ländern, pro Indikator. Tippe auf eine Karte für die Details.</p>
 <div id="app"><p>Lade Daten …</p></div>
@@ -54,7 +55,31 @@ else {
       + '<div class="more">Details →</div></a>';
   });
   h += '</div>' + fussnote();
+  neuesteLeiste();
   app.innerHTML = h;
+}
+
+// Leiste über dem Titel: neueste Daten zuerst (links), mit aktuellem Trend
+function periodeEnde(i){
+  if(i.art==="rating"){ var d=new Date(i.stand); return d.getFullYear()*12+d.getMonth()+1+d.getDate()/32; }
+  var p=String(i.periode), m;
+  if((m=/^(\d{4})-(\d{2})$/.exec(p))) return +m[1]*12+ +m[2];
+  if((m=/^(\d{4})-Q(\d)$/.exec(p))) return +m[1]*12+ +m[2]*3;
+  if((m=/^(\d{4})-S(\d)$/.exec(p))) return +m[1]*12+ +m[2]*6;
+  if((m=/^(\d{4})$/.exec(p))) return +m[1]*12+12;
+  return 0;
+}
+function neuesteLeiste(){
+  var el=document.getElementById("neu"); if(!el) return;
+  var liste=D.indikatoren.filter(function(i){return i.oesterreich && i.oesterreich.urteil;}).map(function(i){
+    var a=i.oesterreich, hj=i.halbjahr;
+    return {i:i, e:periodeEnde(i), p:i.art==="rating"?datum(i.stand):periode(i.periode),
+      ar:i.art==="nurAT"?pfeil(a.richtung):pfeilFuer(i,a.urteil,a.richtung)};
+  }).sort(function(x,y){return y.e-x.e;});
+  el.innerHTML='<div class="neu" role="list" aria-label="Neueste Daten">'+liste.map(function(x){
+    var a=x.i.oesterreich;
+    return '<a class="chip '+urteilCls(a.urteil)+'" role="listitem" href="indikator.html?id='+encodeURIComponent(x.i.id)+'"><span class="p">'+x.p+'</span> <b>'+x.i.name+'</b> <span class="ar" aria-hidden="true">'+x.ar+'</span> '+trendWort(a.urteil)+'</a>';
+  }).join('')+'</div>';
 }
 </script>
 </body>
