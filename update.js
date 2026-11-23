@@ -272,7 +272,7 @@ const INDICATORS = [
     filter: "sex=T", alternativen: [ { dataset: "ilc_pnp3", filter: "sex=T&indic_il=AGG_RR" }, { dataset: "ilc_pnp3", filter: "sex=T&unit=PC" } ],
     maxAlter: 26, dez: 0, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Pensionen (65 bis 74 Jahre) in % der Einkommen der 50- bis 59-Jährigen", rangText: "Rang 1 = höchste Ersatzquote",
-    hinweis: "Eine höhere Ersatzquote bedeutet höhere Pensionen im Verhältnis zum früheren Einkommen, kostet das System aber mehr. Die Wertung ist deshalb umstritten.",
+    hinweis: "Eine höhere Ersatzquote bedeutet höhere Pensionen im Verhältnis zum früheren Einkommen, kostet das System aber mehr.",
     typ: "hoch", umstritten: true, schwelle: 1, mock: { base: 55, step: 3 } }
   ,{ id: "altersarmut", name: "Armutsgefährdung ab 65", takt: "jahr", dataset: "ilc_li02",
     filter: "statinfo=MED_EI&age=Y_GE65&sex=T&unit=PC&rskpovth=B_60", alternativen: [ { dataset: "ilc_li02", filter: "statinfo=MEAN_EI&age=Y_GE65&sex=T&unit=PC&rskpovth=B_60" } ],
