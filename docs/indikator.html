@@ -143,7 +143,7 @@ function detailInsolvenz(i){
      + '</div></div>';
   h += '<div class="card"><h2>Trend gegenüber dem Vorjahr</h2><div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+prozent(a.veraenderungProzent)+', '+zahl(a.wertVorher)+' auf '+zahl(a.wert)+')</span></div>'
      + (hj ? '<div class="v '+urteilCls(hj.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(hj.richtung)+'</span> 1. Halbjahr '+hj.jahr+': '+trendWort(hj.urteil)+' <span class="k">('+prozent(hj.veraenderungProzent)+', '+zahl(hj.wertVorher)+' auf '+zahl(hj.wert)+' im Vergleich zum 1. Halbjahr '+hj.vorjahr+')</span></div>' : '')
-     + '<p class="note">Weniger Insolvenzen gelten als besser. Eine Veränderung unter 3 % wird als unverändert gewertet. Pfeil = Richtung des Wertes (↑ steigt, ↓ sinkt), grün = besser, rot = schlechter.</p></div>';
+     + '<p class="note">Wertung und Pfeile '+infoIcon('Weniger Insolvenzen gelten als besser. Eine Veränderung unter 3 % wird als unverändert gewertet. Pfeil = Richtung des Wertes (↑ steigt, ↓ sinkt), grün = besser, rot = schlechter.')+'</p></div>';
   h += '<div class="card"><h2>Insolvenzen der letzten '+i.anzahlJahre+' Jahre</h2><div class="chartwrap" id="iwrap">'+insolvenzChart(i)+'<div class="tip r" id="itip" style="display:none"></div></div>'
      + '<p class="note"><span style="color:var(--at)">■</span> eröffnete Verfahren &nbsp; <span style="color:var(--bar)">■</span> nicht eröffnet (mangels Vermögen). Mit der Maus oder dem Finger über einen Balken fahren zeigt die Werte.</p>'
      + '<p class="note">Die Krisen sind markiert. In den Corona-Jahren 2020 und 2021 lagen die Zahlen wegen staatlicher Hilfen und ausgesetzter Antragspflichten deutlich niedriger. Dass sie danach wieder stiegen, ist teilweise ein Aufholeffekt. Die hohen Verbindlichkeiten 2023 und 2024 gehen vor allem auf einzelne Großinsolvenzen zurück.</p></div>';
@@ -238,7 +238,7 @@ function ranking(i){
     var left = (Math.min(v,0)-mn)/span*100, w = Math.max(.8, Math.abs(v)/span*100);
     return '<span class="trk"><span class="bb" style="left:'+left+'%;width:'+w+'%"></span></span>';
   };
-  var s = '<p class="note">Pfeil rechts: Trend des Landes ('+trendVergleich(i)+'). '+pfeilHinweis(i)+'</p>' + i.laender.map(function(x){
+  var s = '<p class="note">Legende der Pfeile '+infoIcon('Pfeil rechts: Trend des Landes ('+trendVergleich(i)+'). '+pfeilHinweis(i))+'</p>' + i.laender.map(function(x){
     return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.ppsRang||x.zus?" mitb":"")+'"><span>'+x.rank+'. '+x.name+(x.ppsRang?' <small class="note">Kaufkraft: Platz '+x.ppsRang+'</small>':'')+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
   }).join("");
   if(i.schweiz){
