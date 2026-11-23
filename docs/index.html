@@ -33,7 +33,7 @@ else {
     if(i.art==="nurAT"){
       var hj = i.halbjahr;
       h += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
-        + '<div class="t">'+i.name+'</div>'
+        + '<div class="t"'+(i.erklaerung?' title="'+i.erklaerung.replace(/"/g,"&quot;")+'"':'')+'>'+i.name+'</div>'
         + '<div class="r">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
         + '<div class="note">Nur Österreich, kein EU-Vergleich. Höchster Wert seit '+i.ersteJahr+': Platz '+a.platzHoechste+' von '+i.anzahlJahre+' Jahren</div>'
         + '<div class="note">Stand: '+periode(i.periode)+'</div>'
@@ -44,7 +44,7 @@ else {
       return;
     }
     h += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
-      + '<div class="t">'+i.name+'</div>'
+      + '<div class="t"'+(i.erklaerung?' title="'+i.erklaerung.replace(/"/g,"&quot;")+'"':'')+'>'+i.name+'</div>'
       + '<div class="r">Platz '+a.rang+' <small>von '+i.anzahlLaender+'</small></div>'
       + (a.bestand!=null ? '<div class="note">Einwohner: <strong>'+a.bestand.toLocaleString("de-AT",{minimumFractionDigits:2,maximumFractionDigits:2})+' Mio.</strong></div>' : '')
       + (i.art==="rating" ? '<div class="note">Durchschnitt: <strong>'+a.schnittText+'</strong> (S&amp;P, Moody\'s, Fitch)</div>' : '')

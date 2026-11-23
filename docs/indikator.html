@@ -24,6 +24,7 @@ else if(!ind){ app.innerHTML = '<p>Diesen Indikator gibt es nicht. Zurück zum <
 else if(!ind.oesterreich){ app.innerHTML = '<h1>'+ind.name+'</h1><p class="warn">Keine Daten verfügbar: '+(ind.fehler||"")+'</p>'; }
 else { document.title = ind.name + " | Regierungstracker Österreich"; if(ind.art==="rating") detailRating(ind); else if(ind.art==="nurAT") detailInsolvenz(ind); else detail(ind); }
 
+function erkl(i){ return i.erklaerung ? '<p class="erkl">'+i.erklaerung+'</p>' : ''; }
 function detail(i){
   setzeEinheit(i);
   var a = i.oesterreich, q = i.takt==="quartal", j = i.takt==="jahr", hb = i.takt==="halbjahr";
@@ -36,7 +37,7 @@ function detail(i){
     : j ? 'Verglichen wird der Wert des aktuellen Jahres ('+f(a.schnitt)+SUF+') mit dem des Vorjahres ('+f(a.schnittVorher)+SUF+').'
     : 'Verglichen werden die Durchschnitte der letzten 3 Monate ('+f(a.schnitt)+SUF+') und der 3 Monate davor ('+f(a.schnittVorher)+SUF+'), damit einzelne Ausreißer den Trend nicht verzerren.';
   var h = banner();
-  h += '<div class="card"><h2>'+i.name+'</h2><div class="rank">Platz '+a.rang+' <small>von '+i.anzahlLaender+'</small></div>'
+  h += '<div class="card"><h2>'+i.name+'</h2>'+erkl(i)+'<div class="rank">Platz '+a.rang+' <small>von '+i.anzahlLaender+'</small></div>'
      + '<p class="note">'+i.rangText+'. Stand: '+periode(i.periode)+'. Einheit: '+i.einheit+'</p>'
      + (i.hinweis ? '<p class="note">'+i.hinweis+'</p>' : '')
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
@@ -90,7 +91,7 @@ function mark(x, ag){ return x.unsicher && x.unsicher.indexOf(ag)>=0 ? '<span ti
 // Kreditrating: Tabelle statt Balken, da keine Zeitreihe
 function detailInsolvenz(i){
   var a = i.oesterreich, hj = i.halbjahr, h = banner();
-  h += '<div class="card"><h2>'+i.name+'</h2><div class="rank">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
+  h += '<div class="card"><h2>'+i.name+'</h2>'+erkl(i)+'<div class="rank">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
      + '<p class="note">'+i.einheit+'. Nur Österreich, kein EU-Vergleich. Stand: '+periode(i.periode)+'.</p>'
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
@@ -148,7 +149,7 @@ function bindInsolvenz(i){
 }
 function detailRating(i){
   var a = i.oesterreich, h = banner();
-  h += '<div class="card"><h2>'+i.name+'</h2><div class="rank">Platz '+a.rang+' <small>von '+i.anzahlLaender+'</small></div>'
+  h += '<div class="card"><h2>'+i.name+'</h2>'+erkl(i)+'<div class="rank">Platz '+a.rang+' <small>von '+i.anzahlLaender+'</small></div>'
      + '<p class="note">'+i.rangText+'. Stand: '+datum(i.stand)+'.</p>'
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
