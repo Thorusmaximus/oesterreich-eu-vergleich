@@ -72,6 +72,7 @@ const INDICATORS = [
     alternativen: [ // falls Eurostat die Codes anders benennt, werden diese der Reihe nach probiert
       { dataset: "gov_10a_taxag", filter: "unit=PC_GDP&sector=S13&na_item=D2_D5_D61_D91_D995" },
       { dataset: "gov_10a_taxag", filter: "unit=PC_GDP&sector=S13_S212&na_item=D2_D5_D61_D91_D995_XD995" } ],
+    quote: { dataset: "gov_10q_ggnfa", filter: "unit=MIO_EUR&s_adj=NSA&na_item=D2_D5_D91_D61_M_D995", sektoren: ["S13_S212", "S13"], bipDataset: "namq_10_gdp", bipFilter: "unit=CP_MEUR&s_adj=NSA&na_item=B1GQ" },
     vorab: { dataset: "gov_10q_ggnfa", takt: "quartal", rueckblick: 4, maxAlter: 8, plausibel: [25, 60], basis: "unit=PC_GDP&s_adj=NSA", sektoren: ["S13"], // Quartalsdaten (Vorjahresquartal als Vergleich, wegen Saisoneffekten)
       passt: c => /D2/.test(c) && /D5/.test(c) && /D61/.test(c) },
     entdecke: { basis: "unit=PC_GDP", sektoren: ["S13_S212", "S13"], // Notlösung: Codes bei Eurostat nachschlagen (Summe aus Steuern D2, D5 und Sozialbeiträgen D61)
@@ -301,6 +302,21 @@ function berechneRating() {
   };
 }
 
+// Quartalsquote selbst berechnen: Summe der letzten 4 Quartale (Steuern und Sozialbeiträge) / Summe der letzten 4 Quartale BIP
+function quotientJs(jsA, jsB) {
+  const A = parse(jsA), B = parse(jsB), qi = t => { const m = /^(\d{4})-Q(\d)$/.exec(t); return m ? +m[1] * 4 + +m[2] - 1 : null; };
+  const back = (t, k) => { const i = qi(t) - k; return `${Math.floor(i / 4)}-Q${i % 4 + 1}`; };
+  const geos = Object.keys(A).filter(g => B[g]), times = new Set(), val = {};
+  for (const g of geos) { val[g] = {}; for (const t of Object.keys(A[g])) {
+    let a = 0, b = 0, ok = true;
+    for (let k = 0; k < 4; k++) { const tt = back(t, k); if (A[g][tt] === undefined || B[g][tt] === undefined) { ok = false; break; } a += A[g][tt]; b += B[g][tt]; }
+    if (ok && b) { val[g][t] = a / b * 100; times.add(t); } } }
+  const T = [...times].sort(), G = geos, v = [];
+  for (const g of G) for (const t of T) v.push(val[g][t] ?? null);
+  const idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
+  return { id: ["geo", "time"], size: [G.length, T.length], dimension: { geo: { category: { index: idx(G) } }, time: { category: { index: idx(T) } } }, value: v };
+}
+
 // Notlösung, wenn feste Filter nicht passen: fragt Eurostat, welche Codes es wirklich gibt, und baut daraus Kandidaten
 async function entdecke(ind, e) {
   if (TEST || !e) return [];
@@ -376,7 +392,24 @@ function berechneInsolvenzen() {
           r = berechne(ind, js); break;
         } catch (e) { letzterFehler = e; if (kandidaten.length > 1) console.error(`   (${k.dataset} mit ${k.filter} hat nicht funktioniert: ${e.message})`); }
       }
-      if (ind.vorab && !TEST) { // zuerst die häufigere Quartalsreihe versuchen
+      if (ind.quote && !TEST) { // Quartalsquote aus Steuern (ggnfa) und BIP (namq) selbst berechnen
+        try {
+          const q = ind.quote, seit = TAKT.quartal.seit;
+          for (const sek of q.sektoren) {
+            try {
+              const ra = await fetch(`${BASE}${q.dataset}?format=JSON&lang=EN&${q.filter}&sector=${sek}&sinceTimePeriod=${seit}`), rb = await fetch(`${BASE}${q.bipDataset}?format=JSON&lang=EN&${q.bipFilter}&sinceTimePeriod=${seit}`);
+              if (!ra.ok || !rb.ok) throw new Error(`HTTP ${ra.status}/${rb.status}`);
+              const jq = quotientJs(await ra.json(), await rb.json()), dd = parse(jq), ts = [...new Set(Object.values(dd).flatMap(o => Object.keys(o)))].sort();
+              console.error(`   Quartalsquote (${sek}): ${Object.keys(dd).length} Länder, Perioden ${ts[0]}..${ts[ts.length - 1]}, AT: ${JSON.stringify(dd.AT || {}).slice(0, 160)}`);
+              const r3 = berechne({ ...ind, takt: "quartal", rueckblick: 4, maxAlter: 8 }, jq);
+              const w = r3.oesterreich && r3.oesterreich.wert;
+              if (!(r3.anzahlLaender >= 20 && w >= 25 && w <= 60)) throw new Error(`unplausibel (AT ${w}, ${r3.anzahlLaender} Länder)`);
+              r = r3; console.error("   (Quartalsquote berechnet)"); break;
+            } catch (e) { console.error(`   (Quartalsquote ${sek} hat nicht funktioniert: ${e.message})`); }
+          }
+        } catch (e) { console.error("   Quartalsquote fehlgeschlagen: " + e.message); }
+      }
+      if (ind.vorab && !TEST && !r) { // zuerst die häufigere Quartalsreihe versuchen
         try {
           for (const k of await entdecke(ind, ind.vorab)) {
             try {
