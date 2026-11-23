@@ -741,7 +741,7 @@ function berechneHand(id, ind) {
   r.laender.forEach(x => { if (d.zus?.[x.code]) x.zus = d.zus[x.code]; });
   Object.assign(r.oesterreich, { urteil: null, richtung: null, veraenderung: 0, rangVorher: null, wertVorher: null });
   r.rangVerlauf = []; r.rangVergleich = []; r.seitStart = null; r.verlauf = []; r.ohneTrend = true;
-  r.stand = raw.stand; r.quelle = d.quelle; r.quelleUrl = d.url; r.hinweisDaten = d.hinweis; r.schweiz = null; r.eu = null;
+  r.kurzHinweis = ind.kurzHinweis || null; r.stand = raw.stand; r.quelle = d.quelle; r.quelleUrl = d.url; r.hinweisDaten = d.hinweis; r.schweiz = null; r.eu = null;
   return r;
 }
 const HAND_IND = {
@@ -751,11 +751,11 @@ const HAND_IND = {
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, maxAlter: 26, minLaender: 20 },
   aktionaersquote: { id: "aktionaersquote", name: "Aktionärsquote", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " %", diffEinheit: "Prozentpunkte",
     einheit: "Anteil der Haushalte mit börsennotierten Aktien in % (Befragung 2021)", rangText: "Rang 1 = höchster Anteil (nur 22 EU-Länder)",
-    typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.5, maxAlter: 80, minLaender: 18 },
+    typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.5, maxAlter: 80, minLaender: 18, kurzHinweis: "Nur 22 von 27 EU-Ländern sind in der Erhebung. Der Rang gilt nur unter diesen 22." },
   marsh: { id: "marsh", name: "Finanzierbarkeit des Pensionssystems", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " Punkte", diffEinheit: "Punkte",
     einheit: "Teilindex Nachhaltigkeit des Marsh CFA Institute Global Pension Index (0 bis 100 Punkte)", rangText: "Rang 1 = beste Nachhaltigkeitsbewertung (nur 14 EU-Länder im Index)",
     hinweis: "Einschätzung einer privaten Studie, keine amtliche Statistik. Berücksichtigt unter anderem Pensionsvermögen, Altersstruktur, Staatsschulden und Erwerbsquote Älterer.",
-    typ: "hoch", schwelle: 1, maxAlter: 26, minLaender: 12 }
+    typ: "hoch", schwelle: 1, maxAlter: 26, minLaender: 12, kurzHinweis: "Nur 14 von 27 EU-Ländern sind im Index. Der Rang gilt nur unter diesen 14." }
 };
 
 function berechneReligion() {

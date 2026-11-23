@@ -38,6 +38,7 @@ function detail(i){
     : 'Verglichen werden die Durchschnitte der letzten 3 Monate ('+f(a.schnitt)+SUF+') und der 3 Monate davor ('+f(a.schnittVorher)+SUF+'), damit einzelne Ausreißer den Trend nicht verzerren.';
   var h = banner();
   h += '<div class="card"><h2>'+i.name+'</h2>'+erkl(i)+'<div class="rank">Platz '+a.rang+' <small>von '+i.anzahlLaender+'</small></div>'
+     + (i.kurzHinweis ? '<p class="note"><b>'+i.kurzHinweis+'</b></p>' : '')
      + '<p class="note">'+i.rangText+'. Stand: '+periode(i.periode)+'. Einheit: '+i.einheit+'</p>'
      + (i.hinweis ? '<p class="note">'+i.hinweis+'</p>' : '')
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
