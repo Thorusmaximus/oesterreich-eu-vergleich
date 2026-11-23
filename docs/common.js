@@ -129,3 +129,15 @@ function teilPille(i){
   document.addEventListener("keydown",function(e){ if(e.key==="Escape") verberge(); if((e.key==="Enter"||e.key===" ")&&e.target.classList&&e.target.classList.contains("info")){ e.preventDefault(); e.target.click(); } });
   window.addEventListener("scroll",function(){ if(!pinned) verberge(); },{passive:true});
 })();
+
+(function(){
+  function init(){
+    var b=document.createElement("button");
+    b.id="nachoben"; b.type="button"; b.setAttribute("aria-label","Zurück nach oben"); b.title="Nach oben"; b.textContent="↑";
+    b.onclick=function(){ window.scrollTo({top:0,behavior:"smooth"}); };
+    document.body.appendChild(b);
+    function pruefe(){ b.classList.toggle("an", (window.pageYOffset||document.documentElement.scrollTop)>600); }
+    window.addEventListener("scroll",pruefe,{passive:true}); pruefe();
+  }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
+})();
