@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
 <title>Regierungstracker Österreich</title>
 <meta name="description" content="Wie entwickelt sich Österreich seit dem Amtsantritt der Bundesregierung? Arbeitslosigkeit, Inflation, Schulden, Geburtenrate, Strompreise und mehr im Ranking der 27 EU-Länder.">
-<link rel="stylesheet" href="style.css?v=94bfab08">
+<link rel="stylesheet" href="style.css?v=0de2422d">
 </head>
 <body>
 <main>
@@ -16,7 +16,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=9b890130"></script>
+<script src="common.js?v=bd20e530"></script>
 <script>
 var app = document.getElementById("app");
 if(D && D.regierung){
@@ -57,7 +57,7 @@ else {
     }
     k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
       + '<div class="t">'+i.name.replace('Durchschnittseinkommen','Durchschnitts-<br>einkommen')+'</div>'
-      + '<div class="r">Platz '+a.rang+' <small'+(i.anzahlLaender<27?' class="teil"':'')+'>von '+i.anzahlLaender+'</small></div>'
+      + '<div class="r">Platz '+a.rang+' '+(i.anzahlLaender<27 ? teilPille(i) : '<small>von '+i.anzahlLaender+'</small>')+'</div>'
       + (a.bestand!=null ? '<div class="note">Einwohner: <strong>'+a.bestand.toLocaleString("de-AT",{minimumFractionDigits:2,maximumFractionDigits:2})+' Mio.</strong></div>' : '')
       + (i.art==="rating" ? '<div class="note">Durchschnitt: <strong>'+a.schnittText+'</strong> (S&amp;P, Moody\'s, Fitch)</div>' : '')
       + '<div class="note">Stand: '+(i.art==="rating" ? datum(i.stand) : periode(i.periode))+(i.veraltet ? ' (Aktualisierung fehlgeschlagen)' : '')+'</div>'

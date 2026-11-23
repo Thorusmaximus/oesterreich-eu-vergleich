@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
 <title>Regierungstracker Österreich</title>
-<link rel="stylesheet" href="style.css?v=94bfab08">
+<link rel="stylesheet" href="style.css?v=0de2422d">
 </head>
 <body>
 <main>
@@ -13,7 +13,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=9b890130"></script>
+<script src="common.js?v=bd20e530"></script>
 <script>
 var app = document.getElementById("app");
 var id = new URLSearchParams(location.search).get("id");
@@ -37,7 +37,7 @@ function detail(i){
     : j ? 'Verglichen wird der Wert des aktuellen Jahres ('+f(a.schnitt)+SUF+') mit dem des Vorjahres ('+f(a.schnittVorher)+SUF+').'
     : 'Verglichen werden die Durchschnitte der letzten 3 Monate ('+f(a.schnitt)+SUF+') und der 3 Monate davor ('+f(a.schnittVorher)+SUF+'), damit einzelne Ausreißer den Trend nicht verzerren.';
   var h = banner();
-  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' <small'+(i.anzahlLaender<27?' class="teil"':'')+'>von '+i.anzahlLaender+'</small></div>'
+  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' '+(i.anzahlLaender<27 ? teilPille(i) : '<small>von '+i.anzahlLaender+'</small>')+'</div>'
      + (i.kurzHinweis ? '<p class="note"><b>'+i.kurzHinweis+'</b></p>' : '')
      + '<p class="note">Stand: '+periode(i.periode)+'. Einheit: '+i.einheit+infoIcon(i.rangText)+'</p>'
      + (i.hinweis ? '<p class="note">'+i.hinweis+'</p>' : '')
@@ -187,7 +187,7 @@ function bindInsolvenz(i){
 }
 function detailRating(i){
   var a = i.oesterreich, h = banner();
-  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' <small'+(i.anzahlLaender<27?' class="teil"':'')+'>von '+i.anzahlLaender+'</small></div>'
+  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' '+(i.anzahlLaender<27 ? teilPille(i) : '<small>von '+i.anzahlLaender+'</small>')+'</div>'
      + '<p class="note">Stand: '+datum(i.stand)+'.'+infoIcon(i.rangText)+'</p>'
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
