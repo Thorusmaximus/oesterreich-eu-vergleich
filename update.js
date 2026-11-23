@@ -68,10 +68,12 @@ const INDICATORS = [
     hinweis: "Die Wertung ist umstritten: Im Ranking gilt eine niedrigere Staatsquote als besser (weniger Staatsanteil an der Wirtschaft). Der Trend wird dagegen neutral als höher oder niedriger angezeigt. Andere sehen einen hohen Staatsanteil als Vorteil, etwa für soziale Absicherung, Gesundheit und Bildung. Die Staatsquote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) über den Staat ausgegeben wird.",
     maxAlter: 26, typ: "niedrig", schwelle: 0.5, mock: { base: 42, step: 1.6 } }
   ,{ id: "abgabenquote", name: "Steuer- und Abgabenquote", takt: "jahr", dataset: "gov_10a_taxag",
-    filter: "unit=PC_GDP&sector=S13_S212&na_item=D2_D5_D61_D91_D995", // Steuern und Sozialbeiträge in % des BIP (Staat inklusive EU-Institutionen)
+    filter: "unit=PC_GDP&sector=S13_S212&na_item=D2_D5_D91_D61_M_D995", // Steuern und Sozialbeiträge in % des BIP (Staat inklusive EU-Institutionen)
     alternativen: [ // falls Eurostat die Codes anders benennt, werden diese der Reihe nach probiert
       { dataset: "gov_10a_taxag", filter: "unit=PC_GDP&sector=S13&na_item=D2_D5_D61_D91_D995" },
       { dataset: "gov_10a_taxag", filter: "unit=PC_GDP&sector=S13_S212&na_item=D2_D5_D61_D91_D995_XD995" } ],
+    vorab: { dataset: "gov_10q_ggnfa", takt: "quartal", rueckblick: 4, maxAlter: 8, plausibel: [25, 60], basis: "unit=PC_GDP", sektoren: ["S13"], // Quartalsdaten (Vorjahresquartal als Vergleich, wegen Saisoneffekten)
+      passt: c => /D2/.test(c) && /D5/.test(c) && /D61/.test(c) },
     entdecke: { basis: "unit=PC_GDP", sektoren: ["S13_S212", "S13"], // Notlösung: Codes bei Eurostat nachschlagen (Summe aus Steuern D2, D5 und Sozialbeiträgen D61)
       passt: c => /D2/.test(c) && /D5/.test(c) && /D61/.test(c) } ,
     einheit: "% des BIP: Steuern und Sozialbeiträge",
@@ -188,7 +190,7 @@ function berechne(ind, js) {
   const count = t => Object.keys(NAMES).filter(c => data[c]?.[t] !== undefined).length;
   const latest = [...periods].reverse().find(t => count(t) >= MIN_LAENDER);
   if (!latest) throw new Error("Keine ausreichenden Daten gefunden");
-  const vorher = shift(latest, -cfg.rueckblick, takt), ranks = rankAt(data, latest, sc), ranksV = rankAt(data, vorher, sc);
+  const vorher = shift(latest, -(ind.rueckblick || cfg.rueckblick), takt), ranks = rankAt(data, latest, sc), ranksV = rankAt(data, vorher, sc);
   const me = ranks.find(x => x.code === "AT"), meV = ranksV.find(x => x.code === "AT");
   if (!me) throw new Error("Österreich fehlt in der Berichtsperiode");
   const avgNow = avg(data, "AT", latest, cfg.glaettung, takt), avgPrev = avg(data, "AT", vorher, cfg.glaettung, takt);
@@ -244,7 +246,7 @@ function berechne(ind, js) {
       richtung: delta > ind.schwelle ? "steigend" : delta < -ind.schwelle ? "sinkend" : "stabil",
       urteil: urt(dScore, delta) },
     eu: data.EU27_2020?.[latest] ?? null, beste: ranks[0], schlechteste: ranks[ranks.length - 1],
-    rangVerlauf, rangVergleich, seitStart,
+    rangVerlauf, rangVergleich, seitStart, rueckblick: ind.rueckblick || null,
     laender: ranks, schweiz, verlauf
   };
 }
@@ -300,17 +302,18 @@ function berechneRating() {
 }
 
 // Notlösung, wenn feste Filter nicht passen: fragt Eurostat, welche Codes es wirklich gibt, und baut daraus Kandidaten
-async function entdecke(ind) {
-  const e = ind.entdecke; if (TEST || !e) return [];
-  const res = await fetch(`${BASE}${ind.dataset}?format=JSON&lang=EN&geo=AT&${e.basis}&sinceTimePeriod=${TAKT[ind.takt].seit}`);
+async function entdecke(ind, e) {
+  if (TEST || !e) return [];
+  const ds = e.dataset || ind.dataset, tk = e.takt || ind.takt;
+  const res = await fetch(`${BASE}${ds}?format=JSON&lang=EN&geo=AT&${e.basis}&sinceTimePeriod=${TAKT[tk].seit}`);
   if (!res.ok) throw new Error("Eurostat: HTTP " + res.status);
   const js = await res.json(), cat = d => js.dimension[d] ? Object.keys(js.dimension[d].category.index) : [];
   const items = cat("na_item"), sektoren = cat("sector");
-  console.error(`   Entdeckt in ${ind.dataset}: na_item = ${items.join(", ")}; sector = ${sektoren.join(", ")}`);
+  console.error(`   Entdeckt in ${ds}: na_item = ${items.join(", ")}; sector = ${sektoren.join(", ")}`);
   const passend = items.filter(e.passt).sort((a, b) => (/D995/.test(b) ? 1 : 0) - (/D995/.test(a) ? 1 : 0) || a.length - b.length);
   const sek = e.sektoren.filter(x => sektoren.includes(x));
   const out = [];
-  for (const n of passend) for (const x of (sek.length ? sek : [null])) out.push({ dataset: ind.dataset, filter: `${e.basis}${x ? "&sector=" + x : ""}&na_item=${n}` });
+  for (const n of passend) for (const x of (sek.length ? sek : [null])) out.push({ dataset: ds, takt: tk, filter: `${e.basis}${x ? "&sector=" + x : ""}&na_item=${n}` });
   return out;
 }
 
@@ -373,9 +376,27 @@ function berechneInsolvenzen() {
           r = berechne(ind, js); break;
         } catch (e) { letzterFehler = e; if (kandidaten.length > 1) console.error(`   (${k.dataset} mit ${k.filter} hat nicht funktioniert: ${e.message})`); }
       }
+      if (ind.vorab && !TEST) { // zuerst die häufigere Quartalsreihe versuchen
+        try {
+          for (const k of await entdecke(ind, ind.vorab)) {
+            try {
+              const res = await fetch(`${BASE}${k.dataset}?format=JSON&lang=EN&${k.filter}&sinceTimePeriod=${TAKT[k.takt].seit}`);
+              if (!res.ok) throw new Error("HTTP " + res.status);
+              const ind2 = { ...ind, takt: k.takt, rueckblick: ind.vorab.rueckblick, maxAlter: ind.vorab.maxAlter || ind.maxAlter };
+              const r2 = berechne(ind2, await res.json());
+              const pl = ind.vorab.plausibel, w = r2.oesterreich && r2.oesterreich.wert;
+              if (!(r2.anzahlLaender >= 20 && (!pl || (w >= pl[0] && w <= pl[1])))) throw new Error(`unplausibel (AT ${w}, ${r2.anzahlLaender} Länder)`);
+              { r = r2; console.error(`   (Quartalsdaten gefunden: ${k.dataset} ${k.filter})`); break; }
+            } catch (e) { console.error(`   (Quartal ${k.filter} hat nicht funktioniert: ${e.message})`); }
+          }
+        } catch (e) { console.error("   Quartalssuche fehlgeschlagen: " + e.message); }
+      }
+      if (!r) { // sonst die bisherigen Jahreswerte
+        try { const kk = kandidaten; for (const k of kk) { try { const res = await fetch(`${BASE}${k.dataset}?format=JSON&lang=EN&${k.filter}&sinceTimePeriod=${TAKT[ind.takt].seit}`); if (!res.ok) throw new Error("HTTP " + res.status); r = berechne(ind, await res.json()); break; } catch (e) {} } } catch (e) {}
+      }
       if (!r && ind.entdecke) {
         try {
-          for (const k of await entdecke(ind)) {
+          for (const k of await entdecke(ind, ind.entdecke)) {
             try {
               const res = await fetch(`${BASE}${k.dataset}?format=JSON&lang=EN&${k.filter}&sinceTimePeriod=${TAKT[ind.takt].seit}`);
               if (!res.ok) throw new Error("HTTP " + res.status);

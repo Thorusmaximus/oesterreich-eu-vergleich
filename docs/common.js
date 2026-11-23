@@ -21,7 +21,7 @@ function trendPfeil(u){ return u==="besser" ? "↑" : u==="schlechter" ? "↓" :
 function pfeilFuer(i, u, r){ return i.pfeilModus==="wert" ? (r ? pfeil(r) : "") : trendPfeil(u); }
 function pfeilHinweis(i){ return i.trendNeutral ? "Pfeil = Richtung des Wertes (↓ sinkt, ↑ steigt), ohne Wertung." : i.pfeilModus==="wert" ? "Pfeil = Richtung des Wertes (↓ sinkt, ↑ steigt). Grün = besser, rot = schlechter." : "↑ besser, → unverändert, ↓ schlechter."; }
 function trendWort(u){ return u==="besser" ? "besser" : u==="schlechter" ? "schlechter" : u==="höher" ? "höher" : u==="niedriger" ? "niedriger" : "unverändert"; }
-function trendVergleich(i){ return i.art==="rating" ? "seit Regierungsantritt" : i.takt==="quartal" ? "zum Vorquartal" : i.takt==="jahr" ? "zum Vorjahr" : i.takt==="halbjahr" ? "zum gleichen Halbjahr des Vorjahres" : "zu vor 3 Monaten"; }
+function trendVergleich(i){ return i.art==="rating" ? "seit Regierungsantritt" : i.takt==="quartal" ? (i.rueckblick===4 ? "zum gleichen Quartal des Vorjahres" : "zum Vorquartal") : i.takt==="jahr" ? "zum Vorjahr" : i.takt==="halbjahr" ? "zum gleichen Halbjahr des Vorjahres" : "zu vor 3 Monaten"; }
 function urteilCls(u){ return u==="besser" ? "good" : u==="schlechter" ? "bad" : ""; }
 function banner(){
   return D.beispiel ? '<div class="banner">Beispieldaten. Das sind keine echten Zahlen. Mit „node update.js" lädst du die aktuellen Eurostat-Daten.</div>' : "";
@@ -41,18 +41,41 @@ function rangTrend(jetzt, frueher){
 function rangChart(rv){
   var pts = rv.filter(function(x){return x.rang!=null;});
   if(pts.length<2) return "";
-  var W=640,H=150,pl=34,pr=10,pt=10,pb=22, n=Math.max.apply(null,pts.map(function(x){return x.n;})), mx=Math.max.apply(null,pts.map(function(x){return x.rang;}));
+  var W=640,H=150,pl=34,pr=10,pt=10,pb=22, mx=Math.max.apply(null,pts.map(function(x){return x.rang;}));
   var lo=1, hi=Math.max(mx,3);
   var X=function(k){return pl+(W-pl-pr)*k/(rv.length-1);}, Y=function(r){return pt+(H-pt-pb)*(r-lo)/(hi-lo);};
-  var path="", dots="";
+  var path="", dots="", info=[];
   rv.forEach(function(x,k){ if(x.rang==null) return; path+=(path?"L":"M")+X(k).toFixed(1)+" "+Y(x.rang).toFixed(1);
-    dots+='<circle cx="'+X(k).toFixed(1)+'" cy="'+Y(x.rang).toFixed(1)+'" r="'+(k===rv.length-1?4.5:3)+'" fill="var(--at)"><title>'+periode(x.t)+': Platz '+x.rang+' von '+x.n+'</title></circle>'; });
+    dots+='<circle cx="'+X(k).toFixed(1)+'" cy="'+Y(x.rang).toFixed(1)+'" r="'+(k===rv.length-1?4.5:2.5)+'" fill="var(--at)"/>';
+    info.push([+X(k).toFixed(1), +Y(x.rang).toFixed(1), periode(x.t)+": Platz "+x.rang+" von "+x.n]); });
   var ticks="";
   for(var r=lo;r<=hi;r+= (hi>8?Math.ceil((hi-lo)/4):1)){ ticks+='<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+Y(r)+'" y2="'+Y(r)+'" stroke="var(--line)"/><text x="'+(pl-6)+'" y="'+(Y(r)+4)+'" text-anchor="end" font-size="11" fill="var(--mut)">'+r+'</text>'; }
-  return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Rang von Österreich im Zeitverlauf">'+ticks
+  return '<div class="hvwrap" style="position:relative"><svg class="hv" data-w="'+W+'" data-info="'+JSON.stringify(info).replace(/"/g,"&quot;")+'" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Rang von Österreich im Zeitverlauf" style="touch-action:pan-y">'+ticks
     +'<path d="'+path+'" fill="none" stroke="var(--at)" stroke-width="2"/>'+dots
-    +'<text x="'+pl+'" y="'+(H-4)+'" font-size="11" fill="var(--mut)">'+periode(rv[0].t)+'</text><text x="'+(W-pr)+'" y="'+(H-4)+'" text-anchor="end" font-size="11" fill="var(--mut)">'+periode(rv[rv.length-1].t)+'</text></svg>';
+    +'<line class="hl" x1="0" x2="0" y1="'+pt+'" y2="'+(H-pb)+'" stroke="var(--mut)" stroke-dasharray="3 3" style="display:none"/><circle class="hc" r="6" fill="none" stroke="var(--at)" stroke-width="2" style="display:none"/>'
+    +'<text x="'+pl+'" y="'+(H-4)+'" font-size="11" fill="var(--mut)">'+periode(rv[0].t)+'</text><text x="'+(W-pr)+'" y="'+(H-4)+'" text-anchor="end" font-size="11" fill="var(--mut)">'+periode(rv[rv.length-1].t)+'</text></svg>'
+    +'<div class="hvtip" style="display:none;position:absolute;top:0;pointer-events:none;background:var(--card,#1a2440);color:var(--fg,#fff);border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:13px;white-space:nowrap"></div></div>';
 }
+// Hover/Touch über dem Rang-Diagramm: zeigt Zeitpunkt und Platz des nächsten Punkts
+(function(){
+  function move(e){
+    var svg = e.target.closest ? e.target.closest("svg.hv") : null;
+    if(!svg) return;
+    var info = JSON.parse(svg.getAttribute("data-info")), W = +svg.getAttribute("data-w"), r = svg.getBoundingClientRect();
+    var cx = (e.clientX - r.left) / r.width * W, best = 0;
+    info.forEach(function(p,k){ if(Math.abs(p[0]-cx) < Math.abs(info[best][0]-cx)) best = k; });
+    var p = info[best], hl = svg.querySelector(".hl"), hc = svg.querySelector(".hc"), tip = svg.parentNode.querySelector(".hvtip");
+    hl.setAttribute("x1",p[0]); hl.setAttribute("x2",p[0]); hl.style.display="";
+    hc.setAttribute("cx",p[0]); hc.setAttribute("cy",p[1]); hc.style.display="";
+    tip.textContent = p[2]; tip.style.display="";
+    var px = p[0]/W*r.width, tw = tip.offsetWidth;
+    tip.style.left = Math.max(0, Math.min(r.width - tw, px - tw/2)) + "px";
+  }
+  function weg(e){ var svg = e.target.closest ? e.target.closest("svg.hv") : null; if(!svg) return;
+    svg.querySelector(".hl").style.display="none"; svg.querySelector(".hc").style.display="none"; svg.parentNode.querySelector(".hvtip").style.display="none"; }
+  document.addEventListener("pointermove", move); document.addEventListener("pointerdown", move);
+  document.addEventListener("pointerleave", weg, true); document.addEventListener("pointerup", function(e){ if(e.pointerType==="touch") setTimeout(function(){weg(e);},1500); });
+})();
 
 // Liniendiagramm mit mehreren Reihen (Jahreswerte), Hover über die Punkte zeigt Jahr und Wert
 function linienChart(reihen, jahre, farben){

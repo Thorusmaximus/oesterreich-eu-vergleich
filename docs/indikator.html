@@ -65,7 +65,7 @@ function detail(i){
        + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+'). Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+''+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Platz '+ss.rang+' damals, Platz '+a.rang+' jetzt. Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.</p></div>';
   }
   var rv = (i.rangVergleich||[]).filter(Boolean);
-  if(rv.length){
+  if(rv.length || (i.rangVerlauf||[]).length>1){
     h += '<div class="card"><h2>Entwicklung des Rangs</h2>'
        + rv.map(function(v){ var r=rangTrend(a.rang,v.rang); return '<div class="v '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Platz '+a.rang+' statt Platz '+v.rang+' '+v.label+' <span class="k">('+periode(v.t)+', '+r.text+')</span></div>'; }).join('')
        + '<p class="note">Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.</p>'
