@@ -755,7 +755,7 @@ const HAND_IND = {
   marsh: { id: "marsh", name: "Finanzierbarkeit des Pensionssystems", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " Punkte", diffEinheit: "Punkte",
     einheit: "Teilindex Nachhaltigkeit des Marsh CFA Institute Global Pension Index (0 bis 100 Punkte)", rangText: "Rang 1 = beste Nachhaltigkeitsbewertung (nur 14 EU-Länder im Index)",
     hinweis: "Einschätzung einer privaten Studie, keine amtliche Statistik. Berücksichtigt unter anderem Pensionsvermögen, Altersstruktur, Staatsschulden und Erwerbsquote Älterer.",
-    typ: "hoch", umstritten: true, schwelle: 1, maxAlter: 26, minLaender: 12 }
+    typ: "hoch", schwelle: 1, maxAlter: 26, minLaender: 12 }
 };
 
 function berechneReligion() {
