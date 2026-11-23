@@ -809,7 +809,7 @@ function berechneTerror(result) {
 const TERROR_IND = { id: "terror", name: "Terroranschläge", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: "", diffEinheit: "Anschläge pro 10 Mio. Einwohner",
   einheit: "Anschläge (vollendet, gescheitert und vereitelt) pro 10 Mio. Einwohner, laut Europol", rangText: "Rang 1 = niedrigste Quote",
   hinweis: "Gezählt werden auch vereitelte Anschläge, eine hohe Zahl kann also auch für erfolgreiche Terrorabwehr sprechen. Die Länder melden unterschiedlich, und die Einzelzahlen sind klein, ein einzelner Anschlag verändert das Ergebnis deutlich. Gemeldet sind nur Anschläge, die den Terrorismus-Definitionen der Mitgliedstaaten entsprechen.",
-  typ: "neutral", rangNiedrigZuerst: true, trendNeutral: true, umstritten: true, schwelle: 0.5, maxAlter: 26 };
+  typ: "niedrig", schwelle: 0.5, maxAlter: 26 };
 
 // ===== Insolvenzen: nur Österreich, von Hand gepflegt (insolvenzen.json, Quelle KSV1870) =====
 function berechneInsolvenzen() {
