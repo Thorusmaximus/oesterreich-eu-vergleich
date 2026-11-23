@@ -903,7 +903,8 @@
      "eu": 6.2
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab."
   },
   {
    "id": "inflation",
@@ -1799,7 +1800,8 @@
      "eu": 4
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie stark die Verbraucherpreise gegenüber dem gleichen Monat des Vorjahres gestiegen sind (harmonisierter Verbraucherpreisindex HVPI). Zeigt, wie schnell Einkäufe und Dienstleistungen im Schnitt teurer werden."
   },
   {
    "id": "wachstum",
@@ -2295,7 +2297,8 @@
      "eu": 1.4
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Um wie viel Prozent die gesamte Wirtschaftsleistung (BIP) gegenüber dem gleichen Quartal des Vorjahres gewachsen ist, bereinigt um Preissteigerungen. Ein Minus bedeutet, dass die Wirtschaft schrumpft."
   },
   {
    "id": "schulden",
@@ -2788,7 +2791,8 @@
      "eu": 82.9
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie hoch die Schulden des Staates (Bund, Länder, Gemeinden, Sozialversicherung) im Verhältnis zur Jahreswirtschaftsleistung sind. 60 % des BIP ist der Referenzwert aus den EU-Verträgen."
   },
   {
    "id": "defizit",
@@ -3131,7 +3135,8 @@
      "eu": -3.1
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Einnahmen minus Ausgaben des Staates in % des BIP. Ein Minus ist ein Defizit, das neue Schulden bedeutet. Die EU-Regeln sehen als Obergrenze 3 % des BIP vor."
   },
   {
    "id": "geburtenrate",
@@ -3497,7 +3502,8 @@
      "eu": null
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Gesamtfertilitätsrate: Wie viele Kinder eine Frau im Schnitt bekäme, wenn die Geburtenhäufigkeit des Jahres ein Leben lang gleich bliebe. Rund 2,1 wären nötig, damit die Bevölkerung ohne Zuwanderung stabil bleibt."
   },
   {
    "id": "staatsquote",
@@ -3826,7 +3832,8 @@
      "eu": 48.8
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Anteil der gesamten Staatsausgaben (Verwaltung, Pensionen, Gesundheit, Bildung, Soziales, Zinsen) an der Wirtschaftsleistung. Zeigt, wie groß der Staatsanteil an der Wirtschaft ist."
   },
   {
    "id": "abgabenquote",
@@ -4322,7 +4329,8 @@
      "eu": 40.6441606345012
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Anteil der Steuern und Sozialversicherungsbeiträge am BIP. Zeigt, wie viel der Wirtschaftsleistung als Abgaben an den Staat geht (ohne Gebühren und Entgelte für Leistungen)."
   },
   {
    "id": "beschaeftigung",
@@ -4818,7 +4826,8 @@
      "eu": 76.4
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Anteil der 20- bis 64-Jährigen, die erwerbstätig sind, an der gleichaltrigen Bevölkerung. Teilzeit zählt wie Vollzeit, die Quote sagt also nichts über die geleisteten Arbeitsstunden."
   },
   {
    "id": "bevoelkerung",
@@ -5215,7 +5224,8 @@
     }
    ],
    "bestandEU": 451.285,
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie stark die Einwohnerzahl gegenüber dem Vorjahr (jeweils 1. Jänner) gewachsen oder geschrumpft ist. Das Wachstum entsteht aus Geburten, Sterbefällen und Zu- beziehungsweise Abwanderung. Die Einwohnerzahl selbst steht daneben."
   },
   {
    "id": "wachstum-pro-kopf",
@@ -5561,7 +5571,8 @@
      "eu": 1.2
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie stark die preisbereinigte Wirtschaftsleistung je Einwohner gewachsen ist. Das zeigt, ob der Wohlstand im Schnitt wächst, auch wenn die Bevölkerung wächst oder schrumpft."
   },
   {
    "id": "lebenshaltung",
@@ -5890,7 +5901,8 @@
      "eu": 100
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Preisniveau-Index: Wie viel ein typischer Warenkorb im Land im Vergleich zum EU-Durchschnitt (= 100) kostet. 120 heißt, die Preise sind 20 % höher als im EU-Schnitt. Zeigt keine Teuerung über die Zeit."
   },
   {
    "id": "strompreis",
@@ -6283,7 +6295,8 @@
      "eu": 28.32
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Was ein Haushalt mit mittlerem Verbrauch (2.500 bis 5.000 kWh pro Jahr) inklusive Steuern und Abgaben pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres."
   },
   {
    "id": "strompreis-industrie",
@@ -6676,7 +6689,8 @@
      "eu": 15.590000000000002
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Was ein mittelgroßer Industriekunde (2 bis 20 GWh pro Jahr) ohne Mehrwertsteuer pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres."
   },
   {
    "id": "rating",
@@ -7236,7 +7250,8 @@
      "fitch"
     ]
    },
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen."
   },
   {
    "id": "insolvenzen",
@@ -7448,7 +7463,8 @@
      "dienstnehmer": 21900
     }
    ],
-   "geaendert": "2026-11-23"
+   "geaendert": "2026-11-23",
+   "erklaerung": "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
   }
  ]
 }
