@@ -76,7 +76,7 @@ function detail(i){
   if(rv.length || (i.rangVerlauf||[]).length>1){
     h += '<div class="card"><h2>Entwicklung des Rangs</h2>'
        + rv.map(function(v){ var r=rangTrend(a.rang,v.rang); return '<div class="v '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Platz '+a.rang+' statt Platz '+v.rang+' '+v.label+' <span class="k">('+periode(v.t)+', '+r.text+')</span></div>'; }).join('')
-       + '<p class="note">'+infoIcon('Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.')+'</p>'
+       + '<p class="note">Info '+infoIcon('Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.')+'</p>'
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
   if(i.verlauf && i.verlauf.length>1) h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
@@ -142,10 +142,10 @@ function detailInsolvenz(i){
      + '</div></div>';
   h += '<div class="card"><h2>Trend gegenüber dem Vorjahr</h2><div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+prozent(a.veraenderungProzent)+', '+zahl(a.wertVorher)+' auf '+zahl(a.wert)+')</span></div>'
      + (hj ? '<div class="v '+urteilCls(hj.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(hj.richtung)+'</span> 1. Halbjahr '+hj.jahr+': '+trendWort(hj.urteil)+' <span class="k">('+prozent(hj.veraenderungProzent)+', '+zahl(hj.wertVorher)+' auf '+zahl(hj.wert)+' im Vergleich zum 1. Halbjahr '+hj.vorjahr+')</span></div>' : '')
-     + '<p class="note">'+infoIcon('Weniger Insolvenzen gelten als besser. Eine Veränderung unter 3 % wird als unverändert gewertet. Pfeil = Richtung des Wertes (↑ steigt, ↓ sinkt), grün = besser, rot = schlechter.')+'</p></div>';
+     + '<p class="note">Wertung '+infoIcon('Weniger Insolvenzen gelten als besser. Eine Veränderung unter 3 % wird als unverändert gewertet. Pfeil = Richtung des Wertes (↑ steigt, ↓ sinkt), grün = besser, rot = schlechter.')+'</p></div>';
   h += '<div class="card"><h2>Insolvenzen der letzten '+i.anzahlJahre+' Jahre</h2><div class="chartwrap" id="iwrap">'+insolvenzChart(i)+'<div class="tip r" id="itip" style="display:none"></div></div>'
      + '<p class="note"><span style="color:var(--at)">■</span> eröffnete Verfahren &nbsp; <span style="color:var(--bar)">■</span> nicht eröffnet (mangels Vermögen). Mit der Maus oder dem Finger über einen Balken fahren zeigt die Werte.</p>'
-     + '<p class="note">'+infoIcon('Die Krisen sind markiert. In den Corona-Jahren 2020 und 2021 lagen die Zahlen wegen staatlicher Hilfen und ausgesetzter Antragspflichten deutlich niedriger. Dass sie danach wieder stiegen, ist teilweise ein Aufholeffekt. Die hohen Verbindlichkeiten 2023 und 2024 gehen vor allem auf einzelne Großinsolvenzen zurück.')+'</p></div>';
+     + '<p class="note">Krisen '+infoIcon('Die Krisen sind markiert. In den Corona-Jahren 2020 und 2021 lagen die Zahlen wegen staatlicher Hilfen und ausgesetzter Antragspflichten deutlich niedriger. Dass sie danach wieder stiegen, ist teilweise ein Aufholeffekt. Die hohen Verbindlichkeiten 2023 und 2024 gehen vor allem auf einzelne Großinsolvenzen zurück.')+'</p></div>';
   h += '<div class="card"><details><summary><strong>Alle Zahlen als Tabelle</strong></summary><table class="rt"><thead><tr><th>Jahr</th><th>Gesamt</th><th>Eröffnet</th><th>Nicht eröffnet</th><th>Passiva (Mrd. €)</th><th>Dienstnehmer</th></tr></thead><tbody>'
      + i.jahre.slice().reverse().map(function(y){ return '<tr><td>'+y.jahr+'</td><td>'+zahl(y.gesamt)+'</td><td>'+zahl(y.eroeffnet)+'</td><td>'+zahl(y.nichtEroeffnet)+'</td><td>'+y.passivaMrd.toLocaleString("de-AT",{minimumFractionDigits:1})+'</td><td>'+zahl(y.dienstnehmer)+'</td></tr>'; }).join('')
      + '</tbody></table></details></div>';
