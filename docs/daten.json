@@ -3833,7 +3833,9 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Anteil der gesamten Staatsausgaben (Verwaltung, Pensionen, Gesundheit, Bildung, Soziales, Zinsen) an der Wirtschaftsleistung. Zeigt, wie groß der Staatsanteil an der Wirtschaft ist."
+   "erklaerung": "Anteil der gesamten Staatsausgaben (Verwaltung, Pensionen, Gesundheit, Bildung, Soziales, Zinsen) an der Wirtschaftsleistung. Zeigt, wie groß der Staatsanteil an der Wirtschaft ist.",
+   "veraltet": true,
+   "fehler": "Filter unvollständig: Dimension \"cofog99\" hat 80 Werte. Filter im Skript anpassen."
   },
   {
    "id": "abgabenquote",
@@ -4844,49 +4846,44 @@
    "takt": "jahr",
    "einheit": "% Veränderung der Einwohnerzahl (1. Jänner gegenüber 1. Jänner des Vorjahres)",
    "rangText": "Rang 1 = stärkstes Bevölkerungswachstum, ohne Wertung",
-   "periode": "2025",
-   "vorherPeriode": "2024",
+   "periode": "2026",
+   "vorherPeriode": "2025",
    "anzahlLaender": 27,
-   "alter": 11,
+   "alter": -1,
    "warnung": null,
    "oesterreich": {
-    "wert": 0.4199590555479693,
-    "rang": 11,
-    "wertVorher": 0.592853945161953,
-    "rangVorher": 13,
-    "schnitt": 0.42,
-    "schnittVorher": 0.59,
-    "veraenderung": -0.17,
+    "wert": 0.20378999594767855,
+    "rang": 12,
+    "wertVorher": 0.4199590555479693,
+    "rangVorher": 11,
+    "schnitt": 0.2,
+    "schnittVorher": 0.42,
+    "veraenderung": -0.22,
     "richtung": "sinkend",
     "urteil": "niedriger",
-    "bestand": 9.197,
-    "bestandVorher": 9.159
+    "bestand": 9.216,
+    "bestandVorher": 9.197
    },
-   "eu": 0.27331690861081004,
+   "eu": 0.15638824495298742,
    "beste": {
     "code": "MT",
     "name": "Malta",
-    "value": 1.9180289754243018,
+    "value": 2.4386591205920682,
     "rank": 1,
-    "richtung": "sinkend",
-    "urteil": "niedriger",
-    "bestand": 0.574
+    "richtung": "steigend",
+    "urteil": "höher",
+    "bestand": 0.588
    },
    "schlechteste": {
     "code": "LV",
     "name": "Lettland",
-    "value": -0.9587054017007546,
+    "value": -0.831414113454787,
     "rank": 27,
     "richtung": "stabil",
     "urteil": "unverändert",
-    "bestand": 1.861
+    "bestand": 1.845
    },
    "rangVerlauf": [
-    {
-     "t": "2021",
-     "rang": 8,
-     "n": 27
-    },
     {
      "t": "2022",
      "rang": 11,
@@ -4906,6 +4903,11 @@
      "t": "2025",
      "rang": 11,
      "n": 27
+    },
+    {
+     "t": "2026",
+     "rang": 12,
+     "n": 27
     }
    ],
    "rangVergleich": [],
@@ -4915,7 +4917,7 @@
     "rang": 13,
     "n": 27,
     "schnitt": 0.59,
-    "veraenderung": -0.17,
+    "veraenderung": -0.39,
     "richtung": "sinkend",
     "urteil": "niedriger"
    },
@@ -4924,267 +4926,262 @@
     {
      "code": "MT",
      "name": "Malta",
-     "value": 1.9180289754243018,
+     "value": 2.4386591205920682,
      "rank": 1,
-     "richtung": "sinkend",
-     "urteil": "niedriger",
-     "bestand": 0.574
+     "richtung": "steigend",
+     "urteil": "höher",
+     "bestand": 0.588
     },
     {
      "code": "CY",
      "name": "Zypern",
-     "value": 1.7178809249093208,
+     "value": 1.3840763566593361,
      "rank": 2,
-     "richtung": "stabil",
-     "urteil": "unverändert",
-     "bestand": 0.983
-    },
-    {
-     "code": "IE",
-     "name": "Irland",
-     "value": 1.6554985246691745,
-     "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert",
-     "bestand": 5.44
-    },
-    {
-     "code": "PT",
-     "name": "Portugal",
-     "value": 1.6321790105215506,
-     "rank": 4,
      "richtung": "sinkend",
      "urteil": "niedriger",
-     "bestand": 11.387
+     "bestand": 0.997
     },
     {
      "code": "LU",
      "name": "Luxemburg",
-     "value": 1.4765270441187361,
-     "rank": 5,
+     "value": 1.317647472847172,
+     "rank": 3,
      "richtung": "sinkend",
      "urteil": "niedriger",
-     "bestand": 0.682
+     "bestand": 0.691
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 1.29197441748381,
+     "rank": 4,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "bestand": 5.511
     },
     {
      "code": "ES",
      "name": "Spanien",
-     "value": 1.0460822512358359,
-     "rank": 6,
+     "value": 0.9399918747438063,
+     "rank": 5,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "bestand": 49.128
-    },
-    {
-     "code": "FI",
-     "name": "Finnland",
-     "value": 0.57317726684738,
-     "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert",
-     "bestand": 5.636
+     "bestand": 49.59
     },
     {
      "code": "BE",
      "name": "Belgien",
-     "value": 0.5618893169692551,
-     "rank": 8,
+     "value": 0.6043087492358046,
+     "rank": 6,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "bestand": 11.883
-    },
-    {
-     "code": "NL",
-     "name": "Niederlande",
-     "value": 0.5633691509452587,
-     "rank": 8,
-     "richtung": "sinkend",
-     "urteil": "niedriger",
-     "bestand": 18.044
+     "bestand": 11.955
     },
     {
      "code": "DK",
      "name": "Dänemark",
-     "value": 0.5281611286493737,
-     "rank": 10,
+     "value": 0.5484808770087168,
+     "rank": 7,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "bestand": 5.993
+     "bestand": 6.026
     },
     {
-     "code": "AT",
-     "name": "Österreich",
-     "value": 0.4199590555479693,
-     "rank": 11,
-     "richtung": "sinkend",
-     "urteil": "niedriger",
-     "bestand": 9.197
-    },
-    {
-     "code": "SE",
-     "name": "Schweden",
-     "value": 0.3412054561408917,
-     "rank": 12,
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 0.4776151133003781,
+     "rank": 8,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "bestand": 10.588
-    },
-    {
-     "code": "HR",
-     "name": "Kroatien",
-     "value": 0.3206397154610574,
-     "rank": 13,
-     "richtung": "stabil",
-     "urteil": "unverändert",
-     "bestand": 3.874
-    },
-    {
-     "code": "SI",
-     "name": "Slowenien",
-     "value": 0.3249136396401342,
-     "rank": 13,
-     "richtung": "stabil",
-     "urteil": "unverändert",
-     "bestand": 2.131
+     "bestand": 18.13
     },
     {
      "code": "FR",
      "name": "Frankreich",
-     "value": 0.3106147735328024,
-     "rank": 15,
+     "value": 0.3334789917918357,
+     "rank": 9,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "bestand": 68.883
+     "bestand": 69.112
     },
     {
-     "code": "LT",
-     "name": "Litauen",
-     "value": 0.1653908619556388,
-     "rank": 16,
+     "code": "PT",
+     "name": "Portugal",
+     "value": 0.3232482865443309,
+     "rank": 10,
      "richtung": "sinkend",
      "urteil": "niedriger",
-     "bestand": 2.891
+     "bestand": 11.424
     },
     {
-     "code": "DE",
-     "name": "Deutschland",
-     "value": 0.14510033395422894,
-     "rank": 17,
+     "code": "FI",
+     "name": "Finnland",
+     "value": 0.300037029998923,
+     "rank": 11,
      "richtung": "sinkend",
      "urteil": "niedriger",
-     "bestand": 83.577
+     "bestand": 5.653
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 0.20378999594767855,
+     "rank": 12,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "bestand": 9.216
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 0.19977943074360738,
+     "rank": 12,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "bestand": 2.135
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 0.16829890505123402,
+     "rank": 14,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "bestand": 10.606
     },
     {
      "code": "CZ",
      "name": "Tschechien",
-     "value": 0.08206004189694749,
-     "rank": 18,
-     "richtung": "sinkend",
-     "urteil": "niedriger",
-     "bestand": 10.91
+     "value": 0.05810532105046118,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "bestand": 10.916
     },
     {
-     "code": "EL",
-     "name": "Griechenland",
-     "value": -0.033048168790272836,
-     "rank": 19,
-     "richtung": "steigend",
-     "urteil": "höher",
-     "bestand": 10.372
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 0.04263941048174846,
+     "rank": 16,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "bestand": 3.876
     },
     {
      "code": "IT",
      "name": "Italien",
-     "value": -0.04708397637288586,
-     "rank": 20,
+     "value": -0.0010790000397720156,
+     "rank": 17,
      "richtung": "stabil",
      "urteil": "unverändert",
      "bestand": 58.943
     },
     {
-     "code": "SK",
-     "name": "Slowakei",
-     "value": -0.09652169793390453,
-     "rank": 21,
+     "code": "RO",
+     "name": "Rumänien",
+     "value": -0.009604502952265115,
+     "rank": 18,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "bestand": 5.419
+     "bestand": 19.041
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": -0.05542628540247119,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "bestand": 10.367
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": -0.1062731607685996,
+     "rank": 20,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "bestand": 2.888
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": -0.13164245629845306,
+     "rank": 21,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "bestand": 83.467
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": -0.1853324257383271,
+     "rank": 22,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "bestand": 5.409
     },
     {
      "code": "BG",
      "name": "Bulgarien",
-     "value": -0.1259952515568652,
-     "rank": 22,
+     "value": -0.2198572085451156,
+     "rank": 23,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "bestand": 6.437
-    },
-    {
-     "code": "RO",
-     "name": "Rumänien",
-     "value": -0.12809703760982005,
-     "rank": 22,
-     "richtung": "sinkend",
-     "urteil": "niedriger",
-     "bestand": 19.043
-    },
-    {
-     "code": "EE",
-     "name": "Estland",
-     "value": -0.3413140591276398,
-     "rank": 24,
-     "richtung": "sinkend",
-     "urteil": "niedriger",
-     "bestand": 1.37
+     "bestand": 6.423
     },
     {
      "code": "PL",
      "name": "Polen",
-     "value": -0.33717020603222236,
+     "value": -0.45134604443400894,
      "rank": 24,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "bestand": 36.497
+     "bestand": 36.333
     },
     {
      "code": "HU",
      "name": "Ungarn",
-     "value": -0.47080601049993565,
+     "value": -0.5353948245935714,
+     "rank": 25,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "bestand": 9.488
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": -0.6751849459304626,
      "rank": 26,
      "richtung": "sinkend",
      "urteil": "niedriger",
-     "bestand": 9.54
+     "bestand": 1.361
     },
     {
      "code": "LV",
      "name": "Lettland",
-     "value": -0.9587054017007546,
+     "value": -0.831414113454787,
      "rank": 27,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "bestand": 1.861
+     "bestand": 1.845
     }
    ],
    "schweiz": {
-    "wert": 0.990498153478736,
-    "periode": "2025",
-    "bestand": 9.051
+    "wert": 0.8093996826217253,
+    "periode": "2026",
+    "bestand": 9.124
    },
    "verlauf": [
     {
-     "t": "2021",
-     "at": 0.3550137376834961,
-     "eu": -0.2823749932286401
-    },
-    {
      "t": "2022",
      "at": 0.5179305971880321,
-     "eu": 0.09212084653333896
+     "eu": 0.09194205386646725
     },
     {
      "t": "2023",
      "at": 1.4015368648087057,
-     "eu": 0.4683452067313132
+     "eu": 0.468524671761239
     },
     {
      "t": "2024",
@@ -5195,13 +5192,14 @@
      "t": "2025",
      "at": 0.4199590555479693,
      "eu": 0.27331690861081004
+    },
+    {
+     "t": "2026",
+     "at": 0.20378999594767855,
+     "eu": 0.15638824495298742
     }
    ],
    "bestandVerlauf": [
-    {
-     "t": "2020",
-     "wert": 8.901
-    },
     {
      "t": "2021",
      "wert": 8.933
@@ -5221,9 +5219,13 @@
     {
      "t": "2025",
      "wert": 9.197
+    },
+    {
+     "t": "2026",
+     "wert": 9.216
     }
    ],
-   "bestandEU": 451.285,
+   "bestandEU": 451.99,
    "geaendert": "2026-11-23",
    "erklaerung": "Wie stark die Einwohnerzahl gegenüber dem Vorjahr (jeweils 1. Jänner) gewachsen oder geschrumpft ist. Das Wachstum entsteht aus Geburten, Sterbefällen und Zu- beziehungsweise Abwanderung. Die Einwohnerzahl selbst steht daneben."
   },
