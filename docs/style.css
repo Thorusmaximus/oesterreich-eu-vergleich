@@ -94,3 +94,10 @@ svg{width:100%;height:auto;display:block}
   .tiles{grid-template-columns:repeat(4,minmax(0,1fr))}
   .tile .r{font-size:2.2rem}
 }
+
+/* Info-Symbol */
+.info{display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;margin-left:.4em;border:1.5px solid var(--mut);border-radius:50%;color:var(--mut);font:italic 700 .72em/1 Georgia,serif;cursor:help;vertical-align:.1em;flex:none;user-select:none}
+.info:hover,.info:focus{color:var(--eu);border-color:var(--eu);outline:none}
+.infopop{position:absolute;z-index:50;display:none;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem;line-height:1.45;box-shadow:0 6px 24px rgba(0,0,0,.18);font-weight:400}
+/* Gruppenfilter */
+.filter.gr{margin-top:8px}

@@ -98,3 +98,30 @@ function linienChart(reihen, jahre, farben){
 
 function zahl(x){ return x==null ? "–" : x.toLocaleString("de-AT"); }
 function prozent(x){ return x==null ? "–" : (x>0?"+":"") + x.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1}) + " %"; }
+
+// ===== Info-Symbol mit Erklärung (Hover am PC, Tippen am Handy) =====
+function infoIcon(text){
+  if(!text) return "";
+  return '<span class="info" role="button" tabindex="0" aria-label="Erklärung anzeigen" data-info="'+String(text).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")+'">i</span>';
+}
+(function(){
+  var pop=null, cur=null, pinned=false, HOVER=window.matchMedia && window.matchMedia("(hover:hover)").matches;
+  function zeige(el){
+    if(!pop){ pop=document.createElement("div"); pop.className="infopop"; pop.setAttribute("role","tooltip"); document.body.appendChild(pop); }
+    cur=el; pop.textContent=el.getAttribute("data-info"); pop.style.display="block";
+    var r=el.getBoundingClientRect(), w=Math.min(300,window.innerWidth-24); pop.style.width=w+"px";
+    var left=Math.max(12,Math.min(window.innerWidth-w-12,r.left+r.width/2-w/2)), top=r.bottom+window.scrollY+8;
+    pop.style.left=(left+window.scrollX)+"px"; pop.style.top=top+"px";
+    if(r.bottom+pop.offsetHeight+16>window.innerHeight && r.top>pop.offsetHeight+16) pop.style.top=(r.top+window.scrollY-pop.offsetHeight-8)+"px";
+  }
+  function verberge(){ if(pop) pop.style.display="none"; cur=null; pinned=false; }
+  document.addEventListener("mouseover",function(e){ if(!HOVER) return; var t=e.target.closest&&e.target.closest(".info"); if(t&&!pinned) zeige(t); });
+  document.addEventListener("mouseout",function(e){ if(!HOVER||pinned) return; var t=e.target.closest&&e.target.closest(".info"); if(t) verberge(); });
+  document.addEventListener("click",function(e){
+    var t=e.target.closest&&e.target.closest(".info");
+    if(t){ e.preventDefault(); e.stopPropagation(); if(cur===t&&pinned){ verberge(); } else { zeige(t); pinned=true; } return; }
+    if(pop&&!(e.target.closest&&e.target.closest(".infopop"))) verberge();
+  },true);
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") verberge(); if((e.key==="Enter"||e.key===" ")&&e.target.classList&&e.target.classList.contains("info")){ e.preventDefault(); e.target.click(); } });
+  window.addEventListener("scroll",function(){ if(!pinned) verberge(); },{passive:true});
+})();

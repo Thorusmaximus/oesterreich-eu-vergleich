@@ -37,7 +37,7 @@ function detail(i){
     : j ? 'Verglichen wird der Wert des aktuellen Jahres ('+f(a.schnitt)+SUF+') mit dem des Vorjahres ('+f(a.schnittVorher)+SUF+').'
     : 'Verglichen werden die Durchschnitte der letzten 3 Monate ('+f(a.schnitt)+SUF+') und der 3 Monate davor ('+f(a.schnittVorher)+SUF+'), damit einzelne Ausreißer den Trend nicht verzerren.';
   var h = banner();
-  h += '<div class="card"><h2>'+i.name+'</h2>'+erkl(i)+'<div class="rank">Platz '+a.rang+' <small'+(i.anzahlLaender<24?' class="teil"':'')+'>von '+i.anzahlLaender+'</small></div>'
+  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' <small'+(i.anzahlLaender<24?' class="teil"':'')+'>von '+i.anzahlLaender+'</small></div>'
      + (i.kurzHinweis ? '<p class="note"><b>'+i.kurzHinweis+'</b></p>' : '')
      + '<p class="note">'+i.rangText+'. Stand: '+periode(i.periode)+'. Einheit: '+i.einheit+'</p>'
      + (i.hinweis ? '<p class="note">'+i.hinweis+'</p>' : '')
@@ -118,7 +118,7 @@ function mark(x, ag){ return x.unsicher && x.unsicher.indexOf(ag)>=0 ? '<span ti
 // Kreditrating: Tabelle statt Balken, da keine Zeitreihe
 function detailAnteile(i){
   var h = banner(), z=function(v){return v.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1});};
-  h += '<div class="card"><h2>'+i.name+'</h2>'+erkl(i)+(i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')+'</div>';
+  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+(i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')+'</div>';
   i.bloecke.forEach(function(b){
     h += '<div class="card"><h2>'+b.titel+' <small>('+b.periode+')</small></h2>'
       + (b.scope ? '<p class="note"><b>'+b.scope+'</b></p>' : '')
@@ -130,7 +130,7 @@ function detailAnteile(i){
 }
 function detailInsolvenz(i){
   var a = i.oesterreich, hj = i.halbjahr, h = banner();
-  h += '<div class="card"><h2>'+i.name+'</h2>'+erkl(i)+'<div class="rank">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
+  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
      + '<p class="note">'+i.einheit+'. Nur Österreich, kein EU-Vergleich. Stand: '+periode(i.periode)+'.</p>'
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
@@ -188,7 +188,7 @@ function bindInsolvenz(i){
 }
 function detailRating(i){
   var a = i.oesterreich, h = banner();
-  h += '<div class="card"><h2>'+i.name+'</h2>'+erkl(i)+'<div class="rank">Platz '+a.rang+' <small'+(i.anzahlLaender<24?' class="teil"':'')+'>von '+i.anzahlLaender+'</small></div>'
+  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' <small'+(i.anzahlLaender<24?' class="teil"':'')+'>von '+i.anzahlLaender+'</small></div>'
      + '<p class="note">'+i.rangText+'. Stand: '+datum(i.stand)+'.</p>'
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
