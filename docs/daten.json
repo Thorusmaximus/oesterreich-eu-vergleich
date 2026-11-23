@@ -12922,8 +12922,325 @@
   {
    "id": "gesundeJahre",
    "name": "Gesunde Lebensjahre",
-   "fehler": "Filter unvollständig: Dimension \"hlth_hle\" hat 9 Werte. Filter im Skript anpassen.",
+   "pfeilModus": "wert",
+   "typ": "hoch",
+   "dez": 1,
+   "suffix": " Jahre",
+   "diffEinheit": "Jahre",
+   "hinweis": "Beruht auf der Selbsteinschätzung in der EU-Haushaltsbefragung (EU-SILC), nicht auf ärztlichen Untersuchungen. Die Fragestellung wird in den Ländern unterschiedlich verstanden.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Gesunde Lebensjahre bei der Geburt (Jahre ohne gesundheitliche Einschränkung), Frauen und Männer zusammen",
+   "rangText": "Rang 1 = meiste gesunde Lebensjahre",
+   "periode": "2024",
+   "vorherPeriode": "2023",
+   "anzahlLaender": 26,
+   "alter": 23,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 60.4,
+    "rang": 21,
+    "wertVorher": 60.4,
+    "rangVorher": 18,
+    "schnitt": 60.4,
+    "schnittVorher": 60.4,
+    "veraenderung": 0,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "eu": 65.2,
+   "euMittelwert": false,
+   "beste": {
+    "code": "IT",
+    "name": "Italien",
+    "value": 73.4,
+    "rank": 1,
+    "richtung": "steigend",
+    "urteil": "besser"
+   },
+   "schlechteste": {
+    "code": "LV",
+    "name": "Lettland",
+    "value": 52.5,
+    "rank": 26,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2020",
+     "rang": 20,
+     "n": 27
+    },
+    {
+     "t": "2021",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 18,
+     "n": 26
+    },
+    {
+     "t": "2024",
+     "rang": 21,
+     "n": 26
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 73.4,
+     "rank": 1,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 70.6,
+     "rank": 2,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 69.9,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 69.1,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 68.6,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 67.5,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 67.5,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 66.9,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 65,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 64.8,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 64.7,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 64.3,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 63.9,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 63.9,
+     "rank": 13,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 63.6,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 63.3,
+     "rank": 16,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 63.1,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 62.4,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 62.4,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 62.4,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 60.4,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 59.5,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 58.6,
+     "rank": 23,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 57.3,
+     "rank": 24,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 57.1,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 52.5,
+     "rank": 26,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    }
+   ],
+   "schweiz": {
+    "wert": 58,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2020",
+     "at": 58.7,
+     "eu": 64
+    },
+    {
+     "t": "2021",
+     "at": 61.8,
+     "eu": 63.6
+    },
+    {
+     "t": "2022",
+     "at": 60.9,
+     "eu": 62.6
+    },
+    {
+     "t": "2023",
+     "at": 60.4,
+     "eu": 63.1
+    },
+    {
+     "t": "2024",
+     "at": 60.4,
+     "eu": 65.2
+    }
+   ],
    "geaendert": "2026-11-23",
+   "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "erklaerung": "Wie viele Jahre ein neugeborenes Kind durchschnittlich ohne gesundheitliche Einschränkungen im Alltag leben wird (Healthy Life Years, nach Selbstauskunft in der EU-Befragung). Das sind meist deutlich weniger als die Lebenserwartung.",
    "gruppe": "Pensionen und Alter"
   },
