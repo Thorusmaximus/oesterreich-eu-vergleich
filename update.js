@@ -84,6 +84,33 @@ const INDICATORS = [
     umstritten: true,
     hinweis: "Die Wertung ist umstritten: Im Ranking gilt eine niedrigere Quote als besser (geringere Belastung durch Steuern und Sozialbeiträge). Der Trend wird dagegen neutral als höher oder niedriger angezeigt. Andere sehen hohe Abgaben als Voraussetzung für Leistungen wie Pensionen, Gesundheit und Bildung. Die Quote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) als Steuern und Sozialbeiträge an den Staat geht.",
     maxAlter: 26, typ: "niedrig", schwelle: 0.5, mock: { base: 33, step: 1.1, ohneCH: true } }
+  ,{ id: "beschaeftigung", name: "Beschäftigungsquote", takt: "quartal", dataset: "lfsi_emp_q",
+    filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP&s_adj=SA", // Erwerbstätige 20 bis 64 Jahre in % der Bevölkerung, saisonbereinigt
+    alternativen: [
+      { dataset: "lfsi_emp_q", filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP&s_adj=SA" },
+      { dataset: "lfsi_emp_a", filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP" } ],
+    einheit: "% der 20- bis 64-Jährigen, saisonbereinigt", rangText: "Rang 1 = höchste Beschäftigungsquote",
+    maxAlter: 12, typ: "hoch", schwelle: 0.3, mock: { base: 66, step: 1.2 } }
+  ,{ id: "bevoelkerung", name: "Bevölkerung", takt: "jahr", dataset: "demo_pjan",
+    filter: "age=TOTAL&sex=T&unit=NR", // Einwohner am 1. Jänner
+    faktor: 0.000001, dez: 2, suffix: " Mio.", diffEinheit: "Mio. Einwohner",
+    einheit: "Einwohner am 1. Jänner, in Millionen", rangText: "Rang 1 = größte Bevölkerung, ohne Wertung",
+    maxAlter: 26, typ: "neutral", schwelle: 0.005, mock: { base: 5, step: 2.1 } }
+  ,{ id: "wachstum-pro-kopf", name: "Wachstum pro Kopf", takt: "jahr", dataset: "nama_10_pc",
+    filter: "unit=CLV_PCH_PRE_HAB&na_item=B1GQ", // reales BIP je Einwohner (preisbereinigt), Veränderung zum Vorjahr
+    einheit: "% Veränderung des realen BIP je Einwohner zum Vorjahr (preisbereinigt)", rangText: "Rang 1 = höchstes Wachstum pro Kopf",
+    maxAlter: 26, typ: "hoch", schwelle: 0.3, mock: { base: -1, step: 0.4 } }
+  ,{ id: "lebenshaltung", name: "Lebenshaltungskosten", takt: "jahr", dataset: "prc_ppp_ind",
+    filter: "na_item=PLI_EU27_2020&ppp_cat=A01", // Preisniveau-Index: EU-27 = 100, gesamte Wirtschaftsleistung
+    alternativen: [
+      { dataset: "prc_ppp_ind", filter: "na_item=PLI_EU27_2020&ppp_cat=A0101" },
+      { dataset: "prc_ppp_ind", filter: "na_item=PLI_EU27_2020&ppp_cat=A0102" },
+      { dataset: "prc_ppp_ind_1", filter: "na_item=PLI_EU27_2020&ppp_cat=A01" } ],
+    einheit: "Preisniveau-Index, EU-27 = 100 (Preise gegenüber dem EU-Durchschnitt)", suffix: "", diffEinheit: "Indexpunkte", dez: 1,
+    rangText: "Rang 1 = niedrigstes Preisniveau", maxAlter: 26,
+    trendNeutral: true, umstritten: true,
+    hinweis: "Die Wertung ist umstritten: Im Ranking gilt ein niedrigeres Preisniveau als besser (geringere Lebenshaltungskosten). Ein hohes Preisniveau geht aber oft mit hohen Einkommen einher, und ein Anstieg gegenüber dem EU-Schnitt kann auch Aufholen bedeuten. Der Trend wird deshalb neutral als höher oder niedriger angezeigt. Der Index vergleicht die Preise zwischen den Ländern, nicht die Teuerung über die Zeit (dafür siehe Inflation).",
+    typ: "niedrig", schwelle: 1, mock: { base: 70, step: 3.5 } }
   ,{ id: "strompreis", name: "Strompreis für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
     filter: "siec=E7000&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive aller Steuern und Abgaben
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
