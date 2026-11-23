@@ -44,7 +44,7 @@ const TAKT = {
 // Themengruppen der Startseite (Reihenfolge = Reihenfolge auf der Seite)
 const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft", "Sicherheit"];
 const GRUPPE_VON = {
-  wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, einkommen: 0,
+  wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, einkommen: 0, durchschnittseinkommen: 0, kaufkraft: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
   bevoelkerung: 3, geburtenrate: 3, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, sicherheitsgefuehl: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
@@ -76,6 +76,8 @@ const ERKLAERUNG = {
   koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil die Zählweise und die Anzeigebereitschaft zwischen den Ländern stark unterschiedlich sind.",
   sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil Definition, Zählweise und Anzeigebereitschaft stark abweichen und die Dunkelziffer hoch ist.",
   sicherheitsgefuehl: "Wie viele Menschen auf die Frage, ob es in ihrer Wohngegend Kriminalität, Gewalt oder Vandalismus gibt, mit Ja antworten (EU-weite Haushaltsbefragung). Das misst das Empfinden der Menschen, nicht die tatsächliche Zahl der Taten.",
+  durchschnittseinkommen: "Das durchschnittliche Nettoeinkommen je Person nach Steuern und Abgaben, einschließlich Pensionen und Sozialleistungen. Der Durchschnitt wird von sehr hohen Einkommen nach oben gezogen und liegt deshalb über dem Median.",
+  kaufkraft: "Das mittlere Nettoeinkommen, umgerechnet in Kaufkraftstandards (PPS). Ein Euro ist nicht überall gleich viel wert: In teuren Ländern kauft man dafür weniger. PPS rechnet das heraus und zeigt, was man sich mit dem Einkommen im jeweiligen Land tatsächlich leisten kann, gemessen an einem EU-weiten Warenkorb.",
   rating: "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -188,6 +190,20 @@ const INDICATORS = [
     einheit: "Euro pro Jahr: Median des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
     kaufkraft: { filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PPS" }, // zusätzlich in Kaufkraft (PPS), damit Preisunterschiede zwischen den Ländern herausgerechnet sind
     rangText: "Rang 1 = höchstes Medianeinkommen (in Euro)", typ: "hoch", schwelle: 250, mock: { base: 8000, step: 2400 } }
+  ,{ id: "durchschnittseinkommen", name: "Durchschnittseinkommen", takt: "jahr", dataset: "ilc_di03",
+    filter: "statinfo=MEAN_EI&age=TOTAL&sex=T&unit=EUR", // durchschnittliches Nettoeinkommen je Person (EU-SILC), nach Haushaltsgröße gewichtet
+    alternativen: [ { dataset: "ilc_di03", filter: "statinfo=MEAN_EI&age=Y_GE16&sex=T&unit=EUR" } ],
+    maxAlter: 26, dez: 0, suffix: " €", diffEinheit: "Euro",
+    einheit: "Euro pro Jahr: Durchschnitt des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
+    rangText: "Rang 1 = höchstes Durchschnittseinkommen (in Euro)", typ: "hoch", schwelle: 300,
+    hinweis: "Der Durchschnitt liegt meist über dem Median, weil wenige sehr hohe Einkommen ihn nach oben ziehen. Je größer der Abstand zum Median, desto ungleicher sind die Einkommen verteilt. Beide Werte stehen als eigene Indikatoren bereit.",
+    mock: { base: 9000, step: 2500 } }
+  ,{ id: "kaufkraft", name: "Kaufkraft", takt: "jahr", dataset: "ilc_di03",
+    filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PPS", // Median-Nettoeinkommen in Kaufkraftstandards (PPS)
+    alternativen: [ { dataset: "ilc_di03", filter: "statinfo=MED_EI&age=Y_GE16&sex=T&unit=PPS" } ],
+    maxAlter: 26, dez: 0, suffix: " PPS", diffEinheit: "PPS",
+    einheit: "PPS (Kaufkraftstandard) pro Jahr: Median des verfügbaren Nettoeinkommens je Person, bereinigt um die Preisunterschiede zwischen den Ländern",
+    rangText: "Rang 1 = höchste Kaufkraft", typ: "hoch", schwelle: 250, mock: { base: 8500, step: 2000 } }
   ,{ id: "wachstum-privat", name: "Wachstum ohne Staat", takt: "quartal", dataset: "namq_10_gdp",
     filter: "unit=CLV_PCH_SM&s_adj=SCA&na_item=B1GQ", // Platzhalter (im Test), echte Berechnung: berechnePrivat()
     privat: true, // BIP-Wachstum minus Beitrag des Staatskonsums (Anteil am BIP x Wachstum des Staatskonsums)
