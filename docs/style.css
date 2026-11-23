@@ -75,3 +75,4 @@ svg{width:100%;height:auto;display:block}
 .filter button.on{border-color:var(--at);font-weight:700}
 
 .altdaten{border-left:4px solid var(--muted,#999);padding-left:10px;color:var(--muted,#666);font-size:.85rem;margin:8px 0}
+.teil{background:var(--bad,#c0392b);color:#fff !important;padding:1px 8px;border-radius:999px;font-weight:800 !important}
