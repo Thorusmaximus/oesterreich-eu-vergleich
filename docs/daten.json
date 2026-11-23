@@ -6782,7 +6782,8 @@
    "geaendert": "2026-11-23",
    "erklaerung": "Die Hälfte der Menschen im Land hat weniger, die andere Hälfte mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Sozialleistungen, je Person (bei Haushalten nach Größe gewichtet). Es ist kein reiner Lohn: Pensionen und Sozialleistungen sind enthalten. Die Erhebung (EU-SILC) fragt nach dem Einkommen des Vorjahres.",
    "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+   "gruppe": "Wirtschaft und Arbeit"
   },
   {
    "id": "strompreis",
