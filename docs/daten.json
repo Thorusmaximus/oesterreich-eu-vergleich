@@ -17414,20 +17414,20 @@
    "trendNeutral": true,
    "zusatz": null,
    "takt": "jahr",
-   "einheit": "Anteil der Haushalte mit börsennotierten Aktien in % (Befragung 2021)",
+   "einheit": "Anteil der Haushalte mit börsennotierten Aktien in % (Befragung, Welle 2023)",
    "rangText": "Rang 1 = höchster Anteil (nur 22 EU-Länder)",
-   "periode": "2021",
-   "vorherPeriode": "2020",
+   "periode": "2023",
+   "vorherPeriode": "2022",
    "anzahlLaender": 22,
-   "alter": 59,
+   "alter": 35,
    "warnung": null,
    "oesterreich": {
-    "wert": 6.1,
+    "wert": 6.4,
     "rang": 10,
     "wertVorher": null,
     "rangVorher": null,
-    "schnitt": 6.1,
-    "schnittVorher": 6.1,
+    "schnitt": 6.4,
+    "schnittVorher": 6.4,
     "veraenderung": 0,
     "richtung": null,
     "urteil": null
@@ -17437,16 +17437,16 @@
    "beste": {
     "code": "FI",
     "name": "Finnland",
-    "value": 20.3,
+    "value": 25,
     "rank": 1,
     "richtung": "stabil",
     "urteil": "unverändert"
    },
    "schlechteste": {
-    "code": "LT",
-    "name": "Litauen",
-    "value": 1.2,
-    "rank": 21,
+    "code": "EL",
+    "name": "Griechenland",
+    "value": 1.1,
+    "rank": 22,
     "richtung": "stabil",
     "urteil": "unverändert"
    },
@@ -17458,63 +17458,63 @@
     {
      "code": "FI",
      "name": "Finnland",
-     "value": 20.3,
+     "value": 25,
      "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "LU",
-     "name": "Luxemburg",
-     "value": 18,
-     "rank": 2,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
      "code": "DE",
      "name": "Deutschland",
-     "value": 15.4,
-     "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "ES",
-     "name": "Spanien",
-     "value": 12.4,
-     "rank": 4,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "FR",
-     "name": "Frankreich",
-     "value": 12.1,
-     "rank": 5,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "BE",
-     "name": "Belgien",
-     "value": 11.1,
-     "rank": 6,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "IE",
-     "name": "Irland",
-     "value": 10.7,
-     "rank": 7,
+     "value": 17.6,
+     "rank": 2,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
      "code": "EE",
      "name": "Estland",
-     "value": 8.9,
+     "value": 15.6,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 14.8,
+     "rank": 4,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 12.6,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 12.6,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 12.5,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 11.8,
      "rank": 8,
      "richtung": "stabil",
      "urteil": "unverändert"
@@ -17522,55 +17522,55 @@
     {
      "code": "MT",
      "name": "Malta",
-     "value": 8,
+     "value": 8.5,
      "rank": 9,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "NL",
-     "name": "Niederlande",
-     "value": 6.1,
-     "rank": 10,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
      "code": "AT",
      "name": "Österreich",
-     "value": 6.1,
+     "value": 6.4,
      "rank": 10,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 6.3,
+     "rank": 11,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
      "code": "CY",
      "name": "Zypern",
-     "value": 5.9,
+     "value": 5.2,
      "rank": 12,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
-     "code": "IT",
-     "name": "Italien",
-     "value": 5.7,
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 5.1,
      "rank": 13,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "SI",
-     "name": "Slowenien",
-     "value": 5.2,
-     "rank": 14,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
      "code": "PT",
      "name": "Portugal",
-     "value": 4.7,
+     "value": 4.8,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 4.6,
      "rank": 15,
      "richtung": "stabil",
      "urteil": "unverändert"
@@ -17578,15 +17578,15 @@
     {
      "code": "CZ",
      "name": "Tschechien",
-     "value": 3.9,
-     "rank": 16,
+     "value": 4.6,
+     "rank": 15,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
-     "code": "HR",
-     "name": "Kroatien",
-     "value": 3.5,
+     "code": "IT",
+     "name": "Italien",
+     "value": 4.4,
      "rank": 17,
      "richtung": "stabil",
      "urteil": "unverändert"
@@ -17594,7 +17594,7 @@
     {
      "code": "HU",
      "name": "Ungarn",
-     "value": 2.1,
+     "value": 2.9,
      "rank": 18,
      "richtung": "stabil",
      "urteil": "unverändert"
@@ -17602,32 +17602,32 @@
     {
      "code": "LV",
      "name": "Lettland",
-     "value": 1.8,
+     "value": 2.6,
      "rank": 19,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "SK",
-     "name": "Slowakei",
-     "value": 1.8,
-     "rank": 19,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "EL",
-     "name": "Griechenland",
-     "value": 1.2,
-     "rank": 21,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
      "code": "LT",
      "name": "Litauen",
-     "value": 1.2,
+     "value": 2.1,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 1.6,
      "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 1.1,
+     "rank": 22,
      "richtung": "stabil",
      "urteil": "unverändert"
     }
@@ -17637,10 +17637,21 @@
    "ohneTrend": true,
    "kurzHinweis": "Nur 22 von 27 EU-Ländern sind in der Erhebung. Der Rang gilt nur unter diesen 22.",
    "stand": "2026-11-23",
-   "quelle": "Europäische Zentralbank, Household Finance and Consumption Survey (HFCS), Welle 2021, Tabelle C1",
-   "quelleUrl": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2021_June_2026.pdf",
-   "hinweisDaten": "Anteil der Haushalte mit börsennotierten Aktien (Befragung 2021). Die Erhebung gibt es nur für 22 EU-Länder, Bulgarien, Dänemark, Polen, Rumänien und Schweden fehlen. Die Zahlen sind Haushaltsanteile, nicht Anteile der Einzelpersonen. Fondsbesitz ist nicht enthalten. Von Hand gepflegt, neue Welle alle drei Jahre.",
+   "quelle": "Europäische Zentralbank, Household Finance and Consumption Survey (HFCS), Welle 2023, Tabelle C1",
+   "quelleUrl": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2023_October_2026.pdf",
+   "hinweisDaten": "Anteil der Haushalte mit börsennotierten Aktien (Befragung, Welle 2023). Die Erhebung gibt es nur für 22 EU-Länder, Bulgarien, Dänemark, Polen, Rumänien und Schweden fehlen. Die Zahlen sind Haushaltsanteile, nicht Anteile der Einzelpersonen. Fondsbesitz ist nicht enthalten. Die nächste Welle erscheint erst in einigen Jahren. Von Hand gepflegt.",
    "geaendert": "2026-11-23",
+   "nachtrag": {
+    "jahr": 2026,
+    "titel": "Anteil der Bevölkerung mit Wertpapieren (Aktien, Fonds, Anleihen)",
+    "wert": 31,
+    "vorjahr": 30,
+    "einheit": "%",
+    "quelle": "Aktienbarometer 2026 (Industriellenvereinigung, Aktienforum, Wiener Börse)",
+    "url": "https://www.wienerborse.at/en/listing/shares/investors/aktienbarometer/",
+    "stand": "2026-11-23",
+    "gesamtAufklaerung": null
+   },
    "erklaerung": "Wie viele Haushalte börsennotierte Aktien besitzen (direkt gehalten, ohne Fonds), laut der Haushaltsbefragung der Europäischen Zentralbank und der Notenbanken. Die Erhebung gibt es nur alle paar Jahre.",
    "gruppe": "Wirtschaft und Arbeit"
   },
