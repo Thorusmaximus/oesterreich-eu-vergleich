@@ -378,6 +378,7 @@
     "richtung": "steigend",
     "urteil": "schlechter"
    },
+   "rueckblick": null,
    "laender": [
     {
      "code": "CZ",
@@ -1272,6 +1273,7 @@
     "richtung": "stabil",
     "urteil": "unverändert"
    },
+   "rueckblick": null,
    "laender": [
     {
      "code": "SE",
@@ -1966,6 +1968,7 @@
     "richtung": "steigend",
     "urteil": "besser"
    },
+   "rueckblick": null,
    "laender": [
     {
      "code": "MT",
@@ -2460,6 +2463,7 @@
     "richtung": "steigend",
     "urteil": "schlechter"
    },
+   "rueckblick": null,
    "laender": [
     {
      "code": "EE",
@@ -2876,6 +2880,7 @@
     "richtung": "stabil",
     "urteil": "unverändert"
    },
+   "rueckblick": null,
    "laender": [
     {
      "code": "CY",
@@ -3237,6 +3242,7 @@
    ],
    "rangVergleich": [],
    "seitStart": null,
+   "rueckblick": null,
    "laender": [
     {
      "code": "BG",
@@ -3564,6 +3570,7 @@
    ],
    "rangVergleich": [],
    "seitStart": null,
+   "rueckblick": null,
    "laender": [
     {
      "code": "IE",
@@ -3908,6 +3915,7 @@
     "richtung": "steigend",
     "urteil": "höher"
    },
+   "rueckblick": null,
    "laender": [
     {
      "code": "IE",
@@ -4277,6 +4285,7 @@
     "richtung": "steigend",
     "urteil": "schlechter"
    },
+   "rueckblick": null,
    "laender": [
     {
      "code": "HU",
@@ -4668,6 +4677,7 @@
     "richtung": "sinkend",
     "urteil": "besser"
    },
+   "rueckblick": null,
    "laender": [
     {
      "code": "FI",
