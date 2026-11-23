@@ -463,11 +463,15 @@ async function oelBulletin() {
 }
 async function diagnoseOel() {
   try {
-    const b = await oelBulletin();
-    for (const [name, rows] of Object.entries(b)) {
-      console.error(`   OEL Blatt "${name}": ${rows.length} Zeilen`);
-      rows.slice(0, 6).forEach((r, i) => r && console.error(`     Z${i + 1}: ` + JSON.stringify(r.slice(0, 14)).slice(0, 300)));
-    }
+    const b = await oelBulletin(), rows = b["Prices with taxes"], h1 = rows[0] || [], r4 = rows[3] || [], r3 = rows[2] || [];
+    const spalten = []; h1.forEach((v, i) => { if (v === "CTR") spalten.push(i); });
+    console.error(`   OEL Spalten mit CTR in Zeile 1: ${spalten.join(",")} (Breite ${h1.length})`);
+    console.error("   OEL Zeile 4 Codes: " + r4.map((v, i) => typeof v === "string" ? `${i}:${v}` : null).filter(Boolean).join(" ").slice(0, 700));
+    const at = r4.findIndex(v => v === "AT_" || v === "AT");
+    console.error(`   OEL AT-Block ab Spalte ${at}: Kopf ` + JSON.stringify(h1.slice(at, at + 8)) + " Werte " + JSON.stringify(r4.slice(at, at + 8)));
+    const alt = rows.findIndex((r, i) => i > 3 && r && typeof r[0] === "number" && r[0] < 38000);
+    console.error(`   OEL Datumszeilen: Z4=${rows[3]?.[0]}, letzte=${rows[rows.length - 1]?.[0]}, Zeilen ${rows.length}, erste Zeile unter 38000: ${alt}`);
+    const dr = rows.slice(3).filter(r => r && typeof r[0] === "number").map(r => r[0]); console.error(`   OEL Datumsbereich: ${Math.min(...dr)}..${Math.max(...dr)}, ${dr.length} Wochen`);
   } catch (e) { console.error("   OEL-Diagnose fehlgeschlagen: " + e.message); }
 }
 
