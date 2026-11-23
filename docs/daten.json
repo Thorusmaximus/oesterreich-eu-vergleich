@@ -913,7 +913,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab.",
+   "erklaerung": "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -1812,7 +1812,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie stark die Verbraucherpreise gegenüber dem gleichen Monat des Vorjahres gestiegen sind (harmonisierter Verbraucherpreisindex HVPI). Zeigt, wie schnell Einkäufe und Dienstleistungen im Schnitt teurer werden.",
+   "erklaerung": "Wie viel mehr man heute für einen typischen Einkauf bezahlt als vor einem Jahr. Gemessen wird der Preisanstieg im Vergleich zum gleichen Monat des Vorjahres, über Lebensmittel, Wohnen, Verkehr und Dienstleistungen hinweg (harmonisierter Verbraucherpreisindex). 3 % bedeutet: Was letztes Jahr 100 Euro gekostet hat, kostet jetzt im Schnitt 103 Euro.",
    "gruppe": "Preise und Kosten"
   },
   {
@@ -2311,7 +2311,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Um wie viel Prozent die gesamte Wirtschaftsleistung (BIP) gegenüber dem gleichen Quartal des Vorjahres gewachsen ist, bereinigt um Preissteigerungen. Ein Minus bedeutet, dass die Wirtschaft schrumpft.",
+   "erklaerung": "Um wie viel Prozent die gesamte Wirtschaft (alles, was im Land an Waren und Dienstleistungen hergestellt wird, das BIP) im Vergleich zum gleichen Quartal des Vorjahres gewachsen ist. Preissteigerungen sind herausgerechnet, es zählt also die echte Mehrleistung. Ein Minus bedeutet, dass die Wirtschaft schrumpft.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -2807,7 +2807,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie hoch die Schulden des Staates (Bund, Länder, Gemeinden, Sozialversicherung) im Verhältnis zur Jahreswirtschaftsleistung sind. 60 % des BIP ist der Referenzwert aus den EU-Verträgen.",
+   "erklaerung": "Wie hoch die Schulden des Staates (Bund, Länder, Gemeinden und Sozialversicherung) im Verhältnis zur Wirtschaftsleistung eines ganzen Jahres sind. 80 % heißt: Die Schulden entsprechen 80 % dessen, was das Land in einem Jahr erwirtschaftet. In den EU-Verträgen steht 60 % als Richtwert.",
    "gruppe": "Staatsfinanzen"
   },
   {
@@ -3153,7 +3153,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Einnahmen minus Ausgaben des Staates in % des BIP. Ein Minus ist ein Defizit, das neue Schulden bedeutet. Die EU-Regeln sehen als Obergrenze 3 % des BIP vor.",
+   "erklaerung": "Wie viel mehr der Staat in einem Jahr ausgibt als er einnimmt, im Verhältnis zur Wirtschaftsleistung. Ein Minus bedeutet ein Defizit, das mit neuen Schulden bezahlt wird. Ein Plus wäre ein Überschuss. Die EU-Regeln sehen höchstens 3 % Defizit vor.",
    "gruppe": "Staatsfinanzen"
   },
   {
@@ -3534,7 +3534,7 @@
     "stand": "2026-11-23",
     "gesamtAufklaerung": null
    },
-   "erklaerung": "Gesamtfertilitätsrate: Wie viele Kinder eine Frau im Schnitt bekäme, wenn die Geburtenhäufigkeit des Jahres ein Leben lang gleich bliebe. Rund 2,1 wären nötig, damit die Bevölkerung ohne Zuwanderung stabil bleibt.",
+   "erklaerung": "Wie viele Kinder eine Frau im Lauf ihres Lebens im Schnitt bekäme, wenn die Geburtenhäufigkeit eines Jahres so bliebe (Gesamtfertilitätsrate). Etwa 2,1 Kinder wären nötig, damit die Bevölkerung ohne Zuwanderung gleich groß bleibt. Liegt der Wert darunter, wird sie ohne Zuwanderung kleiner.",
    "gruppe": "Gesellschaft"
   },
   {
@@ -3883,7 +3883,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Anteil der gesamten Staatsausgaben (Verwaltung, Pensionen, Gesundheit, Bildung, Soziales, Zinsen) an der Wirtschaftsleistung. Zeigt, wie groß der Staatsanteil an der Wirtschaft ist.",
+   "erklaerung": "Wie groß der Anteil des Staates an der gesamten Wirtschaft ist: Alle Staatsausgaben (Verwaltung, Pensionen, Gesundheit, Bildung, Soziales, Zinsen) im Verhältnis zur Wirtschaftsleistung. 50 % heißt: Von jedem erwirtschafteten Euro gibt der Staat 50 Cent aus.",
    "gruppe": "Staatsfinanzen"
   },
   {
@@ -4382,7 +4382,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Anteil der Steuern und Sozialversicherungsbeiträge am BIP. Zeigt, wie viel der Wirtschaftsleistung als Abgaben an den Staat geht (ohne Gebühren und Entgelte für Leistungen).",
+   "erklaerung": "Wie viel von der Wirtschaftsleistung als Steuern und Sozialversicherungsbeiträge beim Staat landet. 43 % heißt: Von je 100 Euro, die im Land erwirtschaftet werden, gehen 43 Euro als Abgaben an Staat und Sozialversicherung. Gebühren für bestimmte Leistungen zählen nicht dazu.",
    "gruppe": "Staatsfinanzen"
   },
   {
@@ -4881,7 +4881,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Anteil der 20- bis 64-Jährigen, die erwerbstätig sind, an der gleichaltrigen Bevölkerung. Teilzeit zählt wie Vollzeit, die Quote sagt also nichts über die geleisteten Arbeitsstunden.",
+   "erklaerung": "Wie viele von 100 Menschen zwischen 20 und 64 Jahren erwerbstätig sind. Teilzeit zählt wie Vollzeit. Die Quote sagt also nichts darüber, wie viele Stunden gearbeitet werden. Länder mit vielen Teilzeitjobs können eine hohe Quote haben, obwohl insgesamt weniger Stunden gearbeitet wird.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -5281,7 +5281,7 @@
    ],
    "bestandEU": 451.99,
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie stark die Einwohnerzahl gegenüber dem Vorjahr (jeweils 1. Jänner) gewachsen oder geschrumpft ist. Das Wachstum entsteht aus Geburten, Sterbefällen und Zu- beziehungsweise Abwanderung. Die Einwohnerzahl selbst steht daneben.",
+   "erklaerung": "Um wie viel Prozent die Einwohnerzahl im Vergleich zum Vorjahr (jeweils zum 1. Jänner) gewachsen oder geschrumpft ist. Das Wachstum entsteht aus Geburten, Sterbefällen und der Zuwanderung abzüglich der Abwanderung. Die Einwohnerzahl selbst steht darunter.",
    "gruppe": "Gesellschaft"
   },
   {
@@ -5630,7 +5630,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie stark die preisbereinigte Wirtschaftsleistung je Einwohner gewachsen ist. Das zeigt, ob der Wohlstand im Schnitt wächst, auch wenn die Bevölkerung wächst oder schrumpft.",
+   "erklaerung": "Wie viel die Wirtschaft pro Einwohner gewachsen ist, ohne Preissteigerungen. Das zeigt, ob jeder Einzelne im Durchschnitt mehr erwirtschaftet. Das ist ein anderes Bild als das Gesamtwachstum: Wächst die Wirtschaft um 1 %, die Bevölkerung aber um 1,5 %, ist es pro Kopf ein Rückgang.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -5963,7 +5963,7 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
-   "erklaerung": "Preisniveau-Index: Wie viel ein typischer Warenkorb im Land im Vergleich zum EU-Durchschnitt (= 100) kostet. 120 heißt, die Preise sind 20 % höher als im EU-Schnitt. Zeigt keine Teuerung über die Zeit.",
+   "erklaerung": "Wie teuer das Leben in einem Land im Vergleich zum EU-Durchschnitt ist. Der EU-Durchschnitt ist 100. Bei 120 sind die Preise für einen typischen Warenkorb um 20 % höher als im EU-Schnitt, bei 80 um 20 % niedriger. Der Wert zeigt das Preisniveau und nicht, wie schnell die Preise steigen. Das zeigt die Inflation.",
    "gruppe": "Preise und Kosten"
   },
   {
@@ -6289,7 +6289,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie stark sich die Preise für Wohnimmobilien (gekaufte Wohnungen und Häuser, neu und gebraucht) seit dem Amtsantritt der Regierung verändert haben, laut Eurostat-Preisindex. Der Index zeigt die Veränderung, nicht den Preis pro Quadratmeter.",
+   "erklaerung": "Wie stark die Preise für Wohnungen und Häuser (neu und gebraucht) seit dem Amtsantritt der Regierung gestiegen oder gefallen sind. Eurostat misst das mit einem Preisindex, also der Veränderung und nicht dem Preis pro Quadratmeter. 10 % heißt: Eine Immobilie kostet im Schnitt 10 % mehr als zu Beginn.",
    "gruppe": "Preise und Kosten"
   },
   {
@@ -6704,7 +6704,7 @@
    },
    "realText": "Inflationsbereinigt: Das Einkommen ist nominal um 10 % gestiegen, die Verbraucherpreise sind im Einkommensjahr 2024 um 2.9 % gestiegen. Real ergibt das +6.9 %. Als besser gilt, wenn das Einkommen stärker steigt als die Preise.",
    "geaendert": "2026-11-23",
-   "erklaerung": "Die Hälfte der Menschen im Land hat weniger, die andere Hälfte mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Sozialleistungen, je Person (bei Haushalten nach Größe gewichtet). Es ist kein reiner Lohn: Pensionen und Sozialleistungen sind enthalten. Die Erhebung (EU-SILC) fragt nach dem Einkommen des Vorjahres.",
+   "erklaerung": "Das mittlere Einkommen: Die eine Hälfte der Menschen im Land hat weniger, die andere mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Pensionen und Sozialleistungen, je Person. Haushalte werden nach ihrer Größe gewichtet. Es ist kein reiner Lohn. Die Erhebung beschreibt das Einkommen des Vorjahres. Der Trend wird um die Inflation bereinigt: Das Einkommen muss stärker steigen als die Preise, damit er als besser gilt.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -7054,7 +7054,7 @@
    ],
    "realText": "Inflationsbereinigt: Das Einkommen ist nominal um 6.7 % gestiegen, die Verbraucherpreise sind im Einkommensjahr 2024 um 2.9 % gestiegen. Real ergibt das +3.7 %. Als besser gilt, wenn das Einkommen stärker steigt als die Preise.",
    "geaendert": "2026-11-23",
-   "erklaerung": "Das durchschnittliche Nettoeinkommen je Person nach Steuern und Abgaben, einschließlich Pensionen und Sozialleistungen. Der Durchschnitt wird von sehr hohen Einkommen nach oben gezogen und liegt deshalb über dem Median.",
+   "erklaerung": "Das durchschnittliche Nettoeinkommen je Person nach Steuern und Abgaben, einschließlich Pensionen und Sozialleistungen. Sehr hohe Einkommen ziehen den Durchschnitt nach oben, deshalb liegt er über dem mittleren Einkommen (Median). Der Trend wird um die Inflation bereinigt: Das Einkommen muss stärker steigen als die Preise, damit er als besser gilt.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -7404,7 +7404,7 @@
    ],
    "realText": "Inflationsbereinigt: Das Einkommen ist nominal um 8.8 % gestiegen, die Verbraucherpreise im EU-Durchschnitt sind im Einkommensjahr 2024 um 2.6 % gestiegen. Real ergibt das +6.1 %. Als besser gilt, wenn das Einkommen stärker steigt als die Preise.",
    "geaendert": "2026-11-23",
-   "erklaerung": "Das mittlere Nettoeinkommen, umgerechnet in Kaufkraftstandards (PPS). Ein Euro ist nicht überall gleich viel wert: In teuren Ländern kauft man dafür weniger. PPS rechnet das heraus und zeigt, was man sich mit dem Einkommen im jeweiligen Land tatsächlich leisten kann, gemessen an einem EU-weiten Warenkorb.",
+   "erklaerung": "Das mittlere Nettoeinkommen, umgerechnet in Kaufkraftstandards. Ein Euro ist nicht überall gleich viel wert: In einem teuren Land kauft man dafür weniger als in einem günstigen. Kaufkraftstandards rechnen das heraus und zeigen, was man sich mit dem Einkommen tatsächlich leisten kann, gemessen an einem EU-weiten Warenkorb. Der Trend wird um die EU-Inflation bereinigt.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -7909,7 +7909,7 @@
     "anteil": 21.7
    },
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie stark die Wirtschaft ohne den Beitrag des Staates gewachsen wäre: Vom BIP-Wachstum wird abgezogen, was der Staat selbst beigetragen hat (Anteil des Staatskonsums am BIP mal dessen Wachstum). Spart der Staat, gibt es einen Bonus.",
+   "erklaerung": "Wie stark die Wirtschaft ohne den Beitrag des Staates gewachsen wäre. Vom Wirtschaftswachstum wird abgezogen, was der Staat selbst durch seine Ausgaben für Verwaltung, Gesundheit und Bildung dazu beigetragen hat. Spart der Staat, steigt der Wert. Das ist eine eigene Berechnung auf Basis von Eurostat-Daten und keine amtliche Kennzahl.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -8805,7 +8805,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Was ein Liter Euro-super 95 im Schnitt an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die Wochenpreise des EU-Ölbulletins, hier als Monatsdurchschnitt.",
+   "erklaerung": "Was ein Liter Eurosuper 95 durchschnittlich an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die wöchentlichen Preise des Ölbulletins der EU-Kommission, hier als Monatsdurchschnitt. Der Preis hängt vom Ölpreis und von den Steuern des jeweiligen Landes ab.",
    "gruppe": "Preise und Kosten"
   },
   {
@@ -9701,7 +9701,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Was ein Liter Diesel im Schnitt an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die Wochenpreise des EU-Ölbulletins, hier als Monatsdurchschnitt.",
+   "erklaerung": "Was ein Liter Diesel durchschnittlich an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die wöchentlichen Preise des Ölbulletins der EU-Kommission, hier als Monatsdurchschnitt. Der Preis hängt vom Ölpreis und von den Steuern des jeweiligen Landes ab.",
    "gruppe": "Preise und Kosten"
   },
   {
@@ -10044,7 +10044,7 @@
     "stand": "2026-11-23",
     "gesamtAufklaerung": null
    },
-   "erklaerung": "Wie viele Menschen in einer Befragung (EU-SILC) angeben, dass es in ihrer Wohngegend Kriminalität, Gewalt oder Vandalismus gibt. Es ist ein subjektives Empfinden und sagt nichts darüber, wie viele Straftaten tatsächlich geschehen.",
+   "erklaerung": "Wie viele von 100 Menschen in einer Befragung (EU-SILC) angeben, dass es in ihrer Wohngegend Kriminalität, Gewalt oder Vandalismus gibt. Es ist ein Empfinden und sagt nichts darüber, wie viele Straftaten tatsächlich passieren. Es hängt zum Beispiel davon ab, ob jemand in der Stadt oder auf dem Land lebt.",
    "gruppe": "Sicherheit"
   },
   {
@@ -10524,7 +10524,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Index der gemeldeten Unternehmensinsolvenzen, 2021 = 100. Er zeigt, wie stark sich die Zahl der Insolvenzen seit 2021 verändert hat, nicht wie viele es gibt. Absolute Zahlen sind zwischen den Ländern wegen unterschiedlicher Insolvenzrechte nicht vergleichbar.",
+   "erklaerung": "Wie stark sich die Zahl der Unternehmensinsolvenzen seit 2021 verändert hat (Index, 2021 = 100). Bei 200 gibt es doppelt so viele Insolvenzen wie 2021. Der Index sagt nicht, wie viele es gibt, denn absolute Zahlen sind wegen unterschiedlicher Insolvenzrechte nicht vergleichbar. 2021 war wegen der Corona-Hilfen ein ungewöhnlich insolvenzarmes Jahr.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -10865,7 +10865,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie viele Jahre ein heute 15-Jähriger nach der Statistik im Lauf seines Lebens voraussichtlich erwerbstätig ist (Eurostat: Dauer des Erwerbslebens). Er hängt vom Pensionsantritt, vom Einstiegsalter und von Unterbrechungen ab und ist kein gesetzliches Pensionsantrittsalter.",
+   "erklaerung": "Wie viele Jahre ein heute 15-Jähriger nach der Statistik im Lauf seines Lebens voraussichtlich erwerbstätig ist (Eurostat: Dauer des Erwerbslebens). Das Ergebnis hängt vom Pensionsantritt, vom Berufseinstieg und von Unterbrechungen ab. Es ist nicht das gesetzliche Pensionsantrittsalter.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -11198,7 +11198,7 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
-   "erklaerung": "Wie viel Prozent der Wirtschaftsleistung (BIP) ein Land für Pensionen und ähnliche Alters- und Hinterbliebenenleistungen ausgibt. Je höher der Wert, desto mehr Geld fließt in die Pensionen. Er hängt auch davon ab, wie alt die Bevölkerung ist und wie hoch die Pensionen sind.",
+   "erklaerung": "Wie viel Prozent der Wirtschaftsleistung ein Land für Pensionen und ähnliche Alters- und Hinterbliebenenleistungen ausgibt. 15 % heißt: Von jedem erwirtschafteten Euro gehen 15 Cent in Pensionen. Der Wert hängt davon ab, wie alt die Bevölkerung ist und wie hoch die Pensionen sind.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -11547,7 +11547,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie hoch die Pensionen der 65- bis 74-Jährigen im Vergleich zu den Einkommen der 50- bis 59-Jährigen sind. 60 % heißt: Die Pension beträgt im Schnitt 60 % des früheren Arbeitseinkommens, vor Steuern.",
+   "erklaerung": "Wie hoch die Pensionen der 65- bis 74-Jährigen im Vergleich zu den Einkommen der 50- bis 59-Jährigen sind (Ersatzquote). 60 % heißt: Die Pension beträgt im Schnitt 60 % des Einkommens, das man vor der Pension hatte, vor Steuern.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -11896,7 +11896,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie viele Menschen ab 65 weniger als 60 % des mittleren Einkommens im Land zur Verfügung haben und damit nach EU-Definition armutsgefährdet sind. Das ist ein Maß für Ungleichheit im Alter, nicht für absolute Armut.",
+   "erklaerung": "Wie viele von 100 Menschen ab 65 weniger als 60 % des mittleren Einkommens im Land zur Verfügung haben und deshalb nach EU-Definition armutsgefährdet sind. Das ist ein Maß dafür, wie weit Pensionen am unteren Rand vom Rest des Landes entfernt sind, nicht für absolute Armut.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -12245,7 +12245,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie viele der 55- bis 64-Jährigen erwerbstätig sind. Ein Wert, der zeigt, wie viele Ältere bis zur Pension im Arbeitsleben bleiben.",
+   "erklaerung": "Wie viele von 100 Menschen zwischen 55 und 64 Jahren erwerbstätig sind. Der Wert zeigt, wie viele Ältere bis zur Pension im Arbeitsleben bleiben. Das hat mit dem Pensionssystem und der Gesundheit am Arbeitsplatz zu tun.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -12586,7 +12586,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Das Alter, das die Bevölkerung in der Mitte teilt: Die eine Hälfte der Menschen ist jünger, die andere älter (Medianalter, zum 1. Jänner). Ein höherer Wert bedeutet eine ältere Bevölkerung.",
+   "erklaerung": "Das Alter, das die Bevölkerung in zwei gleich große Hälften teilt (Medianalter, zum 1. Jänner): Die eine Hälfte der Menschen ist jünger, die andere älter. Ein höherer Wert heißt: Die Bevölkerung ist im Schnitt älter.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -12919,7 +12919,7 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
-   "erklaerung": "Wie viele Jahre ein heute geborenes Kind nach den aktuellen Sterberaten durchschnittlich leben würde. Beide Geschlechter zusammen.",
+   "erklaerung": "Wie alt ein heute geborenes Kind im Durchschnitt wird, wenn die Sterberaten des Jahres sein Leben lang gelten würden. Frauen und Männer werden zusammen betrachtet. Frauen leben statistisch länger als Männer, das hebt den gemeinsamen Wert.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -13244,7 +13244,7 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
-   "erklaerung": "Wie viele Jahre ein neugeborenes Kind durchschnittlich ohne gesundheitliche Einschränkungen im Alltag leben wird (Healthy Life Years, nach Selbstauskunft in der EU-Befragung). Das sind meist deutlich weniger als die Lebenserwartung.",
+   "erklaerung": "Wie viele Jahre ein neugeborenes Kind im Durchschnitt ohne gesundheitliche Einschränkungen im Alltag leben wird (Healthy Life Years). Beruht auf der Selbsteinschätzung in einer EU-Befragung. Das sind meist deutlich weniger Jahre als die Lebenserwartung insgesamt.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -13593,7 +13593,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie viele Menschen ab 65 auf 100 Menschen im Alter von 15 bis 64 kommen. Je höher der Wert, desto mehr ältere Menschen müssen von den Jüngeren mitgetragen werden, etwa über das Pensionssystem.",
+   "erklaerung": "Wie viele Menschen ab 65 auf 100 Menschen zwischen 15 und 64 Jahren kommen. 30 heißt: Auf 100 Menschen im erwerbsfähigen Alter kommen 30 über 65. Je höher der Wert, desto mehr Ältere müssen von den Jüngeren mitgetragen werden, etwa über das Pensionssystem.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -13944,7 +13944,7 @@
      "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
     }
    },
-   "erklaerung": "Wie viele vorsätzliche Tötungen (Mord, Totschlag) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Tötungsdelikte gelten als am besten vergleichbarer Kriminalitätswert, weil sie kaum unbemerkt bleiben.",
+   "erklaerung": "Wie viele vorsätzliche Tötungen (Mord, Totschlag) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Tötungsdelikte lassen sich zwischen Ländern am besten vergleichen, weil sie kaum unbemerkt bleiben. Bei kleinen Ländern können einzelne Fälle den Wert stark verändern.",
    "gruppe": "Sicherheit"
   },
   {
@@ -14287,7 +14287,7 @@
      "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
     }
    },
-   "erklaerung": "Wie viele Raubdelikte (Diebstahl mit Gewalt oder Drohung) die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
+   "erklaerung": "Wie viele Raubdelikte (Wegnahme von Sachen mit Gewalt oder Drohung) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Gezählt werden angezeigte Fälle. Wie leicht jemand Anzeige erstattet, ist in den Ländern unterschiedlich.",
    "gruppe": "Sicherheit"
   },
   {
@@ -14604,7 +14604,7 @@
      "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
     }
    },
-   "erklaerung": "Wie viele Einbrüche in Privatwohnungen die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
+   "erklaerung": "Wie viele Einbrüche in Privatwohnungen die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Gezählt werden angezeigte Fälle.",
    "gruppe": "Sicherheit"
   },
   {
@@ -14937,7 +14937,7 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
-   "erklaerung": "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt: Es sind mehr Menschen inhaftiert, als Plätze vorhanden sind (Überbelegung).",
+   "erklaerung": "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt, dass mehr Menschen inhaftiert sind, als Plätze vorhanden sind (Überbelegung). Das zeigt, wie ausgelastet das Strafvollzugssystem ist.",
    "gruppe": "Sicherheit"
   },
   {
@@ -15275,7 +15275,7 @@
     "stand": "2026-11-23",
     "gesamtAufklaerung": null
    },
-   "erklaerung": "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Die Zählweise und die Anzeigebereitschaft zwischen den Ländern stark unterschiedlich sind.",
+   "erklaerung": "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Der Vergleich zwischen den Ländern ist schwierig: Die Zählweise und die Bereitschaft, Anzeige zu erstatten, unterscheiden sich stark. Die Zahl zeigt also nur bedingt, wo mehr Gewalt passiert.",
    "gruppe": "Sicherheit"
   },
   {
@@ -15626,7 +15626,7 @@
      "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
     }
    },
-   "erklaerung": "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definition, Zählweise und Anzeigebereitschaft stark abweichen und die Dunkelziffer hoch ist.",
+   "erklaerung": "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definitionen, Zählweise und Anzeigebereitschaft unterscheiden sich zwischen den Ländern stark, und viele Fälle werden nie angezeigt. Ein hoher Wert kann daher auch bedeuten, dass mehr angezeigt wird.",
    "gruppe": "Sicherheit"
   },
   {
@@ -16022,7 +16022,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Was ein Haushalt mit mittlerem Verbrauch (2.500 bis 5.000 kWh pro Jahr) inklusive Steuern und Abgaben pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres.",
+   "erklaerung": "Was ein normaler Haushalt (2.500 bis 5.000 kWh Verbrauch pro Jahr) inklusive Steuern und Abgaben für eine Kilowattstunde Strom bezahlt, in Cent. Die Werte kommen halbjährlich. Verglichen wird mit dem gleichen Halbjahr des Vorjahres, damit Jahreszeiten den Vergleich nicht verzerren.",
    "gruppe": "Preise und Kosten"
   },
   {
@@ -16418,7 +16418,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Was ein mittelgroßer Industriekunde (2 bis 20 GWh pro Jahr) ohne Mehrwertsteuer pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres.",
+   "erklaerung": "Was ein mittelgroßer Industriebetrieb (2 bis 20 Millionen kWh pro Jahr) ohne Mehrwertsteuer für eine Kilowattstunde Strom bezahlt, in Cent. Die Werte kommen halbjährlich. Verglichen wird mit dem gleichen Halbjahr des Vorjahres. Der Preis ist ein Kostenfaktor für die Unternehmen im Land.",
    "gruppe": "Preise und Kosten"
   },
   {
@@ -16980,7 +16980,7 @@
     ]
    },
    "geaendert": "2026-11-23",
-   "erklaerung": "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
+   "erklaerung": "Wie zuverlässig ein Staat nach Einschätzung der Ratingagenturen S&P, Moody's und Fitch seine Schulden zurückzahlt. AAA ist die beste Note. Je besser die Note, desto niedriger sind die Zinsen, die das Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
    "gruppe": "Staatsfinanzen"
   },
   {
@@ -17113,7 +17113,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie sich Schülerinnen und Schüler (Wiener Pflichtschulen) und die Bevölkerung Österreichs auf Religionen und Konfessionen verteilen. Die Religion wird in Österreich nur an den Schulen laufend erhoben, bundesweit gibt es dazu nur die Befragung von 2021.",
+   "erklaerung": "Wie sich Schülerinnen und Schüler (Wiener Pflichtschulen) und die Bevölkerung Österreichs auf Religionen und Konfessionen verteilen. Die Religion wird in Österreich nur an den Schulen laufend erfasst. Bundesweit gibt es nur eine Befragung von 2021. Die Zahlen sind eine reine Übersicht.",
    "gruppe": "Gesellschaft"
   },
   {
@@ -17398,7 +17398,7 @@
    "quelleUrl": "https://www.etk.fi/en/the-pension-system/international-comparison/retirement-ages/",
    "hinweisDaten": "Gesetzliches Regelpensionsalter für Männer (Stand 2026), Monate als Dezimalzahl. Bei Frauen oder in einzelnen Ländern gelten andere Altersgrenzen, siehe Zusatzangabe. Bulgarien fehlt, weil die Quelle uneindeutig ist. Von Hand gepflegt.",
    "geaendert": "2026-11-23",
-   "erklaerung": "Das Alter, ab dem man in Österreich und den anderen EU-Ländern nach dem Gesetz die reguläre Alterspension bekommt, hier für Männer. Wer früher geht, muss meist mit Abschlägen rechnen. Das tatsächliche Antrittsalter liegt oft darunter.",
+   "erklaerung": "Ab welchem Alter man in dem jeweiligen Land nach dem Gesetz die reguläre Alterspension bekommt, hier für Männer. Wer früher in Pension geht, muss oft mit Abschlägen rechnen. Das tatsächliche Antrittsalter liegt häufig darunter. In Österreich gilt für Frauen derzeit ein niedrigeres Alter, das schrittweise steigt.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -17652,7 +17652,7 @@
     "stand": "2026-11-23",
     "gesamtAufklaerung": null
    },
-   "erklaerung": "Wie viele Haushalte börsennotierte Aktien besitzen (direkt gehalten, ohne Fonds), laut der Haushaltsbefragung der Europäischen Zentralbank und der Notenbanken. Die Erhebung gibt es nur alle paar Jahre.",
+   "erklaerung": "Wie viele von 100 Haushalten börsennotierte Aktien besitzen (direkt gehalten, ohne Fonds), laut der Haushaltsbefragung der EZB und der Notenbanken. Die Erhebung gibt es nur alle paar Jahre und nicht für alle EU-Länder. Der Wert zeigt, wie verbreitet das Investieren in Aktien ist.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -17847,7 +17847,7 @@
    "quelleUrl": "https://cri.georgetown.edu/wp-content/uploads/2026/10/pdf-2026-marsh-cfa-institute-global-pension-index-main.pdf",
    "hinweisDaten": "Der Index bewertet nur 14 der 27 EU-Länder (Belgien, Dänemark, Deutschland, Finnland, Frankreich, Irland, Italien, Kroatien, Niederlande, Österreich, Polen, Portugal, Schweden, Spanien). Der Weltrang bezieht sich auf alle 55 untersuchten Systeme. Er misst die langfristige Finanzierbarkeit (Pensionsvermögen, Demografie, Staatsschulden, Erwerbsquote Älterer) und ist eine Einschätzung der Studie, keine amtliche Statistik. Von Hand gepflegt.",
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie gut ein Pensionssystem langfristig finanzierbar ist, laut dem Marsh CFA Institute Global Pension Index (Teilindex Nachhaltigkeit). Berücksichtigt unter anderem Pensionsvermögen, Altersstruktur, Staatsschulden und Erwerbsquote Älterer. Nur 14 der 27 EU-Länder sind im Index enthalten.",
+   "erklaerung": "Wie gut ein Pensionssystem langfristig bezahlbar ist, laut dem Marsh CFA Institute Global Pension Index (Teilindex Nachhaltigkeit). Berücksichtigt werden unter anderem angespartes Pensionsvermögen, Altersstruktur, Staatsschulden und die Erwerbsquote Älterer. Der Index ist eine Bewertung einer Studie, keine amtliche Statistik, und enthält nur 14 der 27 EU-Länder.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -18190,7 +18190,7 @@
    "hinweisDaten": "Anzahl der von den Mitgliedstaaten an Europol gemeldeten Anschläge (vollendet, gescheitert und vereitelt) pro Jahr. Länder, die nicht aufgeführt sind, haben keine Anschläge gemeldet (Wert 0).",
    "euGesamt": 45,
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie viele Terroranschläge (vollendete, gescheiterte und von den Behörden vereitelte) ein Land pro Jahr an Europol gemeldet hat, umgerechnet auf 10 Millionen Einwohner. Die Zahlen stammen aus dem jährlichen EU-Lagebericht zum Terrorismus (TE-SAT) und werden von Hand eingetragen.",
+   "erklaerung": "Wie viele Terroranschläge (vollendete, gescheiterte und von den Behörden vereitelte) ein Land pro Jahr an Europol gemeldet hat, umgerechnet auf 10 Millionen Einwohner. Die Zahlen stammen aus dem jährlichen EU-Lagebericht zum Terrorismus (TE-SAT) und werden von Hand eingetragen. Die Zahlen sind klein, einzelne Anschläge verändern den Rang stark.",
    "gruppe": "Sicherheit"
   },
   {
@@ -18404,7 +18404,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich.",
+   "erklaerung": "Wie viele Unternehmen in Österreich pro Jahr insolvent werden (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Das gilt nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich.",
    "gruppe": "Wirtschaft und Arbeit"
   }
  ]
