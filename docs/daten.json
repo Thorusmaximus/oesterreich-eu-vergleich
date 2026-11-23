@@ -12,7 +12,8 @@
   "Wirtschaft und Arbeit",
   "Staatsfinanzen",
   "Preise und Kosten",
-  "Gesellschaft"
+  "Gesellschaft",
+  "Sicherheit"
  ],
  "indikatoren": [
   {
@@ -9115,6 +9116,967 @@
    "geaendert": "2026-11-23",
    "erklaerung": "Was ein Liter Diesel im Schnitt an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die Wochenpreise des EU-Ölbulletins, hier als Monatsdurchschnitt.",
    "gruppe": "Preise und Kosten"
+  },
+  {
+   "id": "toetung",
+   "name": "Tötungsdelikte",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 2,
+   "suffix": "",
+   "diffEinheit": "Fälle pro 100.000 Einwohner",
+   "hinweis": null,
+   "umstritten": false,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Von der Polizei erfasste Fälle vorsätzlicher Tötung pro 100.000 Einwohner",
+   "rangText": "Rang 1 = wenigste Tötungsdelikte pro Einwohner",
+   "periode": "2024",
+   "vorherPeriode": "2023",
+   "anzahlLaender": 27,
+   "alter": 23,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 0.85,
+    "rang": 14,
+    "wertVorher": 0.82,
+    "rangVorher": 16,
+    "schnitt": 0.85,
+    "schnittVorher": 0.82,
+    "veraenderung": 0.03,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "eu": null,
+   "beste": {
+    "code": "LU",
+    "name": "Luxemburg",
+    "value": 0.3,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "schlechteste": {
+    "code": "LT",
+    "name": "Litauen",
+    "value": 2.63,
+    "rank": 27,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2020",
+     "rang": 5,
+     "n": 27
+    },
+    {
+     "t": "2021",
+     "rang": 8,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 5,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 14,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 0.3,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 0.57,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 0.63,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 0.67,
+     "rank": 4,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 0.68,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 0.69,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 0.69,
+     "rank": 6,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 0.69,
+     "rank": 6,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 0.71,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 0.72,
+     "rank": 10,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 0.78,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 0.79,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 0.83,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 0.85,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 0.87,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 0.87,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 0.89,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 0.93,
+     "rank": 18,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 1.01,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 1.09,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 1.23,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 1.28,
+     "rank": 22,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 1.4,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 1.78,
+     "rank": 24,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 1.82,
+     "rank": 25,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 2.4,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 2.63,
+     "rank": 27,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    }
+   ],
+   "schweiz": {
+    "wert": 0.5,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2020",
+     "at": 0.61,
+     "eu": null
+    },
+    {
+     "t": "2021",
+     "at": 0.66,
+     "eu": null
+    },
+    {
+     "t": "2022",
+     "at": 0.72,
+     "eu": null
+    },
+    {
+     "t": "2023",
+     "at": 0.82,
+     "eu": null
+    },
+    {
+     "t": "2024",
+     "at": 0.85,
+     "eu": null
+    }
+   ],
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie viele vorsätzliche Tötungen (Mord, Totschlag) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Tötungsdelikte gelten als am besten vergleichbarer Kriminalitätswert, weil sie kaum unbemerkt bleiben.",
+   "gruppe": "Sicherheit"
+  },
+  {
+   "id": "raub",
+   "name": "Raubdelikte",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": "",
+   "diffEinheit": "Fälle pro 100.000 Einwohner",
+   "hinweis": "Die Zahlen beruhen auf Polizeistatistiken. Wie Delikte gezählt und erfasst werden, unterscheidet sich zwischen den Ländern, ein hoher Wert kann auch an besserer Erfassung oder höherer Anzeigebereitschaft liegen.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Von der Polizei erfasste Raubdelikte pro 100.000 Einwohner",
+   "rangText": "Rang 1 = wenigste Raubdelikte pro Einwohner",
+   "periode": "2024",
+   "vorherPeriode": "2023",
+   "anzahlLaender": 26,
+   "alter": 23,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 32.6,
+    "rang": 16,
+    "wertVorher": 29.41,
+    "rangVorher": 15,
+    "schnitt": 32.6,
+    "schnittVorher": 29.4,
+    "veraenderung": 3.2,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "eu": null,
+   "beste": {
+    "code": "SK",
+    "name": "Slowakei",
+    "value": 5.71,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "ES",
+    "name": "Spanien",
+    "value": 129.53,
+    "rank": 26,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2020",
+     "rang": 14,
+     "n": 27
+    },
+    {
+     "t": "2021",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 16,
+     "n": 26
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 5.71,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 6.94,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 7.35,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 9.62,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 11.64,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 11.6,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 12.74,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 14.08,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 14.16,
+     "rank": 9,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 14.43,
+     "rank": 10,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 15.08,
+     "rank": 11,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 19.58,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 24.39,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 27.89,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 28.72,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 32.6,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 35.25,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 43.66,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 45.11,
+     "rank": 19,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 46.25,
+     "rank": 20,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 49.77,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 51.76,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 82.81,
+     "rank": 23,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 88.37,
+     "rank": 24,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 116.33,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 129.53,
+     "rank": 26,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    }
+   ],
+   "schweiz": {
+    "wert": 23.58,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2020",
+     "at": 24.01,
+     "eu": null
+    },
+    {
+     "t": "2021",
+     "at": 23.71,
+     "eu": null
+    },
+    {
+     "t": "2022",
+     "at": 28.24,
+     "eu": null
+    },
+    {
+     "t": "2023",
+     "at": 29.41,
+     "eu": null
+    },
+    {
+     "t": "2024",
+     "at": 32.6,
+     "eu": null
+    }
+   ],
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie viele Raubdelikte (Diebstahl mit Gewalt oder Drohung) die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
+   "gruppe": "Sicherheit"
+  },
+  {
+   "id": "einbruch",
+   "name": "Wohnungseinbrüche",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": "",
+   "diffEinheit": "Fälle pro 100.000 Einwohner",
+   "hinweis": "Die Zahlen beruhen auf Polizeistatistiken. Wie Delikte gezählt und erfasst werden, unterscheidet sich zwischen den Ländern, ein hoher Wert kann auch an besserer Erfassung oder höherer Anzeigebereitschaft liegen.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Von der Polizei erfasste Einbrüche pro 100.000 Einwohner",
+   "rangText": "Rang 1 = wenigste Einbrüche pro Einwohner",
+   "periode": "2024",
+   "vorherPeriode": "2023",
+   "anzahlLaender": 23,
+   "alter": 23,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 69.57,
+    "rang": 10,
+    "wertVorher": 83.3,
+    "rangVorher": 15,
+    "schnitt": 69.6,
+    "schnittVorher": 83.3,
+    "veraenderung": -13.7,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "eu": null,
+   "beste": {
+    "code": "SK",
+    "name": "Slowakei",
+    "value": 15.41,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "DK",
+    "name": "Dänemark",
+    "value": 370.93,
+    "rank": 23,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2020",
+     "rang": 9,
+     "n": 24
+    },
+    {
+     "t": "2021",
+     "rang": 7,
+     "n": 24
+    },
+    {
+     "t": "2022",
+     "rang": 10,
+     "n": 22
+    },
+    {
+     "t": "2023",
+     "rang": 15,
+     "n": 23
+    },
+    {
+     "t": "2024",
+     "rang": 10,
+     "n": 23
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 15.41,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 23.94,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 24.38,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 36.37,
+     "rank": 4,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 38.18,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 41.01,
+     "rank": 6,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 51.77,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 56.78,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 57.89,
+     "rank": 9,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 69.57,
+     "rank": 10,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 72.59,
+     "rank": 11,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 73.95,
+     "rank": 12,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 74.07,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 76.21,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 93.98,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 94.64,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 117.01,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 166.79,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 263.84,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 295.47,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 311.54,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 319.91,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 370.93,
+     "rank": 23,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    }
+   ],
+   "schweiz": {
+    "wert": 307.69,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2020",
+     "at": 71.59,
+     "eu": null
+    },
+    {
+     "t": "2021",
+     "at": 51.13,
+     "eu": null
+    },
+    {
+     "t": "2022",
+     "at": 67.18,
+     "eu": null
+    },
+    {
+     "t": "2023",
+     "at": 83.3,
+     "eu": null
+    },
+    {
+     "t": "2024",
+     "at": 69.57,
+     "eu": null
+    }
+   ],
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie viele Einbrüche in Privatwohnungen die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
+   "gruppe": "Sicherheit"
+  },
+  {
+   "id": "gefaengnis",
+   "name": "Gefängnisauslastung",
+   "fehler": "Filter unvollständig: Dimension \"indic_cr\" hat 0 Werte. Filter im Skript anpassen.",
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt: Es sind mehr Menschen inhaftiert, als Plätze vorhanden sind (Überbelegung).",
+   "gruppe": "Sicherheit"
   },
   {
    "id": "strompreis",
