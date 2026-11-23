@@ -1,17 +1,83 @@
 {
-  "stand": "2026-11-23",
-  "hinweis": "Von Hand gepflegt. Nur Österreich, nationale Quellen. Gilt nur, solange Eurostat noch keine neueren Daten hat, und fällt danach automatisch weg.",
-  "eintraege": {
-    "toetung": { "jahr": 2025, "titel": "Vollendete Morde (Opfer)", "wert": 74, "vorjahr": 76, "einheit": "Opfer", "aufklaerung": 77.3, "aufklaerungVorjahr": 74.3,
-      "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025", "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf" },
-    "raub": { "jahr": 2025, "titel": "Angezeigte Raubdelikte", "wert": 2269, "vorjahr": 2450, "einheit": "Anzeigen", "aufklaerung": 50.9, "aufklaerungVorjahr": 50.9,
-      "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025", "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf" },
-    "einbruch": { "jahr": 2025, "titel": "Einbruchsdiebstähle in Wohnraum", "wert": 6828, "vorjahr": 6930, "einheit": "Anzeigen",
-      "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025", "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf" },
-    "sexualdelikte": { "jahr": 2025, "titel": "Angezeigte Vergewaltigungen (nur ein Teil der Sexualdelikte)", "wert": 1275, "vorjahr": 1355, "einheit": "Anzeigen", "aufklaerung": 83.2, "aufklaerungVorjahr": 82.5,
-      "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025", "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf" },
-    "geburtenrate": { "jahr": 2025, "titel": "Kinder pro Frau (vorläufig)", "wert": 1.29, "vorjahr": 1.31, "einheit": "Kinder pro Frau",
-      "quelle": "Statistik Austria, Geburtenbilanz 2025", "url": "https://www.statistik.at/fileadmin/announcement/2026/02/20260225Geburtenbilanz2025.pdf" }
+ "stand": "2026-11-23",
+ "hinweis": "Von Hand gepflegt. Nur Österreich, nationale Quellen. Gilt nur, solange Eurostat noch keine neueren Daten hat, und fällt danach automatisch weg.",
+ "eintraege": {
+  "toetung": {
+   "jahr": 2025,
+   "titel": "Vollendete Morde (Opfer)",
+   "wert": 74,
+   "vorjahr": 76,
+   "einheit": "Opfer",
+   "aufklaerung": 77.3,
+   "aufklaerungVorjahr": 74.3,
+   "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025",
+   "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf"
   },
-  "gesamtAufklaerung": { "jahr": 2025, "wert": 53.6, "vorjahr": 52.9, "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025" }
+  "raub": {
+   "jahr": 2025,
+   "titel": "Angezeigte Raubdelikte",
+   "wert": 2269,
+   "vorjahr": 2450,
+   "einheit": "Anzeigen",
+   "aufklaerung": 50.9,
+   "aufklaerungVorjahr": 50.9,
+   "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025",
+   "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf"
+  },
+  "einbruch": {
+   "jahr": 2025,
+   "titel": "Einbruchsdiebstähle in Wohnraum",
+   "wert": 6828,
+   "vorjahr": 6930,
+   "einheit": "Anzeigen",
+   "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025",
+   "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf"
+  },
+  "sexualdelikte": {
+   "jahr": 2025,
+   "titel": "Angezeigte Vergewaltigungen (nur ein Teil der Sexualdelikte)",
+   "wert": 1275,
+   "vorjahr": 1355,
+   "einheit": "Anzeigen",
+   "aufklaerung": 83.2,
+   "aufklaerungVorjahr": 82.5,
+   "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025",
+   "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf"
+  },
+  "geburtenrate": {
+   "jahr": 2025,
+   "titel": "Kinder pro Frau (vorläufig)",
+   "wert": 1.29,
+   "vorjahr": 1.31,
+   "einheit": "Kinder pro Frau",
+   "quelle": "Statistik Austria, Geburtenbilanz 2025",
+   "url": "https://www.statistik.at/fileadmin/announcement/2026/02/20260225Geburtenbilanz2025.pdf"
+  },
+  "koerperverletzung": {
+   "jahr": 2025,
+   "titel": "Angezeigte Gewaltdelikte insgesamt (weiter gefasst als schwere Körperverletzung)",
+   "wert": 88133,
+   "vorjahr": 86205,
+   "einheit": "Anzeigen",
+   "aufklaerung": 85.7,
+   "aufklaerungVorjahr": 84.6,
+   "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025",
+   "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf"
+  },
+  "sicherheitsgefuehl": {
+   "jahr": 2025,
+   "titel": "Anteil der Bevölkerung mit Kriminalität oder Vandalismus in der Wohngegend (in %)",
+   "wert": 7,
+   "vorjahr": null,
+   "einheit": "%",
+   "quelle": "Statistik Austria, EU-SILC 2025 Tabellenband (Tabelle 3.2a)",
+   "url": "https://www.statistik.at/fileadmin/pages/338/Tabellenband_EUSILC_2025.pdf"
+  }
+ },
+ "gesamtAufklaerung": {
+  "jahr": 2025,
+  "wert": 53.6,
+  "vorjahr": 52.9,
+  "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
+ }
 }
