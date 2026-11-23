@@ -3522,6 +3522,17 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024). Sobald sie vorliegen, ersetzt die Seite sie automatisch.",
+   "nachtrag": {
+    "jahr": 2025,
+    "titel": "Kinder pro Frau (vorläufig)",
+    "wert": 1.29,
+    "vorjahr": 1.31,
+    "einheit": "Kinder pro Frau",
+    "quelle": "Statistik Austria, Geburtenbilanz 2025",
+    "url": "https://www.statistik.at/fileadmin/announcement/2026/02/20260225Geburtenbilanz2025.pdf",
+    "stand": "2026-11-23",
+    "gesamtAufklaerung": null
+   },
    "erklaerung": "Gesamtfertilitätsrate: Wie viele Kinder eine Frau im Schnitt bekäme, wenn die Geburtenhäufigkeit des Jahres ein Leben lang gleich bliebe. Rund 2,1 wären nötig, damit die Bevölkerung ohne Zuwanderung stabil bleibt.",
    "gruppe": "Gesellschaft"
   },
@@ -10496,6 +10507,24 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024). Sobald sie vorliegen, ersetzt die Seite sie automatisch.",
+   "nachtrag": {
+    "jahr": 2025,
+    "titel": "Vollendete Morde (Opfer)",
+    "wert": 74,
+    "vorjahr": 76,
+    "einheit": "Opfer",
+    "aufklaerung": 77.3,
+    "aufklaerungVorjahr": 74.3,
+    "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025",
+    "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf",
+    "stand": "2026-11-23",
+    "gesamtAufklaerung": {
+     "jahr": 2025,
+     "wert": 53.6,
+     "vorjahr": 52.9,
+     "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
+    }
+   },
    "erklaerung": "Wie viele vorsätzliche Tötungen (Mord, Totschlag) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Tötungsdelikte gelten als am besten vergleichbarer Kriminalitätswert, weil sie kaum unbemerkt bleiben.",
    "gruppe": "Sicherheit"
   },
@@ -10821,6 +10850,24 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024). Sobald sie vorliegen, ersetzt die Seite sie automatisch.",
+   "nachtrag": {
+    "jahr": 2025,
+    "titel": "Angezeigte Raubdelikte",
+    "wert": 2269,
+    "vorjahr": 2450,
+    "einheit": "Anzeigen",
+    "aufklaerung": 50.9,
+    "aufklaerungVorjahr": 50.9,
+    "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025",
+    "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf",
+    "stand": "2026-11-23",
+    "gesamtAufklaerung": {
+     "jahr": 2025,
+     "wert": 53.6,
+     "vorjahr": 52.9,
+     "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
+    }
+   },
    "erklaerung": "Wie viele Raubdelikte (Diebstahl mit Gewalt oder Drohung) die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
    "gruppe": "Sicherheit"
   },
@@ -11122,6 +11169,22 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024). Sobald sie vorliegen, ersetzt die Seite sie automatisch.",
+   "nachtrag": {
+    "jahr": 2025,
+    "titel": "Einbruchsdiebstähle in Wohnraum",
+    "wert": 6828,
+    "vorjahr": 6930,
+    "einheit": "Anzeigen",
+    "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025",
+    "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf",
+    "stand": "2026-11-23",
+    "gesamtAufklaerung": {
+     "jahr": 2025,
+     "wert": 53.6,
+     "vorjahr": 52.9,
+     "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
+    }
+   },
    "erklaerung": "Wie viele Einbrüche in Privatwohnungen die Polizei pro 100.000 Einwohner und Jahr erfasst hat.",
    "gruppe": "Sicherheit"
   },
@@ -12113,6 +12176,24 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024). Sobald sie vorliegen, ersetzt die Seite sie automatisch.",
+   "nachtrag": {
+    "jahr": 2025,
+    "titel": "Angezeigte Vergewaltigungen (nur ein Teil der Sexualdelikte)",
+    "wert": 1275,
+    "vorjahr": 1355,
+    "einheit": "Anzeigen",
+    "aufklaerung": 83.2,
+    "aufklaerungVorjahr": 82.5,
+    "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025",
+    "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf",
+    "stand": "2026-11-23",
+    "gesamtAufklaerung": {
+     "jahr": 2025,
+     "wert": 53.6,
+     "vorjahr": 52.9,
+     "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
+    }
+   },
    "erklaerung": "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil Definition, Zählweise und Anzeigebereitschaft stark abweichen und die Dunkelziffer hoch ist.",
    "gruppe": "Sicherheit"
   },
