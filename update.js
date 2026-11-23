@@ -79,7 +79,8 @@ const INDICATORS = [
     einheit: "Kinder pro Frau (Gesamtfertilitätsrate)", suffix: "", diffEinheit: "Kinder pro Frau", dez: 2,
     rangText: "Rang 1 = höchste Geburtenrate (eine höhere Geburtenrate gilt hier als besser)",
     typ: "hoch", schwelle: 0.03, zusatzDatei: "zusatz-geburten.json", mock: { base: 1.1, step: 0.05 } },
-  { id: "staatsquote", name: "Staatsquote", takt: "jahr", dataset: "gov_10a_exp",
+  { id: "staatsquote", name: "Staatsquote", takt: "jahr", dataset: "gov_10a_main",
+    alternativen: [ { dataset: "gov_10a_exp", filter: "unit=PC_GDP&sector=S13&cofog99=TOTAL&na_item=TE" } ],
     filter: "unit=PC_GDP&sector=S13&na_item=TE", // Gesamtausgaben des Staates in % des BIP (gov_10a_main ist aktueller als gov_10a_exp)
     einheit: "% des BIP: gesamte Staatsausgaben", diffEinheit: "Prozentpunkte",
     rangText: "Rang 1 = niedrigste Staatsquote",
