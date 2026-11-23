@@ -11752,15 +11752,6 @@
    "gruppe": "Sicherheit"
   },
   {
-   "id": "sicherheitsgefuehl",
-   "name": "Kriminalität im Wohnumfeld",
-   "fehler": "Filter unvollständig: Dimension \"rskpovth\" hat 3 Werte. Filter im Skript anpassen.",
-   "geaendert": "2026-11-23",
-   "erklaerung": "Wie viele Menschen auf die Frage, ob es in ihrer Wohngegend Kriminalität, Gewalt oder Vandalismus gibt, mit Ja antworten (EU-weite Haushaltsbefragung). Das misst das Empfinden der Menschen, nicht die tatsächliche Zahl der Taten.",
-   "gruppe": "Sicherheit",
-   "veraltet": true
-  },
-  {
    "id": "strompreis",
    "name": "Strompreis für Haushalte",
    "pfeilModus": "wert",
