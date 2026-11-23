@@ -101,3 +101,13 @@ svg{width:100%;height:auto;display:block}
 .infopop{position:absolute;z-index:50;display:none;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem;line-height:1.45;box-shadow:0 6px 24px rgba(0,0,0,.18);font-weight:400}
 /* Gruppenfilter */
 .filter.gr{margin-top:8px}
+
+/* Filter: am Handy hinter einer Lupe */
+.fbtn{display:none}
+@media (max-width:600px){
+  .fbtn{display:inline-flex;align-items:center;gap:6px;position:relative;margin:6px 0 10px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-weight:600;font-size:.9rem;cursor:pointer}
+  .fbtn[aria-expanded="true"]{border-color:var(--eu);color:var(--eu)}
+  .fdot{position:absolute;top:-2px;right:-2px;width:10px;height:10px;border-radius:50%;background:var(--at);border:2px solid var(--bg)}
+  .fbox{display:none}
+  .fbox.offen{display:block}
+}
