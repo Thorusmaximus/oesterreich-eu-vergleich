@@ -72,6 +72,15 @@
    "einheit": "%",
    "quelle": "Statistik Austria, EU-SILC 2025 Tabellenband (Tabelle 3.2a)",
    "url": "https://www.statistik.at/fileadmin/pages/338/Tabellenband_EUSILC_2025.pdf"
+  },
+  "aktionaersquote": {
+   "jahr": 2026,
+   "titel": "Anteil der Bevölkerung mit Wertpapieren (Aktien, Fonds, Anleihen)",
+   "wert": 31,
+   "vorjahr": 30,
+   "einheit": "%",
+   "quelle": "Aktienbarometer 2026 (Industriellenvereinigung, Aktienforum, Wiener Börse)",
+   "url": "https://www.wienerborse.at/en/listing/shares/investors/aktienbarometer/"
   }
  },
  "gesamtAufklaerung": {

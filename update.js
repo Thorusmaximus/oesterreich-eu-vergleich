@@ -775,7 +775,7 @@ const HAND_IND = {
     hinweis: "Ob ein höheres Pensionsalter besser ist, ist umstritten: Es entlastet die Pensionskassen, bedeutet aber später in Pension zu gehen. In Österreich gilt für Frauen derzeit noch ein niedrigeres Alter, das bis 2033 schrittweise auf 65 steigt.",
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, maxAlter: 26, minLaender: 20 },
   aktionaersquote: { id: "aktionaersquote", name: "Aktionärsquote", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " %", diffEinheit: "Prozentpunkte",
-    einheit: "Anteil der Haushalte mit börsennotierten Aktien in % (Befragung 2021)", rangText: "Rang 1 = höchster Anteil (nur 22 EU-Länder)",
+    einheit: "Anteil der Haushalte mit börsennotierten Aktien in % (Befragung, Welle 2023)", rangText: "Rang 1 = höchster Anteil (nur 22 EU-Länder)",
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.5, maxAlter: 80, minLaender: 18, kurzHinweis: "Nur 22 von 27 EU-Ländern sind in der Erhebung. Der Rang gilt nur unter diesen 22." },
   marsh: { id: "marsh", name: "Finanzierbarkeit des Pensionssystems", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " Punkte", diffEinheit: "Punkte",
     einheit: "Teilindex Nachhaltigkeit des Marsh CFA Institute Global Pension Index (0 bis 100 Punkte)", rangText: "Rang 1 = beste Nachhaltigkeitsbewertung (nur 14 EU-Länder im Index)",
@@ -992,7 +992,7 @@ function berechneInsolvenzen() {
   // Österreich-Nachtrag (von Hand) für Indikatoren, bei denen Eurostat noch nichts Neueres hat
   try { const nt = JSON.parse(fs.readFileSync("at-nachtrag.json", "utf8"));
     for (const r of result) { const e = nt.eintraege[r.id], jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : 0;
-      if (r.datenHinweis && e && e.jahr > jahr) r.nachtrag = { ...e, stand: nt.stand, gesamtAufklaerung: ["toetung","raub","einbruch","sexualdelikte"].includes(r.id) ? nt.gesamtAufklaerung : null }; }
+      if ((r.datenHinweis || r.ohneTrend) && e && e.jahr > jahr) r.nachtrag = { ...e, stand: nt.stand, gesamtAufklaerung: ["toetung","raub","einbruch","sexualdelikte"].includes(r.id) ? nt.gesamtAufklaerung : null }; }
   } catch (e) { console.log("   (at-nachtrag.json nicht lesbar: " + e.message + ")"); }
   for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
   if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
