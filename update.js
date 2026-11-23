@@ -154,10 +154,10 @@ const INDICATORS = [
     hinweis: "Hier gibt es keine Wertung: Steigende Immobilienpreise nützen Eigentümern und belasten Käufer, Mieter und Familien, die erst kaufen wollen. Gezeigt wird die Veränderung des Preisindex der Wohnimmobilien (Wohnungen und Häuser, neu und gebraucht) gegenüber dem Quartal des Regierungsantritts. Das ist die Preisentwicklung, nicht der Preis pro Quadratmeter, und die Preise sind nicht um die Inflation bereinigt.",
     schwelle: 0.5, mock: { base: 100, step: 3 } }
   ,{ id: "einkommen", name: "Medianeinkommen", takt: "jahr", dataset: "ilc_di03",
-    filter: "indic_il=MED_E&age=TOTAL&sex=T&unit=EUR", // mittleres (Median-)Nettoeinkommen je Person, nach Haushaltsgröße gewichtet (EU-SILC)
+    filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=EUR", // mittleres (Median-)Nettoeinkommen je Person, nach Haushaltsgröße gewichtet (EU-SILC)
     alternativen: [
-      { dataset: "ilc_di03", filter: "indic_il=MED_E&age=TOTAL&sex=T&unit=EUR" },
-      { dataset: "ilc_di03", filter: "indic_il=MED_E&age=Y_GE16&sex=T&unit=EUR" } ],
+      { dataset: "ilc_di03", filter: "statinfo=MED_EI&age=Y_GE16&sex=T&unit=EUR" },
+      { dataset: "ilc_di03", filter: "statinfo=MED_EI&age=Y_GE18&sex=T&unit=EUR" } ],
     maxAlter: 26, dez: 0, suffix: " €", diffEinheit: "Euro",
     einheit: "Euro pro Jahr: Median des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
     rangText: "Rang 1 = höchstes Medianeinkommen", typ: "hoch", schwelle: 250, mock: { base: 8000, step: 2400 } }
