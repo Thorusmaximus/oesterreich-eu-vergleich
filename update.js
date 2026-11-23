@@ -250,7 +250,7 @@ const INDICATORS = [
     typ: "neutral", schwelle: 5, mock: { base: 30, step: 14 } }
   ,{ id: "sicherheitsgefuehl", name: "Kriminalität im Wohnumfeld", takt: "jahr", dataset: "ilc_mddw03",
     filter: "hhcomp=TOTAL&unit=PC", // Anteil der Bevölkerung, der Kriminalität, Gewalt oder Vandalismus in der Wohngegend meldet
-    alternativen: [ { dataset: "ilc_mddw03", filter: "hhcomp=A1&unit=PC" }, { dataset: "ilc_mddw03", filter: "hhcomp=TOTAL_HH&unit=PC" } ],
+    alternativen: [ { dataset: "ilc_mddw04", filter: "deg_urb=TOTAL&unit=PC" }, { dataset: "ilc_mddw04", filter: "unit=PC" }, { dataset: "ilc_mddw03", filter: "hhcomp=A2&unit=PC" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte",
     einheit: "% der Bevölkerung, die Kriminalität, Gewalt oder Vandalismus in ihrer Wohngegend angibt (Befragung)", rangText: "Rang 1 = geringster Anteil",
     hinweis: "Das ist keine Polizeistatistik, sondern eine einheitliche Befragung (EU-SILC). Sie misst die Wahrnehmung der Menschen, nicht die tatsächliche Zahl der Taten.",
