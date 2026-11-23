@@ -911,9 +911,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab.",
-   "gruppe": "Wirtschaft und Arbeit",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Wirtschaft und Arbeit"
   },
   {
    "id": "inflation",
@@ -1811,9 +1809,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie stark die Verbraucherpreise gegenüber dem gleichen Monat des Vorjahres gestiegen sind (harmonisierter Verbraucherpreisindex HVPI). Zeigt, wie schnell Einkäufe und Dienstleistungen im Schnitt teurer werden.",
-   "gruppe": "Preise und Kosten",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Preise und Kosten"
   },
   {
    "id": "wachstum",
@@ -2311,9 +2307,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Um wie viel Prozent die gesamte Wirtschaftsleistung (BIP) gegenüber dem gleichen Quartal des Vorjahres gewachsen ist, bereinigt um Preissteigerungen. Ein Minus bedeutet, dass die Wirtschaft schrumpft.",
-   "gruppe": "Wirtschaft und Arbeit",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Wirtschaft und Arbeit"
   },
   {
    "id": "schulden",
@@ -2808,9 +2802,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie hoch die Schulden des Staates (Bund, Länder, Gemeinden, Sozialversicherung) im Verhältnis zur Jahreswirtschaftsleistung sind. 60 % des BIP ist der Referenzwert aus den EU-Verträgen.",
-   "gruppe": "Staatsfinanzen",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Staatsfinanzen"
   },
   {
    "id": "defizit",
@@ -3155,9 +3147,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Einnahmen minus Ausgaben des Staates in % des BIP. Ein Minus ist ein Defizit, das neue Schulden bedeutet. Die EU-Regeln sehen als Obergrenze 3 % des BIP vor.",
-   "gruppe": "Staatsfinanzen",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Staatsfinanzen"
   },
   {
    "id": "geburtenrate",
@@ -3525,9 +3515,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Gesamtfertilitätsrate: Wie viele Kinder eine Frau im Schnitt bekäme, wenn die Geburtenhäufigkeit des Jahres ein Leben lang gleich bliebe. Rund 2,1 wären nötig, damit die Bevölkerung ohne Zuwanderung stabil bleibt.",
-   "gruppe": "Gesellschaft",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Gesellschaft"
   },
   {
    "id": "staatsquote",
@@ -3875,9 +3863,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Anteil der gesamten Staatsausgaben (Verwaltung, Pensionen, Gesundheit, Bildung, Soziales, Zinsen) an der Wirtschaftsleistung. Zeigt, wie groß der Staatsanteil an der Wirtschaft ist.",
-   "gruppe": "Staatsfinanzen",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Staatsfinanzen"
   },
   {
    "id": "abgabenquote",
@@ -6834,6 +6820,510 @@
    },
    "geaendert": "2026-11-23",
    "erklaerung": "Die Hälfte der Menschen im Land hat weniger, die andere Hälfte mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Sozialleistungen, je Person (bei Haushalten nach Größe gewichtet). Es ist kein reiner Lohn: Pensionen und Sozialleistungen sind enthalten. Die Erhebung (EU-SILC) fragt nach dem Einkommen des Vorjahres.",
+   "gruppe": "Wirtschaft und Arbeit"
+  },
+  {
+   "id": "wachstum-privat",
+   "name": "Wachstum ohne Staat",
+   "pfeilModus": "wert",
+   "typ": "hoch",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte",
+   "hinweis": "Die Rechnung ist eine Näherung: Der Beitrag des Staates wird über die Kosten gemessen (Gehälter und Käufe des Staates), nicht über den Nutzen von Schulen, Spitälern oder Polizei. Staatsinvestitionen sind in den Quartalsdaten nicht getrennt ausgewiesen und fehlen deshalb. Pensionen und andere Sozialleistungen zählen nicht als Staatsausgaben im BIP, sie wirken erst über den Konsum der Empfänger.",
+   "umstritten": true,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "quartal",
+   "einheit": "Prozentpunkte: BIP-Wachstum zum Vorjahresquartal minus Wachstumsbeitrag des Staatskonsums (preis- und saisonbereinigt)",
+   "rangText": "Rang 1 = höchstes Wachstum ohne den Beitrag des Staates",
+   "periode": "2026-Q2",
+   "vorherPeriode": "2026-Q1",
+   "anzahlLaender": 27,
+   "alter": 5,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 0.6697254281297927,
+    "rang": 20,
+    "wertVorher": 0.8073491635243588,
+    "rangVorher": 19,
+    "schnitt": 0.7,
+    "schnittVorher": 0.8,
+    "veraenderung": -0.1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "eu": 0.966640877217736,
+   "beste": {
+    "code": "DK",
+    "name": "Dänemark",
+    "value": 4.317806856585627,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "schlechter"
+   },
+   "schlechteste": {
+    "code": "RO",
+    "name": "Rumänien",
+    "value": -1.2939195619734694,
+    "rank": 27,
+    "richtung": "steigend",
+    "urteil": "besser"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021-Q3",
+     "rang": 22,
+     "n": 27
+    },
+    {
+     "t": "2021-Q4",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2022-Q1",
+     "rang": 4,
+     "n": 27
+    },
+    {
+     "t": "2022-Q2",
+     "rang": 5,
+     "n": 27
+    },
+    {
+     "t": "2022-Q3",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2022-Q4",
+     "rang": 9,
+     "n": 27
+    },
+    {
+     "t": "2023-Q1",
+     "rang": 7,
+     "n": 27
+    },
+    {
+     "t": "2023-Q2",
+     "rang": 20,
+     "n": 27
+    },
+    {
+     "t": "2023-Q3",
+     "rang": 24,
+     "n": 27
+    },
+    {
+     "t": "2023-Q4",
+     "rang": 22,
+     "n": 27
+    },
+    {
+     "t": "2024-Q1",
+     "rang": 26,
+     "n": 27
+    },
+    {
+     "t": "2024-Q2",
+     "rang": 26,
+     "n": 27
+    },
+    {
+     "t": "2024-Q3",
+     "rang": 25,
+     "n": 27
+    },
+    {
+     "t": "2024-Q4",
+     "rang": 26,
+     "n": 27
+    },
+    {
+     "t": "2025-Q1",
+     "rang": 23,
+     "n": 27
+    },
+    {
+     "t": "2025-Q2",
+     "rang": 25,
+     "n": 27
+    },
+    {
+     "t": "2025-Q3",
+     "rang": 20,
+     "n": 27
+    },
+    {
+     "t": "2025-Q4",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2026-Q1",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2026-Q2",
+     "rang": 20,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2025-Q1",
+     "rang": 23,
+     "n": 27,
+     "regierung": true
+    }
+   ],
+   "seitStart": {
+    "t": "2025-Q1",
+    "wert": -0.22250713807779,
+    "rang": 23,
+    "n": 27,
+    "schnitt": -0.2,
+    "veraenderung": 0.9,
+    "richtung": "steigend",
+    "urteil": "besser"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 4.317806856585627,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 3.780957721838015,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 3.360500099726016,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 2.9193508023086405,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 2.5926445208941846,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 2.358122802817434,
+     "rank": 6,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 2.43584093559229,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 2.3088380419745964,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 2.333984565790759,
+     "rank": 8,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 2.2066013313609467,
+     "rank": 10,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 2.0997002213192077,
+     "rank": 11,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 1.7141213514318068,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 1.5630152471558538,
+     "rank": 13,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 1.5336900732635148,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 1.296908936728944,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 1.2744400464403887,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 1.2452627839775212,
+     "rank": 17,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 1.0961647527498586,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 0.9272439661926519,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 0.6697254281297927,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 0.5528604831136068,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 0.4598097987744253,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 0.4131496204600345,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 0.3216787390698209,
+     "rank": 24,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 0.16187606852164022,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": -0.3393832577898335,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": -1.2939195619734694,
+     "rank": 27,
+     "richtung": "steigend",
+     "urteil": "besser"
+    }
+   ],
+   "schweiz": {
+    "wert": 2.3982313294817406,
+    "periode": "2026-Q2"
+   },
+   "verlauf": [
+    {
+     "t": "2021-Q3",
+     "at": 3.5584304464048584,
+     "eu": 4.747449518509461
+    },
+    {
+     "t": "2021-Q4",
+     "at": 5.741338613928751,
+     "eu": 5.19306288787666
+    },
+    {
+     "t": "2022-Q1",
+     "at": 8.758234134572408,
+     "eu": 5.062980524884434
+    },
+    {
+     "t": "2022-Q2",
+     "at": 7.4412476275944055,
+     "eu": 4.088144564679538
+    },
+    {
+     "t": "2022-Q3",
+     "at": 3.6817104003534697,
+     "eu": 2.9365059610248805
+    },
+    {
+     "t": "2022-Q4",
+     "at": 2.9975963148571383,
+     "eu": 1.8788433419016262
+    },
+    {
+     "t": "2023-Q1",
+     "at": 2.239230969345359,
+     "eu": 1.016560919368439
+    },
+    {
+     "t": "2023-Q2",
+     "at": -1.1409649132342354,
+     "eu": 0.17018635475423166
+    },
+    {
+     "t": "2023-Q3",
+     "at": -1.947268681143222,
+     "eu": -0.1363530859412339
+    },
+    {
+     "t": "2023-Q4",
+     "at": -1.57277080029957,
+     "eu": -0.06715064763895828
+    },
+    {
+     "t": "2024-Q1",
+     "at": -2.2621376566717792,
+     "eu": 0.5290162209403028
+    },
+    {
+     "t": "2024-Q2",
+     "at": -1.3608550705992086,
+     "eu": 0.6017564837574051
+    },
+    {
+     "t": "2024-Q3",
+     "at": -0.9397522613253733,
+     "eu": 0.7577595516083939
+    },
+    {
+     "t": "2024-Q4",
+     "at": -0.7411067531640858,
+     "eu": 1.2219820243195272
+    },
+    {
+     "t": "2025-Q1",
+     "at": -0.22250713807779,
+     "eu": 1.358706395942635
+    },
+    {
+     "t": "2025-Q2",
+     "at": -0.04244389375588986,
+     "eu": 1.155913787969102
+    },
+    {
+     "t": "2025-Q3",
+     "at": 0.6522942903686886,
+     "eu": 1.033212460960236
+    },
+    {
+     "t": "2025-Q4",
+     "at": 0.949405330979054,
+     "eu": 0.9095061142359464
+    },
+    {
+     "t": "2026-Q1",
+     "at": 0.8073491635243588,
+     "eu": 0.335030446118157
+    },
+    {
+     "t": "2026-Q2",
+     "at": 0.6697254281297927,
+     "eu": 0.966640877217736
+    }
+   ],
+   "komponenten": {
+    "bip": 0.8,
+    "staat": 0.1,
+    "privat": 0.7,
+    "anteil": 21.7
+   },
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie stark die Wirtschaft ohne den Beitrag des Staates gewachsen wäre: Vom BIP-Wachstum wird abgezogen, was der Staat selbst beigetragen hat (Anteil des Staatskonsums am BIP mal dessen Wachstum). Spart der Staat, gibt es einen Bonus.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
