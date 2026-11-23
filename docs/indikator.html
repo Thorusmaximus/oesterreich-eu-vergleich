@@ -39,7 +39,7 @@ function detail(i){
   var h = banner();
   h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' <small'+(i.anzahlLaender<24?' class="teil"':'')+'>von '+i.anzahlLaender+'</small></div>'
      + (i.kurzHinweis ? '<p class="note"><b>'+i.kurzHinweis+'</b></p>' : '')
-     + '<p class="note">'+i.rangText+'. Stand: '+periode(i.periode)+'. Einheit: '+i.einheit+'</p>'
+     + '<p class="note">Stand: '+periode(i.periode)+'. Einheit: '+i.einheit+infoIcon(i.rangText)+'</p>'
      + (i.hinweis ? '<p class="note">'+i.hinweis+'</p>' : '')
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.datenHinweis ? '<p class="altdaten">⏳ '+i.datenHinweis+'</p>' : '')
@@ -65,18 +65,18 @@ function detail(i){
   }
   if(!i.ohneTrend) h += '<div class="card"><h2>'+trendTitel+'</h2>'
      + '<div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+sgn(a.veraenderung)+' '+DIFF+', '+a.richtung+')</span></div>'
-     + '<p class="note">'+(rangDiff ? 'Der Rang hat sich seit '+periode(i.vorherPeriode)+' '+rangDiff+'. ' : '')+'So wird verglichen'+infoIcon(i.realText||trendText)+'</p></div>';
+     + '<p class="note">'+(rangDiff ? 'Der Rang hat sich seit '+periode(i.vorherPeriode)+' '+rangDiff+'. ' : '')+infoIcon(i.realText||trendText)+'</p></div>';
   var ss = i.seitStart;
   if(ss && D.regierung){
       h += '<div class="card"><h2>Seit der '+D.regierung.name+'</h2>'
        + '<div class="v '+urteilCls(ss.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,ss.urteil,ss.richtung)+'</span> '+trendWort(ss.urteil)+' <span class="k">('+sgn(ss.veraenderung)+' '+DIFF+', '+ss.richtung+')</span></div>'
-       + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+'). Platz '+ss.rang+' damals, Platz '+a.rang+' jetzt. So wird verglichen'+infoIcon('Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.')+'</p></div>';
+       + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+'). Platz '+ss.rang+' damals, Platz '+a.rang+' jetzt. '+infoIcon('Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.')+'</p></div>';
   }
   var rv = (i.rangVergleich||[]).filter(Boolean);
   if(rv.length || (i.rangVerlauf||[]).length>1){
     h += '<div class="card"><h2>Entwicklung des Rangs</h2>'
        + rv.map(function(v){ var r=rangTrend(a.rang,v.rang); return '<div class="v '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Platz '+a.rang+' statt Platz '+v.rang+' '+v.label+' <span class="k">('+periode(v.t)+', '+r.text+')</span></div>'; }).join('')
-       + '<p class="note">So wird verglichen'+infoIcon('Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.')+'</p>'
+       + '<p class="note">'+infoIcon('Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.')+'</p>'
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
   if(i.verlauf && i.verlauf.length>1) h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
@@ -188,7 +188,7 @@ function bindInsolvenz(i){
 function detailRating(i){
   var a = i.oesterreich, h = banner();
   h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' <small'+(i.anzahlLaender<24?' class="teil"':'')+'>von '+i.anzahlLaender+'</small></div>'
-     + '<p class="note">'+i.rangText+'. Stand: '+datum(i.stand)+'.</p>'
+     + '<p class="note">Stand: '+datum(i.stand)+'.'+infoIcon(i.rangText)+'</p>'
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
      + '<div class="grid">'
@@ -222,7 +222,6 @@ function ratingTabelle(i){
   var s = '<table class="rt"><thead><tr><th></th><th>Land</th><th>S&amp;P</th><th>Moody\'s</th><th>Fitch</th><th>Ø</th><th title="seit Regierungsantritt">Trend</th></tr></thead><tbody>'
         + i.laender.map(function(x){return zeilen(x);}).join("")
         + (i.schweiz ? zeilen(i.schweiz,"ch") : "") + '</tbody></table>';
-  if(i.schweiz) s += '<p class="note">* Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Die Werte dienen nur zum Vergleich.</p>';
   s += '<p class="note">† Die Quellen widersprachen sich oder der Wert ließ sich nicht bestätigen. Bitte bei der Agentur prüfen.</p>';
   return s;
 }
@@ -241,9 +240,7 @@ function ranking(i){
     return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.ppsRang||x.zus?" mitb":"")+'"><span>'+x.rank+'. '+x.name+(x.ppsRang?' <small class="note">Kaufkraft: Platz '+x.ppsRang+'</small>':'')+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
   }).join("");
   if(i.schweiz){
-    s += '<div class="row ch'+(i.schweiz.bestand!=null?" mitb":"")+'"><span>* Schweiz'+(i.schweiz.bestand!=null?' <small class="note">'+mioText(i.schweiz.bestand)+' Mio.</small>':'')+'</span>'+bar(i.schweiz.wert)+'<span class="n">'+f(i.schweiz.wert)+'</span><span class="ta"></span></div>'
-      + '<p class="note">* Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Der Wert dient nur zum Vergleich'
-      + (i.schweiz.periode!==i.periode ? ' (Stand: '+periode(i.schweiz.periode)+')' : '') + '.</p>';
+    s += '<div class="row ch'+(i.schweiz.bestand!=null?" mitb":"")+'"><span>'+infoIcon('Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Der Wert dient nur zum Vergleich'+(i.schweiz.periode!==i.periode ? ' (Stand: '+periode(i.schweiz.periode)+')' : '')+'.')+' Schweiz'+(i.schweiz.bestand!=null?' <small class="note">'+mioText(i.schweiz.bestand)+' Mio.</small>':'')+'</span>'+bar(i.schweiz.wert)+'<span class="n">'+f(i.schweiz.wert)+'</span><span class="ta"></span></div>';
   }
   return s;
 }
