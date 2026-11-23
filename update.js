@@ -414,6 +414,63 @@ function seitStartJs(js, ind) {
   return { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) };
 }
 
+// ===== Spritpreise: Weekly Oil Bulletin der EU-Kommission (Excel-Datei, kein Eurostat) =====
+const zlib = require("zlib");
+function entzippe(buf) { // minimaler ZIP-Leser (Excel-Dateien sind ZIP-Archive)
+  let e = buf.length - 22; while (e >= 0 && buf.readUInt32LE(e) !== 0x06054b50) e--;
+  if (e < 0) throw new Error("kein ZIP");
+  const n = buf.readUInt16LE(e + 10); let p = buf.readUInt32LE(e + 16); const out = {};
+  for (let i = 0; i < n; i++) {
+    const meth = buf.readUInt16LE(p + 10), cs = buf.readUInt32LE(p + 20), nl = buf.readUInt16LE(p + 28), el = buf.readUInt16LE(p + 30), cl = buf.readUInt16LE(p + 32), lo = buf.readUInt32LE(p + 42);
+    const name = buf.toString("utf8", p + 46, p + 46 + nl);
+    const ds = lo + 30 + buf.readUInt16LE(lo + 26) + buf.readUInt16LE(lo + 28), raw = buf.subarray(ds, ds + cs);
+    out[name] = () => meth === 0 ? raw : zlib.inflateRawSync(raw);
+    p += 46 + nl + el + cl;
+  }
+  return out;
+}
+const xmlText = t => t.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, "&");
+function leseExcel(buf) { // gibt { blattname: [ [zellen der Zeile 1], ... ] } zurück (Spalte A = Index 0)
+  const z = entzippe(buf), txt = n => z[n] ? z[n]().toString("utf8") : "";
+  const ss = [...txt("xl/sharedStrings.xml").matchAll(/<si>([\s\S]*?)<\/si>/g)].map(m => xmlText([...m[1].matchAll(/<t[^>]*>([\s\S]*?)<\/t>/g)].map(x => x[1]).join("")));
+  const wb = txt("xl/workbook.xml"), rels = txt("xl/_rels/workbook.xml.rels"), blaetter = {};
+  for (const m of wb.matchAll(/<sheet [^>]*name="([^"]*)"[^>]*r:id="([^"]*)"/g)) {
+    const rel = rels.match(new RegExp(`<Relationship [^>]*Id="${m[2]}"[^>]*Target="([^"]*)"|<Relationship [^>]*Target="([^"]*)"[^>]*Id="${m[2]}"`));
+    const ziel = rel && (rel[1] || rel[2]); if (!ziel) continue;
+    const xml = txt("xl/" + ziel.replace(/^\/?(xl\/)?/, "")), rows = [];
+    for (const r of xml.matchAll(/<row [^>]*r="(\d+)"[^>]*>([\s\S]*?)<\/row>/g)) {
+      const cells = [];
+      for (const c of r[2].matchAll(/<c r="([A-Z]+)\d+"([^>]*?)(?:\/>|>([\s\S]*?)<\/c>)/g)) {
+        const col = [...c[1]].reduce((a, ch) => a * 26 + ch.charCodeAt(0) - 64, 0) - 1, t = /t="(\w+)"/.exec(c[2])?.[1], v = /<v>([\s\S]*?)<\/v>/.exec(c[3] || "")?.[1];
+        cells[col] = v === undefined ? (/<t[^>]*>([\s\S]*?)<\/t>/.exec(c[3] || "")?.[1] ?? null) : t === "s" ? ss[+v] : t === "str" ? xmlText(v) : isNaN(+v) ? v : +v;
+      }
+      rows[+r[1] - 1] = cells;
+    }
+    blaetter[xmlText(m[1])] = rows;
+  }
+  return blaetter;
+}
+async function oelBulletin() {
+  const seite = await (await fetch("https://energy.ec.europa.eu/data-and-analysis/weekly-oil-bulletin_en")).text();
+  const links = [...seite.matchAll(/href="([^"]*document\/download[^"]*)"/g)].map(m => xmlText(m[1]));
+  console.error(`   Ölbulletin-Seite: ${links.length} Download-Links: ` + links.map(l => decodeURIComponent((/filename=([^&]*)/.exec(l) || [])[1] || l)).join(" | ").slice(0, 600));
+  const ziel = links.find(l => /History/i.test(decodeURIComponent(l))) || "https://energy.ec.europa.eu/document/download/906e60ca-8b6a-44e7-8589-652854d2fd3f_en?filename=Weekly_Oil_Bulletin_Prices_History_maticni_4web.xlsx";
+  const url = ziel.startsWith("http") ? ziel : "https://energy.ec.europa.eu" + ziel;
+  const res = await fetch(url); if (!res.ok) throw new Error("Ölbulletin HTTP " + res.status);
+  const buf = Buffer.from(await res.arrayBuffer());
+  console.error(`   Ölbulletin-Datei: ${buf.length} Bytes`);
+  return leseExcel(buf);
+}
+async function diagnoseOel() {
+  try {
+    const b = await oelBulletin();
+    for (const [name, rows] of Object.entries(b)) {
+      console.error(`   OEL Blatt "${name}": ${rows.length} Zeilen`);
+      rows.slice(0, 6).forEach((r, i) => r && console.error(`     Z${i + 1}: ` + JSON.stringify(r.slice(0, 14)).slice(0, 300)));
+    }
+  } catch (e) { console.error("   OEL-Diagnose fehlgeschlagen: " + e.message); }
+}
+
 // Aus Einwohnerzahlen (1. Jänner) das Wachstum zum Vorjahr in % berechnen
 function wachstumJs(js) {
   const A = parse(js), geos = Object.keys(A), times = new Set(), val = {};
@@ -640,6 +697,7 @@ function berechneInsolvenzen() {
   }
   for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
   if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
+  if (!TEST) await diagnoseOel(); // TEMPORÄR
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync("docs/daten.json", JSON.stringify(out, null, 1));
