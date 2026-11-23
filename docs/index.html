@@ -34,7 +34,7 @@ else {
     if(i.art==="nurAT"){
       var hj = i.halbjahr;
       k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
-        + '<div class="t"'+(i.erklaerung?' title="'+i.erklaerung.replace(/"/g,"&quot;")+'"':'')+'>'+i.name+'</div>'
+        + '<div class="t"'+(i.erklaerung?' title="'+i.erklaerung.replace(/"/g,"&quot;")+'"':'')+'>'+i.name.replace('Durchschnittseinkommen','Durchschnitts-<br>einkommen')+'</div>'
         + '<div class="r">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
         + '<div class="note">Nur Österreich, kein EU-Vergleich. Höchster Wert seit '+i.ersteJahr+': Platz '+a.platzHoechste+' von '+i.anzahlJahre+' Jahren</div>'
         + '<div class="note">Stand: '+periode(i.periode)+'</div>'
