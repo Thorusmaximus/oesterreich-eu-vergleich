@@ -253,14 +253,14 @@ const INDICATORS = [
     filter: "iccs=ICCS02011&unit=P_HTHAB", // schwere Körperverletzung (Polizeistatistik), pro 100.000 Einwohner
     alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS0201&unit=P_HTHAB" }, { dataset: "crim_off_cat", filter: "iccs=ICCS020111&unit=P_HTHAB" } ],
     maxAlter: 26, dez: 0, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 18,
-    einheit: "Von der Polizei erfasste Fälle schwerer Körperverletzung pro 100.000 Einwohner", rangText: "Rang 1 = höchster Wert, ohne Wertung",
+    einheit: "Von der Polizei erfasste Fälle schwerer Körperverletzung pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote (ohne Wertung der Zahlen)", rangNiedrigZuerst: true,
     hinweis: "Hier gibt es keine Wertung: Die Polizeizahlen messen auch mit, wie viel angezeigt wird und wo die Grenze zwischen leichter und schwerer Körperverletzung gezogen wird. Ein höherer Wert heißt nicht automatisch mehr Taten.",
     typ: "neutral", schwelle: 10, mock: { base: 40, step: 12 } }
   ,{ id: "sexualdelikte", name: "Sexualdelikte", takt: "jahr", dataset: "crim_off_cat",
     filter: "iccs=ICCS0301&unit=P_HTHAB", // sexuelle Gewalt (Vergewaltigung und sexuelle Übergriffe), pro 100.000 Einwohner
     alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS03&unit=P_HTHAB" }, { dataset: "crim_off_cat", filter: "iccs=ICCS03011&unit=P_HTHAB" } ],
     maxAlter: 26, dez: 0, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 18,
-    einheit: "Von der Polizei erfasste Sexualdelikte (sexuelle Gewalt) pro 100.000 Einwohner", rangText: "Rang 1 = höchster Wert, ohne Wertung",
+    einheit: "Von der Polizei erfasste Sexualdelikte (sexuelle Gewalt) pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote (ohne Wertung der Zahlen)", rangNiedrigZuerst: true,
     hinweis: "Hier gibt es bewusst keine Wertung: Die Länder definieren und zählen Sexualdelikte unterschiedlich (etwa pro Tat oder pro Opfer), und die Dunkelziffer ist hoch. Länder mit hoher Anzeigebereitschaft und weiter Definition haben oft höhere Werte. Ein höherer Wert heißt nicht automatisch mehr Taten.",
     typ: "neutral", schwelle: 5, mock: { base: 30, step: 14 } }
   ,{ id: "strompreis", name: "Strompreis für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
@@ -340,7 +340,7 @@ const REGIERUNG = { name: "Regierung Stocker", kurz: "Stocker", parteien: "ÖVP,
 
 let DEZ = 1; // Dezimalstellen des aktuellen Indikators (Geburtenrate: 2)
 const r1 = x => Math.round(x * 10 ** DEZ) / 10 ** DEZ;
-const scoreOf = ind => v => ind.typ === "niedrig" ? v : -v; // kleiner = besser; neutral: höchster Wert = Rang 1 (ohne Wertung)
+const scoreOf = ind => v => ind.typ === "niedrig" || ind.rangNiedrigZuerst ? v : -v; // kleiner = besser; neutral: höchster Wert = Rang 1 (ohne Wertung)
 
 // Rang 1 = bester Score; gleiche (auf eine Dezimale gerundete) Scores teilen sich den Platz
 function rankAt(data, t, sc) {
