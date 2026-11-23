@@ -383,7 +383,9 @@ function berechneInsolvenzen() {
               const res = await fetch(`${BASE}${k.dataset}?format=JSON&lang=EN&${k.filter}&sinceTimePeriod=${TAKT[k.takt].seit}`);
               if (!res.ok) throw new Error("HTTP " + res.status);
               const ind2 = { ...ind, takt: k.takt, rueckblick: ind.vorab.rueckblick, maxAlter: ind.vorab.maxAlter || ind.maxAlter };
-              const r2 = berechne(ind2, await res.json());
+              const js2 = await res.json();
+              try { const dd = parse(js2), ts = [...new Set(Object.values(dd).flatMap(o => Object.keys(o)))].sort(); console.error(`   Quartalsdaten: ${Object.keys(dd).filter(c => Object.keys(dd[c]).length).length} Länder mit Werten, Perioden ${ts[0]}..${ts[ts.length - 1]}, je Periode (letzte 4): ` + ts.slice(-4).map(t => t + "=" + Object.keys(dd).filter(c => dd[c][t] !== undefined).length).join(", ") + `, AT: ` + JSON.stringify(dd.AT || {}).slice(0, 200)); } catch (e2) { console.error("   Quartalsdiagnose: " + e2.message); }
+              const r2 = berechne(ind2, js2);
               const pl = ind.vorab.plausibel, w = r2.oesterreich && r2.oesterreich.wert;
               if (!(r2.anzahlLaender >= 20 && (!pl || (w >= pl[0] && w <= pl[1])))) throw new Error(`unplausibel (AT ${w}, ${r2.anzahlLaender} Länder)`);
               { r = r2; console.error(`   (Quartalsdaten gefunden: ${k.dataset} ${k.filter})`); break; }
