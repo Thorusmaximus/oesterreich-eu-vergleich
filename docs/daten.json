@@ -7327,6 +7327,1796 @@
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
+   "id": "benzin",
+   "name": "Benzinpreis",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": " ct",
+   "diffEinheit": "Cent pro Liter",
+   "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "monat",
+   "einheit": "Cent pro Liter Euro-super 95 an der Tankstelle, inklusive Steuern, Monatsdurchschnitt",
+   "rangText": "Rang 1 = niedrigster Benzinpreis",
+   "periode": "2026-11",
+   "vorherPeriode": "2026-08",
+   "anzahlLaender": 27,
+   "alter": 0,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 167.5,
+    "rang": 17,
+    "wertVorher": 178.4,
+    "rangVorher": 18,
+    "schnitt": 180.7,
+    "schnittVorher": 175.7,
+    "veraenderung": 5,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "eu": 187.7,
+   "beste": {
+    "code": "DK",
+    "name": "Dänemark",
+    "value": 0,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "NL",
+    "name": "Niederlande",
+    "value": 221,
+    "rank": 27,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021-12",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2022-01",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2022-02",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2022-03",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2022-04",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2022-05",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2022-06",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2022-07",
+     "rang": 23,
+     "n": 27
+    },
+    {
+     "t": "2022-08",
+     "rang": 22,
+     "n": 27
+    },
+    {
+     "t": "2022-09",
+     "rang": 21,
+     "n": 27
+    },
+    {
+     "t": "2022-10",
+     "rang": 20,
+     "n": 27
+    },
+    {
+     "t": "2022-11",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2022-12",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-01",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-02",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-03",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-04",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2023-05",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-06",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-07",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-08",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-09",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-10",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-11",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-12",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-01",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-02",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2024-03",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-04",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-05",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-06",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-07",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-08",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-09",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-10",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2024-11",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-12",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2025-01",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2025-02",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2025-03",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2025-04",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2025-05",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2025-06",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2025-07",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2025-08",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2025-09",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2025-10",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2025-11",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2025-12",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2026-01",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2026-02",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2026-03",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2026-04",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2026-05",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2026-06",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2026-07",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2026-08",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2026-09",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2026-10",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2026-11",
+     "rang": 17,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2025-03",
+     "rang": 17,
+     "n": 27,
+     "regierung": true
+    }
+   ],
+   "seitStart": {
+    "t": "2025-03",
+    "wert": 152,
+    "rang": 17,
+    "n": 27,
+    "schnitt": 155.7,
+    "veraenderung": 24.9,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 0.1,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 0.1,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 0.1,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 0.1,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 0.1,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 0.1,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 0.1,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 0.1,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 134,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 166,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 167.5,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 168.1,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 184.7,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 193.8,
+     "rank": 20,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 195.7,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 198.9,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 204.5,
+     "rank": 23,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 207.5,
+     "rank": 24,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 209.8,
+     "rank": 25,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 218.3,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 221,
+     "rank": 27,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    }
+   ],
+   "schweiz": null,
+   "verlauf": [
+    {
+     "t": "2021-12",
+     "at": 140,
+     "eu": 160
+    },
+    {
+     "t": "2022-01",
+     "at": 141.7,
+     "eu": 163.8
+    },
+    {
+     "t": "2022-02",
+     "at": 148.2,
+     "eu": 169.9
+    },
+    {
+     "t": "2022-03",
+     "at": 179.3,
+     "eu": 191.8
+    },
+    {
+     "t": "2022-04",
+     "at": 170.8,
+     "eu": 183.4
+    },
+    {
+     "t": "2022-05",
+     "at": 177.9,
+     "eu": 191.9
+    },
+    {
+     "t": "2022-06",
+     "at": 205.7,
+     "eu": 202.2
+    },
+    {
+     "t": "2022-07",
+     "at": 205.6,
+     "eu": 193.8
+    },
+    {
+     "t": "2022-08",
+     "at": 182.2,
+     "eu": 178.7
+    },
+    {
+     "t": "2022-09",
+     "at": 172,
+     "eu": 175.5
+    },
+    {
+     "t": "2022-10",
+     "at": 175.7,
+     "eu": 177.4
+    },
+    {
+     "t": "2022-11",
+     "at": 167.9,
+     "eu": 175
+    },
+    {
+     "t": "2022-12",
+     "at": 149.3,
+     "eu": 164.7
+    },
+    {
+     "t": "2023-01",
+     "at": 156.5,
+     "eu": 170.1
+    },
+    {
+     "t": "2023-02",
+     "at": 158.1,
+     "eu": 172.2
+    },
+    {
+     "t": "2023-03",
+     "at": 157.6,
+     "eu": 172
+    },
+    {
+     "t": "2023-04",
+     "at": 160.5,
+     "eu": 175
+    },
+    {
+     "t": "2023-05",
+     "at": 156.2,
+     "eu": 171
+    },
+    {
+     "t": "2023-06",
+     "at": 157.5,
+     "eu": 172
+    },
+    {
+     "t": "2023-07",
+     "at": 158.4,
+     "eu": 174.5
+    },
+    {
+     "t": "2023-08",
+     "at": 167.3,
+     "eu": 181.4
+    },
+    {
+     "t": "2023-09",
+     "at": 170.6,
+     "eu": 183.5
+    },
+    {
+     "t": "2023-10",
+     "at": 164.1,
+     "eu": 177.9
+    },
+    {
+     "t": "2023-11",
+     "at": 157.9,
+     "eu": 173.3
+    },
+    {
+     "t": "2023-12",
+     "at": 150.3,
+     "eu": 167.9
+    },
+    {
+     "t": "2024-01",
+     "at": 152.9,
+     "eu": 166.9
+    },
+    {
+     "t": "2024-02",
+     "at": 158.6,
+     "eu": 171.7
+    },
+    {
+     "t": "2024-03",
+     "at": 160,
+     "eu": 173.9
+    },
+    {
+     "t": "2024-04",
+     "at": 166.8,
+     "eu": 179.7
+    },
+    {
+     "t": "2024-05",
+     "at": 164.2,
+     "eu": 177.3
+    },
+    {
+     "t": "2024-06",
+     "at": 160.4,
+     "eu": 173
+    },
+    {
+     "t": "2024-07",
+     "at": 161.6,
+     "eu": 173.8
+    },
+    {
+     "t": "2024-08",
+     "at": 156.9,
+     "eu": 170
+    },
+    {
+     "t": "2024-09",
+     "at": 149.9,
+     "eu": 163.3
+    },
+    {
+     "t": "2024-10",
+     "at": 150.4,
+     "eu": 163.4
+    },
+    {
+     "t": "2024-11",
+     "at": 149.5,
+     "eu": 163.5
+    },
+    {
+     "t": "2024-12",
+     "at": 151.2,
+     "eu": 164.6
+    },
+    {
+     "t": "2025-01",
+     "at": 157.6,
+     "eu": 168.8
+    },
+    {
+     "t": "2025-02",
+     "at": 157.6,
+     "eu": 170.3
+    },
+    {
+     "t": "2025-03",
+     "at": 152,
+     "eu": 165.8
+    },
+    {
+     "t": "2025-04",
+     "at": 150.6,
+     "eu": 162.4
+    },
+    {
+     "t": "2025-05",
+     "at": 148.8,
+     "eu": 160.2
+    },
+    {
+     "t": "2025-06",
+     "at": 151.7,
+     "eu": 161.7
+    },
+    {
+     "t": "2025-07",
+     "at": 153,
+     "eu": 161.9
+    },
+    {
+     "t": "2025-08",
+     "at": 151.2,
+     "eu": 161.1
+    },
+    {
+     "t": "2025-09",
+     "at": 150.7,
+     "eu": 161.8
+    },
+    {
+     "t": "2025-10",
+     "at": 150.4,
+     "eu": 161.5
+    },
+    {
+     "t": "2025-11",
+     "at": 152.7,
+     "eu": 163
+    },
+    {
+     "t": "2025-12",
+     "at": 148.2,
+     "eu": 160.5
+    },
+    {
+     "t": "2026-01",
+     "at": 146.5,
+     "eu": 160.9
+    },
+    {
+     "t": "2026-02",
+     "at": 148.9,
+     "eu": 162.9
+    },
+    {
+     "t": "2026-03",
+     "at": 173.7,
+     "eu": 180.8
+    },
+    {
+     "t": "2026-04",
+     "at": 172.7,
+     "eu": 185
+    },
+    {
+     "t": "2026-05",
+     "at": 180.3,
+     "eu": 187.9
+    },
+    {
+     "t": "2026-06",
+     "at": 169.7,
+     "eu": 179.8
+    },
+    {
+     "t": "2026-07",
+     "at": 178.9,
+     "eu": 187.8
+    },
+    {
+     "t": "2026-08",
+     "at": 178.4,
+     "eu": 193.6
+    },
+    {
+     "t": "2026-09",
+     "at": 192.2,
+     "eu": 207.6
+    },
+    {
+     "t": "2026-10",
+     "at": 182.3,
+     "eu": 199
+    },
+    {
+     "t": "2026-11",
+     "at": 167.5,
+     "eu": 187.7
+    }
+   ],
+   "geaendert": "2026-11-23",
+   "erklaerung": "Was ein Liter Euro-super 95 im Schnitt an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die Wochenpreise des EU-Ölbulletins, hier als Monatsdurchschnitt.",
+   "gruppe": "Preise und Kosten"
+  },
+  {
+   "id": "diesel",
+   "name": "Dieselpreis",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": " ct",
+   "diffEinheit": "Cent pro Liter",
+   "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "monat",
+   "einheit": "Cent pro Liter Diesel an der Tankstelle, inklusive Steuern, Monatsdurchschnitt",
+   "rangText": "Rang 1 = niedrigster Dieselpreis",
+   "periode": "2026-11",
+   "vorherPeriode": "2026-08",
+   "anzahlLaender": 27,
+   "alter": 0,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 209,
+    "rang": 17,
+    "wertVorher": 202,
+    "rangVorher": 18,
+    "schnitt": 214.5,
+    "schnittVorher": 189.7,
+    "veraenderung": 24.8,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "eu": 209.9,
+   "beste": {
+    "code": "MT",
+    "name": "Malta",
+    "value": 121,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "FI",
+    "name": "Finnland",
+    "value": 249.4,
+    "rank": 27,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021-12",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2022-01",
+     "rang": 9,
+     "n": 27
+    },
+    {
+     "t": "2022-02",
+     "rang": 8,
+     "n": 27
+    },
+    {
+     "t": "2022-03",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2022-04",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2022-05",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2022-06",
+     "rang": 14,
+     "n": 27
+    },
+    {
+     "t": "2022-07",
+     "rang": 22,
+     "n": 27
+    },
+    {
+     "t": "2022-08",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2022-09",
+     "rang": 21,
+     "n": 27
+    },
+    {
+     "t": "2022-10",
+     "rang": 20,
+     "n": 27
+    },
+    {
+     "t": "2022-11",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2022-12",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2023-01",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2023-02",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2023-03",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2023-04",
+     "rang": 13,
+     "n": 27
+    },
+    {
+     "t": "2023-05",
+     "rang": 13,
+     "n": 27
+    },
+    {
+     "t": "2023-06",
+     "rang": 13,
+     "n": 27
+    },
+    {
+     "t": "2023-07",
+     "rang": 13,
+     "n": 27
+    },
+    {
+     "t": "2023-08",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2023-09",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2023-10",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023-11",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2023-12",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2024-01",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024-02",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2024-03",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2024-04",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2024-05",
+     "rang": 14,
+     "n": 27
+    },
+    {
+     "t": "2024-06",
+     "rang": 14,
+     "n": 27
+    },
+    {
+     "t": "2024-07",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2024-08",
+     "rang": 14,
+     "n": 27
+    },
+    {
+     "t": "2024-09",
+     "rang": 14,
+     "n": 27
+    },
+    {
+     "t": "2024-10",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2024-11",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2024-12",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2025-01",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2025-02",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2025-03",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2025-04",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2025-05",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2025-06",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2025-07",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2025-08",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2025-09",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2025-10",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2025-11",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2025-12",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2026-01",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2026-02",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2026-03",
+     "rang": 21,
+     "n": 27
+    },
+    {
+     "t": "2026-04",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2026-05",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2026-06",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2026-07",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2026-08",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2026-09",
+     "rang": 20,
+     "n": 27
+    },
+    {
+     "t": "2026-10",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2026-11",
+     "rang": 17,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2025-03",
+     "rang": 16,
+     "n": 27,
+     "regierung": true
+    }
+   ],
+   "seitStart": {
+    "t": "2025-03",
+    "wert": 154.6,
+    "rang": 16,
+    "n": 27,
+    "schnitt": 158.6,
+    "veraenderung": 56,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 121,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 139.7,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 146.7,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 157,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 162.6,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 167.8,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 168,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 170,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 171,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 172.1,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 180.6,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 182.1,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 182.6,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 183,
+     "rank": 14,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 187.1,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 202.8,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 209,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 209.2,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 211.8,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 213.9,
+     "rank": 20,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 222.2,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 222.4,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 225,
+     "rank": 23,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 234.5,
+     "rank": 24,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 237.4,
+     "rank": 25,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 241.7,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 249.4,
+     "rank": 27,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    }
+   ],
+   "schweiz": null,
+   "verlauf": [
+    {
+     "t": "2021-12",
+     "at": 139,
+     "eu": 147.7
+    },
+    {
+     "t": "2022-01",
+     "at": 140.6,
+     "eu": 152.2
+    },
+    {
+     "t": "2022-02",
+     "at": 147,
+     "eu": 158.8
+    },
+    {
+     "t": "2022-03",
+     "at": 186.7,
+     "eu": 191.8
+    },
+    {
+     "t": "2022-04",
+     "at": 182.4,
+     "eu": 184.9
+    },
+    {
+     "t": "2022-05",
+     "at": 185.1,
+     "eu": 186.9
+    },
+    {
+     "t": "2022-06",
+     "at": 202.4,
+     "eu": 198.6
+    },
+    {
+     "t": "2022-07",
+     "at": 205.3,
+     "eu": 194.4
+    },
+    {
+     "t": "2022-08",
+     "at": 185.5,
+     "eu": 184.5
+    },
+    {
+     "t": "2022-09",
+     "at": 192.7,
+     "eu": 185.4
+    },
+    {
+     "t": "2022-10",
+     "at": 201.9,
+     "eu": 191.5
+    },
+    {
+     "t": "2022-11",
+     "at": 190,
+     "eu": 186.8
+    },
+    {
+     "t": "2022-12",
+     "at": 168.6,
+     "eu": 173.6
+    },
+    {
+     "t": "2023-01",
+     "at": 174.2,
+     "eu": 177.2
+    },
+    {
+     "t": "2023-02",
+     "at": 168,
+     "eu": 171.8
+    },
+    {
+     "t": "2023-03",
+     "at": 163.1,
+     "eu": 167.5
+    },
+    {
+     "t": "2023-04",
+     "at": 158.5,
+     "eu": 163.3
+    },
+    {
+     "t": "2023-05",
+     "at": 150.2,
+     "eu": 154.3
+    },
+    {
+     "t": "2023-06",
+     "at": 150.8,
+     "eu": 154.9
+    },
+    {
+     "t": "2023-07",
+     "at": 155.6,
+     "eu": 158.7
+    },
+    {
+     "t": "2023-08",
+     "at": 168.8,
+     "eu": 170.6
+    },
+    {
+     "t": "2023-09",
+     "at": 176.2,
+     "eu": 176.2
+    },
+    {
+     "t": "2023-10",
+     "at": 175.9,
+     "eu": 176
+    },
+    {
+     "t": "2023-11",
+     "at": 169.9,
+     "eu": 171.3
+    },
+    {
+     "t": "2023-12",
+     "at": 161.3,
+     "eu": 165
+    },
+    {
+     "t": "2024-01",
+     "at": 163.5,
+     "eu": 163.1
+    },
+    {
+     "t": "2024-02",
+     "at": 170.6,
+     "eu": 169.1
+    },
+    {
+     "t": "2024-03",
+     "at": 168,
+     "eu": 168
+    },
+    {
+     "t": "2024-04",
+     "at": 167.8,
+     "eu": 168.1
+    },
+    {
+     "t": "2024-05",
+     "at": 160.7,
+     "eu": 162.7
+    },
+    {
+     "t": "2024-06",
+     "at": 158.8,
+     "eu": 159.8
+    },
+    {
+     "t": "2024-07",
+     "at": 161.5,
+     "eu": 162.1
+    },
+    {
+     "t": "2024-08",
+     "at": 156.1,
+     "eu": 157.5
+    },
+    {
+     "t": "2024-09",
+     "at": 150.5,
+     "eu": 152
+    },
+    {
+     "t": "2024-10",
+     "at": 151.5,
+     "eu": 152.5
+    },
+    {
+     "t": "2024-11",
+     "at": 152.9,
+     "eu": 154.1
+    },
+    {
+     "t": "2024-12",
+     "at": 154.9,
+     "eu": 156.5
+    },
+    {
+     "t": "2025-01",
+     "at": 161,
+     "eu": 162
+    },
+    {
+     "t": "2025-02",
+     "at": 160.1,
+     "eu": 162.9
+    },
+    {
+     "t": "2025-03",
+     "at": 154.6,
+     "eu": 158.2
+    },
+    {
+     "t": "2025-04",
+     "at": 150.9,
+     "eu": 152.1
+    },
+    {
+     "t": "2025-05",
+     "at": 147.6,
+     "eu": 148.8
+    },
+    {
+     "t": "2025-06",
+     "at": 151.3,
+     "eu": 151.4
+    },
+    {
+     "t": "2025-07",
+     "at": 155.1,
+     "eu": 155.6
+    },
+    {
+     "t": "2025-08",
+     "at": 152.6,
+     "eu": 153.4
+    },
+    {
+     "t": "2025-09",
+     "at": 151.4,
+     "eu": 153.1
+    },
+    {
+     "t": "2025-10",
+     "at": 151.3,
+     "eu": 152.6
+    },
+    {
+     "t": "2025-11",
+     "at": 156.9,
+     "eu": 157.8
+    },
+    {
+     "t": "2025-12",
+     "at": 152,
+     "eu": 154.9
+    },
+    {
+     "t": "2026-01",
+     "at": 149.2,
+     "eu": 155.8
+    },
+    {
+     "t": "2026-02",
+     "at": 152.8,
+     "eu": 158.8
+    },
+    {
+     "t": "2026-03",
+     "at": 194.6,
+     "eu": 191.6
+    },
+    {
+     "t": "2026-04",
+     "at": 204,
+     "eu": 204.9
+    },
+    {
+     "t": "2026-05",
+     "at": 193.3,
+     "eu": 192.7
+    },
+    {
+     "t": "2026-06",
+     "at": 178.3,
+     "eu": 178.5
+    },
+    {
+     "t": "2026-07",
+     "at": 188.8,
+     "eu": 188.1
+    },
+    {
+     "t": "2026-08",
+     "at": 202,
+     "eu": 203.8
+    },
+    {
+     "t": "2026-09",
+     "at": 220.5,
+     "eu": 218.3
+    },
+    {
+     "t": "2026-10",
+     "at": 214.1,
+     "eu": 214.2
+    },
+    {
+     "t": "2026-11",
+     "at": 209,
+     "eu": 209.9
+    }
+   ],
+   "geaendert": "2026-11-23",
+   "erklaerung": "Was ein Liter Diesel im Schnitt an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die Wochenpreise des EU-Ölbulletins, hier als Monatsdurchschnitt.",
+   "gruppe": "Preise und Kosten"
+  },
+  {
    "id": "strompreis",
    "name": "Strompreis für Haushalte",
    "pfeilModus": "wert",
