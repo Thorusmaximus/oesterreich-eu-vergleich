@@ -12,6 +12,7 @@ globalThis.fetch = async (url, opt) => {
   const eurostat = String(url).includes("ec.europa.eu/eurostat");
   for (let n = 1; ; n++) {
     try {
+      if (eurostat) await new Promise(r => setTimeout(r, 350)); // Eurostat nicht mit Anfragen überfluten
       const res = await _fetch(url, opt);
       const ct = res.headers.get("content-type") || "";
       if (!eurostat || n >= 4 || (res.status < 500 && !/text\/html/i.test(ct))) return res;
