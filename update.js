@@ -483,12 +483,13 @@ async function berechneOel(ind) {
   const rows = (await _oel)["Prices with taxes"]; if (!rows) throw new Error("Blatt 'Prices with taxes' fehlt");
   const kopf = rows[3] || [], bloecke = {};
   kopf.forEach((v, i) => { if (typeof v === "string" && /^[A-Z]{2,3}_$/.test(v)) bloecke[v.slice(0, -1) === "GR" ? "EL" : v.slice(0, -1) === "EU" ? "EU27_2020" : v.slice(0, -1)] = i; });
+  if (!ind.oel.geloggt) { ind.oel.geloggt = true; for (const g of ["DK", "PL", "AT"]) { const c = bloecke[g]; console.error(`   OEL ${g}: Kopf ${JSON.stringify((rows[0] || []).slice(c, c + 4))} letzte Wochen ${JSON.stringify(rows.slice(3, 7).map(r => r && r.slice(c, c + 4)))}`); } }
   const sum = {}, anz = {};
   for (const r of rows.slice(3)) {
     if (!r || typeof r[0] !== "number") continue;
     const m = oelDatum(r[0]); if (m < TAKT.monat.seit) continue;
     for (const [g, c] of Object.entries(bloecke)) {
-      const v = r[c + ind.oel.spalte]; if (typeof v !== "number" || v <= 0) continue;
+      const v = r[c + ind.oel.spalte]; if (typeof v !== "number" || v < 300 || v > 4000) continue; // Plausibilität: 0,30 bis 4 Euro je Liter
       (sum[g] ??= {})[m] = (sum[g][m] ?? 0) + v / 10; (anz[g] ??= {})[m] = (anz[g][m] ?? 0) + 1; // v/10: EUR je 1000 l = Cent je Liter x 10
     }
   }
