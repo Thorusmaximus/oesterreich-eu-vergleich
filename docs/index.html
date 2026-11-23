@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
 <title>Regierungstracker Österreich</title>
 <meta name="description" content="Wie entwickelt sich Österreich seit dem Amtsantritt der Bundesregierung? Arbeitslosigkeit, Inflation, Schulden, Geburtenrate, Strompreise und mehr im Ranking der 27 EU-Länder.">
-<link rel="stylesheet" href="style.css?v=80bf2604">
+<link rel="stylesheet" href="style.css?v=7f117c35">
 </head>
 <body>
 <main>
@@ -79,9 +79,9 @@ else {
     var bil = '<span class="bil">'+(z.besser?'<span class="good">'+z.besser+' besser</span>':'')+(z.schlechter?'<span class="bad">'+z.schlechter+' schlechter</span>':'')+(z.gleich?'<span>'+z.gleich+' unverändert</span>':'')+(z.neutral?'<span>'+z.neutral+' ohne Wertung</span>':'')+'</span>';
     return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+'</h2><div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-b="'+bilanz(i)+'">'+kachel(i)+'</div>'; }).join('')+'</div></section>';
   }).join('');
-  h += '<button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Filter öffnen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Filter</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
-  + '<div class="filter" role="group" aria-label="Filter"><button class="on" data-f="alle">Alle</button><button data-f="schlechter">Verschlechterungen</button><button data-f="besser">Verbesserungen</button><button data-f="neutral">Ohne Wertung</button></div>'
-    + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>' + gruppenHtml;
+  h += '<div class="filter" role="group" aria-label="Filter"><button class="on" data-f="alle">Alle</button><button data-f="schlechter">Verschlechterungen</button><button data-f="besser">Verbesserungen</button><button data-f="neutral">Ohne Wertung</button></div>'
+  + '<button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Gruppen filtern"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Gruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
+  + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>' + gruppenHtml;
   h += fussnote();
   app.innerHTML = h;
   neuesteLeiste();
@@ -96,7 +96,7 @@ else {
       box.querySelectorAll("button").forEach(function(x){ x.classList.toggle("on", x===b); });
       if(b.hasAttribute("data-f")) fSt=b.getAttribute("data-f"); else fGr=b.getAttribute("data-g");
       filtere();
-      document.getElementById("fdot").hidden = (fSt==="alle" && !fGr);
+      document.getElementById("fdot").hidden = !fGr;
     });
   });
   document.getElementById("fbtn").addEventListener("click", function(){
