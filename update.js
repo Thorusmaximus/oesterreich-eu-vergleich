@@ -213,7 +213,7 @@ const INDICATORS = [
     rangText: "Rang 1 = höchstes Durchschnittseinkommen (in Euro)", typ: "hoch", schwelle: 300,
     hinweis: "Der Durchschnitt liegt meist über dem Median, weil wenige sehr hohe Einkommen ihn nach oben ziehen. Je größer der Abstand zum Median, desto ungleicher sind die Einkommen verteilt. Beide Werte stehen als eigene Indikatoren bereit.",
     mock: { base: 9000, step: 2500 } }
-  ,{ id: "kaufkraft", name: "Kaufkraft", takt: "jahr", dataset: "ilc_di03",
+  ,{ id: "kaufkraft", name: "Kaufkraft", takt: "jahr", dataset: "ilc_di03", real: "EU",
     filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PPS", // Median-Nettoeinkommen in Kaufkraftstandards (PPS)
     alternativen: [ { dataset: "ilc_di03", filter: "statinfo=MED_EI&age=Y_GE16&sex=T&unit=PPS" } ],
     maxAlter: 26, dez: 0, suffix: " PPS", diffEinheit: "PPS",
@@ -731,17 +731,17 @@ async function diagnose(ind) {
 }
 
 // ===== Inflationsbereinigter Trend (Einkommen): Das Einkommen muss stärker steigen als die Preise =====
-let DEFL = null;
-async function holeDeflator() {
-  if (DEFL) return DEFL;
+const DEFL = {};
+async function holeDeflator(geo = "AT") {
+  if (DEFL[geo]) return DEFL[geo];
   for (const f of ["unit=INX_A_AVG&coicop=CP00", "unit=INX_A_AVG&coicop18=TOTAL", "unit=INX_A_AVG&coicop=TOTAL"]) {
-    try { const rs = await fetch(`${BASE}prc_hicp_aind?format=JSON&lang=EN&${f}&geo=AT&sinceTimePeriod=2018`); if (!rs.ok) throw new Error("HTTP " + rs.status);
-      const A = parse(await rs.json()).AT; if (A && Object.keys(A).length > 3) return (DEFL = A); } catch (e) { console.error(`   (Preisindex mit ${f} hat nicht funktioniert: ${e.message})`); }
+    try { const rs = await fetch(`${BASE}prc_hicp_aind?format=JSON&lang=EN&${f}&geo=${geo}&sinceTimePeriod=2018`); if (!rs.ok) throw new Error("HTTP " + rs.status);
+      const A = parse(await rs.json())[geo]; if (A && Object.keys(A).length > 3) return (DEFL[geo] = A); } catch (e) { console.error(`   (Preisindex mit ${f} hat nicht funktioniert: ${e.message})`); }
   }
   throw new Error("Preisindex (prc_hicp_aind) nicht verfügbar");
 }
 async function realTrend(r, ind) {
-  const D = await holeDeflator(), S = 0.5, v = {};
+  const D = await holeDeflator(ind.real === "EU" ? "EU27_2020" : "AT"), S = 0.5, v = {};
   r.verlauf.forEach(p => { if (p.at != null) v[p.t] = p.at; });
   const idx = t => D[String(+t - 1)]; // EU-SILC-Einkommen beziehen sich auf das Vorjahr der Erhebung
   const g = (a, b) => v[a] != null && v[b] != null && idx(a) && idx(b) ? { nom: (v[b] / v[a] - 1) * 100, infl: (idx(b) / idx(a) - 1) * 100, real: ((v[b] / v[a]) / (idx(b) / idx(a)) - 1) * 100 } : null;
@@ -750,7 +750,7 @@ async function realTrend(r, ind) {
   const [ri, ur] = cl(y.real);
   Object.assign(r.oesterreich, { veraenderung: rd(y.real), richtung: ri, urteil: ur });
   r.diffEinheit = "% real";
-  r.realText = `Inflationsbereinigt: Das Einkommen ist nominal um ${rd(y.nom)} % ${y.nom >= 0 ? "gestiegen" : "gesunken"}, die Verbraucherpreise sind im Einkommensjahr ${+r.periode - 1} um ${rd(y.infl)} % ${y.infl >= 0 ? "gestiegen" : "gesunken"}. Real ergibt das ${rd(y.real) > 0 ? "+" : ""}${rd(y.real)} %. Als besser gilt, wenn das Einkommen stärker steigt als die Preise.`;
+  r.realText = `Inflationsbereinigt: Das Einkommen ist nominal um ${rd(y.nom)} % ${y.nom >= 0 ? "gestiegen" : "gesunken"}, ${ind.real === "EU" ? "die Verbraucherpreise im EU-Durchschnitt" : "die Verbraucherpreise"} sind im Einkommensjahr ${+r.periode - 1} um ${rd(y.infl)} % ${y.infl >= 0 ? "gestiegen" : "gesunken"}. Real ergibt das ${rd(y.real) > 0 ? "+" : ""}${rd(y.real)} %. Als besser gilt, wenn das Einkommen stärker steigt als die Preise.`;
   if (r.seitStart) { const z = g(r.seitStart.t, r.periode); if (z) { const [zi, zu] = cl(z.real); Object.assign(r.seitStart, { veraenderung: rd(z.real), richtung: zi, urteil: zu }); } }
   return r;
 }
