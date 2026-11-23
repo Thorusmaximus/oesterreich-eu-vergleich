@@ -295,7 +295,7 @@ const INDICATORS = [
     einheit: "Lebenserwartung bei der Geburt in Jahren, Frauen und Männer zusammen", rangText: "Rang 1 = höchste Lebenserwartung",
     typ: "hoch", schwelle: 0.1, mock: { base: 79, step: 0.5 } }
   ,{ id: "gesundeJahre", name: "Gesunde Lebensjahre", takt: "jahr", dataset: "hlth_hlye",
-    filter: "sex=T&indic_he=HLY_0&unit=YR", alternativen: [ { dataset: "hlth_hlye", filter: "sex=T&indic_he=HLY_0" }, { dataset: "hlth_hlye", filter: "sex=T&age=Y_LT1&indic_he=HLY&unit=YR" }, { dataset: "hlth_hlye", filter: "sex=T&unit=YR" } ],
+    filter: "sex=T&unit=YR&hlth_hle=HLY_Y0", alternativen: [ { dataset: "hlth_hlye", filter: "sex=T&unit=YR&hlth_hle=HLY_Y0" } ],
     maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
     einheit: "Gesunde Lebensjahre bei der Geburt (Jahre ohne gesundheitliche Einschränkung), Frauen und Männer zusammen", rangText: "Rang 1 = meiste gesunde Lebensjahre",
     hinweis: "Beruht auf der Selbsteinschätzung in der EU-Haushaltsbefragung (EU-SILC), nicht auf ärztlichen Untersuchungen. Die Fragestellung wird in den Ländern unterschiedlich verstanden.",
