@@ -30,7 +30,7 @@ const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten",
 const GRUPPE_VON = {
   wachstum: 0, "wachstum-pro-kopf": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
-  inflation: 2, lebenshaltung: 2, strompreis: 2, "strompreis-industrie": 2,
+  inflation: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
   bevoelkerung: 3, geburtenrate: 3 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
@@ -48,6 +48,7 @@ const ERKLAERUNG = {
   lebenshaltung: "Preisniveau-Index: Wie viel ein typischer Warenkorb im Land im Vergleich zum EU-Durchschnitt (= 100) kostet. 120 heißt, die Preise sind 20 % höher als im EU-Schnitt. Zeigt keine Teuerung über die Zeit.",
   strompreis: "Was ein Haushalt mit mittlerem Verbrauch (2.500 bis 5.000 kWh pro Jahr) inklusive Steuern und Abgaben pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres.",
   "strompreis-industrie": "Was ein mittelgroßer Industriekunde (2 bis 20 GWh pro Jahr) ohne Mehrwertsteuer pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres.",
+  immobilien: "Wie stark sich die Preise für Wohnimmobilien (gekaufte Wohnungen und Häuser, neu und gebraucht) seit dem Amtsantritt der Regierung verändert haben, laut Eurostat-Preisindex. Der Index zeigt die Veränderung, nicht den Preis pro Quadratmeter.",
   rating: "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -140,6 +141,17 @@ const INDICATORS = [
     umstritten: true, // Wertung: höheres Preisniveau = schlechter (auch im Trend), aber mit Hinweis
     hinweis: "Die Wertung ist umstritten: Ein höheres Preisniveau gilt hier als schlechter (höhere Lebenshaltungskosten). Es geht aber oft mit hohen Einkommen einher, und ein Anstieg gegenüber dem EU-Schnitt kann auch Aufholen bedeuten. Der Index vergleicht die Preise zwischen den Ländern, nicht die Teuerung über die Zeit (dafür siehe Inflation).",
     typ: "niedrig", schwelle: 1, mock: { base: 70, step: 3.5 } }
+  ,{ id: "immobilien", name: "Immobilienpreise", takt: "quartal", dataset: "prc_hpi_q",
+    filter: "unit=I15_Q&purchase=TOTAL", // Preisindex für Wohnimmobilien (gekaufte Wohnungen und Häuser, neu und gebraucht), 2015 = 100
+    alternativen: [ { dataset: "prc_hpi_q", filter: "unit=I15_Q&purchase=DW_EXST" } ],
+    seitRegierung: true, // gezeigt wird die Preisänderung seit dem Amtsantritt der Regierung (Basis: Quartal des Amtsantritts = 0 %)
+    keinStart: true, // der Rang beim Amtsantritt wäre für alle gleich, deshalb kein Vergleich "seit Regierungsantritt"
+    maxAlter: 8, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte",
+    einheit: "% Preisänderung von Wohnimmobilien seit dem Quartal des Regierungsantritts (Preisindex, ohne Inflationsbereinigung)",
+    rangText: "Rang 1 = stärkster Preisanstieg seit Regierungsantritt, ohne Wertung",
+    typ: "neutral", umstritten: true,
+    hinweis: "Hier gibt es keine Wertung: Steigende Immobilienpreise nützen Eigentümern und belasten Käufer, Mieter und Familien, die erst kaufen wollen. Gezeigt wird die Veränderung des Preisindex der Wohnimmobilien (Wohnungen und Häuser, neu und gebraucht) gegenüber dem Quartal des Regierungsantritts. Das ist die Preisentwicklung, nicht der Preis pro Quadratmeter, und die Preise sind nicht um die Inflation bereinigt.",
+    schwelle: 0.5, mock: { base: 100, step: 3 } }
   ,{ id: "strompreis", name: "Strompreis für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
     filter: "siec=E7000&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive aller Steuern und Abgaben
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
@@ -270,7 +282,7 @@ function berechne(ind, js) {
   // Rang-Entwicklung von Österreich über den ganzen Verlauf (nur Perioden mit genug Ländern)
   const rangVerlauf = [];
   for (let i = cfg.verlaufN - 1; i >= 0; i--) {
-    const t = shift(latest, -i, takt), rk = rankAt(data, t, sc), m = rk.length >= MIN_LAENDER ? rk.find(x => x.code === "AT") : null;
+    const t = shift(latest, -i, takt), rk = rankAt(data, t, sc), m = rk.length >= MIN_LAENDER && rk.some(x => x.value !== rk[0].value) ? rk.find(x => x.code === "AT") : null; // ohne Unterschiede (alle gleich) kein Rang
     rangVerlauf.push({ t, rang: m ? m.rank : null, n: rk.length });
   }
   // Vergleichspunkte für den Rang: ein halbes Jahr und 3 Jahre zurück (bei Jahresdaten: 1 Jahr und 3 Jahre)
@@ -286,7 +298,7 @@ function berechne(ind, js) {
   let seitStart = null;
   const rkS = rankAt(data, startP, sc), meS = rkS.length >= MIN_LAENDER ? rkS.find(x => x.code === "AT") : null;
   const a0 = avg(data, "AT", startP, cfg.glaettung, takt);
-  if (meS && a0 != null && toIdx(startP, takt) < toIdx(latest, takt)) {
+  if (!ind.keinStart && meS && a0 != null && toIdx(startP, takt) < toIdx(latest, takt)) {
     const dd = avgNow - a0, ds = sc(avgNow) - sc(a0);
     seitStart = { t: startP, wert: meS.value, rang: meS.rank, n: rkS.length, schnitt: r1(a0), veraenderung: r1(dd),
       richtung: dd > ind.schwelle ? "steigend" : dd < -ind.schwelle ? "sinkend" : "stabil",
@@ -357,6 +369,14 @@ function berechneRating() {
     anzahlLaender: rows.length, oesterreich: { ...me, rang: me.rank }, beste: rows[0], schlechteste: rows[rows.length - 1],
     laender: rows, schweiz: raw.schweiz ? zeile("CH", "Schweiz", raw.schweiz) : null
   };
+}
+
+// Preisindex -> Änderung in % seit dem Quartal des Regierungsantritts (Basis = 0 %)
+function seitStartJs(js, ind) {
+  const A = parse(js), sy = +REGIERUNG.start.slice(0, 4), sm = +REGIERUNG.start.slice(5, 7), base = `${sy}-Q${Math.ceil(sm / 3)}`, geos = Object.keys(A), times = new Set(), val = {};
+  for (const g of geos) { val[g] = {}; const b = A[g][base]; if (!b) continue; for (const t of Object.keys(A[g])) if (toIdx(t, "quartal") >= toIdx(base, "quartal")) { val[g][t] = (A[g][t] / b - 1) * 100; times.add(t); } }
+  const T = [...times].sort((x, y) => toIdx(x, "quartal") - toIdx(y, "quartal")), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
+  return { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) };
 }
 
 // Aus Einwohnerzahlen (1. Jänner) das Wachstum zum Vorjahr in % berechnen
@@ -455,6 +475,7 @@ function berechneInsolvenzen() {
             js = await res.json();
           }
           if (ind.wachstum) { pop = parse(js); js = wachstumJs(js); }
+          if (ind.seitRegierung) js = seitStartJs(js, ind);
           r = berechne(ind, js); break;
         } catch (e) { letzterFehler = e; if (kandidaten.length > 1) console.error(`   (${k.dataset} mit ${k.filter} hat nicht funktioniert: ${e.message})`); }
       }
