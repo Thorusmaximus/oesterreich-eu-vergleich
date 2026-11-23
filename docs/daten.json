@@ -10527,7 +10527,340 @@
   {
    "id": "pensionsalter",
    "name": "Tatsächliches Pensionsantrittsalter",
-   "fehler": "Eurostat: HTTP 404 { \"error\": [{\"status\": 404,\"id\": 100,\"label\": \"ERR_NOT_FOUND_4: LFSI_EXI_A (DATA_FLOW:ALL,1.0) is not available for dissemination.\"}]}",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 1,
+   "suffix": " Jahre",
+   "diffEinheit": "Jahre",
+   "hinweis": "Ob ein höheres Austrittsalter besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber für den Einzelnen später in Pension zu gehen.",
+   "umstritten": true,
+   "trendNeutral": true,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Durchschnittsalter beim Ausscheiden aus dem Arbeitsmarkt, in Jahren",
+   "rangText": "Rang 1 = höchstes durchschnittliches Austrittsalter (ohne Wertung)",
+   "periode": "2025",
+   "vorherPeriode": "2024",
+   "anzahlLaender": 27,
+   "alter": 11,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 39.1,
+    "rang": 11,
+    "wertVorher": 38.7,
+    "rangVorher": 11,
+    "schnitt": 39.1,
+    "schnittVorher": 38.7,
+    "veraenderung": 0.4,
+    "richtung": "steigend",
+    "urteil": "höher"
+   },
+   "eu": 37.5,
+   "euMittelwert": false,
+   "beste": {
+    "code": "NL",
+    "name": "Niederlande",
+    "value": 44,
+    "rank": 1,
+    "richtung": "steigend",
+    "urteil": "höher"
+   },
+   "schlechteste": {
+    "code": "RO",
+    "name": "Rumänien",
+    "value": 32.7,
+    "rank": 27,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021",
+     "rang": 8,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 9,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2025",
+     "rang": 11,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": {
+    "t": "2024",
+    "wert": 38.7,
+    "rang": 11,
+    "n": 27,
+    "schnitt": 38.7,
+    "veraenderung": 0.4,
+    "richtung": "steigend",
+    "urteil": "höher"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 44,
+     "rank": 1,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 43.4,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 42.6,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 41.5,
+     "rank": 4,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 40.7,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 40.2,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 40.1,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 39.7,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 39.5,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 39.2,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 39.1,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 38.6,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 38.1,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 38.1,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 37.5,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 37.5,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 37.2,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 36.8,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 36.1,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 35.9,
+     "rank": 20,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 35.7,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 35.6,
+     "rank": 22,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 35.3,
+     "rank": 23,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 35.1,
+     "rank": 24,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 34.6,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 33,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 32.7,
+     "rank": 27,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    }
+   ],
+   "schweiz": {
+    "wert": 42.8,
+    "periode": "2025"
+   },
+   "verlauf": [
+    {
+     "t": "2021",
+     "at": 37.9,
+     "eu": 35.9
+    },
+    {
+     "t": "2022",
+     "at": 38.3,
+     "eu": 36.5
+    },
+    {
+     "t": "2023",
+     "at": 38.7,
+     "eu": 37
+    },
+    {
+     "t": "2024",
+     "at": 38.7,
+     "eu": 37.2
+    },
+    {
+     "t": "2025",
+     "at": 39.1,
+     "eu": 37.5
+    }
+   ],
    "geaendert": "2026-11-23",
    "erklaerung": "Das durchschnittliche Alter, in dem Menschen tatsächlich aus dem Arbeitsmarkt ausscheiden. Das ist nicht das gesetzliche Pensionsantrittsalter: Wer früh in Pension geht, in Invaliditätspension oder arbeitslos wird, senkt den Wert.",
    "gruppe": "Pensionen und Alter"
@@ -10535,8 +10868,333 @@
   {
    "id": "pensionsausgaben",
    "name": "Pensionsausgaben",
-   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 400,\"label\": \"Invalid parameter. All parameters set in the URL must be key-value pairs.\"}]}",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte des BIP",
+   "hinweis": "Die Ausgaben hängen vom Altersaufbau der Bevölkerung ab und sagen nicht allein, wie großzügig das System ist. Ob hohe Ausgaben gut oder schlecht sind, ist umstritten: Sie bedeuten höhere Pensionen, aber auch eine größere Last für den Staatshaushalt.",
+   "umstritten": true,
+   "trendNeutral": true,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Pensionsausgaben in % des BIP",
+   "rangText": "Rang 1 = niedrigste Pensionsausgaben (ohne Wertung)",
+   "periode": "2024",
+   "vorherPeriode": "2023",
+   "anzahlLaender": 27,
+   "alter": 23,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 15.38,
+    "rang": 26,
+    "wertVorher": 14.37,
+    "rangVorher": 25,
+    "schnitt": 15.4,
+    "schnittVorher": 14.4,
+    "veraenderung": 1,
+    "richtung": "steigend",
+    "urteil": "höher"
+   },
+   "eu": 12.57,
+   "euMittelwert": false,
+   "beste": {
+    "code": "IE",
+    "name": "Irland",
+    "value": 4.05,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "niedriger"
+   },
+   "schlechteste": {
+    "code": "IT",
+    "name": "Italien",
+    "value": 15.85,
+    "rank": 27,
+    "richtung": "steigend",
+    "urteil": "höher"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2020",
+     "rang": 24,
+     "n": 27
+    },
+    {
+     "t": "2021",
+     "rang": 24,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 24,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 25,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 26,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 4.05,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 5.09,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 7.04,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 7.31,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 7.56,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 8.66,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 8.93,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 9.02,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 9.09,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 9.36,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 9.45,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 9.64,
+     "rank": 12,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 9.99,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 10.26,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 10.72,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 11.16,
+     "rank": 16,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 11.25,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 11.61,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 11.67,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 12.94,
+     "rank": 20,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 13.19,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 13.46,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 14.09,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 14.45,
+     "rank": 24,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 14.98,
+     "rank": 25,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 15.38,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 15.85,
+     "rank": 27,
+     "richtung": "steigend",
+     "urteil": "höher"
+    }
+   ],
+   "schweiz": {
+    "wert": 10.73,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2020",
+     "at": 15.38,
+     "eu": 13.51
+    },
+    {
+     "t": "2021",
+     "at": 14.98,
+     "eu": 12.75
+    },
+    {
+     "t": "2022",
+     "at": 14.18,
+     "eu": 12.2
+    },
+    {
+     "t": "2023",
+     "at": 14.37,
+     "eu": 12.28
+    },
+    {
+     "t": "2024",
+     "at": 15.38,
+     "eu": 12.57
+    }
+   ],
    "geaendert": "2026-11-23",
+   "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "erklaerung": "Wie viel Prozent der Wirtschaftsleistung (BIP) ein Land für Pensionen und ähnliche Alters- und Hinterbliebenenleistungen ausgibt. Je höher der Wert, desto mehr Geld fließt in die Pensionen. Er hängt auch davon ab, wie alt die Bevölkerung ist und wie hoch die Pensionen sind.",
    "gruppe": "Pensionen und Alter"
   },
@@ -10892,7 +11550,348 @@
   {
    "id": "altersarmut",
    "name": "Armutsgefährdung ab 65",
-   "fehler": "Filter unvollständig: Dimension \"statinfo\" hat 2 Werte. Filter im Skript anpassen.",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte",
+   "hinweis": "Die Armutsgefährdungsschwelle liegt bei 60 % des mittleren Einkommens im jeweiligen Land. Das misst die Ungleichheit im Land, nicht den absoluten Lebensstandard.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Anteil der Menschen ab 65 mit weniger als 60 % des mittleren Einkommens",
+   "rangText": "Rang 1 = niedrigste Armutsgefährdung ab 65",
+   "periode": "2025",
+   "vorherPeriode": "2024",
+   "anzahlLaender": 27,
+   "alter": 11,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 16,
+    "rang": 13,
+    "wertVorher": 16.3,
+    "rangVorher": 12,
+    "schnitt": 16,
+    "schnittVorher": 16.3,
+    "veraenderung": -0.3,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "eu": 16.3,
+   "euMittelwert": false,
+   "beste": {
+    "code": "SK",
+    "name": "Slowakei",
+    "value": 5.2,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "schlechteste": {
+    "code": "LV",
+    "name": "Lettland",
+    "value": 41.7,
+    "rank": 27,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 6,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 12,
+     "n": 27
+    },
+    {
+     "t": "2025",
+     "rang": 13,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2024",
+     "rang": 12,
+     "n": 27,
+     "regierung": true
+    }
+   ],
+   "seitStart": {
+    "t": "2024",
+    "wert": 16.3,
+    "rang": 12,
+    "n": 27,
+    "schnitt": 16.3,
+    "veraenderung": -0.3,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 5.2,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 6.9,
+     "rank": 2,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 8.4,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 9.3,
+     "rank": 4,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 9.9,
+     "rank": 5,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 11.2,
+     "rank": 6,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 11.6,
+     "rank": 7,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 12,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 13.8,
+     "rank": 9,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 14.7,
+     "rank": 10,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 15.2,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 15.5,
+     "rank": 12,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 16,
+     "rank": 13,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 16.4,
+     "rank": 14,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 17.2,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 17.8,
+     "rank": 16,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 18.8,
+     "rank": 17,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 19.5,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 20.9,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 24.6,
+     "rank": 20,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 25.9,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 28.9,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 33.2,
+     "rank": 23,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 33.7,
+     "rank": 24,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 39.2,
+     "rank": 25,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 39.4,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 41.7,
+     "rank": 27,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    }
+   ],
+   "schweiz": {
+    "wert": 24.7,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2021",
+     "at": 14.8,
+     "eu": 16.7
+    },
+    {
+     "t": "2022",
+     "at": 14.9,
+     "eu": 17.3
+    },
+    {
+     "t": "2023",
+     "at": 17,
+     "eu": 16.6
+    },
+    {
+     "t": "2024",
+     "at": 16.3,
+     "eu": 16.6
+    },
+    {
+     "t": "2025",
+     "at": 16,
+     "eu": 16.3
+    }
+   ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie viele Menschen ab 65 weniger als 60 % des mittleren Einkommens im Land zur Verfügung haben und damit nach EU-Definition armutsgefährdet sind. Das ist ein Maß für Ungleichheit im Alter, nicht für absolute Armut.",
    "gruppe": "Pensionen und Alter"
