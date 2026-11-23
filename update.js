@@ -92,7 +92,7 @@ const ERKLAERUNG = {
   gesundeJahre: "Wie viele Jahre ein neugeborenes Kind durchschnittlich ohne gesundheitliche Einschränkungen im Alltag leben wird (Healthy Life Years, nach Selbstauskunft in der EU-Befragung). Das sind meist deutlich weniger als die Lebenserwartung.",
   abhaengigkeit: "Wie viele Menschen ab 65 auf 100 Menschen im Alter von 15 bis 64 kommen. Je höher der Wert, desto mehr ältere Menschen müssen von den Jüngeren mitgetragen werden, etwa über das Pensionssystem.",
   aktionaersquote: "Wie viele Haushalte börsennotierte Aktien besitzen (direkt gehalten, ohne Fonds), laut der Haushaltsbefragung der Europäischen Zentralbank und der Notenbanken. Die Erhebung gibt es nur alle paar Jahre.",
-  religion: "Wie sich die Bevölkerung Österreichs auf Religionen und Konfessionen verteilt, laut der letzten Erhebung von Statistik Austria (2021).",
+  religion: "Wie sich Schülerinnen und Schüler (Wiener Pflichtschulen) und die Bevölkerung Österreichs auf Religionen und Konfessionen verteilen. Die Religion wird in Österreich nur an den Schulen laufend erhoben, bundesweit gibt es dazu nur die Befragung von 2021.",
   insolvenzenEU: "Index der gemeldeten Unternehmensinsolvenzen, 2021 = 100. Er zeigt, wie stark sich die Zahl der Insolvenzen seit 2021 verändert hat, nicht wie viele es gibt. Absolute Zahlen sind zwischen den Ländern wegen unterschiedlicher Insolvenzrechte nicht vergleichbar.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -759,10 +759,10 @@ const HAND_IND = {
 };
 
 function berechneReligion() {
-  const raw = JSON.parse(fs.readFileSync("handdaten.json", "utf8")), d = raw.religion;
+  const raw = JSON.parse(fs.readFileSync("handdaten.json", "utf8")), d = raw.religion, [haupt, ...weitere] = d.bloecke;
   return { id: "religion", name: "Religionszugehörigkeit", art: "anteile", takt: "jahr", typ: "neutral", trendNeutral: true, ohneTrend: true, umstritten: true,
-    einheit: "Anteil der Bevölkerung in %, Österreich 2021", periode: String(d.jahr), stand: raw.stand, quelle: d.quelle, quelleUrl: d.url, hinweisDaten: d.hinweis,
-    oesterreich: { wert: d.bekenntnis, rang: null, urteil: null, richtung: null }, anteile: d.anteile, bekenntnis: d.bekenntnis };
+    einheit: "Anteil in %", periode: haupt.periode, stand: raw.stand, quelle: haupt.quelle, quelleUrl: haupt.url,
+    oesterreich: { wert: haupt.anteile[0].wert, rang: null, urteil: null, richtung: null }, anteileTitel: haupt.titel, anteile: haupt.anteile, bloecke: d.bloecke };
 }
 // ===== Terroranschläge: von Hand gepflegt (terror.json, Quelle Europol TE-SAT), pro 10 Mio. Einwohner =====
 function berechneTerror(result) {
@@ -925,7 +925,7 @@ function berechneInsolvenzen() {
     fehler++; console.error(`FEHLER Kreditrating: ${e.message}`);
     result.push(prev.rating ? { ...prev.rating, veraltet: true, fehler: e.message } : { id: "rating", name: "Kreditrating", fehler: e.message });
   }
-  try { const r = berechneReligion(); result.push(r); console.log(`OK  Religionszugehörigkeit: ${r.periode}, ${r.bekenntnis} % mit Bekenntnis`); }
+  try { const r = berechneReligion(); result.push(r); console.log(`OK  Religionszugehörigkeit: ${r.anteileTitel}, ${r.periode}`); }
   catch (e) { fehler++; console.error(`FEHLER Religion: ${e.message}`); result.push(prev.religion ? { ...prev.religion, veraltet: true, fehler: e.message } : { id: "religion", name: "Religionszugehörigkeit", fehler: e.message }); }
   for (const id of Object.keys(HAND_IND)) {
     try { const r = berechneHand(id, HAND_IND[id]); result.push(r); console.log(`OK  ${r.name}: ${r.periode}, Österreich ${r.oesterreich.wert}, Platz ${r.oesterreich.rang}/${r.anzahlLaender}`); }

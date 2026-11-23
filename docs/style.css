@@ -76,3 +76,4 @@ svg{width:100%;height:auto;display:block}
 
 .altdaten{border-left:4px solid var(--muted,#999);padding-left:10px;color:var(--muted,#666);font-size:.85rem;margin:8px 0}
 .teil{background:var(--bad,#c0392b);color:#fff !important;padding:1px 8px;border-radius:999px;font-weight:800 !important}
+.flagge{display:inline-block;width:1.2em;height:.8em;vertical-align:-.05em;background:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Crect width='3' height='2' fill='%23ed2939'/%3E%3Crect y='.667' width='3' height='.667' fill='%23fff'/%3E%3C/svg%3E") center/cover no-repeat;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.2)}
