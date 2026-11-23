@@ -196,7 +196,7 @@ const INDICATORS = [
     typ: "neutral", umstritten: true,
     hinweis: "Steigende Immobilienpreise nützen Eigentümern und belasten Käufer, Mieter und Familien, die erst kaufen wollen. Gezeigt wird die Veränderung des Preisindex der Wohnimmobilien (Wohnungen und Häuser, neu und gebraucht) gegenüber dem Quartal des Regierungsantritts. Das ist die Preisentwicklung, nicht der Preis pro Quadratmeter, und die Preise sind nicht um die Inflation bereinigt.",
     schwelle: 0.5, mock: { base: 100, step: 3 } }
-  ,{ id: "einkommen", name: "Medianeinkommen", takt: "jahr", dataset: "ilc_di03",
+  ,{ id: "einkommen", name: "Medianeinkommen", takt: "jahr", dataset: "ilc_di03", real: true,
     filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=EUR", // mittleres (Median-)Nettoeinkommen je Person, nach Haushaltsgröße gewichtet (EU-SILC)
     alternativen: [
       { dataset: "ilc_di03", filter: "statinfo=MED_EI&age=Y_GE16&sex=T&unit=EUR" },
@@ -205,7 +205,7 @@ const INDICATORS = [
     einheit: "Euro pro Jahr: Median des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
     kaufkraft: { filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PPS" }, // zusätzlich in Kaufkraft (PPS), damit Preisunterschiede zwischen den Ländern herausgerechnet sind
     rangText: "Rang 1 = höchstes Medianeinkommen (in Euro)", typ: "hoch", schwelle: 250, mock: { base: 8000, step: 2400 } }
-  ,{ id: "durchschnittseinkommen", name: "Durchschnittseinkommen", takt: "jahr", dataset: "ilc_di03",
+  ,{ id: "durchschnittseinkommen", name: "Durchschnittseinkommen", takt: "jahr", dataset: "ilc_di03", real: true,
     filter: "statinfo=MEAN_EI&age=TOTAL&sex=T&unit=EUR", // durchschnittliches Nettoeinkommen je Person (EU-SILC), nach Haushaltsgröße gewichtet
     alternativen: [ { dataset: "ilc_di03", filter: "statinfo=MEAN_EI&age=Y_GE16&sex=T&unit=EUR" } ],
     maxAlter: 26, dez: 0, suffix: " €", diffEinheit: "Euro",
@@ -730,6 +730,31 @@ async function diagnose(ind) {
   } catch (e) { console.error("   Fehlersuche nicht möglich: " + e.message); }
 }
 
+// ===== Inflationsbereinigter Trend (Einkommen): Das Einkommen muss stärker steigen als die Preise =====
+let DEFL = null;
+async function holeDeflator() {
+  if (DEFL) return DEFL;
+  for (const f of ["unit=INX_A_AVG&coicop=CP00", "unit=INX_A_AVG&coicop18=TOTAL", "unit=INX_A_AVG&coicop=TOTAL"]) {
+    try { const rs = await fetch(`${BASE}prc_hicp_aind?format=JSON&lang=EN&${f}&geo=AT&sinceTimePeriod=2018`); if (!rs.ok) throw new Error("HTTP " + rs.status);
+      const A = parse(await rs.json()).AT; if (A && Object.keys(A).length > 3) return (DEFL = A); } catch (e) { console.error(`   (Preisindex mit ${f} hat nicht funktioniert: ${e.message})`); }
+  }
+  throw new Error("Preisindex (prc_hicp_aind) nicht verfügbar");
+}
+async function realTrend(r, ind) {
+  const D = await holeDeflator(), S = 0.5, v = {};
+  r.verlauf.forEach(p => { if (p.at != null) v[p.t] = p.at; });
+  const idx = t => D[String(+t - 1)]; // EU-SILC-Einkommen beziehen sich auf das Vorjahr der Erhebung
+  const g = (a, b) => v[a] != null && v[b] != null && idx(a) && idx(b) ? { nom: (v[b] / v[a] - 1) * 100, infl: (idx(b) / idx(a) - 1) * 100, real: ((v[b] / v[a]) / (idx(b) / idx(a)) - 1) * 100 } : null;
+  const rd = x => Math.round(x * 10) / 10, cl = x => x > S ? ["steigend", "besser"] : x < -S ? ["sinkend", "schlechter"] : ["stabil", "unverändert"];
+  const y = g(r.vorherPeriode, r.periode); if (!y) throw new Error("Preisindex für den Vorjahresvergleich fehlt");
+  const [ri, ur] = cl(y.real);
+  Object.assign(r.oesterreich, { veraenderung: rd(y.real), richtung: ri, urteil: ur });
+  r.diffEinheit = "% real";
+  r.realText = `Inflationsbereinigt: Das Einkommen ist nominal um ${rd(y.nom)} % ${y.nom >= 0 ? "gestiegen" : "gesunken"}, die Verbraucherpreise sind im Einkommensjahr ${+r.periode - 1} um ${rd(y.infl)} % ${y.infl >= 0 ? "gestiegen" : "gesunken"}. Real ergibt das ${rd(y.real) > 0 ? "+" : ""}${rd(y.real)} %. Als besser gilt, wenn das Einkommen stärker steigt als die Preise.`;
+  if (r.seitStart) { const z = g(r.seitStart.t, r.periode); if (z) { const [zi, zu] = cl(z.real); Object.assign(r.seitStart, { veraenderung: rd(z.real), richtung: zi, urteil: zu }); } }
+  return r;
+}
+
 // ===== Von Hand gepflegte Tabellen (handdaten.json): eine Ausgabe, kein Verlauf =====
 function berechneHand(id, ind) {
   const raw = JSON.parse(fs.readFileSync("handdaten.json", "utf8")), d = raw.indikatoren[id];
@@ -910,6 +935,7 @@ function berechneInsolvenzen() {
           if (r.schweiz && kk.CH?.[t] != null) r.schweiz.pps = kk.CH[t];
         } catch (e) { console.error("   Kaufkraft (PPS) nicht verfügbar: " + e.message); }
       }
+      if (ind.real && !TEST) await realTrend(r, ind);
       result.push(r);
       console.log(`OK  ${ind.name}: ${r.periode}, Österreich Platz ${r.oesterreich.rang}/${r.anzahlLaender}, ${r.oesterreich.richtung}, ${r.oesterreich.urteil}${r.warnung ? "  WARNUNG: " + r.warnung : ""}`);
     } catch (e) {

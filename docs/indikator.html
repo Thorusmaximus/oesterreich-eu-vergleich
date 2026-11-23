@@ -65,7 +65,7 @@ function detail(i){
   }
   if(!i.ohneTrend) h += '<div class="card"><h2>'+trendTitel+'</h2>'
      + '<div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+sgn(a.veraenderung)+' '+DIFF+', '+a.richtung+')</span></div>'
-     + '<p class="note">'+trendText
+     + '<p class="note">'+(i.realText||trendText)
      + (rangDiff ? ' Der Rang hat sich seit '+periode(i.vorherPeriode)+' '+rangDiff+'.' : '')+'</p></div>';
   var ss = i.seitStart;
   if(ss && D.regierung){
