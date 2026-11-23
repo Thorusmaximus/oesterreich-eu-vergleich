@@ -46,6 +46,7 @@ else {
     h += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
       + '<div class="t">'+i.name+'</div>'
       + '<div class="r">Platz '+a.rang+' <small>von '+i.anzahlLaender+'</small></div>'
+      + (a.bestand!=null ? '<div class="note">Einwohner: <strong>'+a.bestand.toLocaleString("de-AT",{minimumFractionDigits:2,maximumFractionDigits:2})+' Mio.</strong></div>' : '')
       + (i.art==="rating" ? '<div class="note">Durchschnitt: <strong>'+a.schnittText+'</strong> (S&amp;P, Moody\'s, Fitch)</div>' : '')
       + '<div class="note">Stand: '+(i.art==="rating" ? datum(i.stand) : periode(i.periode))+(i.veraltet ? ' (Aktualisierung fehlgeschlagen)' : '')+'</div>'
       + (a.urteil ? '<div class="trend '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> Trend: '+trendWort(a.urteil)+' <span class="note">('+trendVergleich(i)+')</span></div>' : '')

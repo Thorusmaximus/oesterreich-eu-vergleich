@@ -91,11 +91,11 @@ const INDICATORS = [
       { dataset: "lfsi_emp_a", filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP" } ],
     einheit: "% der 20- bis 64-Jährigen, saisonbereinigt", rangText: "Rang 1 = höchste Beschäftigungsquote",
     maxAlter: 12, typ: "hoch", schwelle: 0.3, mock: { base: 66, step: 1.2 } }
-  ,{ id: "bevoelkerung", name: "Bevölkerung", takt: "jahr", dataset: "demo_pjan",
-    filter: "age=TOTAL&sex=T&unit=NR", // Einwohner am 1. Jänner
-    faktor: 0.000001, dez: 2, suffix: " Mio.", diffEinheit: "Mio. Einwohner",
-    einheit: "Einwohner am 1. Jänner, in Millionen", rangText: "Rang 1 = größte Bevölkerung, ohne Wertung",
-    maxAlter: 26, typ: "neutral", schwelle: 0.005, mock: { base: 5, step: 2.1 } }
+  ,{ id: "bevoelkerung", name: "Bevölkerungswachstum", takt: "jahr", dataset: "demo_pjan",
+    filter: "age=TOTAL&sex=T&unit=NR", // Einwohner am 1. Jänner; daraus wird das Wachstum zum Vorjahr berechnet
+    wachstum: true, dez: 2, suffix: " %", diffEinheit: "Prozentpunkte",
+    einheit: "% Veränderung der Einwohnerzahl (1. Jänner gegenüber 1. Jänner des Vorjahres)", rangText: "Rang 1 = stärkstes Bevölkerungswachstum, ohne Wertung",
+    maxAlter: 26, typ: "neutral", schwelle: 0.15, mock: { base: 5000000, step: 1900000 } }
   ,{ id: "wachstum-pro-kopf", name: "Wachstum pro Kopf", takt: "jahr", dataset: "nama_10_pc",
     filter: "unit=CLV_PCH_PRE_HAB&na_item=B1GQ", // reales BIP je Einwohner (preisbereinigt), Veränderung zum Vorjahr
     einheit: "% Veränderung des realen BIP je Einwohner zum Vorjahr (preisbereinigt)", rangText: "Rang 1 = höchstes Wachstum pro Kopf",
@@ -330,6 +330,14 @@ function berechneRating() {
   };
 }
 
+// Aus Einwohnerzahlen (1. Jänner) das Wachstum zum Vorjahr in % berechnen
+function wachstumJs(js) {
+  const A = parse(js), geos = Object.keys(A), times = new Set(), val = {};
+  for (const g of geos) { val[g] = {}; for (const t of Object.keys(A[g])) { const p = A[g][String(+t - 1)]; if (p) { val[g][t] = (A[g][t] / p - 1) * 100; times.add(t); } } }
+  const T = [...times].sort(), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
+  return { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) };
+}
+
 // Quartalsquote selbst berechnen: Summe der letzten 4 Quartale (Steuern und Sozialbeiträge) / Summe der letzten 4 Quartale BIP
 function quotientJs(jsA, jsB) {
   const A = parse(jsA), B = parse(jsB), qi = t => { const m = /^(\d{4})-Q(\d)$/.exec(t); return m ? +m[1] * 4 + +m[2] - 1 : null; };
@@ -406,7 +414,7 @@ function berechneInsolvenzen() {
   const result = []; let fehler = 0;
   for (const ind of INDICATORS) {
     try {
-      let r = null, letzterFehler = null;
+      let r = null, letzterFehler = null, pop = null;
       const kandidaten = [{ dataset: ind.dataset, filter: ind.filter }, ...(ind.alternativen || [])];
       for (const k of kandidaten) {
         try {
@@ -417,6 +425,7 @@ function berechneInsolvenzen() {
             if (!res.ok) { const txt = (await res.text()).slice(0, 300); throw new Error("Eurostat: HTTP " + res.status + " " + txt); }
             js = await res.json();
           }
+          if (ind.wachstum) { pop = parse(js); js = wachstumJs(js); }
           r = berechne(ind, js); break;
         } catch (e) { letzterFehler = e; if (kandidaten.length > 1) console.error(`   (${k.dataset} mit ${k.filter} hat nicht funktioniert: ${e.message})`); }
       }
@@ -473,6 +482,14 @@ function berechneInsolvenzen() {
         } catch (e) { console.error("   Entdeckung fehlgeschlagen: " + e.message); }
       }
       if (!r) { await diagnose(ind); throw letzterFehler; }
+      if (ind.wachstum && pop) { // Einwohnerzahl zusätzlich zeigen (in Millionen)
+        const mio = (c, t) => pop[c]?.[t] != null ? Math.round(pop[c][t] * (TEST ? 1 : 1e-6) * 1000) / 1000 : null;
+        r.laender.forEach(x => x.bestand = mio(x.code, r.periode));
+        if (r.schweiz) r.schweiz.bestand = mio("CH", r.periode);
+        r.oesterreich.bestand = mio("AT", r.periode); r.oesterreich.bestandVorher = mio("AT", String(+r.periode - 1));
+        r.bestandVerlauf = Object.keys(pop.AT || {}).sort().slice(-6).map(t => ({ t, wert: mio("AT", t) }));
+        r.bestandEU = mio("EU27_2020", r.periode);
+      }
       result.push(r);
       console.log(`OK  ${ind.name}: ${r.periode}, Österreich Platz ${r.oesterreich.rang}/${r.anzahlLaender}, ${r.oesterreich.richtung}, ${r.oesterreich.urteil}${r.warnung ? "  WARNUNG: " + r.warnung : ""}`);
     } catch (e) {

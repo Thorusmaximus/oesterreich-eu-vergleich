@@ -72,6 +72,11 @@ function detail(i){
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
   h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
+  if(i.bestandVerlauf && i.bestandVerlauf.length){
+    var bv=i.bestandVerlauf, last=bv[bv.length-1], prev=bv.length>1?bv[bv.length-2]:null, dif=prev?Math.round((last.wert-prev.wert)*1000)/1000:null;
+    h += '<div class="card"><h2>Einwohnerzahl Österreich</h2><div class="v">'+mioText(last.wert)+' Mio. <span class="k">am 1. Jänner '+last.t+(dif!=null?', '+(dif>=0?'+':'−')+mioText(Math.abs(dif))+' Mio. zum Vorjahr':'')+'</span></div>'
+       + '<p class="note">'+bv.map(function(p){return p.t+': '+mioText(p.wert)+' Mio.';}).join(' · ')+(i.bestandEU?' · EU insgesamt: '+i.bestandEU.toLocaleString("de-AT",{maximumFractionDigits:1})+' Mio.':'')+'</p></div>';
+  }
   h += '<div class="card"><h2>Alle EU-Länder <span class="note">(Datenstand: '+periode(i.periode)+')</span></h2>'+ranking(i)+'</div>';
   h += fussnote();
   app.innerHTML = h;
@@ -184,6 +189,7 @@ function ratingTabelle(i){
 }
 
 // Balken mit gemeinsamer Nulllinie: negative Werte ragen nach links vom Nullpunkt, positive nach rechts
+function mioText(v){ return v.toLocaleString("de-AT",{minimumFractionDigits:2,maximumFractionDigits:2}); }
 function ranking(i){
   var vals = i.laender.map(function(x){return x.value});
   if(i.schweiz) vals.push(i.schweiz.wert);
@@ -193,10 +199,10 @@ function ranking(i){
     return '<span class="trk"><span class="bb" style="left:'+left+'%;width:'+w+'%"></span></span>';
   };
   var s = '<p class="note">Pfeil rechts: Trend des Landes ('+trendVergleich(i)+'). '+pfeilHinweis(i)+'</p>' + i.laender.map(function(x){
-    return '<div class="row'+(x.code==="AT"?" at":"")+'"><span>'+x.rank+'. '+x.name+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
+    return '<div class="row'+(x.code==="AT"?" at":"")+'"><span>'+x.rank+'. '+x.name+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
   }).join("");
   if(i.schweiz){
-    s += '<div class="row ch"><span>* Schweiz</span>'+bar(i.schweiz.wert)+'<span class="n">'+f(i.schweiz.wert)+'</span><span class="ta"></span></div>'
+    s += '<div class="row ch"><span>* Schweiz'+(i.schweiz.bestand!=null?' <small class="note">'+mioText(i.schweiz.bestand)+' Mio.</small>':'')+'</span>'+bar(i.schweiz.wert)+'<span class="n">'+f(i.schweiz.wert)+'</span><span class="ta"></span></div>'
       + '<p class="note">* Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Der Wert dient nur zum Vergleich'
       + (i.schweiz.periode!==i.periode ? ' (Stand: '+periode(i.schweiz.periode)+')' : '') + '.</p>';
   }
