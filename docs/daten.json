@@ -17571,7 +17571,7 @@
    "suffix": " Punkte",
    "diffEinheit": "Punkte",
    "hinweis": "Einschätzung einer privaten Studie, keine amtliche Statistik. Berücksichtigt unter anderem Pensionsvermögen, Altersstruktur, Staatsschulden und Erwerbsquote Älterer.",
-   "umstritten": true,
+   "umstritten": false,
    "trendNeutral": false,
    "zusatz": null,
    "takt": "jahr",
