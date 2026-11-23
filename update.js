@@ -47,7 +47,7 @@ const GRUPPE_VON = {
   wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, insolvenzenEU: 0, einkommen: 0, durchschnittseinkommen: 0, kaufkraft: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, terror: 4, pensionsalter: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
+  bevoelkerung: 3, geburtenrate: 3, terror: 4, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab.",
@@ -80,7 +80,7 @@ const ERKLAERUNG = {
   kaufkraft: "Das mittlere Nettoeinkommen, umgerechnet in Kaufkraftstandards (PPS). Ein Euro ist nicht überall gleich viel wert: In teuren Ländern kauft man dafür weniger. PPS rechnet das heraus und zeigt, was man sich mit dem Einkommen im jeweiligen Land tatsächlich leisten kann, gemessen an einem EU-weiten Warenkorb.",
   terror: "Wie viele Terroranschläge (vollendete, gescheiterte und von den Behörden vereitelte) ein Land pro Jahr an Europol gemeldet hat, umgerechnet auf 10 Millionen Einwohner. Die Zahlen stammen aus dem jährlichen EU-Lagebericht zum Terrorismus (TE-SAT) und werden von Hand eingetragen.",
   rating: "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
-  pensionsalter: "Das durchschnittliche Alter, in dem Menschen tatsächlich aus dem Arbeitsmarkt ausscheiden. Das ist nicht das gesetzliche Pensionsantrittsalter: Wer früh in Pension geht, in Invaliditätspension oder arbeitslos wird, senkt den Wert.",
+  erwerbsdauer: "Wie viele Jahre ein heute 15-Jähriger nach der Statistik im Lauf seines Lebens voraussichtlich erwerbstätig ist (Eurostat: Dauer des Erwerbslebens). Er hängt vom Pensionsantritt, vom Einstiegsalter und von Unterbrechungen ab und ist kein gesetzliches Pensionsantrittsalter.",
   pensionsausgaben: "Wie viel Prozent der Wirtschaftsleistung (BIP) ein Land für Pensionen und ähnliche Alters- und Hinterbliebenenleistungen ausgibt. Je höher der Wert, desto mehr Geld fließt in die Pensionen. Er hängt auch davon ab, wie alt die Bevölkerung ist und wie hoch die Pensionen sind.",
   ersatzquote: "Wie hoch die Pensionen der 65- bis 74-Jährigen im Vergleich zu den Einkommen der 50- bis 59-Jährigen sind. 60 % heißt: Die Pension beträgt im Schnitt 60 % des früheren Arbeitseinkommens, vor Steuern.",
   altersarmut: "Wie viele Menschen ab 65 weniger als 60 % des mittleren Einkommens im Land zur Verfügung haben und damit nach EU-Definition armutsgefährdet sind. Das ist ein Maß für Ungleichheit im Alter, nicht für absolute Armut.",
@@ -248,11 +248,11 @@ const INDICATORS = [
     einheit: "Index der Insolvenzanmeldungen, 2021 = 100 (nur Entwicklung, keine absoluten Zahlen)", rangText: "Rang 1 = niedrigster Index (geringster Anstieg der Insolvenzen seit 2021)",
     hinweis: "Zählweise und Insolvenzrecht unterscheiden sich je Land, deshalb vergleicht dieser Index nur die Entwicklung gegenüber dem jeweils eigenen Land im Jahr 2021. 2021 war wegen Corona-Hilfen und Aussetzungen ein ungewöhnlich insolvenzarmes Jahr, der Anstieg danach ist daher teils ein Aufholeffekt. Nicht alle EU-Länder melden.",
     typ: "niedrig", umstritten: true, schwelle: 5, mock: { base: 110, step: 6 } }
-  ,{ id: "pensionsalter", name: "Tatsächliches Pensionsantrittsalter", takt: "jahr", dataset: "lfsi_exi_a",
+  ,{ id: "erwerbsdauer", name: "Dauer des Erwerbslebens", takt: "jahr", dataset: "lfsi_exi_a",
     filter: "sex=T", alternativen: [ { dataset: "lfsi_dwl_a", filter: "sex=T" } ],
     maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
-    einheit: "Durchschnittsalter beim Ausscheiden aus dem Arbeitsmarkt, in Jahren", rangText: "Rang 1 = höchstes durchschnittliches Austrittsalter (ohne Wertung)",
-    hinweis: "Ob ein höheres Austrittsalter besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber für den Einzelnen später in Pension zu gehen.",
+    einheit: "Erwartete Jahre im Erwerbsleben (Erwerbstätige und Arbeitssuchende), in Jahren", rangText: "Rang 1 = längstes Erwerbsleben (ohne Wertung)",
+    hinweis: "Eurostat veröffentlicht das durchschnittliche Pensionsantrittsalter derzeit nicht mehr, deshalb zeigt diese Seite die Dauer des Erwerbslebens als Ersatz. Ob ein längeres Erwerbsleben besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber mehr Arbeitsjahre für den Einzelnen.",
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, mock: { base: 61, step: 0.4 } }
   ,{ id: "pensionsausgaben", name: "Pensionsausgaben", takt: "jahr", dataset: "spr_exp_pens",
     filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL", alternativen: [ { dataset: "spr_exp_pens", filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL" } ],
@@ -260,7 +260,7 @@ const INDICATORS = [
     einheit: "Pensionsausgaben in % des BIP", rangText: "Rang 1 = niedrigste Pensionsausgaben (ohne Wertung)",
     hinweis: "Die Ausgaben hängen vom Altersaufbau der Bevölkerung ab und sagen nicht allein, wie großzügig das System ist. Ob hohe Ausgaben gut oder schlecht sind, ist umstritten: Sie bedeuten höhere Pensionen, aber auch eine größere Last für den Staatshaushalt.",
     typ: "neutral", trendNeutral: true, umstritten: true, rangNiedrigZuerst: true, schwelle: 0.2, mock: { base: 11, step: 0.4 } }
-  ,{ id: "ersatzquote", name: "Pensionshöhe (Ersatzquote)", takt: "jahr", dataset: "ilc_pnp3",
+  ,{ id: "ersatzquote", name: "Pensionshöhe (Ersatzquote)", takt: "jahr", dataset: "ilc_pnp3", faktor: 100,
     filter: "sex=T", alternativen: [ { dataset: "ilc_pnp3", filter: "sex=T&indic_il=AGG_RR" }, { dataset: "ilc_pnp3", filter: "sex=T&unit=PC" } ],
     maxAlter: 26, dez: 0, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Pensionen (65 bis 74 Jahre) in % der Einkommen der 50- bis 59-Jährigen", rangText: "Rang 1 = höchste Ersatzquote",
