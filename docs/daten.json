@@ -13104,6 +13104,378 @@
    "gruppe": "Staatsfinanzen"
   },
   {
+   "id": "terror",
+   "name": "Terroranschläge",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 1,
+   "suffix": "",
+   "diffEinheit": "Anschläge pro 10 Mio. Einwohner",
+   "hinweis": "Hier gibt es keine Wertung: Gezählt werden auch vereitelte Anschläge, eine hohe Zahl kann also auch für erfolgreiche Terrorabwehr sprechen. Die Länder melden unterschiedlich, und die Einzelzahlen sind klein, ein einzelner Anschlag verändert das Ergebnis deutlich. Gemeldet sind nur Anschläge, die den Terrorismus-Definitionen der Mitgliedstaaten entsprechen.",
+   "umstritten": true,
+   "trendNeutral": true,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Anschläge (vollendet, gescheitert und vereitelt) pro 10 Mio. Einwohner, laut Europol",
+   "rangText": "Rang 1 = niedrigste Quote (ohne Wertung der Zahlen)",
+   "periode": "2025",
+   "vorherPeriode": "2024",
+   "anzahlLaender": 27,
+   "alter": 11,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 7.595486111111112,
+    "rang": 26,
+    "wertVorher": 3.255208333333334,
+    "rangVorher": 23,
+    "schnitt": 7.6,
+    "schnittVorher": 3.3,
+    "veraenderung": 4.3,
+    "richtung": "steigend",
+    "urteil": "höher",
+    "anzahl": 7,
+    "anzahlVorher": 3
+   },
+   "eu": null,
+   "beste": {
+    "code": "BG",
+    "name": "Bulgarien",
+    "value": 0,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert",
+    "zus": "0 Anschläge"
+   },
+   "schlechteste": {
+    "code": "MT",
+    "name": "Malta",
+    "value": 17.006802721088437,
+    "rank": 27,
+    "richtung": "stabil",
+    "urteil": "unverändert",
+    "zus": "1 Anschlag"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2022",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2023",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2024",
+     "rang": 23,
+     "n": 27
+    },
+    {
+     "t": "2025",
+     "rang": 26,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": {
+    "t": "2024",
+    "wert": 3.255208333333334,
+    "rang": 23,
+    "n": 27,
+    "schnitt": 3.3,
+    "veraenderung": 4.3,
+    "richtung": "steigend",
+    "urteil": "höher"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 0,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 0,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 0,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 0,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 0,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "0 Anschläge"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 0.20165355918531963,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "1 Anschlag"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 0.47923131297398974,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "4 Anschläge"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 0.5515719801434087,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "1 Anschlag"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 1.672940192388122,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "zus": "2 Anschläge"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 1.9291984180572972,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "zus": "2 Anschläge"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 1.8662097280423462,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "zus": "11 Anschläge"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 2.025697418682718,
+     "rank": 24,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "14 Anschläge"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 3.629105425512611,
+     "rank": 25,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "zus": "2 Anschläge"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 7.595486111111112,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "zus": "7 Anschläge"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 17.006802721088437,
+     "rank": 27,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "1 Anschlag"
+    }
+   ],
+   "schweiz": null,
+   "verlauf": [
+    {
+     "t": "2021",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2022",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2023",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2024",
+     "at": 3.255208333333334,
+     "eu": null
+    },
+    {
+     "t": "2025",
+     "at": 7.595486111111112,
+     "eu": null
+    }
+   ],
+   "stand": "2026-11-23",
+   "quelle": "Europol, EU Terrorism Situation and Trend Report (TE-SAT) 2025 und 2026",
+   "hinweisDaten": "Anzahl der von den Mitgliedstaaten an Europol gemeldeten Anschläge (vollendet, gescheitert und vereitelt) pro Jahr. Länder, die nicht aufgeführt sind, haben keine Anschläge gemeldet (Wert 0).",
+   "euGesamt": 45,
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie viele Terroranschläge (vollendete, gescheiterte und von den Behörden vereitelte) ein Land pro Jahr an Europol gemeldet hat, umgerechnet auf 10 Millionen Einwohner. Die Zahlen stammen aus dem jährlichen EU-Lagebericht zum Terrorismus (TE-SAT) und werden von Hand eingetragen.",
+   "gruppe": "Sicherheit"
+  },
+  {
    "id": "insolvenzen",
    "name": "Insolvenzen",
    "art": "nurAT",
