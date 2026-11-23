@@ -10174,6 +10174,17 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2023).",
+   "nachtrag": {
+    "jahr": 2025,
+    "titel": "Anteil der Bevölkerung mit Kriminalität oder Vandalismus in der Wohngegend (in %)",
+    "wert": 7,
+    "vorjahr": null,
+    "einheit": "%",
+    "quelle": "Statistik Austria, EU-SILC 2025 Tabellenband (Tabelle 3.2a)",
+    "url": "https://www.statistik.at/fileadmin/pages/338/Tabellenband_EUSILC_2025.pdf",
+    "stand": "2026-11-23",
+    "gesamtAufklaerung": null
+   },
    "erklaerung": "Wie viele Menschen in einer Befragung (EU-SILC) angeben, dass es in ihrer Wohngegend Kriminalität, Gewalt oder Vandalismus gibt. Es ist ein subjektives Empfinden und sagt nichts darüber, wie viele Straftaten tatsächlich geschehen.",
    "gruppe": "Sicherheit"
   },
@@ -11843,6 +11854,19 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
+   "nachtrag": {
+    "jahr": 2025,
+    "titel": "Angezeigte Gewaltdelikte insgesamt (weiter gefasst als schwere Körperverletzung)",
+    "wert": 88133,
+    "vorjahr": 86205,
+    "einheit": "Anzeigen",
+    "aufklaerung": 85.7,
+    "aufklaerungVorjahr": 84.6,
+    "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025",
+    "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf",
+    "stand": "2026-11-23",
+    "gesamtAufklaerung": null
+   },
    "erklaerung": "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Ohne Wertung, weil die Zählweise und die Anzeigebereitschaft zwischen den Ländern stark unterschiedlich sind.",
    "gruppe": "Sicherheit"
   },
