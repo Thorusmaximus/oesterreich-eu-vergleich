@@ -65,19 +65,18 @@ function detail(i){
   }
   if(!i.ohneTrend) h += '<div class="card"><h2>'+trendTitel+'</h2>'
      + '<div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+sgn(a.veraenderung)+' '+DIFF+', '+a.richtung+')</span></div>'
-     + '<p class="note">'+(i.realText||trendText)
-     + (rangDiff ? ' Der Rang hat sich seit '+periode(i.vorherPeriode)+' '+rangDiff+'.' : '')+'</p></div>';
+     + '<p class="note">'+(rangDiff ? 'Der Rang hat sich seit '+periode(i.vorherPeriode)+' '+rangDiff+'. ' : '')+'So wird verglichen'+infoIcon(i.realText||trendText)+'</p></div>';
   var ss = i.seitStart;
   if(ss && D.regierung){
       h += '<div class="card"><h2>Seit der '+D.regierung.name+'</h2>'
        + '<div class="v '+urteilCls(ss.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,ss.urteil,ss.richtung)+'</span> '+trendWort(ss.urteil)+' <span class="k">('+sgn(ss.veraenderung)+' '+DIFF+', '+ss.richtung+')</span></div>'
-       + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+'). Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+''+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Platz '+ss.rang+' damals, Platz '+a.rang+' jetzt. Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.</p></div>';
+       + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+'). Platz '+ss.rang+' damals, Platz '+a.rang+' jetzt. So wird verglichen'+infoIcon('Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.')+'</p></div>';
   }
   var rv = (i.rangVergleich||[]).filter(Boolean);
   if(rv.length || (i.rangVerlauf||[]).length>1){
     h += '<div class="card"><h2>Entwicklung des Rangs</h2>'
        + rv.map(function(v){ var r=rangTrend(a.rang,v.rang); return '<div class="v '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Platz '+a.rang+' statt Platz '+v.rang+' '+v.label+' <span class="k">('+periode(v.t)+', '+r.text+')</span></div>'; }).join('')
-       + '<p class="note">Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.</p>'
+       + '<p class="note">So wird verglichen'+infoIcon('Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.')+'</p>'
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
   if(i.verlauf && i.verlauf.length>1) h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
