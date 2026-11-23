@@ -542,6 +542,27 @@ function berechneInsolvenzen() {
     r.geaendert = p && fingerabdruck(p) === fingerabdruck(r) ? (p.geaendert || prevDatum) : heute;
   }
   for (const r of result) if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id];
+  if (!TEST) { // TEMPORÄR: Suche nach aktuelleren Jahreswerten
+    const P = [
+      ["Staatsquote gov_10a_exp", "gov_10a_exp", "unit=PC_GDP&sector=S13&cofog99=TOTAL&na_item=TE", "2022"],
+      ["Staatsquote gov_10a_main", "gov_10a_main", "unit=PC_GDP&sector=S13&na_item=TE", "2022"],
+      ["Geburtenrate demo_find", "demo_find", "indic_de=TOTFERRT", "2022"],
+      ["Geburtenrate demo_gind", "demo_gind", "indic_de=GFERRT", "2022"],
+      ["Bevölkerung demo_pjan", "demo_pjan", "age=TOTAL&sex=T&unit=NR", "2022"],
+      ["Bevölkerung demo_gind JAN", "demo_gind", "indic_de=JAN", "2022"],
+      ["Lebenshaltung prc_ppp_ind", "prc_ppp_ind", "na_item=PLI_EU27_2020&ppp_cat=A01", "2022"],
+      ["Wachstum pro Kopf nama_10_pc", "nama_10_pc", "unit=CLV_PCH_PRE_HAB&na_item=B1GQ", "2022"],
+      ["Budgetsaldo gov_10dd_edpt1", "gov_10dd_edpt1", "unit=PC_GDP&sector=S13&na_item=B9", "2022"],
+      ["Schulden gov_10q_ggdebt", "gov_10q_ggdebt", "unit=PC_GDP&sector=S13&na_item=GD", "2025-Q1"] ];
+    for (const [n, ds, f, seit] of P) {
+      try {
+        const rs = await fetch(`${BASE}${ds}?format=JSON&lang=EN&${f}&sinceTimePeriod=${seit}`);
+        if (!rs.ok) { console.error(`   PROBE ${n}: HTTP ${rs.status}`); continue; }
+        const d = parse(await rs.json()), ts = [...new Set(Object.values(d).flatMap(o => Object.keys(o)))].sort().slice(-3);
+        console.error(`   PROBE ${n}: ` + ts.map(t => `${t}=${Object.keys(NAMES).filter(c => d[c]?.[t] !== undefined).length} Länder, AT ${d.AT?.[t] ?? "-"}`).join(" | "));
+      } catch (e) { console.error(`   PROBE ${n}: ${e.message.slice(0, 120)}`); }
+    }
+  }
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, indikatoren: result };
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync("docs/daten.json", JSON.stringify(out, null, 1));
