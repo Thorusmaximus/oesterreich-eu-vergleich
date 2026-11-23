@@ -28,7 +28,7 @@ const TAKT = {
 // Themengruppen der Startseite (Reihenfolge = Reihenfolge auf der Seite)
 const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft"];
 const GRUPPE_VON = {
-  wachstum: 0, "wachstum-pro-kopf": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0,
+  wachstum: 0, "wachstum-pro-kopf": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, einkommen: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
   bevoelkerung: 3, geburtenrate: 3 };
