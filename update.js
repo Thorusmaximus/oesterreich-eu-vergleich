@@ -190,13 +190,13 @@ const INDICATORS = [
     hinweis: "Die Rechnung ist eine Näherung: Der Beitrag des Staates wird über die Kosten gemessen (Gehälter und Käufe des Staates), nicht über den Nutzen von Schulen, Spitälern oder Polizei. Staatsinvestitionen sind in den Quartalsdaten nicht getrennt ausgewiesen und fehlen deshalb. Pensionen und andere Sozialleistungen zählen nicht als Staatsausgaben im BIP, sie wirken erst über den Konsum der Empfänger.",
     typ: "hoch", schwelle: 0.3, mock: { base: -0.6, step: 0.3 } }
   ,{ id: "benzin", name: "Benzinpreis", takt: "monat", dataset: "une_rt_m", filter: "x=y", // Platzhalter, echte Quelle: Ölbulletin (berechneOel)
-    oel: { spalte: 1 }, // Euro-super 95
+    oel: { produkt: "euro95" }, // Euro-super 95
     einheit: "Cent pro Liter Euro-super 95 an der Tankstelle, inklusive Steuern, Monatsdurchschnitt", suffix: " ct", diffEinheit: "Cent pro Liter", dez: 1,
     rangText: "Rang 1 = niedrigster Benzinpreis", maxAlter: 3,
     hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
     typ: "niedrig", schwelle: 2, mock: { base: 130, step: 4 } }
   ,{ id: "diesel", name: "Dieselpreis", takt: "monat", dataset: "une_rt_m", filter: "x=y",
-    oel: { spalte: 2 }, // Diesel
+    oel: { produkt: "diesel" },
     einheit: "Cent pro Liter Diesel an der Tankstelle, inklusive Steuern, Monatsdurchschnitt", suffix: " ct", diffEinheit: "Cent pro Liter", dez: 1,
     rangText: "Rang 1 = niedrigster Dieselpreis", maxAlter: 3,
     hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
@@ -481,15 +481,15 @@ const oelDatum = n => new Date(Date.UTC(1899, 11, 30) + n * 86400000).toISOStrin
 async function berechneOel(ind) {
   _oel ??= oelBulletin();
   const rows = (await _oel)["Prices with taxes"]; if (!rows) throw new Error("Blatt 'Prices with taxes' fehlt");
-  const kopf = rows[3] || [], bloecke = {};
-  kopf.forEach((v, i) => { if (typeof v === "string" && /^[A-Z]{2,3}_$/.test(v)) bloecke[v.slice(0, -1) === "GR" ? "EL" : v.slice(0, -1) === "EU" ? "EU27_2020" : v.slice(0, -1)] = i; });
-  if (!ind.oel.geloggt) { ind.oel.geloggt = true; for (const g of ["DK", "PL", "AT"]) { const c = bloecke[g]; console.error(`   OEL ${g}: Kopf ${JSON.stringify((rows[0] || []).slice(c, c + 4))} letzte Wochen ${JSON.stringify(rows.slice(3, 7).map(r => r && r.slice(c, c + 4)))}`); } }
+  const spalten = {}, produkt = ind.oel.produkt; // Spalten über die Kopfzeile finden (Länder mit eigener Währung haben eine zusätzliche Wechselkurs-Spalte)
+  (rows[0] || []).forEach((v, i) => { const m = typeof v === "string" && /^([A-Z]{2,3})_price_with_tax_(euro95|diesel)$/.exec(v); if (m && m[2] === produkt) spalten[m[1] === "GR" ? "EL" : m[1] === "EU" ? "EU27_2020" : m[1]] = i; });
+  if (Object.keys(spalten).length < 25) throw new Error(`Ölbulletin: nur ${Object.keys(spalten).length} Spalten für ${produkt} gefunden`);
   const sum = {}, anz = {};
   for (const r of rows.slice(3)) {
     if (!r || typeof r[0] !== "number") continue;
     const m = oelDatum(r[0]); if (m < TAKT.monat.seit) continue;
-    for (const [g, c] of Object.entries(bloecke)) {
-      const v = r[c + ind.oel.spalte]; if (typeof v !== "number" || v < 300 || v > 4000) continue; // Plausibilität: 0,30 bis 4 Euro je Liter
+    for (const [g, c] of Object.entries(spalten)) {
+      const v = r[c]; if (typeof v !== "number" || v < 300 || v > 4000) continue; // Plausibilität: 0,30 bis 4 Euro je Liter
       (sum[g] ??= {})[m] = (sum[g][m] ?? 0) + v / 10; (anz[g] ??= {})[m] = (anz[g][m] ?? 0) + 1; // v/10: EUR je 1000 l = Cent je Liter x 10
     }
   }
