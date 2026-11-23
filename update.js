@@ -25,6 +25,13 @@ const TAKT = {
 // ===== Neuer Indikator = neuer Eintrag in dieser Liste =====
 // takt: "monat", "quartal", "halbjahr" oder "jahr".  typ "niedrig": niedriger Wert ist besser.  typ "hoch": höherer Wert ist besser.
 // schwelle: ab welcher Änderung (in Prozentpunkten) der Trend als besser/schlechter gilt.
+// Themengruppen der Startseite (Reihenfolge = Reihenfolge auf der Seite)
+const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft"];
+const GRUPPE_VON = {
+  wachstum: 0, "wachstum-pro-kopf": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0,
+  schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
+  inflation: 2, lebenshaltung: 2, strompreis: 2, "strompreis-industrie": 2,
+  bevoelkerung: 3, geburtenrate: 3 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Anteil der Menschen ohne Arbeit, die aktiv eine suchen, an allen Erwerbspersonen (Beschäftigte plus Arbeitssuchende). Gemessen nach der internationalen ILO-Definition, deshalb weicht der Wert von der AMS-Quote ab.",
@@ -543,8 +550,8 @@ function berechneInsolvenzen() {
     if (r.veraltet && p) { r.geaendert = p.geaendert || prevDatum; continue; } // Abruf fehlgeschlagen: nichts Neues
     r.geaendert = p && fingerabdruck(p) === fingerabdruck(r) ? (p.geaendert || prevDatum) : heute;
   }
-  for (const r of result) if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id];
-  const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, indikatoren: result };
+  for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
+  const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync("docs/daten.json", JSON.stringify(out, null, 1));
   fs.writeFileSync("docs/daten.js", "window.DATEN = " + JSON.stringify(out) + ";\n");

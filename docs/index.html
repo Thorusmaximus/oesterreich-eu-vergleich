@@ -24,15 +24,16 @@ if(D && D.regierung){
 }
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
 else {
-  var h = banner() + '<div class="tiles">';
-  D.indikatoren.forEach(function(i){
+  var h = banner();
+  var kachel = function(i){
+    var k = '';
     if(!i.oesterreich){
-      h += '<div class="card"><div class="t">'+i.name+'</div><p class="warn">Keine Daten verfügbar.</p></div>'; return;
+      k += '<div class="card"><div class="t">'+i.name+'</div><p class="warn">Keine Daten verfügbar.</p></div>'; return k;
     }
     var a = i.oesterreich;
     if(i.art==="nurAT"){
       var hj = i.halbjahr;
-      h += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
+      k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
         + '<div class="t"'+(i.erklaerung?' title="'+i.erklaerung.replace(/"/g,"&quot;")+'"':'')+'>'+i.name+'</div>'
         + '<div class="r">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
         + '<div class="note">Nur Österreich, kein EU-Vergleich. Höchster Wert seit '+i.ersteJahr+': Platz '+a.platzHoechste+' von '+i.anzahlJahre+' Jahren</div>'
@@ -41,9 +42,9 @@ else {
         + (hj ? '<div class="rtrend '+urteilCls(hj.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(hj.richtung)+'</span> 1. Halbjahr '+hj.jahr+': '+trendWort(hj.urteil)+' <span class="note">('+prozent(hj.veraenderungProzent)+')</span></div>' : '')
         + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
         + '<div class="more">Details →</div></a>';
-      return;
+      return k;
     }
-    h += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
+    k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
       + '<div class="t"'+(i.erklaerung?' title="'+i.erklaerung.replace(/"/g,"&quot;")+'"':'')+'>'+i.name+'</div>'
       + '<div class="r">Platz '+a.rang+' <small>von '+i.anzahlLaender+'</small></div>'
       + (a.bestand!=null ? '<div class="note">Einwohner: <strong>'+a.bestand.toLocaleString("de-AT",{minimumFractionDigits:2,maximumFractionDigits:2})+' Mio.</strong></div>' : '')
@@ -54,10 +55,28 @@ else {
       + (i.typ==="neutral" ? '<div class="note">Rang 1 = höchster Wert, ohne Wertung</div>' : i.umstritten ? '<div class="note">Wertung umstritten, siehe Details</div>' : '')
       + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
       + '<div class="more">Details →</div></a>';
-  });
-  h += '</div>' + fussnote();
-  neuesteLeiste();
+  return k;
+  };
+  var GRUPPEN = D.gruppen || ["Wirtschaft und Arbeit","Staatsfinanzen","Preise und Kosten","Gesellschaft"];
+  var bilanz = function(i){ var u=i.oesterreich && i.oesterreich.urteil; return u==="besser"?"besser":u==="schlechter"?"schlechter":u==="unverändert"?"gleich":"neutral"; };
+  var gruppenHtml = GRUPPEN.concat(["Weitere"]).map(function(g){
+    var liste = D.indikatoren.filter(function(i){ return (i.gruppe||"Weitere")===g; });
+    if(!liste.length) return "";
+    var z = {besser:0, schlechter:0, gleich:0, neutral:0}; liste.forEach(function(i){ z[bilanz(i)]++; });
+    var bil = '<span class="bil">'+(z.besser?'<span class="good">'+z.besser+' besser</span>':'')+(z.schlechter?'<span class="bad">'+z.schlechter+' schlechter</span>':'')+(z.gleich?'<span>'+z.gleich+' unverändert</span>':'')+(z.neutral?'<span>'+z.neutral+' ohne Wertung</span>':'')+'</span>';
+    return '<section class="gruppe"><h2 class="gh">'+g+bil+'</h2><div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-b="'+bilanz(i)+'">'+kachel(i)+'</div>'; }).join('')+'</div></section>';
+  }).join('');
+  h += '<div class="filter" role="group" aria-label="Filter"><button class="on" data-f="alle">Alle</button><button data-f="schlechter">Nur Verschlechterungen</button><button data-f="besser">Nur Verbesserungen</button></div>' + gruppenHtml;
+  h += fussnote();
   app.innerHTML = h;
+  neuesteLeiste();
+  document.querySelector(".filter").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if(!b) return;
+    var f = b.getAttribute("data-f");
+    document.querySelectorAll(".filter button").forEach(function(x){ x.classList.toggle("on", x===b); });
+    document.querySelectorAll(".kw").forEach(function(w){ w.style.display = (f==="alle" || w.getAttribute("data-b")===f) ? "" : "none"; });
+    document.querySelectorAll(".gruppe").forEach(function(s){ s.style.display = s.querySelector(".kw:not([style*='none'])") ? "" : "none"; });
+  });
 }
 
 // Leiste über dem Titel: neueste Daten zuerst (links), mit aktuellem Trend
