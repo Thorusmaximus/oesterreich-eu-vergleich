@@ -72,7 +72,8 @@ const INDICATORS = [
     alternativen: [ // falls Eurostat die Codes anders benennt, werden diese der Reihe nach probiert
       { dataset: "gov_10a_taxag", filter: "unit=PC_GDP&sector=S13&na_item=D2_D5_D61_D91_D995" },
       { dataset: "gov_10a_taxag", filter: "unit=PC_GDP&sector=S13_S212&na_item=D2_D5_D61_D91_D995_XD995" } ],
-    quote: { dataset: "gov_10q_ggnfa", filter: "unit=MIO_EUR&s_adj=NSA&na_item=D2_D5_D91_D61_M_D995", sektoren: ["S13_S212", "S13"], bipDataset: "namq_10_gdp", bipFilter: "unit=CP_MEUR&s_adj=NSA&na_item=B1GQ" },
+    quote: { dataset: "gov_10q_ggnfa", filter: "sector=S13&unit=MIO_EUR&s_adj=NSA", items: ["D2REC", "D5REC", "D61REC", "D91REC"], pflicht: ["D2REC", "D5REC", "D61REC"], // Summe: Steuern auf Produktion/Import, Einkommen/Vermögen, Sozialbeiträge, Vermögensteuern
+      bipDataset: "namq_10_gdp", bipFilter: "unit=CP_MEUR&s_adj=NSA&na_item=B1GQ" },
     vorab: { dataset: "gov_10q_ggnfa", takt: "quartal", rueckblick: 4, maxAlter: 8, plausibel: [25, 60], basis: "unit=PC_GDP&s_adj=NSA", sektoren: ["S13"], // Quartalsdaten (Vorjahresquartal als Vergleich, wegen Saisoneffekten)
       passt: c => /D2/.test(c) && /D5/.test(c) && /D61/.test(c) },
     entdecke: { basis: "unit=PC_GDP", sektoren: ["S13_S212", "S13"], // Notlösung: Codes bei Eurostat nachschlagen (Summe aus Steuern D2, D5 und Sozialbeiträgen D61)
@@ -392,30 +393,26 @@ function berechneInsolvenzen() {
           r = berechne(ind, js); break;
         } catch (e) { letzterFehler = e; if (kandidaten.length > 1) console.error(`   (${k.dataset} mit ${k.filter} hat nicht funktioniert: ${e.message})`); }
       }
-      if (ind.quote && !TEST) { // Fehlersuche: welche Kombinationen haben Werte für Österreich?
-        try { for (const u of ["MIO_EUR", "MIO_NAC", "PC_GDP"]) for (const sa of ["NSA", "SCA", "CA"]) for (const nit of ["D2_D5_D91_D61_M_D995", "TR", "D2REC"]) {
-          const rr = await fetch(`${BASE}gov_10q_ggnfa?format=JSON&lang=EN&geo=AT&sector=S13&unit=${u}&s_adj=${sa}&na_item=${nit}&sinceTimePeriod=2024-Q1`);
-          if (!rr.ok) { console.error(`   Test ${u}/${sa}/${nit}: HTTP ${rr.status}`); continue; }
-          const jj = await rr.json(); const n = Object.keys(jj.value || {}).length; if (n) console.error(`   Test ${u}/${sa}/${nit}: ${n} Werte, z. B. ${JSON.stringify(Object.values(jj.value).slice(-2))}`); } } catch (e4) { console.error("   Test: " + e4.message); }
-      }
-      if (ind.quote && !TEST) { // Quartalsquote aus Steuern (ggnfa) und BIP (namq) selbst berechnen
+      if (ind.quote && !TEST) { // Quartalsquote aus Steuern (ggnfa, Summe der Einzelposten) und BIP (namq) selbst berechnen
         try {
           const q = ind.quote, seit = TAKT.quartal.seit;
-          for (const sek of q.sektoren) {
-            try {
-              const ra = await fetch(`${BASE}${q.dataset}?format=JSON&lang=EN&${q.filter}&sector=${sek}&sinceTimePeriod=${seit}`), rb = await fetch(`${BASE}${q.bipDataset}?format=JSON&lang=EN&${q.bipFilter}&sinceTimePeriod=${seit}`);
-              if (!ra.ok || !rb.ok) throw new Error(`HTTP ${ra.status}/${rb.status}`);
-              try { const ja = await ra.clone().json(), jb = await rb.clone().json(); const pa = parse(ja), pb = parse(jb); const lt = o => { const ts = [...new Set(Object.values(o).flatMap(x => Object.keys(x)))].sort(); return ts.length ? ts[0] + ".." + ts[ts.length - 1] : "leer"; };
-                console.error(`   Diagnose: Steuern ${Object.keys(pa).length} Länder, ${lt(pa)}, AT ${JSON.stringify(pa.AT || {}).slice(0, 120)}; BIP ${Object.keys(pb).length} Länder, ${lt(pb)}, AT ${JSON.stringify(pb.AT || {}).slice(0, 120)}`); } catch (e3) { console.error("   Diagnose: " + e3.message); }
-              const jq = quotientJs(await ra.json(), await rb.json()), dd = parse(jq), ts = [...new Set(Object.values(dd).flatMap(o => Object.keys(o)))].sort();
-              console.error(`   Quartalsquote (${sek}): ${Object.keys(dd).length} Länder, Perioden ${ts[0]}..${ts[ts.length - 1]}, AT: ${JSON.stringify(dd.AT || {}).slice(0, 160)}`);
-              const r3 = berechne({ ...ind, takt: "quartal", rueckblick: 4, maxAlter: 8 }, jq);
-              const w = r3.oesterreich && r3.oesterreich.wert;
-              if (!(r3.anzahlLaender >= 20 && w >= 25 && w <= 60)) throw new Error(`unplausibel (AT ${w}, ${r3.anzahlLaender} Länder)`);
-              r = r3; console.error("   (Quartalsquote berechnet)"); break;
-            } catch (e) { console.error(`   (Quartalsquote ${sek} hat nicht funktioniert: ${e.message})`); }
-          }
-        } catch (e) { console.error("   Quartalsquote fehlgeschlagen: " + e.message); }
+          const holen = async url => { const rs = await fetch(url); if (!rs.ok) throw new Error("HTTP " + rs.status); return rs.json(); };
+          const teile = {};
+          for (const it of q.items) { try { teile[it] = parse(await holen(`${BASE}${q.dataset}?format=JSON&lang=EN&${q.filter}&na_item=${it}&sinceTimePeriod=${seit}`)); } catch (e) { console.error(`   (Posten ${it}: ${e.message})`); } }
+          const summe = {};
+          for (const it in teile) for (const g in teile[it]) for (const t in teile[it][g]) { (summe[g] ??= {}); summe[g][t] = (summe[g][t] ?? 0) + teile[it][g][t]; }
+          for (const g in summe) for (const t in summe[g]) if (q.pflicht.some(it => teile[it]?.[g]?.[t] === undefined)) delete summe[g][t]; // Pflichtposten müssen vorhanden sein
+          const geos = Object.keys(summe), ts0 = [...new Set(Object.values(summe).flatMap(o => Object.keys(o)))].sort();
+          const idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
+          const jsA = { id: ["geo", "time"], size: [geos.length, ts0.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(ts0) } } }, value: geos.flatMap(g => ts0.map(t => summe[g][t] ?? null)) };
+          const jsB = await holen(`${BASE}${q.bipDataset}?format=JSON&lang=EN&${q.bipFilter}&sinceTimePeriod=${seit}`);
+          const jq = quotientJs(jsA, jsB), dd = parse(jq), ts = [...new Set(Object.values(dd).flatMap(o => Object.keys(o)))].sort();
+          console.error(`   Quartalsquote: ${Object.keys(dd).length} Länder, Perioden ${ts[0]}..${ts[ts.length - 1]}, AT: ${JSON.stringify(dd.AT || {}).slice(-120)}`);
+          const r3 = berechne({ ...ind, takt: "quartal", rueckblick: 4, maxAlter: 8 }, jq);
+          const w = r3.oesterreich && r3.oesterreich.wert;
+          if (!(r3.anzahlLaender >= 20 && w >= 25 && w <= 60)) throw new Error(`unplausibel (AT ${w}, ${r3.anzahlLaender} Länder)`);
+          r = r3; console.error("   (Quartalsquote berechnet)");
+        } catch (e) { console.error(`   (Quartalsquote hat nicht funktioniert: ${e.message})`); }
       }
       if (ind.vorab && !TEST && !r) { // zuerst die häufigere Quartalsreihe versuchen
         try {
