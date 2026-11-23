@@ -42,6 +42,11 @@ function detail(i){
      + (i.hinweis ? '<p class="note">'+i.hinweis+'</p>' : '')
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.datenHinweis ? '<p class="altdaten">⏳ '+i.datenHinweis+'</p>' : '')
+     + (i.nachtrag ? (function(n){ var z=function(v){return v.toLocaleString("de-AT");}, dv=n.wert-n.vorjahr;
+         return '<div class="card"><h2>Österreich '+n.jahr+' (nationale Statistik)</h2><div class="v">'+n.titel+': '+z(n.wert)+' <span class="k">(Vorjahr '+z(n.vorjahr)+', '+(dv>0?'+':'')+z(Math.round(dv*100)/100)+')</span></div>'
+         + (n.aufklaerung!=null ? '<div class="v">Aufklärungsquote: '+z(n.aufklaerung)+' % <span class="k">(Vorjahr '+z(n.aufklaerungVorjahr)+' %)</span></div>' : '')
+         + (n.gesamtAufklaerung ? '<div class="v">Aufklärungsquote aller Straftaten: '+z(n.gesamtAufklaerung.wert)+' % <span class="k">(Vorjahr '+z(n.gesamtAufklaerung.vorjahr)+' %)</span></div>' : '')
+         + '<p class="note">Nur Österreich, kein EU-Vergleich. Die Zählweise kann von Eurostat abweichen. Quelle: <a href="'+n.url+'" target="_blank" rel="noopener">'+n.quelle+'</a>. Stand der Eingabe: '+n.stand+'.</p></div>'; })(i.nachtrag) : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
      + '<div class="grid">'
      + '<div><div class="k">Österreich</div><div class="v">'+f(a.wert)+SUF+'</div></div>'

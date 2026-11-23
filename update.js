@@ -379,6 +379,8 @@ function berechne(ind, js) {
   const count = t => Object.keys(NAMES).filter(c => data[c]?.[t] !== undefined).length;
   const latest = [...periods].reverse().find(t => count(t) >= MIN_LAENDER);
   if (!latest) throw new Error("Keine ausreichenden Daten gefunden");
+  const spaeter = periods.filter(t => toIdx(t, takt) > toIdx(latest, takt));
+  if (spaeter.length) console.log(`   (${ind.name}: neuere Perioden ohne genug Länder: ${spaeter.map(t => t + "=" + count(t)).join(", ")})`);
   const vorher = shift(latest, -(ind.rueckblick || cfg.rueckblick), takt), ranks = rankAt(data, latest, sc), ranksV = rankAt(data, vorher, sc);
   const me = ranks.find(x => x.code === "AT"), meV = ranksV.find(x => x.code === "AT");
   if (!me) throw new Error("Österreich fehlt in der Berichtsperiode");
@@ -839,6 +841,11 @@ function berechneInsolvenzen() {
   const jetzt = new Date().getFullYear();
   for (const r of result) { const jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : null;
     if (r.takt === "jahr" && jahr && jahr < jetzt - 1 && r.id !== "terror") r.datenHinweis = `Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: ${jahr}). Sobald sie vorliegen, ersetzt die Seite sie automatisch.`; }
+  // Österreich-Nachtrag (von Hand) für Indikatoren, bei denen Eurostat noch nichts Neueres hat
+  try { const nt = JSON.parse(fs.readFileSync("at-nachtrag.json", "utf8"));
+    for (const r of result) { const e = nt.eintraege[r.id], jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : 0;
+      if (r.datenHinweis && e && e.jahr > jahr) r.nachtrag = { ...e, stand: nt.stand, gesamtAufklaerung: ["toetung","raub","einbruch","sexualdelikte"].includes(r.id) ? nt.gesamtAufklaerung : null }; }
+  } catch (e) { console.log("   (at-nachtrag.json nicht lesbar: " + e.message + ")"); }
   for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
   if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };

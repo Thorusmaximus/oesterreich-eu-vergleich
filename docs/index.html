@@ -42,6 +42,7 @@ else {
         + (hj ? '<div class="rtrend '+urteilCls(hj.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(hj.richtung)+'</span> 1. Halbjahr '+hj.jahr+': '+trendWort(hj.urteil)+' <span class="note">('+prozent(hj.veraenderungProzent)+')</span></div>' : '')
         + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
       + (i.datenHinweis ? '<p class="altdaten">⏳ Neuere Eurostat-Daten noch nicht verfügbar</p>' : '')
+      + (i.nachtrag ? '<p class="altdaten">🇦🇹 '+i.nachtrag.jahr+': '+i.nachtrag.wert.toLocaleString("de-AT")+' '+i.nachtrag.einheit+' (Vorjahr '+i.nachtrag.vorjahr.toLocaleString("de-AT")+')</p>' : '')
         + '<div class="more">Details →</div></a>';
       return k;
     }
@@ -56,6 +57,7 @@ else {
       + (i.typ==="neutral" ? '<div class="note">Rang 1 = höchster Wert, ohne Wertung</div>' : i.umstritten ? '<div class="note">Wertung umstritten, siehe Details</div>' : '')
       + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
       + (i.datenHinweis ? '<p class="altdaten">⏳ Neuere Eurostat-Daten noch nicht verfügbar</p>' : '')
+      + (i.nachtrag ? '<p class="altdaten">🇦🇹 '+i.nachtrag.jahr+': '+i.nachtrag.wert.toLocaleString("de-AT")+' '+i.nachtrag.einheit+' (Vorjahr '+i.nachtrag.vorjahr.toLocaleString("de-AT")+')</p>' : '')
       + '<div class="more">Details →</div></a>';
   return k;
   };
