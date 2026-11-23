@@ -225,8 +225,8 @@ const INDICATORS = [
     hinweis: "Die Zahlen beruhen auf Polizeistatistiken. Wie Delikte gezählt und erfasst werden, unterscheidet sich zwischen den Ländern, ein hoher Wert kann auch an besserer Erfassung oder höherer Anzeigebereitschaft liegen.",
     typ: "niedrig", schwelle: 15, mock: { base: 100, step: 60 } }
   ,{ id: "gefaengnis", name: "Gefängnisauslastung", takt: "jahr", dataset: "crim_pris_cap",
-    filter: "unit=P_CAP", // Häftlinge in Prozent der Haftplätze
-    alternativen: [ { dataset: "crim_pris_cap", filter: "unit=PC_CAP" }, { dataset: "crim_pris_cap", filter: "indic_cr=PRIS_OCC" } ],
+    filter: "indic_cr=PRIS_ACT_CAP&unit=NR", // Platzhalter (im Test); echte Berechnung: Häftlinge geteilt durch offizielle Haftplätze
+    verhaeltnis: { zaehler: "indic_cr=PRIS_ACT_CAP&unit=NR", nenner: "indic_cr=PRIS_OFF_CAP&unit=NR" },
     maxAlter: 26, dez: 0, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 15,
     einheit: "% der Haftplätze, die belegt sind (über 100 % = überbelegt)", rangText: "Rang 1 = geringste Auslastung",
     hinweis: "Nicht alle EU-Länder melden Haftplätze und Häftlinge, deshalb fehlen manche Länder in der Tabelle.",
@@ -555,6 +555,15 @@ async function berechnePrivat(ind) {
   return r;
 }
 
+// Verhältnis zweier Zeitreihen desselben Datensatzes in Prozent (z. B. Häftlinge / Haftplätze)
+async function berechneVerhaeltnis(ind) {
+  const v = ind.verhaeltnis, hol = async f => { const rs = await fetch(`${BASE}${ind.dataset}?format=JSON&lang=EN&${f}&sinceTimePeriod=${TAKT[ind.takt].seit}`); if (!rs.ok) throw new Error("HTTP " + rs.status); return parse(await rs.json()); };
+  const Z = await hol(v.zaehler), N = await hol(v.nenner), geos = Object.keys(Z).filter(g => N[g]), times = new Set(), val = {};
+  for (const g of geos) { val[g] = {}; for (const t of Object.keys(Z[g])) if (N[g][t] > 0) { val[g][t] = Z[g][t] / N[g][t] * 100; times.add(t); } }
+  const T = [...times].sort(), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
+  return berechne(ind, { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) });
+}
+
 // Quartalsquote selbst berechnen: Summe der letzten 4 Quartale (Steuern und Sozialbeiträge) / Summe der letzten 4 Quartale BIP
 function quotientJs(jsA, jsB) {
   const A = parse(jsA), B = parse(jsB), qi = t => { const m = /^(\d{4})-Q(\d)$/.exec(t); return m ? +m[1] * 4 + +m[2] - 1 : null; };
@@ -634,6 +643,7 @@ function berechneInsolvenzen() {
       let r = null, letzterFehler = null, pop = null;
       const kandidaten = [{ dataset: ind.dataset, filter: ind.filter }, ...(ind.alternativen || [])];
       if (ind.oel && !TEST) { try { r = await berechneOel(ind); } catch (e) { letzterFehler = e; console.error(`   (Ölbulletin hat nicht funktioniert: ${e.message})`); } }
+      if (ind.verhaeltnis && !TEST) { try { r = await berechneVerhaeltnis(ind); } catch (e) { letzterFehler = e; console.error(`   (Verhältnis hat nicht funktioniert: ${e.message})`); } }
       if (ind.privat && !TEST) { try { r = await berechnePrivat(ind); } catch (e) { letzterFehler = e; console.error(`   (Wachstum ohne Staat hat nicht funktioniert: ${e.message})`); } }
       for (const k of (r ? [] : kandidaten)) {
         try {
