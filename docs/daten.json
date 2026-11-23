@@ -4375,9 +4375,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Anteil der Steuern und Sozialversicherungsbeiträge am BIP. Zeigt, wie viel der Wirtschaftsleistung als Abgaben an den Staat geht (ohne Gebühren und Entgelte für Leistungen).",
-   "gruppe": "Staatsfinanzen",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Staatsfinanzen"
   },
   {
    "id": "beschaeftigung",
@@ -4875,9 +4873,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Anteil der 20- bis 64-Jährigen, die erwerbstätig sind, an der gleichaltrigen Bevölkerung. Teilzeit zählt wie Vollzeit, die Quote sagt also nichts über die geleisteten Arbeitsstunden.",
-   "gruppe": "Wirtschaft und Arbeit",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Wirtschaft und Arbeit"
   },
   {
    "id": "bevoelkerung",
@@ -5276,9 +5272,7 @@
    "bestandEU": 451.99,
    "geaendert": "2026-11-23",
    "erklaerung": "Wie stark die Einwohnerzahl gegenüber dem Vorjahr (jeweils 1. Jänner) gewachsen oder geschrumpft ist. Das Wachstum entsteht aus Geburten, Sterbefällen und Zu- beziehungsweise Abwanderung. Die Einwohnerzahl selbst steht daneben.",
-   "gruppe": "Gesellschaft",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Gesellschaft"
   },
   {
    "id": "wachstum-pro-kopf",
@@ -5626,9 +5620,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie stark die preisbereinigte Wirtschaftsleistung je Einwohner gewachsen ist. Das zeigt, ob der Wohlstand im Schnitt wächst, auch wenn die Bevölkerung wächst oder schrumpft.",
-   "gruppe": "Wirtschaft und Arbeit",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Wirtschaft und Arbeit"
   },
   {
    "id": "lebenshaltung",
@@ -5959,9 +5951,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Preisniveau-Index: Wie viel ein typischer Warenkorb im Land im Vergleich zum EU-Durchschnitt (= 100) kostet. 120 heißt, die Preise sind 20 % höher als im EU-Schnitt. Zeigt keine Teuerung über die Zeit.",
-   "gruppe": "Preise und Kosten",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Preise und Kosten"
   },
   {
    "id": "immobilien",
@@ -6431,9 +6421,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie stark sich die Preise für Wohnimmobilien (gekaufte Wohnungen und Häuser, neu und gebraucht) seit dem Amtsantritt der Regierung verändert haben, laut Eurostat-Preisindex. Der Index zeigt die Veränderung, nicht den Preis pro Quadratmeter.",
-   "gruppe": "Preise und Kosten",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Preise und Kosten"
   },
   {
    "id": "einkommen",
@@ -6449,7 +6437,7 @@
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Euro pro Jahr: Median des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
-   "rangText": "Rang 1 = höchstes Medianeinkommen",
+   "rangText": "Rang 1 = höchstes Medianeinkommen (in Euro)",
    "periode": "2025",
    "vorherPeriode": "2024",
    "anzahlLaender": 27,
@@ -6473,7 +6461,9 @@
     "value": 50046,
     "rank": 1,
     "richtung": "sinkend",
-    "urteil": "schlechter"
+    "urteil": "schlechter",
+    "pps": 37673,
+    "ppsRang": 1
    },
    "schlechteste": {
     "code": "RO",
@@ -6481,7 +6471,9 @@
     "value": 8187,
     "rank": 27,
     "richtung": "steigend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "pps": 12861,
+    "ppsRang": 26
    },
    "rangVerlauf": [
     {
@@ -6537,7 +6529,9 @@
      "value": 50046,
      "rank": 1,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "pps": 37673,
+     "ppsRang": 1
     },
     {
      "code": "AT",
@@ -6545,7 +6539,9 @@
      "value": 36546,
      "rank": 2,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 32385,
+     "ppsRang": 2
     },
     {
      "code": "DK",
@@ -6553,7 +6549,9 @@
      "value": 36192,
      "rank": 3,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 25296,
+     "ppsRang": 7
     },
     {
      "code": "IE",
@@ -6561,7 +6559,9 @@
      "value": 35138,
      "rank": 4,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 25449,
+     "ppsRang": 6
     },
     {
      "code": "NL",
@@ -6569,7 +6569,9 @@
      "value": 34466,
      "rank": 5,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 29714,
+     "ppsRang": 3
     },
     {
      "code": "BE",
@@ -6577,7 +6579,9 @@
      "value": 31299,
      "rank": 6,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 26860,
+     "ppsRang": 4
     },
     {
      "code": "FI",
@@ -6585,7 +6589,9 @@
      "value": 29740,
      "rank": 7,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 24091,
+     "ppsRang": 9
     },
     {
      "code": "DE",
@@ -6593,7 +6599,9 @@
      "value": 28891,
      "rank": 8,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 26594,
+     "ppsRang": 5
     },
     {
      "code": "SE",
@@ -6601,7 +6609,9 @@
      "value": 28574,
      "rank": 9,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 24826,
+     "ppsRang": 8
     },
     {
      "code": "FR",
@@ -6609,7 +6619,9 @@
      "value": 26459,
      "rank": 10,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 23792,
+     "ppsRang": 11
     },
     {
      "code": "CY",
@@ -6617,7 +6629,9 @@
      "value": 22066,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 23782,
+     "ppsRang": 12
     },
     {
      "code": "IT",
@@ -6625,7 +6639,9 @@
      "value": 22062,
      "rank": 12,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 22624,
+     "ppsRang": 14
     },
     {
      "code": "MT",
@@ -6633,7 +6649,9 @@
      "value": 22034,
      "rank": 13,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 24054,
+     "ppsRang": 10
     },
     {
      "code": "SI",
@@ -6641,7 +6659,9 @@
      "value": 20416,
      "rank": 14,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 22635,
+     "ppsRang": 13
     },
     {
      "code": "ES",
@@ -6649,7 +6669,9 @@
      "value": 20367,
      "rank": 15,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 22408,
+     "ppsRang": 15
     },
     {
      "code": "EE",
@@ -6657,7 +6679,9 @@
      "value": 17146,
      "rank": 16,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 17147,
+     "ppsRang": 19
     },
     {
      "code": "CZ",
@@ -6665,7 +6689,9 @@
      "value": 15199,
      "rank": 17,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "pps": 17190,
+     "ppsRang": 18
     },
     {
      "code": "HR",
@@ -6673,7 +6699,9 @@
      "value": 15057,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 19745,
+     "ppsRang": 17
     },
     {
      "code": "PT",
@@ -6681,7 +6709,9 @@
      "value": 14465,
      "rank": 19,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 16634,
+     "ppsRang": 22
     },
     {
      "code": "PL",
@@ -6689,7 +6719,9 @@
      "value": 14394,
      "rank": 20,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 19925,
+     "ppsRang": 16
     },
     {
      "code": "LV",
@@ -6697,7 +6729,9 @@
      "value": 13983,
      "rank": 21,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 17097,
+     "ppsRang": 21
     },
     {
      "code": "LT",
@@ -6705,7 +6739,9 @@
      "value": 13982,
      "rank": 22,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 17136,
+     "ppsRang": 20
     },
     {
      "code": "SK",
@@ -6713,7 +6749,9 @@
      "value": 12990,
      "rank": 23,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 15333,
+     "ppsRang": 23
     },
     {
      "code": "EL",
@@ -6721,7 +6759,9 @@
      "value": 11700,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 13612,
+     "ppsRang": 25
     },
     {
      "code": "BG",
@@ -6729,7 +6769,9 @@
      "value": 8862,
      "rank": 25,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 14843,
+     "ppsRang": 24
     },
     {
      "code": "HU",
@@ -6737,7 +6779,9 @@
      "value": 8792,
      "rank": 26,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 11958,
+     "ppsRang": 27
     },
     {
      "code": "RO",
@@ -6745,7 +6789,9 @@
      "value": 8187,
      "rank": 27,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "pps": 12861,
+     "ppsRang": 26
     }
    ],
    "schweiz": {
@@ -6779,10 +6825,15 @@
      "eu": 22939
     }
    ],
+   "kaufkraft": {
+    "wert": 32385,
+    "rang": 2,
+    "n": 27,
+    "vorher": 29758,
+    "eu": 22638
+   },
    "geaendert": "2026-11-23",
    "erklaerung": "Die Hälfte der Menschen im Land hat weniger, die andere Hälfte mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Sozialleistungen, je Person (bei Haushalten nach Größe gewichtet). Es ist kein reiner Lohn: Pensionen und Sozialleistungen sind enthalten. Die Erhebung (EU-SILC) fragt nach dem Einkommen des Vorjahres.",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
@@ -7178,9 +7229,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Was ein Haushalt mit mittlerem Verbrauch (2.500 bis 5.000 kWh pro Jahr) inklusive Steuern und Abgaben pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres.",
-   "gruppe": "Preise und Kosten",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Preise und Kosten"
   },
   {
    "id": "strompreis-industrie",
@@ -7575,9 +7624,7 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Was ein mittelgroßer Industriekunde (2 bis 20 GWh pro Jahr) ohne Mehrwertsteuer pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres.",
-   "gruppe": "Preise und Kosten",
-   "veraltet": true,
-   "fehler": "Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+   "gruppe": "Preise und Kosten"
   },
   {
    "id": "rating",
