@@ -7064,7 +7064,7 @@
    "typ": "hoch",
    "dez": 1,
    "suffix": " PPS",
-   "diffEinheit": "PPS",
+   "diffEinheit": "% real",
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
@@ -7084,7 +7084,7 @@
     "rangVorher": 2,
     "schnitt": 32385,
     "schnittVorher": 29758,
-    "veraenderung": 2627,
+    "veraenderung": 6.1,
     "richtung": "steigend",
     "urteil": "besser"
    },
@@ -7148,7 +7148,7 @@
     "rang": 2,
     "n": 27,
     "schnitt": 29758,
-    "veraenderung": 2627,
+    "veraenderung": 6.1,
     "richtung": "steigend",
     "urteil": "besser"
    },
@@ -7402,6 +7402,7 @@
      "eu": 22638
     }
    ],
+   "realText": "Inflationsbereinigt: Das Einkommen ist nominal um 8.8 % gestiegen, die Verbraucherpreise im EU-Durchschnitt sind im Einkommensjahr 2024 um 2.6 % gestiegen. Real ergibt das +6.1 %. Als besser gilt, wenn das Einkommen stärker steigt als die Preise.",
    "geaendert": "2026-11-23",
    "erklaerung": "Das mittlere Nettoeinkommen, umgerechnet in Kaufkraftstandards (PPS). Ein Euro ist nicht überall gleich viel wert: In teuren Ländern kauft man dafür weniger. PPS rechnet das heraus und zeigt, was man sich mit dem Einkommen im jeweiligen Land tatsächlich leisten kann, gemessen an einem EU-weiten Warenkorb.",
    "gruppe": "Wirtschaft und Arbeit"
