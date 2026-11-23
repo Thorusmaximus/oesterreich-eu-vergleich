@@ -16973,6 +16973,62 @@
    "gruppe": "Staatsfinanzen"
   },
   {
+   "id": "religion",
+   "name": "Religionszugehörigkeit",
+   "art": "anteile",
+   "takt": "jahr",
+   "typ": "neutral",
+   "trendNeutral": true,
+   "ohneTrend": true,
+   "umstritten": true,
+   "einheit": "Anteil der Bevölkerung in %, Österreich 2021",
+   "periode": "2021",
+   "stand": "2026-11-23",
+   "quelle": "Statistik Austria, Mikrozensus 2021 (laut APA, Vienna.at 11.01.2023); katholische Zahl laut Österreichischer Bischofskonferenz",
+   "quelleUrl": "https://www.vienna.at/bekenntnislose-in-oesterreich-zweitgroesste-religions-gruppe/7839565",
+   "hinweisDaten": "Seit der Volkszählung 2001 wird die Religion nicht mehr bei Volkszählungen erhoben. Die Zahlen für 2021 stammen aus einer freiwilligen Befragung. Angaben zu Muslimen und Orthodoxen gelten laut Quelle nur eingeschränkt als verlässlich. Nur Österreich, kein EU-Vergleich, ohne Wertung.",
+   "oesterreich": {
+    "wert": 77.6,
+    "rang": null,
+    "urteil": null,
+    "richtung": null
+   },
+   "anteile": [
+    {
+     "name": "Römisch-katholisch",
+     "wert": 54
+    },
+    {
+     "name": "Ohne Bekenntnis",
+     "wert": 22.4
+    },
+    {
+     "name": "Islamisch",
+     "wert": 8.3
+    },
+    {
+     "name": "Orthodox",
+     "wert": 4.9
+    },
+    {
+     "name": "Evangelisch",
+     "wert": 3.8
+    },
+    {
+     "name": "Altkatholisch",
+     "wert": 0.1
+    },
+    {
+     "name": "Jüdisch",
+     "wert": 0.1
+    }
+   ],
+   "bekenntnis": 77.6,
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie sich die Bevölkerung Österreichs auf Religionen und Konfessionen verteilt, laut der letzten Erhebung von Statistik Austria (2021). Es ist eine reine Zahlenübersicht ohne Wertung.",
+   "gruppe": "Gesellschaft"
+  },
+  {
    "id": "pensionsantrittsalter",
    "name": "Gesetzliches Pensionsantrittsalter",
    "pfeilModus": "wert",
@@ -17255,6 +17311,248 @@
    "geaendert": "2026-11-23",
    "erklaerung": "Das Alter, ab dem man in Österreich und den anderen EU-Ländern nach dem Gesetz die reguläre Alterspension bekommt, hier für Männer. Wer früher geht, muss meist mit Abschlägen rechnen. Das tatsächliche Antrittsalter liegt oft darunter.",
    "gruppe": "Pensionen und Alter"
+  },
+  {
+   "id": "aktionaersquote",
+   "name": "Aktionärsquote",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte",
+   "hinweis": null,
+   "umstritten": true,
+   "trendNeutral": true,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Anteil der Haushalte mit börsennotierten Aktien in % (Befragung 2021)",
+   "rangText": "Rang 1 = höchster Anteil (ohne Wertung, nur 22 EU-Länder)",
+   "periode": "2021",
+   "vorherPeriode": "2020",
+   "anzahlLaender": 22,
+   "alter": 59,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 6.1,
+    "rang": 10,
+    "wertVorher": null,
+    "rangVorher": null,
+    "schnitt": 6.1,
+    "schnittVorher": 6.1,
+    "veraenderung": 0,
+    "richtung": null,
+    "urteil": null
+   },
+   "eu": null,
+   "euMittelwert": true,
+   "beste": {
+    "code": "FI",
+    "name": "Finnland",
+    "value": 20.3,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "LT",
+    "name": "Litauen",
+    "value": 1.2,
+    "rank": 21,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "rangVerlauf": [],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 20.3,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 18,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 15.4,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 12.4,
+     "rank": 4,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 12.1,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 11.1,
+     "rank": 6,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 10.7,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 8.9,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 8,
+     "rank": 9,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 6.1,
+     "rank": 10,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 6.1,
+     "rank": 10,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 5.9,
+     "rank": 12,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 5.7,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 5.2,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 4.7,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 3.9,
+     "rank": 16,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 3.5,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 2.1,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 1.8,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 1.8,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 1.2,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 1.2,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    }
+   ],
+   "schweiz": null,
+   "verlauf": [],
+   "ohneTrend": true,
+   "stand": "2026-11-23",
+   "quelle": "Europäische Zentralbank, Household Finance and Consumption Survey (HFCS), Welle 2021, Tabelle C1",
+   "quelleUrl": "https://www.ecb.europa.eu/home/pdf/research/hfcn/HFCS_Statistical_Tables_Wave_2021_June_2026.pdf",
+   "hinweisDaten": "Anteil der Haushalte mit börsennotierten Aktien (Befragung 2021). Die Erhebung gibt es nur für 22 EU-Länder, Bulgarien, Dänemark, Polen, Rumänien und Schweden fehlen. Die Zahlen sind Haushaltsanteile, nicht Anteile der Einzelpersonen. Fondsbesitz ist nicht enthalten. Von Hand gepflegt, neue Welle alle drei Jahre.",
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie viele Haushalte börsennotierte Aktien besitzen (direkt gehalten, ohne Fonds), laut der Haushaltsbefragung der Europäischen Zentralbank und der Notenbanken. Die Erhebung gibt es nur alle paar Jahre.",
+   "gruppe": "Wirtschaft und Arbeit"
   },
   {
    "id": "marsh",
