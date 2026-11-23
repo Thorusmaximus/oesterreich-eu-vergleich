@@ -10073,7 +10073,330 @@
   {
    "id": "gefaengnis",
    "name": "Gefängnisauslastung",
-   "fehler": "Filter unvollständig: Dimension \"indic_cr\" hat 0 Werte. Filter im Skript anpassen.",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte",
+   "hinweis": "Nicht alle EU-Länder melden Haftplätze und Häftlinge, deshalb fehlen manche Länder in der Tabelle.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "% der Haftplätze, die belegt sind (über 100 % = überbelegt)",
+   "rangText": "Rang 1 = geringste Auslastung",
+   "periode": "2024",
+   "vorherPeriode": "2023",
+   "anzahlLaender": 27,
+   "alter": 23,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 116.65861319159217,
+    "rang": 21,
+    "wertVorher": 107.44768885211018,
+    "rangVorher": 20,
+    "schnitt": 116.7,
+    "schnittVorher": 107.4,
+    "veraenderung": 9.2,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "eu": null,
+   "beste": {
+    "code": "EE",
+    "name": "Estland",
+    "value": 49.93898718730934,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "schlechteste": {
+    "code": "CY",
+    "name": "Zypern",
+    "value": 227.5943396226415,
+    "rank": 27,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2020",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2021",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 22,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 20,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 21,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 49.93898718730934,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 67.0457946722538,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 67.38197424892704,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 67.66169154228857,
+     "rank": 4,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 70.80696888272514,
+     "rank": 5,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 76.79666958808063,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 78.40122119582908,
+     "rank": 7,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 80.08275190653902,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 81.55514869063471,
+     "rank": 9,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 86.04938271604938,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 94.72015221182812,
+     "rank": 11,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 95.30583214793741,
+     "rank": 12,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 99.19892131979695,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 100.96922704143445,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 103.12203295168946,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 106.5800464037123,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 107.0181329751511,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 111.74656852993834,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 111.88551452916758,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 113.95833333333334,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 116.65861319159217,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 118.32652079826882,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 122.39455887169804,
+     "rank": 23,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 122.53208292201383,
+     "rank": 24,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 129.308327322273,
+     "rank": 25,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 134.17533432392273,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 227.5943396226415,
+     "rank": 27,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    }
+   ],
+   "schweiz": {
+    "wert": 90.78876283090221,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2020",
+     "at": 95.70413800879469,
+     "eu": null
+    },
+    {
+     "t": "2021",
+     "at": 97.95633999071065,
+     "eu": null
+    },
+    {
+     "t": "2022",
+     "at": 106.13714150832054,
+     "eu": null
+    },
+    {
+     "t": "2023",
+     "at": 107.44768885211018,
+     "eu": null
+    },
+    {
+     "t": "2024",
+     "at": 116.65861319159217,
+     "eu": null
+    }
+   ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt: Es sind mehr Menschen inhaftiert, als Plätze vorhanden sind (Überbelegung).",
    "gruppe": "Sicherheit"
