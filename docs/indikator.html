@@ -73,6 +73,12 @@ function detail(i){
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
   h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
+  if(i.kaufkraft){
+    var kk=i.kaufkraft, ppsF=function(v){ return Math.round(v).toLocaleString("de-AT")+' PPS'; };
+    h += '<div class="card"><h2>In Kaufkraft gerechnet</h2><div class="v">Platz '+kk.rang+' <small>von '+kk.n+'</small></div>'
+       + '<p class="note">Österreich: '+ppsF(kk.wert)+(kk.vorher!=null?' (Vorjahr '+ppsF(kk.vorher)+')':'')+(kk.eu!=null?' · EU-Schnitt: '+ppsF(kk.eu):'')+'</p>'
+       + '<p class="note">PPS (Kaufkraftstandard) rechnet Preisunterschiede zwischen den Ländern heraus: Die Einheit zeigt, was man sich für das Einkommen im jeweiligen Land tatsächlich leisten kann. In der Tabelle unten steht neben jedem Land der Kaufkraft-Rang.</p></div>';
+  }
   if(i.bestandVerlauf && i.bestandVerlauf.length){
     var bv=i.bestandVerlauf, last=bv[bv.length-1], prev=bv.length>1?bv[bv.length-2]:null, dif=prev?Math.round((last.wert-prev.wert)*1000)/1000:null;
     h += '<div class="card"><h2>Einwohnerzahl Österreich</h2><div class="v">'+mioText(last.wert)+' Mio. <span class="k">am 1. Jänner '+last.t+(dif!=null?', '+(dif>=0?'+':'−')+mioText(Math.abs(dif))+' Mio. zum Vorjahr':'')+'</span></div>'
@@ -200,7 +206,7 @@ function ranking(i){
     return '<span class="trk"><span class="bb" style="left:'+left+'%;width:'+w+'%"></span></span>';
   };
   var s = '<p class="note">Pfeil rechts: Trend des Landes ('+trendVergleich(i)+'). '+pfeilHinweis(i)+'</p>' + i.laender.map(function(x){
-    return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null?" mitb":"")+'"><span>'+x.rank+'. '+x.name+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
+    return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.ppsRang?" mitb":"")+'"><span>'+x.rank+'. '+x.name+(x.ppsRang?' <small class="note">Kaufkraft: Platz '+x.ppsRang+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
   }).join("");
   if(i.schweiz){
     s += '<div class="row ch'+(i.schweiz.bestand!=null?" mitb":"")+'"><span>* Schweiz'+(i.schweiz.bestand!=null?' <small class="note">'+mioText(i.schweiz.bestand)+' Mio.</small>':'')+'</span>'+bar(i.schweiz.wert)+'<span class="n">'+f(i.schweiz.wert)+'</span><span class="ta"></span></div>'
