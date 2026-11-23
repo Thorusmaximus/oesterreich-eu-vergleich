@@ -7348,9 +7348,9 @@
    "warnung": null,
    "oesterreich": {
     "wert": 167.5,
-    "rang": 17,
+    "rang": 7,
     "wertVorher": 178.4,
-    "rangVorher": 18,
+    "rangVorher": 15,
     "schnitt": 180.7,
     "schnittVorher": 175.7,
     "veraenderung": 5,
@@ -7359,17 +7359,17 @@
    },
    "eu": 187.7,
    "beste": {
-    "code": "DK",
-    "name": "Dänemark",
-    "value": 0,
+    "code": "MT",
+    "name": "Malta",
+    "value": 134,
     "rank": 1,
     "richtung": "stabil",
     "urteil": "unverändert"
    },
    "schlechteste": {
-    "code": "NL",
-    "name": "Niederlande",
-    "value": 221,
+    "code": "DK",
+    "name": "Dänemark",
+    "value": 241.7,
     "rank": 27,
     "richtung": "steigend",
     "urteil": "schlechter"
@@ -7377,302 +7377,302 @@
    "rangVerlauf": [
     {
      "t": "2021-12",
-     "rang": 16,
+     "rang": 8,
      "n": 27
     },
     {
      "t": "2022-01",
-     "rang": 16,
+     "rang": 8,
      "n": 27
     },
     {
      "t": "2022-02",
-     "rang": 16,
+     "rang": 8,
      "n": 27
     },
     {
      "t": "2022-03",
-     "rang": 18,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2022-04",
-     "rang": 17,
+     "rang": 11,
      "n": 27
     },
     {
      "t": "2022-05",
-     "rang": 16,
+     "rang": 9,
      "n": 27
     },
     {
      "t": "2022-06",
-     "rang": 19,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2022-07",
-     "rang": 23,
-     "n": 27
-    },
-    {
-     "t": "2022-08",
-     "rang": 22,
-     "n": 27
-    },
-    {
-     "t": "2022-09",
      "rang": 21,
      "n": 27
     },
     {
+     "t": "2022-08",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2022-09",
+     "rang": 17,
+     "n": 27
+    },
+    {
      "t": "2022-10",
-     "rang": 20,
-     "n": 27
-    },
-    {
-     "t": "2022-11",
-     "rang": 17,
-     "n": 27
-    },
-    {
-     "t": "2022-12",
-     "rang": 17,
-     "n": 27
-    },
-    {
-     "t": "2023-01",
-     "rang": 17,
-     "n": 27
-    },
-    {
-     "t": "2023-02",
-     "rang": 17,
-     "n": 27
-    },
-    {
-     "t": "2023-03",
-     "rang": 17,
-     "n": 27
-    },
-    {
-     "t": "2023-04",
      "rang": 16,
      "n": 27
     },
     {
+     "t": "2022-11",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2022-12",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2023-01",
+     "rang": 12,
+     "n": 27
+    },
+    {
+     "t": "2023-02",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2023-03",
+     "rang": 13,
+     "n": 27
+    },
+    {
+     "t": "2023-04",
+     "rang": 11,
+     "n": 27
+    },
+    {
      "t": "2023-05",
-     "rang": 17,
+     "rang": 13,
      "n": 27
     },
     {
      "t": "2023-06",
-     "rang": 17,
+     "rang": 13,
      "n": 27
     },
     {
      "t": "2023-07",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2023-08",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2023-09",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2023-10",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2023-11",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2023-12",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2024-01",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2024-02",
-     "rang": 18,
+     "rang": 13,
      "n": 27
     },
     {
      "t": "2024-03",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2024-04",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2024-05",
-     "rang": 17,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2024-06",
-     "rang": 17,
+     "rang": 13,
      "n": 27
     },
     {
      "t": "2024-07",
-     "rang": 17,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2024-08",
-     "rang": 17,
+     "rang": 13,
      "n": 27
     },
     {
      "t": "2024-09",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2024-10",
-     "rang": 18,
+     "rang": 13,
      "n": 27
     },
     {
      "t": "2024-11",
-     "rang": 17,
+     "rang": 11,
      "n": 27
     },
     {
      "t": "2024-12",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2025-01",
-     "rang": 18,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2025-02",
-     "rang": 18,
+     "rang": 13,
      "n": 27
     },
     {
      "t": "2025-03",
-     "rang": 17,
+     "rang": 13,
      "n": 27
     },
     {
      "t": "2025-04",
-     "rang": 18,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2025-05",
-     "rang": 18,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2025-06",
-     "rang": 18,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2025-07",
-     "rang": 18,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2025-08",
-     "rang": 18,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2025-09",
-     "rang": 18,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2025-10",
-     "rang": 18,
+     "rang": 16,
      "n": 27
     },
     {
      "t": "2025-11",
-     "rang": 18,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2025-12",
-     "rang": 18,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2026-01",
-     "rang": 19,
+     "rang": 16,
      "n": 27
     },
     {
      "t": "2026-02",
-     "rang": 18,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2026-03",
-     "rang": 19,
+     "rang": 18,
      "n": 27
     },
     {
      "t": "2026-04",
-     "rang": 17,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2026-05",
-     "rang": 17,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2026-06",
-     "rang": 18,
+     "rang": 13,
      "n": 27
     },
     {
      "t": "2026-07",
-     "rang": 19,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2026-08",
-     "rang": 18,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2026-09",
-     "rang": 19,
+     "rang": 16,
      "n": 27
     },
     {
      "t": "2026-10",
-     "rang": 18,
+     "rang": 11,
      "n": 27
     },
     {
      "t": "2026-11",
-     "rang": 17,
+     "rang": 7,
      "n": 27
     }
    ],
@@ -7680,7 +7680,7 @@
     {
      "label": "seit Regierungsantritt",
      "t": "2025-03",
-     "rang": 17,
+     "rang": 13,
      "n": 27,
      "regierung": true
     }
@@ -7688,7 +7688,7 @@
    "seitStart": {
     "t": "2025-03",
     "wert": 152,
-    "rang": 17,
+    "rang": 13,
     "n": 27,
     "schnitt": 155.7,
     "veraenderung": 24.9,
@@ -7698,9 +7698,9 @@
    "rueckblick": null,
    "laender": [
     {
-     "code": "DK",
-     "name": "Dänemark",
-     "value": 0,
+     "code": "MT",
+     "name": "Malta",
+     "value": 134,
      "rank": 1,
      "richtung": "stabil",
      "urteil": "unverändert"
@@ -7708,120 +7708,40 @@
     {
      "code": "PL",
      "name": "Polen",
-     "value": 0,
-     "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "RO",
-     "name": "Rumänien",
-     "value": 0,
-     "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "value": 139.7,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "SE",
      "name": "Schweden",
-     "value": 0,
-     "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "CZ",
-     "name": "Tschechien",
-     "value": 0,
-     "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "HU",
-     "name": "Ungarn",
-     "value": 0,
-     "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "value": 146.7,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "BG",
      "name": "Bulgarien",
-     "value": 0.1,
-     "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "EE",
-     "name": "Estland",
-     "value": 0.1,
-     "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "HR",
-     "name": "Kroatien",
-     "value": 0.1,
-     "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "LV",
-     "name": "Lettland",
-     "value": 0.1,
-     "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "LT",
-     "name": "Litauen",
-     "value": 0.1,
-     "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "SK",
-     "name": "Slowakei",
-     "value": 0.1,
-     "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "value": 157,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "SI",
      "name": "Slowenien",
-     "value": 0.1,
-     "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "CY",
-     "name": "Zypern",
-     "value": 0.1,
-     "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
-    },
-    {
-     "code": "MT",
-     "name": "Malta",
-     "value": 134,
-     "rank": 15,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "value": 162.6,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "LU",
      "name": "Luxemburg",
      "value": 166,
-     "rank": 16,
+     "rank": 6,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7829,7 +7749,23 @@
      "code": "AT",
      "name": "Österreich",
      "value": 167.5,
-     "rank": 17,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 167.8,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 168,
+     "rank": 9,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7837,7 +7773,63 @@
      "code": "ES",
      "name": "Spanien",
      "value": 168.1,
-     "rank": 18,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 170,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 171,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 172.1,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 180.6,
+     "rank": 14,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 182.1,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 182.6,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 183,
+     "rank": 17,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7845,7 +7837,7 @@
      "code": "BE",
      "name": "Belgien",
      "value": 184.7,
-     "rank": 19,
+     "rank": 18,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7853,7 +7845,7 @@
      "code": "PT",
      "name": "Portugal",
      "value": 193.8,
-     "rank": 20,
+     "rank": 19,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7861,7 +7853,7 @@
      "code": "IE",
      "name": "Irland",
      "value": 195.7,
-     "rank": 21,
+     "rank": 20,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7869,7 +7861,7 @@
      "code": "IT",
      "name": "Italien",
      "value": 198.9,
-     "rank": 22,
+     "rank": 21,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7877,7 +7869,7 @@
      "code": "EL",
      "name": "Griechenland",
      "value": 204.5,
-     "rank": 23,
+     "rank": 22,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7885,7 +7877,7 @@
      "code": "DE",
      "name": "Deutschland",
      "value": 207.5,
-     "rank": 24,
+     "rank": 23,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7893,7 +7885,7 @@
      "code": "FR",
      "name": "Frankreich",
      "value": 209.8,
-     "rank": 25,
+     "rank": 24,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7901,7 +7893,7 @@
      "code": "FI",
      "name": "Finnland",
      "value": 218.3,
-     "rank": 26,
+     "rank": 25,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -7909,6 +7901,14 @@
      "code": "NL",
      "name": "Niederlande",
      "value": 221,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 241.7,
      "rank": 27,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8243,9 +8243,9 @@
    "warnung": null,
    "oesterreich": {
     "wert": 209,
-    "rang": 17,
+    "rang": 16,
     "wertVorher": 202,
-    "rangVorher": 18,
+    "rangVorher": 17,
     "schnitt": 214.5,
     "schnittVorher": 189.7,
     "veraenderung": 24.8,
@@ -8272,27 +8272,27 @@
    "rangVerlauf": [
     {
      "t": "2021-12",
-     "rang": 10,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2022-01",
-     "rang": 9,
+     "rang": 10,
      "n": 27
     },
     {
      "t": "2022-02",
-     "rang": 8,
+     "rang": 10,
      "n": 27
     },
     {
      "t": "2022-03",
-     "rang": 16,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2022-04",
-     "rang": 16,
+     "rang": 14,
      "n": 27
     },
     {
@@ -8302,7 +8302,7 @@
     },
     {
      "t": "2022-06",
-     "rang": 14,
+     "rang": 16,
      "n": 27
     },
     {
@@ -8317,7 +8317,7 @@
     },
     {
      "t": "2022-09",
-     "rang": 21,
+     "rang": 20,
      "n": 27
     },
     {
@@ -8327,17 +8327,17 @@
     },
     {
      "t": "2022-11",
-     "rang": 19,
+     "rang": 18,
      "n": 27
     },
     {
      "t": "2022-12",
-     "rang": 15,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2023-01",
-     "rang": 19,
+     "rang": 17,
      "n": 27
     },
     {
@@ -8352,32 +8352,32 @@
     },
     {
      "t": "2023-04",
-     "rang": 13,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2023-05",
-     "rang": 13,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2023-06",
-     "rang": 13,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2023-07",
-     "rang": 13,
+     "rang": 18,
      "n": 27
     },
     {
      "t": "2023-08",
-     "rang": 15,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2023-09",
-     "rang": 15,
+     "rang": 16,
      "n": 27
     },
     {
@@ -8387,17 +8387,17 @@
     },
     {
      "t": "2023-11",
-     "rang": 18,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2023-12",
-     "rang": 16,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2024-01",
-     "rang": 17,
+     "rang": 18,
      "n": 27
     },
     {
@@ -8407,52 +8407,52 @@
     },
     {
      "t": "2024-03",
-     "rang": 16,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2024-04",
-     "rang": 16,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2024-05",
-     "rang": 14,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2024-06",
-     "rang": 14,
+     "rang": 18,
      "n": 27
     },
     {
      "t": "2024-07",
-     "rang": 15,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2024-08",
-     "rang": 14,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2024-09",
-     "rang": 14,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2024-10",
-     "rang": 15,
-     "n": 27
-    },
-    {
-     "t": "2024-11",
      "rang": 16,
      "n": 27
     },
     {
-     "t": "2024-12",
+     "t": "2024-11",
      "rang": 15,
+     "n": 27
+    },
+    {
+     "t": "2024-12",
+     "rang": 16,
      "n": 27
     },
     {
@@ -8462,42 +8462,42 @@
     },
     {
      "t": "2025-02",
-     "rang": 15,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2025-03",
-     "rang": 16,
+     "rang": 13,
      "n": 27
     },
     {
      "t": "2025-04",
-     "rang": 16,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2025-05",
-     "rang": 15,
+     "rang": 18,
      "n": 27
     },
     {
      "t": "2025-06",
-     "rang": 15,
+     "rang": 18,
      "n": 27
     },
     {
      "t": "2025-07",
-     "rang": 15,
+     "rang": 16,
      "n": 27
     },
     {
      "t": "2025-08",
-     "rang": 15,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2025-09",
-     "rang": 15,
+     "rang": 16,
      "n": 27
     },
     {
@@ -8507,7 +8507,7 @@
     },
     {
      "t": "2025-11",
-     "rang": 17,
+     "rang": 16,
      "n": 27
     },
     {
@@ -8517,27 +8517,27 @@
     },
     {
      "t": "2026-01",
-     "rang": 16,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2026-02",
-     "rang": 16,
+     "rang": 14,
      "n": 27
     },
     {
      "t": "2026-03",
-     "rang": 21,
+     "rang": 20,
      "n": 27
     },
     {
      "t": "2026-04",
-     "rang": 19,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2026-05",
-     "rang": 18,
+     "rang": 16,
      "n": 27
     },
     {
@@ -8552,22 +8552,22 @@
     },
     {
      "t": "2026-08",
-     "rang": 18,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2026-09",
-     "rang": 20,
+     "rang": 19,
      "n": 27
     },
     {
      "t": "2026-10",
-     "rang": 18,
+     "rang": 17,
      "n": 27
     },
     {
      "t": "2026-11",
-     "rang": 17,
+     "rang": 16,
      "n": 27
     }
    ],
@@ -8575,7 +8575,7 @@
     {
      "label": "seit Regierungsantritt",
      "t": "2025-03",
-     "rang": 16,
+     "rang": 13,
      "n": 27,
      "regierung": true
     }
@@ -8583,7 +8583,7 @@
    "seitStart": {
     "t": "2025-03",
     "wert": 154.6,
-    "rang": 16,
+    "rang": 13,
     "n": 27,
     "schnitt": 158.6,
     "veraenderung": 56,
@@ -8603,104 +8603,8 @@
     {
      "code": "PL",
      "name": "Polen",
-     "value": 139.7,
+     "value": 174.7,
      "rank": 2,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "SE",
-     "name": "Schweden",
-     "value": 146.7,
-     "rank": 3,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "BG",
-     "name": "Bulgarien",
-     "value": 157,
-     "rank": 4,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "SI",
-     "name": "Slowenien",
-     "value": 162.6,
-     "rank": 5,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "CZ",
-     "name": "Tschechien",
-     "value": 167.8,
-     "rank": 6,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "CY",
-     "name": "Zypern",
-     "value": 168,
-     "rank": 7,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "SK",
-     "name": "Slowakei",
-     "value": 170,
-     "rank": 8,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "HU",
-     "name": "Ungarn",
-     "value": 171,
-     "rank": 9,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "HR",
-     "name": "Kroatien",
-     "value": 172.1,
-     "rank": 10,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "EE",
-     "name": "Estland",
-     "value": 180.6,
-     "rank": 11,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "LV",
-     "name": "Lettland",
-     "value": 182.1,
-     "rank": 12,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "LT",
-     "name": "Litauen",
-     "value": 182.6,
-     "rank": 13,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "RO",
-     "name": "Rumänien",
-     "value": 183,
-     "rank": 14,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -8708,7 +8612,79 @@
      "code": "ES",
      "name": "Spanien",
      "value": 187.1,
-     "rank": 15,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 188.2,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 189.9,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 193.3,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 194.6,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 196,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 197.5,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 199.6,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 200.4,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 202.5,
+     "rank": 12,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -8716,7 +8692,23 @@
      "code": "LU",
      "name": "Luxemburg",
      "value": 202.8,
-     "rank": 16,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 206.4,
+     "rank": 14,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 208.1,
+     "rank": 15,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -8724,7 +8716,7 @@
      "code": "AT",
      "name": "Österreich",
      "value": 209,
-     "rank": 17,
+     "rank": 16,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -8732,7 +8724,7 @@
      "code": "EL",
      "name": "Griechenland",
      "value": 209.2,
-     "rank": 18,
+     "rank": 17,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -8740,7 +8732,7 @@
      "code": "IE",
      "name": "Irland",
      "value": 211.8,
-     "rank": 19,
+     "rank": 18,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
@@ -8748,6 +8740,14 @@
      "code": "PT",
      "name": "Portugal",
      "value": 213.9,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 220.5,
      "rank": 20,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8795,7 +8795,7 @@
     {
      "code": "DK",
      "name": "Dänemark",
-     "value": 241.7,
+     "value": 244.4,
      "rank": 26,
      "richtung": "steigend",
      "urteil": "schlechter"
