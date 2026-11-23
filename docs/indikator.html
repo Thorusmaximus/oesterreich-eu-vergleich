@@ -73,6 +73,14 @@ function detail(i){
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
   h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
+  if(i.komponenten){
+    var kp=i.komponenten, fz=function(v){ return (v>0?'+':v<0?'−':'')+Math.abs(v).toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1}); };
+    h += '<div class="card"><h2>So setzt sich das Wachstum zusammen</h2>'
+       + '<div class="v">BIP-Wachstum '+fz(kp.bip)+' % <span class="k">(zum Vorjahresquartal)</span></div>'
+       + '<div class="v">davon Staat '+fz(kp.staat)+' Prozentpunkte</div>'
+       + '<div class="v">Privatwirtschaft '+fz(kp.privat)+' Prozentpunkte</div>'
+       + '<p class="note">Der Staatskonsum macht in Österreich '+kp.anteil.toLocaleString("de-AT",{maximumFractionDigits:1})+' % des BIP aus. Sein Wachstum mal dieser Anteil ergibt den Beitrag des Staates. Zieht man ihn vom BIP-Wachstum ab, bleibt das Wachstum aus der Privatwirtschaft (Konsum der Haushalte, Investitionen der Firmen, Exporte).</p></div>';
+  }
   if(i.kaufkraft){
     var kk=i.kaufkraft, ppsF=function(v){ return Math.round(v).toLocaleString("de-AT")+' PPS'; };
     h += '<div class="card"><h2>In Kaufkraft gerechnet</h2><div class="v">Platz '+kk.rang+' <small>von '+kk.n+'</small></div>'

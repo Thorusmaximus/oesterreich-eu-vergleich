@@ -44,7 +44,7 @@ const TAKT = {
 // Themengruppen der Startseite (Reihenfolge = Reihenfolge auf der Seite)
 const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft"];
 const GRUPPE_VON = {
-  wachstum: 0, "wachstum-pro-kopf": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, einkommen: 0,
+  wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, einkommen: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
   bevoelkerung: 3, geburtenrate: 3 };
@@ -66,6 +66,7 @@ const ERKLAERUNG = {
   "strompreis-industrie": "Was ein mittelgroßer Industriekunde (2 bis 20 GWh pro Jahr) ohne Mehrwertsteuer pro kWh bezahlt, in Cent. Halbjahreswerte, verglichen mit dem gleichen Halbjahr des Vorjahres.",
   immobilien: "Wie stark sich die Preise für Wohnimmobilien (gekaufte Wohnungen und Häuser, neu und gebraucht) seit dem Amtsantritt der Regierung verändert haben, laut Eurostat-Preisindex. Der Index zeigt die Veränderung, nicht den Preis pro Quadratmeter.",
   einkommen: "Die Hälfte der Menschen im Land hat weniger, die andere Hälfte mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Sozialleistungen, je Person (bei Haushalten nach Größe gewichtet). Es ist kein reiner Lohn: Pensionen und Sozialleistungen sind enthalten. Die Erhebung (EU-SILC) fragt nach dem Einkommen des Vorjahres.",
+  "wachstum-privat": "Wie stark die Wirtschaft ohne den Beitrag des Staates gewachsen wäre: Vom BIP-Wachstum wird abgezogen, was der Staat selbst beigetragen hat (Anteil des Staatskonsums am BIP mal dessen Wachstum). Spart der Staat, gibt es einen Bonus.",
   rating: "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
@@ -178,6 +179,14 @@ const INDICATORS = [
     einheit: "Euro pro Jahr: Median des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
     kaufkraft: { filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PPS" }, // zusätzlich in Kaufkraft (PPS), damit Preisunterschiede zwischen den Ländern herausgerechnet sind
     rangText: "Rang 1 = höchstes Medianeinkommen (in Euro)", typ: "hoch", schwelle: 250, mock: { base: 8000, step: 2400 } }
+  ,{ id: "wachstum-privat", name: "Wachstum ohne Staat", takt: "quartal", dataset: "namq_10_gdp",
+    filter: "unit=CLV_PCH_SM&s_adj=SCA&na_item=B1GQ", // Platzhalter (im Test), echte Berechnung: berechnePrivat()
+    privat: true, // BIP-Wachstum minus Beitrag des Staatskonsums (Anteil am BIP x Wachstum des Staatskonsums)
+    einheit: "Prozentpunkte: BIP-Wachstum zum Vorjahresquartal minus Wachstumsbeitrag des Staatskonsums (preis- und saisonbereinigt)", suffix: " %", diffEinheit: "Prozentpunkte",
+    rangText: "Rang 1 = höchstes Wachstum ohne den Beitrag des Staates", maxAlter: 8,
+    umstritten: true,
+    hinweis: "Die Rechnung ist eine Näherung: Der Beitrag des Staates wird über die Kosten gemessen (Gehälter und Käufe des Staates), nicht über den Nutzen von Schulen, Spitälern oder Polizei. Staatsinvestitionen sind in den Quartalsdaten nicht getrennt ausgewiesen und fehlen deshalb. Pensionen und andere Sozialleistungen zählen nicht als Staatsausgaben im BIP, sie wirken erst über den Konsum der Empfänger.",
+    typ: "hoch", schwelle: 0.3, mock: { base: -0.6, step: 0.3 } }
   ,{ id: "strompreis", name: "Strompreis für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
     filter: "siec=E7000&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive aller Steuern und Abgaben
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
@@ -413,6 +422,24 @@ function wachstumJs(js) {
   return { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) };
 }
 
+// Wachstum ohne Staat: BIP-Wachstum minus (Anteil des Staatskonsums am BIP x Wachstum des Staatskonsums)
+async function berechnePrivat(ind) {
+  const sq = TAKT.quartal.seit, hol = async f => { const rs = await fetch(`${BASE}namq_10_gdp?format=JSON&lang=EN&${f}&sinceTimePeriod=${sq}`); if (!rs.ok) throw new Error("HTTP " + rs.status); return parse(await rs.json()); };
+  const gdpG = await hol("unit=CLV_PCH_SM&s_adj=SCA&na_item=B1GQ"), govG = await hol("unit=CLV_PCH_SM&s_adj=SCA&na_item=P3_S13");
+  const govC = await hol("unit=CP_MEUR&s_adj=SCA&na_item=P3_S13"), gdpC = await hol("unit=CP_MEUR&s_adj=SCA&na_item=B1GQ");
+  const geos = Object.keys(gdpG).filter(g => govG[g] && govC[g] && gdpC[g]), times = new Set(), val = {}, komp = {};
+  for (const g of geos) { val[g] = {}; for (const t of Object.keys(gdpG[g])) {
+    const gg = govG[g][t], c = govC[g][t], b = gdpC[g][t];
+    if (gg == null || !c || !b) continue;
+    const anteil = c / b, staat = anteil * gg, privat = gdpG[g][t] - staat;
+    val[g][t] = privat; (komp[g] ??= {})[t] = { bip: gdpG[g][t], staat, anteil: anteil * 100 }; times.add(t); } }
+  const T = [...times].sort((a, b) => toIdx(a, "quartal") - toIdx(b, "quartal")), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
+  const js = { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) };
+  const r = berechne(ind, js), rd = x => Math.round(x * 10) / 10, k = komp.AT?.[r.periode];
+  if (k) r.komponenten = { bip: rd(k.bip), staat: rd(k.staat), privat: rd(k.bip - k.staat), anteil: rd(k.anteil) };
+  return r;
+}
+
 // Quartalsquote selbst berechnen: Summe der letzten 4 Quartale (Steuern und Sozialbeiträge) / Summe der letzten 4 Quartale BIP
 function quotientJs(jsA, jsB) {
   const A = parse(jsA), B = parse(jsB), qi = t => { const m = /^(\d{4})-Q(\d)$/.exec(t); return m ? +m[1] * 4 + +m[2] - 1 : null; };
@@ -491,7 +518,8 @@ function berechneInsolvenzen() {
     try {
       let r = null, letzterFehler = null, pop = null;
       const kandidaten = [{ dataset: ind.dataset, filter: ind.filter }, ...(ind.alternativen || [])];
-      for (const k of kandidaten) {
+      if (ind.privat && !TEST) { try { r = await berechnePrivat(ind); } catch (e) { letzterFehler = e; console.error(`   (Wachstum ohne Staat hat nicht funktioniert: ${e.message})`); } }
+      for (const k of (r ? [] : kandidaten)) {
         try {
           let js;
           if (TEST) js = mock(ind);
