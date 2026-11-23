@@ -5940,6 +5940,476 @@
    "gruppe": "Preise und Kosten"
   },
   {
+   "id": "immobilien",
+   "name": "Immobilienpreise",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte",
+   "hinweis": "Hier gibt es keine Wertung: Steigende Immobilienpreise nützen Eigentümern und belasten Käufer, Mieter und Familien, die erst kaufen wollen. Gezeigt wird die Veränderung des Preisindex der Wohnimmobilien (Wohnungen und Häuser, neu und gebraucht) gegenüber dem Quartal des Regierungsantritts. Das ist die Preisentwicklung, nicht der Preis pro Quadratmeter, und die Preise sind nicht um die Inflation bereinigt.",
+   "umstritten": true,
+   "trendNeutral": true,
+   "zusatz": null,
+   "takt": "quartal",
+   "einheit": "% Preisänderung von Wohnimmobilien seit dem Quartal des Regierungsantritts (Preisindex, ohne Inflationsbereinigung)",
+   "rangText": "Rang 1 = stärkster Preisanstieg seit Regierungsantritt, ohne Wertung",
+   "periode": "2026-Q2",
+   "vorherPeriode": "2026-Q1",
+   "anzahlLaender": 26,
+   "alter": 5,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 6.205727432342445,
+    "rang": 18,
+    "wertVorher": 2.803172488950789,
+    "rangVorher": 20,
+    "schnitt": 6.2,
+    "schnittVorher": 2.8,
+    "veraenderung": 3.4,
+    "richtung": "steigend",
+    "urteil": "höher"
+   },
+   "eu": 6.3805616913853,
+   "beste": {
+    "code": "PT",
+    "name": "Portugal",
+    "value": 22.011738514470757,
+    "rank": 1,
+    "richtung": "steigend",
+    "urteil": "höher"
+   },
+   "schlechteste": {
+    "code": "FI",
+    "name": "Finnland",
+    "value": -1.7038007863695914,
+    "rank": 26,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021-Q3",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2021-Q4",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2022-Q1",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2022-Q2",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2022-Q3",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2022-Q4",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2023-Q1",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2023-Q2",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2023-Q3",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2023-Q4",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2024-Q1",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2024-Q2",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2024-Q3",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2024-Q4",
+     "rang": null,
+     "n": 0
+    },
+    {
+     "t": "2025-Q1",
+     "rang": null,
+     "n": 26
+    },
+    {
+     "t": "2025-Q2",
+     "rang": 18,
+     "n": 26
+    },
+    {
+     "t": "2025-Q3",
+     "rang": 21,
+     "n": 26
+    },
+    {
+     "t": "2025-Q4",
+     "rang": 20,
+     "n": 26
+    },
+    {
+     "t": "2026-Q1",
+     "rang": 20,
+     "n": 26
+    },
+    {
+     "t": "2026-Q2",
+     "rang": 18,
+     "n": 26
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 22.011738514470757,
+     "rank": 1,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 19.890549358029897,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 17.49364124510475,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 17.35030426905746,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 16.62790697674419,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 16.089414182939365,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 14.658220388921638,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 12.551054730671263,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 12.574763789765676,
+     "rank": 8,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 12.544049459041728,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 12.011884550084883,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 11.278397634090599,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 9.64335340435387,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 8.49758054998231,
+     "rank": 14,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 7.514071294559099,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 7.355470989939006,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 6.796116504854366,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 6.205727432342445,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 5.873400865553813,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 5.910149750415972,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 4.554321728691479,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 2.4315173899661646,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 2.033827229521945,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 1.4540647719762045,
+     "rank": 24,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": -0.7902639481586871,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": -1.7038007863695914,
+     "rank": 26,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    }
+   ],
+   "schweiz": null,
+   "verlauf": [
+    {
+     "t": "2021-Q3",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2021-Q4",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2022-Q1",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2022-Q2",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2022-Q3",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2022-Q4",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2023-Q1",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2023-Q2",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2023-Q3",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2023-Q4",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2024-Q1",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2024-Q2",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2024-Q3",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2024-Q4",
+     "at": null,
+     "eu": null
+    },
+    {
+     "t": "2025-Q1",
+     "at": 0,
+     "eu": 0
+    },
+    {
+     "t": "2025-Q2",
+     "at": 1.0776775443482434,
+     "eu": 1.5777847901546238
+    },
+    {
+     "t": "2025-Q3",
+     "at": 1.6346794212024118,
+     "eu": 3.2123698327548134
+    },
+    {
+     "t": "2025-Q4",
+     "at": 1.8586910455894001,
+     "eu": 3.8939728621016245
+    },
+    {
+     "t": "2026-Q1",
+     "at": 2.803172488950789,
+     "eu": 5.086778163458505
+    },
+    {
+     "t": "2026-Q2",
+     "at": 6.205727432342445,
+     "eu": 6.3805616913853
+    }
+   ],
+   "geaendert": "2026-11-23",
+   "erklaerung": "Wie stark sich die Preise für Wohnimmobilien (gekaufte Wohnungen und Häuser, neu und gebraucht) seit dem Amtsantritt der Regierung verändert haben, laut Eurostat-Preisindex. Der Index zeigt die Veränderung, nicht den Preis pro Quadratmeter.",
+   "gruppe": "Preise und Kosten"
+  },
+  {
    "id": "strompreis",
    "name": "Strompreis für Haushalte",
    "pfeilModus": "wert",
