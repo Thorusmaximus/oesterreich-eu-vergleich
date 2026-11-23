@@ -138,7 +138,7 @@ const INDICATORS = [
     rangText: "Rang 1 = niedrigste Staatsquote",
     trendNeutral: true, // Trend wird ohne Wertung als höher/niedriger gezeigt, das Ranking bleibt gewertet
     umstritten: true, // Wertung ist politisch umstritten: Hinweis wird angezeigt. typ "neutral" statt "niedrig" schaltet die Wertung ab.
-    hinweis: "Die Wertung ist umstritten: Im Ranking gilt eine niedrigere Staatsquote als besser (weniger Staatsanteil an der Wirtschaft). Der Trend wird dagegen neutral als höher oder niedriger angezeigt. Andere sehen einen hohen Staatsanteil als Vorteil, etwa für soziale Absicherung, Gesundheit und Bildung. Die Staatsquote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) über den Staat ausgegeben wird.",
+    hinweis: "Der Trend wird dagegen neutral als höher oder niedriger angezeigt. Andere sehen einen hohen Staatsanteil als Vorteil, etwa für soziale Absicherung, Gesundheit und Bildung. Die Staatsquote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) über den Staat ausgegeben wird.",
     maxAlter: 26, typ: "niedrig", schwelle: 0.5, mock: { base: 42, step: 1.6 } }
   ,{ id: "abgabenquote", name: "Steuer- und Abgabenquote", takt: "jahr", dataset: "gov_10a_taxag",
     filter: "unit=PC_GDP&sector=S13_S212&na_item=D2_D5_D91_D61_M_D995", // Steuern und Sozialbeiträge in % des BIP (Staat inklusive EU-Institutionen)
@@ -155,7 +155,7 @@ const INDICATORS = [
     rangText: "Rang 1 = niedrigste Steuer- und Abgabenquote",
     trendNeutral: true, // Trend wird ohne Wertung als höher/niedriger gezeigt, das Ranking bleibt gewertet
     umstritten: true,
-    hinweis: "Die Wertung ist umstritten: Im Ranking gilt eine niedrigere Quote als besser (geringere Belastung durch Steuern und Sozialbeiträge). Der Trend wird dagegen neutral als höher oder niedriger angezeigt. Andere sehen hohe Abgaben als Voraussetzung für Leistungen wie Pensionen, Gesundheit und Bildung. Die Quote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) als Steuern und Sozialbeiträge an den Staat geht.",
+    hinweis: "Der Trend wird dagegen neutral als höher oder niedriger angezeigt. Andere sehen hohe Abgaben als Voraussetzung für Leistungen wie Pensionen, Gesundheit und Bildung. Die Quote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) als Steuern und Sozialbeiträge an den Staat geht.",
     maxAlter: 26, typ: "niedrig", schwelle: 0.5, mock: { base: 33, step: 1.1, ohneCH: true } }
   ,{ id: "beschaeftigung", name: "Beschäftigungsquote", takt: "quartal", dataset: "lfsi_emp_q",
     filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP&s_adj=SA", // Erwerbstätige 20 bis 64 Jahre in % der Bevölkerung, saisonbereinigt
