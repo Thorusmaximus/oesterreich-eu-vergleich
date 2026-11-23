@@ -10189,6 +10189,486 @@
    "gruppe": "Sicherheit"
   },
   {
+   "id": "insolvenzenEU",
+   "name": "Insolvenzen im EU-Vergleich",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": "",
+   "diffEinheit": "Indexpunkte",
+   "hinweis": "Zählweise und Insolvenzrecht unterscheiden sich je Land, deshalb vergleicht dieser Index nur die Entwicklung gegenüber dem jeweils eigenen Land im Jahr 2021. 2021 war wegen Corona-Hilfen und Aussetzungen ein ungewöhnlich insolvenzarmes Jahr, der Anstieg danach ist daher teils ein Aufholeffekt. Nicht alle EU-Länder melden.",
+   "umstritten": true,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "quartal",
+   "einheit": "Index der Insolvenzanmeldungen, 2021 = 100 (nur Entwicklung, keine absoluten Zahlen)",
+   "rangText": "Rang 1 = niedrigster Index (geringster Anstieg der Insolvenzen seit 2021)",
+   "periode": "2026-Q3",
+   "vorherPeriode": "2026-Q2",
+   "anzahlLaender": 25,
+   "alter": 2,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 224.1,
+    "rang": 23,
+    "wertVorher": 221.6,
+    "rangVorher": 23,
+    "schnitt": 224.1,
+    "schnittVorher": 221.6,
+    "veraenderung": 2.5,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "eu": 171.4,
+   "euMittelwert": false,
+   "beste": {
+    "code": "MT",
+    "name": "Malta",
+    "value": 22.2,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "schlechteste": {
+    "code": "EL",
+    "name": "Griechenland",
+    "value": 1053.8,
+    "rank": 25,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021-Q4",
+     "rang": 25,
+     "n": 26
+    },
+    {
+     "t": "2022-Q1",
+     "rang": 23,
+     "n": 26
+    },
+    {
+     "t": "2022-Q2",
+     "rang": 26,
+     "n": 26
+    },
+    {
+     "t": "2022-Q3",
+     "rang": 24,
+     "n": 26
+    },
+    {
+     "t": "2022-Q4",
+     "rang": 22,
+     "n": 26
+    },
+    {
+     "t": "2023-Q1",
+     "rang": 23,
+     "n": 26
+    },
+    {
+     "t": "2023-Q2",
+     "rang": 20,
+     "n": 26
+    },
+    {
+     "t": "2023-Q3",
+     "rang": 23,
+     "n": 26
+    },
+    {
+     "t": "2023-Q4",
+     "rang": 21,
+     "n": 26
+    },
+    {
+     "t": "2024-Q1",
+     "rang": 22,
+     "n": 26
+    },
+    {
+     "t": "2024-Q2",
+     "rang": 22,
+     "n": 26
+    },
+    {
+     "t": "2024-Q3",
+     "rang": 22,
+     "n": 26
+    },
+    {
+     "t": "2024-Q4",
+     "rang": 21,
+     "n": 26
+    },
+    {
+     "t": "2025-Q1",
+     "rang": 23,
+     "n": 26
+    },
+    {
+     "t": "2025-Q2",
+     "rang": 23,
+     "n": 26
+    },
+    {
+     "t": "2025-Q3",
+     "rang": 24,
+     "n": 26
+    },
+    {
+     "t": "2025-Q4",
+     "rang": 23,
+     "n": 26
+    },
+    {
+     "t": "2026-Q1",
+     "rang": 23,
+     "n": 26
+    },
+    {
+     "t": "2026-Q2",
+     "rang": 23,
+     "n": 26
+    },
+    {
+     "t": "2026-Q3",
+     "rang": 23,
+     "n": 25
+    }
+   ],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2025-Q1",
+     "rang": 23,
+     "n": 26,
+     "regierung": true
+    }
+   ],
+   "seitStart": {
+    "t": "2025-Q1",
+    "wert": 237.3,
+    "rang": 23,
+    "n": 26,
+    "schnitt": 237.3,
+    "veraenderung": -13.2,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 22.2,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 35.7,
+     "rank": 2,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 40,
+     "rank": 3,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 59,
+     "rank": 4,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 66.9,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 69.6,
+     "rank": 6,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 75.5,
+     "rank": 7,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 77,
+     "rank": 8,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 89.9,
+     "rank": 9,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 94.4,
+     "rank": 10,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 95.7,
+     "rank": 11,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 98.8,
+     "rank": 12,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 114.9,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 119,
+     "rank": 14,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 119.9,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 127,
+     "rank": 16,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 128.4,
+     "rank": 17,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 138.5,
+     "rank": 18,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 144,
+     "rank": 19,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 153.5,
+     "rank": 20,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 200.5,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 217.5,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 224.1,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 250.2,
+     "rank": 24,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 1053.8,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    }
+   ],
+   "schweiz": null,
+   "verlauf": [
+    {
+     "t": "2021-Q4",
+     "at": 160.2,
+     "eu": 102.6
+    },
+    {
+     "t": "2022-Q1",
+     "at": 138.8,
+     "eu": 108.5
+    },
+    {
+     "t": "2022-Q2",
+     "at": 170.6,
+     "eu": 110.8
+    },
+    {
+     "t": "2022-Q3",
+     "at": 159.5,
+     "eu": 107.1
+    },
+    {
+     "t": "2022-Q4",
+     "at": 159.3,
+     "eu": 136.5
+    },
+    {
+     "t": "2023-Q1",
+     "at": 174.4,
+     "eu": 147
+    },
+    {
+     "t": "2023-Q2",
+     "at": 170.3,
+     "eu": 154.1
+    },
+    {
+     "t": "2023-Q3",
+     "at": 172.4,
+     "eu": 135.4
+    },
+    {
+     "t": "2023-Q4",
+     "at": 188.8,
+     "eu": 163.1
+    },
+    {
+     "t": "2024-Q1",
+     "at": 227.2,
+     "eu": 176.2
+    },
+    {
+     "t": "2024-Q2",
+     "at": 210,
+     "eu": 168.3
+    },
+    {
+     "t": "2024-Q3",
+     "at": 203,
+     "eu": 151.7
+    },
+    {
+     "t": "2024-Q4",
+     "at": 226.8,
+     "eu": 179
+    },
+    {
+     "t": "2025-Q1",
+     "at": 237.3,
+     "eu": 189.1
+    },
+    {
+     "t": "2025-Q2",
+     "at": 228.6,
+     "eu": 188.4
+    },
+    {
+     "t": "2025-Q3",
+     "at": 215.2,
+     "eu": 169.9
+    },
+    {
+     "t": "2025-Q4",
+     "at": 221.1,
+     "eu": 196.4
+    },
+    {
+     "t": "2026-Q1",
+     "at": 231.2,
+     "eu": 199.7
+    },
+    {
+     "t": "2026-Q2",
+     "at": 221.6,
+     "eu": 195.9
+    },
+    {
+     "t": "2026-Q3",
+     "at": 224.1,
+     "eu": 171.4
+    }
+   ],
+   "geaendert": "2026-11-23",
+   "erklaerung": "Index der gemeldeten Unternehmensinsolvenzen, 2021 = 100. Er zeigt, wie stark sich die Zahl der Insolvenzen seit 2021 verändert hat, nicht wie viele es gibt. Absolute Zahlen sind zwischen den Ländern wegen unterschiedlicher Insolvenzrechte nicht vergleichbar.",
+   "gruppe": "Wirtschaft und Arbeit"
+  },
+  {
    "id": "toetung",
    "name": "Tötungsdelikte",
    "pfeilModus": "wert",
