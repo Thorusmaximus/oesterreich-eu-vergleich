@@ -44,7 +44,7 @@ const TAKT = {
 // Themengruppen der Startseite (Reihenfolge = Reihenfolge auf der Seite)
 const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft", "Sicherheit"];
 const GRUPPE_VON = {
-  wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, einkommen: 0, durchschnittseinkommen: 0, kaufkraft: 0,
+  wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, insolvenzenEU: 0, einkommen: 0, durchschnittseinkommen: 0, kaufkraft: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
   bevoelkerung: 3, geburtenrate: 3, terror: 4, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
@@ -80,6 +80,7 @@ const ERKLAERUNG = {
   kaufkraft: "Das mittlere Nettoeinkommen, umgerechnet in Kaufkraftstandards (PPS). Ein Euro ist nicht überall gleich viel wert: In teuren Ländern kauft man dafür weniger. PPS rechnet das heraus und zeigt, was man sich mit dem Einkommen im jeweiligen Land tatsächlich leisten kann, gemessen an einem EU-weiten Warenkorb.",
   terror: "Wie viele Terroranschläge (vollendete, gescheiterte und von den Behörden vereitelte) ein Land pro Jahr an Europol gemeldet hat, umgerechnet auf 10 Millionen Einwohner. Die Zahlen stammen aus dem jährlichen EU-Lagebericht zum Terrorismus (TE-SAT) und werden von Hand eingetragen.",
   rating: "Bewertungen der Kreditwürdigkeit eines Staates durch die Agenturen S&P, Moody's und Fitch. Je besser die Note (AAA ist die beste), desto niedriger gelten die Zinsen, die ein Land für seine Schulden zahlen muss. Der Rang beruht auf dem Durchschnitt der drei Agenturen.",
+  insolvenzenEU: "Index der gemeldeten Unternehmensinsolvenzen, 2021 = 100. Er zeigt, wie stark sich die Zahl der Insolvenzen seit 2021 verändert hat, nicht wie viele es gibt. Absolute Zahlen sind zwischen den Ländern wegen unterschiedlicher Insolvenzrechte nicht vergleichbar.",
   insolvenzen: "Anzahl der Unternehmensinsolvenzen pro Jahr in Österreich (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
 
@@ -231,6 +232,17 @@ const INDICATORS = [
     einheit: "Anteil der Bevölkerung, der Kriminalität, Gewalt oder Vandalismus in der Wohngegend meldet (Befragung EU-SILC)", rangText: "Rang 1 = geringster Anteil, der Kriminalität in der Gegend meldet",
     hinweis: "Subjektives Empfinden aus einer Haushaltsbefragung, kein Maß für tatsächliche Straftaten. Das Sicherheitsgefühl hängt auch von Medien, Stadtanteil und Erwartungen ab.",
     typ: "niedrig", umstritten: true, schwelle: 1, mock: { base: 12, step: 1 } }
+  ,{ id: "insolvenzenEU", name: "Insolvenzen im EU-Vergleich", takt: "quartal", dataset: "sts_rb_q",
+    filter: "indic_bt=BKRT&nace_r2=B-S_X_O&s_adj=NSA&unit=I21", // Insolvenzanmeldungen, Index 2021 = 100
+    alternativen: [
+      { dataset: "sts_rb_q", filter: "indic_bt=BKRT&nace_r2=B-S_X_O&s_adj=SCA&unit=I21" },
+      { dataset: "sts_rb_q", filter: "indic_bt=BKRT&nace_r2=B-S_X_O_S94&s_adj=NSA&unit=I21" },
+      { dataset: "sts_rb_q", filter: "indic_bt=BKRT&nace_r2=B-S_X_O_S94&s_adj=SCA&unit=I21" },
+      { dataset: "sts_rb_q", filter: "indic_bt=BKRT&nace_r2=B-S_X_O&s_adj=NSA&unit=I15" } ],
+    maxAlter: 12, minLaender: 12, dez: 0, suffix: "", diffEinheit: "Indexpunkte",
+    einheit: "Index der Insolvenzanmeldungen, 2021 = 100 (nur Entwicklung, keine absoluten Zahlen)", rangText: "Rang 1 = niedrigster Index (geringster Anstieg der Insolvenzen seit 2021)",
+    hinweis: "Zählweise und Insolvenzrecht unterscheiden sich je Land, deshalb vergleicht dieser Index nur die Entwicklung gegenüber dem jeweils eigenen Land im Jahr 2021. 2021 war wegen Corona-Hilfen und Aussetzungen ein ungewöhnlich insolvenzarmes Jahr, der Anstieg danach ist daher teils ein Aufholeffekt. Nicht alle EU-Länder melden.",
+    typ: "niedrig", umstritten: true, schwelle: 5, mock: { base: 110, step: 6 } }
   ,{ id: "toetung", name: "Tötungsdelikte", takt: "jahr", dataset: "crim_off_cat",
     filter: "iccs=ICCS0101&unit=P_HTHAB", // vorsätzliche Tötung, von der Polizei erfasst, pro 100.000 Einwohner
     alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS0101&unit=P_HTHAB" } ],
