@@ -13,7 +13,7 @@
 <meta property="og:description" content="Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=abe5ae1e">
+<link rel="stylesheet" href="style.css?v=49ce4864">
 </head>
 <body>
 <main>
@@ -269,11 +269,13 @@ function ranking(i){
     var left = (Math.min(v,0)-mn)/span*100, w = Math.max(.8, Math.abs(v)/span*100);
     return '<span class="trk"><span class="bb" style="left:'+left+'%;width:'+w+'%"></span></span>';
   };
+  var su = (i.suffix||'').replace(/ /g,'\u00a0'), fv = function(v){ return f(v)+su; };
+  var nw = Math.max.apply(null, vals.map(function(v){ return fv(v).length; })), st = ' style="--nw:'+Math.max(3.4, Math.round(nw*0.58*10)/10)+'em"';
   var s = i.laender.map(function(x){
-    return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.ppsRang||x.zus?" mitb":"")+'"><span>'+x.rank+'. '+x.name+(x.ppsRang?' <small class="note">Kaufkraft: Platz '+x.ppsRang+'</small>':'')+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
+    return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.ppsRang||x.zus?" mitb":"")+'"'+st+'><span>'+x.rank+'. '+x.name+(x.ppsRang?' <small class="note">Kaufkraft: Platz '+x.ppsRang+'</small>':'')+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+fv(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
   }).join("");
   if(i.schweiz){
-    s += '<div class="row ch'+(i.schweiz.bestand!=null?" mitb":"")+'"><span>'+infoIcon('Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Der Wert dient nur zum Vergleich'+(i.schweiz.periode!==i.periode ? ' (Stand: '+periode(i.schweiz.periode)+')' : '')+'.')+' Schweiz'+(i.schweiz.bestand!=null?' <small class="note">'+mioText(i.schweiz.bestand)+' Mio.</small>':'')+'</span>'+bar(i.schweiz.wert)+'<span class="n">'+f(i.schweiz.wert)+'</span><span class="ta"></span></div>';
+    s += '<div class="row ch'+(i.schweiz.bestand!=null?" mitb":"")+'"'+st+'><span>'+infoIcon('Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Der Wert dient nur zum Vergleich'+(i.schweiz.periode!==i.periode ? ' (Stand: '+periode(i.schweiz.periode)+')' : '')+'.')+' Schweiz'+(i.schweiz.bestand!=null?' <small class="note">'+mioText(i.schweiz.bestand)+' Mio.</small>':'')+'</span>'+bar(i.schweiz.wert)+'<span class="n">'+fv(i.schweiz.wert)+'</span><span class="ta"></span></div>';
   }
   return s;
 }
