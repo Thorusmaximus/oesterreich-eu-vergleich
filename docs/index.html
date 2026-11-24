@@ -14,7 +14,7 @@
 <meta property="og:description" content="Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=747ca82b">
+<link rel="stylesheet" href="style.css?v=abe5ae1e">
 </head>
 <body>
 <main>
@@ -119,7 +119,7 @@ else {
     el.hidden = false;
     el.addEventListener("click", function(e){
       var b = e.target.closest(".zb"); if(!b) return;
-      if(window.__st) window.__st(b.getAttribute("data-fz"));
+      if(window.__st) window.__st(b.getAttribute("data-fz")); b.blur();
       var fl = document.querySelector(".suche"); if(fl && (fSt!=="alle"||fRk!=="alle")) fl.scrollIntoView({behavior:"smooth",block:"start"});
     });
   })();

@@ -155,7 +155,7 @@ svg{width:100%;height:auto;display:block}
 .zb{padding:4px 11px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
 .zb b{font-weight:800}
 .zb.besser b{color:var(--good)}.zb.schlechter b{color:var(--bad)}
-.zb:hover{border-color:var(--eu)}
+@media (hover:hover){.zb:hover{border-color:var(--eu)}}
 .zb.on{border-color:var(--eu);background:var(--bg,#f4f6fb)}
 .zahlen[hidden]{display:none}
 .zb.rbesser b{color:var(--good)}.zb.rschlechter b{color:var(--bad)}
