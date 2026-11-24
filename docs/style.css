@@ -164,3 +164,10 @@ svg{width:100%;height:auto;display:block}
 .lage.vor{border-color:var(--bad);color:var(--bad)}
 .mi{padding:10px 0;border-top:1px solid var(--line)}.mi:first-of-type{border-top:0}.mi .note{margin:3px 0}.mh{margin-top:24px}
 .logo{width:1.1em;height:1.1em;vertical-align:-.15em;margin-right:4px;border-radius:22%}
+
+.leiste{display:flex;flex-wrap:wrap;gap:0 10px;align-items:flex-start}
+.leiste .suche{flex:1 1 150px;min-width:0}
+.leiste .fbox{order:3;width:100%}
+.leiste .fbtn{order:1}.leiste .suche{order:2}
+@media (min-width:701px){.leiste .fbox{order:1}.leiste .suche{order:2;flex:0 1 340px}}
+@media (max-width:700px){.leiste .fbtn{align-self:stretch;margin-bottom:10px}}

@@ -14,7 +14,7 @@
 <meta property="og:description" content="Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=234be941">
+<link rel="stylesheet" href="style.css?v=747ca82b">
 </head>
 <body>
 <main>
@@ -100,9 +100,9 @@ else {
     var bil = '<span class="bil">'+(z.besser?'<span class="good">'+z.besser+' besser</span>':'')+(z.schlechter?'<span class="bad">'+z.schlechter+' schlechter</span>':'')+(z.gleich?'<span>'+z.gleich+' unverändert</span>':'')+(z.neutral?'<span>'+z.neutral+' ohne Wertung</span>':'')+'</span>';
     return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+'</h2><div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-r="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return rangStatus(byId[id])||''; }).join(' ') : (rangStatus(i)||''))+'" data-b="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return bilanzen(byId[id]).join(' '); }).join(' ') : bilanzen(i).join(' '))+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var k=kombiVon(i); if(!k) return kachel(i); return k.v.map(function(id,n){ return '<div class="var" data-v="'+id+'" data-r="'+(rangStatus(byId[id])||'')+'" data-b="'+bilanzen(byId[id]).join(' ')+'" data-n="'+(byId[id].name+' '+id).toLowerCase().replace(/"/g,'')+'"'+(n?' style="display:none"':'')+'>'+kachel(byId[id])+'</div>'; }).join(''); })()+'</div>'; }).join('')+'</div></section>';
   }).join('');
-  h += '<button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Gruppen filtern"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Gruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
+  h += '<div class="leiste"><button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Gruppen filtern"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Gruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
   + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>'
-  + '<div class="suche"><input type="search" id="suche" placeholder="Indikator suchen" aria-label="Indikator suchen" autocomplete="off"></div>' + gruppenHtml;
+  + '<div class="suche"><input type="search" id="suche" placeholder="Indikator suchen" aria-label="Indikator suchen" autocomplete="off"></div></div>' + gruppenHtml;
   h += fussnote();
   if(versteckt.length) h += '<p class="note">Derzeit ausgeblendet, weil es noch keine Daten ab 2025 gibt: '+versteckt.map(function(i){ return i.name+' (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p>';
   app.innerHTML = h;
