@@ -14237,6 +14237,7 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
+   "ausgeblendet": true,
    "erklaerung": "Wie viele Jahre ein neugeborenes Kind im Durchschnitt ohne gesundheitliche Einschränkungen im Alltag leben wird (Healthy Life Years). Beruht auf der Selbsteinschätzung in einer EU-Befragung. Das sind meist deutlich weniger Jahre als die Lebenserwartung insgesamt.",
    "gruppe": "Pensionen und Alter"
   },
