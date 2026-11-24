@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
 <title>Regierungstracker Österreich</title>
-<link rel="stylesheet" href="style.css?v=b1473ffb">
+<link rel="stylesheet" href="style.css?v=e1287f90">
 </head>
 <body>
 <main>
@@ -13,7 +13,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=99200ee7"></script>
+<script src="common.js?v=f4d618c1"></script>
 <script>
 var app = document.getElementById("app");
 var id = new URLSearchParams(location.search).get("id");
@@ -25,6 +25,10 @@ else if(!ind.oesterreich){ app.innerHTML = '<h1>'+ind.name+'</h1><p class="warn"
 else { document.title = ind.name + " | Regierungstracker Österreich"; if(ind.art==="rating") detailRating(ind); else if(ind.art==="nurAT") detailInsolvenz(ind); else if(ind.art==="anteile") detailAnteile(ind); else detail(ind); }
 
 function erkl(i){ return i.erklaerung ? '<p class="erkl">'+i.erklaerung+'</p>' : ''; }
+function einkommenTabs(i){
+  if(i.id!=="einkommen" && i.id!=="durchschnittseinkommen") return '';
+  return '<div class="tabs" role="tablist"><a role="tab" aria-selected="'+(i.id==="einkommen")+'" class="'+(i.id==="einkommen"?'on':'')+'" href="indikator.html?id=einkommen">Median</a><a role="tab" aria-selected="'+(i.id==="durchschnittseinkommen")+'" class="'+(i.id==="durchschnittseinkommen"?'on':'')+'" href="indikator.html?id=durchschnittseinkommen">Durchschnitt</a></div>';
+}
 function detail(i){
   setzeEinheit(i);
   var a = i.oesterreich, q = i.takt==="quartal", j = i.takt==="jahr", hb = i.takt==="halbjahr";
@@ -36,10 +40,10 @@ function detail(i){
     ? 'Verglichen wird die Wachstumsrate des aktuellen Quartals ('+f(a.schnitt)+SUF+') mit der des Vorquartals ('+f(a.schnittVorher)+SUF+'). Jede Rate misst das Quartal gegenüber dem gleichen Quartal des Vorjahres.'
     : j ? 'Verglichen wird der Wert des aktuellen Jahres ('+f(a.schnitt)+SUF+') mit dem des Vorjahres ('+f(a.schnittVorher)+SUF+').'
     : 'Verglichen werden die Durchschnitte der letzten 3 Monate ('+f(a.schnitt)+SUF+') und der 3 Monate davor ('+f(a.schnittVorher)+SUF+'), damit einzelne Ausreißer den Trend nicht verzerren.';
-  var h = banner();
+  var h = banner() + einkommenTabs(i);
   h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' '+(i.anzahlLaender<27 ? teilPille(i) : '<small>von '+i.anzahlLaender+'</small>')+'</div>'
      + (i.kurzHinweis ? '<p class="note"><b>'+i.kurzHinweis+'</b></p>' : '')
-     + '<p class="note">Stand: '+periode(i.periode)+'. Einheit: '+i.einheit+infoIcon(i.rangText)+'</p>'
+     + '<p class="note">Stand: '+periode(i.periode)+'. Einheit: '+i.einheit+rangInfo(i)+'</p>'
      + (i.hinweis ? '<p class="note">'+i.hinweis+'</p>' : '')
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.datenHinweis ? '<p class="altdaten">⏳ '+i.datenHinweis+'</p>' : '')
@@ -70,7 +74,7 @@ function detail(i){
   if(ss && D.regierung){
       h += '<div class="card"><h2>Seit der '+D.regierung.name+'</h2>'
        + '<div class="v '+urteilCls(ss.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,ss.urteil,ss.richtung)+'</span> '+trendWort(ss.urteil)+' <span class="k">('+sgn(ss.veraenderung)+' '+DIFF+', '+ss.richtung+')</span></div>'
-       + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+'). '+infoIcon('Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.')+'</p></div>';
+       + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+'). '+infoIcon('Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Als „besser" zählt eine Veränderung nur, wenn sie über der des EU-Durchschnitts liegt'+(ss.euVeraenderung!=null?' (EU: '+sgn(ss.euVeraenderung)+' '+DIFF+')':'')+'. Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.')+'</p></div>';
   }
   var rv = (i.rangVergleich||[]).filter(Boolean);
   if(rv.length || (i.rangVerlauf||[]).length>1){
@@ -200,7 +204,7 @@ function bindInsolvenz(i){
 function detailRating(i){
   var a = i.oesterreich, h = banner();
   h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' '+(i.anzahlLaender<27 ? teilPille(i) : '<small>von '+i.anzahlLaender+'</small>')+'</div>'
-     + '<p class="note">Stand: '+datum(i.stand)+'.'+infoIcon(i.rangText)+'</p>'
+     + '<p class="note">Stand: '+datum(i.stand)+'.'+rangInfo(i)+'</p>'
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
      + '<div class="grid">'
@@ -289,7 +293,7 @@ function chart(i){
   }
   s += '</svg>'
      + '<div class="tip r" id="ctip" style="display:none"></div></div>'
-     + '<p class="note"><span style="color:var(--at)">●</span> Österreich &nbsp; <span style="color:var(--eu)">●</span> EU-Durchschnitt &nbsp; Fahre mit der Maus über das Diagramm, um die einzelnen Werte zu sehen.</p>';
+     + '<p class="note"><span style="color:var(--at)">●</span> Österreich &nbsp; <span style="color:var(--eu)">●</span> EU-Durchschnitt</p>';
   CS = {H:H, W:W, L:L, R:R, x:x, y:y};
   return s;
 }

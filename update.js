@@ -45,6 +45,7 @@ const TAKT = {
 const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft", "Sicherheit", "Pensionen und Alter"];
 const GRUPPE_VON = {
   wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, insolvenzenEU: 0, einkommen: 0, durchschnittseinkommen: 0, kaufkraft: 0,
+  teilzeit: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
   bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
@@ -84,6 +85,7 @@ const ERKLAERUNG = {
   pensionsausgaben: "Wie viel Prozent der Wirtschaftsleistung ein Land für Pensionen und ähnliche Alters- und Hinterbliebenenleistungen ausgibt. 15 % heißt: Von jedem erwirtschafteten Euro gehen 15 Cent in Pensionen. Der Wert hängt davon ab, wie alt die Bevölkerung ist und wie hoch die Pensionen sind.",
   ersatzquote: "Wie hoch die Pensionen der 65- bis 74-Jährigen im Vergleich zu den Einkommen der 50- bis 59-Jährigen sind (Ersatzquote). 60 % heißt: Die Pension beträgt im Schnitt 60 % des Einkommens, das man vor der Pension hatte, vor Steuern.",
   altersarmut: "Wie viele von 100 Menschen ab 65 weniger als 60 % des mittleren Einkommens im Land zur Verfügung haben und deshalb nach EU-Definition armutsgefährdet sind. Das ist ein Maß dafür, wie weit Pensionen am unteren Rand vom Rest des Landes entfernt sind, nicht für absolute Armut.",
+  teilzeit: "Wie viele von 100 Erwerbstätigen zwischen 20 und 64 Jahren in Teilzeit arbeiten. Teilzeit heißt hier weniger als die übliche volle Wochenarbeitszeit. Eine hohe Quote kann freiwillig gewählt sein, etwa wegen Kinderbetreuung oder Work-Life-Balance, oder aus Mangel an Vollzeitstellen. Die Statistik unterscheidet das nicht, deshalb gibt es keine Wertung, nur den Vergleich.",
   beschaeftigung5564: "Wie viele von 100 Menschen zwischen 55 und 64 Jahren erwerbstätig sind. Der Wert zeigt, wie viele Ältere bis zur Pension im Arbeitsleben bleiben. Das hat mit dem Pensionssystem und der Gesundheit am Arbeitsplatz zu tun.",
   pensionsantrittsalter: "Ab welchem Alter man in dem jeweiligen Land nach dem Gesetz die reguläre Alterspension bekommt, hier für Männer. Wer früher in Pension geht, muss oft mit Abschlägen rechnen. Das tatsächliche Antrittsalter liegt häufig darunter. In Österreich gilt für Frauen derzeit ein niedrigeres Alter, das schrittweise steigt.",
   marsh: "Wie gut ein Pensionssystem langfristig bezahlbar ist, laut dem Marsh CFA Institute Global Pension Index (Teilindex Nachhaltigkeit). Berücksichtigt werden unter anderem angespartes Pensionsvermögen, Altersstruktur, Staatsschulden und die Erwerbsquote Älterer. Der Index ist eine Bewertung einer Studie, keine amtliche Statistik, und enthält nur 14 der 27 EU-Länder.",
@@ -280,6 +282,12 @@ const INDICATORS = [
     einheit: "Anteil der Menschen ab 65 mit weniger als 60 % des mittleren Einkommens", rangText: "Rang 1 = niedrigste Armutsgefährdung ab 65",
     hinweis: "Die Armutsgefährdungsschwelle liegt bei 60 % des mittleren Einkommens im jeweiligen Land. Das misst die Ungleichheit im Land, nicht den absoluten Lebensstandard.",
     typ: "niedrig", schwelle: 0.3, mock: { base: 15, step: 1.2 } }
+  ,{ id: "teilzeit", name: "Teilzeitquote", takt: "jahr", dataset: "lfsa_eppgan",
+    filter: "sex=T&age=Y20-64&unit=PC", alternativen: [ { dataset: "lfsa_eppgan", filter: "sex=T&age=Y20-64&unit=PC" }, { dataset: "lfsa_eppgan", filter: "sex=T&age=Y20-64" }, { dataset: "lfsi_pt_a", filter: "indic_em=PT_PC_EMP&sex=T&age=Y20-64&unit=PC_EMP" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 24,
+    einheit: "Teilzeitbeschäftigte 20 bis 64 Jahre in % aller Erwerbstätigen dieser Altersgruppe", rangText: "Rang 1 = höchste Teilzeitquote",
+    hinweis: "Eine hohe Teilzeitquote kann freiwillig gewählt sein (etwa wegen Kinderbetreuung oder Work-Life-Balance) oder an fehlenden Vollzeitstellen liegen. Die Statistik unterscheidet das nicht.",
+    typ: "neutral", trendNeutral: true, schwelle: 0.5, mock: { base: 28, step: 0.6 } }
   ,{ id: "beschaeftigung5564", name: "Beschäftigung der 55- bis 64-Jährigen", takt: "jahr", dataset: "lfsi_emp_a",
     filter: "indic_em=EMP_LFS&sex=T&age=Y55-64&unit=PC_POP", alternativen: [ { dataset: "lfsa_ergan", filter: "sex=T&age=Y55-64&unit=PC" }, { dataset: "lfsa_ergan", filter: "sex=T&age=Y55-64" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
@@ -498,9 +506,17 @@ function berechne(ind, js) {
   const a0 = avg(data, "AT", startP, cfg.glaettung, takt);
   if (!ind.keinStart && meS && a0 != null && toIdx(startP, takt) < toIdx(latest, takt)) {
     const dd = avgNow - a0, ds = sc(avgNow) - sc(a0);
+    // EU-Vergleich: "besser" gilt seit Regierungsantritt nur, wenn Österreich sich stärker verbessert hat als der EU-Schnitt
+    const euAt = t => { const e = data.EU27_2020?.[t]; if (e != null) return e; const v = rankAt(data, t, sc).map(x => x.value).filter(x => x != null); return v.length >= MIN_LAENDER ? v.reduce((p, q) => p + q, 0) / v.length : null; };
+    const e0 = euAt(startP), e1 = euAt(latest);
+    let urS = urt(ds, dd), euDd = null, nichtUeberEU = false;
+    if (e0 != null && e1 != null) {
+      euDd = e1 - e0;
+      if (urS === "besser" && !(ds < sc(e1) - sc(e0))) { urS = "unverändert"; nichtUeberEU = true; }
+    }
     seitStart = { t: startP, wert: meS.value, rang: meS.rank, n: rkS.length, schnitt: r1(a0), veraenderung: r1(dd),
       richtung: dd > ind.schwelle ? "steigend" : dd < -ind.schwelle ? "sinkend" : "stabil",
-      urteil: urt(ds, dd) };
+      urteil: urS, euVeraenderung: euDd != null ? r1(euDd) : null, nichtUeberEU };
   }
   const rangVergleich = seitStart && ind.typ !== "neutral" ? [{ label: "seit Regierungsantritt", t: startP, rang: seitStart.rang, n: seitStart.n, regierung: true }] : [];
   // Gibt es bei Eurostat keinen EU-Gesamtwert (z. B. Kriminalität), nehmen wir den einfachen Mittelwert der EU-Länder

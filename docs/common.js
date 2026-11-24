@@ -104,8 +104,9 @@ function infoIcon(text){
   if(!text) return "";
   return '<span class="info" role="button" tabindex="0" aria-label="Erklärung anzeigen" data-info="'+String(text).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")+'">i</span>';
 }
+function rangInfo(i){ var t=i.rangText||""; return /\(|Gleichstand/.test(t) ? infoIcon(t) : ""; }
 function teilPille(i){
-  var t="Nur "+i.anzahlLaender+" von 27 EU-Ländern liefern Daten für diesen Indikator. Der Rang gilt nur unter diesen "+i.anzahlLaender+" Ländern und ist deshalb nur eingeschränkt mit anderen Indikatoren vergleichbar.";
+  var t="Nur "+i.anzahlLaender+" von 27 EU-Ländern liefern Daten für diesen Indikator.";
   return '<span class="info pille" role="button" tabindex="0" aria-label="Erklärung anzeigen" data-info="'+t+'">von '+i.anzahlLaender+'</span>';
 }
 (function(){

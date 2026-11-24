@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
 <title>Regierungstracker Österreich</title>
 <meta name="description" content="Wie entwickelt sich Österreich seit dem Amtsantritt der Bundesregierung? Arbeitslosigkeit, Inflation, Schulden, Geburtenrate, Strompreise und mehr im Ranking der 27 EU-Länder.">
-<link rel="stylesheet" href="style.css?v=b1473ffb">
+<link rel="stylesheet" href="style.css?v=e1287f90">
 </head>
 <body>
 <main>
@@ -16,7 +16,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=99200ee7"></script>
+<script src="common.js?v=f4d618c1"></script>
 <script>
 var app = document.getElementById("app");
 if(D && D.regierung){
@@ -25,6 +25,7 @@ if(D && D.regierung){
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
 else {
   var h = banner();
+  var durchschnitt = D.indikatoren.filter(function(i){ return i.id==="durchschnittseinkommen" && i.oesterreich; })[0];
   var kachel = function(i){
     var k = '';
     if(!i.oesterreich){
@@ -56,10 +57,11 @@ else {
       return k;
     }
     k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
-      + '<div class="t">'+i.name.replace('Durchschnittseinkommen','Durchschnitts-<br>einkommen')+'</div>'
+      + '<div class="t">'+(i.id==="einkommen" && durchschnitt ? 'Einkommen (Median)' : i.name.replace('Durchschnittseinkommen','Durchschnitts-<br>einkommen'))+'</div>'
       + '<div class="r">Platz '+a.rang+' '+(i.anzahlLaender<27 ? teilPille(i) : '<small>von '+i.anzahlLaender+'</small>')+'</div>'
       + (a.bestand!=null ? '<div class="note">Einwohner: <strong>'+a.bestand.toLocaleString("de-AT",{minimumFractionDigits:2,maximumFractionDigits:2})+' Mio.</strong></div>' : '')
       + (i.art==="rating" ? '<div class="note">Durchschnitt: <strong>'+a.schnittText+'</strong> (S&amp;P, Moody\'s, Fitch)</div>' : '')
+      + (i.id==="einkommen" && durchschnitt ? '<div class="note">Durchschnitt: <strong>Platz '+durchschnitt.oesterreich.rang+' von '+durchschnitt.anzahlLaender+'</strong></div>' : '')
       + '<div class="note">Stand: '+(i.art==="rating" ? datum(i.stand) : periode(i.periode))+(i.veraltet ? ' (Aktualisierung fehlgeschlagen)' : '')+'</div>'
       + (a.urteil && !i.ohneTrend ? '<div class="trend '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> Trend: '+trendWort(a.urteil)+' <span class="note">('+trendVergleich(i)+')</span></div>' : '')
       + (i.rangVergleich||[]).map(function(v){ if(!v) return ''; var r=rangTrend(a.rang,v.rang); return '<div class="rtrend '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Rang '+v.label+': Platz '+v.rang+' <span class="note">('+r.text+')</span></div>'; }).join('')
@@ -73,13 +75,14 @@ else {
   var GRUPPEN = D.gruppen || ["Wirtschaft und Arbeit","Staatsfinanzen","Preise und Kosten","Gesellschaft","Sicherheit"];
   var bilanz = function(i){ var u=i.oesterreich && i.oesterreich.urteil; return u==="besser"?"besser":u==="schlechter"?"schlechter":u==="unverändert"?"gleich":"neutral"; };
   var gruppenHtml = GRUPPEN.concat(["Weitere"]).map(function(g){
-    var liste = D.indikatoren.filter(function(i){ return (i.gruppe||"Weitere")===g; }).sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
+    var liste = D.indikatoren.filter(function(i){ return (i.gruppe||"Weitere")===g && i.id!=="durchschnittseinkommen"; }).sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
     if(!liste.length) return "";
     var z = {besser:0, schlechter:0, gleich:0, neutral:0}; liste.forEach(function(i){ z[bilanz(i)]++; });
     var bil = '<span class="bil">'+(z.besser?'<span class="good">'+z.besser+' besser</span>':'')+(z.schlechter?'<span class="bad">'+z.schlechter+' schlechter</span>':'')+(z.gleich?'<span>'+z.gleich+' unverändert</span>':'')+(z.neutral?'<span>'+z.neutral+' ohne Wertung</span>':'')+'</span>';
-    return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+'</h2><div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-b="'+bilanz(i)+'">'+kachel(i)+'</div>'; }).join('')+'</div></section>';
+    return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+'</h2><div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-b="'+bilanz(i)+'" data-n="'+(i.name+' '+(i.id==="einkommen"?'Durchschnittseinkommen Medianeinkommen':'')).toLowerCase().replace(/"/g,'')+'">'+kachel(i)+'</div>'; }).join('')+'</div></section>';
   }).join('');
-  h += '<div class="filter" role="group" aria-label="Filter"><button class="on" data-f="alle">Alle</button><button data-f="schlechter">Verschlechterungen</button><button data-f="besser">Verbesserungen</button><button data-f="neutral">Ohne Wertung</button></div>'
+  h += '<div class="suche"><input type="search" id="suche" placeholder="Indikator suchen" aria-label="Indikator suchen" autocomplete="off"></div>'
+  + '<div class="filter" role="group" aria-label="Filter"><button class="on" data-f="alle">Alle</button><button data-f="schlechter">Verschlechterungen</button><button data-f="besser">Verbesserungen</button><button data-f="neutral">Ohne Wertung</button></div>'
   + '<button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Gruppen filtern"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Gruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
   + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>' + gruppenHtml;
   h += fussnote();
@@ -87,7 +90,8 @@ else {
   neuesteLeiste();
   var fSt="alle", fGr="";
   function filtere(){
-    document.querySelectorAll(".kw").forEach(function(w){ w.style.display = (fSt==="alle" || w.getAttribute("data-b")===fSt) ? "" : "none"; });
+    var q = (document.getElementById("suche").value||"").trim().toLowerCase();
+    document.querySelectorAll(".kw").forEach(function(w){ w.style.display = ((fSt==="alle" || w.getAttribute("data-b")===fSt) && (!q || w.getAttribute("data-n").indexOf(q)>=0)) ? "" : "none"; });
     document.querySelectorAll(".gruppe").forEach(function(s){ var gOk = !fGr || s.getAttribute("data-g")===fGr; s.style.display = gOk && s.querySelector(".kw:not([style*='none'])") ? "" : "none"; });
   }
   document.querySelectorAll(".filter").forEach(function(box){
@@ -99,6 +103,7 @@ else {
       document.getElementById("fdot").hidden = !fGr;
     });
   });
+  document.getElementById("suche").addEventListener("input", filtere);
   document.getElementById("fbtn").addEventListener("click", function(){
     var o = document.getElementById("fbox").classList.toggle("offen");
     this.setAttribute("aria-expanded", o ? "true" : "false");
