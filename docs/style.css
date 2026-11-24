@@ -133,3 +133,11 @@ svg{width:100%;height:auto;display:block}
 .umsch{display:flex;gap:4px;margin-top:6px}
 .umsch button{font:inherit;font-size:.72rem;font-weight:600;padding:3px 8px;white-space:nowrap;hyphens:none;overflow-wrap:normal;word-break:normal;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
 .umsch button.on{border-color:var(--eu);background:var(--bg,#f4f6fb)}
+
+/* Details-Link in jeder Kachel einer Reihe auf gleicher Höhe */
+.tiles{align-items:stretch}
+.kw{display:flex}
+.kw>.var{display:flex;flex:1;min-width:0}
+.kw>.tile,.kw>.card,.kw>.var>.tile,.kw>.var>.card{flex:1;min-width:0}
+.tile{display:flex;flex-direction:column}
+.tile .more{margin-top:auto;padding-top:6px}
