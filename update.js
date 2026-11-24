@@ -146,7 +146,7 @@ const INDICATORS = [
   { id: "schulden", name: "Schuldenstand", takt: "quartal", dataset: "gov_10q_ggdebt", // Quartalsdaten sind aktueller als die Jahresdaten (gov_10dd_edpt1)
     filter: "unit=PC_GDP&sector=S13&na_item=GD", // Maastricht-Schuldenstand des Staates
     einheit: "% des BIP, Staat insgesamt, Stand am Quartalsende", rangText: "Rang 1 = niedrigster Schuldenstand",
-    typ: "niedrig", schwelle: 0.5, mock: { base: 40, step: 5 } },
+    typ: "niedrig", schwelle: 0.5, schwelleFix: true, mock: { base: 40, step: 5 } },
   { id: "defizit", name: "Budgetsaldo", takt: "jahr", dataset: "gov_10dd_edpt1",
     filter: "unit=PC_GDP&sector=S13&na_item=B9", // Finanzierungssaldo des Staates, negativ = Defizit
     einheit: "% des BIP, Staat insgesamt (negativ = Defizit)",
@@ -170,7 +170,7 @@ const INDICATORS = [
     trendNeutral: true, // Trend wird ohne Wertung als höher/niedriger gezeigt, das Ranking bleibt gewertet
     umstritten: true, // Wertung ist politisch umstritten: Hinweis wird angezeigt. typ "neutral" statt "niedrig" schaltet die Wertung ab.
     hinweis: "Der Trend wird neutral als höher oder niedriger angezeigt. Andere sehen einen hohen Staatsanteil als Vorteil, etwa für soziale Absicherung, Gesundheit und Bildung. Die Staatsquote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) über den Staat ausgegeben wird.",
-    maxAlter: 26, typ: "niedrig", schwelle: 0.5, mock: { base: 42, step: 1.6 } }
+    maxAlter: 26, typ: "niedrig", schwelle: 0.5, schwelleFix: true, mock: { base: 42, step: 1.6 } }
   ,{ id: "abgabenquote", name: "Steuer- und Abgabenquote", takt: "jahr", dataset: "gov_10a_taxag",
     filter: "unit=PC_GDP&sector=S13_S212&na_item=D2_D5_D91_D61_M_D995", // Steuern und Sozialbeiträge in % des BIP (Staat inklusive EU-Institutionen)
     alternativen: [ // falls Eurostat die Codes anders benennt, werden diese der Reihe nach probiert
@@ -187,14 +187,14 @@ const INDICATORS = [
     trendNeutral: true, // Trend wird ohne Wertung als höher/niedriger gezeigt, das Ranking bleibt gewertet
     umstritten: true,
     hinweis: "Der Trend wird neutral als höher oder niedriger angezeigt. Andere sehen hohe Abgaben als Voraussetzung für Leistungen wie Pensionen, Gesundheit und Bildung. Die Quote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) als Steuern und Sozialbeiträge an den Staat geht.",
-    maxAlter: 26, typ: "niedrig", schwelle: 0.5, mock: { base: 33, step: 1.1, ohneCH: true } }
+    maxAlter: 26, typ: "niedrig", schwelle: 0.5, schwelleFix: true, mock: { base: 33, step: 1.1, ohneCH: true } }
   ,{ id: "beschaeftigung", name: "Beschäftigungsquote", takt: "quartal", dataset: "lfsi_emp_q",
     filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP&s_adj=SA", // Erwerbstätige 20 bis 64 Jahre in % der Bevölkerung, saisonbereinigt
     alternativen: [
       { dataset: "lfsi_emp_q", filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP&s_adj=SA" },
       { dataset: "lfsi_emp_a", filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP" } ],
     einheit: "% der 20- bis 64-Jährigen, saisonbereinigt", rangText: "Rang 1 = höchste Beschäftigungsquote",
-    maxAlter: 12, typ: "hoch", schwelle: 0.3, mock: { base: 66, step: 1.2 } }
+    maxAlter: 12, typ: "hoch", schwelle: 0.3, schwelleFix: true, mock: { base: 66, step: 1.2 } }
   ,{ id: "bevoelkerung", name: "Bevölkerungswachstum", takt: "jahr", dataset: "demo_gind",
     filter: "indic_de=JAN", // Einwohner am 1. Jänner (demo_gind ist aktueller als demo_pjan); daraus wird das Wachstum zum Vorjahr berechnet
     alternativen: [ { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ],
@@ -236,13 +236,13 @@ const INDICATORS = [
     maxAlter: 26, dez: 0, suffix: " €", diffEinheit: "Euro",
     einheit: "Euro pro Jahr: Median des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
     kaufkraft: { filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PPS" }, // zusätzlich in Kaufkraft (PPS), damit Preisunterschiede zwischen den Ländern herausgerechnet sind
-    rangText: "Rang 1 = höchstes Medianeinkommen (in Euro)", typ: "hoch", schwelle: 250, mock: { base: 8000, step: 2400 } }
+    rangText: "Rang 1 = höchstes Medianeinkommen (in Euro)", typ: "hoch", schwelle: 250, schwelleFix: true, mock: { base: 8000, step: 2400 } }
   ,{ id: "durchschnittseinkommen", name: "Durchschnittseinkommen", takt: "jahr", dataset: "ilc_di03", real: true,
     filter: "statinfo=MEAN_EI&age=TOTAL&sex=T&unit=EUR", // durchschnittliches Nettoeinkommen je Person (EU-SILC), nach Haushaltsgröße gewichtet
     alternativen: [ { dataset: "ilc_di03", filter: "statinfo=MEAN_EI&age=Y_GE16&sex=T&unit=EUR" } ],
     maxAlter: 26, dez: 0, suffix: " €", diffEinheit: "Euro",
     einheit: "Euro pro Jahr: Durchschnitt des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
-    rangText: "Rang 1 = höchstes Durchschnittseinkommen (in Euro)", typ: "hoch", schwelle: 300,
+    rangText: "Rang 1 = höchstes Durchschnittseinkommen (in Euro)", typ: "hoch", schwelle: 300, schwelleFix: true,
     hinweis: "Der Durchschnitt liegt meist über dem Median, weil wenige sehr hohe Einkommen ihn nach oben ziehen. Je größer der Abstand zum Median, desto ungleicher sind die Einkommen verteilt. Beide Werte stehen als eigene Indikatoren bereit.",
     mock: { base: 9000, step: 2500 } }
   ,{ id: "kaufkraft", name: "Kaufkraft", takt: "jahr", dataset: "ilc_di03", real: "EU",
@@ -250,7 +250,7 @@ const INDICATORS = [
     alternativen: [ { dataset: "ilc_di03", filter: "statinfo=MED_EI&age=Y_GE16&sex=T&unit=PPS" } ],
     maxAlter: 26, dez: 0, suffix: " PPS", diffEinheit: "PPS",
     einheit: "PPS (Kaufkraftstandard) pro Jahr: Median des verfügbaren Nettoeinkommens je Person, bereinigt um die Preisunterschiede zwischen den Ländern",
-    rangText: "Rang 1 = höchste Kaufkraft", typ: "hoch", schwelle: 250, mock: { base: 8500, step: 2000 } }
+    rangText: "Rang 1 = höchste Kaufkraft", typ: "hoch", schwelle: 250, schwelleFix: true, mock: { base: 8500, step: 2000 } }
   ,{ id: "wachstum-privat", name: "Wachstum ohne Staat", takt: "quartal", dataset: "namq_10_gdp",
     filter: "unit=CLV_PCH_SM&s_adj=SCA&na_item=B1GQ", // Platzhalter (im Test), echte Berechnung: berechnePrivat()
     privat: true, // BIP-Wachstum minus Beitrag des Staatskonsums (Anteil am BIP x Wachstum des Staatskonsums)
@@ -293,7 +293,7 @@ const INDICATORS = [
     maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
     einheit: "Erwartete Jahre im Erwerbsleben (Erwerbstätige und Arbeitssuchende), in Jahren", rangText: "Rang 1 = längstes Erwerbsleben",
     hinweis: "Eurostat veröffentlicht das durchschnittliche Pensionsantrittsalter derzeit nicht mehr, deshalb zeigt diese Seite die Dauer des Erwerbslebens als Ersatz. Ob ein längeres Erwerbsleben besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber mehr Arbeitsjahre für den Einzelnen.",
-    typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, mock: { base: 61, step: 0.4 } }
+    typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, schwelleFix: true, mock: { base: 61, step: 0.4 } }
   ,{ id: "pensionsausgaben", name: "Pensionsausgaben", takt: "jahr", dataset: "spr_exp_pens",
     filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL", alternativen: [ { dataset: "spr_exp_pens", filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL" } ],
     maxAlter: 36, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte des BIP", minLaender: 20,
@@ -305,7 +305,7 @@ const INDICATORS = [
     maxAlter: 26, dez: 0, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Pensionen (65 bis 74 Jahre) in % der Einkommen der 50- bis 59-Jährigen", rangText: "Rang 1 = höchste Ersatzquote",
     hinweis: "Eine höhere Ersatzquote bedeutet höhere Pensionen im Verhältnis zum früheren Einkommen, kostet das System aber mehr.",
-    typ: "hoch", umstritten: true, schwelle: 1, mock: { base: 55, step: 3 } }
+    typ: "hoch", umstritten: true, schwelle: 1, schwelleFix: true, mock: { base: 55, step: 3 } }
   ,{ id: "altersarmut", name: "Armutsgefährdung ab 65", takt: "jahr", dataset: "ilc_li02",
     filter: "statinfo=MED_EI&age=Y_GE65&sex=T&unit=PC&rskpovth=B_60", alternativen: [ { dataset: "ilc_li02", filter: "statinfo=MEAN_EI&age=Y_GE65&sex=T&unit=PC&rskpovth=B_60" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
@@ -322,24 +322,24 @@ const INDICATORS = [
     filter: "indic_em=EMP_LFS&sex=T&age=Y55-64&unit=PC_POP", alternativen: [ { dataset: "lfsa_ergan", filter: "sex=T&age=Y55-64&unit=PC" }, { dataset: "lfsa_ergan", filter: "sex=T&age=Y55-64" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Erwerbstätige 55 bis 64 Jahre in % der Bevölkerung dieser Altersgruppe", rangText: "Rang 1 = höchste Beschäftigungsquote Älterer",
-    typ: "hoch", schwelle: 0.5, mock: { base: 55, step: 1.5 } }
+    typ: "hoch", schwelle: 0.5, schwelleFix: true, mock: { base: 55, step: 1.5 } }
   ,{ id: "durchschnittsalter", name: "Alter der Bevölkerung", takt: "jahr", dataset: "demo_pjanind",
     filter: "indic_de=MEDAGEPOP", alternativen: [ { dataset: "demo_pjanind", filter: "indic_de=MEDAGEPOP" }, { dataset: "demo_pjanind", filter: "indic_de=MEANAGEPOP" }, { dataset: "demo_pjanind", filter: "indic_de=MEDAGE" } ],
     maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
     einheit: "Medianalter der Bevölkerung zum 1. Jänner (die Hälfte ist jünger, die Hälfte älter)", rangText: "Rang 1 = höchstes Alter",
     hinweis: "Es ist das Medianalter, nicht der Durchschnitt: Die eine Hälfte der Bevölkerung ist jünger, die andere älter. Eine ältere Bevölkerung belastet das Pensionssystem, bedeutet aber auch Wohlstand und gute Gesundheitsversorgung.",
-    typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, mock: { base: 43, step: 0.4 } }
+    typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, schwelleFix: true, mock: { base: 43, step: 0.4 } }
   ,{ id: "lebenserwartung", name: "Lebenserwartung", takt: "jahr", dataset: "demo_mlexpec",
     filter: "sex=T&age=Y_LT1&unit=YR", alternativen: [ { dataset: "demo_mlexpec", filter: "sex=T&age=Y_LT1" }, { dataset: "demo_mlexpec", filter: "sex=T&age=Y0" } ],
     maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
     einheit: "Lebenserwartung bei der Geburt in Jahren, Frauen und Männer zusammen", rangText: "Rang 1 = höchste Lebenserwartung",
-    typ: "hoch", schwelle: 0.1, mock: { base: 79, step: 0.5 } }
+    typ: "hoch", schwelle: 0.1, schwelleFix: true, mock: { base: 79, step: 0.5 } }
   ,{ id: "gesundeJahre", name: "Gesunde Lebensjahre", takt: "jahr", dataset: "hlth_hlye",
     filter: "sex=T&unit=YR&hlth_hle=HLY_Y0", alternativen: [ { dataset: "hlth_hlye", filter: "sex=T&unit=YR&hlth_hle=HLY_Y0" } ],
     maxAlter: 26, dez: 1, suffix: " Jahre", diffEinheit: "Jahre", minLaender: 20,
     einheit: "Gesunde Lebensjahre bei der Geburt (Jahre ohne gesundheitliche Einschränkung), Frauen und Männer zusammen", rangText: "Rang 1 = meiste gesunde Lebensjahre",
     hinweis: "Beruht auf der Selbsteinschätzung in der EU-Haushaltsbefragung (EU-SILC), nicht auf ärztlichen Untersuchungen. Die Fragestellung wird in den Ländern unterschiedlich verstanden.",
-    typ: "hoch", schwelle: 0.3, mock: { base: 62, step: 1.2 } }
+    typ: "hoch", schwelle: 0.3, schwelleFix: true, mock: { base: 62, step: 1.2 } }
   ,{ id: "abhaengigkeit", name: "Altersabhängigkeitsquote", takt: "jahr", dataset: "demo_pjanind",
     filter: "indic_de=OLDDEP1", alternativen: [ { dataset: "demo_pjanind", filter: "indic_de=OLDDEP1" }, { dataset: "demo_pjanind", filter: "indic_de=OLDDEP" }, { dataset: "demo_pjanind", filter: "indic_de=OLDDEP2" } ],
     maxAlter: 26, dez: 1, suffix: "", diffEinheit: "Personen je 100", minLaender: 20,
