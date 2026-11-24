@@ -1,6 +1,6 @@
 {
  "beispiel": false,
- "aktualisiert": "2026-11-23",
+ "aktualisiert": "2026-11-24",
  "quelle": "Eurostat",
  "regierung": {
   "name": "Regierung Stocker",
@@ -385,7 +385,9 @@
     "schnitt": 5.5,
     "veraenderung": 0.9,
     "richtung": "steigend",
-    "urteil": "schlechter"
+    "urteil": "schlechter",
+    "euVeraenderung": 0.2,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -1284,7 +1286,9 @@
     "schnitt": 3.3,
     "veraenderung": 0,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "euVeraenderung": 1.5,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -1983,7 +1987,9 @@
     "schnitt": 0.4,
     "veraenderung": 0.4,
     "richtung": "steigend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "euVeraenderung": -0.3,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -2482,7 +2488,9 @@
     "schnitt": 82,
     "veraenderung": 1.6,
     "richtung": "steigend",
-    "urteil": "schlechter"
+    "urteil": "schlechter",
+    "euVeraenderung": 1.9,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -2903,7 +2911,9 @@
     "schnitt": -4.6,
     "veraenderung": 0.5,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "euVeraenderung": 0,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -3630,7 +3640,9 @@
     "schnitt": 54.6,
     "veraenderung": 0,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "euVeraenderung": 0.5,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -4054,7 +4066,9 @@
     "schnitt": 43.3,
     "veraenderung": 0.7,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "höher",
+    "euVeraenderung": 0.4,
+    "nichtUeberEU": false
    },
    "rueckblick": 4,
    "laender": [
@@ -4553,7 +4567,9 @@
     "schnitt": 77.5,
     "veraenderung": 0.1,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "euVeraenderung": 0.4,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -4973,7 +4989,9 @@
     "schnitt": 0.59,
     "veraenderung": -0.39,
     "richtung": "sinkend",
-    "urteil": "niedriger"
+    "urteil": "niedriger",
+    "euVeraenderung": -0.24,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -5377,7 +5395,9 @@
     "schnitt": -0.8,
     "veraenderung": 1.2,
     "richtung": "steigend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "euVeraenderung": 0.1,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -6389,7 +6409,9 @@
     "schnitt": 33210,
     "veraenderung": 6.9,
     "richtung": "steigend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "euVeraenderung": 1357,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -6800,7 +6822,9 @@
     "schnitt": 37343,
     "veraenderung": 3.7,
     "richtung": "steigend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "euVeraenderung": 1479,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -7150,7 +7174,9 @@
     "schnitt": 29758,
     "veraenderung": 6.1,
     "richtung": "steigend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "euVeraenderung": 1393,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -7575,7 +7601,9 @@
     "schnitt": -0.2,
     "veraenderung": 0.9,
     "richtung": "steigend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "euVeraenderung": -0.4,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -8280,7 +8308,9 @@
     "schnitt": 155.7,
     "veraenderung": 24.9,
     "richtung": "steigend",
-    "urteil": "schlechter"
+    "urteil": "schlechter",
+    "euVeraenderung": 21.9,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -9176,7 +9206,9 @@
     "schnitt": 158.6,
     "veraenderung": 56,
     "richtung": "steigend",
-    "urteil": "schlechter"
+    "urteil": "schlechter",
+    "euVeraenderung": 51.7,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -10215,7 +10247,9 @@
     "schnitt": 237.3,
     "veraenderung": -13.2,
     "richtung": "sinkend",
-    "urteil": "besser"
+    "urteil": "unverändert",
+    "euVeraenderung": -17.7,
+    "nichtUeberEU": true
    },
    "rueckblick": null,
    "laender": [
@@ -10612,7 +10646,9 @@
     "schnitt": 38.7,
     "veraenderung": 0.4,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "höher",
+    "euVeraenderung": 0.3,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -11294,7 +11330,9 @@
     "schnitt": 55,
     "veraenderung": 1,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "euVeraenderung": 0,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -11643,7 +11681,9 @@
     "schnitt": 16.3,
     "veraenderung": -0.3,
     "richtung": "sinkend",
-    "urteil": "besser"
+    "urteil": "unverändert",
+    "euVeraenderung": -0.3,
+    "nichtUeberEU": true
    },
    "rueckblick": null,
    "laender": [
@@ -11900,6 +11940,14 @@
    "gruppe": "Pensionen und Alter"
   },
   {
+   "id": "teilzeit",
+   "name": "Teilzeitquote",
+   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"INDIC_EM\\\" is not defined\"}]}",
+   "geaendert": "2026-11-24",
+   "erklaerung": "Wie viele von 100 Erwerbstätigen zwischen 20 und 64 Jahren in Teilzeit arbeiten. Teilzeit heißt hier weniger als die übliche volle Wochenarbeitszeit. Eine hohe Quote kann freiwillig gewählt sein, etwa wegen Kinderbetreuung oder Work-Life-Balance, oder aus Mangel an Vollzeitstellen. Die Statistik unterscheidet das nicht, deshalb gibt es keine Wertung, nur den Vergleich.",
+   "gruppe": "Wirtschaft und Arbeit"
+  },
+  {
    "id": "beschaeftigung5564",
    "name": "Beschäftigung der 55- bis 64-Jährigen",
    "pfeilModus": "wert",
@@ -11992,7 +12040,9 @@
     "schnitt": 58.8,
     "veraenderung": 2.1,
     "richtung": "steigend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "euVeraenderung": 1.2,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -12333,7 +12383,9 @@
     "schnitt": 43.6,
     "veraenderung": 0.2,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "höher",
+    "euVeraenderung": 0.2,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -13340,7 +13392,9 @@
     "schnitt": 30.2,
     "veraenderung": 0.7,
     "richtung": "steigend",
-    "urteil": "schlechter"
+    "urteil": "schlechter",
+    "euVeraenderung": 0.5,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -15747,7 +15801,9 @@
     "schnitt": 29.1,
     "veraenderung": 3.6,
     "richtung": "steigend",
-    "urteil": "schlechter"
+    "urteil": "schlechter",
+    "euVeraenderung": -0.5,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -16143,7 +16199,9 @@
     "schnitt": 18,
     "veraenderung": -1.1,
     "richtung": "sinkend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "euVeraenderung": -0.8,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
@@ -17932,7 +17990,9 @@
     "schnitt": 3.3,
     "veraenderung": 4.3,
     "richtung": "steigend",
-    "urteil": "schlechter"
+    "urteil": "schlechter",
+    "euVeraenderung": -0.4,
+    "nichtUeberEU": false
    },
    "rueckblick": null,
    "laender": [
