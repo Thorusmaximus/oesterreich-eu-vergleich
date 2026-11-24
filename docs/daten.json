@@ -25553,30 +25553,6 @@
    "gruppe": "Sicherheit"
   },
   {
-   "id": "verurteilungenKoerperverletzung",
-   "name": "Verurteilungen schwere Körperverletzung",
-   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"ICCS\\\" is not defined\"}]}",
-   "geaendert": "2026-11-24",
-   "erklaerung": "Wie viele Personen pro 100.000 Einwohner und Jahr wegen schwerer Körperverletzung verurteilt wurden. Anders als die Polizeizahlen zählt nur, was ein Gericht festgestellt hat. Die Daten kommen später, und die Rechtssysteme der Länder sind verschieden.",
-   "gruppe": "Sicherheit"
-  },
-  {
-   "id": "verurteilungenSexual",
-   "name": "Verurteilungen Sexualdelikte",
-   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"ICCS\\\" is not defined\"}]}",
-   "geaendert": "2026-11-24",
-   "erklaerung": "Wie viele Personen pro 100.000 Einwohner und Jahr wegen sexueller Gewalt verurteilt wurden. Anders als die Polizeizahlen zählt nur, was ein Gericht festgestellt hat. Die Daten kommen später, und die Rechtssysteme der Länder sind verschieden.",
-   "gruppe": "Sicherheit"
-  },
-  {
-   "id": "verurteilungenToetung",
-   "name": "Verurteilungen Tötungsdelikte",
-   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"ICCS\\\" is not defined\"}]}",
-   "geaendert": "2026-11-24",
-   "erklaerung": "Wie viele Personen pro 100.000 Einwohner und Jahr wegen vorsätzlicher Tötung verurteilt wurden. Anders als die Polizeizahlen zählt nur, was ein Gericht festgestellt hat. Die Daten kommen später, und die Rechtssysteme der Länder sind verschieden.",
-   "gruppe": "Sicherheit"
-  },
-  {
    "id": "strompreis",
    "name": "Strompreis für Haushalte",
    "pfeilModus": "wert",
