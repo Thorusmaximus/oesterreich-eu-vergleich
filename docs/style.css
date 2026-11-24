@@ -149,7 +149,9 @@ svg{width:100%;height:auto;display:block}
 @media (max-width:380px){.umsch{gap:3px}.umsch button{font-size:.66rem;padding:3px 6px}}
 
 .frage{font-size:clamp(1.15rem,4.6vw,1.45rem);font-weight:700;letter-spacing:-.01em;line-height:1.25;margin:0 0 6px}
-.zahlen{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 16px}
+.zahlen{display:flex;flex-direction:column;gap:6px;margin:0 0 16px}
+.zrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.zl{font-size:.82rem;color:var(--mut);font-weight:600;margin-right:2px}
 .zb{padding:4px 11px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
 .zb b{font-weight:800}
 .zb.besser b{color:var(--good)}.zb.schlechter b{color:var(--bad)}
