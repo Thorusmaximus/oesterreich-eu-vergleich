@@ -22892,7 +22892,7 @@
    "dez": 0,
    "suffix": "",
    "diffEinheit": "je 100.000 Einwohner",
-   "hinweis": "Gezählt werden Anträge, nicht Entscheidungen. Ob ein Antrag bewilligt wird, zeigt diese Zahl nicht.",
+   "hinweis": "Gezählt werden Anträge, nicht Entscheidungen, und zwar in dem Land, in dem sie gestellt wurden. Ob ein Antrag bewilligt wird, zeigt diese Zahl nicht.",
    "umstritten": false,
    "trendNeutral": true,
    "schwelle": 10,
@@ -23227,6 +23227,877 @@
    ],
    "geaendert": "2026-11-24",
    "erklaerung": "Wie viele Menschen pro 100.000 Einwohner in einem Jahr erstmals oder wiederholt einen Antrag auf Asyl stellen. Das zählt Anträge, nicht Entscheidungen und nicht, wie viele Menschen tatsächlich bleiben.",
+   "gruppe": "Gesellschaft"
+  },
+  {
+   "id": "asylOffen",
+   "name": "Laufende Asylverfahren",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 0,
+   "suffix": "",
+   "diffEinheit": "je 100.000 Einwohner",
+   "hinweis": "Gezählt werden Personen, deren Asylantrag im jeweiligen Land noch nicht entschieden ist. Wer bereits Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr mit. Die Zahl zeigt also nicht, wie viele Schutzberechtigte im Land leben.",
+   "umstritten": false,
+   "trendNeutral": true,
+   "schwelle": 5,
+   "datensatz": "migr_asypenctzm",
+   "zusatz": null,
+   "takt": "monat",
+   "einheit": "Personen mit laufendem Asylverfahren je 100.000 Einwohner (Stand Monatsende)",
+   "rangText": "Rang 1 = meiste laufende Verfahren je Einwohner",
+   "periode": "2026-08",
+   "vorherPeriode": "2026-05",
+   "anzahlLaender": 24,
+   "alter": 3,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 157.0614945715485,
+    "rang": 11,
+    "wertVorher": 184.053044641417,
+    "rangVorher": 11,
+    "schnitt": 161,
+    "schnittVorher": 198,
+    "veraenderung": -37,
+    "richtung": "sinkend",
+    "urteil": "niedriger"
+   },
+   "eu": 276.73,
+   "euMittelwert": true,
+   "beste": {
+    "code": "CY",
+    "name": "Zypern",
+    "value": 2122.2123545999116,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "niedriger"
+   },
+   "schlechteste": {
+    "code": "HU",
+    "name": "Ungarn",
+    "value": 0.36788026863668305,
+    "rank": 24,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021-09",
+     "rang": 6,
+     "n": 27
+    },
+    {
+     "t": "2021-10",
+     "rang": 6,
+     "n": 27
+    },
+    {
+     "t": "2021-11",
+     "rang": 6,
+     "n": 27
+    },
+    {
+     "t": "2021-12",
+     "rang": 5,
+     "n": 27
+    },
+    {
+     "t": "2022-01",
+     "rang": 6,
+     "n": 27
+    },
+    {
+     "t": "2022-02",
+     "rang": 6,
+     "n": 27
+    },
+    {
+     "t": "2022-03",
+     "rang": 4,
+     "n": 27
+    },
+    {
+     "t": "2022-04",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2022-05",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2022-06",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2022-07",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2022-08",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2022-09",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2022-10",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2022-11",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2022-12",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2023-01",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2023-02",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2023-03",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2023-04",
+     "rang": 4,
+     "n": 27
+    },
+    {
+     "t": "2023-05",
+     "rang": 4,
+     "n": 27
+    },
+    {
+     "t": "2023-06",
+     "rang": 4,
+     "n": 27
+    },
+    {
+     "t": "2023-07",
+     "rang": 4,
+     "n": 27
+    },
+    {
+     "t": "2023-08",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2023-09",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2023-10",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2023-11",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2023-12",
+     "rang": 4,
+     "n": 27
+    },
+    {
+     "t": "2024-01",
+     "rang": 6,
+     "n": 27
+    },
+    {
+     "t": "2024-02",
+     "rang": 6,
+     "n": 27
+    },
+    {
+     "t": "2024-03",
+     "rang": 6,
+     "n": 27
+    },
+    {
+     "t": "2024-04",
+     "rang": 7,
+     "n": 27
+    },
+    {
+     "t": "2024-05",
+     "rang": 7,
+     "n": 27
+    },
+    {
+     "t": "2024-06",
+     "rang": 7,
+     "n": 27
+    },
+    {
+     "t": "2024-07",
+     "rang": 7,
+     "n": 27
+    },
+    {
+     "t": "2024-08",
+     "rang": 7,
+     "n": 27
+    },
+    {
+     "t": "2024-09",
+     "rang": 8,
+     "n": 27
+    },
+    {
+     "t": "2024-10",
+     "rang": 8,
+     "n": 27
+    },
+    {
+     "t": "2024-11",
+     "rang": 8,
+     "n": 27
+    },
+    {
+     "t": "2024-12",
+     "rang": 9,
+     "n": 27
+    },
+    {
+     "t": "2025-01",
+     "rang": 8,
+     "n": 27
+    },
+    {
+     "t": "2025-02",
+     "rang": 9,
+     "n": 27
+    },
+    {
+     "t": "2025-03",
+     "rang": 9,
+     "n": 27
+    },
+    {
+     "t": "2025-04",
+     "rang": 9,
+     "n": 27
+    },
+    {
+     "t": "2025-05",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2025-06",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2025-07",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2025-08",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2025-09",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2025-10",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2025-11",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2025-12",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2026-01",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2026-02",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2026-03",
+     "rang": 12,
+     "n": 27
+    },
+    {
+     "t": "2026-04",
+     "rang": 12,
+     "n": 27
+    },
+    {
+     "t": "2026-05",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2026-06",
+     "rang": 12,
+     "n": 27
+    },
+    {
+     "t": "2026-07",
+     "rang": 11,
+     "n": 25
+    },
+    {
+     "t": "2026-08",
+     "rang": 11,
+     "n": 24
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": {
+    "t": "2025-03",
+    "wert": 301.41469393917504,
+    "rang": 9,
+    "n": 27,
+    "schnitt": 311,
+    "veraenderung": -150,
+    "richtung": "sinkend",
+    "urteil": "niedriger",
+    "euVeraenderung": -3,
+    "euUrteil": null
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 2122.2123545999116,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 627.4011909713811,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 615.2037231102918,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 596.5335500957076,
+     "rank": 4,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 574.6649287129827,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 483.16182305118997,
+     "rank": 6,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 360.76304548708634,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 317.7900314298741,
+     "rank": 8,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 271.2291410324992,
+     "rank": 9,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 176.34347924824345,
+     "rank": 10,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 157.0614945715485,
+     "rank": 11,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 68.12426883677679,
+     "rank": 12,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 55.06472818691243,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 42.6847705564613,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 38.79933938366806,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 38.859453452581484,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 29.218624236684036,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 25.634077209840555,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 15.862440912407601,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 15.225114936715132,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 5.191877964562318,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 1.9693064423050717,
+     "rank": 22,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 2.2163001860399314,
+     "rank": 22,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 0.36788026863668305,
+     "rank": 24,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    }
+   ],
+   "schweiz": {
+    "wert": 184.7560521361992,
+    "periode": "2026-06"
+   },
+   "verlauf": [
+    {
+     "t": "2021-09",
+     "at": 241.6312026724143,
+     "eu": 159.23885183436656
+    },
+    {
+     "t": "2021-10",
+     "at": 264.6888936852856,
+     "eu": 161.9727489131262
+    },
+    {
+     "t": "2021-11",
+     "at": 281.2703325008372,
+     "eu": 165.36825357042082
+    },
+    {
+     "t": "2021-12",
+     "at": 312.1441899587496,
+     "eu": 168.52602804695368
+    },
+    {
+     "t": "2022-01",
+     "at": 303.75417599781287,
+     "eu": 168.34704684121365
+    },
+    {
+     "t": "2022-02",
+     "at": 296.6206808760728,
+     "eu": 172.27093378199766
+    },
+    {
+     "t": "2022-03",
+     "at": 299.88328717206247,
+     "eu": 172.6376103964071
+    },
+    {
+     "t": "2022-04",
+     "at": 318.68474718285006,
+     "eu": 173.99364311981762
+    },
+    {
+     "t": "2022-05",
+     "at": 334.9977786627981,
+     "eu": 174.0909018559567
+    },
+    {
+     "t": "2022-06",
+     "at": 381.22725092461707,
+     "eu": 173.41344445250513
+    },
+    {
+     "t": "2022-07",
+     "at": 438.0740182513514,
+     "eu": 171.78911176733158
+    },
+    {
+     "t": "2022-08",
+     "at": 505.2615885840189,
+     "eu": 175.16969128554547
+    },
+    {
+     "t": "2022-09",
+     "at": 567.804092325786,
+     "eu": 180.63071342393002
+    },
+    {
+     "t": "2022-10",
+     "at": 647.2679100772618,
+     "eu": 187.3136183048436
+    },
+    {
+     "t": "2022-11",
+     "at": 628.68764371366,
+     "eu": 193.1759724693653
+    },
+    {
+     "t": "2022-12",
+     "at": 600.0430664031071,
+     "eu": 197.58838892385944
+    },
+    {
+     "t": "2023-01",
+     "at": 525.7474434558679,
+     "eu": 198.50220695684095
+    },
+    {
+     "t": "2023-02",
+     "at": 467.8725165934588,
+     "eu": 201.04249731443332
+    },
+    {
+     "t": "2023-03",
+     "at": 419.2510075548407,
+     "eu": 200.64397674124396
+    },
+    {
+     "t": "2023-04",
+     "at": 406.055305214405,
+     "eu": 203.9011588561937
+    },
+    {
+     "t": "2023-05",
+     "at": 389.13633416380475,
+     "eu": 206.14200219091472
+    },
+    {
+     "t": "2023-06",
+     "at": 391.6550159383278,
+     "eu": 209.8366663876058
+    },
+    {
+     "t": "2023-07",
+     "at": 401.1274495685991,
+     "eu": 213.7940424705334
+    },
+    {
+     "t": "2023-08",
+     "at": 419.85330102266147,
+     "eu": 221.26240706697823
+    },
+    {
+     "t": "2023-09",
+     "at": 447.3397847359343,
+     "eu": 229.59126440944362
+    },
+    {
+     "t": "2023-10",
+     "at": 500.1773480492974,
+     "eu": 239.9483465685318
+    },
+    {
+     "t": "2023-11",
+     "at": 452.92468780118094,
+     "eu": 249.68204459078754
+    },
+    {
+     "t": "2023-12",
+     "at": 426.204759410589,
+     "eu": 255.08656241993341
+    },
+    {
+     "t": "2024-01",
+     "at": 398.39912521074893,
+     "eu": 257.3515505167699
+    },
+    {
+     "t": "2024-02",
+     "at": 382.27357604318684,
+     "eu": 259.476167237855
+    },
+    {
+     "t": "2024-03",
+     "at": 373.17571553310955,
+     "eu": 261.05271050713014
+    },
+    {
+     "t": "2024-04",
+     "at": 366.3114614955662,
+     "eu": 261.7583273398247
+    },
+    {
+     "t": "2024-05",
+     "at": 362.17111779038135,
+     "eu": 263.5767329825706
+    },
+    {
+     "t": "2024-06",
+     "at": 351.765780320772,
+     "eu": 266.4180611406379
+    },
+    {
+     "t": "2024-07",
+     "at": 339.34474920521745,
+     "eu": 268.7989632207677
+    },
+    {
+     "t": "2024-08",
+     "at": 332.3715387543798,
+     "eu": 272.4268988228294
+    },
+    {
+     "t": "2024-09",
+     "at": 325.9431103700138,
+     "eu": 273.8980433513719
+    },
+    {
+     "t": "2024-10",
+     "at": 327.5774565694289,
+     "eu": 276.7504661137268
+    },
+    {
+     "t": "2024-11",
+     "at": 321.0945499784157,
+     "eu": 277.78781161462217
+    },
+    {
+     "t": "2024-12",
+     "at": 319.9505076388252,
+     "eu": 277.43278427741734
+    },
+    {
+     "t": "2025-01",
+     "at": 318.9564860368964,
+     "eu": 279.2272959409857
+    },
+    {
+     "t": "2025-02",
+     "at": 311.2989235422255,
+     "eu": 276.8260335265919
+    },
+    {
+     "t": "2025-03",
+     "at": 301.41469393917504,
+     "eu": 280.10853378416573
+    },
+    {
+     "t": "2025-04",
+     "at": 295.4950179681174,
+     "eu": 277.38068196809087
+    },
+    {
+     "t": "2025-05",
+     "at": 289.41241513547095,
+     "eu": 279.1409434890158
+    },
+    {
+     "t": "2025-06",
+     "at": 283.27550334896165,
+     "eu": 278.527619663486
+    },
+    {
+     "t": "2025-07",
+     "at": 275.6722498081536,
+     "eu": 272.29031563273685
+    },
+    {
+     "t": "2025-08",
+     "at": 271.4361514068463,
+     "eu": 274.13692960563174
+    },
+    {
+     "t": "2025-09",
+     "at": 265.24493066647403,
+     "eu": 275.3204010307064
+    },
+    {
+     "t": "2025-10",
+     "at": 259.10801887996473,
+     "eu": 273.14166224254274
+    },
+    {
+     "t": "2025-11",
+     "at": 251.99354592392294,
+     "eu": 271.6692422281841
+    },
+    {
+     "t": "2025-12",
+     "at": 244.98769087560697,
+     "eu": 270.3318863053682
+    },
+    {
+     "t": "2026-01",
+     "at": 234.5060627800645,
+     "eu": 264.1798276438714
+    },
+    {
+     "t": "2026-02",
+     "at": 223.42703619202993,
+     "eu": 266.7881145264495
+    },
+    {
+     "t": "2026-03",
+     "at": 210.28426935720466,
+     "eu": 262.9122179322619
+    },
+    {
+     "t": "2026-04",
+     "at": 198.44491741508932,
+     "eu": 262.01990926190626
+    },
+    {
+     "t": "2026-05",
+     "at": 184.053044641417,
+     "eu": 257.1221753194082
+    },
+    {
+     "t": "2026-06",
+     "at": 165.9681630050665,
+     "eu": 279.9214368048976
+    },
+    {
+     "t": "2026-07",
+     "at": 159.77694226469424,
+     "eu": 263.31
+    },
+    {
+     "t": "2026-08",
+     "at": 157.0614945715485,
+     "eu": 276.73
+    }
+   ],
+   "geaendert": "2026-11-24",
+   "erklaerung": "Wie viele Menschen pro 100.000 Einwohner am Monatsende auf eine Entscheidung über ihren Asylantrag im Land warten. Gezählt wird, wo der Antrag gestellt wurde. Wer schon Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr dazu.",
    "gruppe": "Gesellschaft"
   },
   {
