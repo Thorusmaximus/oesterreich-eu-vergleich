@@ -24861,13 +24861,13 @@
    "id": "koerperverletzung",
    "name": "Schwere Körperverletzung",
    "pfeilModus": "wert",
-   "typ": "niedrig",
+   "typ": "neutral",
    "dez": 0,
    "suffix": "",
    "diffEinheit": "Fälle pro 100.000 Einwohner",
    "hinweis": "Die Polizeizahlen messen auch mit, wie viel angezeigt wird und wo die Grenze zwischen leichter und schwerer Körperverletzung gezogen wird. Ein höherer Wert heißt nicht automatisch mehr Taten.",
    "umstritten": false,
-   "trendNeutral": false,
+   "trendNeutral": true,
    "schwelle": 2.5,
    "schwelleArt": "relativ",
    "datensatz": "crim_off_cat",
@@ -24889,7 +24889,7 @@
     "schnittVorher": 49,
     "veraenderung": 3,
     "richtung": "steigend",
-    "urteil": "schlechter"
+    "urteil": "höher"
    },
    "eu": 82.96,
    "euMittelwert": true,
@@ -25002,7 +25002,7 @@
      "value": 16.69,
      "rank": 8,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "höher"
     },
     {
      "code": "CY",
@@ -25050,7 +25050,7 @@
      "value": 29.55,
      "rank": 14,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "niedriger"
     },
     {
      "code": "DK",
@@ -25082,7 +25082,7 @@
      "value": 42.27,
      "rank": 17,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "niedriger"
     },
     {
      "code": "AT",
@@ -25090,7 +25090,7 @@
      "value": 51.66,
      "rank": 19,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "höher"
     },
     {
      "code": "ES",
@@ -25098,7 +25098,7 @@
      "value": 59.08,
      "rank": 20,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "höher"
     },
     {
      "code": "BG",
@@ -25106,7 +25106,7 @@
      "value": 82.23,
      "rank": 21,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "höher"
     },
     {
      "code": "IE",
@@ -25122,7 +25122,7 @@
      "value": 111.45,
      "rank": 23,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "höher"
     },
     {
      "code": "DE",
@@ -25130,7 +25130,7 @@
      "value": 189.53,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "höher"
     },
     {
      "code": "BE",
@@ -25138,7 +25138,7 @@
      "value": 573.4,
      "rank": 25,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "niedriger"
     },
     {
      "code": "FR",
@@ -25550,6 +25550,30 @@
     }
    },
    "erklaerung": "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definitionen, Zählweise und Anzeigebereitschaft unterscheiden sich zwischen den Ländern stark, und viele Fälle werden nie angezeigt. Ein hoher Wert kann daher auch bedeuten, dass mehr angezeigt wird.",
+   "gruppe": "Sicherheit"
+  },
+  {
+   "id": "verurteilungenKoerperverletzung",
+   "name": "Verurteilungen schwere Körperverletzung",
+   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"ICCS\\\" is not defined\"}]}",
+   "geaendert": "2026-11-24",
+   "erklaerung": "Wie viele Personen pro 100.000 Einwohner und Jahr wegen schwerer Körperverletzung verurteilt wurden. Anders als die Polizeizahlen zählt nur, was ein Gericht festgestellt hat. Die Daten kommen später, und die Rechtssysteme der Länder sind verschieden.",
+   "gruppe": "Sicherheit"
+  },
+  {
+   "id": "verurteilungenSexual",
+   "name": "Verurteilungen Sexualdelikte",
+   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"ICCS\\\" is not defined\"}]}",
+   "geaendert": "2026-11-24",
+   "erklaerung": "Wie viele Personen pro 100.000 Einwohner und Jahr wegen sexueller Gewalt verurteilt wurden. Anders als die Polizeizahlen zählt nur, was ein Gericht festgestellt hat. Die Daten kommen später, und die Rechtssysteme der Länder sind verschieden.",
+   "gruppe": "Sicherheit"
+  },
+  {
+   "id": "verurteilungenToetung",
+   "name": "Verurteilungen Tötungsdelikte",
+   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"ICCS\\\" is not defined\"}]}",
+   "geaendert": "2026-11-24",
+   "erklaerung": "Wie viele Personen pro 100.000 Einwohner und Jahr wegen vorsätzlicher Tötung verurteilt wurden. Anders als die Polizeizahlen zählt nur, was ein Gericht festgestellt hat. Die Daten kommen später, und die Rechtssysteme der Länder sind verschieden.",
    "gruppe": "Sicherheit"
   },
   {
