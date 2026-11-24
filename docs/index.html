@@ -49,7 +49,7 @@ else {
       k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
         + '<div class="t">'+(kombiVon(i) ? kombiKopf(i) : i.name)+'</div>'
         + '<div class="r">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
-        + '<div class="note">Nur Österreich, kein EU-Vergleich. Höchster Wert seit '+i.ersteJahr+': Platz '+a.platzHoechste+' von '+i.anzahlJahre+' Jahren</div>'
+        + '<div class="note">Höchster Wert seit '+i.ersteJahr+': Platz '+a.platzHoechste+' von '+i.anzahlJahre+' Jahren</div>'
         + '<div class="note">Stand: '+periode(i.periode)+'</div>'
         + '<div class="trend '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(a.richtung)+'</span> Trend: '+trendWort(a.urteil)+' <span class="note">(zum Vorjahr, '+prozent(a.veraenderungProzent)+')</span></div>'
         + (hj ? '<div class="rtrend '+urteilCls(hj.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(hj.richtung)+'</span> 1. Halbjahr '+hj.jahr+': '+trendWort(hj.urteil)+' <span class="note">('+prozent(hj.veraenderungProzent)+')</span></div>' : '')

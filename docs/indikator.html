@@ -142,7 +142,7 @@ function detailAnteile(i){
 function detailInsolvenz(i){
   var a = i.oesterreich, hj = i.halbjahr, h = banner() + einkommenTabs(i);
   h += '<div class="card"><h2>'+i.name+'</h2>'+'<div class="rank">'+zahl(a.wert)+' <small>Firmen '+i.periode+'</small></div>'
-     + '<p class="note">'+i.einheit+'. Nur Österreich, kein EU-Vergleich. Stand: '+periode(i.periode)+'.</p>'
+     + '<p class="note">'+i.einheit+'. Stand: '+periode(i.periode)+'.</p>'
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
      + (i.veraltet ? '<p class="warn">Aktualisierung fehlgeschlagen ('+i.fehler+'). Es werden die letzten Daten gezeigt.</p>' : '')
      + '<div class="grid">'
