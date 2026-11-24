@@ -17338,7 +17338,352 @@
   {
    "id": "wohnkosten",
    "name": "Wohnkostenbelastung",
-   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"INCGRP\\\" is not defined\"}]}",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte",
+   "hinweis": null,
+   "umstritten": false,
+   "trendNeutral": false,
+   "schwelle": 0.5,
+   "datensatz": "ilc_lvho07a",
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Anteil der Menschen in Haushalten, die mehr als 40 % ihres Einkommens fürs Wohnen ausgeben",
+   "rangText": "Rang 1 = geringste Wohnkostenbelastung",
+   "periode": "2025",
+   "vorherPeriode": "2024",
+   "anzahlLaender": 27,
+   "alter": 11,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 6.1,
+    "rang": 14,
+    "wertVorher": 6.3,
+    "rangVorher": 11,
+    "schnitt": 6.1,
+    "schnittVorher": 6.3,
+    "veraenderung": -0.2,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "eu": 7.6,
+   "euMittelwert": false,
+   "beste": {
+    "code": "CY",
+    "name": "Zypern",
+    "value": 2.4,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "EL",
+    "name": "Griechenland",
+    "value": 26.4,
+    "rank": 27,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021",
+     "rang": 14,
+     "n": 26
+    },
+    {
+     "t": "2022",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2025",
+     "rang": 14,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2024",
+     "rang": 11,
+     "n": 27,
+     "regierung": true
+    }
+   ],
+   "seitStart": {
+    "t": "2024",
+    "wert": 6.3,
+    "rang": 11,
+    "n": 27,
+    "schnitt": 6.3,
+    "veraenderung": -0.2,
+    "richtung": "stabil",
+    "urteil": "unverändert",
+    "euVeraenderung": -0.6,
+    "euUrteil": "unverändert"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 2.4,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 3.2,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 3.5,
+     "rank": 3,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 3.5,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 4.1,
+     "rank": 5,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 4.7,
+     "rank": 6,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 5,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 5,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 5.3,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 5.3,
+     "rank": 9,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 5.7,
+     "rank": 11,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 5.7,
+     "rank": 11,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 6,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 6.1,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 6.3,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 6.4,
+     "rank": 16,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 6.5,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 6.7,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 6.9,
+     "rank": 19,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 7.2,
+     "rank": 20,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 8.1,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 8.2,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 8.8,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 10.8,
+     "rank": 24,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 11.2,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 14.7,
+     "rank": 26,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 26.4,
+     "rank": 27,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    }
+   ],
+   "schweiz": {
+    "wert": 15.3,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2021",
+     "at": 6.1,
+     "eu": 8.7
+    },
+    {
+     "t": "2022",
+     "at": 7.4,
+     "eu": 8.7
+    },
+    {
+     "t": "2023",
+     "at": 6,
+     "eu": 8.8
+    },
+    {
+     "t": "2024",
+     "at": 6.3,
+     "eu": 8.2
+    },
+    {
+     "t": "2025",
+     "at": 6.1,
+     "eu": 7.6
+    }
+   ],
    "geaendert": "2026-11-24",
    "erklaerung": "Wie viele von 100 Menschen in Haushalten leben, die mehr als 40 % ihres verfügbaren Einkommens für Wohnen ausgeben (Miete oder Kredit, Betriebskosten, Heizung und Strom). Der Wert zeigt, wie stark das Wohnen das Haushaltsbudget belastet.",
    "gruppe": "Preise und Kosten"
@@ -19144,7 +19489,352 @@
   {
    "id": "neet",
    "name": "Junge Menschen ohne Job und Ausbildung",
-   "fehler": "Filter unvollständig: Dimension \"wstatus\" hat 0 Werte. Filter im Skript anpassen.",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte",
+   "hinweis": null,
+   "umstritten": false,
+   "trendNeutral": false,
+   "schwelle": 0.5,
+   "datensatz": "edat_lfse_20",
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Anteil der 15- bis 29-Jährigen, die weder erwerbstätig sind noch in Ausbildung stehen",
+   "rangText": "Rang 1 = geringster Anteil",
+   "periode": "2025",
+   "vorherPeriode": "2024",
+   "anzahlLaender": 27,
+   "alter": 11,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 10.3,
+    "rang": 13,
+    "wertVorher": 9.2,
+    "rangVorher": 10,
+    "schnitt": 10.3,
+    "schnittVorher": 9.2,
+    "veraenderung": 1.1,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "eu": 11,
+   "euMittelwert": false,
+   "beste": {
+    "code": "NL",
+    "name": "Niederlande",
+    "value": 5.3,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "RO",
+    "name": "Rumänien",
+    "value": 19.2,
+    "rank": 27,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021",
+     "rang": 8,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2025",
+     "rang": 13,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2024",
+     "rang": 10,
+     "n": 27,
+     "regierung": true
+    }
+   ],
+   "seitStart": {
+    "t": "2024",
+    "wert": 9.2,
+    "rang": 10,
+    "n": 27,
+    "schnitt": 9.2,
+    "veraenderung": 1.1,
+    "richtung": "steigend",
+    "urteil": "schlechter",
+    "euVeraenderung": -0.2,
+    "euUrteil": "schlechter"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 5.3,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 5.9,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 7.6,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 8,
+     "rank": 4,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 8,
+     "rank": 4,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 8.1,
+     "rank": 6,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 8.5,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 8.9,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 9,
+     "rank": 9,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 9.2,
+     "rank": 10,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 9.5,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 9.8,
+     "rank": 12,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 10.3,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 10.6,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 10.6,
+     "rank": 14,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 10.8,
+     "rank": 16,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 11,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 11.1,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 11.2,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 11.2,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 11.5,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 12.4,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 12.9,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 13.3,
+     "rank": 24,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 13.6,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 13.8,
+     "rank": 26,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 19.2,
+     "rank": 27,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    }
+   ],
+   "schweiz": {
+    "wert": 8.7,
+    "periode": "2025"
+   },
+   "verlauf": [
+    {
+     "t": "2021",
+     "at": 9.4,
+     "eu": 13.1
+    },
+    {
+     "t": "2022",
+     "at": 9.1,
+     "eu": 11.7
+    },
+    {
+     "t": "2023",
+     "at": 9.4,
+     "eu": 11.3
+    },
+    {
+     "t": "2024",
+     "at": 9.2,
+     "eu": 11.2
+    },
+    {
+     "t": "2025",
+     "at": 10.3,
+     "eu": 11
+    }
+   ],
    "geaendert": "2026-11-24",
    "erklaerung": "Wie viele von 100 jungen Menschen zwischen 15 und 29 weder in einem Job noch in Schule, Lehre oder Studium sind (NEET steht für „not in employment, education or training“). Das zeigt, wie viele junge Menschen am Übergang in den Beruf nicht ankommen.",
    "gruppe": "Wirtschaft und Arbeit"
@@ -22197,7 +22887,344 @@
   {
    "id": "asyl",
    "name": "Asylanträge",
-   "fehler": "Filter unvollständig: Dimension \"applicant\" hat 0 Werte. Filter im Skript anpassen.",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 0,
+   "suffix": "",
+   "diffEinheit": "je 100.000 Einwohner",
+   "hinweis": "Gezählt werden Anträge, nicht Entscheidungen. Ob ein Antrag bewilligt wird, zeigt diese Zahl nicht.",
+   "umstritten": false,
+   "trendNeutral": true,
+   "schwelle": 10,
+   "datensatz": "migr_asyappctza",
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Asylanträge je 100.000 Einwohner",
+   "rangText": "Rang 1 = meiste Asylanträge je Einwohner",
+   "periode": "2025",
+   "vorherPeriode": "2024",
+   "anzahlLaender": 27,
+   "alter": 11,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 181.06605217895668,
+    "rang": 11,
+    "wertVorher": 276.3134641144426,
+    "rangVorher": 8,
+    "schnitt": 181,
+    "schnittVorher": 276,
+    "veraenderung": -95,
+    "richtung": "sinkend",
+    "urteil": "niedriger"
+   },
+   "eu": 177.77755695167838,
+   "euMittelwert": false,
+   "beste": {
+    "code": "EL",
+    "name": "Griechenland",
+    "value": 594.3414030873929,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "niedriger"
+   },
+   "schlechteste": {
+    "code": "HU",
+    "name": "Ungarn",
+    "value": 1.2087494540919586,
+    "rank": 27,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 8,
+     "n": 27
+    },
+    {
+     "t": "2025",
+     "rang": 11,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": {
+    "t": "2024",
+    "wert": 276.3134641144426,
+    "rang": 8,
+    "n": 27,
+    "schnitt": 276,
+    "veraenderung": -95,
+    "richtung": "sinkend",
+    "urteil": "niedriger",
+    "euVeraenderung": -44,
+    "euUrteil": null
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 594.3414030873929,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 465.76524421354884,
+     "rank": 2,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 291.16153791639806,
+     "rank": 3,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 288.64703111783626,
+     "rank": 4,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 268.03949503689915,
+     "rank": 5,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 240.34677144519637,
+     "rank": 6,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 229.85708974543027,
+     "rank": 7,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 219.81245540143473,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 201.68307730757198,
+     "rank": 9,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 195.50122153101367,
+     "rank": 10,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 181.06605217895668,
+     "rank": 11,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 142.97468507697025,
+     "rank": 12,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 100.22063639160412,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 93.76311823443189,
+     "rank": 14,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 79.60790811466346,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 74.3388239085376,
+     "rank": 16,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 60.57275230767412,
+     "rank": 17,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 44.91156408109523,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 36.33105250482423,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 32.45041036456122,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 30.450229873430263,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 15.474817824570275,
+     "rank": 22,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 13.152757510224538,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 10.950573965858034,
+     "rank": 24,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 6.24926577691476,
+     "rank": 25,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 3.047412755804906,
+     "rank": 26,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 1.2087494540919586,
+     "rank": 27,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    }
+   ],
+   "schweiz": {
+    "wert": 283.3513009235932,
+    "periode": "2025"
+   },
+   "verlauf": [
+    {
+     "t": "2021",
+     "at": 445.85646592927463,
+     "eu": 143.25598265325036
+    },
+    {
+     "t": "2022",
+     "at": 1241.6705384771326,
+     "eu": 214.89709020709543
+    },
+    {
+     "t": "2023",
+     "at": 648.6153108912947,
+     "eu": 251.77372100705222
+    },
+    {
+     "t": "2024",
+     "at": 276.3134641144426,
+     "eu": 221.58476521424222
+    },
+    {
+     "t": "2025",
+     "at": 181.06605217895668,
+     "eu": 177.77755695167838
+    }
+   ],
    "geaendert": "2026-11-24",
    "erklaerung": "Wie viele Menschen pro 100.000 Einwohner in einem Jahr erstmals oder wiederholt einen Antrag auf Asyl stellen. Das zählt Anträge, nicht Entscheidungen und nicht, wie viele Menschen tatsächlich bleiben.",
    "gruppe": "Gesellschaft"
