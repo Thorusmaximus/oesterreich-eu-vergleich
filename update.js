@@ -48,7 +48,7 @@ const GRUPPE_VON = {
   teilzeit: 0, industrie: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
+  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, kapitalNichtBoerse: 0, kapitalGesamt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
@@ -75,6 +75,8 @@ const ERKLAERUNG = {
   raub: "Wie viele Raubdelikte (Wegnahme von Sachen mit Gewalt oder Drohung) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Gezählt werden angezeigte Fälle. Wie leicht jemand Anzeige erstattet, ist in den Ländern unterschiedlich.",
   einbruch: "Wie viele Einbrüche in Privatwohnungen die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Gezählt werden angezeigte Fälle.",
   kapitalmarkt: "Wie viel die börsennotierten Unternehmen eines Landes an der Börse zusammen wert sind (Börsenwert aller ihrer Aktien), geteilt durch die Zahl der Einwohner. Gezählt werden Unternehmen mit Sitz im Land, einschließlich Banken und Versicherungen. Die Zahl sagt nicht, wie viel davon den Einwohnern gehört, denn viele Aktien halten Anleger aus dem Ausland.",
+  kapitalNichtBoerse: "Wie viel Unternehmen wert sind, die nicht an der Börse gehandelt werden (zum Beispiel Familienunternehmen, GmbHs und Firmen im Staatsbesitz), geteilt durch die Zahl der Einwohner. Weil diese Firmen keinen Börsenkurs haben, schätzen die Statistikämter den Wert nach eigenen Verfahren. Der Vergleich zwischen den Ländern ist deshalb weniger genau als beim Börsenwert.",
+  kapitalGesamt: "Der Wert aller Kapitalgesellschaften eines Landes, börsennotiert und nicht börsennotiert zusammen, geteilt durch die Zahl der Einwohner. Der nicht börsennotierte Teil beruht auf Schätzungen der Statistikämter und ist weniger genau als der Börsenwert.",
   gefaengnis: "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt, dass mehr Menschen inhaftiert sind, als Plätze vorhanden sind (Überbelegung). Das zeigt, wie ausgelastet das Strafvollzugssystem ist.",
   koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Der Vergleich zwischen den Ländern ist schwierig: Die Zählweise und die Bereitschaft, Anzeige zu erstatten, unterscheiden sich stark. Die Zahl zeigt also nur bedingt, wo mehr Gewalt passiert.",
   sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definitionen, Zählweise und Anzeigebereitschaft unterscheiden sich zwischen den Ländern stark, und viele Fälle werden nie angezeigt. Ein hoher Wert kann daher auch bedeuten, dass mehr angezeigt wird.",
@@ -353,6 +355,22 @@ const INDICATORS = [
     einheit: "Euro pro Einwohner (Börsenwert der börsennotierten Aktien von Unternehmen im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Börsenwert pro Einwohner",
     hinweis: "Der Börsenwert schwankt stark mit den Aktienkursen. In kleinen Ländern mit wenigen, aber großen und international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt.",
     mock: { base: 8000, step: 3000 } }
+  ,{ id: "kapitalNichtBoerse", name: "Nicht börsennotierte Unternehmen pro Einwohner", takt: "jahr", dataset: "nasa_10_f_bs",
+    filter: "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F512", // Platzhalter (im Test); echte Berechnung: berechneProKopf()
+    proKopf: { zaehler: ["unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F512", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S12&na_item=F512"],
+      nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [1000, 1000000], minLaender: 15 },
+    maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 15, typ: "neutral", trendNeutral: true, schwelle: 500,
+    einheit: "Euro pro Einwohner (geschätzter Wert nicht börsennotierter Kapitalgesellschaften im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Unternehmenswert pro Einwohner",
+    hinweis: "Der Wert nicht börsennotierter Unternehmen wird von den Statistikämtern geschätzt, weil es keinen Börsenkurs gibt. Die Verfahren unterscheiden sich zwischen den Ländern. Der Vergleich ist daher weniger genau als beim Börsenwert.",
+    mock: { base: 12000, step: 4000 } }
+  ,{ id: "kapitalGesamt", name: "Unternehmenswert gesamt pro Einwohner", takt: "jahr", dataset: "nasa_10_f_bs",
+    filter: "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", // Platzhalter (im Test); echte Berechnung: berechneProKopf()
+    proKopf: { zaehler: ["unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S12&na_item=F511", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F512", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S12&na_item=F512"],
+      nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [2000, 1500000], minLaender: 15 },
+    maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 15, typ: "neutral", trendNeutral: true, schwelle: 1000,
+    einheit: "Euro pro Einwohner (börsennotierte und nicht börsennotierte Kapitalgesellschaften im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Unternehmenswert pro Einwohner",
+    hinweis: "Der nicht börsennotierte Teil wird von den Statistikämtern geschätzt. In kleinen Ländern mit wenigen großen, international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt.",
+    mock: { base: 20000, step: 6000 } }
   ,{ id: "gefaengnis", name: "Gefängnisauslastung", takt: "jahr", dataset: "crim_pris_cap",
     filter: "indic_cr=PRIS_ACT_CAP&unit=NR", // Platzhalter (im Test); echte Berechnung: Häftlinge geteilt durch offizielle Haftplätze
     verhaeltnis: { zaehler: "indic_cr=PRIS_ACT_CAP&unit=NR", nenner: "indic_cr=PRIS_OFF_CAP&unit=NR" },
@@ -472,7 +490,7 @@ function ladeZusatz(ind) {
 }
 
 function berechne(ind, js) {
-  DEZ = ind.dez || 1; MIN_LAENDER = ind.minLaender || 24; // manche Datensätze (z. B. Gefängnisse) haben weniger Länder
+  DEZ = ind.dez != null ? ind.dez : 1; MIN_LAENDER = ind.minLaender || 24; // manche Datensätze (z. B. Gefängnisse) haben weniger Länder
   const takt = ind.takt, cfg = TAKT[takt], data = parse(js), sc = scoreOf(ind);
   if (ind.faktor) for (const c in data) for (const t in data[c]) data[c][t] = data[c][t] * ind.faktor; // z. B. EUR/kWh in Cent/kWh
   const urt = (ds, dv) => (ind.typ === "neutral" || ind.trendNeutral)

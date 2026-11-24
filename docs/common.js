@@ -1,7 +1,7 @@
 // Gemeinsame Hilfsfunktionen für Überblick und Detailseiten
 var D = window.DATEN;
 var FDEZ = 1, SUF = " %", DIFF = "Prozentpunkte"; // Dezimalstellen, Einheitszeichen und Differenz-Einheit des aktuellen Indikators
-function setzeEinheit(i){ FDEZ = i.dez || 1; SUF = i.suffix != null ? i.suffix : " %"; DIFF = i.diffEinheit || "Prozentpunkte"; }
+function setzeEinheit(i){ FDEZ = i.dez != null ? i.dez : 1; SUF = i.suffix != null ? i.suffix : " %"; DIFF = i.diffEinheit || "Prozentpunkte"; }
 function f(x){ return x==null ? "–" : x.toLocaleString("de-AT",{minimumFractionDigits:FDEZ,maximumFractionDigits:FDEZ}); }
 function sgn(x){ return (x>0?"+":"") + f(x); }
 // Periode als Text: "2026-08" -> "August 2026", "2026-Q3" -> "3. Quartal 2026", "2025" -> "2025"
@@ -176,7 +176,7 @@ var PAARE = [
   { ids: ["koerperverletzung","sexualdelikte","toetung"], titel: "Gewaltdelikte", labels: ["Schwere Körperverletzung","Sexual","Tötung"], suche: "tötungsdelikte mord schwere körperverletzung sexualdelikte gewalt kriminalität" },
   { ids: ["durchschnittsalter","abhaengigkeit"], titel: "Alter der Bevölkerung", labels: ["Alter","Abhängigkeit"], suche: "alter bevölkerung altersabhängigkeitsquote abhängigkeit durchschnittsalter" },
   { ids: ["lebenserwartung","gesundeJahre"], titel: "Lebenserwartung", labels: ["Gesamt","Gesund"], suche: "lebenserwartung gesunde lebensjahre gesundheit" },
-  { ids: ["kapitalmarkt","aktionaersquote"], titel: "Kapitalmarkt", labels: ["Börsenwert","Aktionäre"], suche: "kapitalmarkt börse börsenwert aktien aktionärsquote aktionäre kapital pro kopf einwohner" },
+  { ids: ["kapitalmarkt","kapitalNichtBoerse","kapitalGesamt","aktionaersquote"], titel: "Kapitalmarkt", labels: ["Börse","Ohne Börse","Gesamt","Aktionäre"], suche: "kapitalmarkt unternehmenswert unternehmen firmen börsennotiert nicht börsennotiert private börse börsenwert aktien aktionärsquote aktionäre kapital pro kopf einwohner" },
   { ids: ["pensionsausgaben","ersatzquote"], titel: "Pensionen", labels: ["Ausgaben","Höhe"], suche: "pensionen pensionsausgaben pensionshöhe ersatzquote rente" }
 ];
 function paarFuer(id){ for(var k=0;k<PAARE.length;k++) if(PAARE[k].ids.indexOf(id)>=0) return PAARE[k]; return null; }

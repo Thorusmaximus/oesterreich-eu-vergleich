@@ -21,7 +21,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=245ec090"></script>
+<script src="common.js?v=31e23296"></script>
 <script>
 var app = document.getElementById("app");
 var id = new URLSearchParams(location.search).get("id");
@@ -53,7 +53,7 @@ function detail(i){
   var h = banner() + einkommenTabs(i);
   h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung)+'</h2>'+'<div class="rank">Platz '+a.rang+' '+(i.anzahlLaender<27 ? teilPille(i) : '<small>von '+i.anzahlLaender+'</small>')+'</div>'
      + (i.kurzHinweis ? '<p class="note"><b>'+i.kurzHinweis+'</b></p>' : '')
-     + '<p class="note">Stand: '+periode(i.periode)+' '+amtsPille(i)+' Einheit: '+i.einheit+rangInfo(i)+'</p>'
+     + '<p class="note">Stand: '+periode(i.periode)+(amtsLage(i)==="vor" ? ' '+amtsPille(i) : '')+'. Einheit: '+i.einheit+rangInfo(i)+'</p>'
      + (amtsLage(i)==="vor" ? '<p class="altdaten">'+amtsHinweis(i)+'</p>' : '')
      + (i.hinweis ? '<p class="note">'+i.hinweis+'</p>' : '')
      + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
