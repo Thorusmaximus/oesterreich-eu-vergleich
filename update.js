@@ -283,7 +283,7 @@ const INDICATORS = [
     hinweis: "Die Armutsgefährdungsschwelle liegt bei 60 % des mittleren Einkommens im jeweiligen Land. Das misst die Ungleichheit im Land, nicht den absoluten Lebensstandard.",
     typ: "niedrig", schwelle: 0.3, mock: { base: 15, step: 1.2 } }
   ,{ id: "teilzeit", name: "Teilzeitquote", takt: "jahr", dataset: "lfsa_eppgan",
-    filter: "sex=T&age=Y20-64&unit=PC", alternativen: [ { dataset: "lfsa_eppgan", filter: "sex=T&age=Y20-64&unit=PC" }, { dataset: "lfsa_eppgan", filter: "sex=T&age=Y20-64" }, { dataset: "lfsi_pt_a", filter: "indic_em=PT_PC_EMP&sex=T&age=Y20-64&unit=PC_EMP" } ],
+    filter: "sex=T&age=Y20-64&unit=PC&citizen=TOTAL", alternativen: [ { dataset: "lfsa_eppgan", filter: "sex=T&age=Y20-64&unit=PC&citizen=TOTAL" }, { dataset: "lfsa_eppgan", filter: "sex=T&age=Y20-64&citizen=TOTAL" }, { dataset: "lfsi_pt_a", filter: "indic_em=PT_PC_EMP&sex=T&age=Y20-64&unit=PC_EMP" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 24,
     einheit: "Teilzeitbeschäftigte 20 bis 64 Jahre in % aller Erwerbstätigen dieser Altersgruppe", rangText: "Rang 1 = höchste Teilzeitquote",
     hinweis: "Eine hohe Teilzeitquote kann freiwillig gewählt sein (etwa wegen Kinderbetreuung oder Work-Life-Balance) oder an fehlenden Vollzeitstellen liegen. Die Statistik unterscheidet das nicht.",
@@ -767,7 +767,18 @@ async function realTrend(r, ind) {
   Object.assign(r.oesterreich, { veraenderung: rd(y.real), richtung: ri, urteil: ur });
   r.diffEinheit = "% real";
   r.realText = `Inflationsbereinigt: Das Einkommen ist nominal um ${rd(y.nom)} % ${y.nom >= 0 ? "gestiegen" : "gesunken"}, ${ind.real === "EU" ? "die Verbraucherpreise im EU-Durchschnitt" : "die Verbraucherpreise"} sind im Einkommensjahr ${+r.periode - 1} um ${rd(y.infl)} % ${y.infl >= 0 ? "gestiegen" : "gesunken"}. Real ergibt das ${rd(y.real) > 0 ? "+" : ""}${rd(y.real)} %. Als besser gilt, wenn das Einkommen stärker steigt als die Preise.`;
-  if (r.seitStart) { const z = g(r.seitStart.t, r.periode); if (z) { const [zi, zu] = cl(z.real); Object.assign(r.seitStart, { veraenderung: rd(z.real), richtung: zi, urteil: zu }); } }
+  if (r.seitStart) { const z = g(r.seitStart.t, r.periode); if (z) { const [zi, zu] = cl(z.real); Object.assign(r.seitStart, { veraenderung: rd(z.real), richtung: zi, urteil: zu });
+    // "besser" nur, wenn Österreich den EU-Schnitt (ebenfalls real, mit EU-Preisindex) übertrifft
+    try {
+      const DE = await holeDeflator("EU27_2020"), ev = {}; r.verlauf.forEach(p => { if (p.eu != null) ev[p.t] = p.eu; });
+      const a = r.seitStart.t, b = r.periode, ie = t => DE[String(+t - 1)];
+      if (ev[a] != null && ev[b] != null && ie(a) && ie(b)) {
+        const euReal = ((ev[b] / ev[a]) / (ie(b) / ie(a)) - 1) * 100;
+        r.seitStart.euVeraenderung = rd(euReal);
+        if (zu === "besser" && !(z.real > euReal)) { r.seitStart.urteil = "unverändert"; r.seitStart.nichtUeberEU = true; }
+      }
+    } catch (e) { console.error("   (EU-Vergleich seit Regierung nicht möglich: " + e.message + ")"); }
+  } }
   return r;
 }
 
