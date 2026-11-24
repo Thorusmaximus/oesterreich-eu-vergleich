@@ -149,10 +149,10 @@ svg{width:100%;height:auto;display:block}
 @media (max-width:380px){.umsch{gap:3px}.umsch button{font-size:.66rem;padding:3px 6px}}
 
 .frage{font-size:clamp(1.15rem,4.6vw,1.45rem);font-weight:700;letter-spacing:-.01em;line-height:1.25;margin:0 0 6px}
-.zahlen{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 20px}
-.zb{display:flex;flex-direction:column;align-items:flex-start;min-width:92px;padding:10px 16px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);font:inherit;cursor:pointer;text-align:left}
-.zb b{font-size:2rem;font-weight:800;letter-spacing:-.03em;line-height:1.05}
-.zb span{font-size:.82rem;font-weight:600;color:var(--mut)}
+.zahlen{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 16px}
+.zb{padding:4px 11px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
+.zb b{font-weight:800}
 .zb.besser b{color:var(--good)}.zb.schlechter b{color:var(--bad)}
 .zb:hover{border-color:var(--eu)}
+.zb.on{border-color:var(--eu);background:var(--bg,#f4f6fb)}
 .zahlen[hidden]{display:none}

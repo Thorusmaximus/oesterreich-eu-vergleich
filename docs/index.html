@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
 <title>Regierungstracker Österreich</title>
 <meta name="description" content="Wie entwickelt sich Österreich seit dem Amtsantritt der Bundesregierung? Arbeitslosigkeit, Inflation, Schulden, Geburtenrate, Strompreise und mehr im Ranking der 27 EU-Länder.">
-<link rel="stylesheet" href="style.css?v=704cc8c7">
+<link rel="stylesheet" href="style.css?v=eb380a1a">
 </head>
 <body>
 <main>
@@ -86,23 +86,22 @@ else {
     return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+'</h2><div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-b="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return bilanz(byId[id]); }).join(' ') : bilanz(i))+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var k=kombiVon(i); if(!k) return kachel(i); return k.v.map(function(id,n){ return '<div class="var" data-v="'+id+'" data-b="'+bilanz(byId[id])+'" data-n="'+(byId[id].name+' '+id).toLowerCase().replace(/"/g,'')+'"'+(n?' style="display:none"':'')+'>'+kachel(byId[id])+'</div>'; }).join(''); })()+'</div>'; }).join('')+'</div></section>';
   }).join('');
   h += '<div class="suche"><input type="search" id="suche" placeholder="Indikator suchen" aria-label="Indikator suchen" autocomplete="off"></div>'
-  + '<div class="filter" role="group" aria-label="Filter"><button class="on" data-f="alle">Alle</button><button data-f="schlechter">Verschlechterungen</button><button data-f="besser">Verbesserungen</button><button data-f="neutral">Ohne Wertung</button></div>'
   + '<button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Gruppen filtern"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Gruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
   + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>' + gruppenHtml;
   h += fussnote();
   app.innerHTML = h;
   neuesteLeiste();
   (function(){
-    var z = {besser:0, schlechter:0, gleich:0};
+    var z = {besser:0, schlechter:0, gleich:0, neutral:0};
     D.indikatoren.forEach(function(i){ if(i.oesterreich){ var b = bilanz(i); if(z[b]!==undefined) z[b]++; } });
-    var el = document.getElementById("zahlen"), mk = function(k, f, txt){ return '<button type="button" class="zb '+k+'" data-fz="'+f+'"><b>'+z[k]+'</b><span>'+txt+'</span></button>'; };
-    el.innerHTML = mk("besser","besser","besser")+mk("schlechter","schlechter","schlechter")+mk("gleich","alle","unverändert")
-      + infoIcon("Gezählt wird jeder Indikator mit Wertung einzeln, bei zusammengeführten Kacheln jede Variante. Die Zahlen zeigen, wie sich Österreich seit dem Amtsantritt verändert hat, nicht, warum. Mit einem Tipp auf eine Zahl filterst du die Kacheln.");
+    var el = document.getElementById("zahlen"), mk = function(k, txt){ return '<button type="button" class="zb '+k+'" data-fz="'+k+'" aria-pressed="false"><b>'+z[k]+'</b> '+txt+'</button>'; };
+    el.innerHTML = mk("besser","besser")+mk("schlechter","schlechter")+mk("gleich","unverändert")+mk("neutral","ohne Wertung")
+      + infoIcon("Gezählt wird jeder Indikator einzeln, bei zusammengeführten Fenstern jede Variante. Die Zahlen zeigen, wie sich Österreich seit dem Amtsantritt verändert hat, nicht, warum. Ein Tipp auf eine Zahl zeigt nur die passenden Fenster, ein zweiter Tipp hebt den Filter wieder auf.");
     el.hidden = false;
     el.addEventListener("click", function(e){
       var b = e.target.closest(".zb"); if(!b) return;
-      var f = b.getAttribute("data-fz"), t = document.querySelector('.filter [data-f="'+(b.classList.contains("gleich") ? "alle" : f)+'"]'); if(t) t.click();
-      var fl = document.querySelector(".suche"); if(fl) fl.scrollIntoView({behavior:"smooth",block:"start"});
+      if(window.__st) window.__st(b.getAttribute("data-fz"));
+      var fl = document.querySelector(".suche"); if(fl && fSt!=="alle") fl.scrollIntoView({behavior:"smooth",block:"start"});
     });
   })();
   var fSt="alle", fGr="";
@@ -127,11 +126,16 @@ else {
     });
     document.querySelectorAll(".gruppe").forEach(function(s){ var gOk = !fGr || s.getAttribute("data-g")===fGr; s.style.display = gOk && s.querySelector(".kw:not([style*='none'])") ? "" : "none"; });
   }
+  window.__st = function(f){
+    fSt = (fSt===f ? "alle" : f);
+    document.querySelectorAll(".zb").forEach(function(b){ var on = b.getAttribute("data-fz")===fSt; b.classList.toggle("on", on); b.setAttribute("aria-pressed", on ? "true" : "false"); });
+    filtere();
+  };
   document.querySelectorAll(".filter").forEach(function(box){
     box.addEventListener("click", function(e){
       var b = e.target.closest("button"); if(!b) return;
       box.querySelectorAll("button").forEach(function(x){ x.classList.toggle("on", x===b); });
-      if(b.hasAttribute("data-f")) fSt=b.getAttribute("data-f"); else fGr=b.getAttribute("data-g");
+      fGr=b.getAttribute("data-g");
       filtere();
       document.getElementById("fdot").hidden = !fGr;
     });
