@@ -192,6 +192,7 @@ const INDICATORS = [
       { dataset: "prc_ppp_ind_1", filter: "na_item=PLI_EU27_2020&ppp_cat=A01" } ],
     einheit: "Preisniveau-Index, EU-27 = 100 (Preise gegenüber dem EU-Durchschnitt)", suffix: "", diffEinheit: "Indexpunkte", dez: 1,
     rangText: "Rang 1 = niedrigstes Preisniveau", maxAlter: 26,
+    ausblenden2025: true, // Fenster verschwindet, solange Eurostat keine Daten ab 2025 hat (ein Nachtrag fehlt)
     umstritten: true, // Wertung: höheres Preisniveau = schlechter (auch im Trend), aber mit Hinweis
     hinweis: "Ein höheres Preisniveau gilt hier als schlechter (höhere Lebenshaltungskosten). Es geht aber oft mit hohen Einkommen einher, und ein Anstieg gegenüber dem EU-Schnitt kann auch Aufholen bedeuten. Der Index vergleicht die Preise zwischen den Ländern, nicht die Teuerung über die Zeit (dafür siehe Inflation).",
     typ: "niedrig", schwelle: 1, mock: { base: 70, step: 3.5 } }
@@ -348,6 +349,7 @@ const INDICATORS = [
     verhaeltnis: { zaehler: "indic_cr=PRIS_ACT_CAP&unit=NR", nenner: "indic_cr=PRIS_OFF_CAP&unit=NR" },
     maxAlter: 26, dez: 0, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 15,
     einheit: "% der Haftplätze, die belegt sind (über 100 % = überbelegt)", rangText: "Rang 1 = geringste Auslastung",
+    ausblenden2025: true, // Fenster verschwindet, solange weder Eurostat noch der Österreich-Nachtrag Daten ab 2025 hat
     typ: "niedrig", schwelle: 2, mock: { base: 70, step: 6 } }
   ,{ id: "koerperverletzung", name: "Schwere Körperverletzung", takt: "jahr", dataset: "crim_off_cat",
     filter: "iccs=ICCS02011&unit=P_HTHAB", // schwere Körperverletzung (Polizeistatistik), pro 100.000 Einwohner
@@ -1029,6 +1031,9 @@ function berechneInsolvenzen() {
     for (const r of result) { const e = nt.eintraege[r.id], jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : 0;
       if ((r.datenHinweis || r.ohneTrend) && e && e.jahr > jahr) r.nachtrag = { ...e, stand: nt.stand, gesamtAufklaerung: ["toetung","raub","einbruch","sexualdelikte"].includes(r.id) ? nt.gesamtAufklaerung : null }; }
   } catch (e) { console.log("   (at-nachtrag.json nicht lesbar: " + e.message + ")"); }
+  // Fenster ohne Daten ab 2025 (weder Eurostat noch Österreich-Nachtrag): ausblenden, erscheinen automatisch wieder, sobald neuere Daten vorliegen
+  for (const r of result) { const ind = INDICATORS.find(x => x.id === r.id), jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : 0;
+    if (ind && ind.ausblenden2025 && jahr && jahr < 2025 && !r.nachtrag) { r.ausgeblendet = true; console.log(`   AUSGEBLENDET: ${r.name} (jüngste Daten: ${jahr}, kein Nachtrag ab 2025)`); } }
   { // Beispiel Österreich: hohe Pensionsausgaben bedeuten nicht automatisch hohe Pensionen
     const pa = result.find(x => x.id === "pensionsausgaben"), eq = result.find(x => x.id === "ersatzquote");
     if (pa?.oesterreich && eq?.oesterreich) {

@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-23",
+ "stand": "2026-11-24",
  "hinweis": "Von Hand gepflegt. Nur Österreich, nationale Quellen. Gilt nur, solange Eurostat noch keine neueren Daten hat, und fällt danach automatisch weg.",
  "eintraege": {
   "toetung": {
@@ -46,12 +46,12 @@
   },
   "geburtenrate": {
    "jahr": 2025,
-   "titel": "Kinder pro Frau (vorläufig)",
-   "wert": 1.29,
+   "titel": "Kinder pro Frau (Gesamtfertilitätsrate 2025)",
+   "wert": 1.3,
    "vorjahr": 1.31,
    "einheit": "Kinder pro Frau",
-   "quelle": "Statistik Austria, Geburtenbilanz 2025",
-   "url": "https://www.statistik.at/fileadmin/announcement/2026/02/20260225Geburtenbilanz2025.pdf"
+   "quelle": "Statistik Austria, Demographische Indikatoren 2025",
+   "url": "https://www.statistik.at/fileadmin/announcement/2026/08/20260629Demographie.pdf"
   },
   "koerperverletzung": {
    "jahr": 2025,
@@ -81,6 +81,24 @@
    "einheit": "%",
    "quelle": "Aktienbarometer 2026 (Industriellenvereinigung, Aktienforum, Wiener Börse)",
    "url": "https://www.wienerborse.at/en/listing/shares/investors/aktienbarometer/"
+  },
+  "gefaengnis": {
+   "jahr": 2026,
+   "titel": "Auslastung der Justizanstalten am 1. Februar 2026 (9.012 Insassen auf 8.333 Haftplätze)",
+   "wert": 108.15,
+   "vorjahr": null,
+   "einheit": "% der Haftplätze",
+   "quelle": "Bundesministerium für Justiz, Stichtag 1. Februar 2026 (laut trend.at)",
+   "url": "https://www.trend.at/news/haftzahlen-gestiegen-auslastung-bei-10834-prozent"
+  },
+  "lebenserwartung": {
+   "jahr": 2025,
+   "titel": "Lebenserwartung bei Geburt, Männer (Frauen: 84,6 Jahre)",
+   "wert": 80.14,
+   "vorjahr": null,
+   "einheit": "Jahre",
+   "quelle": "Statistik Austria, Demographische Indikatoren 2025",
+   "url": "https://www.statistik.at/fileadmin/announcement/2026/08/20260629Demographie.pdf"
   }
  },
  "gesamtAufklaerung": {

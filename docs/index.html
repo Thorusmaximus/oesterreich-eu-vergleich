@@ -21,6 +21,9 @@
 <script src="common.js?v=6877b390"></script>
 <script>
 var app = document.getElementById("app");
+// Indikatoren ohne Daten ab 2025 sind ausgeblendet (sie erscheinen automatisch wieder, sobald es neuere Daten gibt)
+var versteckt = [];
+if(D && D.indikatoren){ versteckt = D.indikatoren.filter(function(i){ return i.ausgeblendet; }); D.indikatoren = D.indikatoren.filter(function(i){ return !i.ausgeblendet; }); }
 if(D && D.regierung){
   document.getElementById("sub").textContent = D.indikatoren.filter(function(i){ return i.oesterreich; }).length+" Indikatoren im Vergleich mit den 27 EU-Ländern, seit dem "+datum(D.regierung.start)+" ("+D.regierung.name+": "+D.regierung.parteien+").";
 }
@@ -93,6 +96,7 @@ else {
   + '<button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Gruppen filtern"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Gruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
   + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>' + gruppenHtml;
   h += fussnote();
+  if(versteckt.length) h += '<p class="note">Derzeit ausgeblendet, weil es noch keine Daten ab 2025 gibt: '+versteckt.map(function(i){ return i.name+' (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p>';
   app.innerHTML = h;
   neuesteLeiste();
   (function(){
