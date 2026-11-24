@@ -102,8 +102,8 @@ else {
     var r = {rbesser:0, rschlechter:0, rgleich:0};
     D.indikatoren.forEach(function(i){ var s = rangStatus(i); if(s) r[s]++; });
     var mr = function(k, txt){ return '<button type="button" class="zb rb '+k+'" data-fz="'+k+'" aria-pressed="false"><b>'+r[k]+'</b> '+txt+'</button>'; };
-    el.innerHTML = '<div class="zrow">'+mk("besser","besser")+mk("schlechter","schlechter")+mk("gleich","unverändert")+mk("neutral","ohne Wertung")+infoIcon("Gezählt wird jeder Indikator einzeln, bei zusammengeführten Fenstern jede Variante. Die Zahlen zeigen, wie sich Österreich seit dem Amtsantritt verändert hat, nicht, warum. Ein Tipp auf eine Zahl zeigt nur die passenden Fenster, ein zweiter Tipp hebt den Filter wieder auf.")+'</div>'
-      + '<div class="zrow"><span class="zl">EU-Platzierung seit Amtsantritt:</span>'+mr("rbesser","besser")+mr("rschlechter","schlechter")+mr("rgleich","unverändert")+infoIcon("Hier zählt nur, ob sich Österreichs Platz unter den EU-Ländern seit dem Amtsantritt verbessert oder verschlechtert hat. Das ist unabhängig vom Trend der Werte. Nur Indikatoren mit Wertung werden gezählt.")+'</div>'
+    el.innerHTML = '<div class="zrow">'+mk("besser","verbessert")+mk("schlechter","verschlechtert")+mk("gleich","unverändert")+mk("neutral","ohne Wertung")+infoIcon("Gezählt wird jeder Indikator einzeln, bei zusammengeführten Fenstern jede Variante. Die Zahlen zeigen, wie sich Österreich seit dem Amtsantritt verändert hat, nicht, warum. Ein Tipp auf eine Zahl zeigt nur die passenden Fenster, ein zweiter Tipp hebt den Filter wieder auf.")+'</div>'
+      + '<div class="zrow"><span class="zl">EU-Platzierung seit Amtsantritt:</span>'+mr("rbesser","verbessert")+mr("rschlechter","verschlechtert")+mr("rgleich","unverändert")+infoIcon("Hier zählt nur, ob sich Österreichs Platz unter den EU-Ländern seit dem Amtsantritt verbessert oder verschlechtert hat. Das ist unabhängig vom Trend der Werte. Nur Indikatoren mit Wertung werden gezählt.")+'</div>'
     el.hidden = false;
     el.addEventListener("click", function(e){
       var b = e.target.closest(".zb"); if(!b) return;
