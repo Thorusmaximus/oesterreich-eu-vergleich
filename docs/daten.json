@@ -28,7 +28,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.1,
+   "schwelle": 0.19,
+   "schwelleArt": "relativ",
    "datensatz": "une_rt_m",
    "zusatz": null,
    "takt": "monat",
@@ -65,8 +66,8 @@
     "name": "Finnland",
     "value": 11,
     "rank": 27,
-    "richtung": "sinkend",
-    "urteil": "besser"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "rangVerlauf": [
     {
@@ -414,8 +415,8 @@
      "name": "Malta",
      "value": 3.4,
      "rank": 2,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PL",
@@ -438,8 +439,8 @@
      "name": "Niederlande",
      "value": 4,
      "rank": 6,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CY",
@@ -454,8 +455,8 @@
      "name": "Deutschland",
      "value": 4.1,
      "rank": 8,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
@@ -470,16 +471,16 @@
      "name": "Ungarn",
      "value": 4.6,
      "rank": 10,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IE",
      "name": "Irland",
      "value": 4.7,
      "rank": 11,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PT",
@@ -510,8 +511,8 @@
      "name": "Litauen",
      "value": 6.2,
      "rank": 15,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IT",
@@ -558,8 +559,8 @@
      "name": "Luxemburg",
      "value": 7.3,
      "rank": 20,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EL",
@@ -606,8 +607,8 @@
      "name": "Finnland",
      "value": 11,
      "rank": 27,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     }
    ],
    "schweiz": {
@@ -931,7 +932,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.2,
+   "schwelle": 0.12,
+   "schwelleArt": "relativ",
    "datensatz": "prc_hicp_minr",
    "zusatz": null,
    "takt": "monat",
@@ -950,8 +952,8 @@
     "schnitt": 3.3,
     "schnittVorher": 3.2,
     "veraenderung": 0.1,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "steigend",
+    "urteil": "schlechter"
    },
    "eu": 4,
    "euMittelwert": false,
@@ -960,8 +962,8 @@
     "name": "Schweden",
     "value": 0.6,
     "rank": 1,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "sinkend",
+    "urteil": "besser"
    },
    "schlechteste": {
     "code": "RO",
@@ -1301,8 +1303,8 @@
      "name": "Schweden",
      "value": 0.6,
      "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "DK",
@@ -1325,8 +1327,8 @@
      "name": "Malta",
      "value": 2.3,
      "rank": 4,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "HU",
@@ -1381,16 +1383,16 @@
      "name": "Österreich",
      "value": 3.5,
      "rank": 11,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "EE",
      "name": "Estland",
      "value": 3.6,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "FR",
@@ -1413,8 +1415,8 @@
      "name": "Slowenien",
      "value": 3.8,
      "rank": 15,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "PT",
@@ -1493,8 +1495,8 @@
      "name": "Bulgarien",
      "value": 5.9,
      "rank": 25,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "LT",
@@ -1834,7 +1836,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.2,
+   "schwelle": 0.1,
+   "schwelleArt": "relativ",
    "datensatz": "namq_10_gdp",
    "zusatz": null,
    "takt": "quartal",
@@ -2092,8 +2095,8 @@
      "name": "Griechenland",
      "value": 1.9,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "EE",
@@ -2132,8 +2135,8 @@
      "name": "Ungarn",
      "value": 1.7,
      "rank": 16,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "FI",
@@ -2180,8 +2183,8 @@
      "name": "Belgien",
      "value": 0.7,
      "rank": 23,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "SK",
@@ -2337,7 +2340,8 @@
    "hinweis": "Gemessen wird die Wertschöpfung von Bergbau, Industrie, Energie- und Wasserversorgung (ohne Bau). In kleinen Ländern können einzelne Großbetriebe die Zahl stark bewegen.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.3,
+   "schwelle": 0.1,
+   "schwelleArt": "relativ",
    "datensatz": "namq_10_a10",
    "zusatz": null,
    "takt": "quartal",
@@ -2356,8 +2360,8 @@
     "schnitt": 1.9,
     "schnittVorher": 2,
     "veraenderung": -0.1,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "sinkend",
+    "urteil": "schlechter"
    },
    "eu": 1.7,
    "euMittelwert": false,
@@ -2563,8 +2567,8 @@
      "name": "Estland",
      "value": 3.4,
      "rank": 8,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "MT",
@@ -2579,8 +2583,8 @@
      "name": "Portugal",
      "value": 3.4,
      "rank": 8,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "FI",
@@ -2611,8 +2615,8 @@
      "name": "Österreich",
      "value": 1.9,
      "rank": 14,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "BG",
@@ -2651,8 +2655,8 @@
      "name": "Zypern",
      "value": 1.4,
      "rank": 19,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "DE",
@@ -2840,7 +2844,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.5,
+   "schwelle": 2.5,
+   "schwelleArt": "relativ",
    "datensatz": "gov_10q_ggdebt",
    "zusatz": null,
    "takt": "quartal",
@@ -2859,8 +2864,8 @@
     "schnitt": 83.6,
     "schnittVorher": 82.7,
     "veraenderung": 0.9,
-    "richtung": "steigend",
-    "urteil": "schlechter"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 82.9,
    "euMittelwert": false,
@@ -2869,8 +2874,8 @@
     "name": "Estland",
     "value": 26.1,
     "rank": 1,
-    "richtung": "steigend",
-    "urteil": "schlechter"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "schlechteste": {
     "code": "EL",
@@ -2998,8 +3003,8 @@
     "n": 27,
     "schnitt": 82,
     "veraenderung": 1.6,
-    "richtung": "steigend",
-    "urteil": "schlechter",
+    "richtung": "stabil",
+    "urteil": "unverändert",
     "euVeraenderung": 1.9,
     "euUrteil": "unverändert"
    },
@@ -3010,8 +3015,8 @@
      "name": "Estland",
      "value": 26.1,
      "rank": 1,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
@@ -3042,8 +3047,8 @@
      "name": "Irland",
      "value": 35.3,
      "rank": 5,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SE",
@@ -3066,8 +3071,8 @@
      "name": "Litauen",
      "value": 43.8,
      "rank": 8,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CZ",
@@ -3082,16 +3087,16 @@
      "name": "Malta",
      "value": 47,
      "rank": 10,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
      "name": "Lettland",
      "value": 48,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CY",
@@ -3106,8 +3111,8 @@
      "name": "Kroatien",
      "value": 56.2,
      "rank": 13,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "RO",
@@ -3122,8 +3127,8 @@
      "name": "Slowakei",
      "value": 60.6,
      "rank": 15,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DE",
@@ -3146,40 +3151,40 @@
      "name": "Slowenien",
      "value": 64.7,
      "rank": 18,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HU",
      "name": "Ungarn",
      "value": 75.6,
      "rank": 19,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "AT",
      "name": "Österreich",
      "value": 83.6,
      "rank": 20,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FI",
      "name": "Finnland",
      "value": 90.2,
      "rank": 21,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PT",
      "name": "Portugal",
      "value": 92.5,
      "rank": 22,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "ES",
@@ -3194,24 +3199,24 @@
      "name": "Belgien",
      "value": 110.2,
      "rank": 24,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FR",
      "name": "Frankreich",
      "value": 119.1,
      "rank": 25,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IT",
      "name": "Italien",
      "value": 139.9,
      "rank": 26,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EL",
@@ -3341,6 +3346,7 @@
    "umstritten": false,
    "trendNeutral": false,
    "schwelle": 0.5,
+   "schwelleArt": "fest",
    "datensatz": "gov_10dd_edpt1",
    "zusatz": null,
    "takt": "jahr",
@@ -3690,7 +3696,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.03,
+   "schwelle": 0.04,
+   "schwelleArt": "relativ",
    "datensatz": "demo_find",
    "zusatz": {
     "titel": "Geburtenrate nach Staatsangehörigkeit",
@@ -3827,16 +3834,16 @@
      "name": "Dänemark",
      "value": 1.47,
      "rank": 4,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IE",
      "name": "Irland",
      "value": 1.47,
      "rank": 4,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
@@ -3851,16 +3858,16 @@
      "name": "Slowakei",
      "value": 1.46,
      "rank": 6,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BE",
      "name": "Belgien",
      "value": 1.44,
      "rank": 8,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "NL",
@@ -3979,8 +3986,8 @@
      "name": "Italien",
      "value": 1.18,
      "rank": 22,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PL",
@@ -4073,7 +4080,8 @@
    "hinweis": "Der Trend wird neutral als höher oder niedriger angezeigt. Andere sehen einen hohen Staatsanteil als Vorteil, etwa für soziale Absicherung, Gesundheit und Bildung. Die Staatsquote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) über den Staat ausgegeben wird.",
    "umstritten": true,
    "trendNeutral": true,
-   "schwelle": 0.5,
+   "schwelle": 1.5,
+   "schwelleArt": "relativ",
    "datensatz": "gov_10a_main",
    "zusatz": null,
    "takt": "jahr",
@@ -4184,8 +4192,8 @@
      "name": "Zypern",
      "value": 37.9,
      "rank": 3,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -4232,16 +4240,16 @@
      "name": "Niederlande",
      "value": 45.2,
      "rank": 9,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
      "name": "Lettland",
      "value": 45.3,
      "rank": 10,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "ES",
@@ -4256,16 +4264,16 @@
      "name": "Estland",
      "value": 45.6,
      "rank": 12,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
      "name": "Dänemark",
      "value": 47.2,
      "rank": 13,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SK",
@@ -4312,8 +4320,8 @@
      "name": "Schweden",
      "value": 49.3,
      "rank": 19,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
@@ -4328,8 +4336,8 @@
      "name": "Deutschland",
      "value": 50.1,
      "rank": 21,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PL",
@@ -4344,8 +4352,8 @@
      "name": "Italien",
      "value": 51.1,
      "rank": 23,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BE",
@@ -4426,7 +4434,8 @@
    "hinweis": "Der Trend wird neutral als höher oder niedriger angezeigt. Andere sehen hohe Abgaben als Voraussetzung für Leistungen wie Pensionen, Gesundheit und Bildung. Die Quote zeigt, welcher Anteil der Wirtschaftsleistung (BIP) als Steuern und Sozialbeiträge an den Staat geht.",
    "umstritten": true,
    "trendNeutral": true,
-   "schwelle": 0.5,
+   "schwelle": 1.2,
+   "schwelleArt": "relativ",
    "datensatz": "gov_10a_taxag",
    "zusatz": null,
    "takt": "quartal",
@@ -4445,8 +4454,8 @@
     "schnitt": 44,
     "schnittVorher": 43.4,
     "veraenderung": 0.6,
-    "richtung": "steigend",
-    "urteil": "höher"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 40.6441606345012,
    "euMittelwert": false,
@@ -4463,8 +4472,8 @@
     "name": "Frankreich",
     "value": 46.31143347153272,
     "rank": 27,
-    "richtung": "steigend",
-    "urteil": "höher"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "rangVerlauf": [
     {
@@ -4584,8 +4593,8 @@
     "n": 27,
     "schnitt": 43.3,
     "veraenderung": 0.7,
-    "richtung": "steigend",
-    "urteil": "höher",
+    "richtung": "stabil",
+    "urteil": "unverändert",
     "euVeraenderung": 0.4,
     "euUrteil": null
    },
@@ -4612,24 +4621,24 @@
      "name": "Malta",
      "value": 29.87505297690991,
      "rank": 3,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BG",
      "name": "Bulgarien",
      "value": 30.060770045371083,
      "rank": 4,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
      "name": "Lettland",
      "value": 33.83516537159239,
      "rank": 5,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -4700,8 +4709,8 @@
      "name": "Spanien",
      "value": 38.1377079960929,
      "rank": 14,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
@@ -4724,8 +4733,8 @@
      "name": "Slowenien",
      "value": 39.33143399810067,
      "rank": 17,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SE",
@@ -4788,24 +4797,24 @@
      "name": "Österreich",
      "value": 43.99663757619063,
      "rank": 24,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
      "name": "Dänemark",
      "value": 44.88053846471487,
      "rank": 26,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FR",
      "name": "Frankreich",
      "value": 46.31143347153272,
      "rank": 27,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     }
    ],
    "schweiz": {
@@ -4929,7 +4938,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.3,
+   "schwelle": 2.3,
+   "schwelleArt": "relativ",
    "datensatz": "lfsi_emp_q",
    "zusatz": null,
    "takt": "quartal",
@@ -4948,8 +4958,8 @@
     "schnitt": 77.6,
     "schnittVorher": 78,
     "veraenderung": -0.4,
-    "richtung": "sinkend",
-    "urteil": "schlechter"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 76.4,
    "euMittelwert": false,
@@ -4958,8 +4968,8 @@
     "name": "Malta",
     "value": 84,
     "rank": 1,
-    "richtung": "steigend",
-    "urteil": "besser"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "schlechteste": {
     "code": "IT",
@@ -5090,7 +5100,7 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "euVeraenderung": 0.4,
-    "euUrteil": "schlechter"
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -5099,8 +5109,8 @@
      "name": "Malta",
      "value": 84,
      "rank": 1,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "NL",
@@ -5163,8 +5173,8 @@
      "name": "Portugal",
      "value": 80.7,
      "rank": 9,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -5203,16 +5213,16 @@
      "name": "Slowenien",
      "value": 78.6,
      "rank": 14,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
      "name": "Lettland",
      "value": 78.3,
      "rank": 15,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SK",
@@ -5227,8 +5237,8 @@
      "name": "Österreich",
      "value": 77.6,
      "rank": 17,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BG",
@@ -5291,8 +5301,8 @@
      "name": "Griechenland",
      "value": 72.2,
      "rank": 25,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "RO",
@@ -5432,7 +5442,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 0.15,
+   "schwelle": 0.01,
+   "schwelleArt": "relativ",
    "datensatz": "demo_gind",
    "zusatz": null,
    "takt": "jahr",
@@ -5472,8 +5483,8 @@
     "name": "Lettland",
     "value": -0.831414113454787,
     "rank": 27,
-    "richtung": "stabil",
-    "urteil": "unverändert",
+    "richtung": "steigend",
+    "urteil": "höher",
     "bestand": 1.845
    },
    "rangVerlauf": [
@@ -5559,8 +5570,8 @@
      "name": "Spanien",
      "value": 0.9399918747438063,
      "rank": 5,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "sinkend",
+     "urteil": "niedriger",
      "bestand": 49.59
     },
     {
@@ -5568,8 +5579,8 @@
      "name": "Belgien",
      "value": 0.6043087492358046,
      "rank": 6,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "steigend",
+     "urteil": "höher",
      "bestand": 11.955
     },
     {
@@ -5577,8 +5588,8 @@
      "name": "Dänemark",
      "value": 0.5484808770087168,
      "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "steigend",
+     "urteil": "höher",
      "bestand": 6.026
     },
     {
@@ -5586,8 +5597,8 @@
      "name": "Niederlande",
      "value": 0.4776151133003781,
      "rank": 8,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "sinkend",
+     "urteil": "niedriger",
      "bestand": 18.13
     },
     {
@@ -5595,8 +5606,8 @@
      "name": "Frankreich",
      "value": 0.3334789917918357,
      "rank": 9,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "steigend",
+     "urteil": "höher",
      "bestand": 69.112
     },
     {
@@ -5631,8 +5642,8 @@
      "name": "Slowenien",
      "value": 0.19977943074360738,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "sinkend",
+     "urteil": "niedriger",
      "bestand": 2.135
     },
     {
@@ -5649,8 +5660,8 @@
      "name": "Tschechien",
      "value": 0.05810532105046118,
      "rank": 15,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "sinkend",
+     "urteil": "niedriger",
      "bestand": 10.916
     },
     {
@@ -5667,8 +5678,8 @@
      "name": "Italien",
      "value": -0.0010790000397720156,
      "rank": 17,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "steigend",
+     "urteil": "höher",
      "bestand": 58.943
     },
     {
@@ -5676,8 +5687,8 @@
      "name": "Rumänien",
      "value": -0.009604502952265115,
      "rank": 18,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "steigend",
+     "urteil": "höher",
      "bestand": 19.041
     },
     {
@@ -5685,8 +5696,8 @@
      "name": "Griechenland",
      "value": -0.05542628540247119,
      "rank": 19,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "sinkend",
+     "urteil": "niedriger",
      "bestand": 10.367
     },
     {
@@ -5712,8 +5723,8 @@
      "name": "Slowakei",
      "value": -0.1853324257383271,
      "rank": 22,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "sinkend",
+     "urteil": "niedriger",
      "bestand": 5.409
     },
     {
@@ -5721,8 +5732,8 @@
      "name": "Bulgarien",
      "value": -0.2198572085451156,
      "rank": 23,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "sinkend",
+     "urteil": "niedriger",
      "bestand": 6.423
     },
     {
@@ -5730,8 +5741,8 @@
      "name": "Polen",
      "value": -0.45134604443400894,
      "rank": 24,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "sinkend",
+     "urteil": "niedriger",
      "bestand": 36.333
     },
     {
@@ -5739,8 +5750,8 @@
      "name": "Ungarn",
      "value": -0.5353948245935714,
      "rank": 25,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "sinkend",
+     "urteil": "niedriger",
      "bestand": 9.488
     },
     {
@@ -5757,8 +5768,8 @@
      "name": "Lettland",
      "value": -0.831414113454787,
      "rank": 27,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "steigend",
+     "urteil": "höher",
      "bestand": 1.845
     }
    ],
@@ -5836,7 +5847,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.3,
+   "schwelle": 0.1,
+   "schwelleArt": "relativ",
    "datensatz": "nama_10_pc",
    "zusatz": null,
    "takt": "jahr",
@@ -5947,8 +5959,8 @@
      "name": "Bulgarien",
      "value": 3.2,
      "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "HR",
@@ -6011,8 +6023,8 @@
      "name": "Griechenland",
      "value": 2,
      "rank": 11,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "EE",
@@ -6043,8 +6055,8 @@
      "name": "Ungarn",
      "value": 1.2,
      "rank": 15,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "SK",
@@ -6099,8 +6111,8 @@
      "name": "Belgien",
      "value": 0.5,
      "rank": 22,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "FR",
@@ -6190,6 +6202,7 @@
    "umstritten": true,
    "trendNeutral": false,
    "schwelle": 1,
+   "schwelleArt": "fest",
    "datensatz": "prc_ppp_ind",
    "zusatz": null,
    "takt": "jahr",
@@ -6525,7 +6538,8 @@
    "hinweis": "Steigende Immobilienpreise nützen Eigentümern und belasten Käufer, Mieter und Familien, die erst kaufen wollen. Gezeigt wird die Veränderung des Preisindex der Wohnimmobilien (Wohnungen und Häuser, neu und gebraucht) gegenüber dem Quartal des Regierungsantritts. Das ist die Preisentwicklung, nicht der Preis pro Quadratmeter, und die Preise sind nicht um die Inflation bereinigt.",
    "umstritten": true,
    "trendNeutral": true,
-   "schwelle": 0.5,
+   "schwelle": 0.19,
+   "schwelleArt": "relativ",
    "datensatz": "prc_hpi_q",
    "zusatz": null,
    "takt": "quartal",
@@ -6554,8 +6568,8 @@
     "name": "Finnland",
     "value": -1.7038007863695914,
     "rank": 1,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "steigend",
+    "urteil": "höher"
    },
    "schlechteste": {
     "code": "PT",
@@ -6601,8 +6615,8 @@
      "name": "Finnland",
      "value": -1.7038007863695914,
      "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "FR",
@@ -6617,8 +6631,8 @@
      "name": "Deutschland",
      "value": 1.4540647719762045,
      "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "BE",
@@ -6853,7 +6867,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 250,
+   "schwelle": 690,
+   "schwelleArt": "relativ",
    "datensatz": "ilc_di03",
    "zusatz": null,
    "takt": "jahr",
@@ -6892,8 +6907,8 @@
     "name": "Rumänien",
     "value": 8187,
     "rank": 27,
-    "richtung": "steigend",
-    "urteil": "besser",
+    "richtung": "stabil",
+    "urteil": "unverändert",
     "pps": 12861,
     "ppsRang": 26
    },
@@ -7202,8 +7217,8 @@
      "name": "Ungarn",
      "value": 8792,
      "rank": 26,
-     "richtung": "steigend",
-     "urteil": "besser",
+     "richtung": "stabil",
+     "urteil": "unverändert",
      "pps": 11958,
      "ppsRang": 27
     },
@@ -7212,8 +7227,8 @@
      "name": "Rumänien",
      "value": 8187,
      "rank": 27,
-     "richtung": "steigend",
-     "urteil": "besser",
+     "richtung": "stabil",
+     "urteil": "unverändert",
      "pps": 12861,
      "ppsRang": 26
     }
@@ -7272,7 +7287,8 @@
    "hinweis": "Der Durchschnitt liegt meist über dem Median, weil wenige sehr hohe Einkommen ihn nach oben ziehen. Je größer der Abstand zum Median, desto ungleicher sind die Einkommen verteilt. Beide Werte stehen als eigene Indikatoren bereit.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 300,
+   "schwelle": 780,
+   "schwelleArt": "relativ",
    "datensatz": "ilc_di03",
    "zusatz": null,
    "takt": "jahr",
@@ -7309,8 +7325,8 @@
     "name": "Rumänien",
     "value": 8748,
     "rank": 27,
-    "richtung": "steigend",
-    "urteil": "besser"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "rangVerlauf": [
     {
@@ -7575,8 +7591,8 @@
      "name": "Rumänien",
      "value": 8748,
      "rank": 27,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     }
    ],
    "schweiz": {
@@ -7626,7 +7642,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 250,
+   "schwelle": 680,
+   "schwelleArt": "relativ",
    "datensatz": "ilc_di03",
    "zusatz": null,
    "takt": "jahr",
@@ -7745,8 +7762,8 @@
      "name": "Belgien",
      "value": 26860,
      "rank": 4,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DE",
@@ -7801,8 +7818,8 @@
      "name": "Frankreich",
      "value": 23792,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CY",
@@ -7865,8 +7882,8 @@
      "name": "Estland",
      "value": 17147,
      "rank": 19,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -7980,7 +7997,8 @@
    "hinweis": "Die Rechnung ist eine Näherung: Der Beitrag des Staates wird über die Kosten gemessen (Gehälter und Käufe des Staates), nicht über den Nutzen von Schulen, Spitälern oder Polizei. Staatsinvestitionen sind in den Quartalsdaten nicht getrennt ausgewiesen und fehlen deshalb. Pensionen und andere Sozialleistungen zählen nicht als Staatsausgaben im BIP, sie wirken erst über den Konsum der Empfänger.",
    "umstritten": true,
    "trendNeutral": false,
-   "schwelle": 0.3,
+   "schwelle": 0.1,
+   "schwelleArt": "relativ",
    "datensatz": "namq_10_gdp",
    "zusatz": null,
    "takt": "quartal",
@@ -7999,8 +8017,8 @@
     "schnitt": 0.7,
     "schnittVorher": 0.8,
     "veraenderung": -0.1,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "sinkend",
+    "urteil": "schlechter"
    },
    "eu": 0.966640877217736,
    "euMittelwert": false,
@@ -8190,8 +8208,8 @@
      "name": "Bulgarien",
      "value": 2.358122802817434,
      "rank": 6,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "LV",
@@ -8206,8 +8224,8 @@
      "name": "Portugal",
      "value": 2.3088380419745964,
      "rank": 8,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "CY",
@@ -8254,24 +8272,24 @@
      "name": "Tschechien",
      "value": 1.5336900732635148,
      "rank": 14,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "FI",
      "name": "Finnland",
      "value": 1.296908936728944,
      "rank": 15,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "HU",
      "name": "Ungarn",
      "value": 1.2744400464403887,
      "rank": 15,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "HR",
@@ -8294,24 +8312,24 @@
      "name": "Italien",
      "value": 0.9272439661926519,
      "rank": 19,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "AT",
      "name": "Österreich",
      "value": 0.6697254281297927,
      "rank": 20,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "SK",
      "name": "Slowakei",
      "value": 0.5528604831136068,
      "rank": 21,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "LU",
@@ -8326,8 +8344,8 @@
      "name": "Belgien",
      "value": 0.4131496204600345,
      "rank": 23,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "DE",
@@ -8489,7 +8507,8 @@
    "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 2,
+   "schwelle": 5.6,
+   "schwelleArt": "relativ",
    "datensatz": "une_rt_m",
    "zusatz": null,
    "takt": "monat",
@@ -8508,8 +8527,8 @@
     "schnitt": 180.7,
     "schnittVorher": 175.7,
     "veraenderung": 5,
-    "richtung": "steigend",
-    "urteil": "schlechter"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 187.7,
    "euMittelwert": false,
@@ -8850,7 +8869,7 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "euVeraenderung": 21.9,
-    "euUrteil": "schlechter"
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -8867,8 +8886,8 @@
      "name": "Polen",
      "value": 139.7,
      "rank": 2,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SE",
@@ -8907,8 +8926,8 @@
      "name": "Österreich",
      "value": 167.5,
      "rank": 7,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CZ",
@@ -9059,8 +9078,8 @@
      "name": "Niederlande",
      "value": 221,
      "rank": 26,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
@@ -9389,7 +9408,8 @@
    "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 2,
+   "schwelle": 6.3,
+   "schwelleArt": "relativ",
    "datensatz": "une_rt_m",
    "zusatz": null,
    "takt": "monat",
@@ -9750,7 +9770,7 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "euVeraenderung": 51.7,
-    "euUrteil": "schlechter"
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -10289,7 +10309,8 @@
    "hinweis": "Subjektives Empfinden aus einer Haushaltsbefragung, kein Maß für tatsächliche Straftaten. Das Sicherheitsgefühl hängt auch von Medien, Stadtanteil und Erwartungen ab.",
    "umstritten": true,
    "trendNeutral": false,
-   "schwelle": 1,
+   "schwelle": 0.3,
+   "schwelleArt": "relativ",
    "datensatz": "sdg_16_20",
    "zusatz": null,
    "takt": "jahr",
@@ -10318,8 +10339,8 @@
     "name": "Kroatien",
     "value": 1.4,
     "rank": 1,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "sinkend",
+    "urteil": "besser"
    },
    "schlechteste": {
     "code": "EL",
@@ -10365,16 +10386,16 @@
      "name": "Kroatien",
      "value": 1.4,
      "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "LT",
      "name": "Litauen",
      "value": 2.7,
      "rank": 2,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "PL",
@@ -10388,8 +10409,8 @@
      "name": "Slowakei",
      "value": 3.4,
      "rank": 4,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "EE",
@@ -10420,16 +10441,16 @@
      "name": "Ungarn",
      "value": 6.1,
      "rank": 8,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "DK",
      "name": "Dänemark",
      "value": 6.3,
      "rank": 9,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "IT",
@@ -10444,24 +10465,24 @@
      "name": "Tschechien",
      "value": 6.6,
      "rank": 11,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "SI",
      "name": "Slowenien",
      "value": 6.8,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "PT",
      "name": "Portugal",
      "value": 6.9,
      "rank": 13,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "AT",
@@ -10508,8 +10529,8 @@
      "name": "Zypern",
      "value": 9.6,
      "rank": 18,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "DE",
@@ -10540,8 +10561,8 @@
      "name": "Spanien",
      "value": 13.6,
      "rank": 23,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "FR",
@@ -10564,8 +10585,8 @@
      "name": "Niederlande",
      "value": 16.7,
      "rank": 26,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "EL",
@@ -10634,7 +10655,8 @@
    "hinweis": "Zählweise und Insolvenzrecht unterscheiden sich je Land, deshalb vergleicht dieser Index nur die Entwicklung gegenüber dem jeweils eigenen Land im Jahr 2021. 2021 war wegen Corona-Hilfen und Aussetzungen ein ungewöhnlich insolvenzarmes Jahr, der Anstieg danach ist daher teils ein Aufholeffekt.",
    "umstritten": true,
    "trendNeutral": false,
-   "schwelle": 5,
+   "schwelle": 5.1,
+   "schwelleArt": "relativ",
    "datensatz": "sts_rb_q",
    "zusatz": null,
    "takt": "quartal",
@@ -11118,7 +11140,8 @@
    "hinweis": "Eurostat veröffentlicht das durchschnittliche Pensionsantrittsalter derzeit nicht mehr, deshalb zeigt diese Seite die Dauer des Erwerbslebens als Ersatz. Ob ein längeres Erwerbsleben besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber mehr Arbeitsjahre für den Einzelnen.",
    "umstritten": true,
    "trendNeutral": true,
-   "schwelle": 0.1,
+   "schwelle": 1.1,
+   "schwelleArt": "relativ",
    "datensatz": "lfsi_exi_a",
    "zusatz": null,
    "takt": "jahr",
@@ -11137,8 +11160,8 @@
     "schnitt": 39.1,
     "schnittVorher": 38.7,
     "veraenderung": 0.4,
-    "richtung": "steigend",
-    "urteil": "höher"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 37.5,
    "euMittelwert": false,
@@ -11147,8 +11170,8 @@
     "name": "Niederlande",
     "value": 44,
     "rank": 1,
-    "richtung": "steigend",
-    "urteil": "höher"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "schlechteste": {
     "code": "RO",
@@ -11193,8 +11216,8 @@
     "n": 27,
     "schnitt": 38.7,
     "veraenderung": 0.4,
-    "richtung": "steigend",
-    "urteil": "höher",
+    "richtung": "stabil",
+    "urteil": "unverändert",
     "euVeraenderung": 0.3,
     "euUrteil": null
    },
@@ -11205,16 +11228,16 @@
      "name": "Niederlande",
      "value": 44,
      "rank": 1,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SE",
      "name": "Schweden",
      "value": 43.4,
      "rank": 2,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
@@ -11237,88 +11260,88 @@
      "name": "Irland",
      "value": 40.7,
      "rank": 5,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DE",
      "name": "Deutschland",
      "value": 40.2,
      "rank": 6,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FI",
      "name": "Finnland",
      "value": 40.1,
      "rank": 7,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PT",
      "name": "Portugal",
      "value": 39.7,
      "rank": 8,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CY",
      "name": "Zypern",
      "value": 39.5,
      "rank": 9,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "MT",
      "name": "Malta",
      "value": 39.2,
      "rank": 10,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "AT",
      "name": "Österreich",
      "value": 39.1,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
      "name": "Litauen",
      "value": 38.6,
      "rank": 12,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
      "name": "Lettland",
      "value": 38.1,
      "rank": 13,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CZ",
      "name": "Tschechien",
      "value": 38.1,
      "rank": 13,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FR",
      "name": "Frankreich",
      "value": 37.5,
      "rank": 15,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HU",
@@ -11341,32 +11364,32 @@
      "name": "Spanien",
      "value": 36.8,
      "rank": 18,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SK",
      "name": "Slowakei",
      "value": 36.1,
      "rank": 19,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PL",
      "name": "Polen",
      "value": 35.9,
      "rank": 20,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BE",
      "name": "Belgien",
      "value": 35.7,
      "rank": 21,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LU",
@@ -11381,32 +11404,32 @@
      "name": "Griechenland",
      "value": 35.3,
      "rank": 23,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
      "name": "Kroatien",
      "value": 35.1,
      "rank": 24,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BG",
      "name": "Bulgarien",
      "value": 34.6,
      "rank": 25,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IT",
      "name": "Italien",
      "value": 33,
      "rank": 26,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "RO",
@@ -11463,7 +11486,8 @@
    "hinweis": "Gewertet wird: Niedrigere Ausgaben gelten als besser, weil sie den Staatshaushalt weniger belasten. Die Ausgaben hängen aber vom Altersaufbau der Bevölkerung ab, und hohe Ausgaben bedeuten nicht automatisch hohe Pensionen. Beispiel Österreich: Das Land gibt 15,4 % des BIP für Pensionen aus (Platz 26 von 27, wobei Platz 1 die niedrigsten Ausgaben hat), die Pensionen liegen im Verhältnis zum früheren Einkommen aber nur bei 56 % (Platz 10 von 27).",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.2,
+   "schwelle": 0.38,
+   "schwelleArt": "relativ",
    "datensatz": "spr_exp_pens",
    "zusatz": null,
    "takt": "jahr",
@@ -11492,16 +11516,16 @@
     "name": "Irland",
     "value": 4.05,
     "rank": 1,
-    "richtung": "sinkend",
-    "urteil": "besser"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "schlechteste": {
     "code": "IT",
     "name": "Italien",
     "value": 15.85,
     "rank": 27,
-    "richtung": "steigend",
-    "urteil": "schlechter"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "rangVerlauf": [
     {
@@ -11539,8 +11563,8 @@
      "name": "Irland",
      "value": 4.05,
      "rank": 1,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "MT",
@@ -11587,8 +11611,8 @@
      "name": "Lettland",
      "value": 8.93,
      "rank": 7,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CZ",
@@ -11659,8 +11683,8 @@
      "name": "Dänemark",
      "value": 11.16,
      "rank": 16,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "NL",
@@ -11683,8 +11707,8 @@
      "name": "Deutschland",
      "value": 11.67,
      "rank": 19,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PT",
@@ -11747,8 +11771,8 @@
      "name": "Italien",
      "value": 15.85,
      "rank": 27,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     }
    ],
    "schweiz": {
@@ -11798,7 +11822,8 @@
    "hinweis": "Eine höhere Ersatzquote bedeutet höhere Pensionen im Verhältnis zum früheren Einkommen, kostet das System aber mehr. Beispiel Österreich: Das Land gibt 15,4 % des BIP für Pensionen aus (Platz 26 von 27, wobei Platz 1 die niedrigsten Ausgaben hat), die Pensionen liegen im Verhältnis zum früheren Einkommen aber nur bei 56 % (Platz 10 von 27).",
    "umstritten": true,
    "trendNeutral": false,
-   "schwelle": 1,
+   "schwelle": 1.8,
+   "schwelleArt": "relativ",
    "datensatz": "ilc_pnp3",
    "zusatz": null,
    "takt": "jahr",
@@ -12151,7 +12176,8 @@
    "hinweis": "Die Armutsgefährdungsschwelle liegt bei 60 % des mittleren Einkommens im jeweiligen Land. Das misst die Ungleichheit im Land, nicht den absoluten Lebensstandard.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.3,
+   "schwelle": 0.49,
+   "schwelleArt": "relativ",
    "datensatz": "ilc_li02",
    "zusatz": null,
    "takt": "jahr",
@@ -12170,8 +12196,8 @@
     "schnitt": 16,
     "schnittVorher": 16.3,
     "veraenderung": -0.3,
-    "richtung": "sinkend",
-    "urteil": "besser"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 16.3,
    "euMittelwert": false,
@@ -12188,8 +12214,8 @@
     "name": "Lettland",
     "value": 41.7,
     "rank": 27,
-    "richtung": "steigend",
-    "urteil": "schlechter"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "rangVerlauf": [
     {
@@ -12234,8 +12260,8 @@
     "n": 27,
     "schnitt": 16.3,
     "veraenderung": -0.3,
-    "richtung": "sinkend",
-    "urteil": "besser",
+    "richtung": "stabil",
+    "urteil": "unverändert",
     "euVeraenderung": -0.3,
     "euUrteil": "unverändert"
    },
@@ -12342,8 +12368,8 @@
      "name": "Österreich",
      "value": 16,
      "rank": 13,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "ES",
@@ -12358,8 +12384,8 @@
      "name": "Italien",
      "value": 17.2,
      "rank": 15,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PT",
@@ -12414,8 +12440,8 @@
      "name": "Malta",
      "value": 28.9,
      "rank": 22,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CY",
@@ -12454,8 +12480,8 @@
      "name": "Lettland",
      "value": 41.7,
      "rank": 27,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     }
    ],
    "schweiz": {
@@ -12504,7 +12530,8 @@
    "hinweis": "Eine hohe Teilzeitquote kann freiwillig gewählt sein (etwa wegen Kinderbetreuung oder Work-Life-Balance) oder an fehlenden Vollzeitstellen liegen. Die Statistik unterscheidet das nicht.",
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 0.5,
+   "schwelle": 0.51,
+   "schwelleArt": "relativ",
    "datensatz": "lfsa_eppgan",
    "zusatz": null,
    "takt": "jahr",
@@ -12849,7 +12876,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.5,
+   "schwelle": 2,
+   "schwelleArt": "relativ",
    "datensatz": "lfsi_emp_a",
    "zusatz": null,
    "takt": "jahr",
@@ -12935,7 +12963,7 @@
     "richtung": "steigend",
     "urteil": "besser",
     "euVeraenderung": 1.2,
-    "euUrteil": "besser"
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -12952,16 +12980,16 @@
      "name": "Tschechien",
      "value": 78.3,
      "rank": 1,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EE",
      "name": "Estland",
      "value": 77,
      "rank": 3,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "NL",
@@ -12992,88 +13020,88 @@
      "name": "Lettland",
      "value": 73.6,
      "rank": 7,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FI",
      "name": "Finnland",
      "value": 72.3,
      "rank": 8,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HU",
      "name": "Ungarn",
      "value": 72.1,
      "rank": 9,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BG",
      "name": "Bulgarien",
      "value": 71.2,
      "rank": 10,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CY",
      "name": "Zypern",
      "value": 71,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
      "name": "Litauen",
      "value": 69.9,
      "rank": 12,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PT",
      "name": "Portugal",
      "value": 69.5,
      "rank": 13,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IE",
      "name": "Irland",
      "value": 69.4,
      "rank": 14,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SK",
      "name": "Slowakei",
      "value": 66.6,
      "rank": 15,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "ES",
      "name": "Spanien",
      "value": 62.4,
      "rank": 16,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FR",
      "name": "Frankreich",
      "value": 61.7,
      "rank": 17,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BE",
@@ -13112,8 +13140,8 @@
      "name": "Polen",
      "value": 60.1,
      "rank": 22,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EL",
@@ -13128,8 +13156,8 @@
      "name": "Slowenien",
      "value": 57.6,
      "rank": 24,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "RO",
@@ -13144,8 +13172,8 @@
      "name": "Kroatien",
      "value": 54.9,
      "rank": 26,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LU",
@@ -13202,7 +13230,8 @@
    "hinweis": "Es ist das Medianalter, nicht der Durchschnitt: Die eine Hälfte der Bevölkerung ist jünger, die andere älter. Eine ältere Bevölkerung belastet das Pensionssystem, bedeutet aber auch Wohlstand und gute Gesundheitsversorgung.",
    "umstritten": true,
    "trendNeutral": true,
-   "schwelle": 0.1,
+   "schwelle": 1.3,
+   "schwelleArt": "relativ",
    "datensatz": "demo_pjanind",
    "zusatz": null,
    "takt": "jahr",
@@ -13221,8 +13250,8 @@
     "schnitt": 43.8,
     "schnittVorher": 43.6,
     "veraenderung": 0.2,
-    "richtung": "steigend",
-    "urteil": "höher"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 44.9,
    "euMittelwert": false,
@@ -13231,16 +13260,16 @@
     "name": "Italien",
     "value": 49.1,
     "rank": 1,
-    "richtung": "steigend",
-    "urteil": "höher"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "schlechteste": {
     "code": "IE",
     "name": "Irland",
     "value": 39.6,
     "rank": 27,
-    "richtung": "steigend",
-    "urteil": "höher"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "rangVerlauf": [
     {
@@ -13277,8 +13306,8 @@
     "n": 27,
     "schnitt": 43.6,
     "veraenderung": 0.2,
-    "richtung": "steigend",
-    "urteil": "höher",
+    "richtung": "stabil",
+    "urteil": "unverändert",
     "euVeraenderung": 0.2,
     "euUrteil": null
    },
@@ -13289,32 +13318,32 @@
      "name": "Italien",
      "value": 49.1,
      "rank": 1,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BG",
      "name": "Bulgarien",
      "value": 47.3,
      "rank": 2,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EL",
      "name": "Griechenland",
      "value": 47.2,
      "rank": 3,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "ES",
      "name": "Spanien",
      "value": 45.8,
      "rank": 4,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PT",
@@ -13337,32 +13366,32 @@
      "name": "Kroatien",
      "value": 45.5,
      "rank": 6,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SI",
      "name": "Slowenien",
      "value": 45.5,
      "rank": 6,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HU",
      "name": "Ungarn",
      "value": 44.8,
      "rank": 9,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
      "name": "Lettland",
      "value": 44.4,
      "rank": 10,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -13377,72 +13406,72 @@
      "name": "Tschechien",
      "value": 44.3,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "RO",
      "name": "Rumänien",
      "value": 44.1,
      "rank": 13,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "AT",
      "name": "Österreich",
      "value": 43.8,
      "rank": 14,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FI",
      "name": "Finnland",
      "value": 43.5,
      "rank": 15,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PL",
      "name": "Polen",
      "value": 43.4,
      "rank": 16,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SK",
      "name": "Slowakei",
      "value": 43,
      "rank": 17,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EE",
      "name": "Estland",
      "value": 42.9,
      "rank": 18,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FR",
      "name": "Frankreich",
      "value": 42.8,
      "rank": 19,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "NL",
      "name": "Niederlande",
      "value": 42.6,
      "rank": 20,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
@@ -13457,32 +13486,32 @@
      "name": "Belgien",
      "value": 42.1,
      "rank": 22,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SE",
      "name": "Schweden",
      "value": 41.2,
      "rank": 23,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CY",
      "name": "Zypern",
      "value": 41,
      "rank": 24,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "MT",
      "name": "Malta",
      "value": 40,
      "rank": 25,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LU",
@@ -13497,8 +13526,8 @@
      "name": "Irland",
      "value": 39.6,
      "rank": 27,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     }
    ],
    "schweiz": {
@@ -13547,7 +13576,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.1,
+   "schwelle": 2.4,
+   "schwelleArt": "relativ",
    "datensatz": "demo_mlexpec",
    "zusatz": null,
    "takt": "jahr",
@@ -13566,8 +13596,8 @@
     "schnitt": 82.1,
     "schnittVorher": 81.9,
     "veraenderung": 0.2,
-    "richtung": "steigend",
-    "urteil": "besser"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 81.5,
    "euMittelwert": false,
@@ -13576,8 +13606,8 @@
     "name": "Spanien",
     "value": 84,
     "rank": 1,
-    "richtung": "steigend",
-    "urteil": "besser"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "schlechteste": {
     "code": "BG",
@@ -13623,48 +13653,48 @@
      "name": "Spanien",
      "value": 84,
      "rank": 1,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SE",
      "name": "Schweden",
      "value": 83.8,
      "rank": 2,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IT",
      "name": "Italien",
      "value": 83.7,
      "rank": 3,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CY",
      "name": "Zypern",
      "value": 83.5,
      "rank": 4,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LU",
      "name": "Luxemburg",
      "value": 83.2,
      "rank": 5,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IE",
      "name": "Irland",
      "value": 83.1,
      "rank": 6,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FR",
@@ -13687,112 +13717,112 @@
      "name": "Portugal",
      "value": 82.8,
      "rank": 9,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BE",
      "name": "Belgien",
      "value": 82.4,
      "rank": 10,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FI",
      "name": "Finnland",
      "value": 82.2,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "AT",
      "name": "Österreich",
      "value": 82.1,
      "rank": 12,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SI",
      "name": "Slowenien",
      "value": 82.1,
      "rank": 12,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
      "name": "Dänemark",
      "value": 82,
      "rank": 14,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EL",
      "name": "Griechenland",
      "value": 81.9,
      "rank": 15,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "NL",
      "name": "Niederlande",
      "value": 81.9,
      "rank": 15,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DE",
      "name": "Deutschland",
      "value": 81.2,
      "rank": 17,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CZ",
      "name": "Tschechien",
      "value": 80.1,
      "rank": 18,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EE",
      "name": "Estland",
      "value": 79.4,
      "rank": 19,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
      "name": "Kroatien",
      "value": 78.9,
      "rank": 20,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PL",
      "name": "Polen",
      "value": 78.5,
      "rank": 21,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SK",
      "name": "Slowakei",
      "value": 78.4,
      "rank": 22,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -13815,16 +13845,16 @@
      "name": "Rumänien",
      "value": 76.5,
      "rank": 25,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
      "name": "Lettland",
      "value": 76.4,
      "rank": 26,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BG",
@@ -13893,7 +13923,8 @@
    "hinweis": "Beruht auf der Selbsteinschätzung in der EU-Haushaltsbefragung (EU-SILC), nicht auf ärztlichen Untersuchungen. Die Fragestellung wird in den Ländern unterschiedlich verstanden.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.3,
+   "schwelle": 2,
+   "schwelleArt": "relativ",
    "datensatz": "hlth_hlye",
    "zusatz": null,
    "takt": "jahr",
@@ -13977,8 +14008,8 @@
      "name": "Malta",
      "value": 70.6,
      "rank": 2,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EL",
@@ -13993,8 +14024,8 @@
      "name": "Bulgarien",
      "value": 69.1,
      "rank": 4,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "ES",
@@ -14009,24 +14040,24 @@
      "name": "Schweden",
      "value": 67.5,
      "rank": 6,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SI",
      "name": "Slowenien",
      "value": 67.5,
      "rank": 6,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IE",
      "name": "Irland",
      "value": 66.9,
      "rank": 8,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "RO",
@@ -14049,8 +14080,8 @@
      "name": "Polen",
      "value": 64.7,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -14073,8 +14104,8 @@
      "name": "Zypern",
      "value": 63.9,
      "rank": 13,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FR",
@@ -14089,16 +14120,16 @@
      "name": "Ungarn",
      "value": 63.3,
      "rank": 16,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
      "name": "Kroatien",
      "value": 63.1,
      "rank": 17,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
@@ -14121,8 +14152,8 @@
      "name": "Tschechien",
      "value": 62.4,
      "rank": 18,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "AT",
@@ -14137,16 +14168,16 @@
      "name": "Niederlande",
      "value": 59.5,
      "rank": 22,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EE",
      "name": "Estland",
      "value": 58.6,
      "rank": 23,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FI",
@@ -14161,8 +14192,8 @@
      "name": "Slowakei",
      "value": 57.1,
      "rank": 25,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
@@ -14220,7 +14251,8 @@
    "hinweis": "Zeigt die Altersstruktur. Eine höhere Quote bedeutet mehr Ältere je Erwerbsfähigem und damit mehr Druck auf das Pensionssystem. Sie hängt auch von der Zuwanderung und der Beschäftigung ab.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.5,
+   "schwelle": 1,
+   "schwelleArt": "relativ",
    "datensatz": "demo_pjanind",
    "zusatz": null,
    "takt": "jahr",
@@ -14239,8 +14271,8 @@
     "schnitt": 30.9,
     "schnittVorher": 30.2,
     "veraenderung": 0.7,
-    "richtung": "steigend",
-    "urteil": "schlechter"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 34.4,
    "euMittelwert": false,
@@ -14257,8 +14289,8 @@
     "name": "Italien",
     "value": 39,
     "rank": 27,
-    "richtung": "steigend",
-    "urteil": "schlechter"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "rangVerlauf": [
     {
@@ -14303,8 +14335,8 @@
     "n": 27,
     "schnitt": 30.2,
     "veraenderung": 0.7,
-    "richtung": "steigend",
-    "urteil": "schlechter",
+    "richtung": "stabil",
+    "urteil": "unverändert",
     "euVeraenderung": 0.5,
     "euUrteil": "unverändert"
    },
@@ -14339,24 +14371,24 @@
      "name": "Zypern",
      "value": 27.4,
      "rank": 4,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SK",
      "name": "Slowakei",
      "value": 28.7,
      "rank": 5,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "AT",
      "name": "Österreich",
      "value": 30.9,
      "rank": 6,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "ES",
@@ -14387,8 +14419,8 @@
      "name": "Litauen",
      "value": 32.1,
      "rank": 10,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HU",
@@ -14403,8 +14435,8 @@
      "name": "Niederlande",
      "value": 32.4,
      "rank": 12,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CZ",
@@ -14419,8 +14451,8 @@
      "name": "Polen",
      "value": 32.7,
      "rank": 14,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
@@ -14435,8 +14467,8 @@
      "name": "Estland",
      "value": 32.9,
      "rank": 16,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SE",
@@ -14451,24 +14483,24 @@
      "name": "Lettland",
      "value": 34.7,
      "rank": 18,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SI",
      "name": "Slowenien",
      "value": 34.9,
      "rank": 19,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FR",
      "name": "Frankreich",
      "value": 35.5,
      "rank": 20,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PT",
@@ -14483,8 +14515,8 @@
      "name": "Deutschland",
      "value": 35.9,
      "rank": 22,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
@@ -14499,8 +14531,8 @@
      "name": "Griechenland",
      "value": 37.4,
      "rank": 24,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FI",
@@ -14523,8 +14555,8 @@
      "name": "Italien",
      "value": 39,
      "rank": 27,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     }
    ],
    "schweiz": {
@@ -14573,7 +14605,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.05,
+   "schwelle": 0.031,
+   "schwelleArt": "relativ",
    "datensatz": "crim_off_cat",
    "zusatz": null,
    "takt": "jahr",
@@ -14801,8 +14834,8 @@
      "name": "Slowakei",
      "value": 1.09,
      "rank": 20,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "BG",
@@ -14926,7 +14959,8 @@
    "hinweis": "Die Zahlen beruhen auf Polizeistatistiken. Wie Delikte gezählt und erfasst werden, unterscheidet sich zwischen den Ländern, ein hoher Wert kann auch an besserer Erfassung oder höherer Anzeigebereitschaft liegen.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 2,
+   "schwelle": 1.1,
+   "schwelleArt": "relativ",
    "datensatz": "crim_off_cat",
    "zusatz": null,
    "takt": "jahr",
@@ -15010,16 +15044,16 @@
      "name": "Ungarn",
      "value": 6.94,
      "rank": 2,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "EE",
      "name": "Estland",
      "value": 7.35,
      "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "CY",
@@ -15082,8 +15116,8 @@
      "name": "Rumänien",
      "value": 15.08,
      "rank": 11,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "HR",
@@ -15106,8 +15140,8 @@
      "name": "Griechenland",
      "value": 27.89,
      "rank": 14,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "IE",
@@ -15130,8 +15164,8 @@
      "name": "Niederlande",
      "value": 35.25,
      "rank": 17,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "MT",
@@ -15162,8 +15196,8 @@
      "name": "Italien",
      "value": 49.77,
      "rank": 21,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "DE",
@@ -15271,7 +15305,8 @@
    "hinweis": "Die Zahlen beruhen auf Polizeistatistiken. Wie Delikte gezählt und erfasst werden, unterscheidet sich zwischen den Ländern, ein hoher Wert kann auch an besserer Erfassung oder höherer Anzeigebereitschaft liegen.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 15,
+   "schwelle": 3.6,
+   "schwelleArt": "relativ",
    "datensatz": "crim_off_cat",
    "zusatz": null,
    "takt": "jahr",
@@ -15290,8 +15325,8 @@
     "schnitt": 70,
     "schnittVorher": 83,
     "veraenderung": -14,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "sinkend",
+    "urteil": "besser"
    },
    "eu": 119.4,
    "euMittelwert": true,
@@ -15371,24 +15406,24 @@
      "name": "Estland",
      "value": 36.37,
      "rank": 4,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "PL",
      "name": "Polen",
      "value": 38.18,
      "rank": 5,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "CZ",
      "name": "Tschechien",
      "value": 41.01,
      "rank": 6,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "BG",
@@ -15419,8 +15454,8 @@
      "name": "Österreich",
      "value": 69.57,
      "rank": 10,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "MT",
@@ -15435,24 +15470,24 @@
      "name": "Finnland",
      "value": 73.95,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "PT",
      "name": "Portugal",
      "value": 74.07,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "RO",
      "name": "Rumänien",
      "value": 76.21,
      "rank": 14,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "DE",
@@ -15475,24 +15510,24 @@
      "name": "Niederlande",
      "value": 117.01,
      "rank": 17,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "ES",
      "name": "Spanien",
      "value": 166.79,
      "rank": 18,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "IT",
      "name": "Italien",
      "value": 263.84,
      "rank": 19,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "FR",
@@ -15507,8 +15542,8 @@
      "name": "Belgien",
      "value": 311.54,
      "rank": 21,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "SE",
@@ -15590,7 +15625,8 @@
    "hinweis": "Gewertet wird: Ein höherer Wert gilt als besser, weil er für mehr Kapital in heimischen Unternehmen steht. Das ist umstritten, denn ein hoher Wert sagt nichts über Wohlstand oder Verteilung. Der Börsenwert schwankt stark mit den Aktienkursen. In kleinen Ländern mit wenigen, aber großen und international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt.",
    "umstritten": true,
    "trendNeutral": false,
-   "schwelle": 500,
+   "schwelle": 890,
+   "schwelleArt": "relativ",
    "datensatz": "nasa_10_f_bs",
    "zusatz": null,
    "takt": "jahr",
@@ -15805,8 +15841,8 @@
      "name": "Kroatien",
      "value": 8375.92924811673,
      "rank": 16,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SI",
@@ -15861,8 +15897,8 @@
      "name": "Rumänien",
      "value": 3069.9386841997607,
      "rank": 23,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -15940,7 +15976,8 @@
    "hinweis": "Gewertet wird: Ein höherer Wert gilt als besser, weil er für mehr Kapital in heimischen Unternehmen steht. Das ist umstritten, denn ein hoher Wert sagt nichts über Wohlstand oder Verteilung. Der Wert nicht börsennotierter Unternehmen wird von den Statistikämtern geschätzt, weil es keinen Börsenkurs gibt. Die Verfahren unterscheiden sich zwischen den Ländern. Der Vergleich ist daher weniger genau als beim Börsenwert. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben. Das sagt wenig über die heimische Wirtschaft.",
    "umstritten": true,
    "trendNeutral": false,
-   "schwelle": 500,
+   "schwelle": 2200,
+   "schwelleArt": "relativ",
    "datensatz": "nasa_10_f_bs",
    "zusatz": null,
    "takt": "jahr",
@@ -15959,8 +15996,8 @@
     "schnitt": 18295,
     "schnittVorher": 16136,
     "veraenderung": 2159,
-    "richtung": "steigend",
-    "urteil": "besser"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 74733.76586966544,
    "euMittelwert": false,
@@ -16023,10 +16060,10 @@
     "n": 27,
     "schnitt": 16136,
     "veraenderung": 2159,
-    "richtung": "steigend",
-    "urteil": "besser",
+    "richtung": "stabil",
+    "urteil": "unverändert",
     "euVeraenderung": 3167,
-    "euUrteil": "schlechter"
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -16067,8 +16104,8 @@
      "name": "Niederlande",
      "value": 279642.89280359645,
      "rank": 5,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
@@ -16115,8 +16152,8 @@
      "name": "Finnland",
      "value": 49611.06762671705,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IT",
@@ -16147,8 +16184,8 @@
      "name": "Portugal",
      "value": 27745.857373733157,
      "rank": 15,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CZ",
@@ -16171,32 +16208,32 @@
      "name": "Österreich",
      "value": 18294.91608451994,
      "rank": 18,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SK",
      "name": "Slowakei",
      "value": 14334.752565783021,
      "rank": 19,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DE",
      "name": "Deutschland",
      "value": 12360.879833415165,
      "rank": 20,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BG",
      "name": "Bulgarien",
      "value": 11821.701809748994,
      "rank": 21,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
@@ -16211,8 +16248,8 @@
      "name": "Ungarn",
      "value": 10280.929139428199,
      "rank": 23,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SI",
@@ -16290,7 +16327,8 @@
    "hinweis": "Gewertet wird: Ein höherer Wert gilt als besser, weil er für mehr Kapital in heimischen Unternehmen steht. Das ist umstritten, denn ein hoher Wert sagt nichts über Wohlstand oder Verteilung. Der nicht börsennotierte Teil wird von den Statistikämtern geschätzt. In kleinen Ländern mit wenigen großen, international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben.",
    "umstritten": true,
    "trendNeutral": false,
-   "schwelle": 1000,
+   "schwelle": 3100,
+   "schwelleArt": "relativ",
    "datensatz": "nasa_10_f_bs",
    "zusatz": null,
    "takt": "jahr",
@@ -16376,7 +16414,7 @@
     "richtung": "steigend",
     "urteil": "besser",
     "euVeraenderung": 6693,
-    "euUrteil": "besser"
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -16465,8 +16503,8 @@
      "name": "Estland",
      "value": 73396.22226942147,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "ES",
@@ -16505,16 +16543,16 @@
      "name": "Litauen",
      "value": 34473.16975917993,
      "rank": 16,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PT",
      "name": "Portugal",
      "value": 34093.42599052204,
      "rank": 17,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "EL",
@@ -16537,8 +16575,8 @@
      "name": "Slowenien",
      "value": 15859.509165350433,
      "rank": 20,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HU",
@@ -16569,16 +16607,16 @@
      "name": "Bulgarien",
      "value": 13194.627173543191,
      "rank": 24,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PL",
      "name": "Polen",
      "value": 11486.30802636157,
      "rank": 25,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
@@ -16640,7 +16678,8 @@
    "hinweis": "Die Armutsgefährdungsschwelle liegt bei 60 % des mittleren Einkommens im jeweiligen Land. Das misst die Ungleichheit im Land, nicht den absoluten Lebensstandard.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.3,
+   "schwelle": 0.49,
+   "schwelleArt": "relativ",
    "datensatz": "ilc_li02",
    "zusatz": null,
    "takt": "jahr",
@@ -16767,8 +16806,8 @@
      "name": "Irland",
      "value": 13,
      "rank": 5,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PL",
@@ -16799,8 +16838,8 @@
      "name": "Ungarn",
      "value": 14,
      "rank": 9,
-     "richtung": "sinkend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SI",
@@ -16823,8 +16862,8 @@
      "name": "Zypern",
      "value": 14.9,
      "rank": 12,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PT",
@@ -16863,8 +16902,8 @@
      "name": "Frankreich",
      "value": 16.3,
      "rank": 17,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "MT",
@@ -16935,8 +16974,8 @@
      "name": "Lettland",
      "value": 22,
      "rank": 26,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -16993,7 +17032,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.5,
+   "schwelle": 0.63,
+   "schwelleArt": "relativ",
    "datensatz": "ilc_peps01n",
    "zusatz": null,
    "takt": "jahr",
@@ -17288,8 +17328,8 @@
      "name": "Griechenland",
      "value": 27.5,
      "rank": 26,
-     "richtung": "steigend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BG",
@@ -17346,7 +17386,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.5,
+   "schwelle": 0.23,
+   "schwelleArt": "relativ",
    "datensatz": "ilc_lvho07a",
    "zusatz": null,
    "takt": "jahr",
@@ -17432,7 +17473,7 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "euVeraenderung": -0.6,
-    "euUrteil": "unverändert"
+    "euUrteil": "schlechter"
    },
    "rueckblick": null,
    "laender": [
@@ -17449,8 +17490,8 @@
      "name": "Kroatien",
      "value": 3.2,
      "rank": 2,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "SK",
@@ -17465,8 +17506,8 @@
      "name": "Slowenien",
      "value": 3.5,
      "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "PL",
@@ -17497,8 +17538,8 @@
      "name": "Rumänien",
      "value": 5,
      "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "IE",
@@ -17529,8 +17570,8 @@
      "name": "Litauen",
      "value": 5.7,
      "rank": 11,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "MT",
@@ -17569,8 +17610,8 @@
      "name": "Niederlande",
      "value": 6.5,
      "rank": 17,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "BE",
@@ -17699,7 +17740,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.5,
+   "schwelle": 0.1,
+   "schwelleArt": "relativ",
    "datensatz": "prc_hicp_minr",
    "zusatz": null,
    "takt": "monat",
@@ -17728,8 +17770,8 @@
     "name": "Finnland",
     "value": 0.2,
     "rank": 1,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "sinkend",
+    "urteil": "besser"
    },
    "schlechteste": {
     "code": "RO",
@@ -18057,8 +18099,8 @@
     "n": 27,
     "schnitt": 4.2,
     "veraenderung": -0.2,
-    "richtung": "stabil",
-    "urteil": "unverändert",
+    "richtung": "sinkend",
+    "urteil": "besser",
     "euVeraenderung": -0.2,
     "euUrteil": "unverändert"
    },
@@ -18069,8 +18111,8 @@
      "name": "Finnland",
      "value": 0.2,
      "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "LV",
@@ -18101,16 +18143,16 @@
      "name": "Deutschland",
      "value": 2.2,
      "rank": 5,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "DK",
      "name": "Dänemark",
      "value": 2.5,
      "rank": 6,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "ES",
@@ -18125,8 +18167,8 @@
      "name": "Belgien",
      "value": 3.1,
      "rank": 8,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "HU",
@@ -18141,16 +18183,16 @@
      "name": "Schweden",
      "value": 3.3,
      "rank": 10,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "IT",
      "name": "Italien",
      "value": 3.4,
      "rank": 11,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "AT",
@@ -18165,8 +18207,8 @@
      "name": "Polen",
      "value": 3.6,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "HR",
@@ -18181,8 +18223,8 @@
      "name": "Malta",
      "value": 3.8,
      "rank": 15,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "EE",
@@ -18197,24 +18239,24 @@
      "name": "Niederlande",
      "value": 4.4,
      "rank": 17,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "SK",
      "name": "Slowakei",
      "value": 4.7,
      "rank": 18,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "CY",
      "name": "Zypern",
      "value": 4.7,
      "rank": 18,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "PT",
@@ -18229,8 +18271,8 @@
      "name": "Tschechien",
      "value": 6.4,
      "rank": 21,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "BG",
@@ -18602,7 +18644,8 @@
    "hinweis": "Die Quote misst nur junge Menschen, die arbeiten wollen. Wer studiert oder zur Schule geht, zählt nicht mit. In kleinen Ländern schwankt sie stärker.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.5,
+   "schwelle": 0.46,
+   "schwelleArt": "relativ",
    "datensatz": "une_rt_m",
    "zusatz": null,
    "takt": "monat",
@@ -18988,8 +19031,8 @@
      "name": "Tschechien",
      "value": 8.9,
      "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "MT",
@@ -19004,16 +19047,16 @@
      "name": "Polen",
      "value": 11.3,
      "rank": 5,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "CY",
      "name": "Zypern",
      "value": 11.3,
      "rank": 5,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "IE",
@@ -19497,7 +19540,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.5,
+   "schwelle": 0.33,
+   "schwelleArt": "relativ",
    "datensatz": "edat_lfse_20",
    "zusatz": null,
    "takt": "jahr",
@@ -19526,8 +19570,8 @@
     "name": "Niederlande",
     "value": 5.3,
     "rank": 1,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "steigend",
+    "urteil": "schlechter"
    },
    "schlechteste": {
     "code": "RO",
@@ -19592,16 +19636,16 @@
      "name": "Niederlande",
      "value": 5.3,
      "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "SE",
      "name": "Schweden",
      "value": 5.9,
      "rank": 2,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "SI",
@@ -19632,8 +19676,8 @@
      "name": "Irland",
      "value": 8.1,
      "rank": 6,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "MT",
@@ -19728,8 +19772,8 @@
      "name": "Slowakei",
      "value": 11.1,
      "rank": 18,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "EE",
@@ -19752,8 +19796,8 @@
      "name": "Spanien",
      "value": 11.5,
      "rank": 21,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "LT",
@@ -19850,7 +19894,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.1,
+   "schwelle": 0.055,
+   "schwelleArt": "relativ",
    "datensatz": "rd_e_gerdtot",
    "zusatz": null,
    "takt": "jahr",
@@ -19961,16 +20006,16 @@
      "name": "Belgien",
      "value": 3.34,
      "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "FI",
      "name": "Finnland",
      "value": 3.32,
      "rank": 4,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "DK",
@@ -20033,16 +20078,16 @@
      "name": "Portugal",
      "value": 1.81,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "EL",
      "name": "Griechenland",
      "value": 1.63,
      "rank": 13,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "PL",
@@ -20097,8 +20142,8 @@
      "name": "Slowakei",
      "value": 1.05,
      "rank": 20,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "LU",
@@ -20113,8 +20158,8 @@
      "name": "Lettland",
      "value": 1,
      "rank": 22,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "BG",
@@ -20129,16 +20174,16 @@
      "name": "Zypern",
      "value": 0.58,
      "rank": 24,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "schlechter"
     },
     {
      "code": "RO",
      "name": "Rumänien",
      "value": 0.52,
      "rank": 25,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "besser"
     },
     {
      "code": "MT",
@@ -20195,7 +20240,8 @@
    "hinweis": "Höhere Ausgaben heißen nicht automatisch bessere Leistungen. Ein Land kann mit geringeren Ausgaben mehr erreichen oder mit höheren weniger.",
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 0.1,
+   "schwelle": 0.14,
+   "schwelleArt": "relativ",
    "datensatz": "gov_10a_exp",
    "zusatz": null,
    "takt": "jahr",
@@ -20447,16 +20493,16 @@
      "name": "Spanien",
      "value": 4.1,
      "rank": 23,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IT",
      "name": "Italien",
      "value": 4,
      "rank": 24,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "RO",
@@ -20471,8 +20517,8 @@
      "name": "Griechenland",
      "value": 3.9,
      "rank": 26,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IE",
@@ -20531,7 +20577,8 @@
    "hinweis": "Höhere Ausgaben heißen nicht automatisch bessere Leistungen. Ein Land kann mit geringeren Ausgaben mehr erreichen oder mit höheren weniger.",
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 0.1,
+   "schwelle": 0.22,
+   "schwelleArt": "relativ",
    "datensatz": "gov_10a_exp",
    "zusatz": null,
    "takt": "jahr",
@@ -20623,8 +20670,8 @@
      "name": "Tschechien",
      "value": 9,
      "rank": 2,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FR",
@@ -20647,8 +20694,8 @@
      "name": "Belgien",
      "value": 8,
      "rank": 6,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SI",
@@ -20663,16 +20710,16 @@
      "name": "Finnland",
      "value": 7.7,
      "rank": 8,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DE",
      "name": "Deutschland",
      "value": 7.6,
      "rank": 9,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SE",
@@ -20687,8 +20734,8 @@
      "name": "Niederlande",
      "value": 7.3,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SK",
@@ -20759,16 +20806,16 @@
      "name": "Griechenland",
      "value": 5.7,
      "rank": 20,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LU",
      "name": "Luxemburg",
      "value": 5.6,
      "rank": 21,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BG",
@@ -20791,8 +20838,8 @@
      "name": "Irland",
      "value": 5.2,
      "rank": 24,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "RO",
@@ -20868,6 +20915,7 @@
    "umstritten": false,
    "trendNeutral": true,
    "schwelle": 0.1,
+   "schwelleArt": "relativ",
    "datensatz": "gov_10a_exp",
    "zusatz": null,
    "takt": "jahr",
@@ -21203,7 +21251,8 @@
    "hinweis": "Höhere Ausgaben heißen nicht automatisch bessere Leistungen. Ein Land kann mit geringeren Ausgaben mehr erreichen oder mit höheren weniger.",
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 0.1,
+   "schwelle": 0.58,
+   "schwelleArt": "relativ",
    "datensatz": "gov_10a_exp",
    "zusatz": null,
    "takt": "jahr",
@@ -21287,8 +21336,8 @@
      "name": "Frankreich",
      "value": 23.7,
      "rank": 2,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "AT",
@@ -21303,16 +21352,16 @@
      "name": "Italien",
      "value": 21.3,
      "rank": 4,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BE",
      "name": "Belgien",
      "value": 20.4,
      "rank": 5,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DE",
@@ -21327,8 +21376,8 @@
      "name": "Luxemburg",
      "value": 19.9,
      "rank": 7,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "DK",
@@ -21343,16 +21392,16 @@
      "name": "Schweden",
      "value": 19,
      "rank": 9,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "ES",
      "name": "Spanien",
      "value": 18.7,
      "rank": 10,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SK",
@@ -21391,16 +21440,16 @@
      "name": "Slowenien",
      "value": 17.1,
      "rank": 14,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "NL",
      "name": "Niederlande",
      "value": 16.6,
      "rank": 16,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -21431,8 +21480,8 @@
      "name": "Estland",
      "value": 13.8,
      "rank": 20,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
@@ -21455,8 +21504,8 @@
      "name": "Tschechien",
      "value": 13.2,
      "rank": 23,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CY",
@@ -21479,8 +21528,8 @@
      "name": "Malta",
      "value": 9.8,
      "rank": 26,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IE",
@@ -21539,7 +21588,8 @@
    "hinweis": "Der unbereinigte Wert vergleicht alle Frauen mit allen Männern. Er berücksichtigt nicht, dass Frauen häufiger in Teilzeit und in schlechter bezahlten Branchen arbeiten.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.5,
+   "schwelle": 0.33,
+   "schwelleArt": "relativ",
    "datensatz": "earn_gr_gpgr2",
    "zusatz": null,
    "takt": "jahr",
@@ -21727,8 +21777,8 @@
      "name": "Frankreich",
      "value": 11.8,
      "rank": 15,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "CY",
@@ -21791,8 +21841,8 @@
      "name": "Finnland",
      "value": 16.3,
      "rank": 23,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "HU",
@@ -21815,8 +21865,8 @@
      "name": "Tschechien",
      "value": 18.5,
      "rank": 26,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "EE",
@@ -21875,7 +21925,8 @@
    "hinweis": "Ein hoher Anteil hängt auch von den natürlichen Gegebenheiten ab, etwa von Wasserkraft in den Alpen.",
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 0.5,
+   "schwelle": 0.79,
+   "schwelleArt": "relativ",
    "datensatz": "nrg_ind_ren",
    "zusatz": null,
    "takt": "jahr",
@@ -21912,8 +21963,8 @@
     "name": "Belgien",
     "value": 14.9,
     "rank": 27,
-    "richtung": "steigend",
-    "urteil": "höher"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "rangVerlauf": [
     {
@@ -21986,8 +22037,8 @@
      "name": "Lettland",
      "value": 46.3,
      "rank": 4,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "AT",
@@ -22042,8 +22093,8 @@
      "name": "Spanien",
      "value": 26,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "RO",
@@ -22074,16 +22125,16 @@
      "name": "Frankreich",
      "value": 23.9,
      "rank": 14,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BG",
      "name": "Bulgarien",
      "value": 22.7,
      "rank": 16,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "NL",
@@ -22098,8 +22149,8 @@
      "name": "Zypern",
      "value": 21.5,
      "rank": 18,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "IT",
@@ -22170,8 +22221,8 @@
      "name": "Belgien",
      "value": 14.9,
      "rank": 27,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     }
    ],
    "schweiz": null,
@@ -22217,7 +22268,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 1,
+   "schwelle": 1.7,
+   "schwelleArt": "relativ",
    "datensatz": "nrg_ind_id",
    "zusatz": null,
    "takt": "jahr",
@@ -22254,8 +22306,8 @@
     "name": "Estland",
     "value": 4.622,
     "rank": 27,
-    "richtung": "steigend",
-    "urteil": "höher"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "rangVerlauf": [
     {
@@ -22341,8 +22393,8 @@
      "name": "Italien",
      "value": 73.884,
      "rank": 7,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "NL",
@@ -22461,8 +22513,8 @@
      "name": "Dänemark",
      "value": 38.229,
      "rank": 22,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "FI",
@@ -22501,8 +22553,8 @@
      "name": "Estland",
      "value": 4.622,
      "rank": 27,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     }
    ],
    "schweiz": null,
@@ -22550,7 +22602,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 0.5,
+   "schwelle": 0.14,
+   "schwelleArt": "relativ",
    "datensatz": "demo_gind",
    "zusatz": null,
    "takt": "jahr",
@@ -22661,8 +22714,8 @@
      "name": "Ungarn",
      "value": 0.1,
      "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "SK",
@@ -22709,8 +22762,8 @@
      "name": "Tschechien",
      "value": 3.9,
      "rank": 10,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "SI",
@@ -22725,8 +22778,8 @@
      "name": "Griechenland",
      "value": 4.8,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "HR",
@@ -22805,8 +22858,8 @@
      "name": "Belgien",
      "value": 6.4,
      "rank": 22,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "IE",
@@ -22895,7 +22948,8 @@
    "hinweis": "Gezählt werden Anträge, nicht Entscheidungen, und zwar in dem Land, in dem sie gestellt wurden. Ob ein Antrag bewilligt wird, zeigt diese Zahl nicht.",
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 10,
+   "schwelle": 5.3,
+   "schwelleArt": "relativ",
    "datensatz": "migr_asyappctza",
    "zusatz": null,
    "takt": "jahr",
@@ -22998,8 +23052,8 @@
      "name": "Rumänien",
      "value": 6.24926577691476,
      "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "CZ",
@@ -23022,8 +23076,8 @@
      "name": "Portugal",
      "value": 15.474817824570275,
      "rank": 6,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "HR",
@@ -23038,24 +23092,24 @@
      "name": "Dänemark",
      "value": 32.45041036456122,
      "rank": 8,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "PL",
      "name": "Polen",
      "value": 36.33105250482423,
      "rank": 9,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "FI",
      "name": "Finnland",
      "value": 44.91156408109523,
      "rank": 10,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "BG",
@@ -23134,8 +23188,8 @@
      "name": "Frankreich",
      "value": 219.81245540143473,
      "rank": 20,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "IT",
@@ -23240,7 +23294,8 @@
    "hinweis": "Gezählt werden Personen, deren Asylantrag im jeweiligen Land noch nicht entschieden ist. Wer bereits Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr mit. Die Zahl zeigt also nicht, wie viele Schutzberechtigte im Land leben.",
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 5,
+   "schwelle": 8.3,
+   "schwelleArt": "relativ",
    "datensatz": "migr_asypenctzm",
    "zusatz": null,
    "takt": "monat",
@@ -24111,7 +24166,8 @@
    "hinweis": "Die Zahl stammt aus einer Befragung, die nur alle paar Jahre durchgeführt wird.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 0.1,
+   "schwelle": 0.22,
+   "schwelleArt": "relativ",
    "datensatz": "ilc_pw01",
    "zusatz": null,
    "takt": "jahr",
@@ -24130,8 +24186,8 @@
     "schnitt": 7.7,
     "schnittVorher": 7.6,
     "veraenderung": 0.1,
-    "richtung": "steigend",
-    "urteil": "besser"
+    "richtung": "stabil",
+    "urteil": "unverändert"
    },
    "eu": 7.2,
    "euMittelwert": false,
@@ -24194,10 +24250,10 @@
     "n": 27,
     "schnitt": 7.6,
     "veraenderung": 0.1,
-    "richtung": "steigend",
-    "urteil": "besser",
+    "richtung": "stabil",
+    "urteil": "unverändert",
     "euVeraenderung": 0,
-    "euUrteil": "besser"
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -24222,24 +24278,24 @@
      "name": "Dänemark",
      "value": 7.7,
      "rank": 3,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "AT",
      "name": "Österreich",
      "value": 7.7,
      "rank": 3,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "PL",
      "name": "Polen",
      "value": 7.7,
      "rank": 3,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "BE",
@@ -24278,24 +24334,24 @@
      "name": "Slowenien",
      "value": 7.6,
      "rank": 6,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
      "name": "Kroatien",
      "value": 7.4,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LU",
      "name": "Luxemburg",
      "value": 7.4,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "SE",
@@ -24310,8 +24366,8 @@
      "name": "Slowakei",
      "value": 7.4,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "CZ",
@@ -24334,8 +24390,8 @@
      "name": "Estland",
      "value": 7.3,
      "rank": 17,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LT",
@@ -24374,8 +24430,8 @@
      "name": "Italien",
      "value": 7.1,
      "rank": 21,
-     "richtung": "sinkend",
-     "urteil": "schlechter"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "HU",
@@ -24398,8 +24454,8 @@
      "name": "Griechenland",
      "value": 6.9,
      "rank": 25,
-     "richtung": "steigend",
-     "urteil": "besser"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
      "code": "LV",
@@ -24464,7 +24520,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 2,
+   "schwelle": 3,
+   "schwelleArt": "relativ",
    "datensatz": "crim_pris_cap",
    "zusatz": null,
    "takt": "jahr",
@@ -24810,7 +24867,8 @@
    "hinweis": "Die Polizeizahlen messen auch mit, wie viel angezeigt wird und wo die Grenze zwischen leichter und schwerer Körperverletzung gezogen wird. Ein höherer Wert heißt nicht automatisch mehr Taten.",
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 10,
+   "schwelle": 2.5,
+   "schwelleArt": "relativ",
    "datensatz": "crim_off_cat",
    "zusatz": null,
    "takt": "jahr",
@@ -24829,8 +24887,8 @@
     "schnitt": 52,
     "schnittVorher": 49,
     "veraenderung": 3,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "steigend",
+    "urteil": "höher"
    },
    "eu": 82.96,
    "euMittelwert": true,
@@ -24942,8 +25000,8 @@
      "name": "Griechenland",
      "value": 16.69,
      "rank": 8,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "CY",
@@ -24990,8 +25048,8 @@
      "name": "Finnland",
      "value": 29.55,
      "rank": 14,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "DK",
@@ -25022,24 +25080,24 @@
      "name": "Schweden",
      "value": 42.27,
      "rank": 17,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "AT",
      "name": "Österreich",
      "value": 51.66,
      "rank": 19,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "ES",
      "name": "Spanien",
      "value": 59.08,
      "rank": 20,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "BG",
@@ -25062,24 +25120,24 @@
      "name": "Luxemburg",
      "value": 111.45,
      "rank": 23,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "DE",
      "name": "Deutschland",
      "value": 189.53,
      "rank": 24,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "BE",
      "name": "Belgien",
      "value": 573.4,
      "rank": 25,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "FR",
@@ -25150,7 +25208,8 @@
    "hinweis": "Die Länder definieren und zählen Sexualdelikte unterschiedlich (etwa pro Tat oder pro Opfer), und die Dunkelziffer ist hoch. Länder mit hoher Anzeigebereitschaft und weiter Definition haben oft höhere Werte. Ein höherer Wert heißt nicht automatisch mehr Taten.",
    "umstritten": false,
    "trendNeutral": true,
-   "schwelle": 5,
+   "schwelle": 1.4,
+   "schwelleArt": "relativ",
    "datensatz": "crim_off_cat",
    "zusatz": null,
    "takt": "jahr",
@@ -25274,8 +25333,8 @@
      "name": "Griechenland",
      "value": 12.05,
      "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "IT",
@@ -25314,24 +25373,24 @@
      "name": "Kroatien",
      "value": 24.39,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "NL",
      "name": "Niederlande",
      "value": 24.13,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "MT",
      "name": "Malta",
      "value": 25.02,
      "rank": 14,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "LV",
@@ -25354,16 +25413,16 @@
      "name": "Estland",
      "value": 34.34,
      "rank": 17,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "ES",
      "name": "Spanien",
      "value": 40.43,
      "rank": 18,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "AT",
@@ -25386,16 +25445,16 @@
      "name": "Deutschland",
      "value": 65.14,
      "rank": 21,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "LU",
      "name": "Luxemburg",
      "value": 69.04,
      "rank": 22,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
      "code": "DK",
@@ -25410,8 +25469,8 @@
      "name": "Belgien",
      "value": 105.01,
      "rank": 24,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "FR",
@@ -25503,7 +25562,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 1,
+   "schwelle": 0.85,
+   "schwelleArt": "relativ",
    "datensatz": "nrg_pc_204",
    "zusatz": null,
    "takt": "halbjahr",
@@ -25532,8 +25592,8 @@
     "name": "Ungarn",
     "value": 11.39,
     "rank": 1,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "steigend",
+    "urteil": "schlechter"
    },
    "schlechteste": {
     "code": "IE",
@@ -25623,8 +25683,8 @@
      "name": "Ungarn",
      "value": 11.39,
      "rank": 1,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "MT",
@@ -25655,8 +25715,8 @@
      "name": "Slowakei",
      "value": 19.85,
      "rank": 5,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "LU",
@@ -25711,8 +25771,8 @@
      "name": "Griechenland",
      "value": 24.01,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "LV",
@@ -25903,7 +25963,8 @@
    "hinweis": null,
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 1,
+   "schwelle": 0.47,
+   "schwelleArt": "relativ",
    "datensatz": "nrg_pc_205",
    "zusatz": null,
    "takt": "halbjahr",
@@ -25940,8 +26001,8 @@
     "name": "Irland",
     "value": 22.84,
     "rank": 27,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "sinkend",
+    "urteil": "besser"
    },
    "rangVerlauf": [
     {
@@ -26039,24 +26100,24 @@
      "name": "Portugal",
      "value": 11.35,
      "rank": 3,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "ES",
      "name": "Spanien",
      "value": 11.77,
      "rank": 4,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "LV",
      "name": "Lettland",
      "value": 11.89,
      "rank": 5,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "MT",
@@ -26079,8 +26140,8 @@
      "name": "Frankreich",
      "value": 12.389999999999999,
      "rank": 8,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "DK",
@@ -26111,8 +26172,8 @@
      "name": "Slowenien",
      "value": 13.969999999999999,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "HR",
@@ -26143,8 +26204,8 @@
      "name": "Belgien",
      "value": 16,
      "rank": 16,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "EL",
@@ -26167,8 +26228,8 @@
      "name": "Rumänien",
      "value": 17.23,
      "rank": 19,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "DE",
@@ -26191,24 +26252,24 @@
      "name": "Polen",
      "value": 18.12,
      "rank": 22,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "NL",
      "name": "Niederlande",
      "value": 18.240000000000002,
      "rank": 23,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     },
     {
      "code": "HU",
      "name": "Ungarn",
      "value": 19.6,
      "rank": 24,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "IT",
@@ -26231,8 +26292,8 @@
      "name": "Irland",
      "value": 22.84,
      "rank": 27,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     }
    ],
    "schweiz": null,
@@ -26998,7 +27059,8 @@
    "hinweis": "Ob ein höheres Pensionsalter besser ist, ist umstritten: Es entlastet die Pensionskassen, bedeutet aber später in Pension zu gehen. In Österreich gilt für Frauen derzeit noch ein niedrigeres Alter, das bis 2033 schrittweise auf 65 steigt.",
    "umstritten": true,
    "trendNeutral": true,
-   "schwelle": 0.1,
+   "schwelle": 2,
+   "schwelleArt": "relativ",
    "datensatz": null,
    "zusatz": null,
    "takt": "jahr",
@@ -27285,7 +27347,8 @@
    "hinweis": null,
    "umstritten": true,
    "trendNeutral": true,
-   "schwelle": 0.5,
+   "schwelle": 0.25,
+   "schwelleArt": "relativ",
    "datensatz": null,
    "zusatz": null,
    "takt": "jahr",
@@ -27541,7 +27604,8 @@
    "hinweis": "Einschätzung einer privaten Studie, keine amtliche Statistik. Berücksichtigt unter anderem Pensionsvermögen, Altersstruktur, Staatsschulden und Erwerbsquote Älterer.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 1,
+   "schwelle": 1.6,
+   "schwelleArt": "relativ",
    "datensatz": null,
    "zusatz": null,
    "takt": "jahr",
@@ -27739,6 +27803,7 @@
    "umstritten": false,
    "trendNeutral": false,
    "schwelle": 0.5,
+   "schwelleArt": "fest",
    "datensatz": null,
    "zusatz": null,
    "takt": "jahr",
