@@ -48,7 +48,7 @@ const GRUPPE_VON = {
   teilzeit: 0, industrie: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, kapitalNichtBoerse: 0, kapitalGesamt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
+  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, armut: 3, ausgrenzung: 3, wohnkosten: 2, mieten: 2, jugendarbeitslosigkeit: 0, neet: 0, forschung: 0, ausgabenBildung: 1, ausgabenGesundheit: 1, ausgabenVerteidigung: 1, ausgabenSoziales: 1, genderPayGap: 3, erneuerbare: 2, energieabhaengigkeit: 2, nettozuwanderung: 3, asyl: 3, lebenszufriedenheit: 3, kapitalNichtBoerse: 0, kapitalGesamt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
@@ -77,6 +77,23 @@ const ERKLAERUNG = {
   kapitalmarkt: "Wie viel die börsennotierten Unternehmen eines Landes an der Börse zusammen wert sind (Börsenwert aller ihrer Aktien), geteilt durch die Zahl der Einwohner. Gezählt werden Unternehmen mit Sitz im Land, einschließlich Banken und Versicherungen. Die Zahl sagt nicht, wie viel davon den Einwohnern gehört, denn viele Aktien halten Anleger aus dem Ausland.",
   kapitalNichtBoerse: "Wie viel Unternehmen wert sind, die nicht an der Börse gehandelt werden (zum Beispiel Familienunternehmen, GmbHs und Firmen im Staatsbesitz), geteilt durch die Zahl der Einwohner. Weil diese Firmen keinen Börsenkurs haben, schätzen die Statistikämter den Wert nach eigenen Verfahren. Der Vergleich zwischen den Ländern ist deshalb weniger genau als beim Börsenwert.",
   kapitalGesamt: "Der Wert aller Kapitalgesellschaften eines Landes, börsennotiert und nicht börsennotiert zusammen, geteilt durch die Zahl der Einwohner. Der nicht börsennotierte Teil beruht auf Schätzungen der Statistikämter und ist weniger genau als der Börsenwert.",
+  armut: "Wie viele von 100 Menschen weniger als 60 % des mittleren Einkommens im eigenen Land zur Verfügung haben und deshalb als armutsgefährdet gelten (nach Sozialleistungen). Das misst vor allem Ungleichheit im Land, nicht den absoluten Lebensstandard: In einem reichen Land mit großen Einkommensunterschieden kann die Quote hoch sein.",
+  ausgrenzung: "Wie viele von 100 Menschen von Armut oder sozialer Ausgrenzung bedroht sind. Dazu zählt, wer armutsgefährdet ist, wer sich grundlegende Dinge nicht leisten kann (zum Beispiel eine Woche Urlaub oder unerwartete Ausgaben) oder wer in einem Haushalt mit sehr wenig Erwerbsarbeit lebt. Die Zahl ist weiter gefasst als die Armutsgefährdung allein.",
+  wohnkosten: "Wie viele von 100 Menschen in Haushalten leben, die mehr als 40 % ihres verfügbaren Einkommens für Wohnen ausgeben (Miete oder Kredit, Betriebskosten, Heizung und Strom). Der Wert zeigt, wie stark das Wohnen das Haushaltsbudget belastet.",
+  mieten: "Wie stark die tatsächlich gezahlten Mieten im Vergleich zum gleichen Monat des Vorjahres gestiegen sind (harmonisierter Verbraucherpreisindex, Position tatsächliche Mieten). Das ist die Preisentwicklung bestehender Mietverhältnisse, nicht die Höhe der Miete.",
+  jugendarbeitslosigkeit: "Wie viele von 100 jungen Menschen unter 25, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Schüler und Studierende, die nicht arbeiten wollen, zählen nicht mit. Die Quote schwankt stärker als die allgemeine Arbeitslosenquote, weil die Gruppe kleiner ist.",
+  neet: "Wie viele von 100 jungen Menschen zwischen 15 und 29 weder in einem Job noch in Schule, Lehre oder Studium sind (NEET steht für „not in employment, education or training“). Das zeigt, wie viele junge Menschen am Übergang in den Beruf nicht ankommen.",
+  forschung: "Wie viel Geld in Forschung und Entwicklung fließt, in Prozent der gesamten Wirtschaftsleistung. Gezählt werden Ausgaben von Unternehmen, Hochschulen und Staat zusammen. Der EU-Zielwert liegt bei 3 % des BIP.",
+  ausgabenBildung: "Wie viel der Staat für Bildung ausgibt (Schulen, Hochschulen, Kindergärten, Verwaltung), in Prozent der Wirtschaftsleistung. Bund, Länder und Gemeinden sind zusammengezählt. Die Zahl sagt nichts über die Qualität.",
+  ausgabenGesundheit: "Wie viel der Staat für Gesundheit ausgibt (Spitäler, Ärzte, Medikamente, Prävention), in Prozent der Wirtschaftsleistung. Ausgaben der Sozialversicherung zählen dazu, private Zahlungen der Patienten nicht.",
+  ausgabenVerteidigung: "Wie viel der Staat für Verteidigung ausgibt (Militär, Rüstung, militärische Hilfe), in Prozent der Wirtschaftsleistung. Das ist nach der internationalen Staatsausgaben-Gliederung (COFOG) berechnet und kann von NATO-Angaben abweichen.",
+  ausgabenSoziales: "Wie viel der Staat für soziale Sicherung ausgibt (Pensionen, Arbeitslosengeld, Familienleistungen, Pflege), in Prozent der Wirtschaftsleistung. Das ist meist der größte Ausgabenblock des Staates.",
+  genderPayGap: "Um wie viel Prozent die Stundenverdienste von Frauen im Schnitt unter denen der Männer liegen (unbereinigt). Der Wert vergleicht alle Frauen mit allen Männern und berücksichtigt nicht, dass Frauen häufiger in Teilzeit und in schlechter bezahlten Branchen arbeiten.",
+  erneuerbare: "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft ist in Österreich ein großer Teil davon.",
+  energieabhaengigkeit: "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden.",
+  nettozuwanderung: "Wie viele Menschen pro 1.000 Einwohner mehr zu- als wegziehen (Zuzüge minus Wegzüge, einschließlich statistischer Korrekturen). Ein negativer Wert heißt: Es ziehen mehr Menschen weg, als zuziehen.",
+  asyl: "Wie viele Menschen pro 100.000 Einwohner in einem Jahr erstmals oder wiederholt einen Antrag auf Asyl stellen. Das zählt Anträge, nicht Entscheidungen und nicht, wie viele Menschen tatsächlich bleiben.",
+  lebenszufriedenheit: "Wie zufrieden Menschen ab 16 mit ihrem Leben insgesamt sind, auf einer Skala von 0 (gar nicht zufrieden) bis 10 (völlig zufrieden), laut Befragung. Die Erhebung findet nur alle paar Jahre statt.",
   gefaengnis: "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt, dass mehr Menschen inhaftiert sind, als Plätze vorhanden sind (Überbelegung). Das zeigt, wie ausgelastet das Strafvollzugssystem ist.",
   koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Der Vergleich zwischen den Ländern ist schwierig: Die Zählweise und die Bereitschaft, Anzeige zu erstatten, unterscheiden sich stark. Die Zahl zeigt also nur bedingt, wo mehr Gewalt passiert.",
   sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definitionen, Zählweise und Anzeigebereitschaft unterscheiden sich zwischen den Ländern stark, und viele Fälle werden nie angezeigt. Ein hoher Wert kann daher auch bedeuten, dass mehr angezeigt wird.",
@@ -351,26 +368,153 @@ const INDICATORS = [
     filter: "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", // Platzhalter (im Test); echte Berechnung: berechneProKopf()
     proKopf: { zaehler: ["unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S12&na_item=F511"],
       nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [2000, 60000], minLaender: 20 },
-    maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 20, typ: "neutral", trendNeutral: true, schwelle: 500,
+    maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 20, typ: "hoch", umstritten: true, schwelle: 500,
     einheit: "Euro pro Einwohner (Börsenwert der börsennotierten Aktien von Unternehmen im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Börsenwert pro Einwohner",
-    hinweis: "Der Börsenwert schwankt stark mit den Aktienkursen. In kleinen Ländern mit wenigen, aber großen und international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt.",
+    hinweis: "Gewertet wird: Ein höherer Wert gilt als besser, weil er für mehr Kapital in heimischen Unternehmen steht. Das ist umstritten, denn ein hoher Wert sagt nichts über Wohlstand oder Verteilung. Der Börsenwert schwankt stark mit den Aktienkursen. In kleinen Ländern mit wenigen, aber großen und international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt.",
     mock: { base: 8000, step: 3000 } }
   ,{ id: "kapitalNichtBoerse", name: "Nicht börsennotierte Unternehmen pro Einwohner", takt: "jahr", dataset: "nasa_10_f_bs",
     filter: "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F512", // Platzhalter (im Test); echte Berechnung: berechneProKopf()
     proKopf: { zaehler: ["unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F512", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S12&na_item=F512"],
       nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [1000, 1000000], minLaender: 15 },
-    maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 15, typ: "neutral", trendNeutral: true, schwelle: 500,
+    maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 15, typ: "hoch", umstritten: true, schwelle: 500,
     einheit: "Euro pro Einwohner (geschätzter Wert nicht börsennotierter Kapitalgesellschaften im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Unternehmenswert pro Einwohner",
-    hinweis: "Der Wert nicht börsennotierter Unternehmen wird von den Statistikämtern geschätzt, weil es keinen Börsenkurs gibt. Die Verfahren unterscheiden sich zwischen den Ländern. Der Vergleich ist daher weniger genau als beim Börsenwert. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben. Das sagt wenig über die heimische Wirtschaft.",
+    hinweis: "Gewertet wird: Ein höherer Wert gilt als besser, weil er für mehr Kapital in heimischen Unternehmen steht. Das ist umstritten, denn ein hoher Wert sagt nichts über Wohlstand oder Verteilung. Der Wert nicht börsennotierter Unternehmen wird von den Statistikämtern geschätzt, weil es keinen Börsenkurs gibt. Die Verfahren unterscheiden sich zwischen den Ländern. Der Vergleich ist daher weniger genau als beim Börsenwert. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben. Das sagt wenig über die heimische Wirtschaft.",
     mock: { base: 12000, step: 4000 } }
   ,{ id: "kapitalGesamt", name: "Unternehmenswert gesamt pro Einwohner", takt: "jahr", dataset: "nasa_10_f_bs",
     filter: "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", // Platzhalter (im Test); echte Berechnung: berechneProKopf()
     proKopf: { zaehler: ["unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S12&na_item=F511", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F512", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S12&na_item=F512"],
       nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [2000, 1500000], minLaender: 15 },
-    maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 15, typ: "neutral", trendNeutral: true, schwelle: 1000,
+    maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 15, typ: "hoch", umstritten: true, schwelle: 1000,
     einheit: "Euro pro Einwohner (börsennotierte und nicht börsennotierte Kapitalgesellschaften im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Unternehmenswert pro Einwohner",
-    hinweis: "Der nicht börsennotierte Teil wird von den Statistikämtern geschätzt. In kleinen Ländern mit wenigen großen, international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben.",
+    hinweis: "Gewertet wird: Ein höherer Wert gilt als besser, weil er für mehr Kapital in heimischen Unternehmen steht. Das ist umstritten, denn ein hoher Wert sagt nichts über Wohlstand oder Verteilung. Der nicht börsennotierte Teil wird von den Statistikämtern geschätzt. In kleinen Ländern mit wenigen großen, international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben.",
     mock: { base: 20000, step: 6000 } }
+  ,{ id: "armut", name: "Armutsgefährdung", takt: "jahr", dataset: "ilc_li02",
+    filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PC&rskpovth=B_60",
+    alternativen: [ { dataset: "ilc_li02", filter: "statinfo=MEAN_EI&age=TOTAL&sex=T&unit=PC&rskpovth=B_60" }, { dataset: "ilc_li02", filter: "indic_il=LI_R_MD60&age=TOTAL&sex=T&unit=PC" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    einheit: "Anteil der Menschen mit weniger als 60 % des mittleren Einkommens (nach Sozialleistungen)", rangText: "Rang 1 = niedrigste Armutsgefährdung",
+    hinweis: "Die Armutsgefährdungsschwelle liegt bei 60 % des mittleren Einkommens im jeweiligen Land. Das misst die Ungleichheit im Land, nicht den absoluten Lebensstandard.",
+    ausblenden2025: true,
+    typ: "niedrig", schwelle: 0.3, mock: { base: 10, step: 1 } }
+  ,{ id: "ausgrenzung", name: "Armut oder soziale Ausgrenzung", takt: "jahr", dataset: "ilc_peps01n",
+    filter: "age=TOTAL&sex=T&unit=PC",
+    alternativen: [ { dataset: "ilc_peps01n", filter: "age=TOTAL&sex=T" }, { dataset: "ilc_peps01", filter: "age=TOTAL&sex=T&unit=PC" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    einheit: "Anteil der Menschen, die von Armut oder sozialer Ausgrenzung bedroht sind (AROPE)", rangText: "Rang 1 = niedrigster Anteil",
+    ausblenden2025: true,
+    typ: "niedrig", schwelle: 0.5, mock: { base: 10, step: 1 } }
+  ,{ id: "wohnkosten", name: "Wohnkostenbelastung", takt: "jahr", dataset: "ilc_lvho07a",
+    filter: "age=TOTAL&sex=T&unit=PC",
+    alternativen: [ { dataset: "ilc_lvho07a", filter: "age=TOTAL&sex=T" }, { dataset: "ilc_lvho07c", filter: "incgrp=TOTAL&unit=PC" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    einheit: "Anteil der Menschen in Haushalten, die mehr als 40 % ihres Einkommens fürs Wohnen ausgeben", rangText: "Rang 1 = geringste Wohnkostenbelastung",
+    ausblenden2025: true,
+    typ: "niedrig", schwelle: 0.5, mock: { base: 10, step: 1 } }
+  ,{ id: "mieten", name: "Mieten", takt: "monat", dataset: "prc_hicp_minr",
+    filter: "unit=RCH_A&coicop18=CP041",
+    alternativen: [ { dataset: "prc_hicp_minr", filter: "unit=RCH_A&coicop18=CP0411" }, { dataset: "prc_hicp_manr", filter: "unit=RCH_A&coicop=CP041" } ],
+    maxAlter: 8, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 24,
+    einheit: "% Veränderung der tatsächlich gezahlten Mieten zum Vorjahresmonat", rangText: "Rang 1 = geringster Mietanstieg",
+    typ: "niedrig", schwelle: 0.5, mock: { base: 2, step: 0.4 } }
+  ,{ id: "jugendarbeitslosigkeit", name: "Jugendarbeitslosigkeit", takt: "monat", dataset: "une_rt_m",
+    filter: "s_adj=SA&age=Y_LT25&unit=PC_ACT&sex=T",
+    alternativen: [ { dataset: "une_rt_m", filter: "s_adj=SA&age=Y_LT25&sex=T&unit=PC_ACT" } ],
+    maxAlter: 8, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    einheit: "% der Erwerbspersonen unter 25, saisonbereinigt", rangText: "Rang 1 = niedrigste Jugendarbeitslosigkeit",
+    hinweis: "Die Quote misst nur junge Menschen, die arbeiten wollen. Wer studiert oder zur Schule geht, zählt nicht mit. In kleinen Ländern schwankt sie stärker.",
+    typ: "niedrig", schwelle: 0.5, mock: { base: 8, step: 1.5 } }
+  ,{ id: "neet", name: "Junge Menschen ohne Job und Ausbildung", takt: "jahr", dataset: "edat_lfse_20",
+    filter: "age=Y15-29&sex=T&unit=PC",
+    alternativen: [ { dataset: "edat_lfse_20", filter: "age=Y15-29&sex=T" }, { dataset: "edat_lfse_20", filter: "age=Y15-29&sex=T&unit=PC&wstatus=NEET" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    einheit: "Anteil der 15- bis 29-Jährigen, die weder erwerbstätig sind noch in Ausbildung stehen", rangText: "Rang 1 = geringster Anteil",
+    ausblenden2025: true,
+    typ: "niedrig", schwelle: 0.5, mock: { base: 10, step: 1 } }
+  ,{ id: "forschung", name: "Forschung und Entwicklung", takt: "jahr", dataset: "rd_e_gerdtot",
+    filter: "sectperf=TOTAL&unit=PC_GDP",
+    alternativen: [ { dataset: "rd_e_gerdtot", filter: "unit=PC_GDP" }, { dataset: "rd_e_gerdtot", filter: "sectperf=TOTAL&unit=PC_GDP&freq=A" } ],
+    maxAlter: 36, dez: 2, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    einheit: "Ausgaben für Forschung und Entwicklung in % des BIP", rangText: "Rang 1 = höchste Forschungsquote",
+    ausblenden2025: true,
+    typ: "hoch", schwelle: 0.1, mock: { base: 10, step: 1 } }
+  ,{ id: "ausgabenBildung", name: "Staatsausgaben Bildung", takt: "jahr", dataset: "gov_10a_exp",
+    filter: "unit=PC_GDP&sector=S13&cofog99=GF09&na_item=TE",
+    alternativen: [ { dataset: "gov_10a_exp", filter: "unit=PC_GDP&cofog99=GF09&na_item=TE&sector=S13&freq=A" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 22,
+    einheit: "Staatsausgaben für Bildung in % des BIP", rangText: "Rang 1 = höchste Ausgaben",
+    hinweis: "Höhere Ausgaben heißen nicht automatisch bessere Leistungen. Ein Land kann mit geringeren Ausgaben mehr erreichen oder mit höheren weniger.",
+    ausblenden2025: true,
+    typ: "neutral", trendNeutral: true, schwelle: 0.1, mock: { base: 10, step: 1 } }
+  ,{ id: "ausgabenGesundheit", name: "Staatsausgaben Gesundheit", takt: "jahr", dataset: "gov_10a_exp",
+    filter: "unit=PC_GDP&sector=S13&cofog99=GF07&na_item=TE",
+    alternativen: [ { dataset: "gov_10a_exp", filter: "unit=PC_GDP&cofog99=GF07&na_item=TE&sector=S13&freq=A" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 22,
+    einheit: "Staatsausgaben für Gesundheit in % des BIP", rangText: "Rang 1 = höchste Ausgaben",
+    hinweis: "Höhere Ausgaben heißen nicht automatisch bessere Leistungen. Ein Land kann mit geringeren Ausgaben mehr erreichen oder mit höheren weniger.",
+    ausblenden2025: true,
+    typ: "neutral", trendNeutral: true, schwelle: 0.1, mock: { base: 10, step: 1 } }
+  ,{ id: "ausgabenVerteidigung", name: "Staatsausgaben Verteidigung", takt: "jahr", dataset: "gov_10a_exp",
+    filter: "unit=PC_GDP&sector=S13&cofog99=GF02&na_item=TE",
+    alternativen: [ { dataset: "gov_10a_exp", filter: "unit=PC_GDP&cofog99=GF02&na_item=TE&sector=S13&freq=A" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 22,
+    einheit: "Staatsausgaben für Verteidigung in % des BIP", rangText: "Rang 1 = höchste Ausgaben",
+    hinweis: "Höhere Ausgaben heißen nicht automatisch bessere Leistungen. Ein Land kann mit geringeren Ausgaben mehr erreichen oder mit höheren weniger.",
+    ausblenden2025: true,
+    typ: "neutral", trendNeutral: true, schwelle: 0.1, mock: { base: 10, step: 1 } }
+  ,{ id: "ausgabenSoziales", name: "Staatsausgaben Soziale Sicherung", takt: "jahr", dataset: "gov_10a_exp",
+    filter: "unit=PC_GDP&sector=S13&cofog99=GF10&na_item=TE",
+    alternativen: [ { dataset: "gov_10a_exp", filter: "unit=PC_GDP&cofog99=GF10&na_item=TE&sector=S13&freq=A" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 22,
+    einheit: "Staatsausgaben für soziale Sicherung in % des BIP", rangText: "Rang 1 = höchste Ausgaben",
+    hinweis: "Höhere Ausgaben heißen nicht automatisch bessere Leistungen. Ein Land kann mit geringeren Ausgaben mehr erreichen oder mit höheren weniger.",
+    ausblenden2025: true,
+    typ: "neutral", trendNeutral: true, schwelle: 0.1, mock: { base: 10, step: 1 } }
+  ,{ id: "genderPayGap", name: "Lohnunterschied Frauen und Männer", takt: "jahr", dataset: "earn_gr_gpgr2",
+    filter: "nace_r2=B-S_X_O&unit=PC",
+    alternativen: [ { dataset: "earn_gr_gpgr2", filter: "unit=PC" }, { dataset: "earn_gr_gpgr2", filter: "nace_r2=B-S_X_O" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    einheit: "% Unterschied im durchschnittlichen Stundenverdienst (unbereinigt), Frauen im Vergleich zu Männern", rangText: "Rang 1 = geringster Lohnunterschied",
+    hinweis: "Der unbereinigte Wert vergleicht alle Frauen mit allen Männern. Er berücksichtigt nicht, dass Frauen häufiger in Teilzeit und in schlechter bezahlten Branchen arbeiten.",
+    ausblenden2025: true,
+    typ: "niedrig", schwelle: 0.5, mock: { base: 10, step: 1 } }
+  ,{ id: "erneuerbare", name: "Erneuerbare Energie", takt: "jahr", dataset: "nrg_ind_ren",
+    filter: "nrg_bal=REN&unit=PC",
+    alternativen: [ { dataset: "nrg_ind_ren", filter: "nrg_bal=REN" }, { dataset: "nrg_ind_ren", filter: "nrg_bal=REN&unit=PC&freq=A" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    einheit: "Anteil erneuerbarer Quellen am gesamten Energieverbrauch in %", rangText: "Rang 1 = höchster Anteil erneuerbarer Energie",
+    hinweis: "Ein hoher Anteil hängt auch von den natürlichen Gegebenheiten ab, etwa von Wasserkraft in den Alpen.",
+    ausblenden2025: true,
+    typ: "neutral", trendNeutral: true, schwelle: 0.5, mock: { base: 10, step: 1 } }
+  ,{ id: "energieabhaengigkeit", name: "Energieabhängigkeit", takt: "jahr", dataset: "nrg_ind_id",
+    filter: "siec=TOTAL&unit=PC",
+    alternativen: [ { dataset: "nrg_ind_id", filter: "siec=TOTAL" }, { dataset: "nrg_ind_id", filter: "siec=TOTAL&unit=PC&freq=A" } ],
+    maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
+    einheit: "% des Energiebedarfs, die aus dem Ausland importiert werden", rangText: "Rang 1 = höchste Importabhängigkeit",
+    ausblenden2025: true,
+    typ: "neutral", trendNeutral: true, schwelle: 1, mock: { base: 10, step: 1 } }
+  ,{ id: "nettozuwanderung", name: "Nettozuwanderung", takt: "jahr", dataset: "demo_gind",
+    filter: "indic_de=CNMIGRATRT",
+    alternativen: [ { dataset: "demo_gind", filter: "indic_de=CNMIGRATRT&freq=A" }, { dataset: "demo_gind", filter: "indic_de=CNMIGRAT" } ],
+    maxAlter: 18, dez: 1, suffix: "", diffEinheit: "je 1.000 Einwohner", minLaender: 20,
+    einheit: "Zuzüge minus Wegzüge je 1.000 Einwohner (einschließlich statistischer Korrekturen)", rangText: "Rang 1 = höchste Nettozuwanderung",
+    ausblenden2025: true,
+    typ: "neutral", trendNeutral: true, schwelle: 0.5, mock: { base: 10, step: 1 } }
+  ,{ id: "asyl", name: "Asylanträge", takt: "jahr", dataset: "migr_asyappctza",
+    filter: "citizen=TOTAL&sex=T&age=TOTAL&applicant=ASY_APP&unit=PER",
+    maxAlter: 26, dez: 0, suffix: "", diffEinheit: "je 100.000 Einwohner", minLaender: 22,
+    einheit: "Asylanträge je 100.000 Einwohner", rangText: "Rang 1 = meiste Asylanträge je Einwohner",
+    hinweis: "Gezählt werden Anträge, nicht Entscheidungen. Ob ein Antrag bewilligt wird, zeigt diese Zahl nicht.",
+    proKopf: { zaehler: ["citizen=TOTAL&sex=T&age=TOTAL&applicant=ASY_APP&unit=PER"], nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], faktor: 1e5, plausibel: [1, 8000], minLaender: 22 },
+    ausblenden2025: true,
+    typ: "neutral", trendNeutral: true, schwelle: 10, mock: { base: 10, step: 1 } }
+  ,{ id: "lebenszufriedenheit", name: "Lebenszufriedenheit", takt: "jahr", dataset: "ilc_pw01",
+    filter: "age=Y_GE16&sex=T&isced11=TOTAL&unit=RTG",
+    alternativen: [ { dataset: "ilc_pw01", filter: "age=Y_GE16&sex=T&isced11=TOTAL" }, { dataset: "ilc_pw01", filter: "age=Y_GE16&sex=T&unit=RTG" } ],
+    maxAlter: 48, dez: 1, suffix: "", diffEinheit: "Punkte", minLaender: 20,
+    einheit: "Durchschnitt auf einer Skala von 0 (gar nicht zufrieden) bis 10 (völlig zufrieden)", rangText: "Rang 1 = höchste Lebenszufriedenheit",
+    hinweis: "Die Zahl stammt aus einer Befragung, die nur alle paar Jahre durchgeführt wird.",
+    ausblenden2025: true,
+    typ: "hoch", schwelle: 0.1, mock: { base: 10, step: 1 } }
   ,{ id: "gefaengnis", name: "Gefängnisauslastung", takt: "jahr", dataset: "crim_pris_cap",
     filter: "indic_cr=PRIS_ACT_CAP&unit=NR", // Platzhalter (im Test); echte Berechnung: Häftlinge geteilt durch offizielle Haftplätze
     verhaeltnis: { zaehler: "indic_cr=PRIS_ACT_CAP&unit=NR", nenner: "indic_cr=PRIS_OFF_CAP&unit=NR" },
@@ -749,11 +893,11 @@ async function berechneProKopf(ind) {
   const geos = Object.keys(teile[0]).filter(g => N[g] && teile.every(t => t[g])), times = new Set(), val = {};
   for (const g of geos) { val[g] = {}; for (const t of Object.keys(teile[0][g])) {
     if (teile.some(x => x[g][t] == null) || !(N[g][t] > 0)) continue;
-    val[g][t] = teile.reduce((sum, x) => sum + x[g][t], 0) * 1e6 / N[g][t]; times.add(t); } }
+    val[g][t] = teile.reduce((sum, x) => sum + x[g][t], 0) * (p.faktor || 1e6) / N[g][t]; times.add(t); } }
   const T = [...times].sort(), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
   const js = { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) };
   const r = berechne(ind, js), w = r.oesterreich && r.oesterreich.wert;
-  console.error(`   Pro Kopf (Bevölkerung aus ${quelleN}): ${r.anzahlLaender} Länder, Periode ${r.periode}, AT ${Math.round(w)} €, Spitze ${r.beste.code} ${Math.round(r.beste.value)} €, letzte ${r.schlechteste.code} ${Math.round(r.schlechteste.value)} €`);
+  console.error(`   Pro Kopf (Bevölkerung aus ${quelleN}): ${r.anzahlLaender} Länder, Periode ${r.periode}, AT ${Math.round(w)}, Spitze ${r.beste.code} ${Math.round(r.beste.value)}, letzte ${r.schlechteste.code} ${Math.round(r.schlechteste.value)}`);
   if (!(r.anzahlLaender >= (p.minLaender || 20) && w >= p.plausibel[0] && w <= p.plausibel[1])) throw new Error(`unplausibel (AT ${w}, ${r.anzahlLaender} Länder)`);
   return r;
 }
