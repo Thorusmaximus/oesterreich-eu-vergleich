@@ -131,7 +131,7 @@ svg{width:100%;height:auto;display:block}
 .tabs a.on{border-color:var(--eu);font-weight:700}
 
 .umsch{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
-.umsch button{font:inherit;font-size:.7rem;font-weight:600;padding:3px 7px;white-space:nowrap;hyphens:none;overflow-wrap:normal;word-break:normal;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
+.umsch button{font:inherit;font-size:.72rem;font-weight:600;padding:3px 8px;white-space:nowrap;hyphens:none;overflow-wrap:normal;word-break:normal;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
 .umsch button.on{border-color:var(--eu);background:var(--bg,#f4f6fb)}
 
 /* Details-Link in jeder Kachel einer Reihe auf gleicher Höhe */
@@ -146,4 +146,4 @@ svg{width:100%;height:auto;display:block}
 .suche input:focus{outline-color:var(--eu)}
 
 .suche input::placeholder{color:var(--mut);opacity:1}
-@media (max-width:400px){.umsch{gap:3px}.umsch button{font-size:.66rem;padding:3px 6px}}
+@media (max-width:380px){.umsch{gap:3px}.umsch button{font-size:.66rem;padding:3px 6px}}
