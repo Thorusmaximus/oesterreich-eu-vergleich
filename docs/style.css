@@ -158,3 +158,4 @@ svg{width:100%;height:auto;display:block}
 .zb:hover{border-color:var(--eu)}
 .zb.on{border-color:var(--eu);background:var(--bg,#f4f6fb)}
 .zahlen[hidden]{display:none}
+.zb.rbesser b{color:var(--good)}.zb.rschlechter b{color:var(--bad)}
