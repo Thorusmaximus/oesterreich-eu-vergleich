@@ -276,8 +276,8 @@ const INDICATORS = [
     filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL", alternativen: [ { dataset: "spr_exp_pens", filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL" } ],
     maxAlter: 36, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte des BIP", minLaender: 20,
     einheit: "Pensionsausgaben in % des BIP", rangText: "Rang 1 = niedrigste Pensionsausgaben",
-    hinweis: "Die Ausgaben hängen vom Altersaufbau der Bevölkerung ab und sagen nicht allein, wie großzügig das System ist. Ob hohe Ausgaben gut oder schlecht sind, ist umstritten: Sie bedeuten höhere Pensionen, aber auch eine größere Last für den Staatshaushalt.",
-    typ: "neutral", trendNeutral: true, umstritten: true, rangNiedrigZuerst: true, schwelle: 0.2, mock: { base: 11, step: 0.4 } }
+    hinweis: "Gewertet wird: Niedrigere Ausgaben gelten als besser, weil sie den Staatshaushalt weniger belasten. Die Ausgaben hängen aber vom Altersaufbau der Bevölkerung ab, und hohe Ausgaben bedeuten nicht automatisch hohe Pensionen.",
+    typ: "niedrig", schwelle: 0.2, mock: { base: 11, step: 0.4 } }
   ,{ id: "ersatzquote", name: "Pensionshöhe (Ersatzquote)", takt: "jahr", dataset: "ilc_pnp3", faktor: 100,
     filter: "sex=T", alternativen: [ { dataset: "ilc_pnp3", filter: "sex=T&indic_il=AGG_RR" }, { dataset: "ilc_pnp3", filter: "sex=T&unit=PC" } ],
     maxAlter: 26, dez: 0, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
@@ -1029,6 +1029,14 @@ function berechneInsolvenzen() {
     for (const r of result) { const e = nt.eintraege[r.id], jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : 0;
       if ((r.datenHinweis || r.ohneTrend) && e && e.jahr > jahr) r.nachtrag = { ...e, stand: nt.stand, gesamtAufklaerung: ["toetung","raub","einbruch","sexualdelikte"].includes(r.id) ? nt.gesamtAufklaerung : null }; }
   } catch (e) { console.log("   (at-nachtrag.json nicht lesbar: " + e.message + ")"); }
+  { // Beispiel Österreich: hohe Pensionsausgaben bedeuten nicht automatisch hohe Pensionen
+    const pa = result.find(x => x.id === "pensionsausgaben"), eq = result.find(x => x.id === "ersatzquote");
+    if (pa?.oesterreich && eq?.oesterreich) {
+      const f = x => String(Math.round(x * 10) / 10).replace(".", ",");
+      const t = ` Beispiel Österreich: Das Land gibt ${f(pa.oesterreich.wert)} % des BIP für Pensionen aus (Platz ${pa.oesterreich.rang} von ${pa.anzahlLaender}, wobei Platz 1 die niedrigsten Ausgaben hat), die Pensionen liegen im Verhältnis zum früheren Einkommen aber nur bei ${Math.round(eq.oesterreich.wert)} % (Platz ${eq.oesterreich.rang} von ${eq.anzahlLaender}).`;
+      for (const r of [pa, eq]) r.hinweis = ((r.hinweis || "") + t).trim();
+    }
+  }
   for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
   if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };

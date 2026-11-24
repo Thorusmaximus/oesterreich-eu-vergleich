@@ -69,7 +69,7 @@ else {
       + '<div class="note">Stand: '+(i.art==="rating" ? datum(i.stand) : periode(i.periode))+(i.veraltet ? ' (Aktualisierung fehlgeschlagen)' : '')+'</div>'
       + (a.urteil && !i.ohneTrend ? '<div class="trend '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> Trend: '+trendWort(a.urteil)+' <span class="note">('+trendVergleich(i)+')</span></div>' : '')
       + (i.rangVergleich||[]).map(function(v){ if(!v) return ''; var r=rangTrend(a.rang,v.rang); return '<div class="rtrend '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Rang '+v.label+': Platz '+v.rang+' <span class="note">('+r.text+')</span></div>'; }).join('')
-      + (i.typ==="neutral" ? '<div class="note">Rang 1 = höchster Wert</div>' : '')
+      + (i.typ==="neutral" ? '<div class="note">'+(i.rangText||"Rang 1 = höchster Wert")+'</div>' : '')
       + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
       + (i.datenHinweis ? '<p class="altdaten">⏳ Neuere Eurostat-Daten noch nicht verfügbar</p>' : '')
       + (i.nachtrag ? '<p class="altdaten"><span class="flagge" role="img" aria-label="Österreich"></span> '+i.nachtrag.jahr+': '+i.nachtrag.wert.toLocaleString("de-AT")+' '+i.nachtrag.einheit+(i.nachtrag.vorjahr!=null?' (Vorjahr '+i.nachtrag.vorjahr.toLocaleString("de-AT")+')':'')+'</p>' : '')
