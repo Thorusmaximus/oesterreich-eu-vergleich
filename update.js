@@ -264,7 +264,7 @@ const INDICATORS = [
       { dataset: "sts_rb_q", filter: "indic_bt=BKRT&nace_r2=B-S_X_O&s_adj=NSA&unit=I15" } ],
     maxAlter: 12, minLaender: 12, dez: 0, suffix: "", diffEinheit: "Indexpunkte",
     einheit: "Index der Insolvenzanmeldungen, 2021 = 100 (nur Entwicklung, keine absoluten Zahlen)", rangText: "Rang 1 = niedrigster Index (geringster Anstieg der Insolvenzen seit 2021)",
-    hinweis: "Zählweise und Insolvenzrecht unterscheiden sich je Land, deshalb vergleicht dieser Index nur die Entwicklung gegenüber dem jeweils eigenen Land im Jahr 2021. 2021 war wegen Corona-Hilfen und Aussetzungen ein ungewöhnlich insolvenzarmes Jahr, der Anstieg danach ist daher teils ein Aufholeffekt. Nicht alle EU-Länder melden.",
+    hinweis: "Zählweise und Insolvenzrecht unterscheiden sich je Land, deshalb vergleicht dieser Index nur die Entwicklung gegenüber dem jeweils eigenen Land im Jahr 2021. 2021 war wegen Corona-Hilfen und Aussetzungen ein ungewöhnlich insolvenzarmes Jahr, der Anstieg danach ist daher teils ein Aufholeffekt.",
     typ: "niedrig", umstritten: true, schwelle: 5, mock: { base: 110, step: 6 } }
   ,{ id: "erwerbsdauer", name: "Dauer des Erwerbslebens", takt: "jahr", dataset: "lfsi_exi_a",
     filter: "sex=T", alternativen: [ { dataset: "lfsi_dwl_a", filter: "sex=T" } ],
@@ -348,7 +348,6 @@ const INDICATORS = [
     verhaeltnis: { zaehler: "indic_cr=PRIS_ACT_CAP&unit=NR", nenner: "indic_cr=PRIS_OFF_CAP&unit=NR" },
     maxAlter: 26, dez: 0, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 15,
     einheit: "% der Haftplätze, die belegt sind (über 100 % = überbelegt)", rangText: "Rang 1 = geringste Auslastung",
-    hinweis: "Nicht alle EU-Länder melden Haftplätze und Häftlinge, deshalb fehlen manche Länder in der Tabelle.",
     typ: "niedrig", schwelle: 2, mock: { base: 70, step: 6 } }
   ,{ id: "koerperverletzung", name: "Schwere Körperverletzung", takt: "jahr", dataset: "crim_off_cat",
     filter: "iccs=ICCS02011&unit=P_HTHAB", // schwere Körperverletzung (Polizeistatistik), pro 100.000 Einwohner
