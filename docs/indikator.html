@@ -125,7 +125,7 @@ function detail(i){
     h += '<div class="card"><h2>Einwohnerzahl Österreich</h2><div class="v">'+mioText(last.wert)+' Mio. <span class="k">am 1. Jänner '+last.t+(dif!=null?', '+(dif>=0?'+':'−')+mioText(Math.abs(dif))+' Mio. zum Vorjahr':'')+'</span></div>'
        + '<p class="note">'+bv.map(function(p){return p.t+': '+mioText(p.wert)+' Mio.';}).join(' · ')+(i.bestandEU?' · EU insgesamt: '+i.bestandEU.toLocaleString("de-AT",{maximumFractionDigits:1})+' Mio.':'')+'</p></div>';
   }
-  h += '<div class="card"><h2>Alle EU-Länder <span class="note">(Datenstand: '+periode(i.periode)+')</span></h2>'+ranking(i)+'</div>';
+  h += '<div class="card"><h2>Alle EU-Länder'+infoIcon('Alle Länder sortiert nach Platz. Der Pfeil rechts zeigt den Trend des Landes ('+trendVergleich(i)+'). '+pfeilHinweis(i))+' <span class="note">(Datenstand: '+periode(i.periode)+')</span></h2>'+ranking(i)+'</div>';
   h += fussnote();
   app.innerHTML = h;
   bindChart();
@@ -240,7 +240,7 @@ function detailRating(i){
      + '<div><div class="k">Beste EU-Note jetzt</div><div class="v">'+i.beste.schnittText+'</div><div class="k">'+i.beste.name+(i.laender.filter(function(x){return x.rank===1;}).length>1?' u. a.':'')+'</div></div>'
      + '<div><div class="k">Schlechteste EU-Note jetzt</div><div class="v">'+i.schlechteste.schnittText+'</div><div class="k">'+i.schlechteste.name+'</div></div></div>'
      + '<p class="note">Die Skala von S&amp;P und Fitch: AAA, AA+, AA, AA-, A+, A, A-, BBB+, BBB, BBB-, dann BB+ bis B- und CCC bis C, am Ende D. Bei Moody\'s: Aaa, Aa1 bis Aa3, A1 bis A3, Baa1 bis Baa3, dann Ba, B, Caa, Ca, C. Ab BBB- (Moody\'s Baa3) gilt ein Staat als „Investment Grade“, also als solide. Alles darunter heißt „Ramschniveau“. Alle EU-Länder liegen derzeit im Investment-Grade-Bereich.</p></div>';
-  h += '<div class="card"><h2>Alle EU-Länder <span class="note">(Datenstand: '+datum(i.stand)+')</span></h2>'+ratingTabelle(i)+'</div>';
+  h += '<div class="card"><h2>Alle EU-Länder'+infoIcon('Alle Länder sortiert nach der durchschnittlichen Note der Ratingagenturen. Der Pfeil in der Spalte Trend zeigt die Veränderung seit dem Regierungsantritt.')+' <span class="note">(Datenstand: '+datum(i.stand)+')</span></h2>'+ratingTabelle(i)+'</div>';
   h += '<div class="card"><h2>So wird gerechnet</h2><p class="note">Jede Note wird in eine Stufe von 1 (AAA bzw. Aaa) abwärts umgerechnet: AA+ ist 2, AA ist 3, AA- ist 4 und so weiter. Daraus wird der Mittelwert der drei Agenturen S&amp;P, Moody\'s und Fitch gebildet, und nach diesem Mittelwert werden die Länder gereiht. Wer denselben Mittelwert hat, teilt sich den Platz. Beispiel Österreich: '
      + a.sp+' ('+a.stufen[0]+'), '+a.moodys+' ('+a.stufen[1]+'), '+a.fitch+' ('+a.stufen[2]+') ergeben im Schnitt '+f2(a.schnitt)+', also etwa '+a.schnittText+'.</p></div>';
   h += '<p class="note">Ratings ändern sich nur gelegentlich und werden von Hand gepflegt, nicht automatisch aktualisiert. Quelle: '+i.quelle+'</p>';
@@ -269,7 +269,7 @@ function ranking(i){
     var left = (Math.min(v,0)-mn)/span*100, w = Math.max(.8, Math.abs(v)/span*100);
     return '<span class="trk"><span class="bb" style="left:'+left+'%;width:'+w+'%"></span></span>';
   };
-  var s = '<p class="note">Legende der Pfeile '+infoIcon('Pfeil rechts: Trend des Landes ('+trendVergleich(i)+'). '+pfeilHinweis(i))+'</p>' + i.laender.map(function(x){
+  var s = i.laender.map(function(x){
     return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.ppsRang||x.zus?" mitb":"")+'"><span>'+x.rank+'. '+x.name+(x.ppsRang?' <small class="note">Kaufkraft: Platz '+x.ppsRang+'</small>':'')+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+f(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
   }).join("");
   if(i.schweiz){
