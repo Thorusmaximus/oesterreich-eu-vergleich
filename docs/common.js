@@ -169,7 +169,7 @@ var PAARE = [
   { ids: ["wachstum","industrie"], titel: "Wirtschaftswachstum", labels: ["Gesamt","Industrie"], suche: "wirtschaftswachstum industriewachstum bip industrie" },
   { ids: ["wachstum-pro-kopf","wachstum-privat"], titel: "Wachstum", labels: ["Pro Kopf","Ohne Staat"], suche: "wachstum pro kopf ohne staat privat bip" },
   { ids: ["insolvenzen","insolvenzenEU"], titel: "Insolvenzen", labels: ["Anzahl","EU-Index"], suche: "insolvenzen pleiten firmen" },
-  { ids: ["arbeitslosigkeit","beschaeftigung"], titel: "Arbeitsmarkt", labels: ["Arbeitslos","Jobs"], suche: "arbeitsmarkt arbeitslosenquote arbeitslosigkeit beschäftigungsquote beschäftigung" },
+  { ids: ["arbeitslosigkeit","beschaeftigung"], titel: "Arbeitsmarkt", labels: ["Arbeitslos","Jobquote"], suche: "arbeitsmarkt arbeitslosenquote arbeitslosigkeit beschäftigungsquote beschäftigung" },
   { ids: ["benzin","diesel"], titel: "Spritpreis", labels: ["Benzin","Diesel"], suche: "spritpreis benzinpreis dieselpreis treibstoff tanken" },
   { ids: ["strompreis","strompreis-industrie","erneuerbare","energieabhaengigkeit"], titel: "Strom und Energie", labels: ["Haushalte","Industrie","Erneuerbare","Abhängigkeit"], suche: "strompreis strom energie haushalte industrie erneuerbare erneuerbar ökostrom energieabhängigkeit importe" },
   { ids: ["armut","ausgrenzung"], titel: "Armut", labels: ["Armutsrisiko","Ausgrenzung"], suche: "armut armutsgefährdung armutsrisiko soziale ausgrenzung arope" },
