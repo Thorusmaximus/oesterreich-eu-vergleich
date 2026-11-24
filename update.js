@@ -688,6 +688,7 @@ async function berechnePrivat(ind) {
   const T = [...times].sort((a, b) => toIdx(a, "quartal") - toIdx(b, "quartal")), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
   const js = { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) };
   const r = berechne(ind, js), rd = x => Math.round(x * 10) / 10, k = komp.AT?.[r.periode];
+  for (const g of ["MT", "DK", "AT", "SI"]) { const kk = komp[g]?.[r.periode]; if (kk) console.log(`   Wachstum ohne Staat ${g} ${r.periode}: BIP ${rd(kk.bip)} %, Anteil Staatskonsum ${rd(kk.anteil)} % des BIP, Staatskonsum real ${govG[g]?.[r.periode]} %, Beitrag ${rd(kk.staat)} PP`); }
   if (k) r.komponenten = { bip: rd(k.bip), staat: rd(k.staat), privat: rd(k.bip - k.staat), anteil: rd(k.anteil) };
   return r;
 }
