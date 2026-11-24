@@ -18,7 +18,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=11de90ef"></script>
+<script src="common.js?v=38a37e4f"></script>
 <script>
 var app = document.getElementById("app");
 // Indikatoren ohne Daten ab 2025 sind ausgeblendet (sie erscheinen automatisch wieder, sobald es neuere Daten gibt)
@@ -97,8 +97,6 @@ else {
   + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>' + gruppenHtml;
   h += fussnote();
   if(versteckt.length) h += '<p class="note">Derzeit ausgeblendet, weil es noch keine Daten ab 2025 gibt: '+versteckt.map(function(i){ return i.name+' (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p>';
-  var vorN = D.indikatoren.filter(function(i){ return !i.ausgeblendet && amtsLage(i)==="vor"; }).length;
-  if(vorN) h += '<p class="note">Bei '+vorN+' Indikatoren liegt der jüngste Datenstand noch vor dem Amtsantritt (Kennzeichnung „vor Amtsantritt“). Wie gewertet wird, steht in der <a href="methodik.html">Methodik</a>.</p>';
   app.innerHTML = h;
   neuesteLeiste();
   (function(){
