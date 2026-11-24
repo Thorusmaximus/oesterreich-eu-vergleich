@@ -26,7 +26,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=fd93678f"></script>
+<script src="common.js?v=34757b4b"></script>
 <script>
 var app = document.getElementById("app");
 // Indikatoren ohne Daten ab 2025 sind ausgeblendet (sie erscheinen automatisch wieder, sobald es neuere Daten gibt)
@@ -104,7 +104,7 @@ else {
   + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>'
   + '<div class="suche"><input type="search" id="suche" placeholder="Indikator suchen" aria-label="Indikator suchen" autocomplete="off"></div></div>' + gruppenHtml;
   h += fussnote();
-  if(versteckt.length) h += '<p class="note">Derzeit ausgeblendet, weil es noch keine Daten ab 2025 gibt: '+versteckt.map(function(i){ return i.name+' (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p>';
+  if(versteckt.length) h += '<p class="note" id="ausgeblendet">Derzeit ausgeblendet, weil es noch keine Daten ab 2025 gibt: '+versteckt.map(function(i){ return i.name+' (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p>';
   app.innerHTML = h;
   neuesteLeiste();
   (function(){
