@@ -101,12 +101,12 @@ svg{width:100%;height:auto;display:block}
 .info:hover,.info:focus{color:var(--eu);border-color:var(--eu);outline:none}
 .infopop{position:absolute;z-index:50;display:none;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.88rem;line-height:1.45;box-shadow:0 6px 24px rgba(0,0,0,.18);font-weight:400}
 /* Gruppenfilter */
-.filter.gr{margin-top:8px}
+.filter.gr{margin:0 0 10px}
 
 /* Filter: am Handy hinter einer Lupe */
 .fbtn{display:none}
 @media (max-width:600px){
-  .fbtn{display:inline-flex;align-items:center;gap:6px;position:relative;margin:6px 0 10px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-weight:600;font-size:.9rem;cursor:pointer}
+  .fbtn{display:inline-flex;align-items:center;gap:6px;position:relative;margin:0 0 10px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-weight:600;font-size:.9rem;cursor:pointer}
   .fbtn[aria-expanded="true"]{border-color:var(--eu);color:var(--eu)}
   .fdot{position:absolute;top:-2px;right:-2px;width:10px;height:10px;border-radius:50%;background:var(--good);border:2px solid var(--bg)}
   .fbox{display:none}
@@ -122,7 +122,7 @@ svg{width:100%;height:auto;display:block}
   #nachoben.an{opacity:1;pointer-events:auto}
 }
 
-.suche{margin:0 0 12px}
+.suche{margin:0 0 10px}
 .suche input{width:100%;box-sizing:border-box;font:inherit;font-size:.95rem;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink)}
 .suche input:focus{outline:2px solid var(--at);outline-offset:1px}
 @media (min-width:701px){.suche{max-width:340px}}
@@ -149,7 +149,7 @@ svg{width:100%;height:auto;display:block}
 @media (max-width:380px){.umsch{gap:3px}.umsch button{font-size:.66rem;padding:3px 6px}}
 
 .frage{font-size:clamp(1.15rem,4.6vw,1.45rem);font-weight:700;letter-spacing:-.01em;line-height:1.25;margin:0 0 6px}
-.zahlen{display:flex;flex-direction:column;gap:6px;margin:0 0 16px}
+.zahlen{display:flex;flex-direction:column;gap:6px;margin:0 0 10px}
 .zrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .zl{font-size:.82rem;color:var(--mut);font-weight:600;margin-right:2px}
 .zb{padding:4px 11px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
