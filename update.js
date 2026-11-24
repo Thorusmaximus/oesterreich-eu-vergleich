@@ -372,7 +372,7 @@ const INDICATORS = [
       nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [2000, 60000], minLaender: 20 },
     maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 20, typ: "hoch", umstritten: true, schwelle: 500,
     einheit: "Euro pro Einwohner (Börsenwert der börsennotierten Aktien von Unternehmen im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Börsenwert pro Einwohner",
-    hinweis: "Gewertet wird: Ein höherer Wert gilt als besser, weil er für mehr Kapital in heimischen Unternehmen steht. Das ist umstritten, denn ein hoher Wert sagt nichts über Wohlstand oder Verteilung. Der Börsenwert schwankt stark mit den Aktienkursen. In kleinen Ländern mit wenigen, aber großen und international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt.",
+    hinweis: "Der Börsenwert schwankt stark mit den Aktienkursen. In kleinen Ländern mit wenigen, aber großen und international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt.",
     mock: { base: 8000, step: 3000 } }
   ,{ id: "kapitalNichtBoerse", name: "Nicht börsennotierte Unternehmen pro Einwohner", takt: "jahr", dataset: "nasa_10_f_bs",
     filter: "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F512", // Platzhalter (im Test); echte Berechnung: berechneProKopf()
@@ -380,7 +380,7 @@ const INDICATORS = [
       nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [1000, 1000000], minLaender: 15 },
     maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 15, typ: "hoch", umstritten: true, schwelle: 500,
     einheit: "Euro pro Einwohner (geschätzter Wert nicht börsennotierter Kapitalgesellschaften im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Unternehmenswert pro Einwohner",
-    hinweis: "Gewertet wird: Ein höherer Wert gilt als besser, weil er für mehr Kapital in heimischen Unternehmen steht. Das ist umstritten, denn ein hoher Wert sagt nichts über Wohlstand oder Verteilung. Der Wert nicht börsennotierter Unternehmen wird von den Statistikämtern geschätzt, weil es keinen Börsenkurs gibt. Die Verfahren unterscheiden sich zwischen den Ländern. Der Vergleich ist daher weniger genau als beim Börsenwert. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben. Das sagt wenig über die heimische Wirtschaft.",
+    hinweis: "Der Wert nicht börsennotierter Unternehmen wird von den Statistikämtern geschätzt, weil es keinen Börsenkurs gibt. Die Verfahren unterscheiden sich zwischen den Ländern. Der Vergleich ist daher weniger genau als beim Börsenwert. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben. Das sagt wenig über die heimische Wirtschaft.",
     mock: { base: 12000, step: 4000 } }
   ,{ id: "kapitalGesamt", name: "Unternehmenswert gesamt pro Einwohner", takt: "jahr", dataset: "nasa_10_f_bs",
     filter: "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", // Platzhalter (im Test); echte Berechnung: berechneProKopf()
@@ -388,7 +388,7 @@ const INDICATORS = [
       nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [2000, 1500000], minLaender: 15 },
     maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 15, typ: "hoch", umstritten: true, schwelle: 1000,
     einheit: "Euro pro Einwohner (börsennotierte und nicht börsennotierte Kapitalgesellschaften im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Unternehmenswert pro Einwohner",
-    hinweis: "Gewertet wird: Ein höherer Wert gilt als besser, weil er für mehr Kapital in heimischen Unternehmen steht. Das ist umstritten, denn ein hoher Wert sagt nichts über Wohlstand oder Verteilung. Der nicht börsennotierte Teil wird von den Statistikämtern geschätzt. In kleinen Ländern mit wenigen großen, international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben.",
+    hinweis: "Der nicht börsennotierte Teil wird von den Statistikämtern geschätzt. In kleinen Ländern mit wenigen großen, international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben.",
     mock: { base: 20000, step: 6000 } }
   ,{ id: "armut", name: "Armutsgefährdung", takt: "jahr", dataset: "ilc_li02",
     filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PC&rskpovth=B_60",
