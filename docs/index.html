@@ -81,7 +81,7 @@ else {
     if(!liste.length) return "";
     var z = {besser:0, schlechter:0, gleich:0, neutral:0}; D.indikatoren.forEach(function(i){ if((i.gruppe||"Weitere")===g && (i.oesterreich || kombiVon(i))) z[bilanz(i)]++; });
     var bil = '<span class="bil">'+(z.besser?'<span class="good">'+z.besser+' besser</span>':'')+(z.schlechter?'<span class="bad">'+z.schlechter+' schlechter</span>':'')+(z.gleich?'<span>'+z.gleich+' unverändert</span>':'')+(z.neutral?'<span>'+z.neutral+' ohne Wertung</span>':'')+'</span>';
-    return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+'</h2><div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-b="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return bilanz(byId[id]); }).join(' ') : bilanz(i))+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var k=kombiVon(i); if(!k) return kachel(i); return k.v.map(function(id,n){ return '<div class="var" data-v="'+id+'" data-b="'+bilanz(byId[id])+'"'+(n?' style="display:none"':'')+'>'+kachel(byId[id])+'</div>'; }).join(''); })()+'</div>'; }).join('')+'</div></section>';
+    return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+'</h2><div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-b="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return bilanz(byId[id]); }).join(' ') : bilanz(i))+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var k=kombiVon(i); if(!k) return kachel(i); return k.v.map(function(id,n){ return '<div class="var" data-v="'+id+'" data-b="'+bilanz(byId[id])+'" data-n="'+(byId[id].name+' '+id).toLowerCase().replace(/"/g,'')+'"'+(n?' style="display:none"':'')+'>'+kachel(byId[id])+'</div>'; }).join(''); })()+'</div>'; }).join('')+'</div></section>';
   }).join('');
   h += '<div class="suche"><input type="search" id="suche" placeholder="Indikator suchen" aria-label="Indikator suchen" autocomplete="off"></div>'
   + '<div class="filter" role="group" aria-label="Filter"><button class="on" data-f="alle">Alle</button><button data-f="schlechter">Verschlechterungen</button><button data-f="besser">Verbesserungen</button><button data-f="neutral">Ohne Wertung</button></div>'
@@ -97,10 +97,17 @@ else {
       var bs = w.getAttribute("data-b").split(" "), passt = fSt==="alle" || bs.indexOf(fSt)>=0;
       w.style.display = (passt && (!q || w.getAttribute("data-n").indexOf(q)>=0)) ? "" : "none";
       var vars = w.querySelectorAll(".var"); if(!vars.length) return;
-      // Bei aktivem Wertungsfilter die passende Variante zeigen, sonst die zuletzt gewählte (Standard: erste)
-      var zeige = null;
-      if(fSt!=="alle"){ var cur = w.querySelector(".var:not([style*='none'])"); if(cur && cur.getAttribute("data-b")===fSt) zeige = cur; else vars.forEach(function(v){ if(!zeige && v.getAttribute("data-b")===fSt) zeige = v; }); }
-      else { var sel = w.getAttribute("data-sel"); vars.forEach(function(v){ if(sel && v.getAttribute("data-v")===sel) zeige = v; }); if(!zeige) zeige = vars[0]; }
+      // Passende Variante: 1. Treffer der Suche (nach Name), 2. Wertungsfilter, 3. zuletzt gewählte (Standard: erste)
+      var okF = function(v){ return fSt==="alle" || v.getAttribute("data-b")===fSt; }, zeige = null;
+      if(q) vars.forEach(function(v){ if(!zeige && okF(v) && v.getAttribute("data-n").indexOf(q)>=0) zeige = v; });
+      if(!zeige){
+        var cur = w.querySelector(".var:not([style*='none'])");
+        var sel = w.getAttribute("data-sel");
+        if(cur && okF(cur) && !q) zeige = cur;
+        if(!zeige && sel) vars.forEach(function(v){ if(!zeige && v.getAttribute("data-v")===sel && okF(v)) zeige = v; });
+        if(!zeige) vars.forEach(function(v){ if(!zeige && okF(v)) zeige = v; });
+        if(!zeige) zeige = vars[0];
+      }
       vars.forEach(function(v){ v.style.display = v===zeige ? "" : "none"; });
     });
     document.querySelectorAll(".gruppe").forEach(function(s){ var gOk = !fGr || s.getAttribute("data-g")===fGr; s.style.display = gOk && s.querySelector(".kw:not([style*='none'])") ? "" : "none"; });
