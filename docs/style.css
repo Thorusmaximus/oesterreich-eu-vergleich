@@ -130,7 +130,7 @@ svg{width:100%;height:auto;display:block}
 .tabs a{font-size:.9rem;padding:6px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none}
 .tabs a.on{border-color:var(--eu);font-weight:700}
 
-.umsch{display:flex;gap:4px;margin-top:6px}
+.umsch{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
 .umsch button{font:inherit;font-size:.72rem;font-weight:600;padding:3px 8px;white-space:nowrap;hyphens:none;overflow-wrap:normal;word-break:normal;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
 .umsch button.on{border-color:var(--eu);background:var(--bg,#f4f6fb)}
 
@@ -141,3 +141,6 @@ svg{width:100%;height:auto;display:block}
 .kw>.tile,.kw>.card,.kw>.var>.tile,.kw>.var>.card{flex:1;min-width:0}
 .tile{display:flex;flex-direction:column}
 .tile .more{margin-top:auto;padding-top:6px}
+
+.filter button.on{border-color:var(--eu)}
+.suche input:focus{outline-color:var(--eu)}

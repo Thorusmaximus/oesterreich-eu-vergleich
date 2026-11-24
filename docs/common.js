@@ -143,10 +143,19 @@ function teilPille(i){
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
 })();
 
-// Zusammengeführte Kacheln: Haupt-Indikator + Partner, mit Umschalter
+// Zusammengeführte Kacheln: mehrere Indikatoren in einer Kachel, mit Umschalter (erster = Standardansicht)
 var PAARE = [
-  { haupt: "einkommen", partner: "durchschnittseinkommen", titel: "Einkommen", a: "Median", b: "Durchschnitt", suche: "median durchschnitt einkommen" },
-  { haupt: "wachstum", partner: "industrie", titel: "Wirtschaftswachstum", a: "Gesamt", b: "Industrie", suche: "wirtschaftswachstum industriewachstum bip industrie" },
-  { haupt: "wachstum-pro-kopf", partner: "wachstum-privat", titel: "Wachstum", a: "Pro Kopf", b: "Ohne Staat", suche: "wachstum pro kopf ohne staat privat bip" }
+  { ids: ["einkommen","durchschnittseinkommen"], titel: "Einkommen", labels: ["Median","Durchschnitt"], suche: "median durchschnitt einkommen" },
+  { ids: ["wachstum","industrie"], titel: "Wirtschaftswachstum", labels: ["Gesamt","Industrie"], suche: "wirtschaftswachstum industriewachstum bip industrie" },
+  { ids: ["wachstum-pro-kopf","wachstum-privat"], titel: "Wachstum", labels: ["Pro Kopf","Ohne Staat"], suche: "wachstum pro kopf ohne staat privat bip" },
+  { ids: ["insolvenzen","insolvenzenEU"], titel: "Insolvenzen", labels: ["Österreich","EU-Vergleich"], suche: "insolvenzen pleiten firmen" },
+  { ids: ["arbeitslosigkeit","beschaeftigung"], titel: "Arbeitsmarkt", labels: ["Arbeitslosigkeit","Beschäftigung"], suche: "arbeitsmarkt arbeitslosenquote arbeitslosigkeit beschäftigungsquote beschäftigung" },
+  { ids: ["benzin","diesel"], titel: "Spritpreis", labels: ["Benzin","Diesel"], suche: "spritpreis benzinpreis dieselpreis treibstoff tanken" },
+  { ids: ["strompreis","strompreis-industrie"], titel: "Strompreis", labels: ["Haushalte","Industrie"], suche: "strompreis strom energie haushalte industrie" },
+  { ids: ["raub","einbruch"], titel: "Eigentumsdelikte", labels: ["Raub","Einbruch"], suche: "raub raubdelikte wohnungseinbrüche einbruch eigentum kriminalität" },
+  { ids: ["toetung","koerperverletzung","sexualdelikte"], titel: "Gewaltdelikte", labels: ["Tötung","Körperverletzung","Sexual"], suche: "tötungsdelikte mord schwere körperverletzung sexualdelikte gewalt kriminalität" },
+  { ids: ["durchschnittsalter","abhaengigkeit"], titel: "Alter der Bevölkerung", labels: ["Alter","Abhängigkeit"], suche: "alter bevölkerung altersabhängigkeitsquote abhängigkeit durchschnittsalter" },
+  { ids: ["lebenserwartung","gesundeJahre"], titel: "Lebenserwartung", labels: ["Gesamt","Gesund"], suche: "lebenserwartung gesunde lebensjahre gesundheit" },
+  { ids: ["pensionsausgaben","ersatzquote"], titel: "Pensionen", labels: ["Ausgaben","Höhe"], suche: "pensionen pensionsausgaben pensionshöhe ersatzquote rente" }
 ];
-function paarFuer(id){ for(var k=0;k<PAARE.length;k++) if(PAARE[k].haupt===id||PAARE[k].partner===id) return PAARE[k]; return null; }
+function paarFuer(id){ for(var k=0;k<PAARE.length;k++) if(PAARE[k].ids.indexOf(id)>=0) return PAARE[k]; return null; }
