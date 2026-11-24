@@ -26,7 +26,7 @@ function amtsLage(i){
 }
 function amtsPille(i){
   var l=amtsLage(i);
-  return l==="vor" ? '<span class="lage vor">vor Amtsantritt</span>' : l==="teil" ? '<span class="lage teil">inkl. Amtsantritt</span>' : '';
+  return l==="vor" ? '<span class="lage vor">vor Amtsantritt</span>' : '';
 }
 function amtsHinweis(i){
   var l=amtsLage(i), d=datum(D.regierung.start);
