@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
 <title>Regierungstracker Österreich</title>
-<link rel="stylesheet" href="style.css?v=e1287f90">
+<link rel="stylesheet" href="style.css?v=ea5100ec">
 </head>
 <body>
 <main>
@@ -72,8 +72,14 @@ function detail(i){
      + '<p class="note">'+(rangDiff ? 'Der Rang hat sich seit '+periode(i.vorherPeriode)+' '+rangDiff+'. ' : '')+infoIcon(i.realText||trendText)+'</p></div>';
   var ss = i.seitStart;
   if(ss && D.regierung){
-      h += '<div class="card"><h2>Seit der '+D.regierung.name+'</h2>'
-       + '<div class="v '+urteilCls(ss.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,ss.urteil,ss.richtung)+'</span> '+trendWort(ss.urteil)+infoIcon(ss.nichtUeberEU ? 'Österreich hat sich seit dem Amtsantritt verbessert, aber nicht stärker als der EU-Durchschnitt'+(ss.euVeraenderung!=null?' (EU: '+sgn(ss.euVeraenderung)+' '+DIFF+')':'')+'. Als „besser" zählt hier nur, was über der EU-Entwicklung liegt, deshalb steht „unverändert".' : 'Als „besser" zählt hier nur, was über der Entwicklung des EU-Durchschnitts liegt'+(ss.euVeraenderung!=null?' (EU: '+sgn(ss.euVeraenderung)+' '+DIFF+')':'')+'.')+' <span class="k">('+sgn(ss.veraenderung)+' '+DIFF+', '+ss.richtung+')</span>'+'</div>'
+    var euZeile = '';
+    if(ss.euUrteil){
+      var eu = ss.euUrteil, euPf = eu==="besser" ? "↑" : eu==="schlechter" ? "↓" : "→";
+      euZeile = '<div class="v '+urteilCls(eu)+'"><span class="ar" aria-hidden="true">'+euPf+'</span> '+(eu==="besser"?"besser als der EU-Schnitt":eu==="schlechter"?"schlechter als der EU-Schnitt":"wie der EU-Schnitt")+infoIcon('Hier wird die Entwicklung Österreichs seit dem Amtsantritt mit der des EU-Durchschnitts im selben Zeitraum verglichen'+(ss.euVeraenderung!=null?' (EU: '+sgn(ss.euVeraenderung)+' '+DIFF+', Österreich: '+sgn(ss.veraenderung)+' '+DIFF+')':'')+'. Etwas kann also gleichzeitig besser werden und trotzdem schwächer als die EU sein.')+'</div>';
+    }
+    h += '<div class="card"><h2>Seit der '+D.regierung.name+'</h2>'
+       + '<div class="v '+urteilCls(ss.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,ss.urteil,ss.richtung)+'</span> '+trendWort(ss.urteil)+' <span class="k">('+sgn(ss.veraenderung)+' '+DIFF+', '+ss.richtung+')</span></div>'
+       + euZeile
        + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+'). '+infoIcon('Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.')+'</p></div>';
   }
   var rv = (i.rangVergleich||[]).filter(Boolean);

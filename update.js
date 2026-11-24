@@ -506,17 +506,17 @@ function berechne(ind, js) {
   const a0 = avg(data, "AT", startP, cfg.glaettung, takt);
   if (!ind.keinStart && meS && a0 != null && toIdx(startP, takt) < toIdx(latest, takt)) {
     const dd = avgNow - a0, ds = sc(avgNow) - sc(a0);
-    // EU-Vergleich: "besser" gilt seit Regierungsantritt nur, wenn Österreich sich stärker verbessert hat als der EU-Schnitt
+    // Zweite Zeile: Entwicklung im Vergleich zum EU-Durchschnitt (gleiche Periode), unabhängig vom eigenen Trend
     const euAt = t => { const e = data.EU27_2020?.[t]; if (e != null) return e; const v = rankAt(data, t, sc).map(x => x.value).filter(x => x != null); return v.length >= MIN_LAENDER ? v.reduce((p, q) => p + q, 0) / v.length : null; };
     const e0 = euAt(startP), e1 = euAt(latest);
-    let urS = urt(ds, dd), euDd = null, nichtUeberEU = false;
+    let euDd = null, euUrteil = null;
     if (e0 != null && e1 != null) {
       euDd = e1 - e0;
-      if (urS === "besser" && !(ds < sc(e1) - sc(e0))) { urS = "unverändert"; nichtUeberEU = true; }
+      if (ind.typ !== "neutral" && !ind.trendNeutral) { const rel = ds - (sc(e1) - sc(e0)); euUrteil = rel < -ind.schwelle ? "besser" : rel > ind.schwelle ? "schlechter" : "unverändert"; }
     }
     seitStart = { t: startP, wert: meS.value, rang: meS.rank, n: rkS.length, schnitt: r1(a0), veraenderung: r1(dd),
       richtung: dd > ind.schwelle ? "steigend" : dd < -ind.schwelle ? "sinkend" : "stabil",
-      urteil: urS, euVeraenderung: euDd != null ? r1(euDd) : null, nichtUeberEU };
+      urteil: urt(ds, dd), euVeraenderung: euDd != null ? r1(euDd) : null, euUrteil };
   }
   const rangVergleich = seitStart && ind.typ !== "neutral" ? [{ label: "seit Regierungsantritt", t: startP, rang: seitStart.rang, n: seitStart.n, regierung: true }] : [];
   // Gibt es bei Eurostat keinen EU-Gesamtwert (z. B. Kriminalität), nehmen wir den einfachen Mittelwert der EU-Länder
@@ -768,14 +768,14 @@ async function realTrend(r, ind) {
   r.diffEinheit = "% real";
   r.realText = `Inflationsbereinigt: Das Einkommen ist nominal um ${rd(y.nom)} % ${y.nom >= 0 ? "gestiegen" : "gesunken"}, ${ind.real === "EU" ? "die Verbraucherpreise im EU-Durchschnitt" : "die Verbraucherpreise"} sind im Einkommensjahr ${+r.periode - 1} um ${rd(y.infl)} % ${y.infl >= 0 ? "gestiegen" : "gesunken"}. Real ergibt das ${rd(y.real) > 0 ? "+" : ""}${rd(y.real)} %. Als besser gilt, wenn das Einkommen stärker steigt als die Preise.`;
   if (r.seitStart) { const z = g(r.seitStart.t, r.periode); if (z) { const [zi, zu] = cl(z.real); Object.assign(r.seitStart, { veraenderung: rd(z.real), richtung: zi, urteil: zu });
-    // "besser" nur, wenn Österreich den EU-Schnitt (ebenfalls real, mit EU-Preisindex) übertrifft
+    // Vergleich mit dem EU-Schnitt (ebenfalls real, mit EU-Preisindex)
     try {
       const DE = await holeDeflator("EU27_2020"), ev = {}; r.verlauf.forEach(p => { if (p.eu != null) ev[p.t] = p.eu; });
       const a = r.seitStart.t, b = r.periode, ie = t => DE[String(+t - 1)];
       if (ev[a] != null && ev[b] != null && ie(a) && ie(b)) {
-        const euReal = ((ev[b] / ev[a]) / (ie(b) / ie(a)) - 1) * 100;
+        const euReal = ((ev[b] / ev[a]) / (ie(b) / ie(a)) - 1) * 100, rel = z.real - euReal;
         r.seitStart.euVeraenderung = rd(euReal);
-        if (zu === "besser" && !(z.real > euReal)) { r.seitStart.urteil = "unverändert"; r.seitStart.nichtUeberEU = true; }
+        r.seitStart.euUrteil = rel > S ? "besser" : rel < -S ? "schlechter" : "unverändert";
       }
     } catch (e) { console.error("   (EU-Vergleich seit Regierung nicht möglich: " + e.message + ")"); }
   } }
