@@ -361,7 +361,7 @@ const INDICATORS = [
       nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [1000, 1000000], minLaender: 15 },
     maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 15, typ: "neutral", trendNeutral: true, schwelle: 500,
     einheit: "Euro pro Einwohner (geschätzter Wert nicht börsennotierter Kapitalgesellschaften im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Unternehmenswert pro Einwohner",
-    hinweis: "Der Wert nicht börsennotierter Unternehmen wird von den Statistikämtern geschätzt, weil es keinen Börsenkurs gibt. Die Verfahren unterscheiden sich zwischen den Ländern. Der Vergleich ist daher weniger genau als beim Börsenwert.",
+    hinweis: "Der Wert nicht börsennotierter Unternehmen wird von den Statistikämtern geschätzt, weil es keinen Börsenkurs gibt. Die Verfahren unterscheiden sich zwischen den Ländern. Der Vergleich ist daher weniger genau als beim Börsenwert. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben. Das sagt wenig über die heimische Wirtschaft.",
     mock: { base: 12000, step: 4000 } }
   ,{ id: "kapitalGesamt", name: "Unternehmenswert gesamt pro Einwohner", takt: "jahr", dataset: "nasa_10_f_bs",
     filter: "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", // Platzhalter (im Test); echte Berechnung: berechneProKopf()
@@ -369,7 +369,7 @@ const INDICATORS = [
       nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [2000, 1500000], minLaender: 15 },
     maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 15, typ: "neutral", trendNeutral: true, schwelle: 1000,
     einheit: "Euro pro Einwohner (börsennotierte und nicht börsennotierte Kapitalgesellschaften im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Unternehmenswert pro Einwohner",
-    hinweis: "Der nicht börsennotierte Teil wird von den Statistikämtern geschätzt. In kleinen Ländern mit wenigen großen, international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt.",
+    hinweis: "Der nicht börsennotierte Teil wird von den Statistikämtern geschätzt. In kleinen Ländern mit wenigen großen, international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben.",
     mock: { base: 20000, step: 6000 } }
   ,{ id: "gefaengnis", name: "Gefängnisauslastung", takt: "jahr", dataset: "crim_pris_cap",
     filter: "indic_cr=PRIS_ACT_CAP&unit=NR", // Platzhalter (im Test); echte Berechnung: Häftlinge geteilt durch offizielle Haftplätze
