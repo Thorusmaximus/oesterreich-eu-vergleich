@@ -125,6 +125,9 @@ else {
         if(!zeige) zeige = vars[0];
       }
       vars.forEach(function(v){ v.style.display = v===zeige ? "" : "none"; });
+      // Umschalter: bei aktivem Wertungsfilter nur die passenden Varianten anbieten
+      var ok = {}; vars.forEach(function(v){ ok[v.getAttribute("data-v")] = okF(v); });
+      w.querySelectorAll(".umsch button").forEach(function(bt){ bt.style.display = ok[bt.getAttribute("data-v")] ? "" : "none"; });
     });
     document.querySelectorAll(".gruppe").forEach(function(s){ var gOk = !fGr || s.getAttribute("data-g")===fGr; s.style.display = gOk && s.querySelector(".kw:not([style*='none'])") ? "" : "none"; });
   }
