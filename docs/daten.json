@@ -387,7 +387,7 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "euVeraenderung": 0.2,
-    "nichtUeberEU": false
+    "euUrteil": "schlechter"
    },
    "rueckblick": null,
    "laender": [
@@ -1288,7 +1288,7 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "euVeraenderung": 1.5,
-    "nichtUeberEU": false
+    "euUrteil": "besser"
    },
    "rueckblick": null,
    "laender": [
@@ -1989,7 +1989,7 @@
     "richtung": "steigend",
     "urteil": "besser",
     "euVeraenderung": -0.3,
-    "nichtUeberEU": false
+    "euUrteil": "besser"
    },
    "rueckblick": null,
    "laender": [
@@ -2490,7 +2490,7 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "euVeraenderung": 1.9,
-    "nichtUeberEU": false
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -2913,7 +2913,7 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "euVeraenderung": 0,
-    "nichtUeberEU": false
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -3642,7 +3642,7 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "euVeraenderung": 0.5,
-    "nichtUeberEU": false
+    "euUrteil": null
    },
    "rueckblick": null,
    "laender": [
@@ -4068,7 +4068,7 @@
     "richtung": "steigend",
     "urteil": "höher",
     "euVeraenderung": 0.4,
-    "nichtUeberEU": false
+    "euUrteil": null
    },
    "rueckblick": 4,
    "laender": [
@@ -4569,7 +4569,7 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "euVeraenderung": 0.4,
-    "nichtUeberEU": false
+    "euUrteil": "schlechter"
    },
    "rueckblick": null,
    "laender": [
@@ -4991,7 +4991,7 @@
     "richtung": "sinkend",
     "urteil": "niedriger",
     "euVeraenderung": -0.24,
-    "nichtUeberEU": false
+    "euUrteil": null
    },
    "rueckblick": null,
    "laender": [
@@ -5397,7 +5397,7 @@
     "richtung": "steigend",
     "urteil": "besser",
     "euVeraenderung": 0.1,
-    "nichtUeberEU": false
+    "euUrteil": "besser"
    },
    "rueckblick": null,
    "laender": [
@@ -6411,7 +6411,7 @@
     "richtung": "steigend",
     "urteil": "besser",
     "euVeraenderung": 3.6,
-    "nichtUeberEU": false
+    "euUrteil": "besser"
    },
    "rueckblick": null,
    "laender": [
@@ -6824,7 +6824,7 @@
     "richtung": "steigend",
     "urteil": "besser",
     "euVeraenderung": 3.4,
-    "nichtUeberEU": false
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -7176,7 +7176,7 @@
     "richtung": "steigend",
     "urteil": "besser",
     "euVeraenderung": 3.9,
-    "nichtUeberEU": false
+    "euUrteil": "besser"
    },
    "rueckblick": null,
    "laender": [
@@ -7603,7 +7603,7 @@
     "richtung": "steigend",
     "urteil": "besser",
     "euVeraenderung": -0.4,
-    "nichtUeberEU": false
+    "euUrteil": "besser"
    },
    "rueckblick": null,
    "laender": [
@@ -8310,7 +8310,7 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "euVeraenderung": 21.9,
-    "nichtUeberEU": false
+    "euUrteil": "schlechter"
    },
    "rueckblick": null,
    "laender": [
@@ -9208,7 +9208,7 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "euVeraenderung": 51.7,
-    "nichtUeberEU": false
+    "euUrteil": "schlechter"
    },
    "rueckblick": null,
    "laender": [
@@ -10247,9 +10247,9 @@
     "schnitt": 237.3,
     "veraenderung": -13.2,
     "richtung": "sinkend",
-    "urteil": "unverändert",
+    "urteil": "besser",
     "euVeraenderung": -17.7,
-    "nichtUeberEU": true
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -10648,7 +10648,7 @@
     "richtung": "steigend",
     "urteil": "höher",
     "euVeraenderung": 0.3,
-    "nichtUeberEU": false
+    "euUrteil": null
    },
    "rueckblick": null,
    "laender": [
@@ -11332,7 +11332,7 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "euVeraenderung": 0,
-    "nichtUeberEU": false
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -11681,9 +11681,9 @@
     "schnitt": 16.3,
     "veraenderung": -0.3,
     "richtung": "sinkend",
-    "urteil": "unverändert",
+    "urteil": "besser",
     "euVeraenderung": -0.3,
-    "nichtUeberEU": true
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -12026,7 +12026,7 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "euVeraenderung": -0.1,
-    "nichtUeberEU": false
+    "euUrteil": null
    },
    "rueckblick": null,
    "laender": [
@@ -12377,7 +12377,7 @@
     "richtung": "steigend",
     "urteil": "besser",
     "euVeraenderung": 1.2,
-    "nichtUeberEU": false
+    "euUrteil": "besser"
    },
    "rueckblick": null,
    "laender": [
@@ -12720,7 +12720,7 @@
     "richtung": "steigend",
     "urteil": "höher",
     "euVeraenderung": 0.2,
-    "nichtUeberEU": false
+    "euUrteil": null
    },
    "rueckblick": null,
    "laender": [
@@ -13729,7 +13729,7 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "euVeraenderung": 0.5,
-    "nichtUeberEU": false
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -16138,7 +16138,7 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "euVeraenderung": -0.5,
-    "nichtUeberEU": false
+    "euUrteil": "schlechter"
    },
    "rueckblick": null,
    "laender": [
@@ -16536,7 +16536,7 @@
     "richtung": "sinkend",
     "urteil": "besser",
     "euVeraenderung": -0.8,
-    "nichtUeberEU": false
+    "euUrteil": "unverändert"
    },
    "rueckblick": null,
    "laender": [
@@ -18327,7 +18327,7 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "euVeraenderung": -0.4,
-    "nichtUeberEU": false
+    "euUrteil": "schlechter"
    },
    "rueckblick": null,
    "laender": [
