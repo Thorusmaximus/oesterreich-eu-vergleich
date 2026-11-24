@@ -96,7 +96,7 @@ const ERKLAERUNG = {
   abhaengigkeit: "Wie viele Menschen ab 65 auf 100 Menschen zwischen 15 und 64 Jahren kommen. 30 heißt: Auf 100 Menschen im erwerbsfähigen Alter kommen 30 über 65. Je höher der Wert, desto mehr Ältere müssen von den Jüngeren mitgetragen werden, etwa über das Pensionssystem.",
   aktionaersquote: "Wie viele von 100 Haushalten börsennotierte Aktien besitzen (direkt gehalten, ohne Fonds), laut der Haushaltsbefragung der EZB und der Notenbanken. Die Erhebung gibt es nur alle paar Jahre und nicht für alle EU-Länder. Der Wert zeigt, wie verbreitet das Investieren in Aktien ist.",
   religion: "Wie sich Schülerinnen und Schüler (Wiener Pflichtschulen) und die Bevölkerung Österreichs auf Religionen und Konfessionen verteilen. Die Religion wird in Österreich nur an den Schulen laufend erfasst. Bundesweit gibt es nur eine Befragung von 2021. Die Zahlen sind eine reine Übersicht.",
-  insolvenzenEU: "Wie stark sich die Zahl der Unternehmensinsolvenzen seit 2021 verändert hat (Index, 2021 = 100). Bei 200 gibt es doppelt so viele Insolvenzen wie 2021. Der Index sagt nicht, wie viele es gibt, denn absolute Zahlen sind wegen unterschiedlicher Insolvenzrechte nicht vergleichbar. 2021 war wegen der Corona-Hilfen ein ungewöhnlich insolvenzarmes Jahr.",
+  insolvenzenEU: "Wie stark sich die Zahl der Unternehmensinsolvenzen seit 2021 verändert hat (Index, 2021 = 100). Bei 200 gibt es doppelt so viele Insolvenzen wie 2021. Der Index zeigt nur die Entwicklung, keine absoluten Zahlen, denn die sind wegen unterschiedlicher Insolvenzrechte nicht vergleichbar. 2021 war wegen der Corona-Hilfen ein ungewöhnlich insolvenzarmes Jahr.",
   insolvenzen: "Wie viele Unternehmen in Österreich pro Jahr insolvent werden (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Das gilt nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich."
 };
 
@@ -263,7 +263,7 @@ const INDICATORS = [
       { dataset: "sts_rb_q", filter: "indic_bt=BKRT&nace_r2=B-S_X_O_S94&s_adj=SCA&unit=I21" },
       { dataset: "sts_rb_q", filter: "indic_bt=BKRT&nace_r2=B-S_X_O&s_adj=NSA&unit=I15" } ],
     maxAlter: 12, minLaender: 12, dez: 0, suffix: "", diffEinheit: "Indexpunkte",
-    einheit: "Index der Insolvenzanmeldungen, 2021 = 100 (nur Entwicklung, keine absoluten Zahlen)", rangText: "Rang 1 = niedrigster Index (geringster Anstieg der Insolvenzen seit 2021)",
+    einheit: "Index der Insolvenzanmeldungen, 2021 = 100", rangText: "Rang 1 = niedrigster Index (geringster Anstieg der Insolvenzen seit 2021)",
     hinweis: "Zählweise und Insolvenzrecht unterscheiden sich je Land, deshalb vergleicht dieser Index nur die Entwicklung gegenüber dem jeweils eigenen Land im Jahr 2021. 2021 war wegen Corona-Hilfen und Aussetzungen ein ungewöhnlich insolvenzarmes Jahr, der Anstieg danach ist daher teils ein Aufholeffekt.",
     typ: "niedrig", umstritten: true, schwelle: 5, mock: { base: 110, step: 6 } }
   ,{ id: "erwerbsdauer", name: "Dauer des Erwerbslebens", takt: "jahr", dataset: "lfsi_exi_a",
