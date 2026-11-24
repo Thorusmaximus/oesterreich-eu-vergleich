@@ -6410,7 +6410,7 @@
     "veraenderung": 6.9,
     "richtung": "steigend",
     "urteil": "besser",
-    "euVeraenderung": 1357,
+    "euVeraenderung": 3.6,
     "nichtUeberEU": false
    },
    "rueckblick": null,
@@ -6823,7 +6823,7 @@
     "veraenderung": 3.7,
     "richtung": "steigend",
     "urteil": "besser",
-    "euVeraenderung": 1479,
+    "euVeraenderung": 3.4,
     "nichtUeberEU": false
    },
    "rueckblick": null,
@@ -7175,7 +7175,7 @@
     "veraenderung": 6.1,
     "richtung": "steigend",
     "urteil": "besser",
-    "euVeraenderung": 1393,
+    "euVeraenderung": 3.9,
     "nichtUeberEU": false
    },
    "rueckblick": null,
@@ -11942,7 +11942,342 @@
   {
    "id": "teilzeit",
    "name": "Teilzeitquote",
-   "fehler": "Eurostat: HTTP 400 { \"error\": [{\"status\": 400,\"id\": 150,\"label\": \"INVALID_QUERY_DIMENSION: Query is invalid as per its structure's definition. Dimension \\\"INDIC_EM\\\" is not defined\"}]}",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte",
+   "hinweis": "Eine hohe Teilzeitquote kann freiwillig gewählt sein (etwa wegen Kinderbetreuung oder Work-Life-Balance) oder an fehlenden Vollzeitstellen liegen. Die Statistik unterscheidet das nicht.",
+   "umstritten": false,
+   "trendNeutral": true,
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Teilzeitbeschäftigte 20 bis 64 Jahre in % aller Erwerbstätigen dieser Altersgruppe",
+   "rangText": "Rang 1 = höchste Teilzeitquote",
+   "periode": "2025",
+   "vorherPeriode": "2024",
+   "anzahlLaender": 27,
+   "alter": 11,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 30.2,
+    "rang": 2,
+    "wertVorher": 30.7,
+    "rangVorher": 2,
+    "schnitt": 30.2,
+    "schnittVorher": 30.7,
+    "veraenderung": -0.5,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "eu": 17,
+   "euMittelwert": false,
+   "beste": {
+    "code": "NL",
+    "name": "Niederlande",
+    "value": 38.9,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "BG",
+    "name": "Bulgarien",
+    "value": 1.7,
+    "rank": 27,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2025",
+     "rang": 2,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": {
+    "t": "2024",
+    "wert": 30.7,
+    "rang": 2,
+    "n": 27,
+    "schnitt": 30.7,
+    "veraenderung": -0.5,
+    "richtung": "stabil",
+    "urteil": "unverändert",
+    "euVeraenderung": -0.1,
+    "nichtUeberEU": false
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 38.9,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 30.2,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 29.2,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 24.3,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 23.1,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 17.8,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 17.5,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 17.1,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 16.7,
+     "rank": 9,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 15.6,
+     "rank": 10,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 15.3,
+     "rank": 11,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 13.1,
+     "rank": 12,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 12.8,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 9.1,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 7.8,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 7.8,
+     "rank": 15,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 7.5,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 7.3,
+     "rank": 18,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 6.8,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 6,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 5.4,
+     "rank": 21,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 5.1,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 4.6,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 4.2,
+     "rank": 24,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 2.9,
+     "rank": 25,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 2.3,
+     "rank": 26,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 1.7,
+     "rank": 27,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    }
+   ],
+   "schweiz": {
+    "wert": 40.9,
+    "periode": "2025"
+   },
+   "verlauf": [
+    {
+     "t": "2021",
+     "at": 29.1,
+     "eu": 17.1
+    },
+    {
+     "t": "2022",
+     "at": 30.1,
+     "eu": 16.9
+    },
+    {
+     "t": "2023",
+     "at": 30.4,
+     "eu": 17.1
+    },
+    {
+     "t": "2024",
+     "at": 30.7,
+     "eu": 17.1
+    },
+    {
+     "t": "2025",
+     "at": 30.2,
+     "eu": 17
+    }
+   ],
    "geaendert": "2026-11-24",
    "erklaerung": "Wie viele von 100 Erwerbstätigen zwischen 20 und 64 Jahren in Teilzeit arbeiten. Teilzeit heißt hier weniger als die übliche volle Wochenarbeitszeit. Eine hohe Quote kann freiwillig gewählt sein, etwa wegen Kinderbetreuung oder Work-Life-Balance, oder aus Mangel an Vollzeitstellen. Die Statistik unterscheidet das nicht, deshalb gibt es keine Wertung, nur den Vergleich.",
    "gruppe": "Wirtschaft und Arbeit"
