@@ -13,7 +13,7 @@
 <meta property="og:description" content="Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=49ce4864">
+<link rel="stylesheet" href="style.css?v=d86f3418">
 </head>
 <body>
 <main>
@@ -261,6 +261,12 @@ function ratingTabelle(i){
 
 // Balken mit gemeinsamer Nulllinie: negative Werte ragen nach links vom Nullpunkt, positive nach rechts
 function mioText(v){ return v.toLocaleString("de-AT",{minimumFractionDigits:2,maximumFractionDigits:2}); }
+// Bezugsgröße je Einwohner usw. aus der Einheit (z. B. "pro 100.000 Einwohner"), sonst null
+function bezug(i){
+  var m=/\b(je|pro)\s+([\d.]+\s*(Mio\.\s*)?)?(Einwohner|Person|Frau|Menschen)/.exec(i.einheit||'');
+  if(!m) return null;
+  return m[4]==='Menschen' ? 'Menschen ab 65 je 100 Personen von 15 bis 64' : m[0];
+}
 function ranking(i){
   var vals = i.laender.map(function(x){return x.value});
   if(i.schweiz) vals.push(i.schweiz.wert);
@@ -271,7 +277,8 @@ function ranking(i){
   };
   var su = (i.suffix||'').replace(/ /g,'\u00a0'), fv = function(v){ return f(v)+su; };
   var nw = Math.max.apply(null, vals.map(function(v){ return fv(v).length; })), st = ' style="--nw:'+Math.max(3.4, Math.round(nw*0.58*10)/10)+'em"';
-  var s = i.laender.map(function(x){
+  var bz = bezug(i), s = bz ? '<p class="note spk">Werte '+(bz.indexOf('Menschen ab')===0 ? 'für '+bz : bz)+'</p>' : '';
+  s += i.laender.map(function(x){
     return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.ppsRang||x.zus?" mitb":"")+'"'+st+'><span>'+x.rank+'. '+x.name+(x.ppsRang?' <small class="note">Kaufkraft: Platz '+x.ppsRang+'</small>':'')+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+fv(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
   }).join("");
   if(i.schweiz){

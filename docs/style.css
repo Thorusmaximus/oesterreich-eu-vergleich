@@ -172,3 +172,4 @@ svg{width:100%;height:auto;display:block}
 @media (min-width:701px){.leiste .fbox{order:1}.leiste .suche{order:2;flex:0 1 340px}}
 @media (max-width:700px){.leiste .fbtn{align-self:stretch;margin-bottom:10px}}
 .row>span:first-child{white-space:nowrap}
+.spk{text-align:right;margin:0 0 6px;font-size:.78rem}
