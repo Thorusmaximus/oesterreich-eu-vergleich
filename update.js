@@ -48,7 +48,7 @@ const GRUPPE_VON = {
   teilzeit: 0, industrie: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, armut: 3, ausgrenzung: 3, wohnkosten: 2, mieten: 2, jugendarbeitslosigkeit: 0, neet: 0, forschung: 0, ausgabenBildung: 1, ausgabenGesundheit: 1, ausgabenVerteidigung: 1, ausgabenSoziales: 1, genderPayGap: 3, erneuerbare: 2, energieabhaengigkeit: 2, nettozuwanderung: 3, asyl: 3, asylOffen: 3, lebenszufriedenheit: 3, kapitalNichtBoerse: 0, kapitalGesamt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4, verurteilungenKoerperverletzung: 4, verurteilungenSexual: 4, verurteilungenToetung: 4 };
+  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, armut: 3, ausgrenzung: 3, wohnkosten: 2, mieten: 2, jugendarbeitslosigkeit: 0, neet: 0, forschung: 0, ausgabenBildung: 1, ausgabenGesundheit: 1, ausgabenVerteidigung: 1, ausgabenSoziales: 1, genderPayGap: 3, erneuerbare: 2, energieabhaengigkeit: 2, nettozuwanderung: 3, asyl: 3, asylOffen: 3, lebenszufriedenheit: 3, kapitalNichtBoerse: 0, kapitalGesamt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
@@ -96,9 +96,6 @@ const ERKLAERUNG = {
   lebenszufriedenheit: "Wie zufrieden Menschen ab 16 mit ihrem Leben insgesamt sind, auf einer Skala von 0 (gar nicht zufrieden) bis 10 (völlig zufrieden), laut Befragung. Die Erhebung findet nur alle paar Jahre statt.",
   asylOffen: "Wie viele Menschen pro 100.000 Einwohner am Monatsende auf eine Entscheidung über ihren Asylantrag im Land warten. Gezählt wird, wo der Antrag gestellt wurde. Wer schon Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr dazu.",
   gefaengnis: "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt, dass mehr Menschen inhaftiert sind, als Plätze vorhanden sind (Überbelegung). Das zeigt, wie ausgelastet das Strafvollzugssystem ist.",
-  verurteilungenKoerperverletzung: "Wie viele Personen pro 100.000 Einwohner und Jahr wegen schwerer Körperverletzung verurteilt wurden. Anders als die Polizeizahlen zählt nur, was ein Gericht festgestellt hat. Die Daten kommen später, und die Rechtssysteme der Länder sind verschieden.",
-  verurteilungenSexual: "Wie viele Personen pro 100.000 Einwohner und Jahr wegen sexueller Gewalt verurteilt wurden. Anders als die Polizeizahlen zählt nur, was ein Gericht festgestellt hat. Die Daten kommen später, und die Rechtssysteme der Länder sind verschieden.",
-  verurteilungenToetung: "Wie viele Personen pro 100.000 Einwohner und Jahr wegen vorsätzlicher Tötung verurteilt wurden. Anders als die Polizeizahlen zählt nur, was ein Gericht festgestellt hat. Die Daten kommen später, und die Rechtssysteme der Länder sind verschieden.",
   koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Der Vergleich zwischen den Ländern ist schwierig: Die Zählweise und die Bereitschaft, Anzeige zu erstatten, unterscheiden sich stark. Die Zahl zeigt also nur bedingt, wo mehr Gewalt passiert.",
   sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definitionen, Zählweise und Anzeigebereitschaft unterscheiden sich zwischen den Ländern stark, und viele Fälle werden nie angezeigt. Ein hoher Wert kann daher auch bedeuten, dass mehr angezeigt wird.",
   durchschnittseinkommen: "Das durchschnittliche Nettoeinkommen je Person nach Steuern und Abgaben, einschließlich Pensionen und Sozialleistungen. Sehr hohe Einkommen ziehen den Durchschnitt nach oben, deshalb liegt er über dem mittleren Einkommen (Median). Der Trend wird um die Inflation bereinigt: Das Einkommen muss stärker steigen als die Preise, damit er als besser gilt.",
@@ -548,27 +545,6 @@ const INDICATORS = [
     einheit: "Von der Polizei erfasste Sexualdelikte (sexuelle Gewalt) pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote", rangNiedrigZuerst: true,
     hinweis: "Die Länder definieren und zählen Sexualdelikte unterschiedlich (etwa pro Tat oder pro Opfer), und die Dunkelziffer ist hoch. Länder mit hoher Anzeigebereitschaft und weiter Definition haben oft höhere Werte. Ein höherer Wert heißt nicht automatisch mehr Taten.",
     typ: "neutral", schwelle: 5, mock: { base: 30, step: 14 } }
-  ,{ id: "verurteilungenKoerperverletzung", name: "Verurteilungen schwere Körperverletzung", takt: "jahr", dataset: "crim_just_ctz",
-    filter: "iccs=ICCS02011&citizen=TOTAL&unit=P_HTHAB", // rechtskräftig verurteilte Personen pro 100.000 Einwohner
-    alternativen: [ { dataset: "crim_just_sex", filter: "iccs=ICCS02011&sex=T&unit=P_HTHAB" }, { dataset: "crim_just_ctz", filter: "iccs=ICCS02011&citizen=TOTAL&unit=NR" } ],
-    maxAlter: 40, dez: 0, suffix: "", diffEinheit: "Personen pro 100.000 Einwohner", minLaender: 12,
-    einheit: "Wegen schwerer Körperverletzung verurteilte Personen pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote", rangNiedrigZuerst: true,
-    hinweis: "Ein niedrigerer Wert kann auch heißen, dass weniger aufgeklärt oder verurteilt wird. Die Daten kommen meist ein bis zwei Jahre später als die Polizeizahlen. Gezählt werden verurteilte Personen, nicht Taten.",
-    typ: "neutral", trendNeutral: true, schwelle: 5, mock: { base: 20, step: 3 } }
-  ,{ id: "verurteilungenSexual", name: "Verurteilungen Sexualdelikte", takt: "jahr", dataset: "crim_just_ctz",
-    filter: "iccs=ICCS0301&citizen=TOTAL&unit=P_HTHAB", // rechtskräftig verurteilte Personen pro 100.000 Einwohner
-    alternativen: [ { dataset: "crim_just_sex", filter: "iccs=ICCS0301&sex=T&unit=P_HTHAB" }, { dataset: "crim_just_ctz", filter: "iccs=ICCS0301&citizen=TOTAL&unit=NR" } ],
-    maxAlter: 40, dez: 1, suffix: "", diffEinheit: "Personen pro 100.000 Einwohner", minLaender: 12,
-    einheit: "Wegen Sexualdelikten (sexuelle Gewalt) verurteilte Personen pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote", rangNiedrigZuerst: true,
-    hinweis: "Ein niedrigerer Wert kann auch heißen, dass weniger aufgeklärt oder verurteilt wird. Die Daten kommen meist ein bis zwei Jahre später als die Polizeizahlen. Gezählt werden verurteilte Personen, nicht Taten.",
-    typ: "neutral", trendNeutral: true, schwelle: 1, mock: { base: 20, step: 3 } }
-  ,{ id: "verurteilungenToetung", name: "Verurteilungen Tötungsdelikte", takt: "jahr", dataset: "crim_just_ctz",
-    filter: "iccs=ICCS0101&citizen=TOTAL&unit=P_HTHAB", // rechtskräftig verurteilte Personen pro 100.000 Einwohner
-    alternativen: [ { dataset: "crim_just_sex", filter: "iccs=ICCS0101&sex=T&unit=P_HTHAB" }, { dataset: "crim_just_ctz", filter: "iccs=ICCS0101&citizen=TOTAL&unit=NR" } ],
-    maxAlter: 40, dez: 2, suffix: "", diffEinheit: "Personen pro 100.000 Einwohner", minLaender: 12,
-    einheit: "Wegen vorsätzlicher Tötung verurteilte Personen pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote", rangNiedrigZuerst: true,
-    hinweis: "Ein niedrigerer Wert kann auch heißen, dass weniger aufgeklärt oder verurteilt wird. Die Daten kommen meist ein bis zwei Jahre später als die Polizeizahlen. Gezählt werden verurteilte Personen, nicht Taten.",
-    typ: "neutral", trendNeutral: true, schwelle: 0.05, mock: { base: 20, step: 3 } }
   ,{ id: "strompreis", name: "Strompreis für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
     filter: "siec=E7000&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive aller Steuern und Abgaben
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
