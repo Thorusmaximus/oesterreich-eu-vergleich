@@ -404,8 +404,8 @@ const INDICATORS = [
     ausblenden2025: true,
     typ: "niedrig", schwelle: 0.5, mock: { base: 10, step: 1 } }
   ,{ id: "wohnkosten", name: "Wohnkostenbelastung", takt: "jahr", dataset: "ilc_lvho07a",
-    filter: "age=TOTAL&sex=T&unit=PC",
-    alternativen: [ { dataset: "ilc_lvho07a", filter: "age=TOTAL&sex=T" }, { dataset: "ilc_lvho07c", filter: "incgrp=TOTAL&unit=PC" } ],
+    filter: "age=TOTAL&sex=T&unit=PC&rskpovth=TOTAL",
+    alternativen: [ { dataset: "ilc_lvho07a", filter: "age=TOTAL&sex=T&rskpovth=TOTAL" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil der Menschen in Haushalten, die mehr als 40 % ihres Einkommens fürs Wohnen ausgeben", rangText: "Rang 1 = geringste Wohnkostenbelastung",
     ausblenden2025: true,
@@ -424,8 +424,8 @@ const INDICATORS = [
     hinweis: "Die Quote misst nur junge Menschen, die arbeiten wollen. Wer studiert oder zur Schule geht, zählt nicht mit. In kleinen Ländern schwankt sie stärker.",
     typ: "niedrig", schwelle: 0.5, mock: { base: 8, step: 1.5 } }
   ,{ id: "neet", name: "Junge Menschen ohne Job und Ausbildung", takt: "jahr", dataset: "edat_lfse_20",
-    filter: "age=Y15-29&sex=T&unit=PC",
-    alternativen: [ { dataset: "edat_lfse_20", filter: "age=Y15-29&sex=T" }, { dataset: "edat_lfse_20", filter: "age=Y15-29&sex=T&unit=PC&wstatus=NEET" } ],
+    filter: "age=Y15-29&sex=T&unit=PC&wstatus=NEMP",
+    alternativen: [ { dataset: "edat_lfse_20", filter: "age=Y15-29&sex=T&wstatus=NEMP" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil der 15- bis 29-Jährigen, die weder erwerbstätig sind noch in Ausbildung stehen", rangText: "Rang 1 = geringster Anteil",
     ausblenden2025: true,
@@ -500,11 +500,11 @@ const INDICATORS = [
     ausblenden2025: true,
     typ: "neutral", trendNeutral: true, schwelle: 0.5, mock: { base: 10, step: 1 } }
   ,{ id: "asyl", name: "Asylanträge", takt: "jahr", dataset: "migr_asyappctza",
-    filter: "citizen=TOTAL&sex=T&age=TOTAL&applicant=ASY_APP&unit=PER",
+    filter: "citizen=TOTAL&sex=T&age=TOTAL&applicant=TOTAL&unit=PER",
     maxAlter: 26, dez: 0, suffix: "", diffEinheit: "je 100.000 Einwohner", minLaender: 22,
     einheit: "Asylanträge je 100.000 Einwohner", rangText: "Rang 1 = meiste Asylanträge je Einwohner",
     hinweis: "Gezählt werden Anträge, nicht Entscheidungen. Ob ein Antrag bewilligt wird, zeigt diese Zahl nicht.",
-    proKopf: { zaehler: ["citizen=TOTAL&sex=T&age=TOTAL&applicant=ASY_APP&unit=PER"], nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], faktor: 1e5, plausibel: [1, 8000], minLaender: 22 },
+    proKopf: { zaehler: ["citizen=TOTAL&sex=T&age=TOTAL&applicant=TOTAL&unit=PER"], nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], faktor: 1e5, plausibel: [1, 8000], minLaender: 22 },
     ausblenden2025: true,
     typ: "neutral", trendNeutral: true, schwelle: 10, mock: { base: 10, step: 1 } }
   ,{ id: "lebenszufriedenheit", name: "Lebenszufriedenheit", takt: "jahr", dataset: "ilc_pw01",
