@@ -63,8 +63,8 @@
     "name": "Finnland",
     "value": 11,
     "rank": 27,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "sinkend",
+    "urteil": "besser"
    },
    "rangVerlauf": [
     {
@@ -604,8 +604,8 @@
      "name": "Finnland",
      "value": 11,
      "rank": 27,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "besser"
     }
    ],
    "schweiz": {
@@ -10593,7 +10593,7 @@
    "trendNeutral": false,
    "zusatz": null,
    "takt": "quartal",
-   "einheit": "Index der Insolvenzanmeldungen, 2021 = 100 (nur Entwicklung, keine absoluten Zahlen)",
+   "einheit": "Index der Insolvenzanmeldungen, 2021 = 100",
    "rangText": "Rang 1 = niedrigster Index (geringster Anstieg der Insolvenzen seit 2021)",
    "periode": "2026-Q3",
    "vorherPeriode": "2026-Q2",
@@ -11059,7 +11059,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie stark sich die Zahl der Unternehmensinsolvenzen seit 2021 verändert hat (Index, 2021 = 100). Bei 200 gibt es doppelt so viele Insolvenzen wie 2021. Der Index sagt nicht, wie viele es gibt, denn absolute Zahlen sind wegen unterschiedlicher Insolvenzrechte nicht vergleichbar. 2021 war wegen der Corona-Hilfen ein ungewöhnlich insolvenzarmes Jahr.",
+   "erklaerung": "Wie stark sich die Zahl der Unternehmensinsolvenzen seit 2021 verändert hat (Index, 2021 = 100). Bei 200 gibt es doppelt so viele Insolvenzen wie 2021. Der Index zeigt nur die Entwicklung, keine absoluten Zahlen, denn die sind wegen unterschiedlicher Insolvenzrechte nicht vergleichbar. 2021 war wegen der Corona-Hilfen ein ungewöhnlich insolvenzarmes Jahr.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
