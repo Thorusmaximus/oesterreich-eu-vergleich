@@ -6,13 +6,15 @@
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
 <title>Regierungstracker Österreich</title>
 <meta name="description" content="Wie entwickelt sich Österreich seit dem Amtsantritt der Bundesregierung? Arbeitslosigkeit, Inflation, Schulden, Geburtenrate, Strompreise und mehr im Ranking der 27 EU-Länder.">
-<link rel="stylesheet" href="style.css?v=65833396">
+<link rel="stylesheet" href="style.css?v=704cc8c7">
 </head>
 <body>
 <main>
 <div id="neu"></div>
 <h1 id="h1">Regierungstracker Österreich</h1>
+<p class="frage" id="frage">Wie steht Österreich seit dem Regierungswechsel da?</p>
 <p class="sub" id="sub">Platz unter den EU-Ländern, pro Indikator.</p>
+<div class="zahlen" id="zahlen" hidden></div>
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
@@ -20,7 +22,7 @@
 <script>
 var app = document.getElementById("app");
 if(D && D.regierung){
-  document.getElementById("sub").textContent = "Entwicklung seit dem Amtsantritt der "+D.regierung.name+" am "+datum(D.regierung.start)+" ("+D.regierung.parteien+") und Platz unter den EU-Ländern.";
+  document.getElementById("sub").textContent = D.indikatoren.filter(function(i){ return i.oesterreich; }).length+" Indikatoren im Vergleich mit den 27 EU-Ländern, seit dem "+datum(D.regierung.start)+" ("+D.regierung.name+": "+D.regierung.parteien+").";
 }
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
 else {
@@ -90,6 +92,19 @@ else {
   h += fussnote();
   app.innerHTML = h;
   neuesteLeiste();
+  (function(){
+    var z = {besser:0, schlechter:0, gleich:0};
+    D.indikatoren.forEach(function(i){ if(i.oesterreich){ var b = bilanz(i); if(z[b]!==undefined) z[b]++; } });
+    var el = document.getElementById("zahlen"), mk = function(k, f, txt){ return '<button type="button" class="zb '+k+'" data-fz="'+f+'"><b>'+z[k]+'</b><span>'+txt+'</span></button>'; };
+    el.innerHTML = mk("besser","besser","besser")+mk("schlechter","schlechter","schlechter")+mk("gleich","alle","unverändert")
+      + infoIcon("Gezählt wird jeder Indikator mit Wertung einzeln, bei zusammengeführten Kacheln jede Variante. Die Zahlen zeigen, wie sich Österreich seit dem Amtsantritt verändert hat, nicht, warum. Mit einem Tipp auf eine Zahl filterst du die Kacheln.");
+    el.hidden = false;
+    el.addEventListener("click", function(e){
+      var b = e.target.closest(".zb"); if(!b) return;
+      var f = b.getAttribute("data-fz"), t = document.querySelector('.filter [data-f="'+(b.classList.contains("gleich") ? "alle" : f)+'"]'); if(t) t.click();
+      var fl = document.querySelector(".suche"); if(fl) fl.scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  })();
   var fSt="alle", fGr="";
   function filtere(){
     var q = (document.getElementById("suche").value||"").trim().toLowerCase();
