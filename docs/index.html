@@ -77,7 +77,7 @@ else {
   return k;
   };
   var GRUPPEN = D.gruppen || ["Wirtschaft und Arbeit","Staatsfinanzen","Preise und Kosten","Gesellschaft","Sicherheit"];
-  var bilanz = function(i){ var u=i.oesterreich && i.oesterreich.urteil; return u==="besser"?"besser":u==="schlechter"?"schlechter":u==="unverändert"?"gleich":"neutral"; };
+  var bilanz = function(i){ var u=i.oesterreich && i.oesterreich.urteil; if(u==null && i.oesterreich && i.typ && i.typ!=="neutral") return "gleich"; return u==="besser"?"besser":u==="schlechter"?"schlechter":u==="unverändert"?"gleich":"neutral"; };
   var gruppenHtml = GRUPPEN.concat(["Weitere"]).map(function(g){
     var liste = D.indikatoren.filter(function(i){ return (i.gruppe||"Weitere")===g && !(kombiVon(i) && kombiVon(i).v[0]!==i.id); }).sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
     if(!liste.length) return "";
