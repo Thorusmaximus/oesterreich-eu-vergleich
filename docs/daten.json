@@ -2321,6 +2321,507 @@
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
+   "id": "industrie",
+   "name": "Industriewachstum",
+   "pfeilModus": "wert",
+   "typ": "hoch",
+   "dez": 1,
+   "suffix": " %",
+   "diffEinheit": "Prozentpunkte",
+   "hinweis": "Gemessen wird die Wertschöpfung von Bergbau, Industrie, Energie- und Wasserversorgung (ohne Bau). In kleinen Ländern können einzelne Großbetriebe die Zahl stark bewegen.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "zusatz": null,
+   "takt": "quartal",
+   "einheit": "% Veränderung der Wertschöpfung der Industrie zum Vorjahresquartal (preis-, saison- und kalenderbereinigt)",
+   "rangText": "Rang 1 = höchstes Industriewachstum",
+   "periode": "2026-Q2",
+   "vorherPeriode": "2026-Q1",
+   "anzahlLaender": 27,
+   "alter": 5,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 1.9,
+    "rang": 14,
+    "wertVorher": 2,
+    "rangVorher": 11,
+    "schnitt": 1.9,
+    "schnittVorher": 2,
+    "veraenderung": -0.1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "eu": 1.7,
+   "euMittelwert": false,
+   "beste": {
+    "code": "DK",
+    "name": "Dänemark",
+    "value": 14.3,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "schlechter"
+   },
+   "schlechteste": {
+    "code": "RO",
+    "name": "Rumänien",
+    "value": -6.4,
+    "rank": 27,
+    "richtung": "sinkend",
+    "urteil": "schlechter"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021-Q3",
+     "rang": 8,
+     "n": 27
+    },
+    {
+     "t": "2021-Q4",
+     "rang": 5,
+     "n": 27
+    },
+    {
+     "t": "2022-Q1",
+     "rang": 2,
+     "n": 27
+    },
+    {
+     "t": "2022-Q2",
+     "rang": 3,
+     "n": 27
+    },
+    {
+     "t": "2022-Q3",
+     "rang": 7,
+     "n": 27
+    },
+    {
+     "t": "2022-Q4",
+     "rang": 7,
+     "n": 27
+    },
+    {
+     "t": "2023-Q1",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2023-Q2",
+     "rang": 14,
+     "n": 27
+    },
+    {
+     "t": "2023-Q3",
+     "rang": 20,
+     "n": 27
+    },
+    {
+     "t": "2023-Q4",
+     "rang": 19,
+     "n": 27
+    },
+    {
+     "t": "2024-Q1",
+     "rang": 22,
+     "n": 27
+    },
+    {
+     "t": "2024-Q2",
+     "rang": 21,
+     "n": 27
+    },
+    {
+     "t": "2024-Q3",
+     "rang": 22,
+     "n": 27
+    },
+    {
+     "t": "2024-Q4",
+     "rang": 25,
+     "n": 27
+    },
+    {
+     "t": "2025-Q1",
+     "rang": 23,
+     "n": 27
+    },
+    {
+     "t": "2025-Q2",
+     "rang": 26,
+     "n": 27
+    },
+    {
+     "t": "2025-Q3",
+     "rang": 23,
+     "n": 27
+    },
+    {
+     "t": "2025-Q4",
+     "rang": 14,
+     "n": 27
+    },
+    {
+     "t": "2026-Q1",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2026-Q2",
+     "rang": 14,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2025-Q1",
+     "rang": 23,
+     "n": 27,
+     "regierung": true
+    }
+   ],
+   "seitStart": {
+    "t": "2025-Q1",
+    "wert": -3.1,
+    "rang": 23,
+    "n": 27,
+    "schnitt": -3.1,
+    "veraenderung": 5,
+    "richtung": "steigend",
+    "urteil": "besser",
+    "euVeraenderung": -1,
+    "euUrteil": "besser"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 14.3,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 6.4,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 6.1,
+     "rank": 3,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 5.1,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 4.5,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 4.1,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 3.7,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 3.4,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 3.4,
+     "rank": 8,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 3.4,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 3.1,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 2.1,
+     "rank": 12,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 2,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 1.9,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 1.8,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 1.7,
+     "rank": 16,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 1.6,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 1.5,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 1.4,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 0.9,
+     "rank": 20,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 0.4,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "besser"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 0.3,
+     "rank": 22,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 0.2,
+     "rank": 23,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": -0.1,
+     "rank": 24,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": -0.3,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": -1.2,
+     "rank": 26,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": -6.4,
+     "rank": 27,
+     "richtung": "sinkend",
+     "urteil": "schlechter"
+    }
+   ],
+   "schweiz": {
+    "wert": 3.5,
+    "periode": "2026-Q2"
+   },
+   "verlauf": [
+    {
+     "t": "2021-Q3",
+     "at": 7.3,
+     "eu": 4.9
+    },
+    {
+     "t": "2021-Q4",
+     "at": 9.7,
+     "eu": 2.6
+    },
+    {
+     "t": "2022-Q1",
+     "at": 14.6,
+     "eu": 0.9
+    },
+    {
+     "t": "2022-Q2",
+     "at": 11.4,
+     "eu": 1
+    },
+    {
+     "t": "2022-Q3",
+     "at": 8.9,
+     "eu": 2
+    },
+    {
+     "t": "2022-Q4",
+     "at": 5.3,
+     "eu": 1.3
+    },
+    {
+     "t": "2023-Q1",
+     "at": 1.8,
+     "eu": -0.2
+    },
+    {
+     "t": "2023-Q2",
+     "at": -1.3,
+     "eu": -1
+    },
+    {
+     "t": "2023-Q3",
+     "at": -3.3,
+     "eu": -1.9
+    },
+    {
+     "t": "2023-Q4",
+     "at": -3.4,
+     "eu": -1.1
+    },
+    {
+     "t": "2024-Q1",
+     "at": -4.1,
+     "eu": 0.5
+    },
+    {
+     "t": "2024-Q2",
+     "at": -2.8,
+     "eu": 1.4
+    },
+    {
+     "t": "2024-Q3",
+     "at": -1.5,
+     "eu": 1.9
+    },
+    {
+     "t": "2024-Q4",
+     "at": -4.1,
+     "eu": 1.2
+    },
+    {
+     "t": "2025-Q1",
+     "at": -3.1,
+     "eu": 2.7
+    },
+    {
+     "t": "2025-Q2",
+     "at": -2.8,
+     "eu": 0.8
+    },
+    {
+     "t": "2025-Q3",
+     "at": -1.6,
+     "eu": 0.9
+    },
+    {
+     "t": "2025-Q4",
+     "at": 0.9,
+     "eu": 0.3
+    },
+    {
+     "t": "2026-Q1",
+     "at": 2,
+     "eu": -1.3
+    },
+    {
+     "t": "2026-Q2",
+     "at": 1.9,
+     "eu": 1.7
+    }
+   ],
+   "geaendert": "2026-11-24",
+   "erklaerung": "Wie stark die Industrie (Produktion, Bergbau, Energie- und Wasserversorgung, ohne Bau) real gewachsen ist, verglichen mit dem gleichen Quartal des Vorjahres. Die Inflation ist schon herausgerechnet. Die Industrie ist ein Teil der gesamten Wirtschaft und reagiert stärker auf Konjunktur und Exporte.",
+   "gruppe": "Wirtschaft und Arbeit"
+  },
+  {
    "id": "schulden",
    "name": "Schuldenstand",
    "pfeilModus": "wert",
