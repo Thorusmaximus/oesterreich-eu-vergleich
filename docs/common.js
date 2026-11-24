@@ -142,3 +142,11 @@ function teilPille(i){
   }
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
 })();
+
+// Zusammengeführte Kacheln: Haupt-Indikator + Partner, mit Umschalter
+var PAARE = [
+  { haupt: "einkommen", partner: "durchschnittseinkommen", titel: "Einkommen", a: "Median", b: "Durchschnitt", suche: "median durchschnitt einkommen" },
+  { haupt: "wachstum", partner: "industrie", titel: "Wirtschaftswachstum", a: "Gesamt", b: "Industrie", suche: "wirtschaftswachstum industriewachstum bip industrie" },
+  { haupt: "wachstum-pro-kopf", partner: "wachstum-privat", titel: "Wachstum", a: "Pro Kopf", b: "Ohne Staat", suche: "wachstum pro kopf ohne staat privat bip" }
+];
+function paarFuer(id){ for(var k=0;k<PAARE.length;k++) if(PAARE[k].haupt===id||PAARE[k].partner===id) return PAARE[k]; return null; }

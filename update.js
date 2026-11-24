@@ -45,7 +45,7 @@ const TAKT = {
 const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft", "Sicherheit", "Pensionen und Alter"];
 const GRUPPE_VON = {
   wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, insolvenzenEU: 0, einkommen: 0, durchschnittseinkommen: 0, kaufkraft: 0,
-  teilzeit: 0,
+  teilzeit: 0, industrie: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
   bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
@@ -85,6 +85,7 @@ const ERKLAERUNG = {
   pensionsausgaben: "Wie viel Prozent der Wirtschaftsleistung ein Land für Pensionen und ähnliche Alters- und Hinterbliebenenleistungen ausgibt. 15 % heißt: Von jedem erwirtschafteten Euro gehen 15 Cent in Pensionen. Der Wert hängt davon ab, wie alt die Bevölkerung ist und wie hoch die Pensionen sind.",
   ersatzquote: "Wie hoch die Pensionen der 65- bis 74-Jährigen im Vergleich zu den Einkommen der 50- bis 59-Jährigen sind (Ersatzquote). 60 % heißt: Die Pension beträgt im Schnitt 60 % des Einkommens, das man vor der Pension hatte, vor Steuern.",
   altersarmut: "Wie viele von 100 Menschen ab 65 weniger als 60 % des mittleren Einkommens im Land zur Verfügung haben und deshalb nach EU-Definition armutsgefährdet sind. Das ist ein Maß dafür, wie weit Pensionen am unteren Rand vom Rest des Landes entfernt sind, nicht für absolute Armut.",
+  industrie: "Wie stark die Industrie (Produktion, Bergbau, Energie- und Wasserversorgung, ohne Bau) real gewachsen ist, verglichen mit dem gleichen Quartal des Vorjahres. Die Inflation ist schon herausgerechnet. Die Industrie ist ein Teil der gesamten Wirtschaft und reagiert stärker auf Konjunktur und Exporte.",
   teilzeit: "Wie viele von 100 Erwerbstätigen zwischen 20 und 64 Jahren in Teilzeit arbeiten. Teilzeit heißt hier weniger als die übliche volle Wochenarbeitszeit. Eine hohe Quote kann freiwillig gewählt sein, etwa wegen Kinderbetreuung oder Work-Life-Balance, oder aus Mangel an Vollzeitstellen. Die Statistik unterscheidet das nicht, deshalb gibt es keine Wertung, nur den Vergleich.",
   beschaeftigung5564: "Wie viele von 100 Menschen zwischen 55 und 64 Jahren erwerbstätig sind. Der Wert zeigt, wie viele Ältere bis zur Pension im Arbeitsleben bleiben. Das hat mit dem Pensionssystem und der Gesundheit am Arbeitsplatz zu tun.",
   pensionsantrittsalter: "Ab welchem Alter man in dem jeweiligen Land nach dem Gesetz die reguläre Alterspension bekommt, hier für Männer. Wer früher in Pension geht, muss oft mit Abschlägen rechnen. Das tatsächliche Antrittsalter liegt häufig darunter. In Österreich gilt für Frauen derzeit ein niedrigeres Alter, das schrittweise steigt.",
@@ -114,6 +115,13 @@ const INDICATORS = [
     einheit: "% Veränderung des BIP zum Vorjahresquartal (preis-, saison- und kalenderbereinigt)",
     rangText: "Rang 1 = höchstes Wirtschaftswachstum",
     typ: "hoch", schwelle: 0.2, mock: { base: -0.4, step: 0.35 } },
+  { id: "industrie", name: "Industriewachstum", takt: "quartal", dataset: "namq_10_a10",
+    filter: "nace_r2=B-E&na_item=B1G&unit=CLV_PCH_SM&s_adj=SCA", // Bruttowertschöpfung Industrie (inkl. Energie, ohne Bau), preisbereinigt, Veränderung zum Vorjahresquartal
+    alternativen: [ { dataset: "namq_10_a10", filter: "nace_r2=B-E&na_item=B1G&unit=CLV_PCH_SM&s_adj=SCA" }, { dataset: "namq_10_a10", filter: "nace_r2=B-E&na_item=B1G&unit=CLV_PCH_SM&s_adj=SA" }, { dataset: "namq_10_a10", filter: "nace_r2=B-E&na_item=B1G&unit=CLV_PCH_SM" } ],
+    einheit: "% Veränderung der Wertschöpfung der Industrie zum Vorjahresquartal (preis-, saison- und kalenderbereinigt)",
+    rangText: "Rang 1 = höchstes Industriewachstum", maxAlter: 8, minLaender: 20,
+    hinweis: "Gemessen wird die Wertschöpfung von Bergbau, Industrie, Energie- und Wasserversorgung (ohne Bau). In kleinen Ländern können einzelne Großbetriebe die Zahl stark bewegen.",
+    typ: "hoch", schwelle: 0.3, mock: { base: -1.2, step: 0.4 } },
   { id: "schulden", name: "Schuldenstand", takt: "quartal", dataset: "gov_10q_ggdebt", // Quartalsdaten sind aktueller als die Jahresdaten (gov_10dd_edpt1)
     filter: "unit=PC_GDP&sector=S13&na_item=GD", // Maastricht-Schuldenstand des Staates
     einheit: "% des BIP, Staat insgesamt, Stand am Quartalsende", rangText: "Rang 1 = niedrigster Schuldenstand",

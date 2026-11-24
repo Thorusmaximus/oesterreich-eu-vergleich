@@ -128,8 +128,8 @@ svg{width:100%;height:auto;display:block}
 @media (min-width:701px){.suche{max-width:340px}}
 .tabs{display:flex;gap:8px;margin:0 0 12px}
 .tabs a{font-size:.9rem;padding:6px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none}
-.tabs a.on{border-color:var(--at);font-weight:700}
+.tabs a.on{border-color:var(--eu);color:var(--eu);font-weight:700}
 
 .umsch{display:flex;gap:4px;margin-top:6px}
 .umsch button{font:inherit;font-size:.72rem;font-weight:600;padding:3px 8px;white-space:nowrap;hyphens:none;overflow-wrap:normal;word-break:normal;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);cursor:pointer}
-.umsch button.on{border-color:var(--at);background:var(--bg,#f4f6fb)}
+.umsch button.on{border-color:var(--eu);color:var(--eu);background:#eef2ff}

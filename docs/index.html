@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow"><!-- Testphase: Suchmaschinen ignorieren die Seite. Zum Start diese Zeile löschen. -->
 <title>Regierungstracker Österreich</title>
 <meta name="description" content="Wie entwickelt sich Österreich seit dem Amtsantritt der Bundesregierung? Arbeitslosigkeit, Inflation, Schulden, Geburtenrate, Strompreise und mehr im Ranking der 27 EU-Länder.">
-<link rel="stylesheet" href="style.css?v=ea5100ec">
+<link rel="stylesheet" href="style.css?v=6174286b">
 </head>
 <body>
 <main>
@@ -16,7 +16,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=f4d618c1"></script>
+<script src="common.js?v=68585c04"></script>
 <script>
 var app = document.getElementById("app");
 if(D && D.regierung){
@@ -25,7 +25,7 @@ if(D && D.regierung){
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
 else {
   var h = banner();
-  var durchschnitt = D.indikatoren.filter(function(i){ return i.id==="durchschnittseinkommen" && i.oesterreich; })[0];
+  var byId = {}; D.indikatoren.forEach(function(i){ byId[i.id]=i; });
   var kachel = function(i){
     var k = '';
     if(!i.oesterreich){
@@ -57,7 +57,7 @@ else {
       return k;
     }
     k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
-      + '<div class="t">'+(durchschnitt && (i.id==="einkommen"||i.id==="durchschnittseinkommen") ? 'Einkommen<div class="umsch" role="group" aria-label="Ansicht"><button type="button" data-v="m" class="'+(i.id==="einkommen"?'on':'')+'">Median</button><button type="button" data-v="d" class="'+(i.id==="einkommen"?'':'on')+'">Durchschnitt</button></div>' : i.name.replace('Durchschnittseinkommen','Durchschnitts-<br>einkommen'))+'</div>'
+      + '<div class="t">'+(paarFuer(i.id) && byId[paarFuer(i.id).partner] && byId[paarFuer(i.id).partner].oesterreich && byId[paarFuer(i.id).haupt].oesterreich ? paarFuer(i.id).titel+'<div class="umsch" role="group" aria-label="Ansicht"><button type="button" data-v="m" class="'+(i.id===paarFuer(i.id).haupt?'on':'')+'">'+paarFuer(i.id).a+'</button><button type="button" data-v="d" class="'+(i.id===paarFuer(i.id).haupt?'':'on')+'">'+paarFuer(i.id).b+'</button></div>' : i.name.replace('Durchschnittseinkommen','Durchschnitts-<br>einkommen'))+'</div>'
       + '<div class="r">Platz '+a.rang+' '+(i.anzahlLaender<27 ? teilPille(i) : '<small>von '+i.anzahlLaender+'</small>')+'</div>'
       + (a.bestand!=null ? '<div class="note">Einwohner: <strong>'+a.bestand.toLocaleString("de-AT",{minimumFractionDigits:2,maximumFractionDigits:2})+' Mio.</strong></div>' : '')
       + (i.art==="rating" ? '<div class="note">Durchschnitt: <strong>'+a.schnittText+'</strong> (S&amp;P, Moody\'s, Fitch)</div>' : '')
@@ -74,11 +74,11 @@ else {
   var GRUPPEN = D.gruppen || ["Wirtschaft und Arbeit","Staatsfinanzen","Preise und Kosten","Gesellschaft","Sicherheit"];
   var bilanz = function(i){ var u=i.oesterreich && i.oesterreich.urteil; return u==="besser"?"besser":u==="schlechter"?"schlechter":u==="unverändert"?"gleich":"neutral"; };
   var gruppenHtml = GRUPPEN.concat(["Weitere"]).map(function(g){
-    var liste = D.indikatoren.filter(function(i){ return (i.gruppe||"Weitere")===g && i.id!=="durchschnittseinkommen"; }).sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
+    var liste = D.indikatoren.filter(function(i){ return (i.gruppe||"Weitere")===g && !(paarFuer(i.id) && paarFuer(i.id).partner===i.id && byId[paarFuer(i.id).haupt] && byId[paarFuer(i.id).haupt].oesterreich && i.oesterreich); }).sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
     if(!liste.length) return "";
     var z = {besser:0, schlechter:0, gleich:0, neutral:0}; liste.forEach(function(i){ z[bilanz(i)]++; });
     var bil = '<span class="bil">'+(z.besser?'<span class="good">'+z.besser+' besser</span>':'')+(z.schlechter?'<span class="bad">'+z.schlechter+' schlechter</span>':'')+(z.gleich?'<span>'+z.gleich+' unverändert</span>':'')+(z.neutral?'<span>'+z.neutral+' ohne Wertung</span>':'')+'</span>';
-    return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+'</h2><div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-b="'+bilanz(i)+'" data-n="'+(i.name+' '+(i.id==="einkommen"?'Durchschnittseinkommen Medianeinkommen':'')).toLowerCase().replace(/"/g,'')+'">'+(i.id==="einkommen" && durchschnitt ? '<div class="var" data-v="m">'+kachel(i)+'</div><div class="var" data-v="d" style="display:none">'+kachel(durchschnitt)+'</div>' : kachel(i))+'</div>'; }).join('')+'</div></section>';
+    return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+'</h2><div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-b="'+bilanz(i)+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var p=paarFuer(i.id); if(p && p.haupt===i.id && byId[p.partner] && byId[p.partner].oesterreich) return '<div class="var" data-v="m">'+kachel(i)+'</div><div class="var" data-v="d" style="display:none">'+kachel(byId[p.partner])+'</div>'; return kachel(i); })()+'</div>'; }).join('')+'</div></section>';
   }).join('');
   h += '<div class="suche"><input type="search" id="suche" placeholder="Indikator suchen" aria-label="Indikator suchen" autocomplete="off"></div>'
   + '<div class="filter" role="group" aria-label="Filter"><button class="on" data-f="alle">Alle</button><button data-f="schlechter">Verschlechterungen</button><button data-f="besser">Verbesserungen</button><button data-f="neutral">Ohne Wertung</button></div>'
