@@ -174,3 +174,4 @@ svg{width:100%;height:auto;display:block}
 .row>span:first-child{white-space:nowrap}
 .spk{text-align:right;margin:0 0 6px;font-size:.78rem}
 .claim{margin:0 0 14px;color:var(--mut);font-size:.95rem;font-weight:600}
+.ausgebl summary{cursor:pointer;display:inline-block}.ausgebl summary:hover{text-decoration:underline}.ausgebl p{margin:6px 0 0}

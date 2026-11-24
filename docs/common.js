@@ -46,9 +46,8 @@ function urteilCls(u){ return u==="besser" ? "good" : u==="schlechter" ? "bad" :
 function banner(){
   return D.beispiel ? '<div class="banner">Beispieldaten. Das sind keine echten Zahlen. Mit „node update.js" lädst du die aktuellen Eurostat-Daten.</div>' : "";
 }
-var AUSGEBLENDET_N = (typeof D !== "undefined" && D && D.indikatoren) ? D.indikatoren.filter(function(i){ return i.ausgeblendet; }).length : 0; // zählen, bevor die Startseite sie entfernt
 function fussnote(){
-  return '<p class="note">Quelle: '+D.quelle+'. Daten zuletzt abgerufen am '+datum(D.aktualisiert)+' <a href="methodik.html">Methodik</a>'+(AUSGEBLENDET_N ? ' · <a href="index.html#ausgeblendet">Ausgeblendet ('+AUSGEBLENDET_N+')</a>' : '')+' · <a href="impressum.html">Impressum</a></p>';
+  return '<p class="note">Quelle: '+D.quelle+'. Daten zuletzt abgerufen am '+datum(D.aktualisiert)+' <a href="methodik.html">Methodik</a>'+' · <a href="impressum.html">Impressum</a></p>';
 }
 
 // Rangvergleich: kleinerer Platz = besser (Pfeil nach oben)
