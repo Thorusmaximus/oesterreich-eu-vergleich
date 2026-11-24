@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><!-- Testphase: zum Start diese Zeile löschen. -->
+<title>Methodik | Regierungstracker Österreich</title>
+<link rel="stylesheet" href="style.css?v=292db16b">
+</head>
+<body>
+<main>
+<a class="back" href="index.html">← Überblick</a>
+<div id="app"><p>Lade Daten …</p></div>
+</main>
+<script src="daten.js"></script>
+<script src="common.js?v=ea77e97e"></script>
+<script>
+var app = document.getElementById("app");
+if(!D){ app.innerHTML = '<p class="warn">Keine Daten gefunden.</p>'; }
+else {
+  var R = D.regierung, S = datum(R.start);
+  var h = '<h1>Methodik</h1><p class="note">Hier steht, was die Zahlen bedeuten und nach welchen Regeln „besser“, „schlechter“ und „unverändert“ vergeben werden. Alles gilt für jeden Indikator gleich, außer es steht bei ihm anders.</p>';
+
+  h += '<div class="card"><h2>Grundidee</h2>'
+    + '<p>Österreich wird mit den 27 EU-Ländern verglichen. Die meisten Zahlen kommen automatisch von Eurostat, dem Statistikamt der EU. Weil dort alle Länder nach denselben Regeln zählen, sind die Werte vergleichbar. Einige Indikatoren stammen aus anderen Quellen und werden von Hand eingetragen. Die Quelle steht bei jedem Indikator unten in der Liste.</p>'
+    + '<p>Als Vergleichszeitpunkt dient der Amtsantritt der '+R.name+' ('+R.parteien+') am '+S+'. Die Seite zeigt, <b>was sich verändert hat</b>, nicht, wer dafür verantwortlich ist. Viele Entwicklungen hängen von der Weltwirtschaft, von früheren Entscheidungen oder von Ländern und Gemeinden ab.</p></div>';
+
+  h += '<div class="card"><h2>Rang</h2>'
+    + '<p>Rang 1 ist immer der beste Wert. Bei Indikatoren mit Wertung (zum Beispiel Arbeitslosigkeit) ist das der niedrigste oder höchste Wert, je nachdem, was als besser gilt. Bei Indikatoren ohne Wertung (zum Beispiel Bevölkerung) steht im Fenster, was Rang 1 bedeutet, meist der höchste Wert. Bei gleichen Werten teilen sich Länder den Platz. Länder ohne Daten für den Zeitraum fehlen im Ranking. Dann steht „von N“ mit dem Zusatz, wie viele Länder Daten liefern.</p></div>';
+
+  h += '<div class="card"><h2>Trend: besser, schlechter, unverändert</h2>'
+    + '<p>Verglichen wird der aktuelle Wert mit dem Wert der Vorperiode. Bei Monatswerten gilt der Durchschnitt der letzten 3 Monate gegen die 3 Monate davor, damit einzelne Ausreißer nicht zählen. Bei Quartalen, Halbjahren und Jahren wird je nach Indikator mit der Vorperiode oder dem gleichen Zeitraum des Vorjahres verglichen. Das steht im Fenster in Klammern.</p>'
+    + '<p>Jeder Indikator hat eine <b>Schwelle</b>. Ändert sich der Wert um weniger als die Schwelle, gilt er als „unverändert“. Darüber gilt er als „besser“ oder „schlechter“, je nachdem, in welche Richtung der Indikator zählt. Die Schwellen sind Setzungen, die kleine Schwankungen ausblenden sollen. Sie stehen in der Liste unten.</p>'
+    + '<p>Indikatoren ohne Wertung zeigen nur die Richtung (steigt, sinkt) und fließen nicht in „besser“ und „schlechter“ ein.</p></div>';
+
+  h += '<div class="card"><h2>Seit dem Amtsantritt</h2>'
+    + '<p>Auf der Detailseite stehen zwei Zeilen. Die erste vergleicht Österreichs Wert bei Amtsantritt mit dem aktuellen Wert. Die zweite vergleicht diese Veränderung mit der des EU-Durchschnitts: „besser als der EU-Schnitt“ heißt, Österreich hat sich in dieser Zeit günstiger entwickelt als die EU insgesamt. Beides kann gleichzeitig verschieden ausfallen. Ein Wert kann sich verschlechtern und trotzdem besser sein als die Entwicklung im EU-Schnitt.</p>'
+    + '<p>Bei Jahreswerten dient das letzte volle Jahr vor dem Amtsantritt als Ausgangspunkt. Bei Einkommen und ähnlichen Geldwerten wird mit den Preisen bereinigt (real), wo es dazugeschrieben ist.</p></div>';
+
+  h += '<div class="card"><h2>EU-Platzierung seit Amtsantritt</h2>'
+    + '<p>Zeigt, auf welchem Platz Österreich beim Amtsantritt stand und wo es jetzt steht. „Verbessert“ heißt: Österreich ist im Ranking nach oben gerückt. „Verschlechtert“: nach unten. Ein Platz Unterschied zählt bereits.</p></div>';
+
+  h += '<div class="card"><h2>Die Zahlen oben auf der Startseite</h2>'
+    + '<p>Die Zähler oben (besser, schlechter, unverändert, ohne Wertung) zählen Indikatoren. <b>Jeder Indikator zählt gleich viel.</b> Das ist eine Vereinfachung: Staatsschulden und Immobilienpreise wiegen dort genauso viel wie ein kleinerer Indikator, und zusammengelegte Fenster (zum Beispiel Median- und Durchschnittseinkommen) zählen mit jedem Indikator einzeln. Die Zähler sind ein Einstieg und ersetzen keine Gesamtnote. Ein Klick darauf zeigt, welche Fenster dahinterstehen.</p></div>';
+
+  h += '<div class="card"><h2>Datenstand und Amtsantritt</h2>'
+    + '<p>Statistiken erscheinen mit Verzögerung. Bei manchen Indikatoren liegt der jüngste Wert deshalb noch vor dem Amtsantritt. Diese tragen den Vermerk <span class="lage vor">vor Amtsantritt</span> und zeigen die Lage davor, nicht die Entwicklung seither. Der Vermerk <span class="lage teil">inkl. Amtsantritt</span> bedeutet: Der Zeitraum, etwa das Jahr 2025, umfasst den Amtsantritt, enthält also auch Monate davor.</p>'
+    + '<p>Gibt es von Eurostat noch keine Daten ab 2025, wird das Fenster ausgeblendet und unten auf der Startseite aufgelistet. Wo Statistik Austria oder eine andere österreichische Quelle neuere Zahlen hat, steht sie mit österreichischer Flagge zusätzlich im Fenster. Sie fließt nicht ins Ranking ein, weil es für die anderen Länder kein Gegenstück gibt.</p></div>';
+
+  h += '<div class="card"><h2>Wertungen sind Entscheidungen</h2>'
+    + '<p>Ob ein höherer oder niedrigerer Wert besser ist, ist bei manchen Indikatoren nicht eindeutig. Wo es Streit darüber gibt, steht ein Hinweis beim Indikator, zum Beispiel bei Staatsquote und Abgabenquote. Manche Indikatoren (zum Beispiel Teilzeitquote, Bevölkerung oder Durchschnittsalter) werden bewusst nicht gewertet. Die Liste unten zeigt für jeden Indikator, wie gewertet wird.</p></div>';
+
+  var rows = {};
+  D.gruppen.forEach(function(g){ rows[g]=[]; });
+  D.indikatoren.forEach(function(i){ if(rows[i.gruppe]) rows[i.gruppe].push(i); });
+  h += '<h2 class="mh">Alle Indikatoren</h2>';
+  D.gruppen.forEach(function(g){
+    if(!rows[g].length) return;
+    h += '<div class="card"><h3>'+g+'</h3>';
+    rows[g].forEach(function(i){
+      var besser = i.typ==="niedrig" ? "Niedrigerer Wert" : i.typ==="hoch" ? "Höherer Wert" : "Keine Wertung";
+      var quelle = (i.art==="rating" ? "Presseberichte, Agenturen (von Hand)" : (i.quelle || D.quelle)) + (i.datensatz ? ' (Tabelle '+i.datensatz+')' : '');
+      if(i.quelleUrl) quelle = '<a href="'+i.quelleUrl+'" rel="noopener">'+quelle+'</a>';
+      var l = amtsLage(i);
+      var stand = i.periode ? 'Stand '+periode(i.periode)+(l==="vor" ? ' <span class="lage vor">vor Amtsantritt</span>' : l==="teil" ? ' <span class="lage teil">inkl. Amtsantritt</span>' : '') : '';
+      h += '<div class="mi"><a href="indikator.html?id='+encodeURIComponent(i.id)+'"><b>'+i.name+'</b></a>'
+        + (i.ausgeblendet ? ' <span class="lage">ausgeblendet</span>' : '')
+        + '<div class="note"><b>Besser:</b> '+besser+(i.umstritten ? ' (umstritten, siehe Hinweis beim Indikator)' : '')
+        + (i.schwelle!=null && i.typ!=="neutral" ? '. <b>Schwelle:</b> '+i.schwelle.toLocaleString("de-AT")+' '+(i.diffEinheit||"Prozentpunkte") : '')
+        + (i.rangText ? '. '+i.rangText : '')+'</div>'
+        + '<div class="note">'+stand+(stand ? '. ' : '')+'<b>Quelle:</b> '+quelle+'</div></div>';
+    });
+    h += '</div>';
+  });
+  h += fussnote();
+  app.innerHTML = h;
+}
+</script>
+</body>
+</html>

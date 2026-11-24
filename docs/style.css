@@ -159,3 +159,7 @@ svg{width:100%;height:auto;display:block}
 .zb.on{border-color:var(--eu);background:var(--bg,#f4f6fb)}
 .zahlen[hidden]{display:none}
 .zb.rbesser b{color:var(--good)}.zb.rschlechter b{color:var(--bad)}
+
+.lage{display:inline-block;border:1px solid var(--mut);border-radius:99px;padding:0 7px;font-size:.72rem;line-height:1.5;color:var(--mut);white-space:nowrap;vertical-align:1px}
+.lage.vor{border-color:var(--bad);color:var(--bad)}
+.mi{padding:10px 0;border-top:1px solid var(--line)}.mi:first-of-type{border-top:0}.mi .note{margin:3px 0}.mh{margin-top:24px}

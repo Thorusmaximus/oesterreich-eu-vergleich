@@ -13,6 +13,26 @@ function periode(t){
   if(q) return q[2]+". Quartal "+q[1];
   return new Date(t+"-01T12:00:00").toLocaleDateString("de-AT",{month:"long",year:"numeric"});
 }
+// Liegt der Datenstand vor, im oder nach dem Amtsantritt? "vor" | "teil" | "nach" | null
+function amtsLage(i){
+  if(i.art==="rating" || !i.periode || !D.regierung) return null;
+  var rs=D.regierung.start.split("-"), s0=+rs[0]*12 + +rs[1], p=String(i.periode), m, y, a, b;
+  if((m=/^(\d{4})-(\d{2})$/.exec(p))){ a=b=+m[1]*12 + +m[2]; }
+  else if((m=/^(\d{4})-Q(\d)$/.exec(p))){ y=+m[1]*12; a=y+(+m[2]-1)*3+1; b=y+ +m[2]*3; }
+  else if((m=/^(\d{4})-S(\d)$/.exec(p))){ y=+m[1]*12; a=y+(+m[2]-1)*6+1; b=y+ +m[2]*6; }
+  else if((m=/^(\d{4})$/.exec(p))){ a=+m[1]*12+1; b=+m[1]*12+12; }
+  else return null;
+  return b<s0 ? "vor" : a>s0 ? "nach" : "teil";
+}
+function amtsPille(i){
+  var l=amtsLage(i);
+  return l==="vor" ? '<span class="lage vor">vor Amtsantritt</span>' : l==="teil" ? '<span class="lage teil">inkl. Amtsantritt</span>' : '';
+}
+function amtsHinweis(i){
+  var l=amtsLage(i), d=datum(D.regierung.start);
+  return l==="vor" ? 'Der jüngste Datenstand ('+periode(i.periode)+') liegt vor dem Amtsantritt am '+d+'. Die Zahlen zeigen die Lage davor, nicht die Entwicklung seit dem Amtsantritt.'
+       : l==="teil" ? 'Der Datenstand ('+periode(i.periode)+') umfasst den Amtsantritt am '+d+'. Der Wert enthält also auch Zeit davor.' : '';
+}
 function datum(t){ return new Date(t+"T12:00:00").toLocaleDateString("de-AT"); }
 function pfeil(r){ return r==="steigend" ? "↑" : r==="sinkend" ? "↓" : "→"; }
 // Trendpfeil nach Urteil: besser = nach oben (grün), unverändert = seitwärts, schlechter = nach unten (rot)
@@ -27,7 +47,7 @@ function banner(){
   return D.beispiel ? '<div class="banner">Beispieldaten. Das sind keine echten Zahlen. Mit „node update.js" lädst du die aktuellen Eurostat-Daten.</div>' : "";
 }
 function fussnote(){
-  return '<p class="note">Quelle: '+D.quelle+'. Daten zuletzt abgerufen am '+datum(D.aktualisiert)+' (der Datenstand der Tabellen steht jeweils bei der Überschrift). Länder ohne Daten für die Berichtsperiode fehlen im Ranking. Die Vergleiche zeigen Veränderungen seit dem Amtsantritt der Regierung, keine Ursachen. <a href="impressum.html">Impressum</a></p>';
+  return '<p class="note">Quelle: '+D.quelle+'. Daten zuletzt abgerufen am '+datum(D.aktualisiert)+' (der Datenstand der Tabellen steht jeweils bei der Überschrift). Länder ohne Daten für die Berichtsperiode fehlen im Ranking. Die Vergleiche zeigen Veränderungen seit dem Amtsantritt der Regierung, keine Ursachen. <a href="methodik.html">Methodik</a> · <a href="impressum.html">Impressum</a></p>';
 }
 
 // Rangvergleich: kleinerer Platz = besser (Pfeil nach oben)
