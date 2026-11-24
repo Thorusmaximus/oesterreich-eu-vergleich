@@ -15580,6 +15580,348 @@
    "gruppe": "Sicherheit"
   },
   {
+   "id": "kapitalmarkt",
+   "name": "Börsenwert pro Einwohner",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 1,
+   "suffix": " €",
+   "diffEinheit": "Euro",
+   "hinweis": "Der Börsenwert schwankt stark mit den Aktienkursen. In kleinen Ländern mit wenigen, aber großen und international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt.",
+   "umstritten": false,
+   "trendNeutral": true,
+   "schwelle": 500,
+   "datensatz": "nasa_10_f_bs",
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Euro pro Einwohner (Börsenwert der börsennotierten Aktien von Unternehmen im Land, Stand Jahresende)",
+   "rangText": "Rang 1 = höchster Börsenwert pro Einwohner",
+   "periode": "2025",
+   "vorherPeriode": "2024",
+   "anzahlLaender": 27,
+   "alter": 11,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 20804.836972666846,
+    "rang": 12,
+    "wertVorher": 15159.094885999993,
+    "rangVorher": 12,
+    "schnitt": 20804.8,
+    "schnittVorher": 15159.1,
+    "veraenderung": 5645.7,
+    "richtung": "steigend",
+    "urteil": "höher"
+   },
+   "eu": 29565.435758075648,
+   "euMittelwert": false,
+   "beste": {
+    "code": "IE",
+    "name": "Irland",
+    "value": 185455.47722166436,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "niedriger"
+   },
+   "schlechteste": {
+    "code": "LV",
+    "name": "Lettland",
+    "value": 136.54780171532104,
+    "rank": 27,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021",
+     "rang": 10,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 11,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 12,
+     "n": 27
+    },
+    {
+     "t": "2025",
+     "rang": 12,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": {
+    "t": "2024",
+    "wert": 15159.094885999993,
+    "rang": 12,
+    "n": 27,
+    "schnitt": 15159.1,
+    "veraenderung": 5645.7,
+    "richtung": "steigend",
+    "urteil": "höher",
+    "euVeraenderung": 3526.5,
+    "euUrteil": null
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 185455.47722166436,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 162631.36120361387,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 103796.43697707383,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 86041.08155387209,
+     "rank": 4,
+     "richtung": "sinkend",
+     "urteil": "niedriger"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 85732.67449242051,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 56632.685059561416,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 41787.947106165004,
+     "rank": 7,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 31704.9630509987,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 30663.669983795553,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 30633.701045329737,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 22404.49692881963,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 20804.836972666846,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 16077.170363454981,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 15499.576163731133,
+     "rank": 14,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 10289.194394964212,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 8375.92924811673,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 8272.936583060593,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 6359.268798436255,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 6347.568616788889,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 5320.757433940528,
+     "rank": 20,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 4288.565493137793,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 3487.4063440679083,
+     "rank": 22,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 3069.9386841997607,
+     "rank": 23,
+     "richtung": "steigend",
+     "urteil": "höher"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 1941.1393333905594,
+     "rank": 24,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 1372.9253637941963,
+     "rank": 25,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 363.9164905477567,
+     "rank": 26,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 136.54780171532104,
+     "rank": 27,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    }
+   ],
+   "schweiz": null,
+   "verlauf": [
+    {
+     "t": "2021",
+     "at": 18031.47168253144,
+     "eu": 27358.386615152092
+    },
+    {
+     "t": "2022",
+     "at": 14405.590182806596,
+     "eu": 22500.909218264173
+    },
+    {
+     "t": "2023",
+     "at": 15857.138617622602,
+     "eu": 25144.11455700521
+    },
+    {
+     "t": "2024",
+     "at": 15159.094885999993,
+     "eu": 26038.97191441087
+    },
+    {
+     "t": "2025",
+     "at": 20804.836972666846,
+     "eu": 29565.435758075648
+    }
+   ],
+   "geaendert": "2026-11-24",
+   "erklaerung": "Wie viel die börsennotierten Unternehmen eines Landes an der Börse zusammen wert sind (Börsenwert aller ihrer Aktien), geteilt durch die Zahl der Einwohner. Gezählt werden Unternehmen mit Sitz im Land, einschließlich Banken und Versicherungen. Die Zahl sagt nicht, wie viel davon den Einwohnern gehört, denn viele Aktien halten Anleger aus dem Ausland.",
+   "gruppe": "Wirtschaft und Arbeit"
+  },
+  {
    "id": "gefaengnis",
    "name": "Gefängnisauslastung",
    "pfeilModus": "wert",
