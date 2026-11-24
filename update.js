@@ -40,7 +40,7 @@ const TAKT = {
 
 // ===== Neuer Indikator = neuer Eintrag in dieser Liste =====
 // takt: "monat", "quartal", "halbjahr" oder "jahr".  typ "niedrig": niedriger Wert ist besser.  typ "hoch": höherer Wert ist besser.
-// schwelle: ab welcher Änderung (in Prozentpunkten) der Trend als besser/schlechter gilt.
+// schwelle: feste Rückfallschwelle (in der Einheit des Indikators). Normalerweise gilt 3 % des EU-Durchschnitts (siehe SCHWELLE_ANTEIL), schwelleFix: true erzwingt die feste Schwelle.
 // Themengruppen der Startseite (Reihenfolge = Reihenfolge auf der Seite)
 const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft", "Sicherheit", "Pensionen und Alter"];
 const GRUPPE_VON = {
@@ -151,7 +151,7 @@ const INDICATORS = [
     filter: "unit=PC_GDP&sector=S13&na_item=B9", // Finanzierungssaldo des Staates, negativ = Defizit
     einheit: "% des BIP, Staat insgesamt (negativ = Defizit)",
     rangText: "Rang 1 = bester Budgetsaldo (höchster Überschuss bzw. kleinstes Defizit)",
-    typ: "hoch", schwelle: 0.5, mock: { base: -6, step: 0.6 } },
+    typ: "hoch", schwelle: 0.5, schwelleFix: true, mock: { base: -6, step: 0.6 } },
   { id: "geburtenrate", name: "Geburtenrate", takt: "jahr", dataset: "demo_find",
     filter: "indic_de=TOTFERRATE", // Gesamtfertilitätsrate: durchschnittliche Kinderzahl pro Frau
     alternativen: [ // falls Eurostat Datensatz oder Code anders benennt, werden diese der Reihe nach probiert
@@ -216,7 +216,7 @@ const INDICATORS = [
     ausblenden2025: true, // Fenster verschwindet, solange Eurostat keine Daten ab 2025 hat (ein Nachtrag fehlt)
     umstritten: true, // Wertung: höheres Preisniveau = schlechter (auch im Trend), aber mit Hinweis
     hinweis: "Ein höheres Preisniveau gilt hier als schlechter (höhere Lebenshaltungskosten). Es geht aber oft mit hohen Einkommen einher, und ein Anstieg gegenüber dem EU-Schnitt kann auch Aufholen bedeuten. Der Index vergleicht die Preise zwischen den Ländern, nicht die Teuerung über die Zeit (dafür siehe Inflation).",
-    typ: "niedrig", schwelle: 1, mock: { base: 70, step: 3.5 } }
+    typ: "niedrig", schwelle: 1, schwelleFix: true, mock: { base: 70, step: 3.5 } }
   ,{ id: "immobilien", name: "Immobilienpreise", takt: "quartal", dataset: "prc_hpi_q",
     filter: "unit=I15_Q&purchase=TOTAL", // Preisindex für Wohnimmobilien (gekaufte Wohnungen und Häuser, neu und gebraucht), 2015 = 100
     alternativen: [ { dataset: "prc_hpi_q", filter: "unit=I15_Q&purchase=DW_EXST" } ],
@@ -619,6 +619,7 @@ function mock(ind) {
 // Startpunkt des Vergleichs: Amtsantritt der aktuellen Bundesregierung (zum Ändern einfach hier anpassen)
 const REGIERUNG = { name: "Regierung Stocker", kurz: "Stocker", parteien: "ÖVP, SPÖ und NEOS", start: "2025-03-03" };
 
+const SCHWELLE_ANTEIL = 0.03; // Trend gilt als besser/schlechter ab 3 % des EU-Durchschnitts
 let DEZ = 1; // Dezimalstellen des aktuellen Indikators (Geburtenrate: 2)
 const r1 = x => Math.round(x * 10 ** DEZ) / 10 ** DEZ;
 const scoreOf = ind => v => ind.typ === "niedrig" || ind.rangNiedrigZuerst ? v : -v; // kleiner = besser; neutral: höchster Wert = Rang 1
@@ -641,7 +642,8 @@ function ladeZusatz(ind) {
   try { return JSON.parse(fs.readFileSync(ind.zusatzDatei, "utf8")); } catch (e) { console.error("Hinweis: Zusatzdatei " + ind.zusatzDatei + " nicht lesbar: " + e.message); return null; }
 }
 
-function berechne(ind, js) {
+function berechne(ind0, js) {
+  const ind = { ...ind0 }; // Kopie: die Schwelle wird unten aus dem EU-Durchschnitt berechnet
   DEZ = ind.dez != null ? ind.dez : 1; MIN_LAENDER = ind.minLaender || 24; // manche Datensätze (z. B. Gefängnisse) haben weniger Länder
   const takt = ind.takt, cfg = TAKT[takt], data = parse(js), sc = scoreOf(ind);
   if (ind.faktor) for (const c in data) for (const t in data[c]) data[c][t] = data[c][t] * ind.faktor; // z. B. EUR/kWh in Cent/kWh
@@ -652,6 +654,14 @@ function berechne(ind, js) {
   const count = t => Object.keys(NAMES).filter(c => data[c]?.[t] !== undefined).length;
   const latest = [...periods].reverse().find(t => count(t) >= MIN_LAENDER);
   if (!latest) throw new Error("Keine ausreichenden Daten gefunden");
+  // Schwelle: SCHWELLE_ANTEIL des EU-Durchschnitts (mindestens eine Einheit der letzten angezeigten Stelle). Ohne EU-Wert oder mit schwelleFix gilt die feste Schwelle aus der Definition.
+  const euRef = data.EU27_2020?.[latest] ?? (() => { const v = Object.keys(NAMES).map(c => data[c]?.[latest]).filter(x => x != null); return v.length >= MIN_LAENDER ? v.reduce((p, q) => p + q, 0) / v.length : null; })();
+  ind.schwelleArt = "fest";
+  if (ind.schwelle != null && !ind.schwelleFix && euRef != null && Math.abs(euRef) > 0) {
+    ind.schwelleFestWert = ind.schwelle;
+    ind.schwelle = Number(Math.max(10 ** -DEZ, SCHWELLE_ANTEIL * Math.abs(euRef)).toPrecision(2));
+    ind.schwelleArt = "relativ";
+  }
   const spaeter = periods.filter(t => toIdx(t, takt) > toIdx(latest, takt));
   if (spaeter.length) console.log(`   (${ind.name}: neuere Perioden ohne genug Länder: ${spaeter.map(t => t + "=" + count(t)).join(", ")})`);
   const vorher = shift(latest, -(ind.rueckblick || cfg.rueckblick), takt), ranks = rankAt(data, latest, sc), ranksV = rankAt(data, vorher, sc);
@@ -712,7 +722,7 @@ function berechne(ind, js) {
   const verlauf = [];
   for (let i = cfg.verlaufN - 1; i >= 0; i--) { const t = shift(latest, -i, takt); verlauf.push({ t, at: data.AT?.[t] ?? null, eu: data.EU27_2020?.[t] ?? euMittel(t) }); }
   return {
-    id: ind.id, name: ind.name, pfeilModus: "wert", typ: ind.typ, dez: DEZ, suffix: ind.suffix ?? " %", diffEinheit: ind.diffEinheit || "Prozentpunkte", hinweis: ind.hinweis || null, umstritten: !!ind.umstritten, trendNeutral: !!(ind.trendNeutral || ind.typ === "neutral"), schwelle: ind.schwelle ?? null, datensatz: ind.dataset || null, zusatz: ladeZusatz(ind), takt, einheit: ind.einheit, rangText: ind.rangText,
+    id: ind.id, name: ind.name, pfeilModus: "wert", typ: ind.typ, dez: DEZ, suffix: ind.suffix ?? " %", diffEinheit: ind.diffEinheit || "Prozentpunkte", hinweis: ind.hinweis || null, umstritten: !!ind.umstritten, trendNeutral: !!(ind.trendNeutral || ind.typ === "neutral"), schwelle: ind.schwelle ?? null, schwelleArt: ind.schwelleArt || "fest", datensatz: ind.dataset || null, zusatz: ladeZusatz(ind), takt, einheit: ind.einheit, rangText: ind.rangText,
     periode: latest, vorherPeriode: vorher, anzahlLaender: ranks.length, alter,
     warnung: alter > (ind.maxAlter ?? cfg.maxAlter) ? `Der letzte verfügbare Wert ist ${alter} Monate alt. Möglicherweise hat Eurostat den Datensatz umgestellt.` : null,
     oesterreich: { wert: me.value, rang: me.rank, wertVorher: meV?.value ?? null, rangVorher: meV?.rank ?? null,
@@ -1048,7 +1058,7 @@ function berechneTerror(result) {
 const TERROR_IND = { id: "terror", name: "Terroranschläge", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: "", diffEinheit: "Anschläge pro 10 Mio. Einwohner",
   einheit: "Anschläge (vollendet, gescheitert und vereitelt) pro 10 Mio. Einwohner, laut Europol", rangText: "Rang 1 = niedrigste Quote",
   hinweis: "Gezählt werden auch vereitelte Anschläge, eine hohe Zahl kann also auch für erfolgreiche Terrorabwehr sprechen. Die Länder melden unterschiedlich, und die Einzelzahlen sind klein, ein einzelner Anschlag verändert das Ergebnis deutlich. Gemeldet sind nur Anschläge, die den Terrorismus-Definitionen der Mitgliedstaaten entsprechen.",
-  typ: "niedrig", schwelle: 0.5, maxAlter: 26 };
+  typ: "niedrig", schwelle: 0.5, schwelleFix: true, maxAlter: 26 };
 
 // ===== Insolvenzen: nur Österreich, von Hand gepflegt (insolvenzen.json, Quelle KSV1870) =====
 function berechneInsolvenzen() {

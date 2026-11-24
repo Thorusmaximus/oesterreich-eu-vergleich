@@ -34,19 +34,16 @@ else {
     + '<p>Als Vergleichszeitpunkt dient der Amtsantritt der '+R.name+' ('+R.parteien+') am '+S+'. Die Seite zeigt, <b>was sich verändert hat</b>, nicht, wer dafür verantwortlich ist. Viele Entwicklungen hängen von der Weltwirtschaft, von früheren Entscheidungen oder von Ländern und Gemeinden ab.</p></div>';
 
   h += '<div class="card"><h2>Rang</h2>'
-    + '<p>Rang 1 ist immer der beste Wert. Bei Indikatoren mit Wertung (zum Beispiel Arbeitslosigkeit) ist das der niedrigste oder höchste Wert, je nachdem, was als besser gilt. Bei Indikatoren ohne Wertung (zum Beispiel Bevölkerung) steht im Fenster, was Rang 1 bedeutet, meist der höchste Wert. Bei gleichen Werten teilen sich Länder den Platz. Länder ohne Daten für den Zeitraum fehlen im Ranking. Dann steht „von N“ mit dem Zusatz, wie viele Länder Daten liefern.</p></div>';
+    + '<p>Rang 1 ist immer der beste Wert. Bei Indikatoren mit Wertung (zum Beispiel Arbeitslosigkeit) ist das der niedrigste oder höchste Wert, je nachdem, was als besser gilt. Bei Indikatoren ohne Wertung (zum Beispiel Bevölkerung) steht im Fenster, was Rang 1 bedeutet. Bei gleichen Werten teilen sich Länder den Platz. Länder ohne Daten für den Zeitraum fehlen im Ranking. Dann steht „von N“ mit dem Zusatz, wie viele Länder Daten liefern.</p></div>';
 
   h += '<div class="card"><h2>Trend: besser, schlechter, unverändert</h2>'
     + '<p>Verglichen wird der aktuelle Wert mit dem Wert der Vorperiode. Bei Monatswerten gilt der Durchschnitt der letzten 3 Monate gegen die 3 Monate davor, damit einzelne Ausreißer nicht zählen. Bei Quartalen, Halbjahren und Jahren wird je nach Indikator mit der Vorperiode oder dem gleichen Zeitraum des Vorjahres verglichen. Das steht im Fenster in Klammern.</p>'
-    + '<p>Jeder Indikator hat eine <b>Schwelle</b>. Ändert sich der Wert um weniger als die Schwelle, gilt er als „unverändert“. Darüber gilt er als „besser“ oder „schlechter“, je nachdem, in welche Richtung der Indikator zählt. Die Schwellen sind Setzungen, die kleine Schwankungen ausblenden sollen. Sie stehen in der Liste unten.</p>'
+    + '<p>Ändert sich der Wert um weniger als die <b>Schwelle</b>, gilt er als „unverändert“. Darüber gilt er als „besser“ oder „schlechter“, je nachdem, in welche Richtung der Indikator zählt. Die Schwelle beträgt <b>3 % des aktuellen EU-Durchschnitts</b>, mindestens aber eine Einheit der letzten angezeigten Stelle (bei Prozentwerten also 0,1 Prozentpunkte). So gilt für ähnlich große Zahlen dieselbe Regel. Bei wenigen Indikatoren gilt eine feste Schwelle: beim Staatsdefizit und bei Index- und Zählwerten, weil dort 3 % des EU-Werts nicht aussagekräftig wären, sowie bei Indikatoren ohne EU-Durchschnitt. Die genaue Schwelle steht in der Liste unten. Sie ist eine Setzung, die kleine Schwankungen ausblenden soll.</p>'
     + '<p>Indikatoren ohne Wertung zeigen nur die Richtung (steigt, sinkt) und fließen nicht in „besser“ und „schlechter“ ein.</p></div>';
 
   h += '<div class="card"><h2>Seit dem Amtsantritt</h2>'
     + '<p>Auf der Detailseite stehen zwei Zeilen. Die erste vergleicht Österreichs Wert bei Amtsantritt mit dem aktuellen Wert. Die zweite vergleicht diese Veränderung mit der des EU-Durchschnitts: „besser als der EU-Schnitt“ heißt, Österreich hat sich in dieser Zeit günstiger entwickelt als die EU insgesamt. Beides kann gleichzeitig verschieden ausfallen. Ein Wert kann sich verschlechtern und trotzdem besser sein als die Entwicklung im EU-Schnitt.</p>'
     + '<p>Bei Jahreswerten dient das letzte volle Jahr vor dem Amtsantritt als Ausgangspunkt. Bei Einkommen und ähnlichen Geldwerten wird mit den Preisen bereinigt (real), wo es dazugeschrieben ist.</p></div>';
-
-  h += '<div class="card"><h2>EU-Platzierung seit Amtsantritt</h2>'
-    + '<p>Zeigt, auf welchem Platz Österreich beim Amtsantritt stand und wo es jetzt steht. „Verbessert“ heißt: Österreich ist im Ranking nach oben gerückt. „Verschlechtert“: nach unten. Ein Platz Unterschied zählt bereits.</p></div>';
 
   h += '<div class="card"><h2>Die Zahlen oben auf der Startseite</h2>'
     + '<p>Die Zähler oben (besser, schlechter, unverändert, ohne Wertung) zählen Indikatoren. <b>Jeder Indikator zählt gleich viel.</b> Das ist eine Vereinfachung: Staatsschulden und Immobilienpreise wiegen dort genauso viel wie ein kleinerer Indikator, und zusammengelegte Fenster (zum Beispiel Median- und Durchschnittseinkommen) zählen mit jedem Indikator einzeln. Die Zähler sind ein Einstieg und ersetzen keine Gesamtnote. Ein Klick darauf zeigt, welche Fenster dahinterstehen.</p></div>';
@@ -74,7 +71,7 @@ else {
       h += '<div class="mi"><a href="indikator.html?id='+encodeURIComponent(i.id)+'"><b>'+i.name+'</b></a>'
         + (i.ausgeblendet ? ' <span class="lage">ausgeblendet</span>' : '')
         + '<div class="note"><b>Besser:</b> '+besser+(i.umstritten ? ' (umstritten, siehe Hinweis beim Indikator)' : '')
-        + (i.schwelle!=null && i.typ!=="neutral" ? '. <b>Schwelle:</b> '+i.schwelle.toLocaleString("de-AT")+' '+(i.diffEinheit||"Prozentpunkte") : '')
+        + (i.schwelle!=null && i.typ!=="neutral" ? '. <b>Schwelle:</b> '+i.schwelle.toLocaleString("de-AT")+' '+(i.diffEinheit||"Prozentpunkte")+(i.schwelleArt==="relativ" ? ' (3 % des EU-Durchschnitts)' : ' (fest)') : '')
         + (i.rangText ? '. '+i.rangText : '')+'</div>'
         + '<div class="note">'+stand+(stand ? '. ' : '')+'<b>Quelle:</b> '+quelle+'</div></div>';
     });
