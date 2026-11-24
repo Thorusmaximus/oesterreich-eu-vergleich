@@ -497,24 +497,24 @@ const INDICATORS = [
     filter: "indic_de=CNMIGRATRT",
     alternativen: [ { dataset: "demo_gind", filter: "indic_de=CNMIGRATRT&freq=A" }, { dataset: "demo_gind", filter: "indic_de=CNMIGRAT" } ],
     maxAlter: 18, dez: 1, suffix: "", diffEinheit: "je 1.000 Einwohner", minLaender: 20,
-    einheit: "Zuzüge minus Wegzüge je 1.000 Einwohner (einschließlich statistischer Korrekturen)", rangText: "Rang 1 = höchste Nettozuwanderung",
+    einheit: "Zuzüge minus Wegzüge je 1.000 Einwohner (einschließlich statistischer Korrekturen)", rangText: "Rang 1 = niedrigste Nettozuwanderung",
     ausblenden2025: true,
-    typ: "neutral", trendNeutral: true, schwelle: 0.5, mock: { base: 10, step: 1 } }
+    typ: "neutral", rangNiedrigZuerst: true, trendNeutral: true, schwelle: 0.5, mock: { base: 10, step: 1 } }
   ,{ id: "asyl", name: "Asylanträge", takt: "jahr", dataset: "migr_asyappctza",
     filter: "citizen=TOTAL&sex=T&age=TOTAL&applicant=TOTAL&unit=PER",
     maxAlter: 26, dez: 0, suffix: "", diffEinheit: "je 100.000 Einwohner", minLaender: 22,
-    einheit: "Asylanträge je 100.000 Einwohner", rangText: "Rang 1 = meiste Asylanträge je Einwohner",
+    einheit: "Asylanträge je 100.000 Einwohner", rangText: "Rang 1 = wenigste Asylanträge je Einwohner",
     hinweis: "Gezählt werden Anträge, nicht Entscheidungen, und zwar in dem Land, in dem sie gestellt wurden. Ob ein Antrag bewilligt wird, zeigt diese Zahl nicht.",
     proKopf: { zaehler: ["citizen=TOTAL&sex=T&age=TOTAL&applicant=TOTAL&unit=PER"], nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], faktor: 1e5, plausibel: [1, 8000], minLaender: 22 },
     ausblenden2025: true,
-    typ: "neutral", trendNeutral: true, schwelle: 10, mock: { base: 10, step: 1 } }
+    typ: "neutral", rangNiedrigZuerst: true, trendNeutral: true, schwelle: 10, mock: { base: 10, step: 1 } }
   ,{ id: "asylOffen", name: "Laufende Asylverfahren", takt: "monat", dataset: "migr_asypenctzm",
     filter: "citizen=TOTAL&sex=T&age=TOTAL&unit=PER",
     proKopf: { zaehler: ["citizen=TOTAL&sex=T&age=TOTAL&unit=PER"], nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], faktor: 1e5, plausibel: [1, 10000], minLaender: 22 },
     maxAlter: 8, dez: 0, suffix: "", diffEinheit: "je 100.000 Einwohner", minLaender: 22,
-    einheit: "Personen mit laufendem Asylverfahren je 100.000 Einwohner (Stand Monatsende)", rangText: "Rang 1 = meiste laufende Verfahren je Einwohner",
+    einheit: "Personen mit laufendem Asylverfahren je 100.000 Einwohner (Stand Monatsende)", rangText: "Rang 1 = wenigste laufende Verfahren je Einwohner",
     hinweis: "Gezählt werden Personen, deren Asylantrag im jeweiligen Land noch nicht entschieden ist. Wer bereits Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr mit. Die Zahl zeigt also nicht, wie viele Schutzberechtigte im Land leben.",
-    typ: "neutral", trendNeutral: true, schwelle: 5, mock: { base: 100, step: 10 } }
+    typ: "neutral", rangNiedrigZuerst: true, trendNeutral: true, schwelle: 5, mock: { base: 100, step: 10 } }
   ,{ id: "lebenszufriedenheit", name: "Lebenszufriedenheit", takt: "jahr", dataset: "ilc_pw01",
     filter: "age=Y_GE16&sex=T&isced11=TOTAL&unit=RTG",
     alternativen: [ { dataset: "ilc_pw01", filter: "age=Y_GE16&sex=T&isced11=TOTAL" }, { dataset: "ilc_pw01", filter: "age=Y_GE16&sex=T&unit=RTG" } ],
