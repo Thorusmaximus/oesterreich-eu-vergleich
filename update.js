@@ -202,8 +202,8 @@ const INDICATORS = [
     keinStart: true, // der Rang beim Amtsantritt wäre für alle gleich, deshalb kein Vergleich "seit Regierungsantritt"
     maxAlter: 8, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte",
     einheit: "% Preisänderung von Wohnimmobilien seit dem Quartal des Regierungsantritts (Preisindex, ohne Inflationsbereinigung)",
-    rangText: "Rang 1 = stärkster Preisanstieg seit Regierungsantritt",
-    typ: "neutral", umstritten: true,
+    rangText: "Rang 1 = geringster Preisanstieg seit Regierungsantritt",
+    typ: "neutral", rangNiedrigZuerst: true, umstritten: true,
     hinweis: "Steigende Immobilienpreise nützen Eigentümern und belasten Käufer, Mieter und Familien, die erst kaufen wollen. Gezeigt wird die Veränderung des Preisindex der Wohnimmobilien (Wohnungen und Häuser, neu und gebraucht) gegenüber dem Quartal des Regierungsantritts. Das ist die Preisentwicklung, nicht der Preis pro Quadratmeter, und die Preise sind nicht um die Inflation bereinigt.",
     schwelle: 0.5, mock: { base: 100, step: 3 } }
   ,{ id: "einkommen", name: "Medianeinkommen", takt: "jahr", dataset: "ilc_di03", real: true,
