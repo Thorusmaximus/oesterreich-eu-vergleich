@@ -173,5 +173,5 @@ svg{width:100%;height:auto;display:block}
 @media (max-width:700px){.leiste .fbtn{align-self:stretch;margin-bottom:10px}}
 .row>span:first-child{white-space:nowrap}
 .spk{text-align:right;margin:0 0 6px;font-size:.78rem}
-.claim{margin:0 0 14px;color:var(--mut);font-size:.95rem;font-weight:600}
+.claim{margin:0 0 14px;color:var(--mut);font-size:.95rem;font-weight:600;padding:2px 0 2px 10px;border-left:4px solid var(--at);border-image:linear-gradient(to bottom,var(--at) 50%,var(--eu) 50%) 1}
 .ausgebl summary{cursor:pointer;display:inline-block}.ausgebl summary:hover{text-decoration:underline}.ausgebl p{margin:6px 0 0}
