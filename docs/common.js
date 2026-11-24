@@ -176,7 +176,7 @@ var PAARE = [
   { ids: ["immobilien","mieten","wohnkosten"], titel: "Wohnen", labels: ["Kaufpreise","Mieten","Belastung"], suche: "wohnen immobilien immobilienpreise kaufpreise mieten miete wohnkosten wohnkostenbelastung" },
   { ids: ["jugendarbeitslosigkeit","neet"], titel: "Junge Menschen", labels: ["Arbeitslos","Ohne Job/Schule"], suche: "jugend junge menschen jugendarbeitslosigkeit neet ausbildung" },
   { ids: ["ausgabenBildung","ausgabenGesundheit","ausgabenVerteidigung","ausgabenSoziales"], titel: "Staatsausgaben", labels: ["Bildung","Gesundheit","Verteidigung","Soziales"], suche: "staatsausgaben ausgaben bildung gesundheit verteidigung militär soziales sozialausgaben cofog" },
-  { ids: ["nettozuwanderung","asyl"], titel: "Zuwanderung", labels: ["Netto","Asyl"], suche: "zuwanderung migration nettozuwanderung asyl asylanträge flüchtlinge" },
+  { ids: ["nettozuwanderung","asyl","asylOffen"], titel: "Zuwanderung", labels: ["Netto","Anträge","Laufende Verfahren"], suche: "zuwanderung migration nettozuwanderung asyl asylanträge flüchtlinge" },
 
   { ids: ["raub","einbruch"], titel: "Eigentumsdelikte", labels: ["Raub","Einbruch"], suche: "raub raubdelikte wohnungseinbrüche einbruch eigentum kriminalität" },
   { ids: ["koerperverletzung","sexualdelikte","toetung"], titel: "Gewaltdelikte", labels: ["Schwere Körperverletzung","Sexual","Tötung"], suche: "tötungsdelikte mord schwere körperverletzung sexualdelikte gewalt kriminalität" },

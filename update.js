@@ -48,7 +48,7 @@ const GRUPPE_VON = {
   teilzeit: 0, industrie: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, armut: 3, ausgrenzung: 3, wohnkosten: 2, mieten: 2, jugendarbeitslosigkeit: 0, neet: 0, forschung: 0, ausgabenBildung: 1, ausgabenGesundheit: 1, ausgabenVerteidigung: 1, ausgabenSoziales: 1, genderPayGap: 3, erneuerbare: 2, energieabhaengigkeit: 2, nettozuwanderung: 3, asyl: 3, lebenszufriedenheit: 3, kapitalNichtBoerse: 0, kapitalGesamt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
+  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, armut: 3, ausgrenzung: 3, wohnkosten: 2, mieten: 2, jugendarbeitslosigkeit: 0, neet: 0, forschung: 0, ausgabenBildung: 1, ausgabenGesundheit: 1, ausgabenVerteidigung: 1, ausgabenSoziales: 1, genderPayGap: 3, erneuerbare: 2, energieabhaengigkeit: 2, nettozuwanderung: 3, asyl: 3, asylOffen: 3, lebenszufriedenheit: 3, kapitalNichtBoerse: 0, kapitalGesamt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
@@ -94,6 +94,7 @@ const ERKLAERUNG = {
   nettozuwanderung: "Wie viele Menschen pro 1.000 Einwohner mehr zu- als wegziehen (Zuzüge minus Wegzüge, einschließlich statistischer Korrekturen). Ein negativer Wert heißt: Es ziehen mehr Menschen weg, als zuziehen.",
   asyl: "Wie viele Menschen pro 100.000 Einwohner in einem Jahr erstmals oder wiederholt einen Antrag auf Asyl stellen. Das zählt Anträge, nicht Entscheidungen und nicht, wie viele Menschen tatsächlich bleiben.",
   lebenszufriedenheit: "Wie zufrieden Menschen ab 16 mit ihrem Leben insgesamt sind, auf einer Skala von 0 (gar nicht zufrieden) bis 10 (völlig zufrieden), laut Befragung. Die Erhebung findet nur alle paar Jahre statt.",
+  asylOffen: "Wie viele Menschen pro 100.000 Einwohner am Monatsende auf eine Entscheidung über ihren Asylantrag im Land warten. Gezählt wird, wo der Antrag gestellt wurde. Wer schon Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr dazu.",
   gefaengnis: "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt, dass mehr Menschen inhaftiert sind, als Plätze vorhanden sind (Überbelegung). Das zeigt, wie ausgelastet das Strafvollzugssystem ist.",
   koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Der Vergleich zwischen den Ländern ist schwierig: Die Zählweise und die Bereitschaft, Anzeige zu erstatten, unterscheiden sich stark. Die Zahl zeigt also nur bedingt, wo mehr Gewalt passiert.",
   sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definitionen, Zählweise und Anzeigebereitschaft unterscheiden sich zwischen den Ländern stark, und viele Fälle werden nie angezeigt. Ein hoher Wert kann daher auch bedeuten, dass mehr angezeigt wird.",
@@ -503,10 +504,17 @@ const INDICATORS = [
     filter: "citizen=TOTAL&sex=T&age=TOTAL&applicant=TOTAL&unit=PER",
     maxAlter: 26, dez: 0, suffix: "", diffEinheit: "je 100.000 Einwohner", minLaender: 22,
     einheit: "Asylanträge je 100.000 Einwohner", rangText: "Rang 1 = meiste Asylanträge je Einwohner",
-    hinweis: "Gezählt werden Anträge, nicht Entscheidungen. Ob ein Antrag bewilligt wird, zeigt diese Zahl nicht.",
+    hinweis: "Gezählt werden Anträge, nicht Entscheidungen, und zwar in dem Land, in dem sie gestellt wurden. Ob ein Antrag bewilligt wird, zeigt diese Zahl nicht.",
     proKopf: { zaehler: ["citizen=TOTAL&sex=T&age=TOTAL&applicant=TOTAL&unit=PER"], nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], faktor: 1e5, plausibel: [1, 8000], minLaender: 22 },
     ausblenden2025: true,
     typ: "neutral", trendNeutral: true, schwelle: 10, mock: { base: 10, step: 1 } }
+  ,{ id: "asylOffen", name: "Laufende Asylverfahren", takt: "monat", dataset: "migr_asypenctzm",
+    filter: "citizen=TOTAL&sex=T&age=TOTAL&unit=PER",
+    proKopf: { zaehler: ["citizen=TOTAL&sex=T&age=TOTAL&unit=PER"], nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], faktor: 1e5, plausibel: [1, 10000], minLaender: 22 },
+    maxAlter: 8, dez: 0, suffix: "", diffEinheit: "je 100.000 Einwohner", minLaender: 22,
+    einheit: "Personen mit laufendem Asylverfahren je 100.000 Einwohner (Stand Monatsende)", rangText: "Rang 1 = meiste laufende Verfahren je Einwohner",
+    hinweis: "Gezählt werden Personen, deren Asylantrag im jeweiligen Land noch nicht entschieden ist. Wer bereits Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr mit. Die Zahl zeigt also nicht, wie viele Schutzberechtigte im Land leben.",
+    typ: "neutral", trendNeutral: true, schwelle: 5, mock: { base: 100, step: 10 } }
   ,{ id: "lebenszufriedenheit", name: "Lebenszufriedenheit", takt: "jahr", dataset: "ilc_pw01",
     filter: "age=Y_GE16&sex=T&isced11=TOTAL&unit=RTG",
     alternativen: [ { dataset: "ilc_pw01", filter: "age=Y_GE16&sex=T&isced11=TOTAL" }, { dataset: "ilc_pw01", filter: "age=Y_GE16&sex=T&unit=RTG" } ],
@@ -892,8 +900,11 @@ async function berechneProKopf(ind) {
   if (!N) throw new Error("Keine Bevölkerungszahlen");
   const geos = Object.keys(teile[0]).filter(g => N[g] && teile.every(t => t[g])), times = new Set(), val = {};
   for (const g of geos) { val[g] = {}; for (const t of Object.keys(teile[0][g])) {
-    if (teile.some(x => x[g][t] == null) || !(N[g][t] > 0)) continue;
-    val[g][t] = teile.reduce((sum, x) => sum + x[g][t], 0) * (p.faktor || 1e6) / N[g][t]; times.add(t); } }
+    // Monats- und Quartalswerte: Bevölkerung des Jahres, sonst die zuletzt bekannte
+    const jahre = Object.keys(N[g]).filter(k => N[g][k] > 0).sort(), jt = t.slice(0, 4);
+    const nn = N[g][t] > 0 ? N[g][t] : N[g][jt] > 0 ? N[g][jt] : N[g][jahre.filter(k => k <= jt).pop() || jahre[jahre.length - 1]];
+    if (teile.some(x => x[g][t] == null) || !(nn > 0)) continue;
+    val[g][t] = teile.reduce((sum, x) => sum + x[g][t], 0) * (p.faktor || 1e6) / nn; times.add(t); } }
   const T = [...times].sort(), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
   const js = { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) };
   const r = berechne(ind, js), w = r.oesterreich && r.oesterreich.wert;
