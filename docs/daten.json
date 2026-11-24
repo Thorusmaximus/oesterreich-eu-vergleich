@@ -11409,13 +11409,13 @@
    "id": "pensionsausgaben",
    "name": "Pensionsausgaben",
    "pfeilModus": "wert",
-   "typ": "neutral",
+   "typ": "niedrig",
    "dez": 1,
    "suffix": " %",
    "diffEinheit": "Prozentpunkte des BIP",
-   "hinweis": "Die Ausgaben hängen vom Altersaufbau der Bevölkerung ab und sagen nicht allein, wie großzügig das System ist. Ob hohe Ausgaben gut oder schlecht sind, ist umstritten: Sie bedeuten höhere Pensionen, aber auch eine größere Last für den Staatshaushalt.",
-   "umstritten": true,
-   "trendNeutral": true,
+   "hinweis": "Gewertet wird: Niedrigere Ausgaben gelten als besser, weil sie den Staatshaushalt weniger belasten. Die Ausgaben hängen aber vom Altersaufbau der Bevölkerung ab, und hohe Ausgaben bedeuten nicht automatisch hohe Pensionen. Beispiel Österreich: Das Land gibt 15,4 % des BIP für Pensionen aus (Platz 26 von 27, wobei Platz 1 die niedrigsten Ausgaben hat), die Pensionen liegen im Verhältnis zum früheren Einkommen aber nur bei 56 % (Platz 10 von 27).",
+   "umstritten": false,
+   "trendNeutral": false,
    "zusatz": null,
    "takt": "jahr",
    "einheit": "Pensionsausgaben in % des BIP",
@@ -11434,7 +11434,7 @@
     "schnittVorher": 14.4,
     "veraenderung": 1,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "schlechter"
    },
    "eu": 12.57,
    "euMittelwert": false,
@@ -11444,7 +11444,7 @@
     "value": 4.05,
     "rank": 1,
     "richtung": "sinkend",
-    "urteil": "niedriger"
+    "urteil": "besser"
    },
    "schlechteste": {
     "code": "IT",
@@ -11452,7 +11452,7 @@
     "value": 15.85,
     "rank": 27,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "schlechter"
    },
    "rangVerlauf": [
     {
@@ -11491,7 +11491,7 @@
      "value": 4.05,
      "rank": 1,
      "richtung": "sinkend",
-     "urteil": "niedriger"
+     "urteil": "besser"
     },
     {
      "code": "MT",
@@ -11515,7 +11515,7 @@
      "value": 7.31,
      "rank": 4,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "CY",
@@ -11531,7 +11531,7 @@
      "value": 8.66,
      "rank": 6,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "LV",
@@ -11539,7 +11539,7 @@
      "value": 8.93,
      "rank": 7,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "CZ",
@@ -11555,7 +11555,7 @@
      "value": 9.09,
      "rank": 9,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "HR",
@@ -11563,7 +11563,7 @@
      "value": 9.36,
      "rank": 10,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "SK",
@@ -11571,7 +11571,7 @@
      "value": 9.45,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "BG",
@@ -11587,7 +11587,7 @@
      "value": 9.99,
      "rank": 13,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "LU",
@@ -11611,7 +11611,7 @@
      "value": 11.16,
      "rank": 16,
      "richtung": "sinkend",
-     "urteil": "niedriger"
+     "urteil": "besser"
     },
     {
      "code": "NL",
@@ -11627,7 +11627,7 @@
      "value": 11.61,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "DE",
@@ -11635,7 +11635,7 @@
      "value": 11.67,
      "rank": 19,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "PT",
@@ -11643,7 +11643,7 @@
      "value": 12.94,
      "rank": 20,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "ES",
@@ -11659,7 +11659,7 @@
      "value": 13.46,
      "rank": 22,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "EL",
@@ -11675,7 +11675,7 @@
      "value": 14.45,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "FR",
@@ -11683,7 +11683,7 @@
      "value": 14.98,
      "rank": 25,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "AT",
@@ -11691,7 +11691,7 @@
      "value": 15.38,
      "rank": 26,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     },
     {
      "code": "IT",
@@ -11699,7 +11699,7 @@
      "value": 15.85,
      "rank": 27,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "schlechter"
     }
    ],
    "schweiz": {
@@ -11746,7 +11746,7 @@
    "dez": 1,
    "suffix": " %",
    "diffEinheit": "Prozentpunkte",
-   "hinweis": "Eine höhere Ersatzquote bedeutet höhere Pensionen im Verhältnis zum früheren Einkommen, kostet das System aber mehr.",
+   "hinweis": "Eine höhere Ersatzquote bedeutet höhere Pensionen im Verhältnis zum früheren Einkommen, kostet das System aber mehr. Beispiel Österreich: Das Land gibt 15,4 % des BIP für Pensionen aus (Platz 26 von 27, wobei Platz 1 die niedrigsten Ausgaben hat), die Pensionen liegen im Verhältnis zum früheren Einkommen aber nur bei 56 % (Platz 10 von 27).",
    "umstritten": true,
    "trendNeutral": false,
    "zusatz": null,
