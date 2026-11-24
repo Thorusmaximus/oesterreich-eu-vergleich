@@ -153,7 +153,7 @@ var PAARE = [
   { ids: ["benzin","diesel"], titel: "Spritpreis", labels: ["Benzin","Diesel"], suche: "spritpreis benzinpreis dieselpreis treibstoff tanken" },
   { ids: ["strompreis","strompreis-industrie"], titel: "Strompreis", labels: ["Haushalte","Industrie"], suche: "strompreis strom energie haushalte industrie" },
   { ids: ["raub","einbruch"], titel: "Eigentumsdelikte", labels: ["Raub","Einbruch"], suche: "raub raubdelikte wohnungseinbrüche einbruch eigentum kriminalität" },
-  { ids: ["toetung","koerperverletzung","sexualdelikte"], titel: "Gewaltdelikte", labels: ["Tötung","Körper","Sexual"], suche: "tötungsdelikte mord schwere körperverletzung sexualdelikte gewalt kriminalität" },
+  { ids: ["koerperverletzung","sexualdelikte","toetung"], titel: "Gewaltdelikte", labels: ["Schwere Körperverletzung","Sexual","Tötung"], suche: "tötungsdelikte mord schwere körperverletzung sexualdelikte gewalt kriminalität" },
   { ids: ["durchschnittsalter","abhaengigkeit"], titel: "Alter der Bevölkerung", labels: ["Alter","Abhängigkeit"], suche: "alter bevölkerung altersabhängigkeitsquote abhängigkeit durchschnittsalter" },
   { ids: ["lebenserwartung","gesundeJahre"], titel: "Lebenserwartung", labels: ["Gesamt","Gesund"], suche: "lebenserwartung gesunde lebensjahre gesundheit" },
   { ids: ["pensionsausgaben","ersatzquote"], titel: "Pensionen", labels: ["Ausgaben","Höhe"], suche: "pensionen pensionsausgaben pensionshöhe ersatzquote rente" }
