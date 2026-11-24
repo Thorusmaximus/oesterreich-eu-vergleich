@@ -48,7 +48,7 @@ const GRUPPE_VON = {
   teilzeit: 0, industrie: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
+  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
@@ -74,6 +74,7 @@ const ERKLAERUNG = {
   toetung: "Wie viele vorsätzliche Tötungen (Mord, Totschlag) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Tötungsdelikte lassen sich zwischen Ländern am besten vergleichen, weil sie kaum unbemerkt bleiben. Bei kleinen Ländern können einzelne Fälle den Wert stark verändern.",
   raub: "Wie viele Raubdelikte (Wegnahme von Sachen mit Gewalt oder Drohung) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Gezählt werden angezeigte Fälle. Wie leicht jemand Anzeige erstattet, ist in den Ländern unterschiedlich.",
   einbruch: "Wie viele Einbrüche in Privatwohnungen die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Gezählt werden angezeigte Fälle.",
+  kapitalmarkt: "Wie viel die börsennotierten Unternehmen eines Landes an der Börse zusammen wert sind (Börsenwert aller ihrer Aktien), geteilt durch die Zahl der Einwohner. Gezählt werden Unternehmen mit Sitz im Land, einschließlich Banken und Versicherungen. Die Zahl sagt nicht, wie viel davon den Einwohnern gehört, denn viele Aktien halten Anleger aus dem Ausland.",
   gefaengnis: "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt, dass mehr Menschen inhaftiert sind, als Plätze vorhanden sind (Überbelegung). Das zeigt, wie ausgelastet das Strafvollzugssystem ist.",
   koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Der Vergleich zwischen den Ländern ist schwierig: Die Zählweise und die Bereitschaft, Anzeige zu erstatten, unterscheiden sich stark. Die Zahl zeigt also nur bedingt, wo mehr Gewalt passiert.",
   sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definitionen, Zählweise und Anzeigebereitschaft unterscheiden sich zwischen den Ländern stark, und viele Fälle werden nie angezeigt. Ein hoher Wert kann daher auch bedeuten, dass mehr angezeigt wird.",
@@ -344,6 +345,14 @@ const INDICATORS = [
     einheit: "Von der Polizei erfasste Einbrüche pro 100.000 Einwohner", rangText: "Rang 1 = wenigste Einbrüche pro Einwohner",
     hinweis: "Die Zahlen beruhen auf Polizeistatistiken. Wie Delikte gezählt und erfasst werden, unterscheidet sich zwischen den Ländern, ein hoher Wert kann auch an besserer Erfassung oder höherer Anzeigebereitschaft liegen.",
     typ: "niedrig", schwelle: 15, mock: { base: 100, step: 60 } }
+  ,{ id: "kapitalmarkt", name: "Börsenwert pro Einwohner", takt: "jahr", dataset: "nasa_10_f_bs",
+    filter: "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", // Platzhalter (im Test); echte Berechnung: berechneProKopf()
+    proKopf: { zaehler: ["unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S12&na_item=F511"],
+      nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [2000, 60000], minLaender: 20 },
+    maxAlter: 30, dez: 0, suffix: " €", diffEinheit: "Euro", minLaender: 20, typ: "neutral", trendNeutral: true, schwelle: 500,
+    einheit: "Euro pro Einwohner (Börsenwert der börsennotierten Aktien von Unternehmen im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Börsenwert pro Einwohner",
+    hinweis: "Der Börsenwert schwankt stark mit den Aktienkursen. In kleinen Ländern mit wenigen, aber großen und international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt.",
+    mock: { base: 8000, step: 3000 } }
   ,{ id: "gefaengnis", name: "Gefängnisauslastung", takt: "jahr", dataset: "crim_pris_cap",
     filter: "indic_cr=PRIS_ACT_CAP&unit=NR", // Platzhalter (im Test); echte Berechnung: Häftlinge geteilt durch offizielle Haftplätze
     verhaeltnis: { zaehler: "indic_cr=PRIS_ACT_CAP&unit=NR", nenner: "indic_cr=PRIS_OFF_CAP&unit=NR" },
@@ -711,6 +720,26 @@ async function berechneVerhaeltnis(ind) {
   return berechne(ind, { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) });
 }
 
+// Wert je Einwohner: Summe mehrerer Eurostat-Reihen (Millionen Euro) geteilt durch die durchschnittliche Bevölkerung des Jahres
+async function berechneProKopf(ind) {
+  const p = ind.proKopf, seit = TAKT[ind.takt].seit;
+  const hol = async (ds, f) => { const rs = await fetch(`${BASE}${ds}?format=JSON&lang=EN&${f}&sinceTimePeriod=${seit}`); if (!rs.ok) throw new Error(`${ds}: HTTP ${rs.status}`); return parse(await rs.json()); };
+  const teile = []; for (const f of p.zaehler) teile.push(await hol(ind.dataset, f));
+  let N = null, quelleN = null;
+  for (const e of p.nenner) { try { N = await hol(e.dataset, e.filter); if (N.AT && Object.keys(N.AT).length) { quelleN = e.dataset; break; } } catch (err) { console.error(`   (Bevölkerung ${e.dataset}: ${err.message})`); } }
+  if (!N) throw new Error("Keine Bevölkerungszahlen");
+  const geos = Object.keys(teile[0]).filter(g => N[g] && teile.every(t => t[g])), times = new Set(), val = {};
+  for (const g of geos) { val[g] = {}; for (const t of Object.keys(teile[0][g])) {
+    if (teile.some(x => x[g][t] == null) || !(N[g][t] > 0)) continue;
+    val[g][t] = teile.reduce((sum, x) => sum + x[g][t], 0) * 1e6 / N[g][t]; times.add(t); } }
+  const T = [...times].sort(), idx = arr => Object.fromEntries(arr.map((x, i) => [x, i]));
+  const js = { id: ["geo", "time"], size: [geos.length, T.length], dimension: { geo: { category: { index: idx(geos) } }, time: { category: { index: idx(T) } } }, value: geos.flatMap(g => T.map(t => val[g][t] ?? null)) };
+  const r = berechne(ind, js), w = r.oesterreich && r.oesterreich.wert;
+  console.error(`   Pro Kopf (Bevölkerung aus ${quelleN}): ${r.anzahlLaender} Länder, Periode ${r.periode}, AT ${Math.round(w)} €, Spitze ${r.beste.code} ${Math.round(r.beste.value)} €, letzte ${r.schlechteste.code} ${Math.round(r.schlechteste.value)} €`);
+  if (!(r.anzahlLaender >= (p.minLaender || 20) && w >= p.plausibel[0] && w <= p.plausibel[1])) throw new Error(`unplausibel (AT ${w}, ${r.anzahlLaender} Länder)`);
+  return r;
+}
+
 // Quartalsquote selbst berechnen: Summe der letzten 4 Quartale (Steuern und Sozialbeiträge) / Summe der letzten 4 Quartale BIP
 function quotientJs(jsA, jsB) {
   const A = parse(jsA), B = parse(jsB), qi = t => { const m = /^(\d{4})-Q(\d)$/.exec(t); return m ? +m[1] * 4 + +m[2] - 1 : null; };
@@ -880,9 +909,10 @@ function berechneInsolvenzen() {
   for (const ind of INDICATORS) {
     try {
       let r = null, letzterFehler = null, pop = null;
-      const kandidaten = [{ dataset: ind.dataset, filter: ind.filter }, ...(ind.alternativen || [])];
+      const kandidaten = ind.proKopf && !TEST ? [] : [{ dataset: ind.dataset, filter: ind.filter }, ...(ind.alternativen || [])]; // Pro-Kopf-Werte nie aus Rohwerten ersetzen
       if (ind.oel && !TEST) { try { r = await berechneOel(ind); } catch (e) { letzterFehler = e; console.error(`   (Ölbulletin hat nicht funktioniert: ${e.message})`); } }
       if (ind.verhaeltnis && !TEST) { try { r = await berechneVerhaeltnis(ind); } catch (e) { letzterFehler = e; console.error(`   (Verhältnis hat nicht funktioniert: ${e.message})`); } }
+      if (ind.proKopf && !TEST) { try { r = await berechneProKopf(ind); } catch (e) { letzterFehler = e; console.error(`   (Pro Kopf hat nicht funktioniert: ${e.message})`); } }
       if (ind.privat && !TEST) { try { r = await berechnePrivat(ind); } catch (e) { letzterFehler = e; console.error(`   (Wachstum ohne Staat hat nicht funktioniert: ${e.message})`); } }
       for (const k of (r ? [] : kandidaten)) {
         try {
