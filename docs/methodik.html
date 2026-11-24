@@ -44,7 +44,7 @@ else {
     + '<p>Die Zähler oben (besser, schlechter, unverändert, ohne Wertung) zählen Indikatoren. <b>Jeder Indikator zählt gleich viel.</b> Das ist eine Vereinfachung: Staatsschulden und Immobilienpreise wiegen dort genauso viel wie ein kleinerer Indikator, und zusammengelegte Fenster (zum Beispiel Median- und Durchschnittseinkommen) zählen mit jedem Indikator einzeln. Die Zähler sind ein Einstieg und ersetzen keine Gesamtnote. Ein Klick darauf zeigt, welche Fenster dahinterstehen.</p></div>';
 
   h += '<div class="card"><h2>Datenstand und Amtsantritt</h2>'
-    + '<p>Statistiken erscheinen mit Verzögerung. Bei manchen Indikatoren liegt der jüngste Wert deshalb noch vor dem Amtsantritt. Diese tragen den Vermerk <span class="lage vor">vor Amtsantritt</span> und zeigen die Lage davor, nicht die Entwicklung seither. Der Vermerk <span class="lage teil">inkl. Amtsantritt</span> bedeutet: Der Zeitraum, etwa das Jahr 2025, umfasst den Amtsantritt, enthält also auch Monate davor.</p>'
+    + '<p>Statistiken erscheinen mit Verzögerung. Bei manchen Indikatoren liegt der jüngste Wert deshalb noch vor dem Amtsantritt. Diese tragen den Vermerk <span class="lage vor">vor Amtsantritt</span> und zeigen die Lage davor, nicht die Entwicklung seither. Liegt der Datenstand im Jahr des Amtsantritts (etwa das Gesamtjahr 2025), gibt es keinen Vermerk. Der Wert enthält dann aber auch Monate vor dem 3.3.2025.</p>'
     + '<p>Gibt es von Eurostat noch keine Daten ab 2025, wird das Fenster ausgeblendet und unten auf der Startseite aufgelistet. Wo Statistik Austria oder eine andere österreichische Quelle neuere Zahlen hat, steht sie mit österreichischer Flagge zusätzlich im Fenster. Sie fließt nicht ins Ranking ein, weil es für die anderen Länder kein Gegenstück gibt.</p></div>';
 
   h += '<div class="card"><h2>Wertungen sind Entscheidungen</h2>'
@@ -62,7 +62,7 @@ else {
       var quelle = (i.art==="rating" ? "Presseberichte, Agenturen (von Hand)" : (i.quelle || D.quelle)) + (i.datensatz ? ' (Tabelle '+i.datensatz+')' : '');
       if(i.quelleUrl) quelle = '<a href="'+i.quelleUrl+'" rel="noopener">'+quelle+'</a>';
       var l = amtsLage(i);
-      var stand = i.periode ? 'Stand '+periode(i.periode)+(l==="vor" ? ' <span class="lage vor">vor Amtsantritt</span>' : l==="teil" ? ' <span class="lage teil">inkl. Amtsantritt</span>' : '') : '';
+      var stand = i.periode ? 'Stand '+periode(i.periode)+(l==="vor" ? ' <span class="lage vor">vor Amtsantritt</span>' : l==="teil" ? ' (Zeitraum enthält den Amtsantritt)' : '') : '';
       h += '<div class="mi"><a href="indikator.html?id='+encodeURIComponent(i.id)+'"><b>'+i.name+'</b></a>'
         + (i.ausgeblendet ? ' <span class="lage">ausgeblendet</span>' : '')
         + '<div class="note"><b>Besser:</b> '+besser+(i.umstritten ? ' (umstritten, siehe Hinweis beim Indikator)' : '')
