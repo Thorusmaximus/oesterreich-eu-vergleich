@@ -1,0 +1,8 @@
+{
+ "stand": "2026-11-25",
+ "jahr": "2024",
+ "quelle": "Statistik Austria (Öffentlicher Schuldenstand nach Teilsektoren des Staates und Bundesländern), wiedergegeben von staatsschulden.at, Stand April 2025",
+ "url": "https://staatsschulden.at/bundeslaender",
+ "hinweis": "Schulden des Landes (ohne Gemeinden), in Mio. Euro, geteilt durch die Einwohner am 1. Jänner. Ausgelagerte Landesunternehmen sind je nach Land unterschiedlich enthalten, deshalb ist der Vergleich nur eingeschränkt aussagekräftig. Es gibt hier nur ein Jahr und damit keinen Trend. Andere Statistiken rechnen mit Gemeinden und kommen auf höhere Werte.",
+ "mio": { "AT11": 1379, "AT12": 9584, "AT13": 12697, "AT21": 4037, "AT22": 6413, "AT31": 2382, "AT32": 1699, "AT33": 1307, "AT34": 713 }
+}
