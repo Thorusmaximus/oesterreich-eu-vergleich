@@ -45,7 +45,7 @@ function seite(){
   h += '<div class="leiste"><label class="note" for="hl">Bundesland hervorheben: </label><select id="hl"><option value="">keines</option>'+B.laender.map(function(l){ return '<option value="'+l.code+'"'+(hl===l.code?" selected":"")+'>'+l.name+'</option>'; }).join("")+'</select></div></div>';
   h += karte(i).replace(/<h2>.*?<\/h2>/, '<h2>Rangliste</h2>').replace(/<p class="note spk">.*?<\/p>/, '');
   var vt = verlaufTeile(i);
-  if(vt) h += '<div class="card"><h2>Verlauf seit '+i.reihe.jahre[0]+'</h2><p class="note">'+(i.reihe.einheitText ? 'Gezeigt wird die Zahl der '+i.reihe.einheitText+' (die Rangliste zeigt das Wachstum in Prozent).' : i.einheit)+'</p>'+vt.svg+vt.leg+vt.tab+'</div>';
+  if(vt) h += '<div class="card"><h2>Verlauf seit '+i.reihe.jahre[0]+infoIcon('Wie sich der Wert in den einzelnen Bundesländern seit '+i.reihe.jahre[0]+' entwickelt hat. Jede Linie steht für ein Land, die Tabelle darunter zeigt die genauen Werte.')+'</h2><p class="note">'+(i.reihe.einheitText ? 'Gezeigt wird die Zahl der '+i.reihe.einheitText+' (die Rangliste zeigt das Wachstum in Prozent).' : i.einheit)+'</p>'+vt.svg+vt.leg+vt.tab+'</div>';
   h += '<div class="card"><h2>Einordnung und Quelle</h2><p class="erkl">'+i.erklaerung+'</p><p class="note">Quelle: '+(i.quelle||B.quelle)+(i.quelleUrl?' (<a href="'+i.quelleUrl+'" rel="noopener">Link</a>)':'')+'. Die Werte liegen später vor als bei den EU-Zahlen und kommen zum Teil aus Stichproben, die pro Bundesland klein sind.</p></div>';
   h += fussnote();
   app.innerHTML = h;
