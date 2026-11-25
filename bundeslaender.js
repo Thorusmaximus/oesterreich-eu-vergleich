@@ -187,6 +187,10 @@ async function handIndikatoren(ctx) {
     (code, y) => num(kr.anzeigen[code][y === kr.jahr ? 0 : 1]) + " Anzeigen"));
   out.push(mk({ id: "aufklaerung", name: "Aufklärungsquote", gruppe: 5, dez: 1, suffix: " %", typ: "hoch", diffEinheit: "Prozentpunkte", einheit: "Anteil der angezeigten Straftaten, die die Polizei aufgeklärt hat", rangText: "Rang 1 = höchste Aufklärungsquote",
     erklaerung: "Wie viele der angezeigten Straftaten aufgeklärt wurden. Gewertet wird: höher ist besser. Pfeil = Veränderung zum Vorjahr." }, kr.aufklaerung, kr, id));
+  const sp = raw.spital;
+  out.push(mk({ id: "spitalsaufenthalte", name: "Spitalsaufenthalte", gruppe: 4, dez: 0, suffix: "", typ: "neutral", diffEinheit: "pro 1.000 Einwohner", einheit: "Stationäre Spitalsaufenthalte pro 1.000 Einwohner und Jahr, darunter die Gesamtzahl", rangText: "Rang 1 = meiste Aufenthalte pro Einwohner",
+    erklaerung: "Wie viele stationäre Aufenthalte in Spitälern es pro 1.000 Einwohner gab (Aufnahmen, Entlassungen und Verstorbene gemittelt, alle Krankenanstalten). Darunter steht die Gesamtzahl. Ohne Wertung: Mehr Aufenthalte können für einen schlechteren Gesundheitszustand stehen, aber auch für ein dichteres Angebot oder mehr Patienten aus anderen Bundesländern, denn gezählt wird nach dem Standort des Spitals, nicht nach dem Wohnort. Pfeil = Veränderung zum Vorjahr." }, sp.werte, sp, (c, y, n) => n / pop[y][c] * 1e3,
+    (code, y) => num(sp.werte[code][y === sp.jahr ? 0 : 1]) + " Aufenthalte"));
   return out;
 }
 
