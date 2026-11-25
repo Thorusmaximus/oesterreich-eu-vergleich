@@ -3336,7 +3336,7 @@
   },
   {
    "id": "defizit",
-   "name": "Budgetsaldo",
+   "name": "Defizit",
    "pfeilModus": "wert",
    "typ": "hoch",
    "dez": 1,
@@ -6898,9 +6898,7 @@
     "value": 50046,
     "rank": 1,
     "richtung": "sinkend",
-    "urteil": "schlechter",
-    "pps": 37673,
-    "ppsRang": 1
+    "urteil": "schlechter"
    },
    "schlechteste": {
     "code": "RO",
@@ -6908,9 +6906,7 @@
     "value": 8187,
     "rank": 27,
     "richtung": "steigend",
-    "urteil": "besser",
-    "pps": 12861,
-    "ppsRang": 26
+    "urteil": "besser"
    },
    "rangVerlauf": [
     {
@@ -6968,9 +6964,7 @@
      "value": 50046,
      "rank": 1,
      "richtung": "sinkend",
-     "urteil": "schlechter",
-     "pps": 37673,
-     "ppsRang": 1
+     "urteil": "schlechter"
     },
     {
      "code": "AT",
@@ -6978,9 +6972,7 @@
      "value": 36546,
      "rank": 2,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 32385,
-     "ppsRang": 2
+     "urteil": "besser"
     },
     {
      "code": "DK",
@@ -6988,9 +6980,7 @@
      "value": 36192,
      "rank": 3,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 25296,
-     "ppsRang": 7
+     "urteil": "besser"
     },
     {
      "code": "IE",
@@ -6998,9 +6988,7 @@
      "value": 35138,
      "rank": 4,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 25449,
-     "ppsRang": 6
+     "urteil": "besser"
     },
     {
      "code": "NL",
@@ -7008,9 +6996,7 @@
      "value": 34466,
      "rank": 5,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 29714,
-     "ppsRang": 3
+     "urteil": "besser"
     },
     {
      "code": "BE",
@@ -7018,9 +7004,7 @@
      "value": 31299,
      "rank": 6,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 26860,
-     "ppsRang": 4
+     "urteil": "besser"
     },
     {
      "code": "FI",
@@ -7028,9 +7012,7 @@
      "value": 29740,
      "rank": 7,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 24091,
-     "ppsRang": 9
+     "urteil": "besser"
     },
     {
      "code": "DE",
@@ -7038,9 +7020,7 @@
      "value": 28891,
      "rank": 8,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 26594,
-     "ppsRang": 5
+     "urteil": "besser"
     },
     {
      "code": "SE",
@@ -7048,9 +7028,7 @@
      "value": 28574,
      "rank": 9,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 24826,
-     "ppsRang": 8
+     "urteil": "besser"
     },
     {
      "code": "FR",
@@ -7058,9 +7036,7 @@
      "value": 26459,
      "rank": 10,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 23792,
-     "ppsRang": 11
+     "urteil": "besser"
     },
     {
      "code": "CY",
@@ -7068,9 +7044,7 @@
      "value": 22066,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 23782,
-     "ppsRang": 12
+     "urteil": "besser"
     },
     {
      "code": "IT",
@@ -7078,9 +7052,7 @@
      "value": 22062,
      "rank": 12,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 22624,
-     "ppsRang": 14
+     "urteil": "besser"
     },
     {
      "code": "MT",
@@ -7088,9 +7060,7 @@
      "value": 22034,
      "rank": 13,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 24054,
-     "ppsRang": 10
+     "urteil": "besser"
     },
     {
      "code": "SI",
@@ -7098,9 +7068,7 @@
      "value": 20416,
      "rank": 14,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 22635,
-     "ppsRang": 13
+     "urteil": "besser"
     },
     {
      "code": "ES",
@@ -7108,9 +7076,7 @@
      "value": 20367,
      "rank": 15,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 22408,
-     "ppsRang": 15
+     "urteil": "besser"
     },
     {
      "code": "EE",
@@ -7118,9 +7084,7 @@
      "value": 17146,
      "rank": 16,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 17147,
-     "ppsRang": 19
+     "urteil": "besser"
     },
     {
      "code": "CZ",
@@ -7128,9 +7092,7 @@
      "value": 15199,
      "rank": 17,
      "richtung": "stabil",
-     "urteil": "unverändert",
-     "pps": 17190,
-     "ppsRang": 18
+     "urteil": "unverändert"
     },
     {
      "code": "HR",
@@ -7138,9 +7100,7 @@
      "value": 15057,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 19745,
-     "ppsRang": 17
+     "urteil": "besser"
     },
     {
      "code": "PT",
@@ -7148,9 +7108,7 @@
      "value": 14465,
      "rank": 19,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 16634,
-     "ppsRang": 22
+     "urteil": "besser"
     },
     {
      "code": "PL",
@@ -7158,9 +7116,7 @@
      "value": 14394,
      "rank": 20,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 19925,
-     "ppsRang": 16
+     "urteil": "besser"
     },
     {
      "code": "LV",
@@ -7168,9 +7124,7 @@
      "value": 13983,
      "rank": 21,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 17097,
-     "ppsRang": 21
+     "urteil": "besser"
     },
     {
      "code": "LT",
@@ -7178,9 +7132,7 @@
      "value": 13982,
      "rank": 22,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 17136,
-     "ppsRang": 20
+     "urteil": "besser"
     },
     {
      "code": "SK",
@@ -7188,9 +7140,7 @@
      "value": 12990,
      "rank": 23,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 15333,
-     "ppsRang": 23
+     "urteil": "besser"
     },
     {
      "code": "EL",
@@ -7198,9 +7148,7 @@
      "value": 11700,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 13612,
-     "ppsRang": 25
+     "urteil": "besser"
     },
     {
      "code": "BG",
@@ -7208,9 +7156,7 @@
      "value": 8862,
      "rank": 25,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 14843,
-     "ppsRang": 24
+     "urteil": "besser"
     },
     {
      "code": "HU",
@@ -7218,9 +7164,7 @@
      "value": 8792,
      "rank": 26,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 11958,
-     "ppsRang": 27
+     "urteil": "besser"
     },
     {
      "code": "RO",
@@ -7228,9 +7172,7 @@
      "value": 8187,
      "rank": 27,
      "richtung": "steigend",
-     "urteil": "besser",
-     "pps": 12861,
-     "ppsRang": 26
+     "urteil": "besser"
     }
    ],
    "schweiz": {
@@ -7264,13 +7206,6 @@
      "eu": 22939
     }
    ],
-   "kaufkraft": {
-    "wert": 32385,
-    "rang": 2,
-    "n": 27,
-    "vorher": 29758,
-    "eu": 22638
-   },
    "realText": "Inflationsbereinigt: Das Einkommen ist nominal um 10 % gestiegen, die Verbraucherpreise sind im Einkommensjahr 2024 um 2.9 % gestiegen. Real ergibt das +6.9 %. Als besser gilt, wenn das Einkommen stärker steigt als die Preise.",
    "geaendert": "2026-11-23",
    "erklaerung": "Das mittlere Einkommen: Die eine Hälfte der Menschen im Land hat weniger, die andere mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Pensionen und Sozialleistungen, je Person. Haushalte werden nach ihrer Größe gewichtet. Es ist kein reiner Lohn. Die Erhebung beschreibt das Einkommen des Vorjahres. Der Trend wird um die Inflation bereinigt: Das Einkommen muss stärker steigen als die Preise, damit er als besser gilt.",
