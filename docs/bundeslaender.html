@@ -35,9 +35,9 @@ function fw(i, v){ return v==null ? "–" : v.toLocaleString("de-AT",{minimumFra
 function pille(p){ return '<span class="pt p-'+p.replace(/[^A-Za-z]/g,"")+'">'+p+'</span>'; }
 function regierungen(){
   var L = B.laender.slice().sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
-  var h = '<div class="card"><h2>Landesregierungen'+infoIcon("Wer in den Bundesländern regiert, mit Landeshauptperson und Koalition, darunter die Koalition der Regierungsperiode davor. Stand: "+datum(B.regierungenStand)+". Das ist reine Information und fließt nicht in die Rangfolge ein.")+'</h2><div class="reg">';
+  var h = '<div class="card"><h2>Landesregierungen'+infoIcon("Wer in den Bundesländern regiert, mit Landeshauptperson und Koalition, darunter die Koalition der Regierungsperiode davor. Die Jahreszahl hinter der Partei ist das Jahr der letzten Landtagswahl. Stand: "+datum(B.regierungenStand)+". Das ist reine Information und fließt nicht in die Rangfolge ein.")+'</h2><div class="reg">';
   h += L.map(function(l){ var r = l.regierung;
-    return '<div class="regz"><div class="regn">'+l.name+'</div><div class="regl">'+r.chef+' ('+r.partei+')</div><div class="regk">'+r.koalition.map(pille).join(" ")+'</div>'+(r.vorher?'<div class="note regv">Davor ('+r.vorher.zeit+'): '+r.vorher.koalition.map(pille).join(" ")+(r.vorher.hinweis&&r.vorher.koalition.length<2?' <small>('+r.vorher.hinweis+')</small>':'')+'</div>':'')+'<div class="note">Letzte Wahl '+r.wahl+', nächste '+r.naechsteWahl+'</div></div>';
+    return '<div class="regz"><div class="regn">'+l.name+'</div><div class="regl">'+r.chef+' ('+r.partei+', '+r.wahl+')</div><div class="regk">'+r.koalition.map(pille).join(" ")+'</div>'+(r.vorher?'<div class="note regv">Davor ('+r.vorher.zeit+'): '+r.vorher.koalition.map(pille).join(" ")+(r.vorher.hinweis&&r.vorher.koalition.length<2?' <small>('+r.vorher.hinweis+')</small>':'')+'</div>':'')+'<div class="note">Nächste Wahl '+r.naechsteWahl+'</div></div>';
   }).join("");
   return h + '</div></div>';
 }
