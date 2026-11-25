@@ -43,7 +43,7 @@ function regierungen(){
 }
 function gesamt(){
   var n = B.bilanz.length ? B.bilanz[0].n : 0;
-  var h = '<div class="card"><h2>Gesamtbild'+infoIcon("Durchschnitt der Plätze eines Landes über alle Indikatoren mit Wertung (derzeit "+n+"). Ein niedriger Durchschnitt heißt: häufig weit vorne. Jeder Indikator zählt gleich viel. Indikatoren ohne Wertung (zum Beispiel Bevölkerung oder Ärzte) gehen nicht ein. Die Zahlen rechts zählen, bei wie vielen Indikatoren sich das Land in den letzten fünf Jahren verbessert (↑) oder verschlechtert (↓) hat. Das sagt nichts darüber, wer dafür verantwortlich ist.")+'</h2>';
+  var h = '<div class="card"><h2>Gesamtbild'+infoIcon("Durchschnitt der Plätze eines Landes über alle Indikatoren mit Wertung (derzeit "+n+"). Ein niedriger Durchschnitt heißt: häufig weit vorne. Jeder Indikator zählt gleich viel. Platz 1 hat den besten Durchschnitt aller Plätze. Verglichen wird, wo ein Land steht, nicht, wie es zu der Lage kam. Indikatoren ohne Wertung (zum Beispiel Bevölkerung oder Ärzte) gehen nicht ein. Die Zahlen rechts zählen, bei wie vielen Indikatoren sich das Land in den letzten fünf Jahren verbessert (↑) oder verschlechtert (↓) hat. Das sagt nichts darüber, wer dafür verantwortlich ist.")+'</h2>';
   h += B.bilanz.map(function(b){ var l = B.laender.filter(function(x){return x.code===b.code})[0];
     return '<div class="gz'+(hl===b.code?" at":"")+'"><span><b>'+b.platz+'.</b> '+b.name+'</span><span class="note">Ø Platz '+b.durchschnittsrang.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1})+'</span><span class="good">'+b.besser+' ↑</span><span class="bad">'+b.schlechter+' ↓</span></div>';
   }).join("");
@@ -53,7 +53,7 @@ function gesamt(){
   if(sb.length) h += '<p class="note stadthead">Zum Vergleich, nicht im Ranking (nur '+sb[0].n+' Indikator'+(sb[0].n===1?'':'en')+' mit Wertung vorhanden, deshalb nur bedingt aussagekräftig):</p>' + sb.map(function(b){
     return '<div class="gz stadt"><span>'+b.name+'<small class="note zs">'+b.hinweis+'</small></span><span class="note">Ø Platz '+b.durchschnittsrang.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1})+' <small>(Platz '+b.platz12+' von '+b.von+')</small></span><span class="good">'+b.besser+' ↑</span><span class="bad">'+b.schlechter+' ↓</span></div>';
   }).join("");
-  return h + '<p class="note">Platz 1 hat den besten Durchschnitt aller Plätze. Verglichen wird, wo ein Land steht, nicht, wie es zu der Lage kam.</p></div>';
+  return h + '</div>';
 }
 var PAARE_BL = [
   { titel: "Arbeitsmarkt", ids: ["arbeitslosigkeit","beschaeftigung"], labels: ["Arbeitslos","Jobquote"] },
