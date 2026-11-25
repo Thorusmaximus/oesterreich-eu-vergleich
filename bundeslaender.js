@@ -218,8 +218,16 @@ async function staedteDazu(r, { TEST, BASE, parse }) {
   }
   if (!d) { console.error(`   (Städte ${r.name}: ${fehler && fehler.message})`); return; }
   const auf = r.typ === "niedrig", dez = r.dez, out = [];
+  // Städte-Daten liegen teils später vor als die Länder-Daten: dann das jüngste Jahr nehmen, für das alle Städte Werte haben
+  let per = r.periode, vorP = r.vorPeriode;
+  if (!STAEDTE.every(c => d[c.code]?.[per] != null)) {
+    const jahre = [...new Set(STAEDTE.flatMap(c => Object.keys(d[c.code] || {})))].sort().filter(y => STAEDTE.every(c => d[c.code]?.[y] != null));
+    per = jahre.pop(); vorP = null;
+    for (let k = 5; k >= 3 && !vorP; k--) if (STAEDTE.every(c => d[c.code]?.[String(+per - k)] != null)) vorP = String(+per - k);
+    if (!per) return;
+  }
   for (const c of STAEDTE) {
-    const w0 = d[c.code]?.[r.periode], wv = r.vorPeriode ? d[c.code]?.[r.vorPeriode] : null;
+    const w0 = d[c.code]?.[per], wv = vorP ? d[c.code]?.[vorP] : null;
     if (w0 == null) continue;
     let wert = w0, zus = null, diff = null, richtung = null, urteil = null;
     if (r.id === "bevoelkerung") { if (wv == null) continue; wert = runden((w0 - wv) / Math.abs(wv) * 100, 1); zus = w0.toLocaleString("de-AT") + " Einwohner"; }
@@ -229,7 +237,7 @@ async function staedteDazu(r, { TEST, BASE, parse }) {
       if (r.typ !== "neutral") urteil = richtung === "stabil" ? "unverändert" : ((richtung === "steigend") === (r.typ === "hoch") ? "besser" : "schlechter");
     }
     const rang = 1 + r.laender.filter(l => (auf ? l.wert < wert : l.wert > wert)).length;
-    out.push({ code: c.code, name: c.name, hinweis: c.hinweis, wert, wertVor: wv ?? null, diff, richtung, urteil, rangEinordnung: rang, zus });
+    out.push({ code: c.code, name: c.name, hinweis: c.hinweis, wert, wertVor: wv ?? null, diff, richtung, urteil, rangEinordnung: rang, zus, periode: per });
   }
   if (out.length) r.staedte = out;
 }

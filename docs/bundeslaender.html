@@ -85,7 +85,7 @@ function karte(i, kopf, tabs){
   if(i.staedte && i.staedte.length){
     t += '<p class="note stadthead">Zum Vergleich, nicht im Ranking (Städte bzw. Stadtregionen):</p>' + i.staedte.map(function(x){
       var pf = x.richtung ? '<span class="ta '+urteilCls(x.urteil)+'" title="'+(x.urteil?trendWort(x.urteil):"")+'">'+pfeil(x.richtung)+'</span>' : '<span class="ta"></span>';
-      return '<div class="row stadt"'+st+'><span>'+x.name+'<small class="note zs">'+(x.zus?x.zus+', ':'')+'würde Rang '+x.rangEinordnung+' einnehmen</small></span><span></span><span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
+      return '<div class="row stadt"'+st+'><span>'+x.name+'<small class="note zs">'+(x.zus?x.zus+', ':'')+'würde Rang '+x.rangEinordnung+' einnehmen'+(x.periode&&x.periode!==i.periode?' (Stand '+x.periode+')':'')+'</small>'</span><span></span><span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
     }).join("");
   }
   if(i.oesterreich) t += '<p class="note">Österreich insgesamt: '+fw(i,i.oesterreich.wert)+'</p>';
