@@ -41,7 +41,7 @@ function seite(){
   if(x){ h += '<div class="rank'+(wertet&&x.rang===1?' gut':wertet&&x.rang===i.anzahl?' schlecht':'')+'">Platz '+x.rang+' <small>von '+i.anzahl+'</small></div><p class="note"><b>'+x.name+' ('+fw(i,x.wert)+')</b></p>';
     if(x.urteil) h += '<p class="trend '+urteilCls(x.urteil)+'"><b>'+pfeil(x.richtung)+' Trend: '+trendWort(x.urteil)+'</b> <span class="note">(seit '+(i.vorPeriode||'?')+', von '+fw(i,x.wertVor)+' auf '+fw(i,x.wert)+')</span></p>'; }
   else { h += '<div class="rank">Platz 1 <small>'+a.name+'</small></div><p class="note"><b>'+a.name+' ('+fw(i,a.wert)+')</b>, letzter Platz: '+z.name+' ('+fw(i,z.wert)+')</p>'; }
-  h += '<p class="note">Stand: '+periode(i.periode)+(i.vorPeriode?' (Vergleich mit '+i.vorPeriode+')':'')+'. Einheit: '+i.einheit+'. '+i.rangText+'.</p>';
+  h += '<p class="note">Stand: '+periode(i.periode)+(i.vorPeriode?' (Vergleich mit '+i.vorPeriode+')':'')+'. Einheit: '+i.einheit+'. '+i.rangText+'.'+(i.typ==='neutral'?' Ohne Wertung.':'')+'</p>';
   h += '<div class="leiste"><label class="note" for="hl">Bundesland hervorheben: </label><select id="hl"><option value="">keines</option>'+B.laender.map(function(l){ return '<option value="'+l.code+'"'+(hl===l.code?" selected":"")+'>'+l.name+'</option>'; }).join("")+'</select></div></div>';
   h += karte(i).replace(/<h2>.*?<\/h2>/, '<h2>Rangliste</h2>').replace(/<p class="note spk">.*?<\/p>/, '');
   var vt = verlaufTeile(i);
