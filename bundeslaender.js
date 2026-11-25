@@ -283,8 +283,13 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
     return { code: l.code, name: l.name, kurz: l.kurz, n, durchschnittsrang: n ? runden(summe / n, 2) : null, besser: z("besser"), schlechter: z("schlechter"), unveraendert: z("unverändert"),
       erste: mit.filter(a => a.x.rang === 1).length, letzte: mit.filter(a => a.x.rang === a.i.anzahl).length };
   }).sort((a, b) => (a.durchschnittsrang ?? 99) - (b.durchschnittsrang ?? 99));
+  const staedteBilanz = STAEDTE.map(c => {
+    const mit = ergebnis.filter(i => i.typ !== "neutral" && !i.ausgeblendet && i.staedte).map(i => i.staedte.find(z => z.code === c.code)).filter(Boolean);
+    const z = u => mit.filter(a => a.urteil === u).length;
+    return { code: c.code, name: c.name, hinweis: c.hinweis, n: mit.length, durchschnittsrang: mit.length ? runden(mit.reduce((t, a) => t + a.rangEinordnung, 0) / mit.length, 2) : null, besser: z("besser"), schlechter: z("schlechter") };
+  });
   bilanz.forEach((b, i) => { b.platz = 1 + bilanz.filter(z => z.durchschnittsrang < b.durchschnittsrang).length; });
   return { aktualisiert: new Date().toISOString().slice(0, 10), beispiel: TEST, quelle: "Eurostat (Regionaldaten, NUTS 2)", jahreTrend: JAHRE_TREND, gruppen: GRUPPEN,
-    laender: LAENDER.map(l => ({ ...l, regierung: REGIERUNGEN[l.code] })), staedte: STAEDTE, regierungenStand: REGIERUNGEN_STAND, indikatoren: ergebnis, bilanz };
+    laender: LAENDER.map(l => ({ ...l, regierung: REGIERUNGEN[l.code] })), staedte: STAEDTE, regierungenStand: REGIERUNGEN_STAND, indikatoren: ergebnis, bilanz, staedteBilanz };
 }
 module.exports = { berechneBundeslaender };
