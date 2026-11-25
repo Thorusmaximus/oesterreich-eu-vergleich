@@ -422,7 +422,7 @@ const INDICATORS = [
     ausblenden2025: true,
     typ: "niedrig", schwelle: 0.5, mock: { base: 10, step: 1 } }
   ,{ id: "wohnkosten", name: "Wohnkostenbelastung", takt: "jahr", dataset: "ilc_lvho07a",
-    filter: "age=TOTAL&sex=T&unit=PC&rskpovth=TOTAL",
+    filter: "age=TOTAL&sex=T&unit=PC&rskpovth=TOTAL", absolut: { art: "personen" },
     alternativen: [ { dataset: "ilc_lvho07a", filter: "age=TOTAL&sex=T&rskpovth=TOTAL" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil der Menschen in Haushalten, die mehr als 40 % ihres Einkommens fürs Wohnen ausgeben", rangText: "Rang 1 = geringste Wohnkostenbelastung",
