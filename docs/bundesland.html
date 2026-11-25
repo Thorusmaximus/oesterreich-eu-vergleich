@@ -24,7 +24,7 @@
 <script src="bl-daten.js"></script>
 <script>window.DATEN = { beispiel: !!(window.BL && window.BL.beispiel), quelle: "Eurostat", aktualisiert: (window.BL && window.BL.aktualisiert) || new Date().toISOString().slice(0,10) };</script>
 <script src="common.js?v=bbe63e1a"></script>
-<script src="bl-common.js?v=9bb8fa50"></script>
+<script src="bl-common.js?v=5ac0338f"></script>
 <script>
 var app = document.getElementById("app"), B = window.BL, qs = new URLSearchParams(location.search), hl = qs.get("hl") || "", id = qs.get("id");
 var i = B && B.indikatoren && B.indikatoren.filter(function(z){ return z.id===id; })[0];
@@ -37,7 +37,7 @@ function seite(){
   var h = B.beispiel ? banner() : "";
   var p = paarBL(i.id), v = p ? p.ids.filter(function(k){ return B.indikatoren.some(function(q){ return q.id===k && !q.ausgeblendet; }); }) : [];
   if(v.length>1) h += '<div class="tabs" role="tablist">'+v.map(function(k){ var on = k===i.id; return '<a role="tab" aria-selected="'+on+'" class="'+(on?'on':'')+'" href="'+link(k)+'">'+p.labels[p.ids.indexOf(k)]+'</a>'; }).join("")+'</div>';
-  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung+" Gewertet wird: "+(i.typ==="niedrig"?"ein niedrigerer Wert gilt als besser.":i.typ==="hoch"?"ein höherer Wert gilt als besser.":"nichts, der Wert hat keine Wertung."))+'</h2>';
+  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung+(i.typ==="niedrig"?" Gewertet wird: ein niedrigerer Wert gilt als besser.":i.typ==="hoch"?" Gewertet wird: ein höherer Wert gilt als besser.":""))+'</h2>';
   if(x){ h += '<div class="rank'+(wertet&&x.rang===1?' gut':wertet&&x.rang===i.anzahl?' schlecht':'')+'">Platz '+x.rang+' <small>von '+i.anzahl+'</small></div><p class="note"><b>'+x.name+' ('+fw(i,x.wert)+')</b></p>';
     if(x.urteil) h += '<p class="trend '+urteilCls(x.urteil)+'"><b>'+pfeil(x.richtung)+' Trend: '+trendWort(x.urteil)+'</b> <span class="note">(seit '+(i.vorPeriode||'?')+', von '+fw(i,x.wertVor)+' auf '+fw(i,x.wert)+')</span></p>'; }
   else { h += '<div class="rank">Platz 1 <small>'+a.name+'</small></div><p class="note"><b>'+a.name+' ('+fw(i,a.wert)+')</b>, letzter Platz: '+z.name+' ('+fw(i,z.wert)+')</p>'; }
