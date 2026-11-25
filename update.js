@@ -48,7 +48,7 @@ const GRUPPE_VON = {
   teilzeit: 1, industrie: 1,
   schulden: 2, defizit: 2, staatsquote: 2, abgabenquote: 2, rating: 2,
   inflation: 0, benzin: 0, diesel: 0, lebenshaltung: 0, immobilien: 0, strompreis: 0, "strompreis-industrie": 0, heizoel: 0, gaspreis: 0,
-  bevoelkerung: 4, geburtenrate: 4, terror: 3, aktionaersquote: 1, kapitalmarkt: 1, armut: 4, ausgrenzung: 4, wohnkosten: 0, mieten: 0, jugendarbeitslosigkeit: 1, neet: 1, forschung: 1, ausgabenBildung: 2, ausgabenGesundheit: 2, ausgabenVerteidigung: 2, ausgabenSoziales: 2, genderPayGap: 4, erneuerbare: 0, energieabhaengigkeit: 0, nettozuwanderung: 4, asyl: 4, asylOffen: 4, lebenszufriedenheit: 4, kapitalNichtBoerse: 1, kapitalGesamt: 1, religion: 4, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 3, toetung: 3, koerperverletzung: 3, sexualdelikte: 3, raub: 3, einbruch: 3, gefaengnis: 3, verurteilungen: 3 };
+  bevoelkerung: 4, geburtenrate: 4, treibhausgase: 4, terror: 3, aktionaersquote: 1, kapitalmarkt: 1, armut: 4, ausgrenzung: 4, wohnkosten: 0, mieten: 0, jugendarbeitslosigkeit: 1, neet: 1, forschung: 1, ausgabenBildung: 2, ausgabenGesundheit: 2, ausgabenVerteidigung: 2, ausgabenSoziales: 2, genderPayGap: 4, erneuerbare: 0, energieabhaengigkeit: 0, nettozuwanderung: 4, asyl: 4, asylOffen: 4, lebenszufriedenheit: 4, kapitalNichtBoerse: 1, kapitalGesamt: 1, religion: 4, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 3, toetung: 3, koerperverletzung: 3, sexualdelikte: 3, raub: 3, einbruch: 3, gefaengnis: 3, verurteilungen: 3 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
@@ -91,6 +91,7 @@ const ERKLAERUNG = {
   ausgabenVerteidigung: "Wie viel der Staat für Verteidigung ausgibt (Militär, Rüstung, militärische Hilfe), in Prozent der Wirtschaftsleistung. Das ist nach der internationalen Staatsausgaben-Gliederung (COFOG) berechnet und kann von NATO-Angaben abweichen.",
   ausgabenSoziales: "Wie viel der Staat für soziale Sicherung ausgibt (Pensionen, Arbeitslosengeld, Familienleistungen, Pflege), in Prozent der Wirtschaftsleistung. Das ist meist der größte Ausgabenblock des Staates.",
   genderPayGap: "Um wie viel Prozent die Stundenverdienste von Frauen im Schnitt unter denen der Männer liegen (unbereinigt). Der Wert vergleicht alle Frauen mit allen Männern und berücksichtigt nicht, dass Frauen häufiger in Teilzeit und in schlechter bezahlten Branchen arbeiten.",
+  treibhausgase: "Wie viele Treibhausgase (vor allem CO2, Methan und Lachgas, umgerechnet in CO2-Äquivalent) im Land im Jahr pro Einwohner ausgestoßen werden, in Tonnen. Ein niedrigerer Wert ist besser. Gezählt wird, was im Land entsteht, nicht was in importierten Waren steckt.",
   erneuerbare: "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft ist in Österreich ein großer Teil davon. Warum hier keine Wertung steht: Ein hoher Anteil sagt noch nicht, ob die Energieversorgung dadurch besser ist. Er hängt stark von den natürlichen Gegebenheiten ab, etwa von Wasserkraft in den Alpen oder Sonne und Wind. Dazu kommen Fragen, die der Anteil nicht zeigt: Wie verlässlich ist die Versorgung, wenn Wind und Sonne ausfallen? Was kostet der Ausbau von Anlagen, Netzen und Speichern? Und wie stark werden die Stromnetze belastet? Auch Biomasse (vor allem Holz) zählt mit, was nicht unumstritten ist. Ob mehr Erneuerbare wichtiger sind als niedrige Kosten oder Versorgungssicherheit, ist eine Abwägung, die diese Seite nicht vorgibt. Für Kosten und Abhängigkeit gibt es eigene Indikatoren (Strompreise, Energieabhängigkeit).",
   energieabhaengigkeit: "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden.",
   nettozuwanderung: "Wie viele Menschen pro 1.000 Einwohner mehr zu- als wegziehen (Zuzüge minus Wegzüge, einschließlich statistischer Korrekturen). Ein negativer Wert heißt: Es ziehen mehr Menschen weg, als zuziehen.",
@@ -499,9 +500,16 @@ const INDICATORS = [
     alternativen: [ { dataset: "nrg_ind_ren", filter: "nrg_bal=REN" }, { dataset: "nrg_ind_ren", filter: "nrg_bal=REN&unit=PC&freq=A" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil erneuerbarer Quellen am gesamten Energieverbrauch in %", rangText: "Rang 1 = höchster Anteil erneuerbarer Energie",
-    hinweis: "Ein hoher Anteil hängt auch von den natürlichen Gegebenheiten ab, etwa von Wasserkraft in den Alpen. Warum es keine Wertung gibt, steht im ⓘ.",
-    ausblenden2025: true,
+        ausblenden2025: true,
     typ: "neutral", trendNeutral: true, schwelle: 0.5, mock: { base: 10, step: 1 } }
+  ,{ id: "treibhausgase", name: "Treibhausgasemissionen je Einwohner", takt: "jahr", dataset: "sdg_13_10",
+    filter: "unit=T_HAB",
+    alternativen: [ { dataset: "env_air_gge", filter: "unit=T_HAB&airpol=GHG&src_crf=TOTX4_MEMO" }, { dataset: "sdg_13_10", filter: "unit=T_HAB&freq=A" } ],
+    absolut: { art: "mt", dataset: "env_air_gge", filter: "unit=MIO_T&airpol=GHG&src_crf=TOTX4_MEMO" },
+    maxAlter: 40, dez: 1, suffix: " t", diffEinheit: "Tonnen je Einwohner", minLaender: 22,
+    einheit: "Tonnen CO2-Äquivalent je Einwohner und Jahr (ohne Landnutzung und Forstwirtschaft)", rangText: "Rang 1 = niedrigste Emissionen je Einwohner",
+    hinweis: "Gezählt werden die Emissionen, die im Land entstehen. Emissionen aus importierten Waren sind nicht enthalten. Industrie, Energiemix, Klima und Verkehr unterscheiden sich zwischen den Ländern stark.",
+    typ: "niedrig", schwelle: 0.2, mock: { base: 6, step: 0.6 } }
   ,{ id: "energieabhaengigkeit", name: "Energieabhängigkeit", takt: "jahr", dataset: "nrg_ind_id",
     filter: "siec=TOTAL&unit=PC",
     alternativen: [ { dataset: "nrg_ind_id", filter: "siec=TOTAL" }, { dataset: "nrg_ind_id", filter: "siec=TOTAL&unit=PC&freq=A" } ],
@@ -1209,6 +1217,7 @@ function berechneVerurteilungen() {
           if (TEST) { ab = {}; r.laender.forEach((x, k) => { ab[x.code] = { [r.periode]: 1000 + 700 * k }; }); }
           else { const res = await fetch(`${BASE}${ds}?format=JSON&lang=EN&${filter}&sinceTimePeriod=${seit}`); if (!res.ok) throw new Error("HTTP " + res.status); ab = parse(await res.json()); }
           const fmt = v => { const a = Math.abs(v), vz = v < 0 ? "−" : "", z = n => n.toLocaleString("de-AT", { maximumFractionDigits: 1 });
+            if (art === "mt") return vz + z(a) + " Mio. t";
             if (art === "personen") return a >= 1000 ? vz + z(a / 1000) + " Mio. Personen" : vz + Math.round(a).toLocaleString("de-AT") + " Tsd. Personen";
             return a >= 1000 ? vz + z(a / 1000) + " Mrd. €" : vz + Math.round(a).toLocaleString("de-AT") + " Mio. €"; };
           let gdp = null; // fehlt der Betrag für das Datenjahr: Quote (% des BIP) mal BIP des Datenjahres, als hochgerechnet gekennzeichnet
