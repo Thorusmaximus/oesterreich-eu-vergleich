@@ -4,6 +4,9 @@ function kmHsl(f, neutral) { // f: 0 = Spitze, 1 = Schlusslicht
   if (neutral) return "hsl(214,58%," + Math.round(78 - 42 * (1 - f)) + "%)";
   return "hsl(" + Math.round(140 * (1 - f)) + ",52%," + Math.round(40 + 6 * Math.sin(f * Math.PI)) + "%)";
 }
+// Hauptstädte (x, y in Kartenkoordinaten, Beschriftung rechts/links/oben/unten); Wien ist selbst Bundesland
+var KM_STADT = [["Eisenstadt",471.3,118.5,"r"],["St. Pölten",410.9,82.6,"l"],["Linz",320.7,72.3,"o"],["Salzburg",237.9,122.1,"o"],["Innsbruck",126.8,176.1,"o"],["Bregenz",15.3,152.7,"r"],["Klagenfurt",322.0,240.6,"u"],["Graz",398.4,196.0,"u"],["Wien",461.2,82.2,""]];
+var KM_LABEL = { AT33: [165, 188], AT12: [432, 108] };
 var KM_GRAU = "#9aa3b5";
 function kmInd() { return B.indikatoren.filter(function (i) { return i.id === KM.ind; })[0]; }
 function kmHolen(code) { // Farbe + Kurztext je Land für die aktuelle Auswahl
@@ -63,7 +66,9 @@ function kmSvg() {
   var K = window.BLKARTE, s = '<svg class="kmsvg" viewBox="' + K.viewBox + '" role="group" aria-label="Karte der Bundesländer">';
   B.laender.forEach(function (l) { var f = kmHolen(l.code);
     s += '<path d="' + K.pfade[l.code] + '" data-c="' + l.code + '" class="kmp' + (KM.sel === l.code ? ' sel' : '') + '" fill="' + f.c + '" tabindex="0" role="button" aria-label="' + l.name + ': ' + f.t + '"><title>' + l.name + ': ' + f.t + '</title></path>'; });
-  B.laender.forEach(function (l) { var m = K.mitte[l.code]; s += '<text x="' + m[0] + '" y="' + (m[1] + 4) + '" class="kmt" text-anchor="middle">' + l.kurz + '</text>'; });
+  B.laender.forEach(function (l) { var m = (KM_LABEL[l.code] || K.mitte[l.code]); s += '<text x="' + m[0] + '" y="' + (m[1] + 4) + '" class="kmt" text-anchor="middle">' + l.kurz + '</text>'; });
+  KM_STADT.forEach(function (c) { var a = c[3] === "r" ? ["start", 4, 3] : c[3] === "l" ? ["end", -4, 3] : c[3] === "o" ? ["middle", 0, -5] : ["middle", 0, 10];
+    s += '<circle cx="' + c[1] + '" cy="' + c[2] + '" r="2.6" class="kmst"/>' + (c[3] ? '<text x="' + (c[1] + a[1]) + '" y="' + (c[2] + a[2]) + '" text-anchor="' + a[0] + '" class="kmsn">' + c[0] + '</text>' : ''); });
   return s + '</svg>';
 }
 function kmHtml() {
