@@ -34,10 +34,6 @@ const IND = [
     alternativen: [{ dataset: "lfst_r_lfe2emprt", filter: "sex=T&age=Y20-64" }], dez: 1, suffix: " %", typ: "hoch", diffEinheit: "Prozentpunkte",
     einheit: "Erwerbstätige in % der Bevölkerung von 20 bis 64 Jahren", rangText: "Rang 1 = höchste Beschäftigungsquote",
     erklaerung: "Wie viele Menschen zwischen 20 und 64 Jahren erwerbstätig sind. Teilzeit zählt voll mit.", mock: { base: 76, step: 0.9 } },
-  { id: "jugendarbeitslosigkeit", name: "Jugendarbeitslosigkeit", gruppe: 0, dataset: "lfst_r_lfu3rt", filter: "sex=T&age=Y15-24&isced11=TOTAL&unit=PC",
-    alternativen: [{ dataset: "lfst_r_lfu3rt", filter: "sex=T&age=Y15-24&isced11=TOTAL" }], dez: 1, suffix: " %", typ: "niedrig", diffEinheit: "Prozentpunkte", minLaender: 6,
-    einheit: "Arbeitslose Menschen von 15 bis 24 Jahren in % der Erwerbspersonen dieses Alters", rangText: "Rang 1 = niedrigste Jugendarbeitslosigkeit",
-    erklaerung: "Der Anteil der arbeitslosen Jugendlichen an allen Jugendlichen, die arbeiten oder eine Stelle suchen. Die Stichprobe pro Bundesland ist klein, die Werte schwanken deshalb stark.", mock: { base: 8, step: 1 } },
   { id: "einkommen", name: "Haushaltseinkommen pro Kopf", gruppe: 0, dataset: "nama_10r_2hhinc", filter: "direct=BAL&na_item=B6N&unit=EUR_HAB",
     alternativen: [{ dataset: "nama_10r_2hhinc", filter: "direct=BAL&na_item=B6N&unit=EUR_HAB&sector=S14_S15" }, { dataset: "nama_10r_2hhinc", filter: "na_item=B6N&unit=EUR_HAB" }], dez: 0, suffix: " €", typ: "hoch", diffEinheit: "Euro",
     einheit: "Verfügbares Einkommen der privaten Haushalte in Euro pro Einwohner und Jahr", rangText: "Rang 1 = höchstes Einkommen pro Kopf",
@@ -67,9 +63,6 @@ const IND = [
   { id: "forschung", name: "Forschungsausgaben", gruppe: 2, dataset: "rd_e_gerdreg", filter: "sectperf=TOTAL&unit=PC_GDP", alternativen: [{ dataset: "rd_e_gerdreg", filter: "sectperf=TOTAL&unit=PC_GDP&unit=PC_GDP" }], dez: 2, suffix: " %", typ: "hoch", diffEinheit: "Prozentpunkte", takt: "zwei",
     einheit: "Ausgaben für Forschung und Entwicklung in % der Wirtschaftsleistung des Bundeslandes", rangText: "Rang 1 = höchste Forschungsausgaben",
     erklaerung: "Wie viel öffentliche Stellen und Unternehmen im Land für Forschung ausgeben, gemessen an seiner Wirtschaftsleistung. Die Erhebung findet nur alle zwei Jahre statt.", mock: { base: 2.5, step: 0.3 } },
-  { id: "aerzte", name: "Ärzte", gruppe: 3, dataset: "hlth_rs_prsrg", filter: "unit=P_HTHAB&isco08=OC221", dez: 0, suffix: "", typ: "neutral", diffEinheit: "pro 100.000 Einwohner",
-    einheit: "Praktizierende Ärztinnen und Ärzte pro 100.000 Einwohner", rangText: "Rang 1 = meiste Ärzte pro Einwohner",
-    erklaerung: "Wie viele Ärztinnen und Ärzte auf 100.000 Einwohner kommen. Städte mit Universitätsklinik liegen vorne, weil sie auch das Umland versorgen. Deshalb ohne Wertung.", mock: { base: 500, step: 25 } },
   { id: "verkehrstote", name: "Verkehrstote", gruppe: 3, dataset: "tran_r_acci", filter: "unit=P_MHAB&victim=KIL", dez: 0, suffix: "", typ: "niedrig", diffEinheit: "pro Million Einwohner",
     einheit: "Verkehrstote pro Million Einwohner und Jahr", rangText: "Rang 1 = wenigste Verkehrstote pro Einwohner",
     erklaerung: "Wie viele Menschen bei Verkehrsunfällen sterben, bezogen auf die Einwohnerzahl. Die Zahlen sind klein und schwanken von Jahr zu Jahr stark.", mock: { base: 40, step: 6 } }
@@ -92,7 +85,7 @@ function auswerten(ind, daten) {
   const letzt = jahre.filter(y => LAENDER.filter(l => daten[l.code]?.[y] != null).length >= minL).pop();
   if (!letzt) throw new Error("Keine Periode mit genügend Bundesländern");
   const ly = +letzt, aktuellJahr = new Date().getFullYear();
-  if (!TESTMODE && ly < aktuellJahr - 5) throw new Error("Daten zu alt (" + letzt + ")");
+  if (!TESTMODE && ly < aktuellJahr - 4) throw new Error("Daten zu alt (" + letzt + ")");
   // Vergleichsjahr: 5 Jahre früher; sonst das älteste Jahr, das mindestens 3 Jahre zurückliegt
   let vor = null;
   for (let k = JAHRE_TREND; k >= 3 && !vor; k--) { const y = String(ly - k); if (LAENDER.filter(l => daten[l.code]?.[y] != null).length >= minL) vor = y; }
