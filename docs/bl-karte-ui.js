@@ -29,7 +29,7 @@ function kmWechsel(x) { // Platzveränderung als Text
 function kmPanel() {
   var code = KM.sel; if (!code) return '<p class="note">Tippe auf ein Bundesland, um Details, Stärken und Schwächen zu sehen.</p>';
   var l = B.laender.filter(function (z) { return z.code === code; })[0], r = l.regierung, bi = B.bilanz.filter(function (b) { return b.code === code; })[0];
-  var h = '<h3>' + l.name + '</h3><p class="note">' + r.chef + ' (' + r.partei + '), Koalition: ' + r.koalition.join(", ") + '</p>';
+  var h = '<h3>' + l.name + '</h3><p class="note">' + r.chef + ' (' + r.partei + '), Koalition: ' + r.koalition.join(", ") + (r.seit ? ', im Amt seit ' + r.seit : '') + '</p>';
   if (KM.ind !== "gesamt") {
     var i = kmInd(), x = i && i.laender.filter(function (z) { return z.code === code; })[0];
     if (x) {
