@@ -47,7 +47,7 @@ const IND = [
     alternativen: [{ dataset: "lfst_r_lfe2emprt", filter: "sex=T&age=Y20-64" }], dez: 1, suffix: " %", typ: "hoch", diffEinheit: "Prozentpunkte",
     einheit: "Erwerbstätige in % der Bevölkerung von 20 bis 64 Jahren", rangText: "Rang 1 = höchste Beschäftigungsquote",
     erklaerung: "Wie viele Menschen zwischen 20 und 64 Jahren erwerbstätig sind. Teilzeit zählt voll mit.", mock: { base: 76, step: 0.9 } },
-  { id: "einkommen", name: "Haushaltseinkommen pro Kopf", gruppe: 0, dataset: "nama_10r_2hhinc", filter: "direct=BAL&na_item=B6N&unit=EUR_HAB",
+  { id: "einkommen", gegenSchnitt: true, name: "Haushaltseinkommen pro Kopf", gruppe: 0, dataset: "nama_10r_2hhinc", filter: "direct=BAL&na_item=B6N&unit=EUR_HAB",
     alternativen: [{ dataset: "nama_10r_2hhinc", filter: "direct=BAL&na_item=B6N&unit=EUR_HAB&sector=S14_S15" }, { dataset: "nama_10r_2hhinc", filter: "na_item=B6N&unit=EUR_HAB" }], dez: 0, suffix: " €", typ: "hoch", diffEinheit: "Euro",
     einheit: "Verfügbares Einkommen der privaten Haushalte in Euro pro Einwohner und Jahr", rangText: "Rang 1 = höchstes Einkommen pro Kopf",
     erklaerung: "Wie viel Geld den Haushalten nach Steuern und Sozialleistungen pro Kopf zur Verfügung steht, nach dem Wohnort der Haushalte (nicht dem Arbeitsort).", mock: { base: 21000, step: 900 } },
@@ -142,7 +142,7 @@ function auswerten(ind, daten) {
     const prz = laender.map(x => x.prozent).filter(v => v != null);
     const schnitt = at != null && atVor ? (at - atVor) / Math.abs(atVor) * 100 : prz.reduce((a, b) => a + b, 0) / (prz.length || 1);
     laender.forEach(x => { if (x.prozent == null) return; const d = x.prozent - schnitt; x.urteil = d > 2 ? "besser" : d < -2 ? "schlechter" : "unverändert"; x.richtung = x.urteil === "besser" ? "steigend" : x.urteil === "schlechter" ? "sinkend" : "stabil"; });
-    ind.trendInfo = "Die Werte sind nicht um die Preissteigerung bereinigt und steigen deshalb überall. Pfeil und Farbe zeigen daher den Vergleich mit dem Schnitt: grün, wenn die Wirtschaftsleistung seit " + vor + " mehr als 2 Prozentpunkte stärker gewachsen ist als im Schnitt (" + runden(schnitt, 1).toLocaleString("de-AT") + " %), rot, wenn sie mehr als 2 Prozentpunkte schwächer gewachsen ist, sonst unverändert.";
+    ind.trendInfo = "Die Werte sind nicht um die Preissteigerung bereinigt und steigen deshalb überall. Pfeil und Farbe zeigen daher den Vergleich mit dem Schnitt: grün, wenn der Wert seit " + vor + " mehr als 2 Prozentpunkte stärker gewachsen ist als im Schnitt (" + runden(schnitt, 1).toLocaleString("de-AT") + " %), rot, wenn er mehr als 2 Prozentpunkte schwächer gewachsen ist, sonst unverändert.";
   }
   if (ind.wachstumProzent) { // Anzeige: Wachstum in %, darunter die Einwohnerzahl
     laender.forEach(x => { x.zus = x.wert.toLocaleString("de-AT") + " " + (ind.zusEinheit || "Einwohner"); x.wert = x.prozent; x.wertVor = null; x.diff = null; x.richtung = null; x.urteil = null; });
