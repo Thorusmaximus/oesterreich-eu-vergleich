@@ -215,3 +215,4 @@ svg{width:100%;height:auto;display:block}
 .btile .r.pg,.btile .r.ps{}.btile .r.pg small,.btile .r.ps small{color:inherit;opacity:.8}
 .btile .pl.pg,.btile .pl.ps{color:inherit}.btile .pl.pg b{color:var(--good)}.btile .pl.ps b{color:var(--bad)}
 .btile .pl.pg .ln{color:var(--good)}.btile .pl.ps .ln{color:var(--bad)}
+.tiles + .card,.tiles + p.note{margin-top:14px}
