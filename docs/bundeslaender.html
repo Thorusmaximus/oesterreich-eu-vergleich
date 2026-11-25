@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=23dc8af2">
+<link rel="stylesheet" href="style.css?v=2777fd0e">
 </head>
 <body>
 <main>
@@ -65,14 +65,24 @@ function kartenListe(l){
   var out = [], gesehen = {};
   l.forEach(function(i){
     var p = paarBL(i.id), v = p ? p.ids.filter(function(id){ return l.some(function(z){return z.id===id;}); }) : [];
-    if(!p || v.length<2){ out.push(karte(i)); return; }
+    if(!p || v.length<2){ out.push(tile(i)); return; }
     if(gesehen[p.titel]) return; gesehen[p.titel] = true;
     var cur = AUSWAHL[p.titel] && v.indexOf(AUSWAHL[p.titel])>=0 ? AUSWAHL[p.titel] : v[0];
     var ind = l.filter(function(z){return z.id===cur;})[0];
     var tabs = '<div class="umsch">'+v.map(function(id){ return '<button type="button" data-p="'+p.titel+'" data-v="'+id+'" class="'+(id===cur?'on':'')+'">'+p.labels[p.ids.indexOf(id)]+'</button>'; }).join("")+'</div>';
-    out.push(karte(ind, p.titel, tabs));
+    out.push(tile(ind, p.titel, tabs));
   });
-  return out.join("");
+  return '<div class="tiles">'+out.join("")+'</div>';
+}
+function tile(i, kopf, tabs){
+  var L = i.laender, x = hl ? L.filter(function(z){return z.code===hl;})[0] : null, a = L[0], z = L[L.length-1];
+  var t = '<div class="card tile btile"><div class="t">'+(kopf||i.name)+'</div>'+(tabs?tabs:'');
+  if(x){ t += '<div class="r">Platz '+x.rang+' <small>von '+i.anzahl+'</small></div><p class="note">'+x.name+': '+fw(i,x.wert)+'</p>';
+    if(x.urteil) t += '<p class="trend '+urteilCls(x.urteil)+'"><b>'+pfeil(x.richtung)+' '+trendWort(x.urteil)+'</b> <span class="note">(seit '+(i.vorPeriode||'?')+')</span></p>';
+    else if(x.richtung) t += '<p class="trend"><b>'+pfeil(x.richtung)+'</b> <span class="note">seit '+(i.vorPeriode||'?')+'</span></p>'; }
+  else { t += '<div class="r kopf">'+a.name+'</div><p class="note">Platz 1: '+fw(i,a.wert)+'<br>Letzter: '+z.name+' ('+fw(i,z.wert)+')</p>'; }
+  t += '<p class="note">Stand: '+periode(i.periode)+(i.typ==="neutral"?', ohne Wertung':'')+'</p>';
+  return t + '<button type="button" class="more bmore" data-id="'+i.id+'">Details →</button></div>';
 }
 function karte(i, kopf, tabs){
   var vals = i.laender.map(function(x){return x.wert}), mn = Math.min.apply(null, vals.concat([0])), mx = Math.max.apply(null, vals.concat([0])), span = (mx-mn)||1;
@@ -113,6 +123,12 @@ function verlauf(id){
   o.onclick=function(e){ if(e.target===o||e.target.closest(".vzu")) o.remove(); };
   document.body.appendChild(o);
 }
+function detail(id){
+  var i = B.indikatoren.filter(function(z){return z.id===id;})[0]; if(!i) return;
+  var o=document.createElement("div"); o.className="vover"; o.innerHTML='<div class="vbox" role="dialog" aria-modal="true"><button type="button" class="vzu" aria-label="Schließen">✕</button>'+karte(i)+'</div>';
+  o.onclick=function(e){ var vb=e.target.closest&&e.target.closest(".verlauf"); if(vb){ verlauf(vb.getAttribute("data-id")); return; } if(e.target===o||e.target.closest(".vzu")) o.remove(); };
+  document.body.appendChild(o);
+}
 function seite(){
   if(!B || !B.indikatoren || !B.indikatoren.length){ app.innerHTML = '<div class="card"><p>Die Bundesländer-Daten werden beim nächsten Datenabruf geladen. Bitte später wiederkommen.</p></div>' + fussnote(); return; }
   var h = (B.beispiel ? banner() : "") + regierungen() + gesamt();
@@ -123,7 +139,7 @@ function seite(){
   if(versteckt.length) h += '<p class="note" id="ausgeblendet">Derzeit ausgeblendet, weil es noch keine Daten ab 2024 gibt: '+versteckt.map(function(i){ return i.name+' (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p>';
   h += fussnote();
   app.innerHTML = h;
-  app.onclick = function(e){ var vb = e.target.closest && e.target.closest(".verlauf"); if(vb){ verlauf(vb.getAttribute("data-id")); return; } var b = e.target.closest && e.target.closest(".umsch button"); if(!b) return; AUSWAHL[b.getAttribute("data-p")] = b.getAttribute("data-v"); var y = window.scrollY; seite(); window.scrollTo(0,y); };
+  app.onclick = function(e){ var mb = e.target.closest && e.target.closest(".bmore"); if(mb){ detail(mb.getAttribute("data-id")); return; } var vb = e.target.closest && e.target.closest(".verlauf"); if(vb){ verlauf(vb.getAttribute("data-id")); return; } var b = e.target.closest && e.target.closest(".umsch button"); if(!b) return; AUSWAHL[b.getAttribute("data-p")] = b.getAttribute("data-v"); var y = window.scrollY; seite(); window.scrollTo(0,y); };
   document.getElementById("hl").onchange = function(){ hl = this.value; seite(); };
 }
 seite();
