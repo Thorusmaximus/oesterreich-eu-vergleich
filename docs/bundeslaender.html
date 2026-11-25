@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=ac112d70">
+<link rel="stylesheet" href="style.css?v=aa6c2c2f">
 </head>
 <body>
 <main>
@@ -49,11 +49,30 @@ function gesamt(){
   }).join("");
   return h + '<p class="note">Platz 1 hat den besten Durchschnitt aller Plätze. Verglichen wird, wo ein Land steht, nicht, wie es zu der Lage kam.</p></div>';
 }
-function karte(i){
+var PAARE_BL = [
+  { titel: "Arbeitsmarkt", ids: ["arbeitslosigkeit","beschaeftigung"], labels: ["Arbeitslos","Jobquote"] },
+  { titel: "Einkommen", ids: ["bip","einkommen"], labels: ["Wirtschaftsleistung","Haushalte"] },
+  { titel: "Bevölkerung", ids: ["bevoelkerung","bevoelkerungsdichte","geburtenrate"], labels: ["Einwohner","Dichte","Geburten"] }
+], AUSWAHL = {};
+function paarBL(id){ for(var k=0;k<PAARE_BL.length;k++) if(PAARE_BL[k].ids.indexOf(id)>=0) return PAARE_BL[k]; return null; }
+function kartenListe(l){
+  var out = [], gesehen = {};
+  l.forEach(function(i){
+    var p = paarBL(i.id), v = p ? p.ids.filter(function(id){ return l.some(function(z){return z.id===id;}); }) : [];
+    if(!p || v.length<2){ out.push(karte(i)); return; }
+    if(gesehen[p.titel]) return; gesehen[p.titel] = true;
+    var cur = AUSWAHL[p.titel] && v.indexOf(AUSWAHL[p.titel])>=0 ? AUSWAHL[p.titel] : v[0];
+    var ind = l.filter(function(z){return z.id===cur;})[0];
+    var tabs = '<div class="umsch">'+v.map(function(id){ return '<button type="button" data-p="'+p.titel+'" data-v="'+id+'" class="'+(id===cur?'on':'')+'">'+p.labels[p.ids.indexOf(id)]+'</button>'; }).join("")+'</div>';
+    out.push(karte(ind, p.titel, tabs));
+  });
+  return out.join("");
+}
+function karte(i, kopf, tabs){
   var vals = i.laender.map(function(x){return x.wert}), mn = Math.min.apply(null, vals.concat([0])), mx = Math.max.apply(null, vals.concat([0])), span = (mx-mn)||1;
   var bar = function(v){ var left=(Math.min(v,0)-mn)/span*100, w=Math.max(.8,Math.abs(v)/span*100); return '<span class="trk"><span class="bb" style="left:'+left+'%;width:'+w+'%"></span></span>'; };
   var nw = Math.max.apply(null, i.laender.map(function(x){ return fw(i,x.wert).length; })), st = ' style="--nw:'+Math.max(3.4, Math.round(nw*0.58*10)/10)+'em"';
-  var t = '<div class="card bk"><h2>'+i.name+infoIcon(i.erklaerung+" Gewertet wird: "+(i.typ==="niedrig"?"ein niedrigerer Wert gilt als besser.":i.typ==="hoch"?"ein höherer Wert gilt als besser.":"nichts, der Wert hat keine Wertung.")+" Pfeil = Veränderung über fünf Jahre ("+(i.vorPeriode||"?")+" bis "+i.periode+"), grün = besser, rot = schlechter. Eine Veränderung unter "+(i.relativ?"3 %":fw(i,i.schwelle)+" "+i.diffEinheit)+" gilt als unverändert.")+'</h2><p class="note spk">'+i.einheit+'. Stand: '+periode(i.periode)+(i.typ==="neutral"?'. Ohne Wertung.':'.')+'</p>';
+  var t = '<div class="card bk"><h2>'+(kopf||i.name)+infoIcon(i.erklaerung+" Gewertet wird: "+(i.typ==="niedrig"?"ein niedrigerer Wert gilt als besser.":i.typ==="hoch"?"ein höherer Wert gilt als besser.":"nichts, der Wert hat keine Wertung.")+" Pfeil = Veränderung über fünf Jahre ("+(i.vorPeriode||"?")+" bis "+i.periode+"), grün = besser, rot = schlechter. Eine Veränderung unter "+(i.relativ?"3 %":fw(i,i.schwelle)+" "+i.diffEinheit)+" gilt als unverändert.")+'</h2>'+(tabs ? tabs+'<p class="note spk"><b>'+i.name+'</b>. '+i.einheit : '<p class="note spk">'+i.einheit)+'. Stand: '+periode(i.periode)+(i.typ==="neutral"?'. Ohne Wertung.':'.')+'</p>';
   t += i.laender.map(function(x){
     var pf = x.richtung ? '<span class="ta '+urteilCls(x.urteil)+'" title="'+(x.urteil?trendWort(x.urteil):"")+'">'+pfeil(x.richtung)+'</span>' : '<span class="ta"></span>';
     return '<div class="row'+(hl===x.code?" at":"")+'"'+st+'><span>'+x.rang+'. '+x.name+'</span>'+bar(x.wert)+'<span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
@@ -65,10 +84,11 @@ function seite(){
   if(!B || !B.indikatoren || !B.indikatoren.length){ app.innerHTML = '<div class="card"><p>Die Bundesländer-Daten werden beim nächsten Datenabruf geladen. Bitte später wiederkommen.</p></div>' + fussnote(); return; }
   var h = (B.beispiel ? banner() : "") + regierungen() + gesamt();
   h += '<div class="leiste"><label class="note" for="hl">Bundesland hervorheben: </label><select id="hl"><option value="">keines</option>'+B.laender.map(function(l){ return '<option value="'+l.code+'"'+(hl===l.code?" selected":"")+'>'+l.name+'</option>'; }).join("")+'</select></div>';
-  B.gruppen.forEach(function(g){ var l = B.indikatoren.filter(function(i){ return i.gruppe===g; }); if(!l.length) return; h += '<h2 class="gh">'+g+'</h2>'+l.map(karte).join(""); });
+  B.gruppen.forEach(function(g){ var l = B.indikatoren.filter(function(i){ return i.gruppe===g; }); if(!l.length) return; h += '<h2 class="gh">'+g+'</h2>'+kartenListe(l); });
   h += '<div class="card"><p class="note">Quelle: '+B.quelle+'. Die Werte liegen später vor als bei den EU-Zahlen, meist mit zwei bis drei Jahren Verzögerung, und kommen zum Teil aus Stichproben, die pro Bundesland klein sind. Wo ein Bundesland stark vom Durchschnitt abweicht, liegt das oft an Besonderheiten wie Pendlerströmen (Wien) oder Alpenlage. Der Vergleich zeigt, wo ein Land steht, nicht, wer dafür verantwortlich ist. Mehr dazu in der <a href="methodik.html">Methodik</a>.</p></div>';
   h += fussnote();
   app.innerHTML = h;
+  app.onclick = function(e){ var b = e.target.closest && e.target.closest(".umsch button"); if(!b) return; AUSWAHL[b.getAttribute("data-p")] = b.getAttribute("data-v"); var y = window.scrollY; seite(); window.scrollTo(0,y); };
   document.getElementById("hl").onchange = function(){ hl = this.value; seite(); };
 }
 seite();
