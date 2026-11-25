@@ -157,6 +157,23 @@
    }
   }
  ],
+ "staedte": [
+  {
+   "code": "AT221",
+   "name": "Graz",
+   "hinweis": "zweitgrößte Stadt"
+  },
+  {
+   "code": "AT323",
+   "name": "Salzburg und Umgebung",
+   "hinweis": "Zentralösterreich, Stadt und Umland (kleinste Eurostat-Einheit)"
+  },
+  {
+   "code": "AT332",
+   "name": "Innsbruck",
+   "hinweis": "Westösterreich"
+  }
+ ],
  "regierungenStand": "2026-11-25",
  "indikatoren": [
   {
@@ -1326,6 +1343,44 @@
      "zus": "570 095 Einwohner"
     }
    ],
+   "staedte": [
+    {
+     "code": "AT221",
+     "name": "Graz",
+     "hinweis": "zweitgrößte Stadt",
+     "wert": 5.1,
+     "wertVor": 447142,
+     "diff": null,
+     "richtung": null,
+     "urteil": null,
+     "rangEinordnung": 2,
+     "zus": "469 968 Einwohner"
+    },
+    {
+     "code": "AT323",
+     "name": "Salzburg und Umgebung",
+     "hinweis": "Zentralösterreich, Stadt und Umland (kleinste Eurostat-Einheit)",
+     "wert": 2.6,
+     "wertVor": 369337,
+     "diff": null,
+     "richtung": null,
+     "urteil": null,
+     "rangEinordnung": 4,
+     "zus": "378 982 Einwohner"
+    },
+    {
+     "code": "AT332",
+     "name": "Innsbruck",
+     "hinweis": "Westösterreich",
+     "wert": 2.2,
+     "wertVor": 312414,
+     "diff": null,
+     "richtung": null,
+     "urteil": null,
+     "rangEinordnung": 8,
+     "zus": "319 242 Einwohner"
+    }
+   ],
    "ausgeblendet": false
   },
   {
@@ -1469,6 +1524,44 @@
      "rang": 9,
      "rangVor": 9,
      "prozent": 1.7
+    }
+   ],
+   "staedte": [
+    {
+     "code": "AT221",
+     "name": "Graz",
+     "hinweis": "zweitgrößte Stadt",
+     "wert": 390.5,
+     "wertVor": 370.9,
+     "diff": 19.6,
+     "richtung": "steigend",
+     "urteil": null,
+     "rangEinordnung": 2,
+     "zus": null
+    },
+    {
+     "code": "AT323",
+     "name": "Salzburg und Umgebung",
+     "hinweis": "Zentralösterreich, Stadt und Umland (kleinste Eurostat-Einheit)",
+     "wert": 224.4,
+     "wertVor": 218.2,
+     "diff": 6.2,
+     "richtung": "steigend",
+     "urteil": null,
+     "rangEinordnung": 2,
+     "zus": null
+    },
+    {
+     "code": "AT332",
+     "name": "Innsbruck",
+     "hinweis": "Westösterreich",
+     "wert": 153.3,
+     "wertVor": 150,
+     "diff": 3.3,
+     "richtung": "stabil",
+     "urteil": null,
+     "rangEinordnung": 3,
+     "zus": null
     }
    ],
    "ausgeblendet": false
