@@ -19862,7 +19862,7 @@
     "rank": 1,
     "richtung": "stabil",
     "urteil": "unverändert",
-    "zus": "19,9 Mrd. € (2024)"
+    "zus": "21,1 Mrd. €"
    },
    "schlechteste": {
     "code": "MT",
@@ -19871,7 +19871,7 @@
     "rank": 26,
     "richtung": "sinkend",
     "urteil": "schlechter",
-    "zus": "140 Mio. € (2024)"
+    "zus": "113 Mio. €"
    },
    "rangVerlauf": [
     {
@@ -19930,7 +19930,7 @@
      "rank": 1,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "19,9 Mrd. € (2024)"
+     "zus": "21,1 Mrd. €"
     },
     {
      "code": "AT",
@@ -19939,7 +19939,7 @@
      "rank": 2,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "16,5 Mrd. € (2024)"
+     "zus": "17,4 Mrd. €"
     },
     {
      "code": "BE",
@@ -19948,7 +19948,7 @@
      "rank": 3,
      "richtung": "steigend",
      "urteil": "besser",
-     "zus": "20,2 Mrd. € (2024)"
+     "zus": "21,4 Mrd. €"
     },
     {
      "code": "FI",
@@ -19957,7 +19957,7 @@
      "rank": 4,
      "richtung": "steigend",
      "urteil": "besser",
-     "zus": "8,9 Mrd. € (2024)"
+     "zus": "9,4 Mrd. €"
     },
     {
      "code": "DK",
@@ -19966,7 +19966,7 @@
      "rank": 5,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "12,6 Mrd. € (2024)"
+     "zus": "13 Mrd. €"
     },
     {
      "code": "DE",
@@ -19975,7 +19975,7 @@
      "rank": 6,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "137,1 Mrd. € (2024)"
+     "zus": "139,1 Mrd. €"
     },
     {
      "code": "NL",
@@ -19984,7 +19984,7 @@
      "rank": 7,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "26,4 Mrd. € (2024)"
+     "zus": "28,1 Mrd. €"
     },
     {
      "code": "SI",
@@ -19993,7 +19993,7 @@
      "rank": 8,
      "richtung": "steigend",
      "urteil": "besser",
-     "zus": "1,4 Mrd. € (2024)"
+     "zus": "1,7 Mrd. €"
     },
     {
      "code": "FR",
@@ -20002,7 +20002,7 @@
      "rank": 9,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "64,1 Mrd. € (2024)"
+     "zus": "65,5 Mrd. €"
     },
     {
      "code": "EE",
@@ -20011,7 +20011,7 @@
      "rank": 10,
      "richtung": "steigend",
      "urteil": "besser",
-     "zus": "791 Mio. € (2024)"
+     "zus": "871 Mio. €"
     },
     {
      "code": "CZ",
@@ -20020,7 +20020,7 @@
      "rank": 11,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "5,8 Mrd. € (2024)"
+     "zus": "6,4 Mrd. €"
     },
     {
      "code": "PT",
@@ -20029,7 +20029,7 @@
      "rank": 12,
      "richtung": "steigend",
      "urteil": "besser",
-     "zus": "5 Mrd. € (2024)"
+     "zus": "5,6 Mrd. €"
     },
     {
      "code": "EL",
@@ -20038,7 +20038,7 @@
      "rank": 13,
      "richtung": "steigend",
      "urteil": "besser",
-     "zus": "3,6 Mrd. € (2024)"
+     "zus": "4,1 Mrd. €"
     },
     {
      "code": "PL",
@@ -20047,7 +20047,7 @@
      "rank": 14,
      "richtung": "steigend",
      "urteil": "besser",
-     "zus": "12 Mrd. € (2024)"
+     "zus": "13,9 Mrd. €"
     },
     {
      "code": "IE",
@@ -20056,7 +20056,7 @@
      "rank": 15,
      "richtung": "sinkend",
      "urteil": "schlechter",
-     "zus": "8,9 Mrd. € (2024)"
+     "zus": "9 Mrd. €"
     },
     {
      "code": "IT",
@@ -20065,7 +20065,7 @@
      "rank": 16,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "31 Mrd. € (2024)"
+     "zus": "31 Mrd. €"
     },
     {
      "code": "HR",
@@ -20074,7 +20074,7 @@
      "rank": 16,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "1,2 Mrd. € (2024)"
+     "zus": "1,3 Mrd. €"
     },
     {
      "code": "HU",
@@ -20083,7 +20083,7 @@
      "rank": 18,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "2,7 Mrd. € (2024)"
+     "zus": "2,9 Mrd. €"
     },
     {
      "code": "LT",
@@ -20092,7 +20092,7 @@
      "rank": 19,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "885 Mio. € (2024)"
+     "zus": "936 Mio. €"
     },
     {
      "code": "SK",
@@ -20101,7 +20101,7 @@
      "rank": 20,
      "richtung": "steigend",
      "urteil": "besser",
-     "zus": "1,3 Mrd. € (2024)"
+     "zus": "1,5 Mrd. €"
     },
     {
      "code": "LU",
@@ -20110,7 +20110,7 @@
      "rank": 21,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "893 Mio. € (2024)"
+     "zus": "950 Mio. €"
     },
     {
      "code": "LV",
@@ -20119,7 +20119,7 @@
      "rank": 22,
      "richtung": "steigend",
      "urteil": "besser",
-     "zus": "383 Mio. € (2024)"
+     "zus": "436 Mio. €"
     },
     {
      "code": "BG",
@@ -20128,7 +20128,7 @@
      "rank": 23,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "zus": "805 Mio. € (2024)"
+     "zus": "862 Mio. €"
     },
     {
      "code": "CY",
@@ -20137,7 +20137,7 @@
      "rank": 24,
      "richtung": "sinkend",
      "urteil": "schlechter",
-     "zus": "222 Mio. € (2024)"
+     "zus": "222 Mio. €"
     },
     {
      "code": "RO",
@@ -20146,7 +20146,7 @@
      "rank": 25,
      "richtung": "steigend",
      "urteil": "besser",
-     "zus": "1,6 Mrd. € (2024)"
+     "zus": "2 Mrd. €"
     },
     {
      "code": "MT",
@@ -20155,7 +20155,7 @@
      "rank": 26,
      "richtung": "sinkend",
      "urteil": "schlechter",
-     "zus": "140 Mio. € (2024)"
+     "zus": "113 Mio. €"
     }
    ],
    "schweiz": {
@@ -20189,8 +20189,9 @@
      "eu": 1.83
     }
    ],
+   "absolutHochgerechnet": true,
    "geaendert": "2026-11-24",
-   "erklaerung": "Wie viel Geld in Forschung und Entwicklung fließt, in Prozent der gesamten Wirtschaftsleistung. Gezählt werden Ausgaben von Unternehmen, Hochschulen und Staat zusammen. Der EU-Zielwert liegt bei 3 % des BIP.",
+   "erklaerung": "Wie viel Geld in Forschung und Entwicklung fließt, in Prozent der gesamten Wirtschaftsleistung. Gezählt werden Ausgaben von Unternehmen, Hochschulen und Staat zusammen. Der EU-Zielwert liegt bei 3 % des BIP. Die Euro-Beträge in der Tabelle sind für 2025 hochgerechnet (Forschungsquote mal Wirtschaftsleistung), weil Eurostat die tatsächlichen Beträge erst später veröffentlicht.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
