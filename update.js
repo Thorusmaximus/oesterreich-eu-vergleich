@@ -148,7 +148,7 @@ const INDICATORS = [
     filter: "unit=PC_GDP&sector=S13&na_item=GD", // Maastricht-Schuldenstand des Staates
     einheit: "% des BIP, Staat insgesamt, Stand am Quartalsende", rangText: "Rang 1 = niedrigster Schuldenstand",
     typ: "niedrig", schwelle: 0.5, schwelleFix: true, mock: { base: 40, step: 5 } },
-  { id: "defizit", name: "Budgetsaldo", takt: "jahr", dataset: "gov_10dd_edpt1",
+  { id: "defizit", name: "Defizit", takt: "jahr", dataset: "gov_10dd_edpt1",
     filter: "unit=PC_GDP&sector=S13&na_item=B9", // Finanzierungssaldo des Staates, negativ = Defizit
     einheit: "% des BIP, Staat insgesamt (negativ = Defizit)",
     rangText: "Rang 1 = bester Budgetsaldo (höchster Überschuss bzw. kleinstes Defizit)",

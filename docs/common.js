@@ -166,6 +166,8 @@ function teilPille(i){
 // Zusammengeführte Kacheln: mehrere Indikatoren in einer Kachel, mit Umschalter (erster = Standardansicht)
 var PAARE = [
   { ids: ["einkommen","durchschnittseinkommen","kaufkraft"], titel: "Einkommen", labels: ["Median","Durchschnitt","Kaufkraft"], suche: "median durchschnitt einkommen kaufkraft pps" },
+  { ids: ["schulden","defizit"], titel: "Staatshaushalt", labels: ["Schulden","Defizit"], suche: "staatshaushalt staatsschulden schuldenstand schulden defizit budgetsaldo budget haushalt" },
+  { ids: ["inflation","lebenshaltung"], titel: "Preise", labels: ["Inflation","Lebenshaltung"], suche: "preise inflation teuerung lebenshaltungskosten lebenshaltung preisniveau" },
   { ids: ["wachstum","industrie"], titel: "Wirtschaftswachstum", labels: ["Gesamt","Industrie"], suche: "wirtschaftswachstum industriewachstum bip industrie" },
   { ids: ["wachstum-pro-kopf","wachstum-privat"], titel: "Wachstum", labels: ["Pro Kopf","Ohne Staat"], suche: "wachstum pro kopf ohne staat privat bip" },
   { ids: ["insolvenzen","insolvenzenEU"], titel: "Insolvenzen", labels: ["Anzahl","EU-Index"], suche: "insolvenzen pleiten firmen" },
