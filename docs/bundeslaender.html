@@ -33,11 +33,12 @@
 <script>
 var app = document.getElementById("app"), B = window.BL, hl = new URLSearchParams(location.search).get("hl") || "";
 function pille(p){ return '<span class="pt p-'+p.replace(/[^A-Za-z]/g,"")+'">'+p+'</span>'; }
+var PROPORZ = 'Proporz: Alle Parteien im Landtag ab einer bestimmten Stärke bekommen automatisch Sitze in der Landesregierung, im Verhältnis zu ihrem Wahlergebnis. Es wird keine Koalition verhandelt. In Niederösterreich und Oberösterreich gilt das bis heute, die übrigen Länder haben es abgeschafft.';
 function regierungen(){
   var L = B.laender.slice().sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
   var h = '<div class="card"><h2>Landesregierungen'+infoIcon("Wer in den Bundesländern regiert, mit Landeshauptperson und Koalition, darunter die Koalition der Regierungsperiode davor. Die Jahreszahl hinter der Partei ist das Jahr der letzten Landtagswahl. Stand: "+datum(B.regierungenStand)+". Das ist reine Information und fließt nicht in die Rangfolge ein.")+'</h2><div class="reg">';
   h += L.map(function(l){ var r = l.regierung;
-    return '<div class="regz"><div class="regn">'+l.name+'</div><div class="regl">'+r.chef+' ('+r.partei+', '+r.wahl+')</div><div class="regk">'+r.koalition.map(pille).join(" ")+'</div>'+(r.vorher?'<div class="note regv">Davor ('+r.vorher.zeit+'): '+r.vorher.koalition.map(pille).join(" ")+(r.vorher.hinweis&&r.vorher.koalition.length<2?' <small>('+r.vorher.hinweis+')</small>'+(/Proporz/.test(r.vorher.hinweis)?infoIcon('Proporz: Alle Parteien im Landtag ab einer bestimmten Stärke bekommen automatisch Sitze in der Landesregierung, im Verhältnis zu ihrem Wahlergebnis. Es wird keine Koalition verhandelt. In Niederösterreich gilt das bis heute.'):''):'')+'</div>':'')+'<div class="note">Nächste Wahl '+r.naechsteWahl+'</div></div>';
+    return '<div class="regz"><div class="regn">'+l.name+'</div><div class="regl">'+r.chef+' ('+r.partei+', '+r.wahl+')</div><div class="regk">'+r.koalition.map(pille).join(" ")+'</div>'+(r.hinweis?'<div class="note regv"><small>('+r.hinweis+')</small>'+infoIcon(PROPORZ)+'</div>':'')+(r.vorher?'<div class="note regv">Davor ('+r.vorher.zeit+'): '+r.vorher.koalition.map(pille).join(" ")+(r.vorher.hinweis?' <small>('+r.vorher.hinweis+')</small>'+(/Proporz/.test(r.vorher.hinweis)?infoIcon(PROPORZ):''):'')+'</div>':'')+'<div class="note">Nächste Wahl '+r.naechsteWahl+'</div></div>';
   }).join("");
   return h + '</div></div>';
 }
