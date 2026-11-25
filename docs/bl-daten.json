@@ -8002,126 +8002,204 @@
    "name": "Burgenland",
    "koalitionSeit": "März 2025",
    "basis": 2024,
-   "bis": null,
-   "n": 0,
+   "bis": 2025,
+   "n": 3,
    "zuKurz": true,
    "besser": 0,
-   "schlechter": 0,
-   "unveraendert": 0,
+   "schlechter": 2,
+   "unveraendert": 1,
    "besserListe": [],
-   "schlechterListe": []
+   "schlechterListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
   },
   {
    "code": "AT12",
    "name": "Niederösterreich",
    "koalitionSeit": "März 2025",
    "basis": 2024,
-   "bis": null,
-   "n": 0,
+   "bis": 2025,
+   "n": 3,
    "zuKurz": true,
    "besser": 0,
-   "schlechter": 0,
-   "unveraendert": 0,
+   "schlechter": 2,
+   "unveraendert": 1,
    "besserListe": [],
-   "schlechterListe": []
+   "schlechterListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
   },
   {
    "code": "AT13",
    "name": "Wien",
    "koalitionSeit": "März 2025",
    "basis": 2024,
-   "bis": null,
-   "n": 0,
+   "bis": 2025,
+   "n": 3,
    "zuKurz": true,
    "besser": 0,
-   "schlechter": 0,
-   "unveraendert": 0,
+   "schlechter": 2,
+   "unveraendert": 1,
    "besserListe": [],
-   "schlechterListe": []
+   "schlechterListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
   },
   {
    "code": "AT21",
    "name": "Kärnten",
    "koalitionSeit": "März 2025",
    "basis": 2024,
-   "bis": null,
-   "n": 0,
+   "bis": 2025,
+   "n": 3,
    "zuKurz": true,
    "besser": 0,
-   "schlechter": 0,
-   "unveraendert": 0,
+   "schlechter": 2,
+   "unveraendert": 1,
    "besserListe": [],
-   "schlechterListe": []
+   "schlechterListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
   },
   {
    "code": "AT22",
    "name": "Steiermark",
    "koalitionSeit": "März 2025",
    "basis": 2024,
-   "bis": null,
-   "n": 0,
+   "bis": 2025,
+   "n": 3,
    "zuKurz": true,
    "besser": 0,
-   "schlechter": 0,
-   "unveraendert": 0,
+   "schlechter": 2,
+   "unveraendert": 1,
    "besserListe": [],
-   "schlechterListe": []
+   "schlechterListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
   },
   {
    "code": "AT31",
    "name": "Oberösterreich",
    "koalitionSeit": "März 2025",
    "basis": 2024,
-   "bis": null,
-   "n": 0,
+   "bis": 2025,
+   "n": 3,
    "zuKurz": true,
-   "besser": 0,
-   "schlechter": 0,
-   "unveraendert": 0,
-   "besserListe": [],
-   "schlechterListe": []
+   "besser": 1,
+   "schlechter": 1,
+   "unveraendert": 1,
+   "besserListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    }
+   ],
+   "schlechterListe": [
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
   },
   {
    "code": "AT32",
    "name": "Salzburg",
    "koalitionSeit": "März 2025",
    "basis": 2024,
-   "bis": null,
-   "n": 0,
+   "bis": 2025,
+   "n": 3,
    "zuKurz": true,
    "besser": 0,
-   "schlechter": 0,
-   "unveraendert": 0,
+   "schlechter": 2,
+   "unveraendert": 1,
    "besserListe": [],
-   "schlechterListe": []
+   "schlechterListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
   },
   {
    "code": "AT33",
    "name": "Tirol",
    "koalitionSeit": "März 2025",
    "basis": 2024,
-   "bis": null,
-   "n": 0,
+   "bis": 2025,
+   "n": 3,
    "zuKurz": true,
    "besser": 0,
-   "schlechter": 0,
-   "unveraendert": 0,
+   "schlechter": 1,
+   "unveraendert": 2,
    "besserListe": [],
-   "schlechterListe": []
+   "schlechterListe": [
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
   },
   {
    "code": "AT34",
    "name": "Vorarlberg",
    "koalitionSeit": "März 2025",
    "basis": 2024,
-   "bis": null,
-   "n": 0,
+   "bis": 2025,
+   "n": 3,
    "zuKurz": true,
    "besser": 0,
-   "schlechter": 0,
-   "unveraendert": 0,
+   "schlechter": 2,
+   "unveraendert": 1,
    "besserListe": [],
-   "schlechterListe": []
+   "schlechterListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
   }
  ]
 }
