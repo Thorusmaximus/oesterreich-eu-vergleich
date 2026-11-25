@@ -1188,9 +1188,9 @@ function berechneVerurteilungen() {
         try {
           let ab = null;
           if (TEST) { ab = {}; r.laender.forEach((x, k) => { ab[x.code] = { [r.periode]: 1000 + 700 * k }; }); }
-          else { const res = await fetch(`${BASE}${ind.dataset}?format=JSON&lang=EN&${ind.absolut.filter}&sinceTimePeriod=${r.periode}`); if (!res.ok) throw new Error("HTTP " + res.status); ab = parse(await res.json()); }
+          else { const res = await fetch(`${BASE}${ind.dataset}?format=JSON&lang=EN&${ind.absolut.filter}&sinceTimePeriod=${+r.periode - 3}`); if (!res.ok) throw new Error("HTTP " + res.status); ab = parse(await res.json()); }
           const fmt = v => v >= 1000 ? (v / 1000).toLocaleString("de-AT", { maximumFractionDigits: 1 }) + " Mrd. €" : Math.round(v).toLocaleString("de-AT") + " Mio. €";
-          r.laender.forEach(x => { const v = ab[x.code]?.[r.periode]; if (v != null) x.zus = fmt(v); });
+          r.laender.forEach(x => { const ys = Object.keys(ab[x.code] || {}).filter(y => y <= r.periode).sort(), y = ys[ys.length - 1]; if (y) x.zus = fmt(ab[x.code][y]) + (y !== r.periode ? " (" + y + ")" : ""); });
         } catch (e) { console.error(`   (absolute Zahlen für ${ind.name} nicht geladen: ${e.message})`); }
       }
       if (ind.real && !TEST) await realTrend(r, ind);
