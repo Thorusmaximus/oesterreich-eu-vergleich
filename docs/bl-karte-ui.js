@@ -43,10 +43,10 @@ function kmPanel() {
   }
   if (bi) h += '<p><b>Gesamtbild:</b> Platz ' + bi.platz + ' (Ø ' + bi.durchschnittsrang.toLocaleString("de-AT", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ')' + (bi.platzVor != null ? ', früher Platz ' + bi.platzVor : '') + ', bei ' + bi.besser + ' Indikatoren besser und bei ' + bi.schlechter + ' schlechter als früher.</p>';
   var gew = []; B.indikatoren.forEach(function (i) { if (i.ausgeblendet || i.typ === "neutral") return; var x = i.laender.filter(function (z) { return z.code === code; })[0]; if (x && x.rang != null) gew.push({ i: i, x: x }); });
-  var st = gew.filter(function (g) { return g.x.rang <= 2; }).sort(function (a, b) { return a.x.rang - b.x.rang; }).slice(0, 5);
-  var sc = gew.filter(function (g) { return g.x.rang >= g.i.anzahl - 1; }).sort(function (a, b) { return (b.x.rang - b.i.anzahl) - (a.x.rang - a.i.anzahl); }).slice(0, 5);
+  var st = gew.filter(function (g) { return g.x.rang <= 3; }).sort(function (a, b) { return a.x.rang - b.x.rang; });
+  var sc = gew.filter(function (g) { return g.x.rang >= g.i.anzahl - 2; }).sort(function (a, b) { return (b.x.rang - b.i.anzahl) - (a.x.rang - a.i.anzahl); });
   var li = function (a) { return a.length ? '<ul>' + a.map(function (g) { return '<li>' + g.i.name + ' (Platz ' + g.x.rang + ')</li>'; }).join("") + '</ul>' : '<p class="note">keine</p>'; };
-  h += '<div class="kmsw"><div><h4 class="good">Stärken</h4>' + li(st) + '</div><div><h4 class="bad">Schwächen</h4>' + li(sc) + '</div></div>';
+  h += '<div class="kmsw"><div><h4 class="good">Stärken (Platz 1 bis 3)</h4>' + li(st) + '</div><div><h4 class="bad">Schwächen (Platz 7 bis 9)</h4>' + li(sc) + '</div></div>';
   var bes = gew.filter(function (g) { return g.x.urteil === "besser"; }).slice(0, 4), sch = gew.filter(function (g) { return g.x.urteil === "schlechter"; }).slice(0, 4);
   var lj = function (a) { return a.length ? a.map(function (g) { return g.i.name; }).join(", ") : "keine"; };
   h += '<p class="note"><b>Verbessert:</b> ' + lj(bes) + '<br><b>Verschlechtert:</b> ' + lj(sch) + '</p>';
