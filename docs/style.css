@@ -216,3 +216,4 @@ svg{width:100%;height:auto;display:block}
 .btile .pl.pg,.btile .pl.ps{color:inherit}.btile .pl.pg b{color:var(--good)}.btile .pl.ps b{color:var(--bad)}
 .btile .pl.pg .ln{color:var(--good)}.btile .pl.ps .ln{color:var(--bad)}
 .tiles + .card,.tiles + p.note{margin-top:14px}
+.btile .pl.pg b,.btile .pl.ps b{color:inherit}.btile .pl.pg b:first-child{color:var(--good)}.btile .pl.ps b:first-child{color:var(--bad)}
