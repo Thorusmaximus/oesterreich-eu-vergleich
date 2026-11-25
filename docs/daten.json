@@ -8433,7 +8433,7 @@
   },
   {
    "id": "benzin",
-   "name": "Benzinpreis",
+   "name": "Benzinpreise",
    "pfeilModus": "wert",
    "typ": "niedrig",
    "dez": 1,
@@ -9334,7 +9334,7 @@
   },
   {
    "id": "diesel",
-   "name": "Dieselpreis",
+   "name": "Dieselpreise",
    "pfeilModus": "wert",
    "typ": "niedrig",
    "dez": 1,
@@ -25518,7 +25518,7 @@
   },
   {
    "id": "strompreis",
-   "name": "Strompreis für Haushalte",
+   "name": "Strompreise für Haushalte",
    "pfeilModus": "wert",
    "typ": "niedrig",
    "dez": 1,
@@ -25919,7 +25919,7 @@
   },
   {
    "id": "strompreis-industrie",
-   "name": "Strompreis für Industrie",
+   "name": "Strompreise für Industrie",
    "pfeilModus": "wert",
    "typ": "niedrig",
    "dez": 1,
