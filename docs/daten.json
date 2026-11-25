@@ -1,6 +1,6 @@
 {
  "beispiel": false,
- "aktualisiert": "2026-11-24",
+ "aktualisiert": "2026-11-25",
  "quelle": "Eurostat",
  "regierung": {
   "name": "Regierung Stocker",
@@ -6156,7 +6156,7 @@
     }
    ],
    "schweiz": {
-    "wert": 0.4,
+    "wert": 0.7,
     "periode": "2025"
    },
    "verlauf": [
@@ -28361,6 +28361,75 @@
    "geaendert": "2026-11-23",
    "erklaerung": "Wie viele Unternehmen in Österreich pro Jahr insolvent werden (eröffnete Verfahren und mangels Vermögen abgewiesene Anträge), laut KSV1870. Das gilt nur für Österreich, ein Vergleich mit anderen Ländern ist hier nicht möglich.",
    "gruppe": "Wirtschaft und Arbeit"
+  },
+  {
+   "id": "verurteilungen",
+   "name": "Verurteilungen",
+   "art": "verurteilungen",
+   "takt": "jahr",
+   "typ": "neutral",
+   "pfeilModus": "wert",
+   "stand": "2026-11-25",
+   "quelle": "Statistik Austria, Gerichtliche Kriminalstatistik 2025 (veröffentlicht am 2.6.2026)",
+   "quelleUrl": "https://www.statistik.at/fileadmin/announcement/2026/06/20260602Kriminalitaet2025.pdf",
+   "hinweis": "Gezählt werden Delikte, für die Menschen rechtskräftig verurteilt wurden, nicht die Zahl der Personen. Es gibt hier nur zwei Jahre nach Delikt, die Veränderung kann deshalb zufällig sein. Eine Verurteilung kommt erst Jahre nach der Tat, die Zahl zeigt also nicht, wie viel im selben Jahr passiert ist.",
+   "einheit": "Verurteilte Delikte pro Jahr in Österreich",
+   "periode": "2025",
+   "vorherPeriode": "2024",
+   "schwelleProzent": 5,
+   "delikte": [
+    {
+     "id": "mord",
+     "name": "Mord",
+     "wert": 83,
+     "wertVorher": 109,
+     "veraenderungProzent": -23.9,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "id": "koerperverletzung",
+     "name": "(Schwere) Körperverletzung",
+     "wert": 6584,
+     "wertVorher": 6397,
+     "veraenderungProzent": 2.9,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "id": "sexualdelikte",
+     "name": "Sexualdelikte",
+     "wert": 1450,
+     "wertVorher": 1443,
+     "veraenderungProzent": 0.5,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "id": "raub",
+     "name": "(Schwerer) Raub",
+     "wert": 683,
+     "wertVorher": 779,
+     "veraenderungProzent": -12.3,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    }
+   ],
+   "gesamtPersonen": {
+    "2023": 25033,
+    "2024": 25445,
+    "2025": 25195
+   },
+   "oesterreich": {
+    "wert": 25195,
+    "wertVorher": 25445,
+    "rang": null,
+    "urteil": null,
+    "richtung": null
+   },
+   "geaendert": "2026-11-25",
+   "erklaerung": "Wie viele Delikte in Österreich pro Jahr zu einer rechtskräftigen Verurteilung geführt haben, getrennt nach Mord, Körperverletzung, Sexualdelikten und Raub. Weniger Verurteilungen gelten hier als besser, in der Gesamtbilanz auf der Startseite zählt das Fenster aber nicht mit.",
+   "gruppe": "Sicherheit"
   }
  ]
 }
