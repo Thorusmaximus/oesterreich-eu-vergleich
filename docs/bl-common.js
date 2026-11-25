@@ -8,7 +8,7 @@ var PAARE_BL = [
   { titel: "Unternehmen", ids: ["unternehmenswachstum","unternehmensdichte"], labels: ["Wachstum","Dichte"] },
   { titel: "Schulden", ids: ["schulden","schuldenGebarung"], labels: ["Weit gefasst","Landeshaushalt"] },
   { titel: "Insolvenzen", ids: ["insolvenzen","insolvenzenEinwohner"], labels: ["Je Unternehmen","Je Einwohner"] },
-  { titel: "Kaufpreise", ids: ["kaufpreise","kaufpreisWohnungen","kaufpreisHaeuser"], labels: ["Durchschnitt","Wohnungen","Häuser"] },
+  { titel: "Immobilienpreise", ids: ["kaufpreise","kaufpreisWohnungen","kaufpreisHaeuser"], labels: ["Durchschnitt","Wohnungen","Häuser"] },
   { titel: "Lebenserwartung", ids: ["lebenserwartung","lebenserwartung65"], labels: ["Bei Geburt","Mit 65"] },
   { titel: "Gesundheit", ids: ["saeuglingssterblichkeit","krankenhausbetten","spitalsaufenthalte"], labels: ["Säuglinge","Betten","Aufenthalte"] },
   { titel: "Sicherheit", ids: ["straftaten","aufklaerung","verkehrstote"], labels: ["Straftaten","Aufklärung","Verkehr"] },
