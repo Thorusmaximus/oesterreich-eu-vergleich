@@ -23393,7 +23393,7 @@
    "dez": 1,
    "suffix": " %",
    "diffEinheit": "Prozentpunkte",
-   "hinweis": "Ein hoher Anteil hängt auch von den natürlichen Gegebenheiten ab, etwa von Wasserkraft in den Alpen.",
+   "hinweis": "Ein hoher Anteil hängt auch von den natürlichen Gegebenheiten ab, etwa von Wasserkraft in den Alpen. Warum es keine Wertung gibt, steht im ⓘ.",
    "umstritten": false,
    "trendNeutral": true,
    "schwelle": 0.79,
@@ -23725,7 +23725,7 @@
     }
    ],
    "geaendert": "2026-11-24",
-   "erklaerung": "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft ist in Österreich ein großer Teil davon.",
+   "erklaerung": "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft ist in Österreich ein großer Teil davon. Warum hier keine Wertung steht: Ein hoher Anteil sagt noch nicht, ob die Energieversorgung dadurch besser ist. Er hängt stark von den natürlichen Gegebenheiten ab, etwa von Wasserkraft in den Alpen oder Sonne und Wind. Dazu kommen Fragen, die der Anteil nicht zeigt: Wie verlässlich ist die Versorgung, wenn Wind und Sonne ausfallen? Was kostet der Ausbau von Anlagen, Netzen und Speichern? Und wie stark werden die Stromnetze belastet? Auch Biomasse (vor allem Holz) zählt mit, was nicht unumstritten ist. Ob mehr Erneuerbare wichtiger sind als niedrige Kosten oder Versorgungssicherheit, ist eine Abwägung, die diese Seite nicht vorgibt. Für Kosten und Abhängigkeit gibt es eigene Indikatoren (Strompreise, Energieabhängigkeit).",
    "gruppe": "Preise und Kosten"
   },
   {
