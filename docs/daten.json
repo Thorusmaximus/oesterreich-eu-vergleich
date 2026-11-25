@@ -24426,7 +24426,7 @@
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "ausgeblendet": true,
    "erklaerung": "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Energie und Klima"
   },
   {
    "id": "nettozuwanderung",
