@@ -111,7 +111,7 @@ else {
     if(!liste.length && !vl.length) return "";
     var z = {besser:0, schlechter:0, gleich:0, neutral:0}; D.indikatoren.forEach(function(i){ if((i.gruppe||"Weitere")===g && (i.oesterreich || kombiVon(i))) bilanzen(i).forEach(function(b){ z[b]++; }); });
     var bil = '<span class="bil">'+(z.besser?'<span class="good">'+z.besser+' besser</span>':'')+(z.schlechter?'<span class="bad">'+z.schlechter+' schlechter</span>':'')+(z.gleich?'<span>'+z.gleich+' unverändert</span>':'')+(z.neutral?'<span>'+z.neutral+' ohne Wertung</span>':'')+'</span>';
-    return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+(vl.length?'<button type="button" class="vbtn" data-t="('+vl.length+' ausgeblendet)" aria-expanded="false" title="Diese Kacheln haben noch keine Daten ab 2025">('+vl.length+' ausgeblendet)</button>':'')+'</h2>'+(vl.length?'<div class="tiles vtiles" hidden><p class="note vnote">Noch keine Daten ab 2025, daher normalerweise ausgeblendet. Sie erscheinen automatisch regulär, sobald neuere Daten vorliegen.</p>'+vl.map(function(i){ var k; try{ k=kachel(i); }catch(e){ k='<a class="card tile" href="indikator.html?id='+i.id+'"><div class="t">'+i.name+'</div><div class="note">Jüngste Daten: '+periode(i.periode)+'</div><div class="more">Details →</div></a>'; } return '<div class="vk">'+k+'</div>'; }).join('')+'</div>':'')+'<div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-r="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return rangStatus(byId[id])||''; }).join(' ') : (rangStatus(i)||''))+'" data-b="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return bilanzen(byId[id]).join(' '); }).join(' ') : bilanzen(i).join(' '))+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var k=kombiVon(i); if(!k) return kachel(i); return k.v.map(function(id,n){ return '<div class="var" data-v="'+id+'" data-r="'+(rangStatus(byId[id])||'')+'" data-b="'+bilanzen(byId[id]).join(' ')+'" data-n="'+(byId[id].name+' '+id).toLowerCase().replace(/"/g,'')+'"'+(n?' style="display:none"':'')+'>'+kachel(byId[id])+'</div>'; }).join(''); })()+'</div>'; }).join('')+'</div></section>';
+    return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+(vl.length?'<button type="button" class="vbtn" data-t="('+vl.length+' ausgeblendet)" aria-expanded="false" title="Diese Kacheln haben noch keine Daten ab 2025">('+vl.length+' ausgeblendet)</button>':'')+'</h2>'+(vl.length?'<div class="tiles vtiles" hidden><p class="note vnote">Noch keine Daten ab 2025, daher normalerweise ausgeblendet. Sie erscheinen automatisch regulär, sobald neuere Daten vorliegen.</p>'+vl.map(function(i){ var k; try{ k=kachel(i); }catch(e){ k='<a class="card tile" href="indikator.html?id='+i.id+'"><div class="t">'+i.name+'</div><div class="note">Jüngste Daten: '+periode(i.periode)+'</div><div class="more">Details →</div></a>'; } return '<div class="vk" data-n="'+i.name.toLowerCase().replace(/"/g,'')+'">'+k+'</div>'; }).join('')+'</div>':'')+'<div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-r="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return rangStatus(byId[id])||''; }).join(' ') : (rangStatus(i)||''))+'" data-b="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return bilanzen(byId[id]).join(' '); }).join(' ') : bilanzen(i).join(' '))+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var k=kombiVon(i); if(!k) return kachel(i); return k.v.map(function(id,n){ return '<div class="var" data-v="'+id+'" data-r="'+(rangStatus(byId[id])||'')+'" data-b="'+bilanzen(byId[id]).join(' ')+'" data-n="'+(byId[id].name+' '+id).toLowerCase().replace(/"/g,'')+'"'+(n?' style="display:none"':'')+'>'+kachel(byId[id])+'</div>'; }).join(''); })()+'</div>'; }).join('')+'</div></section>';
   }).join('');
   h += '<div class="leiste"><button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Gruppen filtern"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Gruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
   + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>'
@@ -119,15 +119,16 @@ else {
   h += fussnote();
   app.innerHTML = h;
   neuesteLeiste();
-  app.addEventListener("click", function(e){ var b=e.target.closest&&e.target.closest(".vbtn"); if(!b) return; var t=b.closest("section").querySelector(".vtiles"); var auf=t.hidden; t.hidden=!auf; b.setAttribute("aria-expanded",auf?"true":"false"); b.textContent=auf?"(ausgeblendete Kacheln verbergen)":b.getAttribute("data-t"); });
+  app.addEventListener("click", function(e){ var b=e.target.closest&&e.target.closest(".vbtn"); if(!b) return; var t=b.closest("section").querySelector(".vtiles"); var auf=b.getAttribute("aria-expanded")!=="true"; t.hidden=!auf && fSt!=="ausgebl"; b.setAttribute("aria-expanded",auf?"true":"false"); b.textContent=auf?"(ausgeblendete Kacheln verbergen)":b.getAttribute("data-t"); });
   (function(){
     var z = {besser:0, schlechter:0, gleich:0, neutral:0};
     D.indikatoren.forEach(function(i){ if(i.oesterreich){ bilanzen(i).forEach(function(b){ if(z[b]!==undefined) z[b]++; }); } });
+    z.ausgebl = versteckt.length;
     var el = document.getElementById("zahlen"), mk = function(k, txt){ return '<button type="button" class="zb '+k+'" data-fz="'+k+'" aria-pressed="false"><b>'+z[k]+'</b> '+txt+'</button>'; };
     var r = {rbesser:0, rschlechter:0, rgleich:0};
     D.indikatoren.forEach(function(i){ var s = rangStatus(i); if(s) r[s]++; });
     var mr = function(k, txt){ return '<button type="button" class="zb rb '+k+'" data-fz="'+k+'" aria-pressed="false"><b>'+r[k]+'</b> '+txt+'</button>'; };
-    el.innerHTML = '<div class="zrow">'+mk("besser","verbessert")+mk("schlechter","verschlechtert")+mk("gleich","unverändert")+mk("neutral","ohne Wertung")+infoIcon("Gezählt wird jeder Indikator einzeln, bei zusammengeführten Fenstern jede Variante. Die Zahlen zeigen, wie sich Österreich seit dem Amtsantritt verändert hat, nicht, warum. Ein Tipp auf eine Zahl zeigt nur die passenden Fenster, ein zweiter Tipp hebt den Filter wieder auf.")+'</div>'
+    el.innerHTML = '<div class="zrow">'+mk("besser","verbessert")+mk("schlechter","verschlechtert")+mk("gleich","unverändert")+mk("neutral","ohne Wertung")+(versteckt.length?mk("ausgebl","ausgeblendet"):"")+infoIcon("Gezählt wird jeder Indikator einzeln, bei zusammengeführten Fenstern jede Variante. Die Zahlen zeigen, wie sich Österreich seit dem Amtsantritt verändert hat, nicht, warum. „Ausgeblendet“ sind Indikatoren, zu denen es noch keine Daten ab 2025 gibt. Ein Tipp auf eine Zahl zeigt nur die passenden Fenster, ein zweiter Tipp hebt den Filter wieder auf.")+'</div>'
       + '<div class="zrow"><span class="zl">EU-Platzierung seit Amtsantritt:</span>'+mr("rbesser","verbessert")+mr("rschlechter","verschlechtert")+mr("rgleich","unverändert")+infoIcon("Hier zählt nur, ob sich Österreichs Platz unter den EU-Ländern seit dem Amtsantritt verbessert oder verschlechtert hat. Das ist unabhängig vom Trend der Werte. Nur Indikatoren mit Wertung werden gezählt. Einige Indikatoren gibt es nur für Österreich (etwa Insolvenzen und Verurteilungen). Sie lassen sich nicht mit anderen EU-Ländern vergleichen und kommen hier deshalb nicht vor.")+'</div>'
     el.hidden = false;
     el.addEventListener("click", function(e){
@@ -141,6 +142,7 @@ else {
     var q = (document.getElementById("suche").value||"").trim().toLowerCase();
     document.querySelectorAll(".kw").forEach(function(w){
       var bs = w.getAttribute("data-b").split(" "), rs = w.getAttribute("data-r").split(" "), passt = (fSt==="alle" || bs.indexOf(fSt)>=0) && (fRk==="alle" || rs.indexOf(fRk)>=0);
+      if(fSt==="ausgebl"){ w.style.display = "none"; return; }
       w.style.display = (passt && (!q || w.getAttribute("data-n").indexOf(q)>=0)) ? "" : "none";
       var vars = w.querySelectorAll(".var"); if(!vars.length) return;
       // Passende Variante: 1. Treffer der Suche (nach Name), 2. Wertungsfilter, 3. zuletzt gewählte (Standard: erste)
@@ -159,7 +161,13 @@ else {
       var ok = {}; vars.forEach(function(v){ ok[v.getAttribute("data-v")] = okF(v); });
       w.querySelectorAll(".umsch button").forEach(function(bt){ bt.style.display = ok[bt.getAttribute("data-v")] ? "" : "none"; });
     });
-    document.querySelectorAll(".gruppe").forEach(function(s){ var gOk = !fGr || s.getAttribute("data-g")===fGr; s.style.display = gOk && s.querySelector(".kw:not([style*='none'])") ? "" : "none"; });
+    var av = fSt==="ausgebl";
+    document.querySelectorAll(".vtiles").forEach(function(t){
+      var btn = t.closest("section").querySelector(".vbtn"), offen = btn && btn.getAttribute("aria-expanded")==="true";
+      t.hidden = !(av || offen);
+      t.querySelectorAll(".vk").forEach(function(k){ k.style.display = (!av || !q || k.getAttribute("data-n").indexOf(q)>=0) ? "" : "none"; });
+    });
+    document.querySelectorAll(".gruppe").forEach(function(s){ var gOk = !fGr || s.getAttribute("data-g")===fGr; s.style.display = gOk && (s.querySelector(".kw:not([style*='none'])") || (av && s.querySelector(".vk:not([style*='none'])"))) ? "" : "none"; });
   }
   window.__st = function(f){
     if(f.charAt(0)==="r" && f!=="rgleich" || f==="rgleich") fRk = (fRk===f ? "alle" : f); else fSt = (fSt===f ? "alle" : f);
