@@ -1,7 +1,7 @@
 // gemeinsame Funktionen der Bundesländer-Seiten (benötigt common.js und eine globale Variable hl)
 function fw(i, v){ return v==null ? "–" : v.toLocaleString("de-AT",{minimumFractionDigits:i.dez,maximumFractionDigits:i.dez}) + (i.suffix||"").replace(/ /g," "); }
 var PAARE_BL = [
-  { titel: "Arbeitsmarkt", ids: ["arbeitslosigkeit","arbeitslosigkeitAms","beschaeftigung"], labels: ["Arbeitslos (Eurostat)","Arbeitslos (AMS)","Jobquote"] },
+  { titel: "Arbeitsmarkt", ids: ["arbeitslosigkeitAms","arbeitslosigkeit","beschaeftigung"], labels: ["Arbeitslos (AMS)","Arbeitslos (Eurostat)","Jobquote"] },
   { titel: "Einkommen", ids: ["bip","einkommen"], labels: ["Wirtschaftsleistung","Haushalte"] },
   { titel: "Bevölkerung", ids: ["bevoelkerung","bevoelkerung1","bevoelkerungsdichte","geburtenrate"], labels: ["5 Jahre","1 Jahr","Dichte","Geburten"] },
   { titel: "Zuwanderung", ids: ["nettozuwanderung","zuzug","wegzug"], labels: ["Netto","Zuzug","Wegzug"] },

@@ -218,5 +218,5 @@ svg{width:100%;height:auto;display:block}
 .tiles + .card,.tiles + p.note{margin-top:14px}
 .btile .pl.pg b,.btile .pl.ps b{color:inherit}.btile .pl.pg b:first-child{color:var(--good)}.btile .pl.ps b:first-child{color:var(--bad)}
 .rank.gut{color:var(--good)}.rank.schlecht{color:var(--bad)}.rank.gut small,.rank.schlecht small{color:var(--mut)}
-.umsch.zwei{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,auto);grid-auto-flow:column;gap:4px}.umsch.zwei button{text-align:center;padding:3px 4px;overflow:hidden;text-overflow:ellipsis}
+.umsch.zwei{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px}.umsch.zwei button{text-align:center;padding:3px 4px;overflow:hidden;text-overflow:ellipsis}
 .btile .nm{margin:6px 0 0}
