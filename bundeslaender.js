@@ -28,6 +28,7 @@ const STAEDTE = [
 ];
 const STADT_DATEN = {
   bip: [{ dataset: "nama_10r_3gdp", filter: "unit=EUR_HAB" }],
+  bevoelkerung1: [{ dataset: "demo_r_pjanaggr3", filter: "sex=T&age=TOTAL&unit=NR" }, { dataset: "demo_r_pjanaggr3", filter: "sex=T&age=TOTAL" }],
   bevoelkerung: [{ dataset: "demo_r_pjanaggr3", filter: "sex=T&age=TOTAL&unit=NR" }, { dataset: "demo_r_pjanaggr3", filter: "sex=T&age=TOTAL" }],
   bevoelkerungsdichte: [{ dataset: "demo_r_d3dens", filter: "unit=PER_KM2" }]
 };
@@ -59,9 +60,12 @@ const IND = [
   { id: "lebenserwartung65", name: "Lebenserwartung mit 65", gruppe: 4, dataset: "demo_r_mlifexp", filter: "sex=T&age=Y65&unit=YR", alternativen: [{ dataset: "demo_r_mlifexp", filter: "sex=T&age=Y65" }], dez: 1, suffix: " Jahre", typ: "hoch", diffEinheit: "Jahre",
     einheit: "Weitere durchschnittliche Lebenserwartung eines 65-Jährigen in Jahren", rangText: "Rang 1 = höchste Lebenserwartung mit 65",
     erklaerung: "Wie viele Jahre ein 65-jähriger Mensch im Schnitt noch leben würde, wenn die heutigen Sterberaten gelten. Sie zeigt, wie es um die Gesundheit im Alter steht, und ist weniger von früher Sterblichkeit abhängig.", mock: { base: 20, step: 0.3 } },
-  { id: "bevoelkerung", name: "Bevölkerungswachstum", gruppe: 2, dataset: "demo_r_d2jan", filter: "sex=T&age=TOTAL", dez: 1, suffix: " %", typ: "neutral", diffEinheit: "Prozent", relativ: true, wachstumProzent: true,
+  { id: "bevoelkerung", name: "Bevölkerungswachstum (5 Jahre)", gruppe: 2, dataset: "demo_r_d2jan", filter: "sex=T&age=TOTAL", dez: 1, suffix: " %", typ: "neutral", diffEinheit: "Prozent", relativ: true, wachstumProzent: true,
     einheit: "Veränderung der Einwohnerzahl in den letzten fünf Jahren in %, darunter die Einwohner am 1. Jänner", rangText: "Rang 1 = stärkstes Wachstum",
     erklaerung: "Um wie viel Prozent die Einwohnerzahl in fünf Jahren gewachsen oder gesunken ist. Darunter steht die aktuelle Einwohnerzahl. Ohne Wertung.", mock: { base: 300000, step: 150000 } },
+  { id: "bevoelkerung1", name: "Bevölkerungswachstum (1 Jahr)", gruppe: 2, dataset: "demo_r_d2jan", filter: "sex=T&age=TOTAL", dez: 1, suffix: " %", typ: "neutral", diffEinheit: "Prozent", relativ: true, wachstumProzent: true, trendMax: 1, trendMin: 1,
+    einheit: "Veränderung der Einwohnerzahl im letzten Jahr in %, darunter die Einwohner am 1. Jänner", rangText: "Rang 1 = stärkstes Wachstum",
+    erklaerung: "Um wie viel Prozent die Einwohnerzahl im letzten Jahr gewachsen oder gesunken ist. Darunter steht die aktuelle Einwohnerzahl. Ohne Wertung.", mock: { base: 300000, step: 150000 } },
   { id: "bevoelkerungsdichte", name: "Bevölkerungsdichte", gruppe: 2, dataset: "demo_r_d3dens", filter: "unit=PER_KM2", dez: 0, suffix: "", typ: "neutral", diffEinheit: "Einwohner pro km²",
     einheit: "Einwohner pro Quadratkilometer", rangText: "Rang 1 = am dichtesten besiedelt",
     erklaerung: "Wie dicht ein Bundesland besiedelt ist. Wien ist als Großstadt weit vorne, die Alpenländer liegen niedrig, weil viel Fläche unbewohnbar ist.", mock: { base: 70, step: 30 } },
@@ -145,7 +149,7 @@ function auswerten(ind, daten) {
   const ry = jahre.filter(y => +y <= ly && +y >= ly - 10 && LAENDER.filter(l => daten[l.code]?.[y] != null).length >= minL);
   const reihe = ry.length >= 3 ? { jahre: ry, einheitText: ind.wachstumProzent ? "Einwohner" : null, laender: Object.fromEntries(LAENDER.map(l => [l.code, ry.map(y => daten[l.code]?.[y] ?? null)])) } : null;
   return { id: ind.id, name: ind.name, gruppe: GRUPPEN[ind.gruppe], typ, dez, suffix: ind.suffix, diffEinheit: ind.diffEinheit, einheit: ind.einheit, rangText: ind.rangText,
-    erklaerung: ind.erklaerung, relativ: !!ind.relativ && !ind.wachstumProzent, ohneTrend: false, trendInfo: ind.wachstumProzent ? "Die Zahl selbst ist die Veränderung über fünf Jahre (" + vor + " bis " + letzt + "), deshalb gibt es keinen Pfeil." : null, periode: letzt, vorPeriode: vor, schwelle: ind.relativ ? 3 : schwelle, schwelleArt: ind.relativ ? "Prozent" : "absolut", dataset: ind.dataset,
+    erklaerung: ind.erklaerung, relativ: !!ind.relativ && !ind.wachstumProzent, ohneTrend: false, trendInfo: ind.wachstumProzent ? "Die Zahl selbst ist die Veränderung von " + vor + " bis " + letzt + ", deshalb gibt es keinen Pfeil." : null, periode: letzt, vorPeriode: vor, schwelle: ind.relativ ? 3 : schwelle, schwelleArt: ind.relativ ? "Prozent" : "absolut", dataset: ind.dataset,
     oesterreich: at != null ? { wert: at, wertVor: atVor } : null, anzahl: laender.length, laender, reihe };
 }
 
@@ -221,7 +225,7 @@ async function staedteDazu(r, { TEST, BASE, parse }) {
   let d = null, fehler = null;
   for (const k of kand) {
     try {
-      if (TEST) { d = Object.fromEntries(STAEDTE.map((c, i) => [c.code, { [r.periode]: (r.id === "bevoelkerung" ? 200000 : 30000) + i * 40000, [r.vorPeriode]: (r.id === "bevoelkerung" ? 190000 : 28000) + i * 40000 }])); break; }
+      if (TEST) { d = Object.fromEntries(STAEDTE.map((c, i) => [c.code, { [r.periode]: ((r.id === "bevoelkerung" || r.id === "bevoelkerung1") ? 200000 : 30000) + i * 40000, [r.vorPeriode]: ((r.id === "bevoelkerung" || r.id === "bevoelkerung1") ? 190000 : 28000) + i * 40000 }])); break; }
       const res = await fetch(`${BASE}${k.dataset}?format=JSON&lang=EN&${k.filter}&${STAEDTE.map(c => "geo=" + c.code).join("&")}&sinceTimePeriod=${SEIT}`);
       if (!res.ok) throw new Error("HTTP " + res.status + " " + (await res.text()).slice(0, 200));
       d = parse(await res.json()); break;
@@ -241,7 +245,7 @@ async function staedteDazu(r, { TEST, BASE, parse }) {
     const w0 = d[c.code]?.[per], wv = vorP ? d[c.code]?.[vorP] : null;
     if (w0 == null) continue;
     let wert = w0, zus = null, diff = null, richtung = null, urteil = null;
-    if (r.id === "bevoelkerung") { if (wv == null) continue; wert = runden((w0 - wv) / Math.abs(wv) * 100, 1); zus = w0.toLocaleString("de-AT") + " Einwohner"; }
+    if (r.id === "bevoelkerung" || r.id === "bevoelkerung1") { if (wv == null) continue; wert = runden((w0 - wv) / Math.abs(wv) * 100, 1); zus = w0.toLocaleString("de-AT") + " Einwohner"; }
     else if (wv != null) {
       diff = runden(w0 - wv, dez + 2);
       richtung = r.relativ ? ((w0 - wv) / wv * 100 > 3 ? "steigend" : (w0 - wv) / wv * 100 < -3 ? "sinkend" : "stabil") : (diff > r.schwelle ? "steigend" : diff < -r.schwelle ? "sinkend" : "stabil");
