@@ -437,7 +437,7 @@ const INDICATORS = [
     alternativen: [ { dataset: "rd_e_gerdtot", filter: "unit=PC_GDP" }, { dataset: "rd_e_gerdtot", filter: "sectperf=TOTAL&unit=PC_GDP&freq=A" } ],
     maxAlter: 36, dez: 2, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Ausgaben für Forschung und Entwicklung in % des BIP", rangText: "Rang 1 = höchste Forschungsquote",
-    ausblenden2025: true,
+    ausblenden2025: true, absolut: { filter: "sectperf=TOTAL&unit=MIO_EUR" },
     typ: "hoch", schwelle: 0.1, mock: { base: 10, step: 1 } }
   ,{ id: "ausgabenBildung", name: "Staatsausgaben Bildung", takt: "jahr", dataset: "gov_10a_exp",
     filter: "unit=PC_GDP&sector=S13&cofog99=GF09&na_item=TE",
@@ -479,7 +479,7 @@ const INDICATORS = [
     hinweis: "Der unbereinigte Wert vergleicht alle Frauen mit allen Männern. Er berücksichtigt nicht, dass Frauen häufiger in Teilzeit und in schlechter bezahlten Branchen arbeiten.",
     ausblenden2025: true,
     typ: "niedrig", schwelle: 0.5, mock: { base: 10, step: 1 } }
-  ,{ id: "erneuerbare", name: "Erneuerbare Energie", takt: "jahr", dataset: "nrg_ind_ren",
+  ,{ id: "erneuerbare", name: "Anteil erneuerbarer Energie", takt: "jahr", dataset: "nrg_ind_ren",
     filter: "nrg_bal=REN&unit=PC",
     alternativen: [ { dataset: "nrg_ind_ren", filter: "nrg_bal=REN" }, { dataset: "nrg_ind_ren", filter: "nrg_bal=REN&unit=PC&freq=A" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
@@ -1183,6 +1183,15 @@ function berechneVerurteilungen() {
         r.oesterreich.bestand = mio("AT", r.periode); r.oesterreich.bestandVorher = mio("AT", String(+r.periode - 1));
         r.bestandVerlauf = Object.keys(pop.AT || {}).sort().slice(-6).map(t => ({ t, wert: mio("AT", t) }));
         r.bestandEU = mio("EU27_2020", r.periode);
+      }
+      if (ind.absolut) { // absolute Zahlen zusätzlich in Klammern (nur Anzeige, geht nicht in Rang oder Trend ein)
+        try {
+          let ab = null;
+          if (TEST) { ab = {}; r.laender.forEach((x, k) => { ab[x.code] = { [r.periode]: 1000 + 700 * k }; }); }
+          else { const res = await fetch(`${BASE}${ind.dataset}?format=JSON&lang=EN&${ind.absolut.filter}&sinceTimePeriod=${r.periode}`); if (!res.ok) throw new Error("HTTP " + res.status); ab = parse(await res.json()); }
+          const fmt = v => v >= 1000 ? (v / 1000).toLocaleString("de-AT", { maximumFractionDigits: 1 }) + " Mrd. €" : Math.round(v).toLocaleString("de-AT") + " Mio. €";
+          r.laender.forEach(x => { const v = ab[x.code]?.[r.periode]; if (v != null) x.zus = fmt(v); });
+        } catch (e) { console.error(`   (absolute Zahlen für ${ind.name} nicht geladen: ${e.message})`); }
       }
       if (ind.real && !TEST) await realTrend(r, ind);
       result.push(r);
