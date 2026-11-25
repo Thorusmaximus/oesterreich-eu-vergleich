@@ -2587,7 +2587,7 @@
    "diffEinheit": "Euro pro m²",
    "einheit": "Mittel aus dem Medianpreis für Wohnungen und für Häuser, in Euro pro Quadratmeter Wohnfläche (Kaufverträge)",
    "rangText": "Rang 1 = niedrigster Preis",
-   "erklaerung": "Der Durchschnitt aus dem mittleren Kaufpreis pro Quadratmeter bei Wohnungen und bei Häusern (ohne Grundstück), aus allen Kaufverträgen im Grundbuch. Darunter stehen beide Werte einzeln. Gewertet wird: niedrigere Preise gelten als besser, aus Sicht von Menschen, die kaufen wollen. Für Eigentümer ist es umgekehrt, die Wertung ist also umstritten. Pfeil = Veränderung zum Vorjahr, Vorjahreswerte werden von Statistik Austria revidiert.",
+   "erklaerung": "Der Durchschnitt aus dem mittleren Kaufpreis pro Quadratmeter bei Wohnungen und bei Häusern (ohne Grundstück), aus allen Kaufverträgen im Grundbuch. Beide Werte einzeln siehst du über die Auswahl oben. Gewertet wird: niedrigere Preise gelten als besser, aus Sicht von Menschen, die kaufen wollen. Für Eigentümer ist es umgekehrt, die Wertung ist also umstritten. Pfeil = Veränderung zum Vorjahr, Vorjahreswerte werden von Statistik Austria revidiert.",
    "relativ": false,
    "ohneTrend": false,
    "trendInfo": null,
@@ -2610,8 +2610,7 @@
      "urteil": "unverändert",
      "rang": 1,
      "rangVor": 1,
-     "prozent": 2.6,
-     "zus": "Wohnungen 1 859 · Häuser 1 889 €/m²"
+     "prozent": 2.6
     },
     {
      "code": "AT22",
@@ -2624,8 +2623,7 @@
      "urteil": "unverändert",
      "rang": 2,
      "rangVor": 2,
-     "prozent": 0.3,
-     "zus": "Wohnungen 2 750 · Häuser 2 421 €/m²"
+     "prozent": 0.3
     },
     {
      "code": "AT12",
@@ -2638,8 +2636,7 @@
      "urteil": "schlechter",
      "rang": 3,
      "rangVor": 3,
-     "prozent": 4.7,
-     "zus": "Wohnungen 3 089 · Häuser 2 653 €/m²"
+     "prozent": 4.7
     },
     {
      "code": "AT21",
@@ -2652,8 +2649,7 @@
      "urteil": "unverändert",
      "rang": 4,
      "rangVor": 4,
-     "prozent": 0.4,
-     "zus": "Wohnungen 3 260 · Häuser 2 609 €/m²"
+     "prozent": 0.4
     },
     {
      "code": "AT31",
@@ -2666,8 +2662,7 @@
      "urteil": "schlechter",
      "rang": 5,
      "rangVor": 5,
-     "prozent": 5.1,
-     "zus": "Wohnungen 3 373 · Häuser 2 905 €/m²"
+     "prozent": 5.1
     },
     {
      "code": "AT32",
@@ -2680,8 +2675,7 @@
      "urteil": "unverändert",
      "rang": 6,
      "rangVor": 7,
-     "prozent": -1.7,
-     "zus": "Wohnungen 4 968 · Häuser 4 766 €/m²"
+     "prozent": -1.7
     },
     {
      "code": "AT33",
@@ -2694,8 +2688,7 @@
      "urteil": "unverändert",
      "rang": 7,
      "rangVor": 6,
-     "prozent": 0.6,
-     "zus": "Wohnungen 4 965 · Häuser 4 828 €/m²"
+     "prozent": 0.6
     },
     {
      "code": "AT34",
@@ -2708,8 +2701,7 @@
      "urteil": "unverändert",
      "rang": 8,
      "rangVor": 8,
-     "prozent": 0.2,
-     "zus": "Wohnungen 5 000 · Häuser 5 077 €/m²"
+     "prozent": 0.2
     },
     {
      "code": "AT13",
@@ -2722,8 +2714,7 @@
      "urteil": "unverändert",
      "rang": 9,
      "rangVor": 9,
-     "prozent": 1.8,
-     "zus": "Wohnungen 5 212 · Häuser 5 376 €/m²"
+     "prozent": 1.8
     }
    ],
    "quelle": "Statistik Austria, Immobilien-Durchschnittspreise 2025 (Medianpreise je m² Wohnfläche, Kaufverträge aus dem Grundbuch)",
@@ -3177,7 +3168,7 @@
    "diffEinheit": "pro 100.000 Einwohner",
    "einheit": "Von der Polizei angezeigte Straftaten pro 100.000 Einwohner und Jahr, darunter die Gesamtzahl",
    "rangText": "Rang 1 = wenigste Anzeigen pro Einwohner",
-   "erklaerung": "Wie viele Straftaten pro 100.000 Einwohner angezeigt wurden, alle Delikte zusammen. Darunter steht die Gesamtzahl. Gewertet wird: weniger ist besser. Das ist nur bedingt fair: Wien zählt wegen Pendlern, Touristen und Anzeigebereitschaft höher, und die Zahl sagt nichts über die Schwere der Taten. Pfeil = Veränderung zum Vorjahr.",
+   "erklaerung": "Wie viele Straftaten pro 100.000 Einwohner angezeigt wurden, alle Delikte zusammen. Darunter steht die Gesamtzahl. Gewertet wird: weniger ist besser. Pfeil = Veränderung zum Vorjahr.",
    "relativ": false,
    "ohneTrend": false,
    "trendInfo": null,
@@ -3329,7 +3320,7 @@
    "diffEinheit": "Prozentpunkte",
    "einheit": "Anteil der angezeigten Straftaten, die die Polizei aufgeklärt hat",
    "rangText": "Rang 1 = höchste Aufklärungsquote",
-   "erklaerung": "Wie viele der angezeigten Straftaten aufgeklärt wurden. Gewertet wird: höher ist besser. Die Quote hängt auch von der Art der Delikte ab (Einbruch ist schwerer aufzuklären als Betrug), deshalb ist die Wertung nur bedingt fair. Pfeil = Veränderung zum Vorjahr.",
+   "erklaerung": "Wie viele der angezeigten Straftaten aufgeklärt wurden. Gewertet wird: höher ist besser. Pfeil = Veränderung zum Vorjahr.",
    "relativ": false,
    "ohneTrend": false,
    "trendInfo": null,
