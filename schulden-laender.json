@@ -4,5 +4,30 @@
  "quelle": "Statistik Austria (Öffentlicher Schuldenstand nach Teilsektoren des Staates und Bundesländern), wiedergegeben von staatsschulden.at, Stand April 2025",
  "url": "https://staatsschulden.at/bundeslaender",
  "hinweis": "Schulden des Landes (ohne Gemeinden), in Mio. Euro, geteilt durch die Einwohner am 1. Jänner. Ausgelagerte Landesunternehmen sind je nach Land unterschiedlich enthalten, deshalb ist der Vergleich nur eingeschränkt aussagekräftig. Es gibt hier nur ein Jahr und damit keinen Trend. Andere Statistiken rechnen mit Gemeinden und kommen auf höhere Werte.",
- "mio": { "AT11": 1379, "AT12": 9584, "AT13": 12697, "AT21": 4037, "AT22": 6413, "AT31": 2382, "AT32": 1699, "AT33": 1307, "AT34": 713 }
+ "mio": {
+  "AT11": 1379,
+  "AT12": 9584,
+  "AT13": 12697,
+  "AT21": 4037,
+  "AT22": 6413,
+  "AT31": 2382,
+  "AT32": 1699,
+  "AT33": 1307,
+  "AT34": 713
+ },
+ "gebarung": {
+  "quelle": "Statistik Austria, Gebarungsübersichten der Länder 2024 (Schuldenstand der Länder laut Landeshaushalt, ohne Wien), zusammengestellt von der WKÖ",
+  "url": "https://www.wko.at/oe/statistik/bundesland/laender.pdf",
+  "hinweis": "Schulden laut Landeshaushalt (Rechnungsabschlüsse der Länder), in Mio. Euro, geteilt durch die Einwohner am 1. Jänner. Ausgelagerte Landesunternehmen sind hier voraussichtlich nicht enthalten, Wien fehlt in der Quelle. Es gibt hier nur ein Jahr und damit keinen Trend.",
+  "mio": {
+   "AT11": 785.6,
+   "AT21": 4480.2,
+   "AT12": 7911.2,
+   "AT31": 1191.2,
+   "AT32": 1691.7,
+   "AT22": 6384.1,
+   "AT33": 1175.7,
+   "AT34": 576.8
+  }
+ }
 }

@@ -6,6 +6,7 @@ var PAARE_BL = [
   { titel: "Bevölkerung", ids: ["bevoelkerung","bevoelkerung1","bevoelkerungsdichte","geburtenrate"], labels: ["5 Jahre","1 Jahr","Dichte","Geburten"] },
   { titel: "Zuwanderung", ids: ["nettozuwanderung","zuzug","wegzug"], labels: ["Netto","Zuzug","Wegzug"] },
   { titel: "Unternehmen", ids: ["unternehmenswachstum","unternehmensdichte"], labels: ["Wachstum","Dichte"] },
+  { titel: "Schulden", ids: ["schulden","schuldenGebarung"], labels: ["Weit gefasst","Landeshaushalt"] },
   { titel: "Insolvenzen", ids: ["insolvenzen","insolvenzenEinwohner"], labels: ["Pro Unternehmen","Pro Einwohner"] },
   { titel: "Kaufpreise", ids: ["kaufpreise","kaufpreisWohnungen","kaufpreisHaeuser"], labels: ["Durchschnitt","Wohnungen","Häuser"] },
   { titel: "Lebenserwartung", ids: ["lebenserwartung","lebenserwartung65"], labels: ["Bei Geburt","Mit 65"] },

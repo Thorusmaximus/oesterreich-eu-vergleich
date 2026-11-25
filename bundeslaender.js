@@ -155,8 +155,10 @@ function auswerten(ind, daten) {
 
 
 // Schulden pro Einwohner: von Hand gepflegt (schulden-laender.json), Einwohner von Eurostat; nur ein Jahr, ohne Trend
-async function schuldenProKopf({ TEST, BASE, parse }) {
-  const fs = require("fs"), raw = JSON.parse(fs.readFileSync(__dirname + "/schulden-laender.json", "utf8"));
+async function schuldenProKopf({ TEST, BASE, parse }, variante) {
+  const fs = require("fs"), datei = JSON.parse(fs.readFileSync(__dirname + "/schulden-laender.json", "utf8"));
+  const raw = variante === "gebarung" ? { ...datei.gebarung, jahr: datei.jahr } : datei;
+  const vid = variante === "gebarung" ? "schuldenGebarung" : "schulden", vname = variante === "gebarung" ? "Schulden pro Einwohner (Landeshaushalt)" : "Schulden pro Einwohner (weit gefasst)";
   let pop;
   if (TEST) pop = Object.fromEntries(LAENDER.map((l, i) => [l.code, 300000 + i * 150000]));
   else {
@@ -167,7 +169,7 @@ async function schuldenProKopf({ TEST, BASE, parse }) {
   let laender = LAENDER.filter(l => raw.mio[l.code] != null && pop[l.code]).map(l => ({ code: l.code, name: l.name, kurz: l.kurz, wert: Math.round(raw.mio[l.code] * 1e6 / pop[l.code]), wertVor: null, diff: null, richtung: null, urteil: null, prozent: null }));
   if (laender.length < 8) throw new Error("Zu wenige Länder");
   laender.sort((a, b) => a.wert - b.wert); laender.forEach(x => { x.rang = 1 + laender.filter(z => z.wert < x.wert).length; x.rangVor = null; });
-  return { id: "schulden", name: "Schulden pro Einwohner", gruppe: GRUPPEN[1], typ: "niedrig", dez: 0, suffix: " €", diffEinheit: "Euro", einheit: "Schulden des Landes in Euro pro Einwohner (ohne Gemeinden)",
+  return { id: vid, name: vname, gruppe: GRUPPEN[1], typ: "niedrig", dez: 0, suffix: " €", diffEinheit: "Euro", einheit: variante === "gebarung" ? "Schulden des Landes laut Landeshaushalt in Euro pro Einwohner (ohne Gemeinden, ohne ausgelagerte Einheiten, ohne Wien)" : "Schulden des Landes in Euro pro Einwohner (ohne Gemeinden, mit ausgelagerten Einheiten)",
     rangText: "Rang 1 = niedrigste Schulden pro Einwohner", erklaerung: raw.hinweis + " Gewertet wird: niedriger ist besser, aber nur im Rang, es gibt keinen Trend. Quelle: " + raw.quelle + ".", relativ: false, periode: raw.jahr, vorPeriode: null, schwelle: 0, schwelleArt: "absolut", dataset: "Statistik Austria",
     oesterreich: null, anzahl: laender.length, laender, ohneTrend: true, quelleUrl: raw.url };
 }
@@ -288,8 +290,8 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
   }
   try { for (const r of await handIndikatoren({ TEST, BASE, parse })) { ergebnis.push(r); console.log(`OK  Bundesland ${r.name}: ${r.periode}, ${r.anzahl} Länder, Platz 1 ${r.laender[0].name}`); } }
   catch (e) { console.error("FEHLER Bundesland Handdaten: " + e.message); }
-  try { const r = await schuldenProKopf({ TEST, BASE, parse }); ergebnis.push(r); console.log(`OK  Bundesland ${r.name}: ${r.periode}, ${r.anzahl} Länder, Platz 1 ${r.laender[0].name}`); }
-  catch (e) { console.error("FEHLER Bundesland Schulden: " + e.message); }
+  for (const v of ["weit", "gebarung"]) try { const r = await schuldenProKopf({ TEST, BASE, parse }, v); ergebnis.push(r); console.log(`OK  Bundesland ${r.name}: ${r.periode}, ${r.anzahl} Länder, Platz 1 ${r.laender[0].name}`); }
+  catch (e) { console.error("FEHLER Bundesland Schulden " + v + ": " + e.message); }
   ergebnis.forEach(i => { i.ausgeblendet = +String(i.periode).slice(0, 4) < MIN_JAHR; if (i.ausgeblendet) console.log(`   AUSGEBLENDET Bundesland: ${i.name} (jüngste Daten: ${i.periode})`); });
   // Gesamtbild: durchschnittlicher Rang über alle gewerteten Indikatoren, und wie viele Indikatoren sich verbessert/verschlechtert haben
   const bilanz = LAENDER.map(l => {
