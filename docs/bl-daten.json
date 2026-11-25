@@ -319,6 +319,47 @@
      "prozent": 26.6
     }
    ],
+   "staedte": [
+    {
+     "code": "AT221",
+     "name": "Graz",
+     "hinweis": "zweitgrößte Stadt",
+     "wert": 59800,
+     "wertVor": 51200,
+     "diff": 8600,
+     "richtung": "steigend",
+     "urteil": "besser",
+     "rangEinordnung": 3,
+     "zus": null,
+     "periode": "2023"
+    },
+    {
+     "code": "AT323",
+     "name": "Salzburg und Umgebung",
+     "hinweis": "Zentralösterreich, Stadt und Umland (kleinste Eurostat-Einheit)",
+     "wert": 67600,
+     "wertVor": 54900,
+     "diff": 12700,
+     "richtung": "steigend",
+     "urteil": "besser",
+     "rangEinordnung": 1,
+     "zus": null,
+     "periode": "2023"
+    },
+    {
+     "code": "AT332",
+     "name": "Innsbruck",
+     "hinweis": "Westösterreich",
+     "wert": 55800,
+     "wertVor": 46200,
+     "diff": 9600,
+     "richtung": "steigend",
+     "urteil": "besser",
+     "rangEinordnung": 5,
+     "zus": null,
+     "periode": "2023"
+    }
+   ],
    "ausgeblendet": false
   },
   {
@@ -1354,7 +1395,8 @@
      "richtung": null,
      "urteil": null,
      "rangEinordnung": 2,
-     "zus": "469 968 Einwohner"
+     "zus": "469 968 Einwohner",
+     "periode": "2025"
     },
     {
      "code": "AT323",
@@ -1366,7 +1408,8 @@
      "richtung": null,
      "urteil": null,
      "rangEinordnung": 4,
-     "zus": "378 982 Einwohner"
+     "zus": "378 982 Einwohner",
+     "periode": "2025"
     },
     {
      "code": "AT332",
@@ -1378,7 +1421,8 @@
      "richtung": null,
      "urteil": null,
      "rangEinordnung": 8,
-     "zus": "319 242 Einwohner"
+     "zus": "319 242 Einwohner",
+     "periode": "2025"
     }
    ],
    "ausgeblendet": false
@@ -1537,7 +1581,8 @@
      "richtung": "steigend",
      "urteil": null,
      "rangEinordnung": 2,
-     "zus": null
+     "zus": null,
+     "periode": "2024"
     },
     {
      "code": "AT323",
@@ -1549,7 +1594,8 @@
      "richtung": "steigend",
      "urteil": null,
      "rangEinordnung": 2,
-     "zus": null
+     "zus": null,
+     "periode": "2024"
     },
     {
      "code": "AT332",
@@ -1561,7 +1607,8 @@
      "richtung": "stabil",
      "urteil": null,
      "rangEinordnung": 3,
-     "zus": null
+     "zus": null,
+     "periode": "2024"
     }
    ],
    "ausgeblendet": false
