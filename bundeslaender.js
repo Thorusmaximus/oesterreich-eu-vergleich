@@ -347,8 +347,8 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
     i.geaendert = p ? (fp(p) === fp(i) ? (p.geaendert || vorher.aktualisiert || heute) : heute) : heute; });
   // Entwicklung seit Beginn der aktuellen Koalition: Basis = letztes volles Jahr davor, Vergleich mit dem neuesten Jahr der Zeitreihe (mind. 2 Jahre Abstand).
   // Nur gewertete Indikatoren mit Zeitreihe; Wirtschaftsleistung und Einkommen (nominal) sowie Wachstumsraten gehen nicht ein.
-  const seitAntritt = LAENDER.map(l => {
-    const k = KOALITION_SEIT[l.code], basis = k.basis; let bis = null; const bes = [], sch = [], gl = [];
+  const seitBerechnen = (kf) => LAENDER.map(l => {
+    const k = kf(l.code), basis = k.basis; let bis = null; const bes = [], sch = [], gl = [];
     ergebnis.forEach(i => {
       if (i.typ === "neutral" || i.ausgeblendet || !i.reihe || i.gegenSchnitt || i.reihe.einheitText || ["bip", "einkommen"].includes(i.id)) return;
       const R = i.reihe, ia = R.jahre.indexOf(String(basis)), ib = R.jahre.length - 1, a = R.laender[l.code]?.[ia], b = R.laender[l.code]?.[ib];
@@ -361,7 +361,10 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
     const n = bes.length + sch.length + gl.length;
     return { code: l.code, name: l.name, koalitionSeit: k.text, basis, bis, n, zuKurz: n < 5, besser: bes.length, schlechter: sch.length, unveraendert: gl.length, besserListe: bes, schlechterListe: sch };
   });
+  const seitAntritt = seitBerechnen(c => KOALITION_SEIT[c]);
+  // Seit Beginn der Bundesregierung (Stocker, März 2025): Bezugsjahr 2024
+  const seitBund = seitBerechnen(() => ({ basis: 2024, text: "März 2025" }));
   return { aktualisiert: new Date().toISOString().slice(0, 10), beispiel: TEST, quelle: "Eurostat (Regionaldaten, NUTS 2)", jahreTrend: JAHRE_TREND, gruppen: GRUPPEN,
-    laender: LAENDER.map(l => ({ ...l, regierung: REGIERUNGEN[l.code] })), staedte: STAEDTE, regierungenStand: REGIERUNGEN_STAND, indikatoren: ergebnis, bilanz, staedteBilanz, seitAntritt };
+    laender: LAENDER.map(l => ({ ...l, regierung: REGIERUNGEN[l.code] })), staedte: STAEDTE, regierungenStand: REGIERUNGEN_STAND, indikatoren: ergebnis, bilanz, staedteBilanz, seitAntritt, seitBund };
 }
 module.exports = { berechneBundeslaender };
