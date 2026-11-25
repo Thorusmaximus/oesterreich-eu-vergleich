@@ -339,5 +339,87 @@
     150244
    ]
   }
+ },
+ "wanderung": {
+  "quelle": "Statistik Austria, Wanderungsstatistik 2025 (Wanderungen mit dem Ausland), zitiert über WKÖ",
+  "url": "https://wko.at/statistik/bundesland/wanderung.pdf",
+  "jahr": "2025",
+  "vorjahr": null,
+  "zuzug": {
+   "AT11": [
+    2854,
+    null
+   ],
+   "AT21": [
+    7466,
+    null
+   ],
+   "AT12": [
+    17805,
+    null
+   ],
+   "AT31": [
+    20706,
+    null
+   ],
+   "AT32": [
+    11975,
+    null
+   ],
+   "AT22": [
+    18315,
+    null
+   ],
+   "AT33": [
+    14838,
+    null
+   ],
+   "AT34": [
+    7001,
+    null
+   ],
+   "AT13": [
+    60972,
+    null
+   ]
+  },
+  "wegzug": {
+   "AT11": [
+    2185,
+    null
+   ],
+   "AT21": [
+    5006,
+    null
+   ],
+   "AT12": [
+    14783,
+    null
+   ],
+   "AT31": [
+    16497,
+    null
+   ],
+   "AT32": [
+    9642,
+    null
+   ],
+   "AT22": [
+    15324,
+    null
+   ],
+   "AT33": [
+    12267,
+    null
+   ],
+   "AT34": [
+    6454,
+    null
+   ],
+   "AT13": [
+    49032,
+    null
+   ]
+  }
  }
 }

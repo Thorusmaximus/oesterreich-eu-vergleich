@@ -181,14 +181,14 @@ async function einwohner({ TEST, BASE, parse }, jahre) {
   const d = parse(await res.json()); jahre.forEach(y => { out[y] = Object.fromEntries(LAENDER.map(l => [l.code, d[l.code]?.[y]])); }); return out;
 }
 function handDaten(werte, jahr, vorjahr, f) { // werte: {code: [aktuell, vorjahr]} -> Eurostat-Form {code: {jahr: wert}}
-  const d = {}; LAENDER.forEach(l => { const w = werte[l.code]; if (w) d[l.code] = { [jahr]: f(l.code, jahr, w[0]), [vorjahr]: f(l.code, vorjahr, w[1]) }; }); return d;
+  const d = {}; LAENDER.forEach(l => { const w = werte[l.code]; if (w) d[l.code] = w[1] == null || !vorjahr ? { [jahr]: f(l.code, jahr, w[0]) } : { [jahr]: f(l.code, jahr, w[0]), [vorjahr]: f(l.code, vorjahr, w[1]) }; }); return d;
 }
 async function handIndikatoren(ctx) {
   const fs = require("fs"), raw = JSON.parse(fs.readFileSync(__dirname + "/handdaten-bl.json", "utf8")), out = [];
   const pop = await einwohner(ctx, ["2024", "2025"]), pro100k = (code, y, n) => n / pop[y][code] * 1e5;
   const num = x => Math.round(x).toLocaleString("de-AT");
   const mk = (ind, werte, q, f, zus) => { const i = { ...ind, gruppe: ind.gruppe, trendMax: 1, trendMin: 1, minLaender: 9, zus };
-    const r = auswerten(i, handDaten(werte, q.jahr, q.vorjahr, f)); r.dataset = "Handdaten"; r.quelle = q.quelle; r.quelleUrl = q.url; r.vorPeriode = q.vorjahr; r.schwelleArt = "relativ"; return r; };
+    const r = auswerten(i, handDaten(werte, q.jahr, q.vorjahr, f)); r.dataset = "Handdaten"; r.quelle = q.quelle; r.quelleUrl = q.url; r.vorPeriode = q.vorjahr || null; r.ohneTrend = !q.vorjahr; r.schwelleArt = "relativ"; return r; };
   const k = raw.kaufpreise, ins = raw.insolvenzen, kr = raw.kriminalitaet, id = (c, y, n) => n;
   const avg = {}; LAENDER.forEach(l => { const w = k.wohnungen[l.code], h = k.haeuser[l.code]; if (w && h) avg[l.code] = [(w[0] + h[0]) / 2, (w[1] + h[1]) / 2]; });
   out.push(mk({ id: "kaufpreise", name: "Kaufpreise Immobilien", gruppe: 1, dez: 0, suffix: " €/m²", typ: "niedrig", diffEinheit: "Euro pro m²", einheit: "Mittel aus dem Medianpreis für Wohnungen und für Häuser, in Euro pro Quadratmeter Wohnfläche (Kaufverträge)", rangText: "Rang 1 = niedrigster Preis",
@@ -213,6 +213,11 @@ async function handIndikatoren(ctx) {
     erklaerung: "Wie viele der angezeigten Straftaten aufgeklärt wurden. Gewertet wird: höher ist besser. Pfeil = Veränderung zum Vorjahr." }, kr.aufklaerung, kr, id));
   out.push(mk({ id: "arbeitslosigkeitAms", name: "Arbeitslosenquote (AMS)", gruppe: 0, dez: 1, suffix: " %", typ: "niedrig", diffEinheit: "Prozentpunkte", einheit: "Arbeitslose in % der unselbständigen Erwerbspersonen, Jahresdurchschnitt, nationale Definition des AMS", rangText: "Rang 1 = niedrigste Arbeitslosigkeit",
     erklaerung: "Die Arbeitslosenquote, wie sie das AMS meldet und wie sie in den Nachrichten genannt wird. Sie ist höher als die internationale Quote von Eurostat, weil sie anders gezählt wird: Es zählen nur beim AMS vorgemerkte Arbeitslose im Verhältnis zu den unselbständig Beschäftigten plus Arbeitslosen. Gewertet wird: weniger ist besser. Pfeil = Veränderung zum Vorjahr." }, raw.ams.werte, raw.ams, id));
+  const wa = raw.wanderung, proTsd = (code, y, n) => n / pop[y][code] * 1e3;
+  out.push(mk({ id: "zuzug", name: "Zuzug aus dem Ausland", gruppe: 2, dez: 1, suffix: "", typ: "neutral", diffEinheit: "pro 1.000 Einwohner", einheit: "Zuzüge aus dem Ausland pro 1.000 Einwohner und Jahr, darunter die Gesamtzahl", rangText: "Rang 1 = meiste Zuzüge pro Einwohner",
+    erklaerung: "Wie viele Menschen aus dem Ausland pro 1.000 Einwohner zugezogen sind (Hauptwohnsitz). Darunter steht die Gesamtzahl. Ohne Wertung. Für diesen Wert liegt nur ein Jahr vor, deshalb gibt es keinen Pfeil." }, wa.zuzug, wa, proTsd, (code) => num(wa.zuzug[code][0]) + " Zuzüge"));
+  out.push(mk({ id: "wegzug", name: "Wegzug ins Ausland", gruppe: 2, dez: 1, suffix: "", typ: "neutral", diffEinheit: "pro 1.000 Einwohner", einheit: "Wegzüge ins Ausland pro 1.000 Einwohner und Jahr, darunter die Gesamtzahl", rangText: "Rang 1 = meiste Wegzüge pro Einwohner",
+    erklaerung: "Wie viele Menschen pro 1.000 Einwohner ins Ausland weggezogen sind (Hauptwohnsitz abgemeldet). Darunter steht die Gesamtzahl. Ohne Wertung. Für diesen Wert liegt nur ein Jahr vor, deshalb gibt es keinen Pfeil." }, wa.wegzug, wa, proTsd, (code) => num(wa.wegzug[code][0]) + " Wegzüge"));
   const sp = raw.spital;
   out.push(mk({ id: "spitalsaufenthalte", name: "Spitalsaufenthalte", gruppe: 4, dez: 0, suffix: "", typ: "neutral", diffEinheit: "pro 1.000 Einwohner", einheit: "Stationäre Spitalsaufenthalte pro 1.000 Einwohner und Jahr, darunter die Gesamtzahl", rangText: "Rang 1 = meiste Aufenthalte pro Einwohner",
     erklaerung: "Wie viele stationäre Aufenthalte in Spitälern es pro 1.000 Einwohner gab (Aufnahmen, Entlassungen und Verstorbene gemittelt, alle Krankenanstalten). Darunter steht die Gesamtzahl. Ohne Wertung: Mehr Aufenthalte können für einen schlechteren Gesundheitszustand stehen, aber auch für ein dichteres Angebot oder mehr Patienten aus anderen Bundesländern, denn gezählt wird nach dem Standort des Spitals, nicht nach dem Wohnort. Pfeil = Veränderung zum Vorjahr." }, sp.werte, sp, (c, y, n) => n / pop[y][c] * 1e3,
