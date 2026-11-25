@@ -562,7 +562,8 @@
      "periode": "2023"
     }
    ],
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "arbeitslosigkeit",
@@ -842,7 +843,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "beschaeftigung",
@@ -1122,7 +1124,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "einkommen",
@@ -1402,7 +1405,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "armut",
@@ -1622,7 +1626,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "lebenserwartung",
@@ -1902,7 +1907,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "lebenserwartung65",
@@ -2182,7 +2188,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "bevoelkerung",
@@ -2512,7 +2519,8 @@
      "periode": "2025"
     }
    ],
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "bevoelkerung1",
@@ -2842,7 +2850,8 @@
      "periode": "2025"
     }
    ],
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "bevoelkerungsdichte",
@@ -3163,7 +3172,8 @@
      "periode": "2024"
     }
    ],
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "geburtenrate",
@@ -3443,7 +3453,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "tertiaer",
@@ -3723,7 +3734,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "schulabbruch",
@@ -3894,7 +3906,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "forschung",
@@ -4114,7 +4127,8 @@
      ]
     }
    },
-   "ausgeblendet": true
+   "ausgeblendet": true,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "verkehrstote",
@@ -4394,7 +4408,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "nettozuwanderung",
@@ -4674,7 +4689,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "saeuglingssterblichkeit",
@@ -4954,7 +4970,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "krankenhausbetten",
@@ -5164,7 +5181,8 @@
      ]
     }
    },
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "kaufpreise",
@@ -5309,7 +5327,8 @@
    "reihe": null,
    "quelle": "Statistik Austria, Immobilien-Durchschnittspreise 2025 (Medianpreise je m² Wohnfläche, Kaufverträge aus dem Grundbuch)",
    "quelleUrl": "https://www.statistik.at/fileadmin/announcement/2026/05/20260528Immobiliendurchschnittspreise2025.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "kaufpreisWohnungen",
@@ -5454,7 +5473,8 @@
    "reihe": null,
    "quelle": "Statistik Austria, Immobilien-Durchschnittspreise 2025 (Medianpreise je m² Wohnfläche, Kaufverträge aus dem Grundbuch)",
    "quelleUrl": "https://www.statistik.at/fileadmin/announcement/2026/05/20260528Immobiliendurchschnittspreise2025.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "kaufpreisHaeuser",
@@ -5599,7 +5619,8 @@
    "reihe": null,
    "quelle": "Statistik Austria, Immobilien-Durchschnittspreise 2025 (Medianpreise je m² Wohnfläche, Kaufverträge aus dem Grundbuch)",
    "quelleUrl": "https://www.statistik.at/fileadmin/announcement/2026/05/20260528Immobiliendurchschnittspreise2025.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "insolvenzen",
@@ -5753,7 +5774,8 @@
    "reihe": null,
    "quelle": "KSV1870, Insolvenzstatistik Unternehmen 2025 (eröffnete und nicht eröffnete Verfahren)",
    "quelleUrl": "https://www.ksv.at/KSV1870_Insolvenzstatistik_Unternehmen_2025_final",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "insolvenzenEinwohner",
@@ -5907,7 +5929,8 @@
    "reihe": null,
    "quelle": "KSV1870, Insolvenzstatistik Unternehmen 2025 (eröffnete und nicht eröffnete Verfahren)",
    "quelleUrl": "https://www.ksv.at/KSV1870_Insolvenzstatistik_Unternehmen_2025_final",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "unternehmensdichte",
@@ -6061,7 +6084,8 @@
    "reihe": null,
    "quelle": "Wirtschaftskammern Österreichs (WKÖ), Mitgliederstatistik: Kammermitgliedschaften insgesamt (aktiv und ruhend), Stand 31.12.2025",
    "quelleUrl": "https://www.wko.at/oe/statistik/bundesland/mg-zeitreihe.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "straftaten",
@@ -6215,7 +6239,8 @@
    "reihe": null,
    "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025 (Tabellen 31 bis 39)",
    "quelleUrl": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "aufklaerung",
@@ -6360,7 +6385,8 @@
    "reihe": null,
    "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025 (Tabellen 31 bis 39)",
    "quelleUrl": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "arbeitslosigkeitAms",
@@ -6589,7 +6615,8 @@
    },
    "quelle": "AMS (Arbeitsmarktservice), Arbeitslosenquote nach nationaler Definition, Jahresdurchschnitt, Stand Jänner 2026, zusammengestellt von der WKO (Statistik Austria/AMS)",
    "quelleUrl": "https://www.wko.at/oe/statistik/jahrbuch/am-alq-bl.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "zuzug",
@@ -6743,7 +6770,8 @@
    "reihe": null,
    "quelle": "Statistik Austria, Wanderungsstatistik 2025 (Wanderungen mit dem Ausland), zitiert über WKÖ",
    "quelleUrl": "https://wko.at/statistik/bundesland/wanderung.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "wegzug",
@@ -6897,7 +6925,8 @@
    "reihe": null,
    "quelle": "Statistik Austria, Wanderungsstatistik 2025 (Wanderungen mit dem Ausland), zitiert über WKÖ",
    "quelleUrl": "https://wko.at/statistik/bundesland/wanderung.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "unternehmenswachstum",
@@ -7135,7 +7164,8 @@
    },
    "quelle": "Wirtschaftskammern Österreichs (WKÖ), Mitgliederstatistik: Kammermitgliedschaften insgesamt (aktiv und ruhend), Stand 31.12.2025",
    "quelleUrl": "https://www.wko.at/oe/statistik/bundesland/mg-zeitreihe.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "spitalsaufenthalte",
@@ -7289,7 +7319,8 @@
    "reihe": null,
    "quelle": "Sozialministerium (BMASGPK), Krankenanstaltenstatistik: stationäre Aufenthalte aller Krankenanstalten nach Standort, Jahresmeldung 2025 (Stand Aug/Sep 2026)",
    "quelleUrl": "https://www.sozialministerium.gv.at",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "schulden",
@@ -7431,7 +7462,8 @@
    ],
    "ohneTrend": true,
    "quelleUrl": "https://staatsschulden.at/bundeslaender",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   },
   {
    "id": "schuldenGebarung",
@@ -7560,7 +7592,8 @@
    ],
    "ohneTrend": true,
    "quelleUrl": "https://www.wko.at/oe/statistik/bundesland/laender.pdf",
-   "ausgeblendet": false
+   "ausgeblendet": false,
+   "geaendert": "2026-11-25"
   }
  ],
  "bilanz": [
