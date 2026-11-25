@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=c2c82f6e">
+<link rel="stylesheet" href="style.css?v=a9848081">
 </head>
 <body>
 <main>
@@ -35,9 +35,9 @@ function fw(i, v){ return v==null ? "–" : v.toLocaleString("de-AT",{minimumFra
 function pille(p){ return '<span class="pt p-'+p.replace(/[^A-Za-z]/g,"")+'">'+p+'</span>'; }
 function regierungen(){
   var L = B.laender.slice().sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
-  var h = '<div class="card"><h2>Landesregierungen'+infoIcon("Wer in den Bundesländern regiert, mit Landeshauptperson und Koalition. Stand: "+datum(B.regierungenStand)+". Das ist reine Information und fließt nicht in die Rangfolge ein.")+'</h2><div class="reg">';
+  var h = '<div class="card"><h2>Landesregierungen'+infoIcon("Wer in den Bundesländern regiert, mit Landeshauptperson und Koalition, darunter die Koalition der Regierungsperiode davor. Stand: "+datum(B.regierungenStand)+". Das ist reine Information und fließt nicht in die Rangfolge ein.")+'</h2><div class="reg">';
   h += L.map(function(l){ var r = l.regierung;
-    return '<div class="regz"><div class="regn">'+l.name+'</div><div class="regl">'+r.chef+' ('+r.partei+')</div><div class="regk">'+r.koalition.map(pille).join(" ")+'</div><div class="note">Letzte Wahl '+r.wahl+', nächste '+r.naechsteWahl+'</div></div>';
+    return '<div class="regz"><div class="regn">'+l.name+'</div><div class="regl">'+r.chef+' ('+r.partei+')</div><div class="regk">'+r.koalition.map(pille).join(" ")+'</div>'+(r.vorher?'<div class="note regv">Davor ('+r.vorher.zeit+'): '+r.vorher.koalition.map(pille).join(" ")+(r.vorher.hinweis&&r.vorher.koalition.length<2?' <small>('+r.vorher.hinweis+')</small>':'')+'</div>':'')+'<div class="note">Letzte Wahl '+r.wahl+', nächste '+r.naechsteWahl+'</div></div>';
   }).join("");
   return h + '</div></div>';
 }
@@ -85,7 +85,7 @@ function karte(i, kopf, tabs){
   if(i.staedte && i.staedte.length){
     t += '<p class="note stadthead">Zum Vergleich, nicht im Ranking (Städte bzw. Stadtregionen):</p>' + i.staedte.map(function(x){
       var pf = x.richtung ? '<span class="ta '+urteilCls(x.urteil)+'" title="'+(x.urteil?trendWort(x.urteil):"")+'">'+pfeil(x.richtung)+'</span>' : '<span class="ta"></span>';
-      return '<div class="row stadt"'+st+'><span>'+x.name+'<small class="note zs">'+(x.zus?x.zus+', ':'')+'würde Rang '+x.rangEinordnung+' einnehmen'+(x.periode&&x.periode!==i.periode?' (Stand '+x.periode+')':'')+'</small>'</span><span></span><span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
+      return '<div class="row stadt"'+st+'><span>'+x.name+'<small class="note zs">'+(x.zus?x.zus+', ':'')+'würde Rang '+x.rangEinordnung+' einnehmen'+(x.periode&&x.periode!==i.periode?' (Stand '+x.periode+')':'')+'</small></span><span></span><span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
     }).join("");
   }
   if(i.oesterreich) t += '<p class="note">Österreich insgesamt: '+fw(i,i.oesterreich.wert)+'</p>';
