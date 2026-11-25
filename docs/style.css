@@ -194,3 +194,4 @@ svg{width:100%;height:auto;display:block}
 
 .bk .stadthead{margin:12px 0 4px}.bk .row.stadt{opacity:.85}.bk .row.stadt .zs{display:block}
 .reg .regv{margin-top:2px}
+@media(min-width:640px){.reg{grid-template-columns:repeat(3,1fr)}}
