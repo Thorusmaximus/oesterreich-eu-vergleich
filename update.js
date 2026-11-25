@@ -503,8 +503,8 @@ const INDICATORS = [
         ausblenden2025: true,
     typ: "neutral", trendNeutral: true, schwelle: 0.5, mock: { base: 10, step: 1 } }
   ,{ id: "treibhausgase", name: "Treibhausgasemissionen je Einwohner", takt: "jahr", dataset: "sdg_13_10",
-    filter: "unit=T_HAB",
-    alternativen: [ { dataset: "env_air_gge", filter: "unit=T_HAB&airpol=GHG&src_crf=TOTX4_MEMO" }, { dataset: "sdg_13_10", filter: "unit=T_HAB&freq=A" } ],
+    filter: "unit=T_HAB&src_crf=TOTX4_MEMO",
+    alternativen: [ { dataset: "env_air_gge", filter: "unit=T_HAB&airpol=GHG&src_crf=TOTX4_MEMO" }, { dataset: "sdg_13_10", filter: "unit=T_HAB&src_crf=TOTX4_MEMO&freq=A" } ],
     absolut: { art: "mt", dataset: "env_air_gge", filter: "unit=MIO_T&airpol=GHG&src_crf=TOTX4_MEMO" },
     maxAlter: 40, dez: 1, suffix: " t", diffEinheit: "Tonnen je Einwohner", minLaender: 22,
     einheit: "Tonnen CO2-Äquivalent je Einwohner und Jahr (ohne Landnutzung und Forstwirtschaft)", rangText: "Rang 1 = niedrigste Emissionen je Einwohner",
