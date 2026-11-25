@@ -507,6 +507,7 @@ const INDICATORS = [
     alternativen: [ { dataset: "env_air_gge", filter: "unit=T_HAB&airpol=GHG&src_crf=TOTX4_MEMO" }, { dataset: "sdg_13_10", filter: "unit=T_HAB&src_crf=TOTX4_MEMO&freq=A" } ],
     absolut: { art: "mt", dataset: "env_air_gge", filter: "unit=MIO_T&airpol=GHG&src_crf=TOTX4_MEMO" },
     maxAlter: 40, dez: 1, suffix: " t", diffEinheit: "Tonnen je Einwohner", minLaender: 22,
+    ausblenden2025: true, // Fenster verschwindet, solange Eurostat keine Daten ab 2025 hat
     einheit: "Tonnen CO2-Äquivalent je Einwohner und Jahr (ohne Landnutzung und Forstwirtschaft)", rangText: "Rang 1 = niedrigste Emissionen je Einwohner",
     hinweis: "Gezählt werden die Emissionen, die im Land entstehen. Emissionen aus importierten Waren sind nicht enthalten. Industrie, Energiemix, Klima und Verkehr unterscheiden sich zwischen den Ländern stark.",
     typ: "niedrig", schwelle: 0.2, mock: { base: 6, step: 0.6 } }
