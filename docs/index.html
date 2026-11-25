@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=ac89dff1">
+<link rel="stylesheet" href="style.css?v=5055de6c">
 </head>
 <body>
 <main>
@@ -44,7 +44,7 @@ else {
   var byId = {}; D.indikatoren.forEach(function(i){ byId[i.id]=i; });
   // Kombi-Kacheln: nur Indikatoren mit Daten; sie erscheinen als eine Kachel an der Stelle des ersten
   function kombiVon(i){ var p = paarFuer(i.id); if(!p) return null; var v = p.ids.filter(function(id){ return byId[id] && byId[id].oesterreich; }); return v.length>1 ? { p:p, v:v } : null; }
-  function kombiKopf(i){ var k = kombiVon(i); return k.p.titel+'<div class="umsch" role="group" aria-label="Ansicht">'+k.v.map(function(id){ var n=k.p.ids.indexOf(id); return '<button type="button" data-v="'+id+'" class="'+(id===i.id?'on':'')+'">'+k.p.labels[n]+'</button>'; }).join('')+'</div>'; }
+  function kombiKopf(i){ var k = kombiVon(i); return k.p.titel+'<div class="umsch'+(k.v.length===4?' zwei mz':'')+'" role="group" aria-label="Ansicht">'+k.v.map(function(id){ var n=k.p.ids.indexOf(id); return '<button type="button" data-v="'+id+'" class="'+(id===i.id?'on':'')+'">'+k.p.labels[n]+'</button>'; }).join('')+'</div>'; }
   var kachel = function(i){
     var k = '';
     if(!i.oesterreich){
