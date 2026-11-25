@@ -25,7 +25,14 @@
     ],
     "wahl": 2025,
     "naechsteWahl": 2030,
-    "seit": "Februar 2025"
+    "seit": "Februar 2025",
+    "vorher": {
+     "koalition": [
+      "SPÖ"
+     ],
+     "zeit": "2020–2025",
+     "hinweis": "SPÖ allein"
+    }
    }
   },
   {
@@ -41,7 +48,14 @@
     ],
     "wahl": 2023,
     "naechsteWahl": 2028,
-    "seit": "März 2023"
+    "seit": "März 2023",
+    "vorher": {
+     "koalition": [
+      "ÖVP"
+     ],
+     "zeit": "2018–2023",
+     "hinweis": "ÖVP, Proporzregierung mit SPÖ und FPÖ"
+    }
    }
   },
   {
@@ -57,7 +71,14 @@
     ],
     "wahl": 2025,
     "naechsteWahl": 2030,
-    "seit": "Juni 2025"
+    "seit": "Juni 2025",
+    "vorher": {
+     "koalition": [
+      "SPÖ",
+      "NEOS"
+     ],
+     "zeit": "2020–2025"
+    }
    }
   },
   {
@@ -73,7 +94,14 @@
     ],
     "wahl": 2023,
     "naechsteWahl": 2028,
-    "seit": "April 2026 (Landeshauptmann; Koalition seit 2023)"
+    "seit": "April 2026 (Landeshauptmann; Koalition seit 2023)",
+    "vorher": {
+     "koalition": [
+      "SPÖ",
+      "ÖVP"
+     ],
+     "zeit": "2018–2023"
+    }
    }
   },
   {
@@ -89,7 +117,14 @@
     ],
     "wahl": 2024,
     "naechsteWahl": 2029,
-    "seit": "Dezember 2024"
+    "seit": "Dezember 2024",
+    "vorher": {
+     "koalition": [
+      "ÖVP",
+      "SPÖ"
+     ],
+     "zeit": "2019–2024"
+    }
    }
   },
   {
@@ -105,7 +140,14 @@
     ],
     "wahl": 2021,
     "naechsteWahl": 2027,
-    "seit": "Oktober 2021"
+    "seit": "Oktober 2021",
+    "vorher": {
+     "koalition": [
+      "ÖVP",
+      "FPÖ"
+     ],
+     "zeit": "2015–2021"
+    }
    }
   },
   {
@@ -121,7 +163,15 @@
     ],
     "wahl": 2023,
     "naechsteWahl": 2028,
-    "seit": "Juli 2025 (Landeshauptfrau; Koalition seit 2023)"
+    "seit": "Juli 2025 (Landeshauptfrau; Koalition seit 2023)",
+    "vorher": {
+     "koalition": [
+      "ÖVP",
+      "Grüne",
+      "NEOS"
+     ],
+     "zeit": "2018–2023"
+    }
    }
   },
   {
@@ -137,7 +187,14 @@
     ],
     "wahl": 2022,
     "naechsteWahl": 2027,
-    "seit": "November 2022"
+    "seit": "November 2022",
+    "vorher": {
+     "koalition": [
+      "ÖVP",
+      "Grüne"
+     ],
+     "zeit": "2018–2022"
+    }
    }
   },
   {
@@ -153,7 +210,14 @@
     ],
     "wahl": 2024,
     "naechsteWahl": 2029,
-    "seit": "Dezember 2024"
+    "seit": "Dezember 2024",
+    "vorher": {
+     "koalition": [
+      "ÖVP",
+      "Grüne"
+     ],
+     "zeit": "2019–2024"
+    }
    }
   }
  ],
