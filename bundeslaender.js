@@ -47,7 +47,7 @@ const IND = [
     alternativen: [{ dataset: "lfst_r_lfe2emprt", filter: "sex=T&age=Y20-64" }], dez: 1, suffix: " %", typ: "hoch", diffEinheit: "Prozentpunkte",
     einheit: "Erwerbstätige in % der Bevölkerung von 20 bis 64 Jahren", rangText: "Rang 1 = höchste Beschäftigungsquote",
     erklaerung: "Wie viele Menschen zwischen 20 und 64 Jahren erwerbstätig sind. Teilzeit zählt voll mit.", mock: { base: 76, step: 0.9 } },
-  { id: "einkommen", gegenSchnitt: true, name: "Haushaltseinkommen pro Kopf", gruppe: 0, dataset: "nama_10r_2hhinc", filter: "direct=BAL&na_item=B6N&unit=EUR_HAB",
+  { id: "einkommen", gegenSchnitt: true, realInflation: true, name: "Haushaltseinkommen pro Kopf", gruppe: 0, dataset: "nama_10r_2hhinc", filter: "direct=BAL&na_item=B6N&unit=EUR_HAB",
     alternativen: [{ dataset: "nama_10r_2hhinc", filter: "direct=BAL&na_item=B6N&unit=EUR_HAB&sector=S14_S15" }, { dataset: "nama_10r_2hhinc", filter: "na_item=B6N&unit=EUR_HAB" }], dez: 0, suffix: " €", typ: "hoch", diffEinheit: "Euro",
     einheit: "Verfügbares Einkommen der privaten Haushalte in Euro pro Einwohner und Jahr", rangText: "Rang 1 = höchstes Einkommen pro Kopf",
     erklaerung: "Wie viel Geld den Haushalten nach Steuern und Sozialleistungen pro Kopf zur Verfügung steht, nach dem Wohnort der Haushalte (nicht dem Arbeitsort).", mock: { base: 21000, step: 900 } },
@@ -107,6 +107,8 @@ function mockDaten(ind) {
     value: geo.flatMap((g, gi) => jahre.map((y, ti) => runden(ind.mock.base + ind.mock.step * ((gi * 5) % 9 - 4) + ind.mock.step * 0.3 * (ti - 6) * (((gi + ind.id.length) % 3) - 1), ind.dez + 1))) };
 }
 
+// Verbraucherpreise Österreich, Jahresinflation in % (Statistik Austria, laut WKÖ-Zusammenstellung), für die Inflationsbereinigung
+const INFLATION = { 2020: 1.4, 2021: 2.8, 2022: 8.6, 2023: 7.8, 2024: 2.9 };
 function auswerten(ind, daten) {
   const dez = ind.dez, typ = ind.typ, minL = ind.minLaender || MIN_LAENDER;
   const jahre = [...new Set(LAENDER.flatMap(l => Object.keys(daten[l.code] || {})))].sort();
@@ -138,7 +140,13 @@ function auswerten(ind, daten) {
     return { code: l.code, name: l.name, kurz: l.kurz, wert: w, wertVor: wv, diff, richtung, urteil, rang: rang[l.code] ?? null, rangVor: rangVor[l.code] ?? null,
       prozent: w != null && wv ? runden((w - wv) / Math.abs(wv) * 100, 1) : null };
   }).filter(x => x.wert != null);
-  if (ind.gegenSchnitt) { // Nominale Werte steigen überall (Preissteigerung): besser/schlechter nur relativ zum Schnitt
+  const infl = ind.realInflation && vor && Array.from({ length: ly - +vor }, (_, k) => INFLATION[+vor + 1 + k]).every(v => v != null)
+    ? Array.from({ length: ly - +vor }, (_, k) => 1 + INFLATION[+vor + 1 + k] / 100).reduce((a, b) => a * b, 1) : null;
+  if (infl) { // real: Veränderung abzüglich der Preissteigerung, besser/schlechter ab 3 %
+    laender.forEach(x => { if (x.prozent == null) return; const real = ((1 + x.prozent / 100) / infl - 1) * 100; x.real = runden(real, 1);
+      x.urteil = real > 3 ? "besser" : real < -3 ? "schlechter" : "unverändert"; x.richtung = x.urteil === "besser" ? "steigend" : x.urteil === "schlechter" ? "sinkend" : "stabil"; });
+    ind.trendInfo = "Die Werte sind nicht um die Preissteigerung bereinigt. Pfeil und Farbe zeigen deshalb die reale Veränderung: Von " + vor + " bis " + letzt + " stiegen die Verbraucherpreise in Österreich um " + runden((infl - 1) * 100, 1).toLocaleString("de-AT") + " % (Statistik Austria). Grün heißt, das Einkommen ist um mehr als 3 % stärker gestiegen, rot, um mehr als 3 % weniger stark, sonst unverändert. Regionale Preisunterschiede sind nicht berücksichtigt.";
+  } else if (ind.gegenSchnitt) { // Nominale Werte steigen überall (Preissteigerung): besser/schlechter nur relativ zum Schnitt
     const prz = laender.map(x => x.prozent).filter(v => v != null);
     const schnitt = at != null && atVor ? (at - atVor) / Math.abs(atVor) * 100 : prz.reduce((a, b) => a + b, 0) / (prz.length || 1);
     laender.forEach(x => { if (x.prozent == null) return; const d = x.prozent - schnitt; x.urteil = d > 2 ? "besser" : d < -2 ? "schlechter" : "unverändert"; x.richtung = x.urteil === "besser" ? "steigend" : x.urteil === "schlechter" ? "sinkend" : "stabil"; });
