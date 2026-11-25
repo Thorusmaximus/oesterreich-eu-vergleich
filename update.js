@@ -1262,5 +1262,10 @@ function berechneVerurteilungen() {
   fs.mkdirSync("docs", { recursive: true });
   fs.writeFileSync("docs/daten.json", JSON.stringify(out, null, 1));
   fs.writeFileSync("docs/daten.js", "window.DATEN = " + JSON.stringify(out) + ";\n");
+  try { // Bundesländer-Vergleich (eigenes Modul); ein Fehler hier darf die EU-Daten nicht beeinträchtigen
+    const bl = await require("./bundeslaender.js").berechneBundeslaender({ TEST, BASE, parse });
+    if (bl.indikatoren.length) { fs.writeFileSync("docs/bl-daten.json", JSON.stringify(bl, null, 1)); fs.writeFileSync("docs/bl-daten.js", "window.BL = " + JSON.stringify(bl) + ";\n"); }
+    else console.error("FEHLER Bundesländer: kein Indikator konnte berechnet werden, bestehende Daten bleiben.");
+  } catch (e) { console.error("FEHLER Bundesländer: " + e.message); }
   if (fehler === INDICATORS.length + 7) process.exit(1);
 })();

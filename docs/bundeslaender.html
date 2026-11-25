@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bundesländer | Regierungstracker Österreich</title>
+<meta name="description" content="Die neun Bundesländer im Vergleich: Wirtschaft, Arbeit, Bevölkerung, Bildung und Gesundheit, mit Landesregierungen und Entwicklung über fünf Jahre.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Regierungstracker Österreich: Bundesländer">
+<meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
+<meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css?v=ac112d70">
+</head>
+<body>
+<main>
+<div class="band" aria-hidden="true"></div>
+<h1><img class="logo" src="favicon.svg" alt="" width="34" height="34"> Regierungstracker Österreich</h1>
+<p class="claim">Was sich verändert hat, nicht, wer schuld ist.</p>
+<div class="tabs seiten" role="tablist"><a role="tab" aria-selected="false" href="index.html">Österreich</a><a role="tab" aria-selected="true" class="on" href="bundeslaender.html">Bundesländer</a></div>
+<p class="frage">Wie stehen die Bundesländer da?</p>
+<p class="sub">Platz unter den neun Bundesländern, Entwicklung über fünf Jahre.</p>
+<div id="app"><p>Lade Daten …</p></div>
+</main>
+<script src="bl-daten.js"></script>
+<script>window.DATEN = { beispiel: !!(window.BL && window.BL.beispiel), quelle: "Eurostat", aktualisiert: (window.BL && window.BL.aktualisiert) || new Date().toISOString().slice(0,10) };</script>
+<script src="common.js?v=b3f704b5"></script>
+<script>
+var app = document.getElementById("app"), B = window.BL, hl = "";
+function fw(i, v){ return v==null ? "–" : v.toLocaleString("de-AT",{minimumFractionDigits:i.dez,maximumFractionDigits:i.dez}) + (i.suffix||"").replace(/ /g," "); }
+function pille(p){ return '<span class="pt p-'+p.replace(/[^A-Za-z]/g,"")+'">'+p+'</span>'; }
+function regierungen(){
+  var L = B.laender.slice().sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
+  var h = '<div class="card"><h2>Landesregierungen'+infoIcon("Wer in den Bundesländern regiert, mit Landeshauptperson und Koalition. Stand: "+datum(B.regierungenStand)+". Das ist reine Information und fließt nicht in die Rangfolge ein.")+'</h2><div class="reg">';
+  h += L.map(function(l){ var r = l.regierung;
+    return '<div class="regz"><div class="regn">'+l.name+'</div><div class="regl">'+r.chef+' ('+r.partei+')</div><div class="regk">'+r.koalition.map(pille).join(" ")+'</div><div class="note">Letzte Wahl '+r.wahl+', nächste '+r.naechsteWahl+'</div></div>';
+  }).join("");
+  return h + '</div></div>';
+}
+function gesamt(){
+  var n = B.bilanz.length ? B.bilanz[0].n : 0;
+  var h = '<div class="card"><h2>Gesamtbild'+infoIcon("Durchschnitt der Plätze eines Landes über alle Indikatoren mit Wertung (derzeit "+n+"). Ein niedriger Durchschnitt heißt: häufig weit vorne. Jeder Indikator zählt gleich viel. Indikatoren ohne Wertung (zum Beispiel Bevölkerung oder Ärzte) gehen nicht ein. Die Zahlen rechts zählen, bei wie vielen Indikatoren sich das Land in den letzten fünf Jahren verbessert (↑) oder verschlechtert (↓) hat. Das sagt nichts darüber, wer dafür verantwortlich ist.")+'</h2>';
+  h += B.bilanz.map(function(b){ var l = B.laender.filter(function(x){return x.code===b.code})[0];
+    return '<div class="gz'+(hl===b.code?" at":"")+'"><span><b>'+b.platz+'.</b> '+b.name+'</span><span class="note">Ø Platz '+b.durchschnittsrang.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1})+'</span><span class="good">'+b.besser+' ↑</span><span class="bad">'+b.schlechter+' ↓</span></div>';
+  }).join("");
+  return h + '<p class="note">Platz 1 hat den besten Durchschnitt aller Plätze. Verglichen wird, wo ein Land steht, nicht, wie es zu der Lage kam.</p></div>';
+}
+function karte(i){
+  var vals = i.laender.map(function(x){return x.wert}), mn = Math.min.apply(null, vals.concat([0])), mx = Math.max.apply(null, vals.concat([0])), span = (mx-mn)||1;
+  var bar = function(v){ var left=(Math.min(v,0)-mn)/span*100, w=Math.max(.8,Math.abs(v)/span*100); return '<span class="trk"><span class="bb" style="left:'+left+'%;width:'+w+'%"></span></span>'; };
+  var nw = Math.max.apply(null, i.laender.map(function(x){ return fw(i,x.wert).length; })), st = ' style="--nw:'+Math.max(3.4, Math.round(nw*0.58*10)/10)+'em"';
+  var t = '<div class="card bk"><h2>'+i.name+infoIcon(i.erklaerung+" Gewertet wird: "+(i.typ==="niedrig"?"ein niedrigerer Wert gilt als besser.":i.typ==="hoch"?"ein höherer Wert gilt als besser.":"nichts, der Wert hat keine Wertung.")+" Pfeil = Veränderung über fünf Jahre ("+(i.vorPeriode||"?")+" bis "+i.periode+"), grün = besser, rot = schlechter. Eine Veränderung unter "+(i.relativ?"3 %":fw(i,i.schwelle)+" "+i.diffEinheit)+" gilt als unverändert.")+'</h2><p class="note spk">'+i.einheit+'. Stand: '+periode(i.periode)+(i.typ==="neutral"?'. Ohne Wertung.':'.')+'</p>';
+  t += i.laender.map(function(x){
+    var pf = x.richtung ? '<span class="ta '+urteilCls(x.urteil)+'" title="'+(x.urteil?trendWort(x.urteil):"")+'">'+pfeil(x.richtung)+'</span>' : '<span class="ta"></span>';
+    return '<div class="row'+(hl===x.code?" at":"")+'"'+st+'><span>'+x.rang+'. '+x.name+'</span>'+bar(x.wert)+'<span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
+  }).join("");
+  if(i.oesterreich) t += '<p class="note">Österreich insgesamt: '+fw(i,i.oesterreich.wert)+'</p>';
+  return t + '</div>';
+}
+function seite(){
+  if(!B || !B.indikatoren || !B.indikatoren.length){ app.innerHTML = '<div class="card"><p>Die Bundesländer-Daten werden beim nächsten Datenabruf geladen. Bitte später wiederkommen.</p></div>' + fussnote(); return; }
+  var h = (B.beispiel ? banner() : "") + regierungen() + gesamt();
+  h += '<div class="leiste"><label class="note" for="hl">Bundesland hervorheben: </label><select id="hl"><option value="">keines</option>'+B.laender.map(function(l){ return '<option value="'+l.code+'"'+(hl===l.code?" selected":"")+'>'+l.name+'</option>'; }).join("")+'</select></div>';
+  B.gruppen.forEach(function(g){ var l = B.indikatoren.filter(function(i){ return i.gruppe===g; }); if(!l.length) return; h += '<h2 class="gh">'+g+'</h2>'+l.map(karte).join(""); });
+  h += '<div class="card"><p class="note">Quelle: '+B.quelle+'. Die Werte liegen später vor als bei den EU-Zahlen, meist mit zwei bis drei Jahren Verzögerung, und kommen zum Teil aus Stichproben, die pro Bundesland klein sind. Wo ein Bundesland stark vom Durchschnitt abweicht, liegt das oft an Besonderheiten wie Pendlerströmen (Wien) oder Alpenlage. Der Vergleich zeigt, wo ein Land steht, nicht, wer dafür verantwortlich ist. Mehr dazu in der <a href="methodik.html">Methodik</a>.</p></div>';
+  h += fussnote();
+  app.innerHTML = h;
+  document.getElementById("hl").onchange = function(){ hl = this.value; seite(); };
+}
+seite();
+</script>
+</body>
+</html>
