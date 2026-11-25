@@ -173,7 +173,7 @@ var PAARE = [
   { ids: ["insolvenzen","insolvenzenEU"], titel: "Insolvenzen", labels: ["Anzahl","EU-Index"], suche: "insolvenzen pleiten firmen" },
   { ids: ["arbeitslosigkeit","beschaeftigung"], titel: "Arbeitsmarkt", labels: ["Arbeitslos","Jobquote"], suche: "arbeitsmarkt arbeitslosenquote arbeitslosigkeit beschäftigungsquote beschäftigung" },
   { ids: ["benzin","diesel"], titel: "Spritpreise", labels: ["Benzin","Diesel"], suche: "spritpreis benzinpreis dieselpreis treibstoff tanken" },
-  { ids: ["strompreis","strompreis-industrie"], titel: "Strompreise", labels: ["Haushalte","Industrie"], suche: "strompreis strom energie haushalte industrie" },
+  { ids: ["strompreis","strompreis-industrie","gaspreis","heizoel"], titel: "Energiekosten", labels: ["Strom Haushalte","Strom Industrie","Gas","Heizöl"], suche: "energiekosten strompreis strom gas gaspreis heizöl heizoel heizen heizkosten energie haushalte industrie" },
   { ids: ["armut","ausgrenzung"], titel: "Armut", labels: ["Armutsrisiko","Ausgrenzung"], suche: "armut armutsgefährdung armutsrisiko soziale ausgrenzung arope" },
   { ids: ["immobilien","mieten","wohnkosten"], titel: "Wohnen", labels: ["Kaufpreise","Mieten","Belastung"], suche: "wohnen immobilien immobilienpreise kaufpreise mieten miete wohnkosten wohnkostenbelastung" },
   { ids: ["jugendarbeitslosigkeit","neet"], titel: "Junge Menschen", labels: ["Arbeitslos","Ohne Job/Schule"], suche: "jugend junge menschen jugendarbeitslosigkeit neet ausbildung" },

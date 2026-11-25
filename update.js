@@ -47,7 +47,7 @@ const GRUPPE_VON = {
   wachstum: 1, "wachstum-pro-kopf": 1, "wachstum-privat": 1, arbeitslosigkeit: 1, beschaeftigung: 1, insolvenzen: 1, insolvenzenEU: 1, einkommen: 1, durchschnittseinkommen: 1, kaufkraft: 1,
   teilzeit: 1, industrie: 1,
   schulden: 2, defizit: 2, staatsquote: 2, abgabenquote: 2, rating: 2,
-  inflation: 0, benzin: 0, diesel: 0, lebenshaltung: 0, immobilien: 0, strompreis: 0, "strompreis-industrie": 0,
+  inflation: 0, benzin: 0, diesel: 0, lebenshaltung: 0, immobilien: 0, strompreis: 0, "strompreis-industrie": 0, heizoel: 0, gaspreis: 0,
   bevoelkerung: 4, geburtenrate: 4, terror: 3, aktionaersquote: 1, kapitalmarkt: 1, armut: 4, ausgrenzung: 4, wohnkosten: 0, mieten: 0, jugendarbeitslosigkeit: 1, neet: 1, forschung: 1, ausgabenBildung: 2, ausgabenGesundheit: 2, ausgabenVerteidigung: 2, ausgabenSoziales: 2, genderPayGap: 4, erneuerbare: 0, energieabhaengigkeit: 0, nettozuwanderung: 4, asyl: 4, asylOffen: 4, lebenszufriedenheit: 4, kapitalNichtBoerse: 1, kapitalGesamt: 1, religion: 4, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 3, toetung: 3, koerperverletzung: 3, sexualdelikte: 3, raub: 3, einbruch: 3, gefaengnis: 3, verurteilungen: 3 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
@@ -64,6 +64,8 @@ const ERKLAERUNG = {
   "wachstum-pro-kopf": "Wie viel die Wirtschaft pro Einwohner gewachsen ist, ohne Preissteigerungen. Das zeigt, ob jeder Einzelne im Durchschnitt mehr erwirtschaftet. Das ist ein anderes Bild als das Gesamtwachstum: Wächst die Wirtschaft um 1 %, die Bevölkerung aber um 1,5 %, ist es pro Kopf ein Rückgang.",
   lebenshaltung: "Wie teuer das Leben in einem Land im Vergleich zum EU-Durchschnitt ist. Der EU-Durchschnitt ist 100. Bei 120 sind die Preise für einen typischen Warenkorb um 20 % höher als im EU-Schnitt, bei 80 um 20 % niedriger. Der Wert zeigt das Preisniveau und nicht, wie schnell die Preise steigen. Das zeigt die Inflation.",
   strompreis: "Was ein normaler Haushalt (2.500 bis 5.000 kWh Verbrauch pro Jahr) inklusive Steuern und Abgaben für eine Kilowattstunde Strom bezahlt, in Cent. Die Werte kommen halbjährlich. Verglichen wird mit dem gleichen Halbjahr des Vorjahres, damit Jahreszeiten den Vergleich nicht verzerren.",
+  heizoel: "Was ein Liter Heizöl im Schnitt kostet, in Cent, inklusive Steuern. Die Werte kommen aus dem Weekly Oil Bulletin der EU-Kommission und sind der Monatsdurchschnitt der gemeldeten Wochenpreise. Ein niedrigerer Preis ist besser.",
+  gaspreis: "Was eine Kilowattstunde Erdgas für einen Haushalt mit durchschnittlichem Verbrauch inklusive Steuern und Abgaben kostet, in Cent (Halbjahreswerte). Fernwärme ist nicht erfasst. Ein niedrigerer Preis ist besser.",
   "strompreis-industrie": "Was ein mittelgroßer Industriebetrieb (2 bis 20 Millionen kWh pro Jahr) ohne Mehrwertsteuer für eine Kilowattstunde Strom bezahlt, in Cent. Die Werte kommen halbjährlich. Verglichen wird mit dem gleichen Halbjahr des Vorjahres. Der Preis ist ein Kostenfaktor für die Unternehmen im Land.",
   immobilien: "Wie stark die Preise für Wohnungen und Häuser (neu und gebraucht) seit dem Amtsantritt der Regierung gestiegen oder gefallen sind. Eurostat misst das mit einem Preisindex, also der Veränderung und nicht dem Preis pro Quadratmeter. 10 % heißt: Eine Immobilie kostet im Schnitt 10 % mehr als zu Beginn.",
   einkommen: "Das mittlere Einkommen: Die eine Hälfte der Menschen im Land hat weniger, die andere mehr als diesen Betrag. Gemeint ist das Nettoeinkommen nach Steuern und Abgaben, einschließlich Pensionen und Sozialleistungen, je Person. Haushalte werden nach ihrer Größe gewichtet. Es ist kein reiner Lohn. Die Erhebung beschreibt das Einkommen des Vorjahres. Der Trend wird um die Inflation bereinigt: Das Einkommen muss stärker steigen als die Preise, damit er als besser gilt.",
@@ -124,7 +126,7 @@ const ERKLAERUNG = {
 
 const INDICATORS = [
   { id: "arbeitslosigkeit", name: "Arbeitslosenquote", pfeilModus: "wert", takt: "monat", dataset: "une_rt_m",
-    filter: "s_adj=SA&age=TOTAL&unit=PC_ACT&sex=T",
+    filter: "s_adj=SA&age=TOTAL&unit=PC_ACT&sex=T", absolut: { art: "personen", filter: "s_adj=SA&age=TOTAL&unit=THS_PER&sex=T" },
     einheit: "% der Erwerbspersonen, saisonbereinigt", rangText: "Rang 1 = niedrigste Arbeitslosenquote",
     typ: "niedrig", schwelle: 0.1, mock: { base: 3, step: 0.7 } },
   { id: "inflation", name: "Inflation", takt: "monat",
@@ -145,11 +147,11 @@ const INDICATORS = [
     hinweis: "Gemessen wird die Wertschöpfung von Bergbau, Industrie, Energie- und Wasserversorgung (ohne Bau). In kleinen Ländern können einzelne Großbetriebe die Zahl stark bewegen.",
     typ: "hoch", schwelle: 0.3, mock: { base: -1.2, step: 0.4 } },
   { id: "schulden", name: "Schuldenstand", takt: "quartal", dataset: "gov_10q_ggdebt", // Quartalsdaten sind aktueller als die Jahresdaten (gov_10dd_edpt1)
-    filter: "unit=PC_GDP&sector=S13&na_item=GD", // Maastricht-Schuldenstand des Staates
+    filter: "unit=PC_GDP&sector=S13&na_item=GD", absolut: {}, // Maastricht-Schuldenstand des Staates
     einheit: "% des BIP, Staat insgesamt, Stand am Quartalsende", rangText: "Rang 1 = niedrigster Schuldenstand",
     typ: "niedrig", schwelle: 0.5, schwelleFix: true, mock: { base: 40, step: 5 } },
   { id: "defizit", name: "Defizit", takt: "jahr", dataset: "gov_10dd_edpt1",
-    filter: "unit=PC_GDP&sector=S13&na_item=B9", // Finanzierungssaldo des Staates, negativ = Defizit
+    filter: "unit=PC_GDP&sector=S13&na_item=B9", absolut: { hochrechnen: true }, // Finanzierungssaldo des Staates, negativ = Defizit
     einheit: "% des BIP, Staat insgesamt (negativ = Defizit)",
     rangText: "Rang 1 = bester Budgetsaldo (höchster Überschuss bzw. kleinstes Defizit)",
     typ: "hoch", schwelle: 0.5, schwelleFix: true, mock: { base: -6, step: 0.6 } },
@@ -271,6 +273,19 @@ const INDICATORS = [
     rangText: "Rang 1 = niedrigster Dieselpreis", maxAlter: 3,
     hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
     typ: "niedrig", schwelle: 2, mock: { base: 135, step: 4 } }
+  ,{ id: "heizoel", name: "Heizölpreise", takt: "monat", dataset: "une_rt_m", filter: "x=y",
+    oel: { produkt: "heating_oil" },
+    einheit: "Cent pro Liter Heizöl (extraleicht), inklusive Steuern, Monatsdurchschnitt", suffix: " ct", diffEinheit: "Cent pro Liter", dez: 1,
+    rangText: "Rang 1 = niedrigster Heizölpreis", maxAlter: 3,
+    hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie viele Haushalte mit Heizöl heizen, ist von Land zu Land sehr verschieden.",
+    typ: "niedrig", schwelle: 2, mock: { base: 100, step: 4 } }
+  ,{ id: "gaspreis", name: "Gaspreise für Haushalte", takt: "halbjahr", dataset: "nrg_pc_202",
+    filter: "siec=G3000&nrg_cons=GJ20-199&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 20 bis 200 GJ Jahresverbrauch, inklusive aller Steuern und Abgaben
+    faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
+    einheit: "Cent pro kWh, Haushalte mit 20 bis 200 Gigajoule Jahresverbrauch, inklusive Steuern und Abgaben (Halbjahreswerte)",
+    rangText: "Rang 1 = niedrigster Gaspreis", maxAlter: 14,
+    hinweis: "Verglichen wird der Gaspreis. Fernwärme, die in Österreich viele Haushalte nutzen, ist in dieser Statistik nicht enthalten.",
+    typ: "niedrig", schwelle: 1, mock: { base: 7, step: 1 } }
   ,{ id: "sicherheitsgefuehl", name: "Wahrgenommene Kriminalität im Wohnumfeld", takt: "jahr", dataset: "sdg_16_20",
     filter: "hhcomp=TOTAL&rskpovth=TOTAL&unit=PC", alternativen: [ { dataset: "sdg_16_20", filter: "hhcomp=TOTAL&rskpovth=TOTAL&unit=PC" } ],
     maxAlter: 48, rueckblick: 3, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
@@ -295,7 +310,7 @@ const INDICATORS = [
     hinweis: "Eurostat veröffentlicht das durchschnittliche Pensionsantrittsalter derzeit nicht mehr, deshalb zeigt diese Seite die Dauer des Erwerbslebens als Ersatz. Ob ein längeres Erwerbsleben besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber mehr Arbeitsjahre für den Einzelnen.",
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.1, schwelleFix: true, mock: { base: 61, step: 0.4 } }
   ,{ id: "pensionsausgaben", name: "Pensionsausgaben", takt: "jahr", dataset: "spr_exp_pens",
-    filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL", alternativen: [ { dataset: "spr_exp_pens", filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL" } ],
+    filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL", absolut: { hochrechnen: true }, alternativen: [ { dataset: "spr_exp_pens", filter: "unit=PC_GDP&spdepb=TOTAL&spdepm=TOTAL" } ],
     maxAlter: 36, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte des BIP", minLaender: 20,
     einheit: "Pensionsausgaben in % des BIP", rangText: "Rang 1 = niedrigste Pensionsausgaben",
     hinweis: "Gewertet wird: Niedrigere Ausgaben gelten als besser, weil sie den Staatshaushalt weniger belasten. Die Ausgaben hängen aber vom Altersaufbau der Bevölkerung ab, und hohe Ausgaben bedeuten nicht automatisch hohe Pensionen.",
@@ -391,7 +406,7 @@ const INDICATORS = [
     hinweis: "Der nicht börsennotierte Teil wird von den Statistikämtern geschätzt. In kleinen Ländern mit wenigen großen, international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben.",
     mock: { base: 20000, step: 6000 } }
   ,{ id: "armut", name: "Armutsgefährdung", takt: "jahr", dataset: "ilc_li02",
-    filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PC&rskpovth=B_60",
+    filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PC&rskpovth=B_60", absolut: { art: "personen", filter: "age=TOTAL&sex=T&unit=THS_PER&indic_il=LI_R_MD60" },
     alternativen: [ { dataset: "ilc_li02", filter: "statinfo=MEAN_EI&age=TOTAL&sex=T&unit=PC&rskpovth=B_60" }, { dataset: "ilc_li02", filter: "indic_il=LI_R_MD60&age=TOTAL&sex=T&unit=PC" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil der Menschen mit weniger als 60 % des mittleren Einkommens (nach Sozialleistungen)", rangText: "Rang 1 = niedrigste Armutsgefährdung",
@@ -399,7 +414,7 @@ const INDICATORS = [
     ausblenden2025: true,
     typ: "niedrig", schwelle: 0.3, mock: { base: 10, step: 1 } }
   ,{ id: "ausgrenzung", name: "Armut oder soziale Ausgrenzung", takt: "jahr", dataset: "ilc_peps01n",
-    filter: "age=TOTAL&sex=T&unit=PC",
+    filter: "age=TOTAL&sex=T&unit=PC", absolut: { art: "personen" },
     alternativen: [ { dataset: "ilc_peps01n", filter: "age=TOTAL&sex=T" }, { dataset: "ilc_peps01", filter: "age=TOTAL&sex=T&unit=PC" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil der Menschen, die von Armut oder sozialer Ausgrenzung bedroht sind (AROPE)", rangText: "Rang 1 = niedrigster Anteil",
@@ -437,10 +452,10 @@ const INDICATORS = [
     alternativen: [ { dataset: "rd_e_gerdtot", filter: "unit=PC_GDP" }, { dataset: "rd_e_gerdtot", filter: "sectperf=TOTAL&unit=PC_GDP&freq=A" } ],
     maxAlter: 36, dez: 2, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Ausgaben für Forschung und Entwicklung in % des BIP", rangText: "Rang 1 = höchste Forschungsquote",
-    ausblenden2025: true, absolut: { filter: "sectperf=TOTAL&unit=MIO_EUR" },
+    ausblenden2025: true, absolut: { filter: "sectperf=TOTAL&unit=MIO_EUR", hochrechnen: true },
     typ: "hoch", schwelle: 0.1, mock: { base: 10, step: 1 } }
   ,{ id: "ausgabenBildung", name: "Staatsausgaben Bildung", takt: "jahr", dataset: "gov_10a_exp",
-    filter: "unit=PC_GDP&sector=S13&cofog99=GF09&na_item=TE",
+    filter: "unit=PC_GDP&sector=S13&cofog99=GF09&na_item=TE", absolut: { hochrechnen: true },
     alternativen: [ { dataset: "gov_10a_exp", filter: "unit=PC_GDP&cofog99=GF09&na_item=TE&sector=S13&freq=A" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 22,
     einheit: "Staatsausgaben für Bildung in % des BIP", rangText: "Rang 1 = höchste Ausgaben",
@@ -448,7 +463,7 @@ const INDICATORS = [
     ausblenden2025: true,
     typ: "neutral", trendNeutral: true, schwelle: 0.1, mock: { base: 10, step: 1 } }
   ,{ id: "ausgabenGesundheit", name: "Staatsausgaben Gesundheit", takt: "jahr", dataset: "gov_10a_exp",
-    filter: "unit=PC_GDP&sector=S13&cofog99=GF07&na_item=TE",
+    filter: "unit=PC_GDP&sector=S13&cofog99=GF07&na_item=TE", absolut: { hochrechnen: true },
     alternativen: [ { dataset: "gov_10a_exp", filter: "unit=PC_GDP&cofog99=GF07&na_item=TE&sector=S13&freq=A" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 22,
     einheit: "Staatsausgaben für Gesundheit in % des BIP", rangText: "Rang 1 = höchste Ausgaben",
@@ -456,7 +471,7 @@ const INDICATORS = [
     ausblenden2025: true,
     typ: "neutral", trendNeutral: true, schwelle: 0.1, mock: { base: 10, step: 1 } }
   ,{ id: "ausgabenVerteidigung", name: "Staatsausgaben Verteidigung", takt: "jahr", dataset: "gov_10a_exp",
-    filter: "unit=PC_GDP&sector=S13&cofog99=GF02&na_item=TE",
+    filter: "unit=PC_GDP&sector=S13&cofog99=GF02&na_item=TE", absolut: { hochrechnen: true },
     alternativen: [ { dataset: "gov_10a_exp", filter: "unit=PC_GDP&cofog99=GF02&na_item=TE&sector=S13&freq=A" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 22,
     einheit: "Staatsausgaben für Verteidigung in % des BIP", rangText: "Rang 1 = höchste Ausgaben",
@@ -464,7 +479,7 @@ const INDICATORS = [
     ausblenden2025: true,
     typ: "neutral", trendNeutral: true, schwelle: 0.1, mock: { base: 10, step: 1 } }
   ,{ id: "ausgabenSoziales", name: "Staatsausgaben Soziale Sicherung", takt: "jahr", dataset: "gov_10a_exp",
-    filter: "unit=PC_GDP&sector=S13&cofog99=GF10&na_item=TE",
+    filter: "unit=PC_GDP&sector=S13&cofog99=GF10&na_item=TE", absolut: { hochrechnen: true },
     alternativen: [ { dataset: "gov_10a_exp", filter: "unit=PC_GDP&cofog99=GF10&na_item=TE&sector=S13&freq=A" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 22,
     einheit: "Staatsausgaben für soziale Sicherung in % des BIP", rangText: "Rang 1 = höchste Ausgaben",
@@ -491,7 +506,7 @@ const INDICATORS = [
     filter: "siec=TOTAL&unit=PC",
     alternativen: [ { dataset: "nrg_ind_id", filter: "siec=TOTAL" }, { dataset: "nrg_ind_id", filter: "siec=TOTAL&unit=PC&freq=A" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
-    einheit: "% des Energiebedarfs, die aus dem Ausland importiert werden", rangText: "Rang 1 = höchste Importabhängigkeit",
+    einheit: "% des Energiebedarfs, die aus dem Ausland importiert werden", rangText: "Rang 1 = niedrigste Importabhängigkeit", rangNiedrigZuerst: true,
     ausblenden2025: true,
     typ: "neutral", trendNeutral: true, schwelle: 1, mock: { base: 10, step: 1 } }
   ,{ id: "nettozuwanderung", name: "Nettozuwanderung", takt: "jahr", dataset: "demo_gind",
@@ -848,7 +863,8 @@ async function berechneOel(ind) {
   _oel ??= oelBulletin();
   const rows = (await _oel)["Prices with taxes"]; if (!rows) throw new Error("Blatt 'Prices with taxes' fehlt");
   const spalten = {}, produkt = ind.oel.produkt; // Spalten über die Kopfzeile finden (Länder mit eigener Währung haben eine zusätzliche Wechselkurs-Spalte)
-  (rows[0] || []).forEach((v, i) => { const m = typeof v === "string" && /^([A-Z]{2,3})_price_with_tax_(euro95|diesel)$/.exec(v); if (m && m[2] === produkt) spalten[m[1] === "GR" ? "EL" : m[1] === "EU" ? "EU27_2020" : m[1]] = i; });
+  (rows[0] || []).forEach((v, i) => { const m = typeof v === "string" && /^([A-Z]{2,3})_price_with_tax_([a-z0-9_]+)$/.exec(v); if (m && (produkt === "heating_oil" ? /heating/.test(m[2]) && !/fuel_oil/.test(m[2]) : m[2] === produkt)) spalten[m[1] === "GR" ? "EL" : m[1] === "EU" ? "EU27_2020" : m[1]] = i; });
+  if (produkt === "heating_oil") console.error("   Ölbulletin Spaltennamen: " + [...new Set((rows[0] || []).filter(v => typeof v === "string" && /_price_with_tax_/.test(v)).map(v => v.replace(/^[A-Z]{2,3}_price_with_tax_/, "")))].join(", "));
   if (Object.keys(spalten).length < 25) throw new Error(`Ölbulletin: nur ${Object.keys(spalten).length} Spalten für ${produkt} gefunden`);
   const sum = {}, anz = {};
   for (const r of rows.slice(3)) {
@@ -1186,12 +1202,17 @@ function berechneVerurteilungen() {
       }
       if (ind.absolut) { // absolute Zahlen zusätzlich in Klammern (nur Anzeige, geht nicht in Rang oder Trend ein)
         try {
+          const A = ind.absolut, art = A.art || "euro", ds = A.dataset || ind.dataset;
+          const filter = A.filter || (art === "personen" ? ind.filter.replace(/unit=[A-Z_]+/, "unit=THS_PER") : ind.filter.replace("unit=PC_GDP", "unit=MIO_EUR"));
+          const seit = /^\d{4}$/.test(r.periode) ? String(+r.periode - 3) : r.periode;
           let ab = null;
           if (TEST) { ab = {}; r.laender.forEach((x, k) => { ab[x.code] = { [r.periode]: 1000 + 700 * k }; }); }
-          else { const res = await fetch(`${BASE}${ind.dataset}?format=JSON&lang=EN&${ind.absolut.filter}&sinceTimePeriod=${+r.periode - 3}`); if (!res.ok) throw new Error("HTTP " + res.status); ab = parse(await res.json()); }
-          const fmt = v => v >= 1000 ? (v / 1000).toLocaleString("de-AT", { maximumFractionDigits: 1 }) + " Mrd. €" : Math.round(v).toLocaleString("de-AT") + " Mio. €";
-          let gdp = null; // fehlt der absolute Betrag für das Datenjahr: Quote (% des BIP) mal BIP des Datenjahres, als hochgerechnet gekennzeichnet
-          if (r.laender.some(x => ab[x.code]?.[r.periode] == null) && !TEST) { try { const rg = await fetch(`${BASE}nama_10_gdp?format=JSON&lang=EN&unit=CP_MEUR&na_item=B1GQ&sinceTimePeriod=${r.periode}`); if (rg.ok) gdp = parse(await rg.json()); } catch (e) { /* ohne BIP bleibt der letzte Betrag mit Jahr */ } }
+          else { const res = await fetch(`${BASE}${ds}?format=JSON&lang=EN&${filter}&sinceTimePeriod=${seit}`); if (!res.ok) throw new Error("HTTP " + res.status); ab = parse(await res.json()); }
+          const fmt = v => { const a = Math.abs(v), vz = v < 0 ? "−" : "", z = n => n.toLocaleString("de-AT", { maximumFractionDigits: 1 });
+            if (art === "personen") return a >= 1000 ? vz + z(a / 1000) + " Mio. Personen" : vz + Math.round(a).toLocaleString("de-AT") + " Tsd. Personen";
+            return a >= 1000 ? vz + z(a / 1000) + " Mrd. €" : vz + Math.round(a).toLocaleString("de-AT") + " Mio. €"; };
+          let gdp = null; // fehlt der Betrag für das Datenjahr: Quote (% des BIP) mal BIP des Datenjahres, als hochgerechnet gekennzeichnet
+          if (art === "euro" && A.hochrechnen && /^\d{4}$/.test(r.periode) && r.laender.some(x => ab[x.code]?.[r.periode] == null) && !TEST) { try { const rg = await fetch(`${BASE}nama_10_gdp?format=JSON&lang=EN&unit=CP_MEUR&na_item=B1GQ&sinceTimePeriod=${r.periode}`); if (rg.ok) gdp = parse(await rg.json()); } catch (e) { /* ohne BIP bleibt der letzte Betrag mit Jahr */ } }
           r.laender.forEach(x => {
             const direkt = ab[x.code]?.[r.periode], g = gdp?.[x.code]?.[r.periode];
             if (direkt != null) { x.zus = fmt(direkt); return; }
