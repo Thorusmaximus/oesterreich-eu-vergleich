@@ -7770,5 +7770,230 @@
    "besser": 1,
    "schlechter": 0
   }
+ ],
+ "seitAntritt": [
+  {
+   "code": "AT11",
+   "name": "Burgenland",
+   "koalitionSeit": "Februar 2025",
+   "basis": 2024,
+   "bis": null,
+   "n": 0,
+   "zuKurz": true,
+   "besser": 0,
+   "schlechter": 0,
+   "unveraendert": 0,
+   "besserListe": [],
+   "schlechterListe": []
+  },
+  {
+   "code": "AT12",
+   "name": "Niederösterreich",
+   "koalitionSeit": "März 2023",
+   "basis": 2022,
+   "bis": 2025,
+   "n": 7,
+   "zuKurz": false,
+   "besser": 2,
+   "schlechter": 2,
+   "unveraendert": 3,
+   "besserListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "verkehrstote",
+     "name": "Verkehrstote"
+    }
+   ],
+   "schlechterListe": [
+    {
+     "id": "saeuglingssterblichkeit",
+     "name": "Säuglingssterblichkeit"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
+  },
+  {
+   "code": "AT13",
+   "name": "Wien",
+   "koalitionSeit": "Juni 2025",
+   "basis": 2024,
+   "bis": null,
+   "n": 0,
+   "zuKurz": true,
+   "besser": 0,
+   "schlechter": 0,
+   "unveraendert": 0,
+   "besserListe": [],
+   "schlechterListe": []
+  },
+  {
+   "code": "AT21",
+   "name": "Kärnten",
+   "koalitionSeit": "2023",
+   "basis": 2022,
+   "bis": 2025,
+   "n": 7,
+   "zuKurz": false,
+   "besser": 2,
+   "schlechter": 3,
+   "unveraendert": 2,
+   "besserListe": [
+    {
+     "id": "lebenserwartung65",
+     "name": "Lebenserwartung mit 65"
+    },
+    {
+     "id": "saeuglingssterblichkeit",
+     "name": "Säuglingssterblichkeit"
+    }
+   ],
+   "schlechterListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "verkehrstote",
+     "name": "Verkehrstote"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
+  },
+  {
+   "code": "AT22",
+   "name": "Steiermark",
+   "koalitionSeit": "Dezember 2024",
+   "basis": 2024,
+   "bis": null,
+   "n": 0,
+   "zuKurz": true,
+   "besser": 0,
+   "schlechter": 0,
+   "unveraendert": 0,
+   "besserListe": [],
+   "schlechterListe": []
+  },
+  {
+   "code": "AT31",
+   "name": "Oberösterreich",
+   "koalitionSeit": "Oktober 2021",
+   "basis": 2021,
+   "bis": 2025,
+   "n": 7,
+   "zuKurz": false,
+   "besser": 2,
+   "schlechter": 3,
+   "unveraendert": 2,
+   "besserListe": [
+    {
+     "id": "lebenserwartung65",
+     "name": "Lebenserwartung mit 65"
+    },
+    {
+     "id": "verkehrstote",
+     "name": "Verkehrstote"
+    }
+   ],
+   "schlechterListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "saeuglingssterblichkeit",
+     "name": "Säuglingssterblichkeit"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
+  },
+  {
+   "code": "AT32",
+   "name": "Salzburg",
+   "koalitionSeit": "2023",
+   "basis": 2022,
+   "bis": 2025,
+   "n": 7,
+   "zuKurz": false,
+   "besser": 0,
+   "schlechter": 4,
+   "unveraendert": 3,
+   "besserListe": [],
+   "schlechterListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "verkehrstote",
+     "name": "Verkehrstote"
+    },
+    {
+     "id": "saeuglingssterblichkeit",
+     "name": "Säuglingssterblichkeit"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
+  },
+  {
+   "code": "AT33",
+   "name": "Tirol",
+   "koalitionSeit": "November 2022",
+   "basis": 2022,
+   "bis": 2025,
+   "n": 7,
+   "zuKurz": false,
+   "besser": 2,
+   "schlechter": 2,
+   "unveraendert": 3,
+   "besserListe": [
+    {
+     "id": "armut",
+     "name": "Armut oder soziale Ausgrenzung"
+    },
+    {
+     "id": "saeuglingssterblichkeit",
+     "name": "Säuglingssterblichkeit"
+    }
+   ],
+   "schlechterListe": [
+    {
+     "id": "verkehrstote",
+     "name": "Verkehrstote"
+    },
+    {
+     "id": "arbeitslosigkeitAms",
+     "name": "Arbeitslosenquote (AMS)"
+    }
+   ]
+  },
+  {
+   "code": "AT34",
+   "name": "Vorarlberg",
+   "koalitionSeit": "Dezember 2024",
+   "basis": 2024,
+   "bis": null,
+   "n": 0,
+   "zuKurz": true,
+   "besser": 0,
+   "schlechter": 0,
+   "unveraendert": 0,
+   "besserListe": [],
+   "schlechterListe": []
+  }
  ]
 }
