@@ -295,5 +295,49 @@
     11.4
    ]
   }
+ },
+ "unternehmen": {
+  "quelle": "Wirtschaftskammern Österreichs (WKÖ), Mitgliederstatistik: Kammermitgliedschaften insgesamt (aktiv und ruhend), Stand 31.12.2025",
+  "url": "https://www.wko.at/oe/statistik/bundesland/mg-zeitreihe.pdf",
+  "jahr": "2025",
+  "vorjahr": "2024",
+  "werte": {
+   "AT11": [
+    27084,
+    26732
+   ],
+   "AT21": [
+    46578,
+    45346
+   ],
+   "AT12": [
+    145011,
+    142913
+   ],
+   "AT31": [
+    108570,
+    106431
+   ],
+   "AT32": [
+    49748,
+    49098
+   ],
+   "AT22": [
+    102540,
+    101431
+   ],
+   "AT33": [
+    60690,
+    59690
+   ],
+   "AT34": [
+    29568,
+    29016
+   ],
+   "AT13": [
+    153086,
+    150244
+   ]
+  }
  }
 }
