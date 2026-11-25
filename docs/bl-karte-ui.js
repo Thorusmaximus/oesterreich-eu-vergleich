@@ -1,0 +1,92 @@
+// Interaktive Bundesländer-Karte (benötigt bl-karte.js, bl-common.js, common.js und die globalen Variablen B und hl)
+var KM = { ind: "gesamt", modus: "staerke", sel: "" };
+function kmHsl(f, neutral) { // f: 0 = Spitze, 1 = Schlusslicht
+  if (neutral) return "hsl(214,58%," + Math.round(78 - 42 * (1 - f)) + "%)";
+  return "hsl(" + Math.round(140 * (1 - f)) + ",52%," + Math.round(40 + 6 * Math.sin(f * Math.PI)) + "%)";
+}
+var KM_GRAU = "#9aa3b5";
+function kmInd() { return B.indikatoren.filter(function (i) { return i.id === KM.ind; })[0]; }
+function kmHolen(code) { // Farbe + Kurztext je Land für die aktuelle Auswahl
+  var bi = B.bilanz.filter(function (b) { return b.code === code; })[0];
+  if (KM.ind === "gesamt") {
+    if (!bi) return { c: KM_GRAU, t: "keine Daten" };
+    if (KM.modus === "staerke") return { c: kmHsl((bi.platz - 1) / 8), t: "Gesamtbild Platz " + bi.platz + " von " + B.bilanz.length };
+    var s = bi.besser - bi.schlechter, m = Math.max.apply(null, B.bilanz.map(function (b) { return Math.abs(b.besser - b.schlechter); })) || 1;
+    return { c: s === 0 ? KM_GRAU : kmHsl(s > 0 ? 0.5 - 0.5 * s / m : 0.5 + 0.5 * -s / m), t: bi.besser + " besser, " + bi.schlechter + " schlechter" };
+  }
+  var i = kmInd(), x = i && i.laender.filter(function (z) { return z.code === code; })[0];
+  if (!x) return { c: KM_GRAU, t: "keine Daten" };
+  var neutral = i.typ === "neutral";
+  if (KM.modus === "staerke") return { c: kmHsl(i.anzahl > 1 ? (x.rang - 1) / (i.anzahl - 1) : 0, neutral), t: "Platz " + x.rang + " von " + i.anzahl + ": " + fw(i, x.wert) };
+  if (x.urteil) return { c: x.urteil === "besser" ? kmHsl(0) : x.urteil === "schlechter" ? kmHsl(1) : KM_GRAU, t: trendWort(x.urteil) };
+  if (x.richtung) return { c: x.richtung === "steigend" ? "hsl(214,58%,36%)" : x.richtung === "sinkend" ? "hsl(214,58%,72%)" : KM_GRAU, t: x.richtung };
+  return { c: KM_GRAU, t: "keine Entwicklung verfügbar" };
+}
+function kmWechsel(x) { // Platzveränderung als Text
+  if (x.rangVor == null) return "";
+  var d = x.rangVor - x.rang; return d === 0 ? "Platz unverändert" : (d > 0 ? "▲ " : "▼ ") + Math.abs(d) + (Math.abs(d) === 1 ? " Platz " : " Plätze ") + (d > 0 ? "besser" : "schlechter");
+}
+function kmPanel() {
+  var code = KM.sel; if (!code) return '<p class="note">Tippe auf ein Bundesland, um Details, Stärken und Schwächen zu sehen.</p>';
+  var l = B.laender.filter(function (z) { return z.code === code; })[0], r = l.regierung, bi = B.bilanz.filter(function (b) { return b.code === code; })[0];
+  var h = '<h3>' + l.name + '</h3><p class="note">' + r.chef + ' (' + r.partei + '), Koalition: ' + r.koalition.join(", ") + '</p>';
+  if (KM.ind !== "gesamt") {
+    var i = kmInd(), x = i && i.laender.filter(function (z) { return z.code === code; })[0];
+    if (x) {
+      h += '<p><b>' + i.name + ':</b> Platz ' + x.rang + ' von ' + i.anzahl + ' (' + fw(i, x.wert) + ')';
+      if (x.wertVor != null) h += '<br>' + (i.vorPeriode || "früher") + ': ' + fw(i, x.wertVor) + (x.rangVor != null ? ' (Platz ' + x.rangVor + ')' : '');
+      if (x.rangVor != null) h += '<br>' + kmWechsel(x);
+      if (x.urteil) h += '<br>Trend: <span class="' + urteilCls(x.urteil) + '">' + pfeil(x.richtung) + ' ' + trendWort(x.urteil) + '</span>';
+      if (x.zus) h += '<br><span class="note">' + x.zus + '</span>';
+      h += '</p>';
+    } else h += '<p class="note">Für diesen Indikator liegen keine Daten für ' + l.name + ' vor.</p>';
+  }
+  if (bi) h += '<p><b>Gesamtbild:</b> Platz ' + bi.platz + ' (Ø ' + bi.durchschnittsrang.toLocaleString("de-AT", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ')' + (bi.platzVor != null ? ', früher Platz ' + bi.platzVor : '') + ', bei ' + bi.besser + ' Indikatoren besser und bei ' + bi.schlechter + ' schlechter als früher.</p>';
+  var gew = []; B.indikatoren.forEach(function (i) { if (i.ausgeblendet || i.typ === "neutral") return; var x = i.laender.filter(function (z) { return z.code === code; })[0]; if (x && x.rang != null) gew.push({ i: i, x: x }); });
+  var st = gew.filter(function (g) { return g.x.rang <= 2; }).sort(function (a, b) { return a.x.rang - b.x.rang; }).slice(0, 5);
+  var sc = gew.filter(function (g) { return g.x.rang >= g.i.anzahl - 1; }).sort(function (a, b) { return (b.x.rang - b.i.anzahl) - (a.x.rang - a.i.anzahl); }).slice(0, 5);
+  var li = function (a) { return a.length ? '<ul>' + a.map(function (g) { return '<li>' + g.i.name + ' (Platz ' + g.x.rang + ')</li>'; }).join("") + '</ul>' : '<p class="note">keine</p>'; };
+  h += '<div class="kmsw"><div><h4 class="good">Stärken</h4>' + li(st) + '</div><div><h4 class="bad">Schwächen</h4>' + li(sc) + '</div></div>';
+  var bes = gew.filter(function (g) { return g.x.urteil === "besser"; }).slice(0, 4), sch = gew.filter(function (g) { return g.x.urteil === "schlechter"; }).slice(0, 4);
+  var lj = function (a) { return a.length ? a.map(function (g) { return g.i.name; }).join(", ") : "keine"; };
+  h += '<p class="note"><b>Verbessert:</b> ' + lj(bes) + '<br><b>Verschlechtert:</b> ' + lj(sch) + '</p>';
+  return h;
+}
+function kmLegende() {
+  if (KM.modus === "staerke") { var neutral = KM.ind !== "gesamt" && kmInd() && kmInd().typ === "neutral";
+    return '<div class="kmleg"><span>' + (neutral ? 'niedrigster Wert' : 'Stärke (Platz 1)') + '</span><i class="kmverl" style="background:linear-gradient(90deg,' + kmHsl(0, neutral) + ',' + kmHsl(0.5, neutral) + ',' + kmHsl(1, neutral) + ')"></i><span>' + (neutral ? 'höchster Wert' : 'Schwäche (letzter Platz)') + '</span></div>'; }
+  var i = KM.ind === "gesamt" ? null : kmInd();
+  if (i && i.typ === "neutral") return '<div class="kmleg"><span><i style="background:hsl(214,58%,72%)"></i>sinkend</span><span><i style="background:' + KM_GRAU + '"></i>stabil</span><span><i style="background:hsl(214,58%,36%)"></i>steigend</span></div>';
+  return '<div class="kmleg"><span><i style="background:' + kmHsl(0) + '"></i>besser</span><span><i style="background:' + KM_GRAU + '"></i>unverändert</span><span><i style="background:' + kmHsl(1) + '"></i>schlechter</span></div>';
+}
+function kmSvg() {
+  var K = window.BLKARTE, s = '<svg class="kmsvg" viewBox="' + K.viewBox + '" role="group" aria-label="Karte der Bundesländer">';
+  B.laender.forEach(function (l) { var f = kmHolen(l.code);
+    s += '<path d="' + K.pfade[l.code] + '" data-c="' + l.code + '" class="kmp' + (KM.sel === l.code ? ' sel' : '') + '" fill="' + f.c + '" tabindex="0" role="button" aria-label="' + l.name + ': ' + f.t + '"><title>' + l.name + ': ' + f.t + '</title></path>'; });
+  B.laender.forEach(function (l) { var m = K.mitte[l.code]; s += '<text x="' + m[0] + '" y="' + (m[1] + 4) + '" class="kmt" text-anchor="middle">' + l.kurz + '</text>'; });
+  return s + '</svg>';
+}
+function kmHtml() {
+  if (!window.BLKARTE) return "";
+  var opts = '<option value="gesamt"' + (KM.ind === "gesamt" ? " selected" : "") + '>Gesamtbild (alle gewerteten Indikatoren)</option>';
+  B.gruppen.forEach(function (g) { var l = B.indikatoren.filter(function (i) { return i.gruppe === g && !i.ausgeblendet; }); if (!l.length) return;
+    opts += '<optgroup label="' + g + '">' + l.map(function (i) { return '<option value="' + i.id + '"' + (KM.ind === i.id ? " selected" : "") + '>' + i.name + '</option>'; }).join("") + '</optgroup>'; });
+  var h = '<div class="card" id="kmkarte"><h2>Karte' + infoIcon("Wähle einen Indikator und eine Ansicht. Stärke und Schwäche färben die Länder nach ihrem Platz (grün = Spitze, rot = Schlusslicht, bei Indikatoren ohne Wertung nur nach der Höhe des Werts in Blau). Entwicklung zeigt, ob sich ein Land gegenüber früher verbessert oder verschlechtert hat. Tippe auf ein Land für Details. Das Gesamtbild nutzt alle Indikatoren mit Wertung. Karte: Statistik Austria (data.statistik.gv.at), CC BY 4.0, vereinfacht von Flooh Perlot. Salzburg, Tirol und Vorarlberg liegen im Westen.") + '</h2>';
+  h += '<div class="kmctl"><select id="kmind" aria-label="Indikator">' + opts + '</select><div class="umsch"><button type="button" data-km="staerke" class="' + (KM.modus === "staerke" ? "on" : "") + '">Stärke und Schwäche</button><button type="button" data-km="entwicklung" class="' + (KM.modus === "entwicklung" ? "on" : "") + '">Entwicklung</button></div></div>';
+  h += '<div class="kmwrap"><div id="kmkarteSvg">' + kmSvg() + kmLegende() + '</div><div id="kmpanel" class="kmpanel">' + kmPanel() + '</div></div></div>';
+  return h;
+}
+function kmAktualisieren() {
+  var a = document.getElementById("kmkarteSvg"), p = document.getElementById("kmpanel"); if (!a) return;
+  a.innerHTML = kmSvg() + kmLegende(); p.innerHTML = kmPanel();
+  Array.prototype.forEach.call(document.querySelectorAll("#kmkarte .umsch button"), function (b) { b.className = b.getAttribute("data-km") === KM.modus ? "on" : ""; });
+}
+function kmInit() {
+  var k = document.getElementById("kmkarte"); if (!k) return;
+  k.onclick = function (e) {
+    var b = e.target.closest && e.target.closest("[data-km]"); if (b) { KM.modus = b.getAttribute("data-km"); kmAktualisieren(); return; }
+    var p = e.target.closest && e.target.closest(".kmp"); if (p) { KM.sel = p.getAttribute("data-c"); kmAktualisieren(); }
+  };
+  k.onkeydown = function (e) { if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("kmp")) { e.preventDefault(); KM.sel = e.target.getAttribute("data-c"); kmAktualisieren(); var q = document.querySelector('#kmkarte .kmp[data-c="' + KM.sel + '"]'); if (q) q.focus(); } };
+  document.getElementById("kmind").onchange = function () { KM.ind = this.value; kmAktualisieren(); };
+}

@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=e38ea340">
+<link rel="stylesheet" href="style.css?v=6f5627de">
 </head>
 <body>
 <main>
@@ -27,9 +27,11 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="bl-daten.js"></script>
+<script src="bl-karte.js"></script>
 <script>window.DATEN = { beispiel: !!(window.BL && window.BL.beispiel), quelle: "Eurostat", aktualisiert: (window.BL && window.BL.aktualisiert) || new Date().toISOString().slice(0,10) };</script>
 <script src="common.js?v=b3f704b5"></script>
-<script src="bl-common.js?v=c7fd8608"></script>
+<script src="bl-common.js?v=56588e0d"></script>
+<script src="bl-karte-ui.js"></script>
 <script>
 var app = document.getElementById("app"), B = window.BL, hl = new URLSearchParams(location.search).get("hl") || "";
 function pille(p){ return '<span class="pt p-'+p.replace(/[^A-Za-z]/g,"")+'">'+p+'</span>'; }
@@ -44,9 +46,9 @@ function regierungen(){
 }
 function gesamt(){
   var n = B.bilanz.length ? B.bilanz[0].n : 0;
-  var h = '<div class="card"><h2>Gesamtbild'+infoIcon("Durchschnitt der Plätze eines Landes über alle Indikatoren mit Wertung (derzeit "+n+"). Ein niedriger Durchschnitt heißt: häufig weit vorne. Jeder Indikator zählt gleich viel. Platz 1 hat den besten Durchschnitt aller Plätze. Verglichen wird, wo ein Land steht, nicht, wie es zu der Lage kam. Indikatoren ohne Wertung (zum Beispiel Bevölkerung oder Ärzte) gehen nicht ein. Die Zahlen rechts zählen, bei wie vielen Indikatoren sich das Land in den letzten fünf Jahren verbessert (↑) oder verschlechtert (↓) hat. Das sagt nichts darüber, wer dafür verantwortlich ist.")+'</h2>';
+  var h = '<div class="card"><h2>Gesamtbild'+infoIcon("Ø = Durchschnitt der Plätze eines Landes über alle Indikatoren mit Wertung (derzeit "+n+"). Ein niedriger Durchschnitt heißt: häufig weit vorne. Jeder Indikator zählt gleich viel. Platz 1 hat den besten Durchschnitt aller Plätze. Verglichen wird, wo ein Land steht, nicht, wie es zu der Lage kam. Indikatoren ohne Wertung (zum Beispiel Bevölkerung oder Ärzte) gehen nicht ein. Die Platzveränderung (▲ besser, ▼ schlechter) vergleicht mit dem Gesamtbild vor fünf Jahren, berechnet aus den damaligen Plätzen derselben Indikatoren. Die Zahlen rechts zählen, bei wie vielen Indikatoren sich das Land in den letzten fünf Jahren verbessert (↑) oder verschlechtert (↓) hat. Das sagt nichts darüber, wer dafür verantwortlich ist.")+'</h2>';
   h += B.bilanz.map(function(b){ var l = B.laender.filter(function(x){return x.code===b.code})[0];
-    return '<div class="gz'+(hl===b.code?" at":"")+'"><span><b>'+b.platz+'.</b> '+b.name+'</span><span class="note">Ø Platz '+b.durchschnittsrang.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1})+'</span><span class="good">'+b.besser+' ↑</span><span class="bad">'+b.schlechter+' ↓</span></div>';
+    return '<div class="gz'+(hl===b.code?" at":"")+'"><span><b>'+b.platz+'.</b> '+b.name+'</span><span class="note">Ø '+b.durchschnittsrang.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1})+'</span><span class="note">'+(b.platzVor!=null?(b.platzVor===b.platz?'±0':(b.platzVor>b.platz?'▲ ':'▼ ')+Math.abs(b.platzVor-b.platz)):'')+'</span><span class="good">'+b.besser+' ↑</span><span class="bad">'+b.schlechter+' ↓</span></div>';
   }).join("");
   return h + '</div>';
 }
@@ -82,15 +84,16 @@ function detail(id){
 }
 function seite(){
   if(!B || !B.indikatoren || !B.indikatoren.length){ app.innerHTML = '<div class="card"><p>Die Bundesländer-Daten werden beim nächsten Datenabruf geladen. Bitte später wiederkommen.</p></div>' + fussnote(); return; }
-  var h = (B.beispiel ? banner() : "") + regierungen() + gesamt();
+  var h = (B.beispiel ? banner() : "") + regierungen() + gesamt() + kmHtml();
   h += '<div class="leiste"><label class="note" for="hl">Bundesland hervorheben: </label><select id="hl"><option value="">keines</option>'+B.laender.map(function(l){ return '<option value="'+l.code+'"'+(hl===l.code?" selected":"")+'>'+l.name+'</option>'; }).join("")+'</select></div>';
   var versteckt = B.indikatoren.filter(function(i){ return i.ausgeblendet; });
   B.gruppen.forEach(function(g){ var l = B.indikatoren.filter(function(i){ return i.gruppe===g && !i.ausgeblendet; }); if(!l.length) return; h += '<h2 class="gh">'+g+'</h2>'+kartenListe(l); });
-  h += '<div class="card"><p class="note">Quelle: '+B.quelle+'. Die Werte liegen später vor als bei den EU-Zahlen, meist mit zwei bis drei Jahren Verzögerung, und kommen zum Teil aus Stichproben, die pro Bundesland klein sind. Der Einfachheit halber werden im Bundesländer-Vergleich alle Werte als vergleichbar betrachtet. Der Vergleich zeigt, wo ein Land steht, nicht, wer dafür verantwortlich ist. Mehr dazu in der <a href="methodik.html">Methodik</a>.</p></div>';
+  h += '<div class="card"><p class="note">Quelle: '+B.quelle+'. Die Werte liegen später vor als bei den EU-Zahlen, meist mit zwei bis drei Jahren Verzögerung, und kommen zum Teil aus Stichproben, die pro Bundesland klein sind. Der Einfachheit halber werden im Bundesländer-Vergleich alle Werte als vergleichbar betrachtet. Der Vergleich zeigt, wo ein Land steht, nicht, wer dafür verantwortlich ist. Mehr dazu in der <a href="methodik.html">Methodik</a>. Kartengrundlage: Statistik Austria (data.statistik.gv.at), CC BY 4.0, vereinfacht von Flooh Perlot.</p></div>';
   if(versteckt.length) h += '<p class="note" id="ausgeblendet">Derzeit ausgeblendet, weil es noch keine Daten ab 2024 gibt: '+versteckt.map(function(i){ return i.name+' (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p>';
   h += fussnote();
   app.innerHTML = h;
-  app.onclick = function(e){ var mb = e.target.closest && e.target.closest(".bmore"); if(mb){ detail(mb.getAttribute("data-id")); return; } var b = e.target.closest && e.target.closest(".umsch button"); if(!b) return; AUSWAHL[b.getAttribute("data-p")] = b.getAttribute("data-v"); var y = window.scrollY; seite(); window.scrollTo(0,y); };
+  app.onclick = function(e){ if(e.target.closest && e.target.closest('#kmkarte')) return; var mb = e.target.closest && e.target.closest(".bmore"); if(mb){ detail(mb.getAttribute("data-id")); return; } var b = e.target.closest && e.target.closest(".umsch button"); if(!b) return; AUSWAHL[b.getAttribute("data-p")] = b.getAttribute("data-v"); var y = window.scrollY; seite(); window.scrollTo(0,y); };
+  kmInit();
   document.getElementById("hl").onchange = function(){ hl = this.value; seite(); };
 }
 seite();

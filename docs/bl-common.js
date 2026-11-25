@@ -7,7 +7,7 @@ var PAARE_BL = [
   { titel: "Zuwanderung", ids: ["nettozuwanderung","zuzug","wegzug"], labels: ["Netto","Zuzug","Wegzug"] },
   { titel: "Unternehmen", ids: ["unternehmenswachstum","unternehmensdichte"], labels: ["Wachstum","Dichte"] },
   { titel: "Schulden", ids: ["schulden","schuldenGebarung"], labels: ["Weit gefasst","Landeshaushalt"] },
-  { titel: "Insolvenzen", ids: ["insolvenzen","insolvenzenEinwohner"], labels: ["Pro Unternehmen","Pro Einwohner"] },
+  { titel: "Insolvenzen", ids: ["insolvenzen","insolvenzenEinwohner"], labels: ["Unternehmen","Einwohner"] },
   { titel: "Kaufpreise", ids: ["kaufpreise","kaufpreisWohnungen","kaufpreisHaeuser"], labels: ["Durchschnitt","Wohnungen","Häuser"] },
   { titel: "Lebenserwartung", ids: ["lebenserwartung","lebenserwartung65"], labels: ["Bei Geburt","Mit 65"] },
   { titel: "Gesundheit", ids: ["saeuglingssterblichkeit","krankenhausbetten","spitalsaufenthalte"], labels: ["Säuglinge","Betten","Aufenthalte"] },
@@ -22,7 +22,7 @@ function karte(i, kopf, tabs){
   var lang = i.einheit.length>80; var t = '<div class="card bk"><h2>'+(kopf||i.name)+infoIcon((lang?i.einheit+'. ':'')+i.erklaerung+" Gewertet wird: "+(i.typ==="niedrig"?"ein niedrigerer Wert gilt als besser.":i.typ==="hoch"?"ein höherer Wert gilt als besser.":"nichts, der Wert hat keine Wertung.")+" "+(i.ohneTrend ? "Nur ein Jahr, deshalb ohne Trend." : i.trendInfo ? i.trendInfo : "Pfeil = Veränderung von "+(i.vorPeriode||"?")+" bis "+i.periode+", grün = besser, rot = schlechter (nur wo gewertet). Eine Veränderung unter "+(i.relativ?"3 %":fw(i,i.schwelle)+" "+i.diffEinheit)+" gilt als unverändert."))+'</h2>'+(tabs ? tabs+'<p class="note spk"><b>'+i.name+'</b>. '+(lang?'':i.einheit+'. ') : '<p class="note spk">'+(lang?'':i.einheit+'. '))+'Stand: '+periode(i.periode)+(i.typ==="neutral"?'. Ohne Wertung.':'.')+'</p>';
   t += i.laender.map(function(x){
     var pf = x.richtung ? '<span class="ta '+urteilCls(x.urteil)+'" title="'+(x.urteil?trendWort(x.urteil):"")+'">'+pfeil(x.richtung)+'</span>' : '<span class="ta"></span>';
-    return '<div class="row'+(hl===x.code?" at":"")+'"'+st+'><span>'+x.rang+'. '+x.name+(x.zus?'<small class="note zs">'+x.zus+'</small>':'')+'</span>'+bar(x.wert)+'<span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
+    return '<div class="row'+(hl===x.code?" at":"")+'"'+st+'><span>'+x.rang+'. '+x.name+(x.zus?'<small class="note zs">'+x.zus+'</small>':'')+'</span>'+bar(x.wert)+'<span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>'+(x.wertVor!=null?'<div class="vorz" style="--nw:'+Math.max(3.4, Math.round(nw*0.58*10)/10)+'em">'+(i.vorPeriode||'früher')+': '+fw(i,x.wertVor)+(x.rangVor!=null?' (Platz '+x.rangVor+(x.rangVor!==x.rang?', '+(x.rangVor>x.rang?'▲ ':'▼ ')+Math.abs(x.rangVor-x.rang):'')+')':'')+'</div>':'');
   }).join("");
   if(i.staedte && i.staedte.length){
     t += '<p class="note stadthead">Zum Vergleich, nicht im Ranking (Städte bzw. Stadtregionen):</p>' + i.staedte.map(function(x){

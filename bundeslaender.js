@@ -306,6 +306,11 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
     const z = u => mit.filter(a => a.urteil === u).length;
     return { code: c.code, name: c.name, hinweis: c.hinweis, n: mit.length, durchschnittsrang: mit.length ? runden(mit.reduce((t, a) => t + a.rangEinordnung, 0) / mit.length, 2) : null, besser: z("besser"), schlechter: z("schlechter") };
   });
+  // Gesamtbild zum Vergleichszeitpunkt (je Indikator der Vorplatz, mind. 8 Länder mit Vorjahresrang)
+  const vorInd = ergebnis.filter(i => i.typ !== "neutral" && !i.ausgeblendet && i.laender.filter(z => z.rangVor != null).length >= 8);
+  const vorRang = Object.fromEntries(LAENDER.map(l => { const r = vorInd.map(i => i.laender.find(z => z.code === l.code)?.rangVor).filter(v => v != null); return [l.code, r.length ? r.reduce((a, b) => a + b, 0) / r.length : null]; }));
+  bilanz.forEach(b => { b.durchschnittsrangVor = vorRang[b.code] != null ? runden(vorRang[b.code], 2) : null; });
+  bilanz.forEach(b => { b.platzVor = b.durchschnittsrangVor == null ? null : 1 + bilanz.filter(z => z.durchschnittsrangVor != null && z.durchschnittsrangVor < b.durchschnittsrangVor).length; });
   bilanz.forEach((b, i) => { b.platz = 1 + bilanz.filter(z => z.durchschnittsrang < b.durchschnittsrang).length; });
   return { aktualisiert: new Date().toISOString().slice(0, 10), beispiel: TEST, quelle: "Eurostat (Regionaldaten, NUTS 2)", jahreTrend: JAHRE_TREND, gruppen: GRUPPEN,
     laender: LAENDER.map(l => ({ ...l, regierung: REGIERUNGEN[l.code] })), staedte: STAEDTE, regierungenStand: REGIERUNGEN_STAND, indikatoren: ergebnis, bilanz, staedteBilanz };
