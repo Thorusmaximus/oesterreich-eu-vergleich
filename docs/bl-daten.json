@@ -1140,7 +1140,7 @@
    "erklaerung": "Wie viel Geld den Haushalten nach Steuern und Sozialleistungen pro Kopf zur Verfügung steht, nach dem Wohnort der Haushalte (nicht dem Arbeitsort).",
    "relativ": false,
    "ohneTrend": false,
-   "trendInfo": "Die Werte sind nicht um die Preissteigerung bereinigt und steigen deshalb überall. Pfeil und Farbe zeigen daher den Vergleich mit dem Schnitt: grün, wenn der Wert seit 2019 mehr als 2 Prozentpunkte stärker gewachsen ist als im Schnitt (28,8 %), rot, wenn er mehr als 2 Prozentpunkte schwächer gewachsen ist, sonst unverändert.",
+   "trendInfo": "Die Werte sind nicht um die Preissteigerung bereinigt. Pfeil und Farbe zeigen deshalb die reale Veränderung: Von 2019 bis 2024 stiegen die Verbraucherpreise in Österreich um 25,6 % (Statistik Austria). Grün heißt, das Einkommen ist um mehr als 3 % stärker gestiegen, rot, um mehr als 3 % weniger stark, sonst unverändert. Regionale Preisunterschiede sind nicht berücksichtigt.",
    "periode": "2024",
    "vorPeriode": "2019",
    "schwelle": 910,
@@ -1163,7 +1163,8 @@
      "urteil": "unverändert",
      "rang": 1,
      "rangVor": 2,
-     "prozent": 28.5
+     "prozent": 28.5,
+     "real": 2.3
     },
     {
      "code": "AT32",
@@ -1172,11 +1173,12 @@
      "wert": 31300,
      "wertVor": 24100,
      "diff": 7200,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "steigend",
+     "urteil": "besser",
      "rang": 2,
      "rangVor": 4,
-     "prozent": 29.9
+     "prozent": 29.9,
+     "real": 3.4
     },
     {
      "code": "AT11",
@@ -1189,7 +1191,8 @@
      "urteil": "unverändert",
      "rang": 3,
      "rangVor": 3,
-     "prozent": 28.9
+     "prozent": 28.9,
+     "real": 2.6
     },
     {
      "code": "AT34",
@@ -1198,11 +1201,12 @@
      "wert": 31000,
      "wertVor": 24800,
      "diff": 6200,
-     "richtung": "sinkend",
-     "urteil": "schlechter",
+     "richtung": "stabil",
+     "urteil": "unverändert",
      "rang": 4,
      "rangVor": 1,
-     "prozent": 25
+     "prozent": 25,
+     "real": -0.5
     },
     {
      "code": "AT31",
@@ -1215,7 +1219,8 @@
      "urteil": "unverändert",
      "rang": 5,
      "rangVor": 5,
-     "prozent": 28.3
+     "prozent": 28.3,
+     "real": 2.2
     },
     {
      "code": "AT22",
@@ -1224,11 +1229,12 @@
      "wert": 30700,
      "wertVor": 23500,
      "diff": 7200,
-     "richtung": "stabil",
-     "urteil": "unverändert",
+     "richtung": "steigend",
+     "urteil": "besser",
      "rang": 6,
      "rangVor": 6,
-     "prozent": 30.6
+     "prozent": 30.6,
+     "real": 4
     },
     {
      "code": "AT33",
@@ -1241,7 +1247,8 @@
      "urteil": "besser",
      "rang": 7,
      "rangVor": 7,
-     "prozent": 31.3
+     "prozent": 31.3,
+     "real": 4.6
     },
     {
      "code": "AT21",
@@ -1254,7 +1261,8 @@
      "urteil": "besser",
      "rang": 8,
      "rangVor": 8,
-     "prozent": 30.9
+     "prozent": 30.9,
+     "real": 4.2
     },
     {
      "code": "AT13",
@@ -1263,11 +1271,12 @@
      "wert": 28200,
      "wertVor": 22300,
      "diff": 5900,
-     "richtung": "sinkend",
-     "urteil": "schlechter",
+     "richtung": "stabil",
+     "urteil": "unverändert",
      "rang": 9,
      "rangVor": 9,
-     "prozent": 26.5
+     "prozent": 26.5,
+     "real": 0.7
     }
    ],
    "reihe": {
@@ -7618,9 +7627,9 @@
    "kurz": "Sbg.",
    "n": 15,
    "durchschnittsrang": 4,
-   "besser": 5,
+   "besser": 6,
    "schlechter": 3,
-   "unveraendert": 5,
+   "unveraendert": 4,
    "erste": 2,
    "letzte": 0,
    "durchschnittsrangVor": 3.77,
@@ -7634,8 +7643,8 @@
    "n": 16,
    "durchschnittsrang": 4,
    "besser": 2,
-   "schlechter": 4,
-   "unveraendert": 7,
+   "schlechter": 3,
+   "unveraendert": 8,
    "erste": 2,
    "letzte": 0,
    "durchschnittsrangVor": 3.31,
@@ -7663,9 +7672,9 @@
    "kurz": "Stmk.",
    "n": 16,
    "durchschnittsrang": 4.81,
-   "besser": 3,
+   "besser": 4,
    "schlechter": 4,
-   "unveraendert": 7,
+   "unveraendert": 6,
    "erste": 1,
    "letzte": 0,
    "durchschnittsrangVor": 5.08,
@@ -7724,8 +7733,8 @@
    "n": 16,
    "durchschnittsrang": 7.5,
    "besser": 2,
-   "schlechter": 6,
-   "unveraendert": 6,
+   "schlechter": 5,
+   "unveraendert": 7,
    "erste": 1,
    "letzte": 11,
    "durchschnittsrangVor": 7.69,
