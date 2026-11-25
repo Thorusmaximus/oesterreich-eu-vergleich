@@ -8465,7 +8465,7 @@
     "richtung": "stabil",
     "urteil": "unverändert"
    },
-   "eu": 185.3,
+   "eu": 185.2,
    "euMittelwert": false,
    "beste": {
     "code": "MT",
@@ -8803,7 +8803,7 @@
     "veraenderung": 24.1,
     "richtung": "steigend",
     "urteil": "schlechter",
-    "euVeraenderung": 19.5,
+    "euVeraenderung": 19.4,
     "euUrteil": "unverändert"
    },
    "rueckblick": null,
@@ -9011,7 +9011,7 @@
     {
      "code": "NL",
      "name": "Niederlande",
-     "value": 219.5,
+     "value": 218.4,
      "rank": 26,
      "richtung": "stabil",
      "urteil": "unverändert"
@@ -9325,7 +9325,7 @@
     {
      "t": "2026-11",
      "at": 164.9,
-     "eu": 185.3
+     "eu": 185.2
     }
    ],
    "geaendert": "2026-11-25",
@@ -9366,7 +9366,7 @@
     "richtung": "steigend",
     "urteil": "schlechter"
    },
-   "eu": 207.5,
+   "eu": 207.4,
    "euMittelwert": false,
    "beste": {
     "code": "MT",
@@ -9704,7 +9704,7 @@
     "veraenderung": 55.1,
     "richtung": "steigend",
     "urteil": "schlechter",
-    "euVeraenderung": 49.3,
+    "euVeraenderung": 49.2,
     "euUrteil": "unverändert"
    },
    "rueckblick": null,
@@ -9904,7 +9904,7 @@
     {
      "code": "NL",
      "name": "Niederlande",
-     "value": 234.9,
+     "value": 233.6,
      "rank": 25,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -10226,7 +10226,7 @@
     {
      "t": "2026-11",
      "at": 206.4,
-     "eu": 207.5
+     "eu": 207.4
     }
    ],
    "geaendert": "2026-11-25",
@@ -21852,7 +21852,7 @@
   },
   {
    "id": "erneuerbare",
-   "name": "Erneuerbare Energie",
+   "name": "Anteil erneuerbarer Energie",
    "pfeilModus": "wert",
    "typ": "neutral",
    "dez": 1,
