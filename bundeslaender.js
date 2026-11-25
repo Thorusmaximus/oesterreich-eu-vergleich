@@ -321,6 +321,12 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
   bilanz.forEach(b => { b.durchschnittsrangVor = vorRang[b.code] != null ? runden(vorRang[b.code], 2) : null; });
   bilanz.forEach(b => { b.platzVor = b.durchschnittsrangVor == null ? null : 1 + bilanz.filter(z => z.durchschnittsrangVor != null && z.durchschnittsrangVor < b.durchschnittsrangVor).length; });
   bilanz.forEach((b, i) => { b.platz = 1 + bilanz.filter(z => z.durchschnittsrang < b.durchschnittsrang).length; });
+  // Wann bekam ein Indikator zuletzt neue Zahlen? (neuer Datenstand oder geänderte Werte; sonst bleibt das alte Datum)
+  const heute = new Date().toISOString().slice(0, 10);
+  let vorher = null; try { vorher = JSON.parse(require("fs").readFileSync(__dirname + "/docs/bl-daten.json", "utf8")); } catch (e) {}
+  const fp = i => JSON.stringify([i.periode ?? null, i.laender.map(z => [z.code, z.wert])]);
+  ergebnis.forEach(i => { const p = !TEST && vorher && vorher.indikatoren && vorher.indikatoren.find(z => z.id === i.id);
+    i.geaendert = p ? (fp(p) === fp(i) ? (p.geaendert || vorher.aktualisiert || heute) : heute) : heute; });
   return { aktualisiert: new Date().toISOString().slice(0, 10), beispiel: TEST, quelle: "Eurostat (Regionaldaten, NUTS 2)", jahreTrend: JAHRE_TREND, gruppen: GRUPPEN,
     laender: LAENDER.map(l => ({ ...l, regierung: REGIERUNGEN[l.code] })), staedte: STAEDTE, regierungenStand: REGIERUNGEN_STAND, indikatoren: ergebnis, bilanz, staedteBilanz };
 }
