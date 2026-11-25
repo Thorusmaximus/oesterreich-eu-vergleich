@@ -59,7 +59,8 @@
     "value": 2.8,
     "rank": 1,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "154 Tsd. Personen"
    },
    "schlechteste": {
     "code": "FI",
@@ -67,7 +68,8 @@
     "value": 11,
     "rank": 27,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "316 Tsd. Personen"
    },
    "rangVerlauf": [
     {
@@ -400,7 +402,8 @@
      "value": 2.8,
      "rank": 1,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "154 Tsd. Personen"
     },
     {
      "code": "BG",
@@ -408,7 +411,8 @@
      "value": 3.4,
      "rank": 2,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "103 Tsd. Personen"
     },
     {
      "code": "MT",
@@ -416,7 +420,8 @@
      "value": 3.4,
      "rank": 2,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "12 Tsd. Personen"
     },
     {
      "code": "PL",
@@ -424,7 +429,8 @@
      "value": 3.4,
      "rank": 2,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "596 Tsd. Personen"
     },
     {
      "code": "SI",
@@ -432,7 +438,8 @@
      "value": 3.6,
      "rank": 5,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "37 Tsd. Personen"
     },
     {
      "code": "NL",
@@ -440,7 +447,8 @@
      "value": 4,
      "rank": 6,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "408 Tsd. Personen"
     },
     {
      "code": "CY",
@@ -448,7 +456,8 @@
      "value": 4,
      "rank": 6,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "21 Tsd. Personen"
     },
     {
      "code": "DE",
@@ -456,7 +465,8 @@
      "value": 4.1,
      "rank": 8,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "1,8 Mio. Personen"
     },
     {
      "code": "HR",
@@ -464,7 +474,8 @@
      "value": 4.3,
      "rank": 9,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "78 Tsd. Personen"
     },
     {
      "code": "HU",
@@ -472,7 +483,8 @@
      "value": 4.6,
      "rank": 10,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "225 Tsd. Personen"
     },
     {
      "code": "IE",
@@ -480,7 +492,8 @@
      "value": 4.7,
      "rank": 11,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "142 Tsd. Personen"
     },
     {
      "code": "PT",
@@ -488,7 +501,8 @@
      "value": 5.6,
      "rank": 12,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "313 Tsd. Personen"
     },
     {
      "code": "SK",
@@ -496,7 +510,8 @@
      "value": 5.7,
      "rank": 13,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "156 Tsd. Personen"
     },
     {
      "code": "BE",
@@ -504,7 +519,8 @@
      "value": 6,
      "rank": 14,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "329 Tsd. Personen"
     },
     {
      "code": "LT",
@@ -512,7 +528,8 @@
      "value": 6.2,
      "rank": 15,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "97 Tsd. Personen"
     },
     {
      "code": "IT",
@@ -520,7 +537,8 @@
      "value": 6.3,
      "rank": 16,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "1,6 Mio. Personen"
     },
     {
      "code": "AT",
@@ -528,7 +546,8 @@
      "value": 6.3,
      "rank": 16,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "296 Tsd. Personen"
     },
     {
      "code": "RO",
@@ -536,7 +555,8 @@
      "value": 6.3,
      "rank": 16,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "517 Tsd. Personen"
     },
     {
      "code": "DK",
@@ -544,7 +564,8 @@
      "value": 6.8,
      "rank": 19,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "227 Tsd. Personen"
     },
     {
      "code": "LV",
@@ -552,7 +573,8 @@
      "value": 7.3,
      "rank": 20,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "69 Tsd. Personen"
     },
     {
      "code": "LU",
@@ -560,7 +582,8 @@
      "value": 7.3,
      "rank": 20,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "26 Tsd. Personen"
     },
     {
      "code": "EL",
@@ -568,7 +591,8 @@
      "value": 7.6,
      "rank": 22,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "360 Tsd. Personen"
     },
     {
      "code": "EE",
@@ -576,7 +600,8 @@
      "value": 8,
      "rank": 23,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "59 Tsd. Personen"
     },
     {
      "code": "FR",
@@ -584,7 +609,8 @@
      "value": 8.5,
      "rank": 24,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,7 Mio. Personen"
     },
     {
      "code": "SE",
@@ -592,7 +618,8 @@
      "value": 8.5,
      "rank": 24,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "496 Tsd. Personen"
     },
     {
      "code": "ES",
@@ -600,7 +627,8 @@
      "value": 10.3,
      "rank": 26,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,6 Mio. Personen"
     },
     {
      "code": "FI",
@@ -608,7 +636,8 @@
      "value": 11,
      "rank": 27,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "316 Tsd. Personen"
     }
    ],
    "schweiz": {
@@ -2875,7 +2904,8 @@
     "value": 26.1,
     "rank": 1,
     "richtung": "steigend",
-    "urteil": "schlechter"
+    "urteil": "schlechter",
+    "zus": "11,3 Mrd. €"
    },
    "schlechteste": {
     "code": "EL",
@@ -2883,7 +2913,8 @@
     "value": 140.8,
     "rank": 27,
     "richtung": "sinkend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "zus": "358,6 Mrd. €"
    },
    "rangVerlauf": [
     {
@@ -3016,7 +3047,8 @@
      "value": 26.1,
      "rank": 1,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "11,3 Mrd. €"
     },
     {
      "code": "DK",
@@ -3024,7 +3056,8 @@
      "value": 27.1,
      "rank": 2,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "114,7 Mrd. €"
     },
     {
      "code": "LU",
@@ -3032,7 +3065,8 @@
      "value": 28.2,
      "rank": 3,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "26,5 Mrd. €"
     },
     {
      "code": "BG",
@@ -3040,7 +3074,8 @@
      "value": 28.7,
      "rank": 4,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "35,4 Mrd. €"
     },
     {
      "code": "IE",
@@ -3048,7 +3083,8 @@
      "value": 35.3,
      "rank": 5,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "205,9 Mrd. €"
     },
     {
      "code": "SE",
@@ -3056,7 +3092,8 @@
      "value": 35.3,
      "rank": 5,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "216 Mrd. €"
     },
     {
      "code": "NL",
@@ -3064,7 +3101,8 @@
      "value": 43.7,
      "rank": 7,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "523,8 Mrd. €"
     },
     {
      "code": "LT",
@@ -3072,7 +3110,8 @@
      "value": 43.8,
      "rank": 8,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "38,8 Mrd. €"
     },
     {
      "code": "CZ",
@@ -3080,7 +3119,8 @@
      "value": 43.8,
      "rank": 8,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "158,4 Mrd. €"
     },
     {
      "code": "MT",
@@ -3088,7 +3128,8 @@
      "value": 47,
      "rank": 10,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "12 Mrd. €"
     },
     {
      "code": "LV",
@@ -3096,7 +3137,8 @@
      "value": 48,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "21,6 Mrd. €"
     },
     {
      "code": "CY",
@@ -3104,7 +3146,8 @@
      "value": 48.5,
      "rank": 12,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "19,2 Mrd. €"
     },
     {
      "code": "HR",
@@ -3112,7 +3155,8 @@
      "value": 56.2,
      "rank": 13,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "54,7 Mrd. €"
     },
     {
      "code": "RO",
@@ -3120,7 +3164,8 @@
      "value": 59.4,
      "rank": 14,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "228,2 Mrd. €"
     },
     {
      "code": "SK",
@@ -3128,7 +3173,8 @@
      "value": 60.6,
      "rank": 15,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "86,4 Mrd. €"
     },
     {
      "code": "DE",
@@ -3136,7 +3182,8 @@
      "value": 63.4,
      "rank": 16,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2 924,7 Mrd. €"
     },
     {
      "code": "PL",
@@ -3144,7 +3191,8 @@
      "value": 64.5,
      "rank": 17,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "604,9 Mrd. €"
     },
     {
      "code": "SI",
@@ -3152,7 +3200,8 @@
      "value": 64.7,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "47,7 Mrd. €"
     },
     {
      "code": "HU",
@@ -3160,7 +3209,8 @@
      "value": 75.6,
      "rank": 19,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "190,5 Mrd. €"
     },
     {
      "code": "AT",
@@ -3168,7 +3218,8 @@
      "value": 83.6,
      "rank": 20,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "438,9 Mrd. €"
     },
     {
      "code": "FI",
@@ -3176,7 +3227,8 @@
      "value": 90.2,
      "rank": 21,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "259,6 Mrd. €"
     },
     {
      "code": "PT",
@@ -3184,7 +3236,8 @@
      "value": 92.5,
      "rank": 22,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "293,7 Mrd. €"
     },
     {
      "code": "ES",
@@ -3192,7 +3245,8 @@
      "value": 101.4,
      "rank": 23,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "1 762,9 Mrd. €"
     },
     {
      "code": "BE",
@@ -3200,7 +3254,8 @@
      "value": 110.2,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "719,1 Mrd. €"
     },
     {
      "code": "FR",
@@ -3208,7 +3263,8 @@
      "value": 119.1,
      "rank": 25,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "3 595,5 Mrd. €"
     },
     {
      "code": "IT",
@@ -3216,7 +3272,8 @@
      "value": 139.9,
      "rank": 26,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "3 208,5 Mrd. €"
     },
     {
      "code": "EL",
@@ -3224,7 +3281,8 @@
      "value": 140.8,
      "rank": 27,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "358,6 Mrd. €"
     }
    ],
    "schweiz": null,
@@ -3376,7 +3434,8 @@
     "value": 3.6,
     "rank": 1,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "1,4 Mrd. €"
    },
    "schlechteste": {
     "code": "RO",
@@ -3384,7 +3443,8 @@
     "value": -7.8,
     "rank": 27,
     "richtung": "steigend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "zus": "−29,7 Mrd. €"
    },
    "rangVerlauf": [
     {
@@ -3442,7 +3502,8 @@
      "value": 3.6,
      "rank": 1,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "1,4 Mrd. €"
     },
     {
      "code": "DK",
@@ -3450,7 +3511,8 @@
      "value": 2.9,
      "rank": 2,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "12,1 Mrd. €"
     },
     {
      "code": "EL",
@@ -3458,7 +3520,8 @@
      "value": 2,
      "rank": 3,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "4,9 Mrd. €"
     },
     {
      "code": "IE",
@@ -3466,7 +3529,8 @@
      "value": 1.8,
      "rank": 4,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "10,7 Mrd. €"
     },
     {
      "code": "PT",
@@ -3474,7 +3538,8 @@
      "value": 0.7,
      "rank": 5,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2 Mrd. €"
     },
     {
      "code": "NL",
@@ -3482,7 +3547,8 @@
      "value": -1.6,
      "rank": 6,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "−18,9 Mrd. €"
     },
     {
      "code": "SE",
@@ -3490,7 +3556,8 @@
      "value": -1.6,
      "rank": 6,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "−9,3 Mrd. €"
     },
     {
      "code": "LT",
@@ -3498,7 +3565,8 @@
      "value": -1.8,
      "rank": 8,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "−1,5 Mrd. €"
     },
     {
      "code": "LU",
@@ -3506,7 +3574,8 @@
      "value": -1.8,
      "rank": 8,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "−1,6 Mrd. €"
     },
     {
      "code": "EE",
@@ -3514,7 +3583,8 @@
      "value": -2,
      "rank": 10,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "−839 Mio. €"
     },
     {
      "code": "MT",
@@ -3522,7 +3592,8 @@
      "value": -2.1,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "−506 Mio. €"
     },
     {
      "code": "CZ",
@@ -3530,7 +3601,8 @@
      "value": -2.2,
      "rank": 12,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "−7,5 Mrd. €"
     },
     {
      "code": "ES",
@@ -3538,7 +3610,8 @@
      "value": -2.4,
      "rank": 13,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "−40,6 Mrd. €"
     },
     {
      "code": "LV",
@@ -3546,7 +3619,8 @@
      "value": -2.5,
      "rank": 14,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "−1,1 Mrd. €"
     },
     {
      "code": "SI",
@@ -3554,7 +3628,8 @@
      "value": -2.5,
      "rank": 14,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "−1,8 Mrd. €"
     },
     {
      "code": "DE",
@@ -3562,7 +3637,8 @@
      "value": -2.9,
      "rank": 16,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "−132,1 Mrd. €"
     },
     {
      "code": "HR",
@@ -3570,7 +3646,8 @@
      "value": -3,
      "rank": 17,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "−2,8 Mrd. €"
     },
     {
      "code": "IT",
@@ -3578,7 +3655,8 @@
      "value": -3.1,
      "rank": 18,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "−69,7 Mrd. €"
     },
     {
      "code": "FI",
@@ -3586,7 +3664,8 @@
      "value": -3.8,
      "rank": 19,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "−10,7 Mrd. €"
     },
     {
      "code": "BG",
@@ -3594,7 +3673,8 @@
      "value": -4,
      "rank": 20,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "−4,7 Mrd. €"
     },
     {
      "code": "AT",
@@ -3602,7 +3682,8 @@
      "value": -4.1,
      "rank": 21,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "−21,4 Mrd. €"
     },
     {
      "code": "SK",
@@ -3610,7 +3691,8 @@
      "value": -4.4,
      "rank": 22,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "−6,1 Mrd. €"
     },
     {
      "code": "HU",
@@ -3618,7 +3700,8 @@
      "value": -4.7,
      "rank": 23,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "−10,4 Mrd. €"
     },
     {
      "code": "FR",
@@ -3626,7 +3709,8 @@
      "value": -5.1,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "−151,6 Mrd. €"
     },
     {
      "code": "BE",
@@ -3634,7 +3718,8 @@
      "value": -5.2,
      "rank": 25,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "−33,4 Mrd. €"
     },
     {
      "code": "PL",
@@ -3642,7 +3727,8 @@
      "value": -7.2,
      "rank": 26,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "−66,9 Mrd. €"
     },
     {
      "code": "RO",
@@ -3650,7 +3736,8 @@
      "value": -7.8,
      "rank": 27,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "−29,7 Mrd. €"
     }
    ],
    "schweiz": null,
@@ -10234,6 +10321,1240 @@
    "gruppe": "Preise und Kosten"
   },
   {
+   "id": "heizoel",
+   "name": "Heizölpreise",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": " ct",
+   "diffEinheit": "Cent pro Liter",
+   "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie viele Haushalte mit Heizöl heizen, ist von Land zu Land sehr verschieden.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "schwelle": 5,
+   "schwelleArt": "relativ",
+   "datensatz": "une_rt_m",
+   "zusatz": null,
+   "takt": "monat",
+   "einheit": "Cent pro Liter Heizöl (extraleicht), inklusive Steuern, Monatsdurchschnitt",
+   "rangText": "Rang 1 = niedrigster Heizölpreis",
+   "periode": "2026-11",
+   "vorherPeriode": "2026-08",
+   "anzahlLaender": 24,
+   "alter": 0,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 176.1,
+    "rang": 17,
+    "wertVorher": 160,
+    "rangVorher": 15,
+    "schnitt": 179.7,
+    "schnittVorher": 147.9,
+    "veraenderung": 31.8,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "eu": 165,
+   "euMittelwert": false,
+   "beste": {
+    "code": "MT",
+    "name": "Malta",
+    "value": 100,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "DK",
+    "name": "Dänemark",
+    "value": 237.9,
+    "rank": 24,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2021-12",
+     "rang": 8,
+     "n": 26
+    },
+    {
+     "t": "2022-01",
+     "rang": 9,
+     "n": 26
+    },
+    {
+     "t": "2022-02",
+     "rang": 9,
+     "n": 26
+    },
+    {
+     "t": "2022-03",
+     "rang": 18,
+     "n": 26
+    },
+    {
+     "t": "2022-04",
+     "rang": 12,
+     "n": 26
+    },
+    {
+     "t": "2022-05",
+     "rang": 12,
+     "n": 26
+    },
+    {
+     "t": "2022-06",
+     "rang": 13,
+     "n": 26
+    },
+    {
+     "t": "2022-07",
+     "rang": 15,
+     "n": 26
+    },
+    {
+     "t": "2022-08",
+     "rang": 16,
+     "n": 26
+    },
+    {
+     "t": "2022-09",
+     "rang": 16,
+     "n": 26
+    },
+    {
+     "t": "2022-10",
+     "rang": 20,
+     "n": 26
+    },
+    {
+     "t": "2022-11",
+     "rang": 18,
+     "n": 26
+    },
+    {
+     "t": "2022-12",
+     "rang": 17,
+     "n": 26
+    },
+    {
+     "t": "2023-01",
+     "rang": 16,
+     "n": 26
+    },
+    {
+     "t": "2023-02",
+     "rang": 15,
+     "n": 26
+    },
+    {
+     "t": "2023-03",
+     "rang": 15,
+     "n": 25
+    },
+    {
+     "t": "2023-04",
+     "rang": 15,
+     "n": 25
+    },
+    {
+     "t": "2023-05",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2023-06",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2023-07",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2023-08",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2023-09",
+     "rang": 16,
+     "n": 24
+    },
+    {
+     "t": "2023-10",
+     "rang": 15,
+     "n": 24
+    },
+    {
+     "t": "2023-11",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2023-12",
+     "rang": 15,
+     "n": 24
+    },
+    {
+     "t": "2024-01",
+     "rang": 16,
+     "n": 24
+    },
+    {
+     "t": "2024-02",
+     "rang": 15,
+     "n": 24
+    },
+    {
+     "t": "2024-03",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2024-04",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2024-05",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2024-06",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2024-07",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2024-08",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2024-09",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2024-10",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2024-11",
+     "rang": 15,
+     "n": 24
+    },
+    {
+     "t": "2024-12",
+     "rang": 15,
+     "n": 24
+    },
+    {
+     "t": "2025-01",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2025-02",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2025-03",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2025-04",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2025-05",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2025-06",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2025-07",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2025-08",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2025-09",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2025-10",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2025-11",
+     "rang": 15,
+     "n": 24
+    },
+    {
+     "t": "2025-12",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2026-01",
+     "rang": 15,
+     "n": 24
+    },
+    {
+     "t": "2026-02",
+     "rang": 14,
+     "n": 24
+    },
+    {
+     "t": "2026-03",
+     "rang": 18,
+     "n": 24
+    },
+    {
+     "t": "2026-04",
+     "rang": 18,
+     "n": 24
+    },
+    {
+     "t": "2026-05",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2026-06",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2026-07",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2026-08",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2026-09",
+     "rang": null,
+     "n": 23
+    },
+    {
+     "t": "2026-10",
+     "rang": 16,
+     "n": 24
+    },
+    {
+     "t": "2026-11",
+     "rang": 17,
+     "n": 24
+    }
+   ],
+   "rangVergleich": [
+    {
+     "label": "seit Regierungsantritt",
+     "t": "2025-03",
+     "rang": 14,
+     "n": 24,
+     "regierung": true
+    }
+   ],
+   "seitStart": {
+    "t": "2025-03",
+    "wert": 111.9,
+    "rang": 14,
+    "n": 24,
+    "schnitt": 115.2,
+    "veraenderung": 64.5,
+    "richtung": "steigend",
+    "urteil": "schlechter",
+    "euVeraenderung": 59,
+    "euUrteil": "schlechter"
+   },
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 100,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 141.8,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 143.8,
+     "rank": 3,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 145.8,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 146.8,
+     "rank": 5,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 148.2,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 148.9,
+     "rank": 7,
+     "urteil": null
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 153.2,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 153.7,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 154,
+     "rank": 10,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 156.2,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 159.5,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 160.7,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 165.4,
+     "rank": 14,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 168.3,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 175.1,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 176.1,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 178.6,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 180.4,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 193.5,
+     "rank": 20,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 197.9,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 199.4,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 216.4,
+     "rank": 23,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 237.9,
+     "rank": 24,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    }
+   ],
+   "schweiz": null,
+   "verlauf": [
+    {
+     "t": "2021-12",
+     "at": 84,
+     "eu": 90.9
+    },
+    {
+     "t": "2022-01",
+     "at": 90.8,
+     "eu": 98.8
+    },
+    {
+     "t": "2022-02",
+     "at": 100.2,
+     "eu": 107.3
+    },
+    {
+     "t": "2022-03",
+     "at": 159.1,
+     "eu": 153.6
+    },
+    {
+     "t": "2022-04",
+     "at": 135.8,
+     "eu": 140.4
+    },
+    {
+     "t": "2022-05",
+     "at": 139.1,
+     "eu": 141.9
+    },
+    {
+     "t": "2022-06",
+     "at": 155.5,
+     "eu": 158.3
+    },
+    {
+     "t": "2022-07",
+     "at": 157.1,
+     "eu": 152.3
+    },
+    {
+     "t": "2022-08",
+     "at": 154.6,
+     "eu": 147.7
+    },
+    {
+     "t": "2022-09",
+     "at": 158.4,
+     "eu": 150.4
+    },
+    {
+     "t": "2022-10",
+     "at": 168.2,
+     "eu": 156
+    },
+    {
+     "t": "2022-11",
+     "at": 151,
+     "eu": 142.7
+    },
+    {
+     "t": "2022-12",
+     "at": 134.8,
+     "eu": 127
+    },
+    {
+     "t": "2023-01",
+     "at": 133.8,
+     "eu": 126.6
+    },
+    {
+     "t": "2023-02",
+     "at": 124.9,
+     "eu": 117.7
+    },
+    {
+     "t": "2023-03",
+     "at": 119.9,
+     "eu": 114.9
+    },
+    {
+     "t": "2023-04",
+     "at": 115.9,
+     "eu": 111.2
+    },
+    {
+     "t": "2023-05",
+     "at": 108.5,
+     "eu": 102.3
+    },
+    {
+     "t": "2023-06",
+     "at": 108.5,
+     "eu": 103.1
+    },
+    {
+     "t": "2023-07",
+     "at": 111.1,
+     "eu": 105.6
+    },
+    {
+     "t": "2023-08",
+     "at": 124.9,
+     "eu": 119.3
+    },
+    {
+     "t": "2023-09",
+     "at": 131.4,
+     "eu": 125
+    },
+    {
+     "t": "2023-10",
+     "at": 132.7,
+     "eu": 125.3
+    },
+    {
+     "t": "2023-11",
+     "at": 126.6,
+     "eu": 118.7
+    },
+    {
+     "t": "2023-12",
+     "at": 119.9,
+     "eu": 114.5
+    },
+    {
+     "t": "2024-01",
+     "at": 120.3,
+     "eu": 113.9
+    },
+    {
+     "t": "2024-02",
+     "at": 125.2,
+     "eu": 119.3
+    },
+    {
+     "t": "2024-03",
+     "at": 122,
+     "eu": 117
+    },
+    {
+     "t": "2024-04",
+     "at": 121.4,
+     "eu": 117
+    },
+    {
+     "t": "2024-05",
+     "at": 117.3,
+     "eu": 110.8
+    },
+    {
+     "t": "2024-06",
+     "at": 115.6,
+     "eu": 109.7
+    },
+    {
+     "t": "2024-07",
+     "at": 117.6,
+     "eu": 111
+    },
+    {
+     "t": "2024-08",
+     "at": 112,
+     "eu": 106.3
+    },
+    {
+     "t": "2024-09",
+     "at": 107.8,
+     "eu": 101.5
+    },
+    {
+     "t": "2024-10",
+     "at": 109.5,
+     "eu": 104.5
+    },
+    {
+     "t": "2024-11",
+     "at": 108.6,
+     "eu": 105
+    },
+    {
+     "t": "2024-12",
+     "at": 110.9,
+     "eu": 106.1
+    },
+    {
+     "t": "2025-01",
+     "at": 117.4,
+     "eu": 111.9
+    },
+    {
+     "t": "2025-02",
+     "at": 116.4,
+     "eu": 111.4
+    },
+    {
+     "t": "2025-03",
+     "at": 111.9,
+     "eu": 106
+    },
+    {
+     "t": "2025-04",
+     "at": 105.1,
+     "eu": 97.9
+    },
+    {
+     "t": "2025-05",
+     "at": 102.1,
+     "eu": 92.3
+    },
+    {
+     "t": "2025-06",
+     "at": 106.1,
+     "eu": 95.1
+    },
+    {
+     "t": "2025-07",
+     "at": 112.2,
+     "eu": 98.2
+    },
+    {
+     "t": "2025-08",
+     "at": 108.1,
+     "eu": 95.2
+    },
+    {
+     "t": "2025-09",
+     "at": 107.5,
+     "eu": 95.6
+    },
+    {
+     "t": "2025-10",
+     "at": 106.8,
+     "eu": 96.5
+    },
+    {
+     "t": "2025-11",
+     "at": 113.4,
+     "eu": 104.1
+    },
+    {
+     "t": "2025-12",
+     "at": 108.3,
+     "eu": 98.1
+    },
+    {
+     "t": "2026-01",
+     "at": 105.4,
+     "eu": 98.9
+    },
+    {
+     "t": "2026-02",
+     "at": 108.3,
+     "eu": 101.6
+    },
+    {
+     "t": "2026-03",
+     "at": 158.7,
+     "eu": 133.5
+    },
+    {
+     "t": "2026-04",
+     "at": 172.5,
+     "eu": 152
+    },
+    {
+     "t": "2026-05",
+     "at": 156.7,
+     "eu": 141.7
+    },
+    {
+     "t": "2026-06",
+     "at": 137.3,
+     "eu": 126.7
+    },
+    {
+     "t": "2026-07",
+     "at": 146.3,
+     "eu": 135
+    },
+    {
+     "t": "2026-08",
+     "at": 160,
+     "eu": 145.3
+    },
+    {
+     "t": "2026-09",
+     "at": 181.5,
+     "eu": 170.2
+    },
+    {
+     "t": "2026-10",
+     "at": 181.5,
+     "eu": 173.5
+    },
+    {
+     "t": "2026-11",
+     "at": 176.1,
+     "eu": 165
+    }
+   ],
+   "geaendert": "2026-11-25",
+   "erklaerung": "Was ein Liter Heizöl im Schnitt kostet, in Cent, inklusive Steuern. Die Werte kommen aus dem Weekly Oil Bulletin der EU-Kommission und sind der Monatsdurchschnitt der gemeldeten Wochenpreise. Ein niedrigerer Preis ist besser.",
+   "gruppe": "Preise und Kosten"
+  },
+  {
+   "id": "gaspreis",
+   "name": "Gaspreise für Haushalte",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": " ct",
+   "diffEinheit": "Cent pro kWh",
+   "hinweis": "Verglichen wird der Gaspreis. Fernwärme, die in Österreich viele Haushalte nutzen, ist in dieser Statistik nicht enthalten.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "schwelle": 0.34,
+   "schwelleArt": "relativ",
+   "datensatz": "nrg_pc_202",
+   "zusatz": null,
+   "takt": "halbjahr",
+   "einheit": "Cent pro kWh, Haushalte mit 20 bis 200 Gigajoule Jahresverbrauch, inklusive Steuern und Abgaben (Halbjahreswerte)",
+   "rangText": "Rang 1 = niedrigster Gaspreis",
+   "periode": "2023-S2",
+   "vorherPeriode": "2022-S2",
+   "anzahlLaender": 24,
+   "alter": 35,
+   "warnung": "Der letzte verfügbare Wert ist 35 Monate alt. Möglicherweise hat Eurostat den Datensatz umgestellt.",
+   "oesterreich": {
+    "wert": 14.77,
+    "rang": 21,
+    "wertVorher": 12.35,
+    "rangVorher": 13,
+    "schnitt": 14.8,
+    "schnittVorher": 12.4,
+    "veraenderung": 2.4,
+    "richtung": "steigend",
+    "urteil": "schlechter"
+   },
+   "eu": 11.41,
+   "euMittelwert": false,
+   "beste": {
+    "code": "HU",
+    "name": "Ungarn",
+    "value": 3.35,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "schlechteste": {
+    "code": "SE",
+    "name": "Schweden",
+    "value": 20.7,
+    "rank": 24,
+    "richtung": "sinkend",
+    "urteil": "besser"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2019-S1",
+     "rang": 16,
+     "n": 24
+    },
+    {
+     "t": "2019-S2",
+     "rang": 16,
+     "n": 24
+    },
+    {
+     "t": "2020-S1",
+     "rang": 16,
+     "n": 24
+    },
+    {
+     "t": "2020-S2",
+     "rang": 16,
+     "n": 24
+    },
+    {
+     "t": "2021-S1",
+     "rang": 16,
+     "n": 24
+    },
+    {
+     "t": "2021-S2",
+     "rang": 13,
+     "n": 24
+    },
+    {
+     "t": "2022-S1",
+     "rang": 11,
+     "n": 24
+    },
+    {
+     "t": "2022-S2",
+     "rang": 13,
+     "n": 24
+    },
+    {
+     "t": "2023-S1",
+     "rang": 20,
+     "n": 24
+    },
+    {
+     "t": "2023-S2",
+     "rang": 21,
+     "n": 24
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 3.35,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 4.569999999999999,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 5.58,
+     "rank": 3,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 6.11,
+     "rank": 4,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 7.03,
+     "rank": 5,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 7.3,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 7.91,
+     "rank": 7,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 8.5,
+     "rank": 8,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 9.01,
+     "rank": 9,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 9.26,
+     "rank": 10,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 9.94,
+     "rank": 11,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 10.100000000000001,
+     "rank": 12,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 11.07,
+     "rank": 13,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 11.25,
+     "rank": 14,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 11.450000000000001,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 11.81,
+     "rank": 16,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 12.2,
+     "rank": 17,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 13.469999999999999,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 13.74,
+     "rank": 19,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 14.540000000000001,
+     "rank": 20,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 14.77,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 15.440000000000001,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 16.38,
+     "rank": 23,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 20.7,
+     "rank": 24,
+     "richtung": "sinkend",
+     "urteil": "besser"
+    }
+   ],
+   "schweiz": null,
+   "verlauf": [
+    {
+     "t": "2019-S1",
+     "at": 6.6000000000000005,
+     "eu": 6.74
+    },
+    {
+     "t": "2019-S2",
+     "at": 6.74,
+     "eu": 7.28
+    },
+    {
+     "t": "2020-S1",
+     "at": 6.4799999999999995,
+     "eu": 6.460000000000001
+    },
+    {
+     "t": "2020-S2",
+     "at": 6.5600000000000005,
+     "eu": 7.01
+    },
+    {
+     "t": "2021-S1",
+     "at": 6.36,
+     "eu": 6.4
+    },
+    {
+     "t": "2021-S2",
+     "at": 6.950000000000001,
+     "eu": 7.84
+    },
+    {
+     "t": "2022-S1",
+     "at": 7.670000000000001,
+     "eu": 8.469999999999999
+    },
+    {
+     "t": "2022-S2",
+     "at": 12.35,
+     "eu": 11.25
+    },
+    {
+     "t": "2023-S1",
+     "at": 15.6,
+     "eu": 11.63
+    },
+    {
+     "t": "2023-S2",
+     "at": 14.77,
+     "eu": 11.41
+    }
+   ],
+   "geaendert": "2026-11-25",
+   "erklaerung": "Was eine Kilowattstunde Erdgas für einen Haushalt mit durchschnittlichem Verbrauch inklusive Steuern und Abgaben kostet, in Cent (Halbjahreswerte). Fernwärme ist nicht erfasst. Ein niedrigerer Preis ist besser.",
+   "gruppe": "Preise und Kosten"
+  },
+  {
    "id": "sicherheitsgefuehl",
    "name": "Wahrgenommene Kriminalität im Wohnumfeld",
    "pfeilModus": "wert",
@@ -11452,7 +12773,8 @@
     "value": 4.05,
     "rank": 1,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "22,8 Mrd. €"
    },
    "schlechteste": {
     "code": "IT",
@@ -11460,7 +12782,8 @@
     "value": 15.85,
     "rank": 27,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "350,4 Mrd. €"
    },
    "rangVerlauf": [
     {
@@ -11499,7 +12822,8 @@
      "value": 4.05,
      "rank": 1,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "22,8 Mrd. €"
     },
     {
      "code": "MT",
@@ -11507,7 +12831,8 @@
      "value": 5.09,
      "rank": 2,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "1,2 Mrd. €"
     },
     {
      "code": "HU",
@@ -11515,7 +12840,8 @@
      "value": 7.04,
      "rank": 3,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "14,5 Mrd. €"
     },
     {
      "code": "LT",
@@ -11523,7 +12849,8 @@
      "value": 7.31,
      "rank": 4,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "5,8 Mrd. €"
     },
     {
      "code": "CY",
@@ -11531,7 +12858,8 @@
      "value": 7.56,
      "rank": 5,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,6 Mrd. €"
     },
     {
      "code": "EE",
@@ -11539,7 +12867,8 @@
      "value": 8.66,
      "rank": 6,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "3,5 Mrd. €"
     },
     {
      "code": "LV",
@@ -11547,7 +12876,8 @@
      "value": 8.93,
      "rank": 7,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "3,7 Mrd. €"
     },
     {
      "code": "CZ",
@@ -11555,7 +12885,8 @@
      "value": 9.02,
      "rank": 8,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "29 Mrd. €"
     },
     {
      "code": "RO",
@@ -11563,7 +12894,8 @@
      "value": 9.09,
      "rank": 9,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "32,1 Mrd. €"
     },
     {
      "code": "HR",
@@ -11571,7 +12903,8 @@
      "value": 9.36,
      "rank": 10,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "8 Mrd. €"
     },
     {
      "code": "SK",
@@ -11579,7 +12912,8 @@
      "value": 9.45,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "12,3 Mrd. €"
     },
     {
      "code": "BG",
@@ -11587,7 +12921,8 @@
      "value": 9.64,
      "rank": 12,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "10,1 Mrd. €"
     },
     {
      "code": "SI",
@@ -11595,7 +12930,8 @@
      "value": 9.99,
      "rank": 13,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "6,7 Mrd. €"
     },
     {
      "code": "LU",
@@ -11603,7 +12939,8 @@
      "value": 10.26,
      "rank": 14,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "9 Mrd. €"
     },
     {
      "code": "SE",
@@ -11611,7 +12948,8 @@
      "value": 10.72,
      "rank": 15,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "60,4 Mrd. €"
     },
     {
      "code": "DK",
@@ -11619,7 +12957,8 @@
      "value": 11.16,
      "rank": 16,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "44,7 Mrd. €"
     },
     {
      "code": "NL",
@@ -11627,7 +12966,8 @@
      "value": 11.25,
      "rank": 17,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "125,4 Mrd. €"
     },
     {
      "code": "PL",
@@ -11635,7 +12975,8 @@
      "value": 11.61,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "98,9 Mrd. €"
     },
     {
      "code": "DE",
@@ -11643,7 +12984,8 @@
      "value": 11.67,
      "rank": 19,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "511,9 Mrd. €"
     },
     {
      "code": "PT",
@@ -11651,7 +12993,8 @@
      "value": 12.94,
      "rank": 20,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "37,7 Mrd. €"
     },
     {
      "code": "ES",
@@ -11659,7 +13002,8 @@
      "value": 13.19,
      "rank": 21,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "210,9 Mrd. €"
     },
     {
      "code": "BE",
@@ -11667,7 +13011,8 @@
      "value": 13.46,
      "rank": 22,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "83,5 Mrd. €"
     },
     {
      "code": "EL",
@@ -11675,7 +13020,8 @@
      "value": 14.09,
      "rank": 23,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "33,4 Mrd. €"
     },
     {
      "code": "FI",
@@ -11683,7 +13029,8 @@
      "value": 14.45,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "39,9 Mrd. €"
     },
     {
      "code": "FR",
@@ -11691,7 +13038,8 @@
      "value": 14.98,
      "rank": 25,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "439,7 Mrd. €"
     },
     {
      "code": "AT",
@@ -11699,7 +13047,8 @@
      "value": 15.38,
      "rank": 26,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "76,9 Mrd. €"
     },
     {
      "code": "IT",
@@ -11707,7 +13056,8 @@
      "value": 15.85,
      "rank": 27,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "350,4 Mrd. €"
     }
    ],
    "schweiz": {
@@ -16999,7 +18349,8 @@
     "value": 11.5,
     "rank": 1,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "1,2 Mio. Personen"
    },
    "schlechteste": {
     "code": "BG",
@@ -17007,7 +18358,8 @@
     "value": 29,
     "rank": 27,
     "richtung": "sinkend",
-    "urteil": "besser"
+    "urteil": "besser",
+    "zus": "1,9 Mio. Personen"
    },
    "rangVerlauf": [
     {
@@ -17065,7 +18417,8 @@
      "value": 11.5,
      "rank": 1,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "1,2 Mio. Personen"
     },
     {
      "code": "PL",
@@ -17073,7 +18426,8 @@
      "value": 15,
      "rank": 2,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "5,4 Mio. Personen"
     },
     {
      "code": "SI",
@@ -17081,7 +18435,8 @@
      "value": 15.5,
      "rank": 3,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "324 Tsd. Personen"
     },
     {
      "code": "NL",
@@ -17089,7 +18444,8 @@
      "value": 15.8,
      "rank": 4,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,8 Mio. Personen"
     },
     {
      "code": "BE",
@@ -17097,7 +18453,8 @@
      "value": 16.5,
      "rank": 5,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "1,9 Mio. Personen"
     },
     {
      "code": "SK",
@@ -17105,7 +18462,8 @@
      "value": 16.7,
      "rank": 6,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "895 Tsd. Personen"
     },
     {
      "code": "CY",
@@ -17113,7 +18471,8 @@
      "value": 17.1,
      "rank": 7,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "167 Tsd. Personen"
     },
     {
      "code": "FI",
@@ -17121,7 +18480,8 @@
      "value": 17.2,
      "rank": 8,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "952 Tsd. Personen"
     },
     {
      "code": "DK",
@@ -17129,7 +18489,8 @@
      "value": 17.9,
      "rank": 9,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "1,1 Mio. Personen"
     },
     {
      "code": "LU",
@@ -17137,7 +18498,8 @@
      "value": 18.2,
      "rank": 10,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "123 Tsd. Personen"
     },
     {
      "code": "AT",
@@ -17145,7 +18507,8 @@
      "value": 18.6,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "1,7 Mio. Personen"
     },
     {
      "code": "PT",
@@ -17153,7 +18516,8 @@
      "value": 18.6,
      "rank": 11,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "2 Mio. Personen"
     },
     {
      "code": "SE",
@@ -17161,7 +18525,8 @@
      "value": 18.6,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "2 Mio. Personen"
     },
     {
      "code": "IE",
@@ -17169,7 +18534,8 @@
      "value": 18.8,
      "rank": 14,
      "richtung": "steigend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "1 Mio. Personen"
     },
     {
      "code": "MT",
@@ -17177,7 +18543,8 @@
      "value": 19.4,
      "rank": 15,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "109 Tsd. Personen"
     },
     {
      "code": "HU",
@@ -17185,7 +18552,8 @@
      "value": 19.5,
      "rank": 16,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "1,8 Mio. Personen"
     },
     {
      "code": "HR",
@@ -17193,7 +18561,8 @@
      "value": 20.7,
      "rank": 17,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "777 Tsd. Personen"
     },
     {
      "code": "FR",
@@ -17201,7 +18570,8 @@
      "value": 20.8,
      "rank": 18,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "13,9 Mio. Personen"
     },
     {
      "code": "DE",
@@ -17209,7 +18579,8 @@
      "value": 21.2,
      "rank": 19,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "17,5 Mio. Personen"
     },
     {
      "code": "EE",
@@ -17217,7 +18588,8 @@
      "value": 21.8,
      "rank": 20,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "296 Tsd. Personen"
     },
     {
      "code": "IT",
@@ -17225,7 +18597,8 @@
      "value": 22.6,
      "rank": 21,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "13,3 Mio. Personen"
     },
     {
      "code": "LV",
@@ -17233,7 +18606,8 @@
      "value": 24.7,
      "rank": 22,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "454 Tsd. Personen"
     },
     {
      "code": "ES",
@@ -17241,7 +18615,8 @@
      "value": 25.7,
      "rank": 23,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "12,5 Mio. Personen"
     },
     {
      "code": "LT",
@@ -17249,7 +18624,8 @@
      "value": 26.3,
      "rank": 24,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "762 Tsd. Personen"
     },
     {
      "code": "RO",
@@ -17257,7 +18633,8 @@
      "value": 27.4,
      "rank": 25,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "5,2 Mio. Personen"
     },
     {
      "code": "EL",
@@ -17265,7 +18642,8 @@
      "value": 27.5,
      "rank": 26,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,8 Mio. Personen"
     },
     {
      "code": "BG",
@@ -17273,7 +18651,8 @@
      "value": 29,
      "rank": 27,
      "richtung": "sinkend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "1,9 Mio. Personen"
     }
    ],
    "schweiz": {
@@ -20236,7 +21615,8 @@
     "value": 7.2,
     "rank": 1,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "40,6 Mrd. €"
    },
    "schlechteste": {
     "code": "IE",
@@ -20244,7 +21624,8 @@
     "value": 2.7,
     "rank": 27,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "15,1 Mrd. €"
    },
    "rangVerlauf": [
     {
@@ -20283,7 +21664,8 @@
      "value": 7.2,
      "rank": 1,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "40,6 Mrd. €"
     },
     {
      "code": "BE",
@@ -20291,7 +21673,8 @@
      "value": 6.3,
      "rank": 2,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "39,3 Mrd. €"
     },
     {
      "code": "EE",
@@ -20299,7 +21682,8 @@
      "value": 6.3,
      "rank": 2,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,5 Mrd. €"
     },
     {
      "code": "FI",
@@ -20307,7 +21691,8 @@
      "value": 6.3,
      "rank": 2,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "17,3 Mrd. €"
     },
     {
      "code": "LV",
@@ -20315,7 +21700,8 @@
      "value": 6.1,
      "rank": 5,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,5 Mrd. €"
     },
     {
      "code": "DK",
@@ -20323,7 +21709,8 @@
      "value": 5.6,
      "rank": 6,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "21,8 Mrd. €"
     },
     {
      "code": "PL",
@@ -20331,7 +21718,8 @@
      "value": 5.6,
      "rank": 6,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "47,6 Mrd. €"
     },
     {
      "code": "LT",
@@ -20339,7 +21727,8 @@
      "value": 5.5,
      "rank": 8,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "4,3 Mrd. €"
     },
     {
      "code": "SI",
@@ -20347,7 +21736,8 @@
      "value": 5.5,
      "rank": 8,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "3,7 Mrd. €"
     },
     {
      "code": "AT",
@@ -20355,7 +21745,8 @@
      "value": 5.3,
      "rank": 10,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "26,1 Mrd. €"
     },
     {
      "code": "FR",
@@ -20363,7 +21754,8 @@
      "value": 5.1,
      "rank": 11,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "148,6 Mrd. €"
     },
     {
      "code": "NL",
@@ -20371,7 +21763,8 @@
      "value": 5.1,
      "rank": 11,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "57,2 Mrd. €"
     },
     {
      "code": "SK",
@@ -20379,7 +21772,8 @@
      "value": 5.1,
      "rank": 11,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "6,7 Mrd. €"
     },
     {
      "code": "HR",
@@ -20387,7 +21781,8 @@
      "value": 5,
      "rank": 14,
      "richtung": "sinkend",
-     "urteil": "niedriger"
+     "urteil": "niedriger",
+     "zus": "4,3 Mrd. €"
     },
     {
      "code": "LU",
@@ -20395,7 +21790,8 @@
      "value": 5,
      "rank": 14,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "4,3 Mrd. €"
     },
     {
      "code": "CY",
@@ -20403,7 +21799,8 @@
      "value": 5,
      "rank": 14,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "1,8 Mrd. €"
     },
     {
      "code": "HU",
@@ -20411,7 +21808,8 @@
      "value": 4.9,
      "rank": 17,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "10,1 Mrd. €"
     },
     {
      "code": "MT",
@@ -20419,7 +21817,8 @@
      "value": 4.7,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "1,1 Mrd. €"
     },
     {
      "code": "DE",
@@ -20427,7 +21826,8 @@
      "value": 4.5,
      "rank": 19,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "194,6 Mrd. €"
     },
     {
      "code": "CZ",
@@ -20435,7 +21835,8 @@
      "value": 4.5,
      "rank": 19,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "14,6 Mrd. €"
     },
     {
      "code": "BG",
@@ -20443,7 +21844,8 @@
      "value": 4.3,
      "rank": 21,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "4,5 Mrd. €"
     },
     {
      "code": "PT",
@@ -20451,7 +21853,8 @@
      "value": 4.3,
      "rank": 21,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "12,6 Mrd. €"
     },
     {
      "code": "ES",
@@ -20459,7 +21862,8 @@
      "value": 4.1,
      "rank": 23,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "65,9 Mrd. €"
     },
     {
      "code": "IT",
@@ -20467,7 +21871,8 @@
      "value": 4,
      "rank": 24,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "89,2 Mrd. €"
     },
     {
      "code": "RO",
@@ -20475,7 +21880,8 @@
      "value": 4,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "14,3 Mrd. €"
     },
     {
      "code": "EL",
@@ -20483,7 +21889,8 @@
      "value": 3.9,
      "rank": 26,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "9,3 Mrd. €"
     },
     {
      "code": "IE",
@@ -20491,7 +21898,8 @@
      "value": 2.7,
      "rank": 27,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "15,1 Mrd. €"
     }
    ],
    "schweiz": {
@@ -20573,7 +21981,8 @@
     "value": 9.5,
     "rank": 1,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "höher",
+    "zus": "46,8 Mrd. €"
    },
    "schlechteste": {
     "code": "HU",
@@ -20581,7 +21990,8 @@
     "value": 4.7,
     "rank": 27,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "9,7 Mrd. €"
    },
    "rangVerlauf": [
     {
@@ -20620,7 +22030,8 @@
      "value": 9.5,
      "rank": 1,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "46,8 Mrd. €"
     },
     {
      "code": "HR",
@@ -20628,7 +22039,8 @@
      "value": 9,
      "rank": 2,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "7,7 Mrd. €"
     },
     {
      "code": "CZ",
@@ -20636,7 +22048,8 @@
      "value": 9,
      "rank": 2,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "29 Mrd. €"
     },
     {
      "code": "FR",
@@ -20644,7 +22057,8 @@
      "value": 8.9,
      "rank": 4,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "261,2 Mrd. €"
     },
     {
      "code": "DK",
@@ -20652,7 +22066,8 @@
      "value": 8.3,
      "rank": 5,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "32,6 Mrd. €"
     },
     {
      "code": "BE",
@@ -20660,7 +22075,8 @@
      "value": 8,
      "rank": 6,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "49,6 Mrd. €"
     },
     {
      "code": "SI",
@@ -20668,7 +22084,8 @@
      "value": 8,
      "rank": 6,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "5,4 Mrd. €"
     },
     {
      "code": "FI",
@@ -20676,7 +22093,8 @@
      "value": 7.7,
      "rank": 8,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "21,3 Mrd. €"
     },
     {
      "code": "DE",
@@ -20684,7 +22102,8 @@
      "value": 7.6,
      "rank": 9,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "329,3 Mrd. €"
     },
     {
      "code": "SE",
@@ -20692,7 +22111,8 @@
      "value": 7.4,
      "rank": 10,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "41,4 Mrd. €"
     },
     {
      "code": "NL",
@@ -20700,7 +22120,8 @@
      "value": 7.3,
      "rank": 11,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "81,5 Mrd. €"
     },
     {
      "code": "SK",
@@ -20708,7 +22129,8 @@
      "value": 6.9,
      "rank": 12,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "9 Mrd. €"
     },
     {
      "code": "PT",
@@ -20716,7 +22138,8 @@
      "value": 6.8,
      "rank": 13,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "19,8 Mrd. €"
     },
     {
      "code": "IT",
@@ -20724,7 +22147,8 @@
      "value": 6.6,
      "rank": 14,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "146,1 Mrd. €"
     },
     {
      "code": "ES",
@@ -20732,7 +22156,8 @@
      "value": 6.5,
      "rank": 15,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "102,9 Mrd. €"
     },
     {
      "code": "EE",
@@ -20740,7 +22165,8 @@
      "value": 6.3,
      "rank": 16,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,5 Mrd. €"
     },
     {
      "code": "PL",
@@ -20748,7 +22174,8 @@
      "value": 6.1,
      "rank": 17,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "52,1 Mrd. €"
     },
     {
      "code": "CY",
@@ -20756,7 +22183,8 @@
      "value": 6.1,
      "rank": 17,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,1 Mrd. €"
     },
     {
      "code": "LT",
@@ -20764,7 +22192,8 @@
      "value": 5.8,
      "rank": 19,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "4,5 Mrd. €"
     },
     {
      "code": "EL",
@@ -20772,7 +22201,8 @@
      "value": 5.7,
      "rank": 20,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "13,6 Mrd. €"
     },
     {
      "code": "LU",
@@ -20780,7 +22210,8 @@
      "value": 5.6,
      "rank": 21,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "4,8 Mrd. €"
     },
     {
      "code": "BG",
@@ -20788,7 +22219,8 @@
      "value": 5.4,
      "rank": 22,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "5,6 Mrd. €"
     },
     {
      "code": "LV",
@@ -20796,7 +22228,8 @@
      "value": 5.4,
      "rank": 22,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,2 Mrd. €"
     },
     {
      "code": "IE",
@@ -20804,7 +22237,8 @@
      "value": 5.2,
      "rank": 24,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "29,2 Mrd. €"
     },
     {
      "code": "RO",
@@ -20812,7 +22246,8 @@
      "value": 5.2,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "18,3 Mrd. €"
     },
     {
      "code": "MT",
@@ -20820,7 +22255,8 @@
      "value": 5,
      "rank": 26,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "1,2 Mrd. €"
     },
     {
      "code": "HU",
@@ -20828,7 +22264,8 @@
      "value": 4.7,
      "rank": 27,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "9,7 Mrd. €"
     }
    ],
    "schweiz": {
@@ -20910,7 +22347,8 @@
     "value": 3.7,
     "rank": 1,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "höher",
+    "zus": "1,5 Mrd. €"
    },
    "schlechteste": {
     "code": "IE",
@@ -20918,7 +22356,8 @@
     "value": 0.1,
     "rank": 27,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "841 Mio. €"
    },
    "rangVerlauf": [
     {
@@ -20957,7 +22396,8 @@
      "value": 3.7,
      "rank": 1,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "1,5 Mrd. €"
     },
     {
      "code": "PL",
@@ -20965,7 +22405,8 @@
      "value": 2.9,
      "rank": 2,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "25 Mrd. €"
     },
     {
      "code": "LV",
@@ -20973,7 +22414,8 @@
      "value": 2.7,
      "rank": 3,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "1,1 Mrd. €"
     },
     {
      "code": "LT",
@@ -20981,7 +22423,8 @@
      "value": 2.6,
      "rank": 4,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "2 Mrd. €"
     },
     {
      "code": "EL",
@@ -20989,7 +22432,8 @@
      "value": 2.2,
      "rank": 5,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "5,3 Mrd. €"
     },
     {
      "code": "HU",
@@ -20997,7 +22441,8 @@
      "value": 2,
      "rank": 6,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "4,1 Mrd. €"
     },
     {
      "code": "FR",
@@ -21005,7 +22450,8 @@
      "value": 1.9,
      "rank": 7,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "54,2 Mrd. €"
     },
     {
      "code": "SE",
@@ -21013,7 +22459,8 @@
      "value": 1.9,
      "rank": 7,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "11 Mrd. €"
     },
     {
      "code": "DK",
@@ -21021,7 +22468,8 @@
      "value": 1.8,
      "rank": 9,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "7,2 Mrd. €"
     },
     {
      "code": "CY",
@@ -21029,7 +22477,8 @@
      "value": 1.8,
      "rank": 9,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "627 Mio. €"
     },
     {
      "code": "FI",
@@ -21037,7 +22486,8 @@
      "value": 1.6,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "4,3 Mrd. €"
     },
     {
      "code": "NL",
@@ -21045,7 +22495,8 @@
      "value": 1.6,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "18,3 Mrd. €"
     },
     {
      "code": "RO",
@@ -21053,7 +22504,8 @@
      "value": 1.6,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "5,8 Mrd. €"
     },
     {
      "code": "HR",
@@ -21061,7 +22513,8 @@
      "value": 1.5,
      "rank": 14,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "1,3 Mrd. €"
     },
     {
      "code": "DE",
@@ -21069,7 +22522,8 @@
      "value": 1.4,
      "rank": 15,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "58,6 Mrd. €"
     },
     {
      "code": "SK",
@@ -21077,7 +22531,8 @@
      "value": 1.4,
      "rank": 15,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "1,8 Mrd. €"
     },
     {
      "code": "SI",
@@ -21085,7 +22540,8 @@
      "value": 1.4,
      "rank": 15,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "952 Mio. €"
     },
     {
      "code": "BE",
@@ -21093,7 +22549,8 @@
      "value": 1.3,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "7,9 Mrd. €"
     },
     {
      "code": "BG",
@@ -21101,7 +22558,8 @@
      "value": 1.3,
      "rank": 18,
      "richtung": "sinkend",
-     "urteil": "niedriger"
+     "urteil": "niedriger",
+     "zus": "1,3 Mrd. €"
     },
     {
      "code": "IT",
@@ -21109,7 +22567,8 @@
      "value": 1.3,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "28,3 Mrd. €"
     },
     {
      "code": "CZ",
@@ -21117,7 +22576,8 @@
      "value": 1.3,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "4,2 Mrd. €"
     },
     {
      "code": "PT",
@@ -21125,7 +22585,8 @@
      "value": 0.9,
      "rank": 22,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,5 Mrd. €"
     },
     {
      "code": "ES",
@@ -21133,7 +22594,8 @@
      "value": 0.9,
      "rank": 22,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "14,2 Mrd. €"
     },
     {
      "code": "LU",
@@ -21141,7 +22603,8 @@
      "value": 0.7,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "573 Mio. €"
     },
     {
      "code": "AT",
@@ -21149,7 +22612,8 @@
      "value": 0.7,
      "rank": 24,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "3,3 Mrd. €"
     },
     {
      "code": "MT",
@@ -21157,7 +22621,8 @@
      "value": 0.5,
      "rank": 26,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "122 Mio. €"
     },
     {
      "code": "IE",
@@ -21165,7 +22630,8 @@
      "value": 0.1,
      "rank": 27,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "841 Mio. €"
     }
    ],
    "schweiz": {
@@ -21247,7 +22713,8 @@
     "value": 26.5,
     "rank": 1,
     "richtung": "steigend",
-    "urteil": "höher"
+    "urteil": "höher",
+    "zus": "73 Mrd. €"
    },
    "schlechteste": {
     "code": "IE",
@@ -21255,7 +22722,8 @@
     "value": 8.2,
     "rank": 27,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "45,8 Mrd. €"
    },
    "rangVerlauf": [
     {
@@ -21294,7 +22762,8 @@
      "value": 26.5,
      "rank": 1,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "73 Mrd. €"
     },
     {
      "code": "FR",
@@ -21302,7 +22771,8 @@
      "value": 23.7,
      "rank": 2,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "693 Mrd. €"
     },
     {
      "code": "AT",
@@ -21310,7 +22780,8 @@
      "value": 22.8,
      "rank": 3,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "112,5 Mrd. €"
     },
     {
      "code": "IT",
@@ -21318,7 +22789,8 @@
      "value": 21.3,
      "rank": 4,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "468,1 Mrd. €"
     },
     {
      "code": "BE",
@@ -21326,7 +22798,8 @@
      "value": 20.4,
      "rank": 5,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "126,5 Mrd. €"
     },
     {
      "code": "DE",
@@ -21334,7 +22807,8 @@
      "value": 20.4,
      "rank": 5,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "883,2 Mrd. €"
     },
     {
      "code": "LU",
@@ -21342,7 +22816,8 @@
      "value": 19.9,
      "rank": 7,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "17,2 Mrd. €"
     },
     {
      "code": "DK",
@@ -21350,7 +22825,8 @@
      "value": 19.6,
      "rank": 8,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "77 Mrd. €"
     },
     {
      "code": "SE",
@@ -21358,7 +22834,8 @@
      "value": 19,
      "rank": 9,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "107 Mrd. €"
     },
     {
      "code": "ES",
@@ -21366,7 +22843,8 @@
      "value": 18.7,
      "rank": 10,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "297,5 Mrd. €"
     },
     {
      "code": "SK",
@@ -21374,7 +22852,8 @@
      "value": 18.4,
      "rank": 11,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "24 Mrd. €"
     },
     {
      "code": "PL",
@@ -21382,7 +22861,8 @@
      "value": 18.3,
      "rank": 12,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "155,3 Mrd. €"
     },
     {
      "code": "EL",
@@ -21390,7 +22870,8 @@
      "value": 17.7,
      "rank": 13,
      "richtung": "sinkend",
-     "urteil": "niedriger"
+     "urteil": "niedriger",
+     "zus": "41,9 Mrd. €"
     },
     {
      "code": "PT",
@@ -21398,7 +22879,8 @@
      "value": 17.1,
      "rank": 14,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "49,6 Mrd. €"
     },
     {
      "code": "SI",
@@ -21406,7 +22888,8 @@
      "value": 17.1,
      "rank": 14,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "11,5 Mrd. €"
     },
     {
      "code": "NL",
@@ -21414,7 +22897,8 @@
      "value": 16.6,
      "rank": 16,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "186 Mrd. €"
     },
     {
      "code": "LT",
@@ -21422,7 +22906,8 @@
      "value": 14.7,
      "rank": 17,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "11,6 Mrd. €"
     },
     {
      "code": "BG",
@@ -21430,7 +22915,8 @@
      "value": 14.4,
      "rank": 18,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "15,1 Mrd. €"
     },
     {
      "code": "LV",
@@ -21438,7 +22924,8 @@
      "value": 14.1,
      "rank": 19,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "5,7 Mrd. €"
     },
     {
      "code": "EE",
@@ -21446,7 +22933,8 @@
      "value": 13.8,
      "rank": 20,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "5,5 Mrd. €"
     },
     {
      "code": "HR",
@@ -21454,7 +22942,8 @@
      "value": 13.8,
      "rank": 20,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "11,9 Mrd. €"
     },
     {
      "code": "RO",
@@ -21462,7 +22951,8 @@
      "value": 13.6,
      "rank": 22,
      "richtung": "steigend",
-     "urteil": "höher"
+     "urteil": "höher",
+     "zus": "48,1 Mrd. €"
     },
     {
      "code": "CZ",
@@ -21470,7 +22960,8 @@
      "value": 13.2,
      "rank": 23,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "42,4 Mrd. €"
     },
     {
      "code": "CY",
@@ -21478,7 +22969,8 @@
      "value": 12.4,
      "rank": 24,
      "richtung": "sinkend",
-     "urteil": "niedriger"
+     "urteil": "niedriger",
+     "zus": "4,3 Mrd. €"
     },
     {
      "code": "HU",
@@ -21486,7 +22978,8 @@
      "value": 12.3,
      "rank": 25,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "25,3 Mrd. €"
     },
     {
      "code": "MT",
@@ -21494,7 +22987,8 @@
      "value": 9.8,
      "rank": 26,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,3 Mrd. €"
     },
     {
      "code": "IE",
@@ -21502,7 +22996,8 @@
      "value": 8.2,
      "rank": 27,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "45,8 Mrd. €"
     }
    ],
    "schweiz": {
@@ -22239,7 +23734,7 @@
    "zusatz": null,
    "takt": "jahr",
    "einheit": "% des Energiebedarfs, die aus dem Ausland importiert werden",
-   "rangText": "Rang 1 = höchste Importabhängigkeit",
+   "rangText": "Rang 1 = niedrigste Importabhängigkeit",
    "periode": "2024",
    "vorherPeriode": "2023",
    "anzahlLaender": 27,
@@ -22247,7 +23742,7 @@
    "warnung": null,
    "oesterreich": {
     "wert": 53.325,
-    "rang": 15,
+    "rang": 13,
     "wertVorher": 60.317,
     "rangVorher": 14,
     "schnitt": 53.3,
@@ -22259,17 +23754,17 @@
    "eu": 57.286,
    "euMittelwert": false,
    "beste": {
-    "code": "MT",
-    "name": "Malta",
-    "value": 98.388,
+    "code": "EE",
+    "name": "Estland",
+    "value": 4.622,
     "rank": 1,
     "richtung": "stabil",
     "urteil": "unverändert"
    },
    "schlechteste": {
-    "code": "EE",
-    "name": "Estland",
-    "value": 4.622,
+    "code": "MT",
+    "name": "Malta",
+    "value": 98.388,
     "rank": 27,
     "richtung": "stabil",
     "urteil": "unverändert"
@@ -22277,17 +23772,17 @@
    "rangVerlauf": [
     {
      "t": "2020",
-     "rang": 13,
+     "rang": 15,
      "n": 27
     },
     {
      "t": "2021",
-     "rang": 16,
+     "rang": 12,
      "n": 27
     },
     {
      "t": "2022",
-     "rang": 9,
+     "rang": 19,
      "n": 27
     },
     {
@@ -22297,7 +23792,7 @@
     },
     {
      "t": "2024",
-     "rang": 15,
+     "rang": 13,
      "n": 27
     }
    ],
@@ -22306,108 +23801,108 @@
    "rueckblick": null,
    "laender": [
     {
-     "code": "MT",
-     "name": "Malta",
-     "value": 98.388,
+     "code": "EE",
+     "name": "Estland",
+     "value": 4.622,
      "rank": 1,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
-     "code": "LU",
-     "name": "Luxemburg",
-     "value": 91.034,
+     "code": "SE",
+     "name": "Schweden",
+     "value": 26.504,
      "rank": 2,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
-     "code": "CY",
-     "name": "Zypern",
-     "value": 87.706,
+     "code": "LV",
+     "name": "Lettland",
+     "value": 29.26,
      "rank": 3,
      "richtung": "sinkend",
      "urteil": "niedriger"
     },
     {
-     "code": "IE",
-     "name": "Irland",
-     "value": 79.533,
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 30.356,
      "rank": 4,
      "richtung": "steigend",
      "urteil": "höher"
     },
     {
-     "code": "EL",
-     "name": "Griechenland",
-     "value": 77.714,
+     "code": "FI",
+     "name": "Finnland",
+     "value": 32.973,
      "rank": 5,
      "richtung": "steigend",
      "urteil": "höher"
     },
     {
-     "code": "BE",
-     "name": "Belgien",
-     "value": 75.448,
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 38.229,
      "rank": 6,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
-     "code": "IT",
-     "name": "Italien",
-     "value": 73.884,
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 39.32,
      "rank": 7,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
-     "code": "NL",
-     "name": "Niederlande",
-     "value": 70.564,
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 41.672,
      "rank": 8,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
-     "code": "ES",
-     "name": "Spanien",
-     "value": 68.871,
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 41.936,
      "rank": 9,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
-     "code": "DE",
-     "name": "Deutschland",
-     "value": 66.812,
+     "code": "PL",
+     "name": "Polen",
+     "value": 45.669,
      "rank": 10,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
-     "code": "LT",
-     "name": "Litauen",
-     "value": 66.014,
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 46.382,
      "rank": 11,
      "richtung": "sinkend",
      "urteil": "niedriger"
     },
     {
-     "code": "PT",
-     "name": "Portugal",
-     "value": 64.524,
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 48.943,
      "rank": 12,
      "richtung": "sinkend",
      "urteil": "niedriger"
     },
     {
-     "code": "HR",
-     "name": "Kroatien",
-     "value": 59.929,
+     "code": "AT",
+     "name": "Österreich",
+     "value": 53.325,
      "rank": 13,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "sinkend",
+     "urteil": "niedriger"
     },
     {
      "code": "SK",
@@ -22418,105 +23913,105 @@
      "urteil": "niedriger"
     },
     {
-     "code": "AT",
-     "name": "Österreich",
-     "value": 53.325,
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 59.929,
      "rank": 15,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "steigend",
+     "urteil": "höher"
     },
     {
-     "code": "HU",
-     "name": "Ungarn",
-     "value": 48.943,
+     "code": "PT",
+     "name": "Portugal",
+     "value": 64.524,
      "rank": 16,
      "richtung": "sinkend",
      "urteil": "niedriger"
     },
     {
-     "code": "SI",
-     "name": "Slowenien",
-     "value": 46.382,
+     "code": "LT",
+     "name": "Litauen",
+     "value": 66.014,
      "rank": 17,
      "richtung": "sinkend",
      "urteil": "niedriger"
     },
     {
-     "code": "PL",
-     "name": "Polen",
-     "value": 45.669,
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 66.812,
      "rank": 18,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
-     "code": "BG",
-     "name": "Bulgarien",
-     "value": 41.936,
+     "code": "ES",
+     "name": "Spanien",
+     "value": 68.871,
      "rank": 19,
-     "richtung": "steigend",
-     "urteil": "höher"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
-     "code": "FR",
-     "name": "Frankreich",
-     "value": 41.672,
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 70.564,
      "rank": 20,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
-     "code": "CZ",
-     "name": "Tschechien",
-     "value": 39.32,
+     "code": "IT",
+     "name": "Italien",
+     "value": 73.884,
      "rank": 21,
-     "richtung": "sinkend",
-     "urteil": "niedriger"
+     "richtung": "stabil",
+     "urteil": "unverändert"
     },
     {
-     "code": "DK",
-     "name": "Dänemark",
-     "value": 38.229,
+     "code": "BE",
+     "name": "Belgien",
+     "value": 75.448,
      "rank": 22,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
-     "code": "FI",
-     "name": "Finnland",
-     "value": 32.973,
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 77.714,
      "rank": 23,
      "richtung": "steigend",
      "urteil": "höher"
     },
     {
-     "code": "RO",
-     "name": "Rumänien",
-     "value": 30.356,
+     "code": "IE",
+     "name": "Irland",
+     "value": 79.533,
      "rank": 24,
      "richtung": "steigend",
      "urteil": "höher"
     },
     {
-     "code": "LV",
-     "name": "Lettland",
-     "value": 29.26,
+     "code": "CY",
+     "name": "Zypern",
+     "value": 87.706,
      "rank": 25,
      "richtung": "sinkend",
      "urteil": "niedriger"
     },
     {
-     "code": "SE",
-     "name": "Schweden",
-     "value": 26.504,
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 91.034,
      "rank": 26,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
-     "code": "EE",
-     "name": "Estland",
-     "value": 4.622,
+     "code": "MT",
+     "name": "Malta",
+     "value": 98.388,
      "rank": 27,
      "richtung": "stabil",
      "urteil": "unverändert"
