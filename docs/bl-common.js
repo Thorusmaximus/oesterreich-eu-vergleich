@@ -3,7 +3,8 @@ function fw(i, v){ return v==null ? "–" : v.toLocaleString("de-AT",{minimumFra
 var PAARE_BL = [
   { titel: "Arbeitsmarkt", ids: ["arbeitslosigkeit","arbeitslosigkeitAms","beschaeftigung"], labels: ["Arbeitslos (Eurostat)","Arbeitslos (AMS)","Jobquote"] },
   { titel: "Einkommen", ids: ["bip","einkommen"], labels: ["Wirtschaftsleistung","Haushalte"] },
-  { titel: "Bevölkerung", ids: ["bevoelkerung","bevoelkerung1","bevoelkerungsdichte","geburtenrate","nettozuwanderung","zuzug","wegzug"], labels: ["Wachstum 5 J.","Wachstum 1 J.","Dichte","Geburten","Netto-Zuwanderung","Zuzug","Wegzug"] },
+  { titel: "Bevölkerung", ids: ["bevoelkerung","bevoelkerung1","bevoelkerungsdichte","geburtenrate"], labels: ["5 Jahre","1 Jahr","Dichte","Geburten"] },
+  { titel: "Zuwanderung", ids: ["nettozuwanderung","zuzug","wegzug"], labels: ["Netto","Zuzug","Wegzug"] },
   { titel: "Unternehmen", ids: ["unternehmenswachstum","unternehmensdichte"], labels: ["Wachstum","Dichte"] },
   { titel: "Insolvenzen", ids: ["insolvenzen","insolvenzenEinwohner"], labels: ["Pro Unternehmen","Pro Einwohner"] },
   { titel: "Kaufpreise", ids: ["kaufpreise","kaufpreisWohnungen","kaufpreisHaeuser"], labels: ["Durchschnitt","Wohnungen","Häuser"] },

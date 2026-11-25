@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=3d25e8d2">
+<link rel="stylesheet" href="style.css?v=38debce9">
 </head>
 <body>
 <main>
@@ -29,7 +29,7 @@
 <script src="bl-daten.js"></script>
 <script>window.DATEN = { beispiel: !!(window.BL && window.BL.beispiel), quelle: "Eurostat", aktualisiert: (window.BL && window.BL.aktualisiert) || new Date().toISOString().slice(0,10) };</script>
 <script src="common.js?v=b3f704b5"></script>
-<script src="bl-common.js?v=f2f70617"></script>
+<script src="bl-common.js?v=9450b92c"></script>
 <script>
 var app = document.getElementById("app"), B = window.BL, hl = new URLSearchParams(location.search).get("hl") || "";
 function pille(p){ return '<span class="pt p-'+p.replace(/[^A-Za-z]/g,"")+'">'+p+'</span>'; }
@@ -57,14 +57,14 @@ function kartenListe(l){
     if(gesehen[p.titel]) return; gesehen[p.titel] = true;
     var cur = AUSWAHL[p.titel] && v.indexOf(AUSWAHL[p.titel])>=0 ? AUSWAHL[p.titel] : v[0];
     var ind = l.filter(function(z){return z.id===cur;})[0];
-    var tabs = '<div class="umsch">'+v.map(function(id){ return '<button type="button" data-p="'+p.titel+'" data-v="'+id+'" class="'+(id===cur?'on':'')+'">'+p.labels[p.ids.indexOf(id)]+'</button>'; }).join("")+'</div>';
+    var tabs = '<div class="umsch'+(v.length===4?' zwei':'')+'">'+v.map(function(id){ return '<button type="button" data-p="'+p.titel+'" data-v="'+id+'" class="'+(id===cur?'on':'')+'">'+p.labels[p.ids.indexOf(id)]+'</button>'; }).join("")+'</div>';
     out.push(tile(ind, p.titel, tabs));
   });
   return '<div class="tiles">'+out.join("")+'</div>';
 }
 function tile(i, kopf, tabs){
   var L = i.laender, x = hl ? L.filter(function(z){return z.code===hl;})[0] : null, a = L[0], z = L[L.length-1];
-  var t = '<div class="card tile btile"><div class="t">'+(kopf||i.name)+'</div>'+(tabs?tabs:'');
+  var t = '<div class="card tile btile"><div class="t">'+(kopf||i.name)+'</div>'+(tabs?tabs+'<p class="note nm"><b>'+i.name+'</b></p>':'');
   if(x){ var fk = i.typ==='neutral' ? '' : x.rang===1 ? ' pg' : (x.rang===i.anzahl ? ' ps' : '');
     t += '<div class="r'+fk+'">Platz '+x.rang+' <small>von '+i.anzahl+'</small></div><p class="note">'+x.name+' <b>('+fw(i,x.wert)+')</b></p>';
     if(x.urteil) t += '<p class="trend '+urteilCls(x.urteil)+'"><b>'+pfeil(x.richtung)+' '+trendWort(x.urteil)+'</b> <span class="note">(seit '+(i.vorPeriode||'?')+')</span></p>';
