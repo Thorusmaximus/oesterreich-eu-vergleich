@@ -42,13 +42,13 @@ const TAKT = {
 // takt: "monat", "quartal", "halbjahr" oder "jahr".  typ "niedrig": niedriger Wert ist besser.  typ "hoch": höherer Wert ist besser.
 // schwelle: feste Rückfallschwelle (in der Einheit des Indikators). Normalerweise gilt 3 % des EU-Durchschnitts (siehe SCHWELLE_ANTEIL), schwelleFix: true erzwingt die feste Schwelle.
 // Themengruppen der Startseite (Reihenfolge = Reihenfolge auf der Seite)
-const GRUPPEN = ["Wirtschaft und Arbeit", "Staatsfinanzen", "Preise und Kosten", "Gesellschaft", "Sicherheit", "Pensionen und Alter"];
+const GRUPPEN = ["Preise und Kosten", "Wirtschaft und Arbeit", "Staatsfinanzen", "Sicherheit", "Gesellschaft", "Pensionen und Alter"]; // Reihenfolge: zuerst die Gruppen, deren Zahlen sich am häufigsten ändern (monatlich, quartalsweise, jährlich)
 const GRUPPE_VON = {
-  wachstum: 0, "wachstum-pro-kopf": 0, "wachstum-privat": 0, arbeitslosigkeit: 0, beschaeftigung: 0, insolvenzen: 0, insolvenzenEU: 0, einkommen: 0, durchschnittseinkommen: 0, kaufkraft: 0,
-  teilzeit: 0, industrie: 0,
-  schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
-  inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, armut: 3, ausgrenzung: 3, wohnkosten: 2, mieten: 2, jugendarbeitslosigkeit: 0, neet: 0, forschung: 0, ausgabenBildung: 1, ausgabenGesundheit: 1, ausgabenVerteidigung: 1, ausgabenSoziales: 1, genderPayGap: 3, erneuerbare: 2, energieabhaengigkeit: 2, nettozuwanderung: 3, asyl: 3, asylOffen: 3, lebenszufriedenheit: 3, kapitalNichtBoerse: 0, kapitalGesamt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4, verurteilungen: 4 };
+  wachstum: 1, "wachstum-pro-kopf": 1, "wachstum-privat": 1, arbeitslosigkeit: 1, beschaeftigung: 1, insolvenzen: 1, insolvenzenEU: 1, einkommen: 1, durchschnittseinkommen: 1, kaufkraft: 1,
+  teilzeit: 1, industrie: 1,
+  schulden: 2, defizit: 2, staatsquote: 2, abgabenquote: 2, rating: 2,
+  inflation: 0, benzin: 0, diesel: 0, lebenshaltung: 0, immobilien: 0, strompreis: 0, "strompreis-industrie": 0,
+  bevoelkerung: 4, geburtenrate: 4, terror: 3, aktionaersquote: 1, kapitalmarkt: 1, armut: 4, ausgrenzung: 4, wohnkosten: 0, mieten: 0, jugendarbeitslosigkeit: 1, neet: 1, forschung: 1, ausgabenBildung: 2, ausgabenGesundheit: 2, ausgabenVerteidigung: 2, ausgabenSoziales: 2, genderPayGap: 4, erneuerbare: 0, energieabhaengigkeit: 0, nettozuwanderung: 4, asyl: 4, asylOffen: 4, lebenszufriedenheit: 4, kapitalNichtBoerse: 1, kapitalGesamt: 1, religion: 4, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 3, toetung: 3, koerperverletzung: 3, sexualdelikte: 3, raub: 3, einbruch: 3, gefaengnis: 3, verurteilungen: 3 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
