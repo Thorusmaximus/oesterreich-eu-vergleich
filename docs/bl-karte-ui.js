@@ -29,6 +29,7 @@ function kmWechsel(x) { // Platzveränderung als Text
   if (x.rangVor == null) return "";
   var d = x.rangVor - x.rang; return d === 0 ? "Platz unverändert" : (d > 0 ? "▲ " : "▼ ") + Math.abs(d) + (Math.abs(d) === 1 ? " Platz " : " Plätze ") + (d > 0 ? "besser" : "schlechter");
 }
+function kmLink(i) { return '<a href="#' + i.id + '" class="kmgo" data-go="' + i.id + '">' + i.name + '</a>'; }
 function kmPanel() {
   var code = KM.sel; if (!code) return '<p class="note">Tippe auf ein Bundesland, um Details, Stärken und Schwächen zu sehen.</p>';
   var l = B.laender.filter(function (z) { return z.code === code; })[0], r = l.regierung, bi = B.bilanz.filter(function (b) { return b.code === code; })[0];
@@ -48,10 +49,10 @@ function kmPanel() {
   var gew = []; B.indikatoren.forEach(function (i) { if (i.ausgeblendet || i.typ === "neutral") return; var x = i.laender.filter(function (z) { return z.code === code; })[0]; if (x && x.rang != null) gew.push({ i: i, x: x }); });
   var st = gew.filter(function (g) { return g.x.rang <= 3; }).sort(function (a, b) { return a.x.rang - b.x.rang; });
   var sc = gew.filter(function (g) { return g.x.rang >= g.i.anzahl - 2; }).sort(function (a, b) { return (b.x.rang - b.i.anzahl) - (a.x.rang - a.i.anzahl); });
-  var li = function (a) { return a.length ? '<ul>' + a.map(function (g) { return '<li>' + g.i.name + ' (Platz ' + g.x.rang + ')</li>'; }).join("") + '</ul>' : '<p class="note">keine</p>'; };
+  var li = function (a) { return a.length ? '<ul>' + a.map(function (g) { return '<li>' + kmLink(g.i) + ' (Platz ' + g.x.rang + ')</li>'; }).join("") + '</ul>' : '<p class="note">keine</p>'; };
   h += '<div class="kmsw"><div><h4 class="good">Stärken (Platz 1 bis 3)</h4>' + li(st) + '</div><div><h4 class="bad">Schwächen (Platz 7 bis 9)</h4>' + li(sc) + '</div></div>';
-  var bes = gew.filter(function (g) { return g.x.urteil === "besser"; }).slice(0, 4), sch = gew.filter(function (g) { return g.x.urteil === "schlechter"; }).slice(0, 4);
-  var lj = function (a) { return a.length ? a.map(function (g) { return g.i.name; }).join(", ") : "keine"; };
+  var bes = gew.filter(function (g) { return g.x.urteil === "besser"; }), sch = gew.filter(function (g) { return g.x.urteil === "schlechter"; });
+  var lj = function (a) { return a.length ? a.map(function (g) { return kmLink(g.i); }).join(", ") : "keine"; };
   h += '<p class="note"><b>Verbessert:</b> ' + lj(bes) + '<br><b>Verschlechtert:</b> ' + lj(sch) + '</p>';
   return h;
 }
@@ -90,6 +91,7 @@ function kmAktualisieren() {
 function kmInit() {
   var k = document.getElementById("kmkarte"); if (!k) return;
   k.onclick = function (e) {
+    var go = e.target.closest && e.target.closest("[data-go]"); if (go) { e.preventDefault(); if (window.kmSpringe) kmSpringe(go.getAttribute("data-go")); return; }
     var b = e.target.closest && e.target.closest("[data-km]"); if (b) { KM.modus = b.getAttribute("data-km"); kmAktualisieren(); return; }
     var p = e.target.closest && e.target.closest(".kmp"); if (p) { KM.sel = p.getAttribute("data-c"); kmAktualisieren(); }
   };

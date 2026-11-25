@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=e49167bc">
+<link rel="stylesheet" href="style.css?v=7da37ebe">
 </head>
 <body>
 <main>
@@ -68,7 +68,7 @@ function kartenListe(l){
 }
 function tile(i, kopf, tabs){
   var L = i.laender, x = hl ? L.filter(function(z){return z.code===hl;})[0] : null, a = L[0], z = L[L.length-1];
-  var t = '<div class="card tile btile"><div class="t">'+(kopf||i.name)+'</div>'+(tabs?tabs+'<p class="note nm"><b>'+i.name+'</b></p>':'');
+  var t = '<div class="card tile btile" id="f-'+i.id+'"><div class="t">'+(kopf||i.name)+'</div>'+(tabs?tabs+'<p class="note nm"><b>'+i.name+'</b></p>':'');
   if(x){ var fk = i.typ==='neutral' ? '' : x.rang===1 ? ' pg' : (x.rang===i.anzahl ? ' ps' : '');
     t += '<div class="r'+fk+'">Platz '+x.rang+' <small>von '+i.anzahl+'</small></div><p class="note">'+x.name+' <b>('+fw(i,x.wert)+')</b></p>';
     if(x.urteil) t += '<p class="trend '+urteilCls(x.urteil)+'"><b>'+pfeil(x.richtung)+' '+trendWort(x.urteil)+'</b> <span class="note">(seit '+(i.vorPeriode||'?')+')</span></p>';
@@ -108,6 +108,12 @@ function neuesteLeiste(){
   var tr=el.querySelector(".track");
   if(tr && !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)){ tr.style.animationDuration=Math.max(20, Math.round(tr.scrollWidth/2/45))+"s"; tr.classList.add("lauf"); }
   else { el.firstChild.style.overflowX="auto"; }
+}
+function kmSpringe(id){
+  var p = paarBL(id); if(p) AUSWAHL[p.titel] = id;
+  var y = window.scrollY; seite();
+  var el = document.getElementById("f-"+id); if(!el){ window.scrollTo(0,y); return; }
+  el.scrollIntoView({behavior:"smooth", block:"center"}); el.classList.add("blitz"); setTimeout(function(){ el.classList.remove("blitz"); }, 1800);
 }
 seite();
 neuesteLeiste();
