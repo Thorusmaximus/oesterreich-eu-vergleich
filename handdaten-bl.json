@@ -251,5 +251,49 @@
     508861
    ]
   }
+ },
+ "ams": {
+  "quelle": "AMS (Arbeitsmarktservice), Arbeitslosenquote nach nationaler Definition, Jahresdurchschnitt, Stand Jänner 2026, zusammengestellt von der WKO (Statistik Austria/AMS)",
+  "url": "https://www.wko.at/oe/statistik/jahrbuch/am-alq-bl.pdf",
+  "jahr": "2025",
+  "vorjahr": "2024",
+  "werte": {
+   "AT11": [
+    7.0,
+    6.8
+   ],
+   "AT21": [
+    7.5,
+    7.3
+   ],
+   "AT12": [
+    6.6,
+    6.3
+   ],
+   "AT31": [
+    5.4,
+    4.9
+   ],
+   "AT32": [
+    4.5,
+    4.2
+   ],
+   "AT22": [
+    6.6,
+    6.1
+   ],
+   "AT33": [
+    4.5,
+    4.3
+   ],
+   "AT34": [
+    5.9,
+    5.6
+   ],
+   "AT13": [
+    11.9,
+    11.4
+   ]
+  }
  }
 }
