@@ -24091,6 +24091,7 @@
    ],
    "geaendert": "2026-11-25",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
+   "ausgeblendet": true,
    "erklaerung": "Wie viele Treibhausgase (vor allem CO2, Methan und Lachgas, umgerechnet in CO2-Äquivalent) im Land im Jahr pro Einwohner ausgestoßen werden, in Tonnen. Ein niedrigerer Wert ist besser. Gezählt wird, was im Land entsteht, nicht was in importierten Waren steckt.",
    "gruppe": "Energie und Klima"
   },
