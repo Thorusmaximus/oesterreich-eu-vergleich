@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bundesländer | Regierungstracker Österreich</title>
+<meta name="description" content="Die neun Bundesländer im Vergleich: Wirtschaft, Arbeit, Bevölkerung, Bildung und Gesundheit, mit Landesregierungen und Entwicklung über fünf Jahre.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Regierungstracker Österreich: Bundesländer">
+<meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
+<meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css?v=3d25e8d2">
+</head>
+<body>
+<main>
+<a class="back" id="zurueck" href="bundeslaender.html">← Bundesländer</a>
+<div id="app"><p>Lade Daten …</p></div>
+</main>
+<script src="bl-daten.js"></script>
+<script>window.DATEN = { beispiel: !!(window.BL && window.BL.beispiel), quelle: "Eurostat", aktualisiert: (window.BL && window.BL.aktualisiert) || new Date().toISOString().slice(0,10) };</script>
+<script src="common.js?v=b3f704b5"></script>
+<script src="bl-common.js?v=f2f70617"></script>
+<script>
+var app = document.getElementById("app"), B = window.BL, qs = new URLSearchParams(location.search), hl = qs.get("hl") || "", id = qs.get("id");
+var i = B && B.indikatoren && B.indikatoren.filter(function(z){ return z.id===id; })[0];
+function link(x){ return 'bundesland.html?id='+encodeURIComponent(x)+(hl?'&hl='+hl:''); }
+function seite(){
+  document.getElementById("zurueck").href = "bundeslaender.html" + (hl ? "?hl="+hl : "");
+  if(!i){ app.innerHTML = '<p>Diesen Indikator gibt es nicht. Zurück zu den <a href="bundeslaender.html">Bundesländern</a>.</p>'; return; }
+  document.title = i.name + " | Bundesländer | Regierungstracker Österreich";
+  var L = i.laender, x = hl ? L.filter(function(z){ return z.code===hl; })[0] : null, a = L[0], z = L[L.length-1], wertet = i.typ!=="neutral";
+  var h = B.beispiel ? banner() : "";
+  var p = paarBL(i.id), v = p ? p.ids.filter(function(k){ return B.indikatoren.some(function(q){ return q.id===k && !q.ausgeblendet; }); }) : [];
+  if(v.length>1) h += '<div class="tabs" role="tablist">'+v.map(function(k){ var on = k===i.id; return '<a role="tab" aria-selected="'+on+'" class="'+(on?'on':'')+'" href="'+link(k)+'">'+p.labels[p.ids.indexOf(k)]+'</a>'; }).join("")+'</div>';
+  h += '<div class="card"><h2>'+i.name+infoIcon(i.erklaerung+" Gewertet wird: "+(i.typ==="niedrig"?"ein niedrigerer Wert gilt als besser.":i.typ==="hoch"?"ein höherer Wert gilt als besser.":"nichts, der Wert hat keine Wertung."))+'</h2>';
+  if(x){ h += '<div class="rank'+(wertet&&x.rang===1?' gut':wertet&&x.rang===i.anzahl?' schlecht':'')+'">Platz '+x.rang+' <small>von '+i.anzahl+'</small></div><p class="note"><b>'+x.name+' ('+fw(i,x.wert)+')</b></p>';
+    if(x.urteil) h += '<p class="trend '+urteilCls(x.urteil)+'"><b>'+pfeil(x.richtung)+' Trend: '+trendWort(x.urteil)+'</b> <span class="note">(seit '+(i.vorPeriode||'?')+', von '+fw(i,x.wertVor)+' auf '+fw(i,x.wert)+')</span></p>'; }
+  else { h += '<div class="rank">Platz 1 <small>'+a.name+'</small></div><p class="note"><b>'+a.name+' ('+fw(i,a.wert)+')</b>, letzter Platz: '+z.name+' ('+fw(i,z.wert)+')</p>'; }
+  h += '<p class="note">Stand: '+periode(i.periode)+(i.vorPeriode?' (Vergleich mit '+i.vorPeriode+')':'')+'. Einheit: '+i.einheit+'. '+i.rangText+'.</p>';
+  h += '<div class="leiste"><label class="note" for="hl">Bundesland hervorheben: </label><select id="hl"><option value="">keines</option>'+B.laender.map(function(l){ return '<option value="'+l.code+'"'+(hl===l.code?" selected":"")+'>'+l.name+'</option>'; }).join("")+'</select></div></div>';
+  h += karte(i).replace(/<h2>.*?<\/h2>/, '<h2>Rangliste</h2>').replace(/<p class="note spk">.*?<\/p>/, '');
+  var vt = verlaufTeile(i);
+  if(vt) h += '<div class="card"><h2>Verlauf seit '+i.reihe.jahre[0]+'</h2><p class="note">'+(i.reihe.einheitText ? 'Gezeigt wird die Zahl der '+i.reihe.einheitText+' (die Rangliste zeigt das Wachstum in Prozent).' : i.einheit)+'</p>'+vt.svg+vt.leg+vt.tab+'</div>';
+  h += '<div class="card"><h2>Einordnung und Quelle</h2><p class="erkl">'+i.erklaerung+'</p><p class="note">Quelle: '+(i.quelle||B.quelle)+(i.quelleUrl?' (<a href="'+i.quelleUrl+'" rel="noopener">Link</a>)':'')+'. Die Werte liegen später vor als bei den EU-Zahlen und kommen zum Teil aus Stichproben, die pro Bundesland klein sind.</p></div>';
+  h += fussnote();
+  app.innerHTML = h;
+  document.getElementById("hl").onchange = function(){ hl = this.value; history.replaceState(null,"",link(id)); var y = window.scrollY; seite(); window.scrollTo(0,y); };
+}
+seite();
+</script>
+</body>
+</html>
