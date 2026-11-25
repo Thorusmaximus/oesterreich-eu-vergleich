@@ -21,7 +21,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=26449b1d"></script>
+<script src="common.js?v=896f45e5"></script>
 <script>
 var app = document.getElementById("app");
 var id = new URLSearchParams(location.search).get("id");
@@ -113,12 +113,6 @@ function detail(i){
        + '<div class="v">davon Staat '+fz(kp.staat)+' Prozentpunkte</div>'
        + '<div class="v">Privatwirtschaft '+fz(kp.privat)+' Prozentpunkte</div>'
        + '<p class="note">Der Staatskonsum macht in Österreich '+kp.anteil.toLocaleString("de-AT",{maximumFractionDigits:1})+' % des BIP aus. Sein Wachstum mal dieser Anteil ergibt den Beitrag des Staates. Zieht man ihn vom BIP-Wachstum ab, bleibt das Wachstum aus der Privatwirtschaft (Konsum der Haushalte, Investitionen der Firmen, Exporte).</p></div>';
-  }
-  if(i.kaufkraft){
-    var kk=i.kaufkraft, ppsF=function(v){ return Math.round(v).toLocaleString("de-AT")+' PPS'; };
-    h += '<div class="card"><h2>In Kaufkraft gerechnet</h2><div class="v">Platz '+kk.rang+' <small>von '+kk.n+'</small></div>'
-       + '<p class="note">Österreich: '+ppsF(kk.wert)+(kk.vorher!=null?' (Vorjahr '+ppsF(kk.vorher)+')':'')+(kk.eu!=null?' · EU-Schnitt: '+ppsF(kk.eu):'')+'</p>'
-       + '<p class="note">PPS (Kaufkraftstandard) rechnet Preisunterschiede zwischen den Ländern heraus: Die Einheit zeigt, was man sich für das Einkommen im jeweiligen Land tatsächlich leisten kann. In der Tabelle unten steht neben jedem Land der Kaufkraft-Rang.</p></div>';
   }
   if(i.bestandVerlauf && i.bestandVerlauf.length){
     var bv=i.bestandVerlauf, last=bv[bv.length-1], prev=bv.length>1?bv[bv.length-2]:null, dif=prev?Math.round((last.wert-prev.wert)*1000)/1000:null;
@@ -292,7 +286,7 @@ function ranking(i){
   var nw = Math.max.apply(null, vals.map(function(v){ return fv(v).length; })), st = ' style="--nw:'+Math.max(3.4, Math.round(nw*0.58*10)/10)+'em"';
   var bz = bezug(i), s = bz ? '<p class="note spk">'+bz.charAt(0).toUpperCase()+bz.slice(1)+'</p>' : '';
   s += i.laender.map(function(x){
-    return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.ppsRang||x.zus?" mitb":"")+'"'+st+'><span>'+x.rank+'. '+x.name+(x.ppsRang?' <small class="note">Kaufkraft: Platz '+x.ppsRang+'</small>':'')+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+fv(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
+    return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.zus?" mitb":"")+'"'+st+'><span>'+x.rank+'. '+x.name+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+fv(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
   }).join("");
   if(i.schweiz){
     s += '<div class="row ch'+(i.schweiz.bestand!=null?" mitb":"")+'"'+st+'><span>'+infoIcon('Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Der Wert dient nur zum Vergleich'+(i.schweiz.periode!==i.periode ? ' (Stand: '+periode(i.schweiz.periode)+')' : '')+'.')+' Schweiz'+(i.schweiz.bestand!=null?' <small class="note">'+mioText(i.schweiz.bestand)+' Mio.</small>':'')+'</span>'+bar(i.schweiz.wert)+'<span class="n">'+fv(i.schweiz.wert)+'</span><span class="ta"></span></div>';

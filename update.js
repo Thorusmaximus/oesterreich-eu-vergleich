@@ -236,7 +236,6 @@ const INDICATORS = [
       { dataset: "ilc_di03", filter: "statinfo=MED_EI&age=Y_GE18&sex=T&unit=EUR" } ],
     maxAlter: 26, dez: 0, suffix: " €", diffEinheit: "Euro",
     einheit: "Euro pro Jahr: Median des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
-    kaufkraft: { filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PPS" }, // zusätzlich in Kaufkraft (PPS), damit Preisunterschiede zwischen den Ländern herausgerechnet sind
     rangText: "Rang 1 = höchstes Medianeinkommen (in Euro)", typ: "hoch", schwelle: 250, schwelleFix: true, mock: { base: 8000, step: 2400 } }
   ,{ id: "durchschnittseinkommen", name: "Durchschnittseinkommen", takt: "jahr", dataset: "ilc_di03", real: true,
     filter: "statinfo=MEAN_EI&age=TOTAL&sex=T&unit=EUR", // durchschnittliches Nettoeinkommen je Person (EU-SILC), nach Haushaltsgröße gewichtet
@@ -1184,19 +1183,6 @@ function berechneVerurteilungen() {
         r.oesterreich.bestand = mio("AT", r.periode); r.oesterreich.bestandVorher = mio("AT", String(+r.periode - 1));
         r.bestandVerlauf = Object.keys(pop.AT || {}).sort().slice(-6).map(t => ({ t, wert: mio("AT", t) }));
         r.bestandEU = mio("EU27_2020", r.periode);
-      }
-      if (ind.kaufkraft && !TEST) { // Kaufkraft-Rang (PPS) zusätzlich holen
-        try {
-          const rs = await fetch(`${BASE}${ind.dataset}?format=JSON&lang=EN&${ind.kaufkraft.filter}&sinceTimePeriod=${TAKT[ind.takt].seit}`);
-          if (!rs.ok) throw new Error("HTTP " + rs.status);
-          const kk = parse(await rs.json()), t = r.periode;
-          const liste = r.laender.map(x => ({ code: x.code, v: kk[x.code]?.[t] })).filter(x => x.v != null);
-          liste.forEach(x => { x.rang = 1 + liste.filter(y => y.v > x.v).length; });
-          r.laender.forEach(x => { const m = liste.find(y => y.code === x.code); if (m) { x.pps = m.v; x.ppsRang = m.rang; } });
-          const at = liste.find(x => x.code === "AT"), vor = kk.AT?.[String(+t - 1)];
-          if (at) r.kaufkraft = { wert: at.v, rang: at.rang, n: liste.length, vorher: vor ?? null, eu: kk.EU27_2020?.[t] ?? null };
-          if (r.schweiz && kk.CH?.[t] != null) r.schweiz.pps = kk.CH[t];
-        } catch (e) { console.error("   Kaufkraft (PPS) nicht verfügbar: " + e.message); }
       }
       if (ind.real && !TEST) await realTrend(r, ind);
       result.push(r);
