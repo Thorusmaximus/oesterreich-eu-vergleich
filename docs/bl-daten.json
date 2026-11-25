@@ -4094,5 +4094,34 @@
    "letzte": 11,
    "platz": 9
   }
+ ],
+ "staedteBilanz": [
+  {
+   "code": "AT221",
+   "name": "Graz",
+   "hinweis": "zweitgrößte Stadt",
+   "n": 1,
+   "durchschnittsrang": 3,
+   "besser": 1,
+   "schlechter": 0
+  },
+  {
+   "code": "AT323",
+   "name": "Salzburg und Umgebung",
+   "hinweis": "Zentralösterreich, Stadt und Umland (kleinste Eurostat-Einheit)",
+   "n": 1,
+   "durchschnittsrang": 1,
+   "besser": 1,
+   "schlechter": 0
+  },
+  {
+   "code": "AT332",
+   "name": "Innsbruck",
+   "hinweis": "Westösterreich",
+   "n": 1,
+   "durchschnittsrang": 5,
+   "besser": 1,
+   "schlechter": 0
+  }
  ]
 }
