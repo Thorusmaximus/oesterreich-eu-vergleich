@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=1aadb123">
+<link rel="stylesheet" href="style.css?v=847432a2">
 </head>
 <body>
 <main>
@@ -81,7 +81,7 @@ function tile(i, kopf, tabs){
     t += '<div class="r'+fk+'">Platz '+x.rang+' <small>von '+i.anzahl+'</small></div><p class="note">'+x.name+' ('+fw(i,x.wert)+')</p>';
     if(x.urteil) t += '<p class="trend '+urteilCls(x.urteil)+'"><b>'+pfeil(x.richtung)+' '+trendWort(x.urteil)+'</b> <span class="note">(seit '+(i.vorPeriode||'?')+')</span></p>';
     else if(x.richtung) t += '<p class="trend"><b>'+pfeil(x.richtung)+'</b> <span class="note">seit '+(i.vorPeriode||'?')+'</span></p>'; }
-  else { var g = i.typ==='neutral' ? '' : ' pg', s = i.typ==='neutral' ? '' : ' ps'; t += '<p class="pl'+g+'"><b>Platz 1</b><br>'+a.name+' ('+fw(i,a.wert)+')</p><p class="pl'+s+'"><b>Platz '+z.rang+'</b><br>'+z.name+' ('+fw(i,z.wert)+')</p>'; }
+  else { var g = i.typ==='neutral' ? '' : ' pg', s = i.typ==='neutral' ? '' : ' ps'; t += '<p class="pl'+g+'"><b>Platz 1</b><br><span class="ln">'+a.name+'</span> ('+fw(i,a.wert)+')</p><p class="pl'+s+'"><b>Platz '+z.rang+'</b><br><span class="ln">'+z.name+'</span> ('+fw(i,z.wert)+')</p>'; }
   t += '<p class="note">Stand: '+periode(i.periode)+(i.typ==="neutral"?', ohne Wertung':'')+'</p>';
   return t + '<button type="button" class="more bmore" data-id="'+i.id+'">Details →</button></div>';
 }
