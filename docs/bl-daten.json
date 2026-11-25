@@ -301,7 +301,8 @@
      "rangVor": 9,
      "prozent": 26.6
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "arbeitslosigkeit",
@@ -445,7 +446,8 @@
      "rangVor": 9,
      "prozent": -7.5
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "beschaeftigung",
@@ -589,7 +591,8 @@
      "rangVor": 9,
      "prozent": 4.2
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "einkommen",
@@ -733,7 +736,8 @@
      "rangVor": 9,
      "prozent": 26.5
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "armut",
@@ -877,7 +881,8 @@
      "rangVor": 9,
      "prozent": 13.3
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "lebenserwartung",
@@ -1021,7 +1026,8 @@
      "rangVor": 9,
      "prozent": 0.1
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "lebenserwartung65",
@@ -1165,7 +1171,8 @@
      "rangVor": 9,
      "prozent": 1
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "bevoelkerung",
@@ -1318,7 +1325,8 @@
      "prozent": 1.6,
      "zus": "570 095 Einwohner"
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "bevoelkerungsdichte",
@@ -1462,7 +1470,8 @@
      "rangVor": 9,
      "prozent": 1.7
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "geburtenrate",
@@ -1606,7 +1615,8 @@
      "rangVor": 8,
      "prozent": -12.9
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "tertiaer",
@@ -1750,7 +1760,8 @@
      "rangVor": 9,
      "prozent": 11
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "schulabbruch",
@@ -1855,7 +1866,8 @@
      "rangVor": 6,
      "prozent": -3.3
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "forschung",
@@ -1999,7 +2011,8 @@
      "rangVor": 9,
      "prozent": -13.8
     }
-   ]
+   ],
+   "ausgeblendet": true
   },
   {
    "id": "verkehrstote",
@@ -2143,7 +2156,8 @@
      "rangVor": 4,
      "prozent": 1.9
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "nettozuwanderung",
@@ -2287,7 +2301,8 @@
      "rangVor": 7,
      "prozent": 94.2
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "saeuglingssterblichkeit",
@@ -2431,7 +2446,8 @@
      "rangVor": 9,
      "prozent": 6.4
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "krankenhausbetten",
@@ -2575,7 +2591,8 @@
      "rangVor": 9,
      "prozent": -9
     }
-   ]
+   ],
+   "ausgeblendet": false
   },
   {
    "id": "kaufpreise",
@@ -2718,7 +2735,8 @@
     }
    ],
    "quelle": "Statistik Austria, Immobilien-Durchschnittspreise 2025 (Medianpreise je m² Wohnfläche, Kaufverträge aus dem Grundbuch)",
-   "quelleUrl": "https://www.statistik.at/fileadmin/announcement/2026/05/20260528Immobiliendurchschnittspreise2025.pdf"
+   "quelleUrl": "https://www.statistik.at/fileadmin/announcement/2026/05/20260528Immobiliendurchschnittspreise2025.pdf",
+   "ausgeblendet": false
   },
   {
    "id": "kaufpreisWohnungen",
@@ -2861,7 +2879,8 @@
     }
    ],
    "quelle": "Statistik Austria, Immobilien-Durchschnittspreise 2025 (Medianpreise je m² Wohnfläche, Kaufverträge aus dem Grundbuch)",
-   "quelleUrl": "https://www.statistik.at/fileadmin/announcement/2026/05/20260528Immobiliendurchschnittspreise2025.pdf"
+   "quelleUrl": "https://www.statistik.at/fileadmin/announcement/2026/05/20260528Immobiliendurchschnittspreise2025.pdf",
+   "ausgeblendet": false
   },
   {
    "id": "kaufpreisHaeuser",
@@ -3004,7 +3023,8 @@
     }
    ],
    "quelle": "Statistik Austria, Immobilien-Durchschnittspreise 2025 (Medianpreise je m² Wohnfläche, Kaufverträge aus dem Grundbuch)",
-   "quelleUrl": "https://www.statistik.at/fileadmin/announcement/2026/05/20260528Immobiliendurchschnittspreise2025.pdf"
+   "quelleUrl": "https://www.statistik.at/fileadmin/announcement/2026/05/20260528Immobiliendurchschnittspreise2025.pdf",
+   "ausgeblendet": false
   },
   {
    "id": "insolvenzen",
@@ -3156,7 +3176,8 @@
     }
    ],
    "quelle": "KSV1870, Insolvenzstatistik Unternehmen 2025 (eröffnete und nicht eröffnete Verfahren)",
-   "quelleUrl": "https://www.ksv.at/KSV1870_Insolvenzstatistik_Unternehmen_2025_final"
+   "quelleUrl": "https://www.ksv.at/KSV1870_Insolvenzstatistik_Unternehmen_2025_final",
+   "ausgeblendet": false
   },
   {
    "id": "straftaten",
@@ -3308,7 +3329,8 @@
     }
    ],
    "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025 (Tabellen 31 bis 39)",
-   "quelleUrl": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf"
+   "quelleUrl": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf",
+   "ausgeblendet": false
   },
   {
    "id": "aufklaerung",
@@ -3451,7 +3473,8 @@
     }
    ],
    "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025 (Tabellen 31 bis 39)",
-   "quelleUrl": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf"
+   "quelleUrl": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf",
+   "ausgeblendet": false
   },
   {
    "id": "schulden",
@@ -3592,7 +3615,8 @@
     }
    ],
    "ohneTrend": true,
-   "quelleUrl": "https://staatsschulden.at/bundeslaender"
+   "quelleUrl": "https://staatsschulden.at/bundeslaender",
+   "ausgeblendet": false
   }
  ],
  "bilanz": [
@@ -3600,76 +3624,76 @@
    "code": "AT33",
    "name": "Tirol",
    "kurz": "Tirol",
-   "n": 16,
-   "durchschnittsrang": 3.19,
+   "n": 15,
+   "durchschnittsrang": 3.07,
    "besser": 6,
    "schlechter": 2,
-   "unveraendert": 7,
+   "unveraendert": 6,
    "erste": 3,
    "letzte": 0,
    "platz": 1
   },
   {
-   "code": "AT31",
-   "name": "Oberösterreich",
-   "kurz": "OÖ",
-   "n": 16,
-   "durchschnittsrang": 4.06,
-   "besser": 3,
-   "schlechter": 6,
-   "unveraendert": 6,
-   "erste": 1,
-   "letzte": 0,
-   "platz": 2
-  },
-  {
    "code": "AT32",
    "name": "Salzburg",
    "kurz": "Sbg.",
-   "n": 15,
-   "durchschnittsrang": 4.07,
+   "n": 14,
+   "durchschnittsrang": 3.79,
    "besser": 6,
    "schlechter": 3,
-   "unveraendert": 5,
+   "unveraendert": 4,
    "erste": 2,
    "letzte": 0,
-   "platz": 3
+   "platz": 2
   },
   {
    "code": "AT34",
    "name": "Vorarlberg",
    "kurz": "Vbg.",
-   "n": 16,
-   "durchschnittsrang": 4.13,
-   "besser": 5,
+   "n": 15,
+   "durchschnittsrang": 4,
+   "besser": 4,
    "schlechter": 3,
    "unveraendert": 6,
    "erste": 2,
    "letzte": 0,
-   "platz": 4
+   "platz": 3
   },
   {
-   "code": "AT22",
-   "name": "Steiermark",
-   "kurz": "Stmk.",
-   "n": 16,
-   "durchschnittsrang": 4.81,
-   "besser": 5,
-   "schlechter": 4,
-   "unveraendert": 6,
-   "erste": 2,
+   "code": "AT31",
+   "name": "Oberösterreich",
+   "kurz": "OÖ",
+   "n": 15,
+   "durchschnittsrang": 4.13,
+   "besser": 3,
+   "schlechter": 6,
+   "unveraendert": 5,
+   "erste": 1,
    "letzte": 0,
-   "platz": 5
+   "platz": 4
   },
   {
    "code": "AT12",
    "name": "Niederösterreich",
    "kurz": "NÖ",
-   "n": 16,
-   "durchschnittsrang": 5.13,
+   "n": 15,
+   "durchschnittsrang": 5,
    "besser": 5,
    "schlechter": 3,
-   "unveraendert": 7,
+   "unveraendert": 6,
+   "erste": 1,
+   "letzte": 0,
+   "platz": 5
+  },
+  {
+   "code": "AT22",
+   "name": "Steiermark",
+   "kurz": "Stmk.",
+   "n": 15,
+   "durchschnittsrang": 5.07,
+   "besser": 4,
+   "schlechter": 4,
+   "unveraendert": 6,
    "erste": 1,
    "letzte": 0,
    "platz": 6
@@ -3678,35 +3702,35 @@
    "code": "AT11",
    "name": "Burgenland",
    "kurz": "Bgld.",
-   "n": 15,
-   "durchschnittsrang": 5.6,
+   "n": 14,
+   "durchschnittsrang": 5.36,
    "besser": 6,
-   "schlechter": 3,
+   "schlechter": 2,
    "unveraendert": 5,
    "erste": 3,
-   "letzte": 3,
+   "letzte": 2,
    "platz": 7
   },
   {
    "code": "AT21",
    "name": "Kärnten",
    "kurz": "Ktn.",
-   "n": 15,
-   "durchschnittsrang": 5.6,
+   "n": 14,
+   "durchschnittsrang": 5.71,
    "besser": 5,
    "schlechter": 1,
-   "unveraendert": 8,
+   "unveraendert": 7,
    "erste": 1,
    "letzte": 2,
-   "platz": 7
+   "platz": 8
   },
   {
    "code": "AT13",
    "name": "Wien",
    "kurz": "Wien",
-   "n": 16,
-   "durchschnittsrang": 7.25,
-   "besser": 6,
+   "n": 15,
+   "durchschnittsrang": 7.6,
+   "besser": 5,
    "schlechter": 4,
    "unveraendert": 5,
    "erste": 1,
