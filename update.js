@@ -1190,7 +1190,14 @@ function berechneVerurteilungen() {
           if (TEST) { ab = {}; r.laender.forEach((x, k) => { ab[x.code] = { [r.periode]: 1000 + 700 * k }; }); }
           else { const res = await fetch(`${BASE}${ind.dataset}?format=JSON&lang=EN&${ind.absolut.filter}&sinceTimePeriod=${+r.periode - 3}`); if (!res.ok) throw new Error("HTTP " + res.status); ab = parse(await res.json()); }
           const fmt = v => v >= 1000 ? (v / 1000).toLocaleString("de-AT", { maximumFractionDigits: 1 }) + " Mrd. €" : Math.round(v).toLocaleString("de-AT") + " Mio. €";
-          r.laender.forEach(x => { const ys = Object.keys(ab[x.code] || {}).filter(y => y <= r.periode).sort(), y = ys[ys.length - 1]; if (y) x.zus = fmt(ab[x.code][y]) + (y !== r.periode ? " (" + y + ")" : ""); });
+          let gdp = null; // fehlt der absolute Betrag für das Datenjahr: Quote (% des BIP) mal BIP des Datenjahres, als hochgerechnet gekennzeichnet
+          if (r.laender.some(x => ab[x.code]?.[r.periode] == null) && !TEST) { try { const rg = await fetch(`${BASE}nama_10_gdp?format=JSON&lang=EN&unit=CP_MEUR&na_item=B1GQ&sinceTimePeriod=${r.periode}`); if (rg.ok) gdp = parse(await rg.json()); } catch (e) { /* ohne BIP bleibt der letzte Betrag mit Jahr */ } }
+          r.laender.forEach(x => {
+            const direkt = ab[x.code]?.[r.periode], g = gdp?.[x.code]?.[r.periode];
+            if (direkt != null) { x.zus = fmt(direkt); return; }
+            if (g != null && x.value != null) { x.zus = fmt(x.value / 100 * g); r.absolutHochgerechnet = true; return; }
+            const ys = Object.keys(ab[x.code] || {}).filter(y => y <= r.periode).sort(), y = ys[ys.length - 1]; if (y) x.zus = fmt(ab[x.code][y]) + " (" + y + ")";
+          });
         } catch (e) { console.error(`   (absolute Zahlen für ${ind.name} nicht geladen: ${e.message})`); }
       }
       if (ind.real && !TEST) await realTrend(r, ind);
@@ -1265,7 +1272,7 @@ function berechneVerurteilungen() {
       for (const r of [pa, eq]) r.hinweis = ((r.hinweis || "") + t).trim();
     }
   }
-  for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
+  for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (r.absolutHochgerechnet && r.erklaerung) r.erklaerung += " Die Euro-Beträge in der Tabelle sind für " + r.periode + " hochgerechnet (Forschungsquote mal Wirtschaftsleistung), weil Eurostat die tatsächlichen Beträge erst später veröffentlicht."; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
   if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };
   fs.mkdirSync("docs", { recursive: true });
