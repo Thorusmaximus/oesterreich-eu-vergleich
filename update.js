@@ -91,7 +91,7 @@ const ERKLAERUNG = {
   ausgabenVerteidigung: "Wie viel der Staat für Verteidigung ausgibt (Militär, Rüstung, militärische Hilfe), in Prozent der Wirtschaftsleistung. Das ist nach der internationalen Staatsausgaben-Gliederung (COFOG) berechnet und kann von NATO-Angaben abweichen.",
   ausgabenSoziales: "Wie viel der Staat für soziale Sicherung ausgibt (Pensionen, Arbeitslosengeld, Familienleistungen, Pflege), in Prozent der Wirtschaftsleistung. Das ist meist der größte Ausgabenblock des Staates.",
   genderPayGap: "Um wie viel Prozent die Stundenverdienste von Frauen im Schnitt unter denen der Männer liegen (unbereinigt). Der Wert vergleicht alle Frauen mit allen Männern und berücksichtigt nicht, dass Frauen häufiger in Teilzeit und in schlechter bezahlten Branchen arbeiten.",
-  erneuerbare: "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft ist in Österreich ein großer Teil davon.",
+  erneuerbare: "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft ist in Österreich ein großer Teil davon. Warum hier keine Wertung steht: Ein hoher Anteil sagt noch nicht, ob die Energieversorgung dadurch besser ist. Er hängt stark von den natürlichen Gegebenheiten ab, etwa von Wasserkraft in den Alpen oder Sonne und Wind. Dazu kommen Fragen, die der Anteil nicht zeigt: Wie verlässlich ist die Versorgung, wenn Wind und Sonne ausfallen? Was kostet der Ausbau von Anlagen, Netzen und Speichern? Und wie stark werden die Stromnetze belastet? Auch Biomasse (vor allem Holz) zählt mit, was nicht unumstritten ist. Ob mehr Erneuerbare wichtiger sind als niedrige Kosten oder Versorgungssicherheit, ist eine Abwägung, die diese Seite nicht vorgibt. Für Kosten und Abhängigkeit gibt es eigene Indikatoren (Strompreise, Energieabhängigkeit).",
   energieabhaengigkeit: "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden.",
   nettozuwanderung: "Wie viele Menschen pro 1.000 Einwohner mehr zu- als wegziehen (Zuzüge minus Wegzüge, einschließlich statistischer Korrekturen). Ein negativer Wert heißt: Es ziehen mehr Menschen weg, als zuziehen.",
   asyl: "Wie viele Menschen pro 100.000 Einwohner in einem Jahr erstmals oder wiederholt einen Antrag auf Asyl stellen. Das zählt Anträge, nicht Entscheidungen und nicht, wie viele Menschen tatsächlich bleiben.",
@@ -499,7 +499,7 @@ const INDICATORS = [
     alternativen: [ { dataset: "nrg_ind_ren", filter: "nrg_bal=REN" }, { dataset: "nrg_ind_ren", filter: "nrg_bal=REN&unit=PC&freq=A" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil erneuerbarer Quellen am gesamten Energieverbrauch in %", rangText: "Rang 1 = höchster Anteil erneuerbarer Energie",
-    hinweis: "Ein hoher Anteil hängt auch von den natürlichen Gegebenheiten ab, etwa von Wasserkraft in den Alpen.",
+    hinweis: "Ein hoher Anteil hängt auch von den natürlichen Gegebenheiten ab, etwa von Wasserkraft in den Alpen. Warum es keine Wertung gibt, steht im ⓘ.",
     ausblenden2025: true,
     typ: "neutral", trendNeutral: true, schwelle: 0.5, mock: { base: 10, step: 1 } }
   ,{ id: "energieabhaengigkeit", name: "Energieabhängigkeit", takt: "jahr", dataset: "nrg_ind_id",
