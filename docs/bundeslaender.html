@@ -48,8 +48,10 @@ function gesamt(){
     return '<div class="gz'+(hl===b.code?" at":"")+'"><span><b>'+b.platz+'.</b> '+b.name+'</span><span class="note">Ø Platz '+b.durchschnittsrang.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1})+'</span><span class="good">'+b.besser+' ↑</span><span class="bad">'+b.schlechter+' ↓</span></div>';
   }).join("");
   var sb = (B.staedteBilanz||[]).filter(function(b){ return b.n>0; });
+  var alle = B.bilanz.map(function(b){return b.durchschnittsrang;}).concat(sb.map(function(b){return b.durchschnittsrang;}));
+  sb.forEach(function(b){ b.platz12 = 1 + alle.filter(function(v){ return v < b.durchschnittsrang; }).length; b.von = alle.length; });
   if(sb.length) h += '<p class="note stadthead">Zum Vergleich, nicht im Ranking (nur '+sb[0].n+' Indikator'+(sb[0].n===1?'':'en')+' mit Wertung vorhanden, deshalb nur bedingt aussagekräftig):</p>' + sb.map(function(b){
-    return '<div class="gz stadt"><span>'+b.name+'<small class="note zs">'+b.hinweis+'</small></span><span class="note">Ø Platz '+b.durchschnittsrang.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1})+'</span><span class="good">'+b.besser+' ↑</span><span class="bad">'+b.schlechter+' ↓</span></div>';
+    return '<div class="gz stadt"><span>'+b.name+'<small class="note zs">'+b.hinweis+'</small></span><span class="note">Ø Platz '+b.durchschnittsrang.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1})+' <small>(Platz '+b.platz12+' von '+b.von+')</small></span><span class="good">'+b.besser+' ↑</span><span class="bad">'+b.schlechter+' ↓</span></div>';
   }).join("");
   return h + '<p class="note">Platz 1 hat den besten Durchschnitt aller Plätze. Verglichen wird, wo ein Land steht, nicht, wie es zu der Lage kam.</p></div>';
 }
