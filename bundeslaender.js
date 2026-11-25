@@ -36,7 +36,7 @@ const SEIT = 2014, SCHWELLE_ANTEIL = 0.03, JAHRE_TREND = 5, MIN_LAENDER = 8;
 
 // Indikatoren. filter + alternativen wie bei den EU-Indikatoren; typ: niedrig = niedriger ist besser, hoch = höher ist besser, neutral = ohne Wertung
 const IND = [
-  { id: "bip", name: "Wirtschaftsleistung pro Kopf", gruppe: 0, dataset: "nama_10r_2gdp", filter: "unit=EUR_HAB", dez: 0, suffix: " €", typ: "hoch", diffEinheit: "Euro",
+  { id: "bip", gegenSchnitt: true, name: "Wirtschaftsleistung pro Kopf", gruppe: 0, dataset: "nama_10r_2gdp", filter: "unit=EUR_HAB", dez: 0, suffix: " €", typ: "hoch", diffEinheit: "Euro",
     einheit: "Bruttoinlandsprodukt (BRP) in Euro pro Einwohner und Jahr", rangText: "Rang 1 = höchste Wirtschaftsleistung pro Kopf",
     erklaerung: "Wie viel Wirtschaftsleistung pro Einwohner im Bundesland erbracht wird. In Wien ist der Wert hoch, weil viele Menschen aus den Nachbarländern dort arbeiten. Er sagt deshalb nicht direkt etwas über das Einkommen der Wiener aus.", mock: { base: 32000, step: 2800 } },
   { id: "arbeitslosigkeit", rangAufsteigend: true, name: "Arbeitslosenquote", gruppe: 0, dataset: "lfst_r_lfu3rt", filter: "sex=T&age=Y15-74&isced11=TOTAL&unit=PC",
@@ -138,6 +138,12 @@ function auswerten(ind, daten) {
     return { code: l.code, name: l.name, kurz: l.kurz, wert: w, wertVor: wv, diff, richtung, urteil, rang: rang[l.code] ?? null, rangVor: rangVor[l.code] ?? null,
       prozent: w != null && wv ? runden((w - wv) / Math.abs(wv) * 100, 1) : null };
   }).filter(x => x.wert != null);
+  if (ind.gegenSchnitt) { // Nominale Werte steigen überall (Preissteigerung): besser/schlechter nur relativ zum Schnitt
+    const prz = laender.map(x => x.prozent).filter(v => v != null);
+    const schnitt = at != null && atVor ? (at - atVor) / Math.abs(atVor) * 100 : prz.reduce((a, b) => a + b, 0) / (prz.length || 1);
+    laender.forEach(x => { if (x.prozent == null) return; const d = x.prozent - schnitt; x.urteil = d > 2 ? "besser" : d < -2 ? "schlechter" : "unverändert"; x.richtung = x.urteil === "besser" ? "steigend" : x.urteil === "schlechter" ? "sinkend" : "stabil"; });
+    ind.trendInfo = "Die Werte sind nicht um die Preissteigerung bereinigt und steigen deshalb überall. Pfeil und Farbe zeigen daher den Vergleich mit dem Schnitt: grün, wenn die Wirtschaftsleistung seit " + vor + " mehr als 2 Prozentpunkte stärker gewachsen ist als im Schnitt (" + runden(schnitt, 1).toLocaleString("de-AT") + " %), rot, wenn sie mehr als 2 Prozentpunkte schwächer gewachsen ist, sonst unverändert.";
+  }
   if (ind.wachstumProzent) { // Anzeige: Wachstum in %, darunter die Einwohnerzahl
     laender.forEach(x => { x.zus = x.wert.toLocaleString("de-AT") + " " + (ind.zusEinheit || "Einwohner"); x.wert = x.prozent; x.wertVor = null; x.diff = null; x.richtung = null; x.urteil = null; });
     const ok = laender.filter(x => x.wert != null); laender.length = 0; ok.forEach(x => laender.push(x));
@@ -149,7 +155,7 @@ function auswerten(ind, daten) {
   const ry = jahre.filter(y => +y <= ly && +y >= ly - 10 && LAENDER.filter(l => daten[l.code]?.[y] != null).length >= minL);
   const reihe = ry.length >= 3 ? { jahre: ry, einheitText: ind.wachstumProzent ? (ind.zusEinheit || "Einwohner") : null, laender: Object.fromEntries(LAENDER.map(l => [l.code, ry.map(y => daten[l.code]?.[y] ?? null)])) } : null;
   return { id: ind.id, name: ind.name, gruppe: GRUPPEN[ind.gruppe], typ, dez, suffix: ind.suffix, diffEinheit: ind.diffEinheit, einheit: ind.einheit, rangText: ind.rangText,
-    erklaerung: ind.erklaerung, relativ: !!ind.relativ && !ind.wachstumProzent, ohneTrend: false, trendInfo: ind.wachstumProzent ? "Die Zahl selbst ist die Veränderung von " + vor + " bis " + letzt + ", deshalb gibt es keinen Pfeil." : null, periode: letzt, vorPeriode: vor, schwelle: ind.relativ ? 3 : schwelle, schwelleArt: ind.relativ ? "Prozent" : "absolut", dataset: ind.dataset,
+    erklaerung: ind.erklaerung, relativ: !!ind.relativ && !ind.wachstumProzent, ohneTrend: false, trendInfo: ind.wachstumProzent ? "Die Zahl selbst ist die Veränderung von " + vor + " bis " + letzt + ", deshalb gibt es keinen Pfeil." : (ind.trendInfo || null), periode: letzt, vorPeriode: vor, schwelle: ind.relativ ? 3 : schwelle, schwelleArt: ind.relativ ? "Prozent" : "absolut", dataset: ind.dataset,
     oesterreich: at != null ? { wert: at, wertVor: atVor } : null, anzahl: laender.length, laender, reihe };
 }
 
