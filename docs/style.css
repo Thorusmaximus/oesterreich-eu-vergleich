@@ -196,3 +196,12 @@ svg{width:100%;height:auto;display:block}
 .reg .regv{margin-top:2px}
 @media(min-width:640px){.reg{grid-template-columns:repeat(3,1fr)}}
 .gz.stadt{opacity:.85}.gz .zs{display:block;font-size:.72rem;line-height:1.15}
+
+.verlauf{margin-top:8px;background:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font:inherit;font-size:.85rem;color:inherit;cursor:pointer}
+.verlauf:hover{border-color:currentColor}
+.vover{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:50;display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding:16px}
+.vbox{background:var(--card);color:inherit;border-radius:14px;max-width:560px;width:100%;padding:16px;position:relative}
+.vbox h2{margin:0 28px 4px 0}.vzu{position:absolute;top:10px;right:10px;border:0;background:none;font-size:1.2rem;cursor:pointer;color:inherit}
+.vsvg{width:100%;height:auto}.vg{stroke:var(--line);stroke-width:1}.vt{font-size:9px;fill:currentColor;opacity:.7}
+.vleg{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.8rem;margin:6px 0}.vleg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px}.vleg .at{font-weight:800}
+.vtab{overflow-x:auto;margin-top:8px}.vtab table{border-collapse:collapse;font-size:.75rem;white-space:nowrap}.vtab th,.vtab td{padding:3px 6px;text-align:right;border-bottom:1px solid var(--line)}.vtab tbody th{text-align:left;position:sticky;left:0;background:var(--card)}.vtab tr.at{font-weight:800}

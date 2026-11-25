@@ -141,9 +141,12 @@ function auswerten(ind, daten) {
   } else if (ind.zus) laender.forEach(x => { x.zus = ind.zus(x.code, letzt); });
   const auf = typ === "niedrig" || ind.rangAufsteigend;
   laender.sort((a, b) => (auf ? a.wert - b.wert : b.wert - a.wert));
+  // Zeitreihe für die Detailansicht (nur wenn mehrere Jahre vorliegen)
+  const ry = jahre.filter(y => +y <= ly && +y >= ly - 10 && LAENDER.filter(l => daten[l.code]?.[y] != null).length >= minL);
+  const reihe = ry.length >= 3 ? { jahre: ry, einheitText: ind.wachstumProzent ? "Einwohner" : null, laender: Object.fromEntries(LAENDER.map(l => [l.code, ry.map(y => daten[l.code]?.[y] ?? null)])) } : null;
   return { id: ind.id, name: ind.name, gruppe: GRUPPEN[ind.gruppe], typ, dez, suffix: ind.suffix, diffEinheit: ind.diffEinheit, einheit: ind.einheit, rangText: ind.rangText,
     erklaerung: ind.erklaerung, relativ: !!ind.relativ && !ind.wachstumProzent, ohneTrend: false, trendInfo: ind.wachstumProzent ? "Die Zahl selbst ist die Veränderung über fünf Jahre (" + vor + " bis " + letzt + "), deshalb gibt es keinen Pfeil." : null, periode: letzt, vorPeriode: vor, schwelle: ind.relativ ? 3 : schwelle, schwelleArt: ind.relativ ? "Prozent" : "absolut", dataset: ind.dataset,
-    oesterreich: at != null ? { wert: at, wertVor: atVor } : null, anzahl: laender.length, laender };
+    oesterreich: at != null ? { wert: at, wertVor: atVor } : null, anzahl: laender.length, laender, reihe };
 }
 
 
