@@ -46,6 +46,7 @@
      "ÖVP",
      "FPÖ"
     ],
+    "hinweis": "Proporzregierung: ÖVP und FPÖ mit Arbeitsübereinkommen, SPÖ ebenfalls in der Regierung",
     "wahl": 2023,
     "naechsteWahl": 2028,
     "seit": "März 2023",
@@ -138,6 +139,7 @@
      "ÖVP",
      "FPÖ"
     ],
+    "hinweis": "Proporzregierung: ÖVP und FPÖ mit Arbeitsübereinkommen, SPÖ und Grüne ebenfalls in der Regierung",
     "wahl": 2021,
     "naechsteWahl": 2027,
     "seit": "Oktober 2021",
@@ -146,7 +148,8 @@
       "ÖVP",
       "FPÖ"
      ],
-     "zeit": "2015–2021"
+     "zeit": "2015–2021",
+     "hinweis": "Proporzregierung: ÖVP und FPÖ mit Arbeitsübereinkommen, SPÖ und Grüne ebenfalls in der Regierung"
     }
    }
   },
