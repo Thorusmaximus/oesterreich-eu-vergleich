@@ -184,7 +184,7 @@ var PAARE = [
   { ids: ["koerperverletzung","sexualdelikte","toetung"], titel: "Gewaltdelikte", labels: ["Schwere Körperverletzung","Sexual","Tötung"], suche: "tötungsdelikte mord schwere körperverletzung sexualdelikte gewalt kriminalität" },
   { ids: ["durchschnittsalter","abhaengigkeit"], titel: "Alter der Bevölkerung", labels: ["Alter","Abhängigkeit"], suche: "alter bevölkerung altersabhängigkeitsquote abhängigkeit durchschnittsalter" },
   { ids: ["lebenserwartung","gesundeJahre"], titel: "Lebenserwartung", labels: ["Gesamt","Gesund"], suche: "lebenserwartung gesunde lebensjahre gesundheit" },
-  { ids: ["kapitalmarkt","kapitalNichtBoerse","kapitalGesamt","aktionaersquote"], titel: "Kapitalmarkt", labels: ["Börse","Ohne Börse","Gesamt","Aktionäre"], suche: "kapitalmarkt unternehmenswert unternehmen firmen börsennotiert nicht börsennotiert private börse börsenwert aktien aktionärsquote aktionäre kapital pro kopf einwohner" },
+  { ids: ["kapitalmarkt","kapitalNichtBoerse","kapitalGesamt","aktionaersquote"], titel: "Kapitalmarkt", labels: ["An der Börse","Nicht an der Börse","Alle Firmen","Aktionäre"], suche: "kapitalmarkt unternehmenswert unternehmen firmen börsennotiert nicht börsennotiert private börse börsenwert aktien aktionärsquote aktionäre kapital pro kopf einwohner" },
   { ids: ["pensionsausgaben","ersatzquote"], titel: "Pensionen", labels: ["Ausgaben","Höhe"], suche: "pensionen pensionsausgaben pensionshöhe ersatzquote rente" }
 ];
 function paarFuer(id){ for(var k=0;k<PAARE.length;k++) if(PAARE[k].ids.indexOf(id)>=0) return PAARE[k]; return null; }
