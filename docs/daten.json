@@ -23731,8 +23731,365 @@
   {
    "id": "treibhausgase",
    "name": "Treibhausgasemissionen je Einwohner",
-   "fehler": "Filter unvollständig: Dimension \"src_crf\" hat 2 Werte. Filter im Skript anpassen.",
+   "pfeilModus": "wert",
+   "typ": "niedrig",
+   "dez": 1,
+   "suffix": " t",
+   "diffEinheit": "Tonnen je Einwohner",
+   "hinweis": "Gezählt werden die Emissionen, die im Land entstehen. Emissionen aus importierten Waren sind nicht enthalten. Industrie, Energiemix, Klima und Verkehr unterscheiden sich zwischen den Ländern stark.",
+   "umstritten": false,
+   "trendNeutral": false,
+   "schwelle": 0.21,
+   "schwelleArt": "relativ",
+   "datensatz": "sdg_13_10",
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Tonnen CO2-Äquivalent je Einwohner und Jahr (ohne Landnutzung und Forstwirtschaft)",
+   "rangText": "Rang 1 = niedrigste Emissionen je Einwohner",
+   "periode": "2024",
+   "vorherPeriode": "2023",
+   "anzahlLaender": 27,
+   "alter": 23,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 7.3,
+    "rang": 17,
+    "wertVorher": 7.5,
+    "rangVorher": 18,
+    "schnitt": 7.3,
+    "schnittVorher": 7.5,
+    "veraenderung": -0.2,
+    "richtung": "stabil",
+    "urteil": "unverändert"
+   },
+   "eu": 6.9,
+   "euMittelwert": true,
+   "beste": {
+    "code": "MT",
+    "name": "Malta",
+    "value": 3.8,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert",
+    "zus": "2,2 Mio. t"
+   },
+   "schlechteste": {
+    "code": "LU",
+    "name": "Luxemburg",
+    "value": 11.1,
+    "rank": 27,
+    "richtung": "sinkend",
+    "urteil": "besser",
+    "zus": "7,5 Mio. t"
+   },
+   "rangVerlauf": [
+    {
+     "t": "2020",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2021",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 18,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 17,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 3.8,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "2,2 Mio. t"
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 4.5,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "schlechter",
+     "zus": "47,5 Mio. t"
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 4.8,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "51,5 Mio. t"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 5,
+     "rank": 4,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "95,6 Mio. t"
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 5.2,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "9,6 Mio. t"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 5.3,
+     "rank": 6,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "367 Mio. t"
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 5.5,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "267,7 Mio. t"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 5.6,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "53,7 Mio. t"
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 6.2,
+     "rank": 9,
+     "richtung": "sinkend",
+     "urteil": "besser",
+     "zus": "36,8 Mio. t"
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 6.2,
+     "rank": 9,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "363,5 Mio. t"
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 6.3,
+     "rank": 11,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "18,3 Mio. t"
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 6.3,
+     "rank": 11,
+     "richtung": "sinkend",
+     "urteil": "besser",
+     "zus": "33,9 Mio. t"
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 6.5,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "25,3 Mio. t"
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 6.7,
+     "rank": 14,
+     "richtung": "sinkend",
+     "urteil": "besser",
+     "zus": "43,4 Mio. t"
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 7,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "besser",
+     "zus": "39,3 Mio. t"
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 7.1,
+     "rank": 16,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "73,3 Mio. t"
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 7.3,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "66,6 Mio. t"
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 7.3,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "schlechter",
+     "zus": "15,5 Mio. t"
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 7.5,
+     "rank": 19,
+     "richtung": "sinkend",
+     "urteil": "besser",
+     "zus": "10,2 Mio. t"
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 7.8,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "649,8 Mio. t"
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 7.8,
+     "rank": 20,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "140,7 Mio. t"
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 8.3,
+     "rank": 22,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "98 Mio. t"
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 8.9,
+     "rank": 23,
+     "richtung": "sinkend",
+     "urteil": "besser",
+     "zus": "96,6 Mio. t"
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 9.1,
+     "rank": 24,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "8,8 Mio. t"
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 9.3,
+     "rank": 25,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "zus": "341 Mio. t"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 10,
+     "rank": 26,
+     "richtung": "sinkend",
+     "urteil": "besser",
+     "zus": "53,9 Mio. t"
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 11.1,
+     "rank": 27,
+     "richtung": "sinkend",
+     "urteil": "besser",
+     "zus": "7,5 Mio. t"
+    }
+   ],
+   "schweiz": {
+    "wert": 4.5,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2020",
+     "at": 8.4,
+     "eu": 7.68
+    },
+    {
+     "t": "2021",
+     "at": 8.7,
+     "eu": 8
+    },
+    {
+     "t": "2022",
+     "at": 8.1,
+     "eu": 7.7
+    },
+    {
+     "t": "2023",
+     "at": 7.5,
+     "eu": 7.09
+    },
+    {
+     "t": "2024",
+     "at": 7.3,
+     "eu": 6.9
+    }
+   ],
    "geaendert": "2026-11-25",
+   "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "erklaerung": "Wie viele Treibhausgase (vor allem CO2, Methan und Lachgas, umgerechnet in CO2-Äquivalent) im Land im Jahr pro Einwohner ausgestoßen werden, in Tonnen. Ein niedrigerer Wert ist besser. Gezählt wird, was im Land entsteht, nicht was in importierten Waren steckt.",
    "gruppe": "Gesellschaft"
   },
