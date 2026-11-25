@@ -259,13 +259,13 @@ const INDICATORS = [
     umstritten: true,
     hinweis: "Die Rechnung ist eine Näherung: Der Beitrag des Staates wird über die Kosten gemessen (Gehälter und Käufe des Staates), nicht über den Nutzen von Schulen, Spitälern oder Polizei. Staatsinvestitionen sind in den Quartalsdaten nicht getrennt ausgewiesen und fehlen deshalb. Pensionen und andere Sozialleistungen zählen nicht als Staatsausgaben im BIP, sie wirken erst über den Konsum der Empfänger.",
     typ: "hoch", schwelle: 0.3, mock: { base: -0.6, step: 0.3 } }
-  ,{ id: "benzin", name: "Benzinpreis", takt: "monat", dataset: "une_rt_m", filter: "x=y", // Platzhalter, echte Quelle: Ölbulletin (berechneOel)
+  ,{ id: "benzin", name: "Benzinpreise", takt: "monat", dataset: "une_rt_m", filter: "x=y", // Platzhalter, echte Quelle: Ölbulletin (berechneOel)
     oel: { produkt: "euro95" }, // Euro-super 95
     einheit: "Cent pro Liter Euro-super 95 an der Tankstelle, inklusive Steuern, Monatsdurchschnitt", suffix: " ct", diffEinheit: "Cent pro Liter", dez: 1,
     rangText: "Rang 1 = niedrigster Benzinpreis", maxAlter: 3,
     hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
     typ: "niedrig", schwelle: 2, mock: { base: 130, step: 4 } }
-  ,{ id: "diesel", name: "Dieselpreis", takt: "monat", dataset: "une_rt_m", filter: "x=y",
+  ,{ id: "diesel", name: "Dieselpreise", takt: "monat", dataset: "une_rt_m", filter: "x=y",
     oel: { produkt: "diesel" },
     einheit: "Cent pro Liter Diesel an der Tankstelle, inklusive Steuern, Monatsdurchschnitt", suffix: " ct", diffEinheit: "Cent pro Liter", dez: 1,
     rangText: "Rang 1 = niedrigster Dieselpreis", maxAlter: 3,
@@ -545,13 +545,13 @@ const INDICATORS = [
     einheit: "Von der Polizei erfasste Sexualdelikte (sexuelle Gewalt) pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote", rangNiedrigZuerst: true,
     hinweis: "Die Länder definieren und zählen Sexualdelikte unterschiedlich (etwa pro Tat oder pro Opfer), und die Dunkelziffer ist hoch. Länder mit hoher Anzeigebereitschaft und weiter Definition haben oft höhere Werte. Ein höherer Wert heißt nicht automatisch mehr Taten.",
     typ: "neutral", schwelle: 5, mock: { base: 30, step: 14 } }
-  ,{ id: "strompreis", name: "Strompreis für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
+  ,{ id: "strompreis", name: "Strompreise für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
     filter: "siec=E7000&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive aller Steuern und Abgaben
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
     einheit: "Cent pro kWh, Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive Steuern und Abgaben (Halbjahreswerte)",
     rangText: "Rang 1 = niedrigster Strompreis", maxAlter: 14,
     typ: "niedrig", schwelle: 1, mock: { base: 14, step: 2.2 } }
-  ,{ id: "strompreis-industrie", name: "Strompreis für Industrie", takt: "halbjahr", dataset: "nrg_pc_205",
+  ,{ id: "strompreis-industrie", name: "Strompreise für Industrie", takt: "halbjahr", dataset: "nrg_pc_205",
     filter: "siec=E7000&nrg_cons=MWH2000-19999&unit=KWH&tax=X_VAT&currency=EUR", // mittlere Industrie, 2.000 bis 19.999 MWh Jahresverbrauch, ohne MwSt. und andere erstattungsfähige Steuern
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
     einheit: "Cent pro kWh, Unternehmen mit 2.000 bis 19.999 MWh Jahresverbrauch, ohne Mehrwertsteuer und andere erstattungsfähige Steuern (Halbjahreswerte)",
