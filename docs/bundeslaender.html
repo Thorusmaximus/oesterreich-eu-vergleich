@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=52cdca62">
+<link rel="stylesheet" href="style.css?v=c2c82f6e">
 </head>
 <body>
 <main>
@@ -82,6 +82,12 @@ function karte(i, kopf, tabs){
     var pf = x.richtung ? '<span class="ta '+urteilCls(x.urteil)+'" title="'+(x.urteil?trendWort(x.urteil):"")+'">'+pfeil(x.richtung)+'</span>' : '<span class="ta"></span>';
     return '<div class="row'+(hl===x.code?" at":"")+'"'+st+'><span>'+x.rang+'. '+x.name+(x.zus?'<small class="note zs">'+x.zus+'</small>':'')+'</span>'+bar(x.wert)+'<span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
   }).join("");
+  if(i.staedte && i.staedte.length){
+    t += '<p class="note stadthead">Zum Vergleich, nicht im Ranking (Städte bzw. Stadtregionen):</p>' + i.staedte.map(function(x){
+      var pf = x.richtung ? '<span class="ta '+urteilCls(x.urteil)+'" title="'+(x.urteil?trendWort(x.urteil):"")+'">'+pfeil(x.richtung)+'</span>' : '<span class="ta"></span>';
+      return '<div class="row stadt"'+st+'><span>'+x.name+'<small class="note zs">'+(x.zus?x.zus+', ':'')+'würde Rang '+x.rangEinordnung+' einnehmen</small></span><span></span><span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
+    }).join("");
+  }
   if(i.oesterreich) t += '<p class="note">Österreich insgesamt: '+fw(i,i.oesterreich.wert)+'</p>';
   return t + '</div>';
 }

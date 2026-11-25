@@ -20,6 +20,17 @@ const REGIERUNGEN = {
 };
 const GRUPPEN = ["Wirtschaft und Arbeit", "Wohnen und Kosten", "Bevölkerung und Gesellschaft", "Bildung und Forschung", "Gesundheit", "Sicherheit"];
 const MIN_JAHR = 2024; // ältere Werte werden ausgeblendet (wie auf der Österreich-Seite)
+// Vergleichsstädte (NUTS 3), nicht im Ranking, nur darunter aufgelistet
+const STAEDTE = [
+  { code: "AT221", name: "Graz", hinweis: "zweitgrößte Stadt" },
+  { code: "AT323", name: "Salzburg und Umgebung", hinweis: "Zentralösterreich, Stadt und Umland (kleinste Eurostat-Einheit)" },
+  { code: "AT332", name: "Innsbruck", hinweis: "Westösterreich" }
+];
+const STADT_DATEN = {
+  bip: [{ dataset: "nama_10r_3gdp", filter: "unit=EUR_HAB" }],
+  bevoelkerung: [{ dataset: "demo_r_pjanaggr3", filter: "sex=T&age=TOTAL&unit=NR" }, { dataset: "demo_r_pjanaggr3", filter: "sex=T&age=TOTAL" }],
+  bevoelkerungsdichte: [{ dataset: "demo_r_d3dens", filter: "unit=PER_KM2" }]
+};
 const SEIT = 2014, SCHWELLE_ANTEIL = 0.03, JAHRE_TREND = 5, MIN_LAENDER = 8;
 
 // Indikatoren. filter + alternativen wie bei den EU-Indikatoren; typ: niedrig = niedriger ist besser, hoch = höher ist besser, neutral = ohne Wertung
@@ -194,6 +205,34 @@ async function handIndikatoren(ctx) {
   return out;
 }
 
+async function staedteDazu(r, { TEST, BASE, parse }) {
+  const kand = STADT_DATEN[r.id]; if (!kand) return;
+  let d = null, fehler = null;
+  for (const k of kand) {
+    try {
+      if (TEST) { d = Object.fromEntries(STAEDTE.map((c, i) => [c.code, { [r.periode]: (r.id === "bevoelkerung" ? 200000 : 30000) + i * 40000, [r.vorPeriode]: (r.id === "bevoelkerung" ? 190000 : 28000) + i * 40000 }])); break; }
+      const res = await fetch(`${BASE}${k.dataset}?format=JSON&lang=EN&${k.filter}&${STAEDTE.map(c => "geo=" + c.code).join("&")}&sinceTimePeriod=${SEIT}`);
+      if (!res.ok) throw new Error("HTTP " + res.status + " " + (await res.text()).slice(0, 200));
+      d = parse(await res.json()); break;
+    } catch (e) { fehler = e; }
+  }
+  if (!d) { console.error(`   (Städte ${r.name}: ${fehler && fehler.message})`); return; }
+  const auf = r.typ === "niedrig", dez = r.dez, out = [];
+  for (const c of STAEDTE) {
+    const w0 = d[c.code]?.[r.periode], wv = r.vorPeriode ? d[c.code]?.[r.vorPeriode] : null;
+    if (w0 == null) continue;
+    let wert = w0, zus = null, diff = null, richtung = null, urteil = null;
+    if (r.id === "bevoelkerung") { if (wv == null) continue; wert = runden((w0 - wv) / Math.abs(wv) * 100, 1); zus = w0.toLocaleString("de-AT") + " Einwohner"; }
+    else if (wv != null) {
+      diff = runden(w0 - wv, dez + 2);
+      richtung = r.relativ ? ((w0 - wv) / wv * 100 > 3 ? "steigend" : (w0 - wv) / wv * 100 < -3 ? "sinkend" : "stabil") : (diff > r.schwelle ? "steigend" : diff < -r.schwelle ? "sinkend" : "stabil");
+      if (r.typ !== "neutral") urteil = richtung === "stabil" ? "unverändert" : ((richtung === "steigend") === (r.typ === "hoch") ? "besser" : "schlechter");
+    }
+    const rang = 1 + r.laender.filter(l => (auf ? l.wert < wert : l.wert > wert)).length;
+    out.push({ code: c.code, name: c.name, hinweis: c.hinweis, wert, wertVor: wv ?? null, diff, richtung, urteil, rangEinordnung: rang, zus });
+  }
+  if (out.length) r.staedte = out;
+}
 let TESTMODE = false;
 async function berechneBundeslaender({ TEST, BASE, parse }) {
   TESTMODE = TEST;
@@ -213,7 +252,8 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
         r = auswerten(ind, parse(js)); r.dataset = k.dataset; break;
       } catch (e) { fehler = e; if (kandidaten.length > 1) console.error(`   (Bundesländer ${k.dataset} mit ${k.filter}: ${e.message})`); }
     }
-    if (r) { ergebnis.push(r); console.log(`OK  Bundesland ${r.name}: ${r.periode}, ${r.anzahl} Länder, Platz 1 ${r.laender[0].name}`); }
+    if (r) { ergebnis.push(r); console.log(`OK  Bundesland ${r.name}: ${r.periode}, ${r.anzahl} Länder, Platz 1 ${r.laender[0].name}`);
+      try { await staedteDazu(r, { TEST, BASE, parse }); if (r.staedte) console.log(`   Städte: ${r.staedte.map(x => x.name + " " + x.wert).join(", ")}`); } catch (e) { console.error("   Städte-Fehler: " + e.message); } }
     else {
       console.error(`FEHLER Bundesland ${ind.name}: ${fehler && fehler.message}`);
       if (!TEST) try { // Fehlersuche: welche Dimensionen hat der Datensatz?
@@ -237,6 +277,6 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
   }).sort((a, b) => (a.durchschnittsrang ?? 99) - (b.durchschnittsrang ?? 99));
   bilanz.forEach((b, i) => { b.platz = 1 + bilanz.filter(z => z.durchschnittsrang < b.durchschnittsrang).length; });
   return { aktualisiert: new Date().toISOString().slice(0, 10), beispiel: TEST, quelle: "Eurostat (Regionaldaten, NUTS 2)", jahreTrend: JAHRE_TREND, gruppen: GRUPPEN,
-    laender: LAENDER.map(l => ({ ...l, regierung: REGIERUNGEN[l.code] })), regierungenStand: REGIERUNGEN_STAND, indikatoren: ergebnis, bilanz };
+    laender: LAENDER.map(l => ({ ...l, regierung: REGIERUNGEN[l.code] })), staedte: STAEDTE, regierungenStand: REGIERUNGEN_STAND, indikatoren: ergebnis, bilanz };
 }
 module.exports = { berechneBundeslaender };
