@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=7da37ebe">
+<link rel="stylesheet" href="style.css?v=49a59b61">
 </head>
 <body>
 <main>
@@ -109,11 +109,11 @@ function neuesteLeiste(){
   if(tr && !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)){ tr.style.animationDuration=Math.max(20, Math.round(tr.scrollWidth/2/45))+"s"; tr.classList.add("lauf"); }
   else { el.firstChild.style.overflowX="auto"; }
 }
-function kmSpringe(id){
+function kmSpringe(id, ton){
   var p = paarBL(id); if(p) AUSWAHL[p.titel] = id;
   var y = window.scrollY; seite();
   var el = document.getElementById("f-"+id); if(!el){ window.scrollTo(0,y); return; }
-  el.scrollIntoView({behavior:"smooth", block:"center"}); el.classList.add("blitz"); setTimeout(function(){ el.classList.remove("blitz"); }, 1800);
+  el.scrollIntoView({behavior:"smooth", block:"center"}); var kl = ton==="schlecht" ? "blitz-bad" : "blitz-good"; el.classList.add(kl); setTimeout(function(){ el.classList.remove(kl); }, 2200);
 }
 seite();
 neuesteLeiste();
