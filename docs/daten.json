@@ -8455,17 +8455,17 @@
    "alter": 0,
    "warnung": null,
    "oesterreich": {
-    "wert": 167.5,
+    "wert": 164.9,
     "rang": 7,
     "wertVorher": 178.4,
     "rangVorher": 15,
-    "schnitt": 180.7,
+    "schnitt": 179.8,
     "schnittVorher": 175.7,
-    "veraenderung": 5,
+    "veraenderung": 4.1,
     "richtung": "stabil",
     "urteil": "unverändert"
    },
-   "eu": 187.7,
+   "eu": 185.3,
    "euMittelwert": false,
    "beste": {
     "code": "MT",
@@ -8478,7 +8478,7 @@
    "schlechteste": {
     "code": "DK",
     "name": "Dänemark",
-    "value": 241.7,
+    "value": 240.4,
     "rank": 27,
     "richtung": "steigend",
     "urteil": "schlechter"
@@ -8800,10 +8800,10 @@
     "rang": 13,
     "n": 27,
     "schnitt": 155.7,
-    "veraenderung": 24.9,
+    "veraenderung": 24.1,
     "richtung": "steigend",
     "urteil": "schlechter",
-    "euVeraenderung": 21.9,
+    "euVeraenderung": 19.5,
     "euUrteil": "unverändert"
    },
    "rueckblick": null,
@@ -8819,7 +8819,7 @@
     {
      "code": "PL",
      "name": "Polen",
-     "value": 139.7,
+     "value": 137.5,
      "rank": 2,
      "richtung": "stabil",
      "urteil": "unverändert"
@@ -8827,7 +8827,7 @@
     {
      "code": "SE",
      "name": "Schweden",
-     "value": 146.7,
+     "value": 144,
      "rank": 3,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8835,7 +8835,7 @@
     {
      "code": "BG",
      "name": "Bulgarien",
-     "value": 157,
+     "value": 154.8,
      "rank": 4,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8843,7 +8843,7 @@
     {
      "code": "SI",
      "name": "Slowenien",
-     "value": 162.6,
+     "value": 159,
      "rank": 5,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8851,7 +8851,7 @@
     {
      "code": "LU",
      "name": "Luxemburg",
-     "value": 166,
+     "value": 163.5,
      "rank": 6,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8859,15 +8859,23 @@
     {
      "code": "AT",
      "name": "Österreich",
-     "value": 167.5,
+     "value": 164.9,
      "rank": 7,
      "richtung": "stabil",
      "urteil": "unverändert"
     },
     {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 165,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
      "code": "CZ",
      "name": "Tschechien",
-     "value": 167.8,
+     "value": 165,
      "rank": 8,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8875,15 +8883,7 @@
     {
      "code": "CY",
      "name": "Zypern",
-     "value": 168,
-     "rank": 9,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "ES",
-     "name": "Spanien",
-     "value": 168.1,
+     "value": 165.9,
      "rank": 10,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8891,7 +8891,7 @@
     {
      "code": "SK",
      "name": "Slowakei",
-     "value": 170,
+     "value": 166.8,
      "rank": 11,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8899,7 +8899,7 @@
     {
      "code": "HU",
      "name": "Ungarn",
-     "value": 171,
+     "value": 167.1,
      "rank": 12,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8907,7 +8907,7 @@
     {
      "code": "HR",
      "name": "Kroatien",
-     "value": 172.1,
+     "value": 169.5,
      "rank": 13,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8915,7 +8915,7 @@
     {
      "code": "EE",
      "name": "Estland",
-     "value": 180.6,
+     "value": 178.2,
      "rank": 14,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8923,7 +8923,15 @@
     {
      "code": "LV",
      "name": "Lettland",
-     "value": 182.1,
+     "value": 179.6,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 179.6,
      "rank": 15,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8931,15 +8939,7 @@
     {
      "code": "LT",
      "name": "Litauen",
-     "value": 182.6,
-     "rank": 16,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "RO",
-     "name": "Rumänien",
-     "value": 183,
+     "value": 179.9,
      "rank": 17,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8947,7 +8947,7 @@
     {
      "code": "BE",
      "name": "Belgien",
-     "value": 184.7,
+     "value": 181.6,
      "rank": 18,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8955,7 +8955,7 @@
     {
      "code": "PT",
      "name": "Portugal",
-     "value": 193.8,
+     "value": 191.8,
      "rank": 19,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8963,7 +8963,7 @@
     {
      "code": "IE",
      "name": "Irland",
-     "value": 195.7,
+     "value": 195.5,
      "rank": 20,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8971,7 +8971,7 @@
     {
      "code": "IT",
      "name": "Italien",
-     "value": 198.9,
+     "value": 197.7,
      "rank": 21,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8979,7 +8979,7 @@
     {
      "code": "EL",
      "name": "Griechenland",
-     "value": 204.5,
+     "value": 201.5,
      "rank": 22,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8987,7 +8987,7 @@
     {
      "code": "DE",
      "name": "Deutschland",
-     "value": 207.5,
+     "value": 204.7,
      "rank": 23,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -8995,7 +8995,7 @@
     {
      "code": "FR",
      "name": "Frankreich",
-     "value": 209.8,
+     "value": 207.4,
      "rank": 24,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9003,7 +9003,7 @@
     {
      "code": "FI",
      "name": "Finnland",
-     "value": 218.3,
+     "value": 213.9,
      "rank": 25,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9011,7 +9011,7 @@
     {
      "code": "NL",
      "name": "Niederlande",
-     "value": 221,
+     "value": 219.5,
      "rank": 26,
      "richtung": "stabil",
      "urteil": "unverändert"
@@ -9019,7 +9019,7 @@
     {
      "code": "DK",
      "name": "Dänemark",
-     "value": 241.7,
+     "value": 240.4,
      "rank": 27,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9324,11 +9324,11 @@
     },
     {
      "t": "2026-11",
-     "at": 167.5,
-     "eu": 187.7
+     "at": 164.9,
+     "eu": 185.3
     }
    ],
-   "geaendert": "2026-11-23",
+   "geaendert": "2026-11-25",
    "erklaerung": "Was ein Liter Eurosuper 95 durchschnittlich an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die wöchentlichen Preise des Ölbulletins der EU-Kommission, hier als Monatsdurchschnitt. Der Preis hängt vom Ölpreis und von den Steuern des jeweiligen Landes ab.",
    "gruppe": "Preise und Kosten"
   },
@@ -9343,7 +9343,7 @@
    "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Ein großer Teil des Preises sind Steuern und Abgaben, die sich zwischen den Ländern stark unterscheiden. Der laufende Monat ist ein Durchschnitt der bisher gemeldeten Wochen.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 6.3,
+   "schwelle": 6.2,
    "schwelleArt": "relativ",
    "datensatz": "une_rt_m",
    "zusatz": null,
@@ -9356,17 +9356,17 @@
    "alter": 0,
    "warnung": null,
    "oesterreich": {
-    "wert": 209,
+    "wert": 206.4,
     "rang": 16,
     "wertVorher": 202,
     "rangVorher": 17,
-    "schnitt": 214.5,
+    "schnitt": 213.7,
     "schnittVorher": 189.7,
-    "veraenderung": 24.8,
+    "veraenderung": 24,
     "richtung": "steigend",
     "urteil": "schlechter"
    },
-   "eu": 209.9,
+   "eu": 207.5,
    "euMittelwert": false,
    "beste": {
     "code": "MT",
@@ -9379,7 +9379,7 @@
    "schlechteste": {
     "code": "FI",
     "name": "Finnland",
-    "value": 249.4,
+    "value": 246.9,
     "rank": 27,
     "richtung": "steigend",
     "urteil": "schlechter"
@@ -9701,10 +9701,10 @@
     "rang": 13,
     "n": 27,
     "schnitt": 158.6,
-    "veraenderung": 56,
+    "veraenderung": 55.1,
     "richtung": "steigend",
     "urteil": "schlechter",
-    "euVeraenderung": 51.7,
+    "euVeraenderung": 49.3,
     "euUrteil": "unverändert"
    },
    "rueckblick": null,
@@ -9720,7 +9720,7 @@
     {
      "code": "PL",
      "name": "Polen",
-     "value": 174.7,
+     "value": 171.7,
      "rank": 2,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9728,7 +9728,7 @@
     {
      "code": "ES",
      "name": "Spanien",
-     "value": 187.1,
+     "value": 185.2,
      "rank": 3,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9736,7 +9736,7 @@
     {
      "code": "BG",
      "name": "Bulgarien",
-     "value": 188.2,
+     "value": 186.6,
      "rank": 4,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9744,7 +9744,7 @@
     {
      "code": "CZ",
      "name": "Tschechien",
-     "value": 189.9,
+     "value": 186.8,
      "rank": 5,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9752,7 +9752,7 @@
     {
      "code": "SI",
      "name": "Slowenien",
-     "value": 193.3,
+     "value": 190.8,
      "rank": 6,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9760,31 +9760,31 @@
     {
      "code": "SK",
      "name": "Slowakei",
-     "value": 194.6,
+     "value": 192.3,
      "rank": 7,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "HU",
-     "name": "Ungarn",
-     "value": 196,
-     "rank": 8,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
     {
      "code": "SE",
      "name": "Schweden",
-     "value": 197.5,
-     "rank": 9,
+     "value": 193.5,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 193.5,
+     "rank": 8,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
     {
      "code": "CY",
      "name": "Zypern",
-     "value": 199.6,
+     "value": 198.8,
      "rank": 10,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9792,23 +9792,23 @@
     {
      "code": "HR",
      "name": "Kroatien",
-     "value": 200.4,
+     "value": 199,
      "rank": 11,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "RO",
-     "name": "Rumänien",
-     "value": 202.5,
-     "rank": 12,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
     {
      "code": "LU",
      "name": "Luxemburg",
-     "value": 202.8,
+     "value": 199.7,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 201,
      "rank": 13,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9816,7 +9816,7 @@
     {
      "code": "LV",
      "name": "Lettland",
-     "value": 206.4,
+     "value": 204,
      "rank": 14,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9824,7 +9824,7 @@
     {
      "code": "EE",
      "name": "Estland",
-     "value": 208.1,
+     "value": 206.1,
      "rank": 15,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9832,7 +9832,7 @@
     {
      "code": "AT",
      "name": "Österreich",
-     "value": 209,
+     "value": 206.4,
      "rank": 16,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9840,31 +9840,39 @@
     {
      "code": "EL",
      "name": "Griechenland",
-     "value": 209.2,
+     "value": 206.8,
      "rank": 17,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "IE",
-     "name": "Irland",
-     "value": 211.8,
-     "rank": 18,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
     {
      "code": "PT",
      "name": "Portugal",
-     "value": 213.9,
+     "value": 211.5,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 211.7,
      "rank": 19,
+     "richtung": "steigend",
+     "urteil": "schlechter"
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 219.2,
+     "rank": 20,
      "richtung": "steigend",
      "urteil": "schlechter"
     },
     {
      "code": "LT",
      "name": "Litauen",
-     "value": 220.5,
+     "value": 219.2,
      "rank": 20,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9872,15 +9880,7 @@
     {
      "code": "IT",
      "name": "Italien",
-     "value": 222.2,
-     "rank": 21,
-     "richtung": "steigend",
-     "urteil": "schlechter"
-    },
-    {
-     "code": "FR",
-     "name": "Frankreich",
-     "value": 222.4,
+     "value": 221.5,
      "rank": 22,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9888,7 +9888,7 @@
     {
      "code": "DE",
      "name": "Deutschland",
-     "value": 225,
+     "value": 221.9,
      "rank": 23,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9896,7 +9896,7 @@
     {
      "code": "BE",
      "name": "Belgien",
-     "value": 234.5,
+     "value": 231,
      "rank": 24,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9904,7 +9904,7 @@
     {
      "code": "NL",
      "name": "Niederlande",
-     "value": 237.4,
+     "value": 234.9,
      "rank": 25,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9912,7 +9912,7 @@
     {
      "code": "DK",
      "name": "Dänemark",
-     "value": 244.4,
+     "value": 241.8,
      "rank": 26,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -9920,7 +9920,7 @@
     {
      "code": "FI",
      "name": "Finnland",
-     "value": 249.4,
+     "value": 246.9,
      "rank": 27,
      "richtung": "steigend",
      "urteil": "schlechter"
@@ -10225,11 +10225,11 @@
     },
     {
      "t": "2026-11",
-     "at": 209,
-     "eu": 209.9
+     "at": 206.4,
+     "eu": 207.5
     }
    ],
-   "geaendert": "2026-11-23",
+   "geaendert": "2026-11-25",
    "erklaerung": "Was ein Liter Diesel durchschnittlich an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die wöchentlichen Preise des Ölbulletins der EU-Kommission, hier als Monatsdurchschnitt. Der Preis hängt vom Ölpreis und von den Steuern des jeweiligen Landes ab.",
    "gruppe": "Preise und Kosten"
   },
