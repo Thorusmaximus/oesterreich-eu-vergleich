@@ -106,7 +106,7 @@ else {
   + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>'
   + '<div class="suche"><input type="search" id="suche" placeholder="Indikator suchen" aria-label="Indikator suchen" autocomplete="off"></div></div>' + gruppenHtml;
   h += fussnote();
-  if(versteckt.length) h += '<details class="note ausgebl" id="ausgeblendet"><summary>Ausgeblendet ('+versteckt.length+')</summary><p>Diese Indikatoren sind ausgeblendet, weil es noch keine Daten ab 2025 gibt: '+versteckt.map(function(i){ return i.name+' (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p></details>';
+  if(versteckt.length) h += '<p class="note ausgebl" id="ausgeblendet">Derzeit ausgeblendet, weil es noch keine Daten ab 2025 gibt: '+versteckt.map(function(i){ return '<a href="indikator.html?id='+i.id+'">'+i.name+'</a> (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p>';
   app.innerHTML = h;
   neuesteLeiste();
   (function(){
