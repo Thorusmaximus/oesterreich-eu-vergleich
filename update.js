@@ -48,7 +48,7 @@ const GRUPPE_VON = {
   teilzeit: 0, industrie: 0,
   schulden: 1, defizit: 1, staatsquote: 1, abgabenquote: 1, rating: 1,
   inflation: 2, benzin: 2, diesel: 2, lebenshaltung: 2, immobilien: 2, strompreis: 2, "strompreis-industrie": 2,
-  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, armut: 3, ausgrenzung: 3, wohnkosten: 2, mieten: 2, jugendarbeitslosigkeit: 0, neet: 0, forschung: 0, ausgabenBildung: 1, ausgabenGesundheit: 1, ausgabenVerteidigung: 1, ausgabenSoziales: 1, genderPayGap: 3, erneuerbare: 2, energieabhaengigkeit: 2, nettozuwanderung: 3, asyl: 3, asylOffen: 3, lebenszufriedenheit: 3, kapitalNichtBoerse: 0, kapitalGesamt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4 };
+  bevoelkerung: 3, geburtenrate: 3, terror: 4, aktionaersquote: 0, kapitalmarkt: 0, armut: 3, ausgrenzung: 3, wohnkosten: 2, mieten: 2, jugendarbeitslosigkeit: 0, neet: 0, forschung: 0, ausgabenBildung: 1, ausgabenGesundheit: 1, ausgabenVerteidigung: 1, ausgabenSoziales: 1, genderPayGap: 3, erneuerbare: 2, energieabhaengigkeit: 2, nettozuwanderung: 3, asyl: 3, asylOffen: 3, lebenszufriedenheit: 3, kapitalNichtBoerse: 0, kapitalGesamt: 0, religion: 3, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 4, toetung: 4, koerperverletzung: 4, sexualdelikte: 4, raub: 4, einbruch: 4, gefaengnis: 4, verurteilungen: 4 };
 // Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
@@ -96,6 +96,7 @@ const ERKLAERUNG = {
   lebenszufriedenheit: "Wie zufrieden Menschen ab 16 mit ihrem Leben insgesamt sind, auf einer Skala von 0 (gar nicht zufrieden) bis 10 (völlig zufrieden), laut Befragung. Die Erhebung findet nur alle paar Jahre statt.",
   asylOffen: "Wie viele Menschen pro 100.000 Einwohner am Monatsende auf eine Entscheidung über ihren Asylantrag im Land warten. Gezählt wird, wo der Antrag gestellt wurde. Wer schon Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr dazu.",
   gefaengnis: "Wie viel Prozent der vorhandenen Haftplätze belegt sind. Über 100 % heißt, dass mehr Menschen inhaftiert sind, als Plätze vorhanden sind (Überbelegung). Das zeigt, wie ausgelastet das Strafvollzugssystem ist.",
+  verurteilungen: "Wie viele Delikte in Österreich pro Jahr zu einer rechtskräftigen Verurteilung geführt haben, getrennt nach Mord, Körperverletzung, Sexualdelikten und Raub. Weniger Verurteilungen gelten hier als besser, in der Gesamtbilanz auf der Startseite zählt das Fenster aber nicht mit.",
   koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Der Vergleich zwischen den Ländern ist schwierig: Die Zählweise und die Bereitschaft, Anzeige zu erstatten, unterscheiden sich stark. Die Zahl zeigt also nur bedingt, wo mehr Gewalt passiert.",
   sexualdelikte: "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definitionen, Zählweise und Anzeigebereitschaft unterscheiden sich zwischen den Ländern stark, und viele Fälle werden nie angezeigt. Ein hoher Wert kann daher auch bedeuten, dass mehr angezeigt wird.",
   durchschnittseinkommen: "Das durchschnittliche Nettoeinkommen je Person nach Steuern und Abgaben, einschließlich Pensionen und Sozialleistungen. Sehr hohe Einkommen ziehen den Durchschnitt nach oben, deshalb liegt er über dem mittleren Einkommen (Median). Der Trend wird um die Inflation bereinigt: Das Einkommen muss stärker steigen als die Preise, damit er als besser gilt.",
@@ -1086,6 +1087,17 @@ function berechneInsolvenzen() {
   };
 }
 
+// ===== Verurteilungen: nur Österreich, von Hand gepflegt (verurteilungen.json, Quelle Statistik Austria) =====
+function berechneVerurteilungen() {
+  const raw = JSON.parse(fs.readFileSync("verurteilungen.json", "utf8")), SCHW = 5; // Veränderung in %, ab ±5 % gilt ein Delikt als besser/schlechter
+  const jahre = Object.keys(raw.delikte[0].werte).sort(), last = jahre[jahre.length - 1], prevY = jahre[jahre.length - 2];
+  const delikte = raw.delikte.map(d => { const p = Math.round((d.werte[last] - d.werte[prevY]) / d.werte[prevY] * 1000) / 10;
+    return { id: d.id, name: d.name, wert: d.werte[last], wertVorher: d.werte[prevY], veraenderungProzent: p, richtung: p > SCHW ? "steigend" : p < -SCHW ? "sinkend" : "stabil", urteil: p > SCHW ? "schlechter" : p < -SCHW ? "besser" : "unverändert" }; });
+  return { id: "verurteilungen", name: "Verurteilungen", art: "verurteilungen", takt: "jahr", typ: "neutral", pfeilModus: "wert", stand: raw.stand, quelle: raw.quelle, quelleUrl: raw.url, hinweis: raw.hinweis,
+    einheit: "Verurteilte Delikte pro Jahr in Österreich", periode: last, vorherPeriode: prevY, schwelleProzent: SCHW, delikte,
+    gesamtPersonen: raw.gesamtPersonen, oesterreich: { wert: raw.gesamtPersonen[last], wertVorher: raw.gesamtPersonen[prevY], rang: null, urteil: null, richtung: null } };
+}
+
 (async () => {
   let prev = {};
   if (!TEST) try { prev = Object.fromEntries(JSON.parse(fs.readFileSync("docs/daten.json", "utf8")).indikatoren.map(i => [i.id, i])); } catch (e) {}
@@ -1222,6 +1234,8 @@ function berechneInsolvenzen() {
     fehler++; console.error(`FEHLER Insolvenzen: ${e.message}`);
     result.push(prev.insolvenzen ? { ...prev.insolvenzen, veraltet: true, fehler: e.message } : { id: "insolvenzen", name: "Insolvenzen", fehler: e.message });
   }
+  try { const r = berechneVerurteilungen(); result.push(r); console.log(`OK  Verurteilungen: ${r.periode}, ${r.delikte.map(d => d.name + " " + d.wert).join(", ")}`); }
+  catch (e) { fehler++; console.error(`FEHLER Verurteilungen: ${e.message}`); result.push(prev.verurteilungen ? { ...prev.verurteilungen, veraltet: true, fehler: e.message } : { id: "verurteilungen", name: "Verurteilungen", fehler: e.message }); }
   // Wann bekam ein Indikator zuletzt eine neue Zahl? (neue Periode oder geänderter Wert; sonst bleibt das alte Datum)
   const heute = new Date().toISOString().slice(0, 10);
   let prevDatum = heute; try { prevDatum = JSON.parse(fs.readFileSync("docs/daten.json", "utf8")).aktualisiert || heute; } catch (e) {}

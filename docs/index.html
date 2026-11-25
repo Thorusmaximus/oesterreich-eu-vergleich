@@ -59,6 +59,15 @@ else {
         + '<div class="more">Details →</div></a>';
       return k;
     }
+    if(i.art==="verurteilungen"){
+      k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'
+        + '<div class="t">'+i.name+'</div>'
+        + '<div class="note"><b>Verurteilte Delikte</b> ('+i.periode+', Änderung zum Vorjahr)</div>'
+        + '<div class="note" style="font-size:.95rem;line-height:1.6;color:var(--fg,inherit)">'+i.delikte.map(function(d){ return '<div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><span>'+d.name.replace('(Schwere) ','').replace('(Schwerer) ','')+'</span><span><b>'+d.wert.toLocaleString("de-AT")+'</b> <span class="'+urteilCls(d.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(d.richtung)+'</span> '+prozent(d.veraenderungProzent)+'</span></span></div>'; }).join('')+'</div>'
+        + '<div class="note">Nur Österreich, kein EU-Vergleich</div>'
+        + '<div class="more">Details →</div></a>';
+      return k;
+    }
     if(i.art==="nurAT"){
       var hj = i.halbjahr;
       k += '<a class="card tile" href="indikator.html?id='+encodeURIComponent(i.id)+'">'

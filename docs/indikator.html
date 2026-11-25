@@ -30,7 +30,7 @@ var CS = null;
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
 else if(!ind){ app.innerHTML = '<p>Diesen Indikator gibt es nicht. Zurück zum <a href="index.html">Überblick</a>.</p>'; }
 else if(!ind.oesterreich){ app.innerHTML = '<h1>'+ind.name+'</h1><p class="warn">Keine Daten verfügbar: '+(ind.fehler||"")+'</p>'; }
-else { document.title = ind.name + " | Regierungstracker Österreich"; if(ind.art==="rating") detailRating(ind); else if(ind.art==="nurAT") detailInsolvenz(ind); else if(ind.art==="anteile") detailAnteile(ind); else detail(ind); }
+else { document.title = ind.name + " | Regierungstracker Österreich"; if(ind.art==="rating") detailRating(ind); else if(ind.art==="nurAT") detailInsolvenz(ind); else if(ind.art==="verurteilungen") detailVerurteilungen(ind); else if(ind.art==="anteile") detailAnteile(ind); else detail(ind); }
 
 function erkl(i){ return i.erklaerung ? '<p class="erkl">'+i.erklaerung+'</p>' : ''; }
 function einkommenTabs(i){
@@ -175,6 +175,19 @@ function detailInsolvenz(i){
   h += fussnote();
   app.innerHTML = h;
   bindInsolvenz(i);
+}
+function detailVerurteilungen(i){
+  var h = banner();
+  h += '<div class="card"><h2>'+i.name+'</h2><p class="note">'+i.einheit+'. Stand: '+periode(i.periode)+'. Nur Österreich, kein EU-Vergleich.</p>'
+     + '<table class="rt"><thead><tr><th>Delikt</th><th>'+i.vorherPeriode+'</th><th>'+i.periode+'</th><th>Veränderung</th></tr></thead><tbody>'
+     + i.delikte.map(function(d){ return '<tr><td>'+d.name+'</td><td>'+zahl(d.wertVorher)+'</td><td><b>'+zahl(d.wert)+'</b></td><td class="'+urteilCls(d.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(d.richtung)+'</span> '+prozent(d.veraenderungProzent)+' <span class="note">('+trendWort(d.urteil)+')</span></td></tr>'; }).join('')
+     + '</tbody></table>'
+     + '<p class="note">Wertung '+infoIcon('Weniger Verurteilungen gelten hier als besser, eine Veränderung unter '+i.schwelleProzent+' % als unverändert. Pfeil = Richtung des Wertes, grün = besser, rot = schlechter. Weniger Verurteilungen können auch heißen, dass weniger aufgeklärt oder verurteilt wird. Das Fenster zählt deshalb in der Gesamtbilanz der Startseite nicht mit.')+'</p></div>';
+  h += '<div class="card"><h2>Verurteilte Personen insgesamt'+infoIcon('Alle Delikte zusammen. Eine Person kann wegen mehrerer Delikte verurteilt werden, deshalb ist die Zahl der Delikte höher.')+'</h2><table class="rt"><thead><tr><th>Jahr</th><th>Personen</th></tr></thead><tbody>'
+     + Object.keys(i.gesamtPersonen).sort().reverse().map(function(y){ return '<tr><td>'+y+'</td><td>'+zahl(i.gesamtPersonen[y])+'</td></tr>'; }).join('')+'</tbody></table></div>';
+  h += '<div class="card"><p class="note">'+i.hinweis+' Quelle: <a href="'+i.quelleUrl+'" target="_blank" rel="noopener">'+i.quelle+'</a>.</p></div>';
+  h += fussnote();
+  app.innerHTML = h;
 }
 function passivaChart(i){
   var J=i.jahre, W=640, H=210, pl=44, pr=10, pt=14, pb=24, mx=Math.max.apply(null,J.map(function(y){return y.passivaMrd;})), top=Math.ceil(mx/2)*2||2;

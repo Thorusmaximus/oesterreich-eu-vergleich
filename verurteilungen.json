@@ -1,0 +1,13 @@
+{
+ "stand": "2026-11-25",
+ "quelle": "Statistik Austria, Gerichtliche Kriminalstatistik 2025 (veröffentlicht am 2.6.2026)",
+ "url": "https://www.statistik.at/fileadmin/announcement/2026/06/20260602Kriminalitaet2025.pdf",
+ "hinweis": "Gezählt werden Delikte, für die Menschen rechtskräftig verurteilt wurden, nicht die Zahl der Personen. Es gibt hier nur zwei Jahre nach Delikt, die Veränderung kann deshalb zufällig sein. Eine Verurteilung kommt erst Jahre nach der Tat, die Zahl zeigt also nicht, wie viel im selben Jahr passiert ist.",
+ "gesamtPersonen": { "2025": 25195, "2024": 25445, "2023": 25033 },
+ "delikte": [
+  { "id": "mord", "name": "Mord", "werte": { "2024": 109, "2025": 83 } },
+  { "id": "koerperverletzung", "name": "(Schwere) Körperverletzung", "werte": { "2024": 6397, "2025": 6584 } },
+  { "id": "sexualdelikte", "name": "Sexualdelikte", "werte": { "2024": 1443, "2025": 1450 } },
+  { "id": "raub", "name": "(Schwerer) Raub", "werte": { "2024": 779, "2025": 683 } }
+ ]
+}
