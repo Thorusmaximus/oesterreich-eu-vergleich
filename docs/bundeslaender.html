@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=49a59b61">
+<link rel="stylesheet" href="style.css?v=ac89dff1">
 </head>
 <body>
 <main>
@@ -53,6 +53,19 @@ function gesamt(){
   }).join("");
   return h + '</div>';
 }
+var SA_OFFEN = "";
+function antritt(){
+  if(!B.seitAntritt) return "";
+  var L = B.seitAntritt.slice().sort(function(a,b){ return a.zuKurz-b.zuKurz || (b.besser-b.schlechter)-(a.besser-a.schlechter); });
+  var h = '<div class="card" id="seitantritt"><h2>Seit Regierungsantritt'+infoIcon("Wie viele Indikatoren sich seit Beginn der aktuellen Landesregierung (Koalition) verbessert (↑) oder verschlechtert (↓) haben. Der Wechsel der Landeshauptperson zählt nicht. Verglichen wird das neueste Jahr mit dem Bezugsjahr: bei Beginn im ersten Halbjahr das Jahr davor, bei Beginn im zweiten Halbjahr das Jahr des Beginns, weil es zum Großteil noch die Vorgängerregierung betrifft. Es müssen mindestens zwei Jahre dazwischen liegen und mindestens fünf Indikatoren vorliegen, sonst steht dort „zu kurz“. Es gehen nur gewertete Indikatoren mit Zeitreihe ein. Wirtschaftsleistung und Einkommen sind nicht dabei, weil sie nominal überall steigen. Konjunktur und Bundespolitik wirken in allen Ländern. Verglichen wird, wo ein Land steht, nicht, wie es zu der Lage kam. Tippe auf ein Land für die Einzelheiten.")+'</h2>';
+  h += L.map(function(a){
+    var offen = SA_OFFEN===a.code && !a.zuKurz;
+    var z = '<div class="gz sa'+(a.zuKurz?' kurz':'')+(hl===a.code?' at':'')+'"'+(a.zuKurz?'':' data-sa="'+a.code+'" tabindex="0" role="button" aria-expanded="'+offen+'"')+'><span>'+a.name+'</span><span class="note">seit '+a.koalitionSeit+'</span>'+(a.zuKurz?'<span class="note sak">zu kurz</span><span></span>':'<span class="good">'+a.besser+' ↑</span><span class="bad">'+a.schlechter+' ↓</span>')+'</div>';
+    if(offen){ var lk = function(l,t){ return l.length ? l.map(function(i){ return kmLink(i,t); }).join(", ") : "keine"; };
+      z += '<p class="note sad"><b>Bezugsjahr '+a.basis+', Vergleich bis '+a.bis+', '+a.n+' Indikatoren ('+a.unveraendert+' unverändert).</b><br><b>Verbessert:</b> '+lk(a.besserListe,"gut")+'<br><b>Verschlechtert:</b> '+lk(a.schlechterListe,"schlecht")+'</p>'; }
+    return z; }).join("");
+  return h + '</div>';
+}
 function kartenListe(l){
   var out = [], gesehen = {};
   l.forEach(function(i){
@@ -85,7 +98,7 @@ function detail(id){
 }
 function seite(){
   if(!B || !B.indikatoren || !B.indikatoren.length){ app.innerHTML = '<div class="card"><p>Die Bundesländer-Daten werden beim nächsten Datenabruf geladen. Bitte später wiederkommen.</p></div>' + fussnote(); return; }
-  var h = (B.beispiel ? banner() : "") + regierungen() + gesamt() + kmHtml();
+  var h = (B.beispiel ? banner() : "") + regierungen() + gesamt() + antritt() + kmHtml();
   h += '<div class="leiste"><label class="note" for="hl">Bundesland hervorheben: </label><select id="hl"><option value="">keines</option>'+B.laender.map(function(l){ return '<option value="'+l.code+'"'+(hl===l.code?" selected":"")+'>'+l.name+'</option>'; }).join("")+'</select></div>';
   var versteckt = B.indikatoren.filter(function(i){ return i.ausgeblendet; });
   B.gruppen.forEach(function(g){ var l = B.indikatoren.filter(function(i){ return i.gruppe===g && !i.ausgeblendet; }); if(!l.length) return; h += '<h2 class="gh">'+g+'</h2>'+kartenListe(l); });
@@ -93,7 +106,7 @@ function seite(){
   if(versteckt.length) h += '<p class="note" id="ausgeblendet">Derzeit ausgeblendet, weil es noch keine Daten ab 2024 gibt: '+versteckt.map(function(i){ return i.name+' (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p>';
   h += fussnote();
   app.innerHTML = h;
-  app.onclick = function(e){ if(e.target.closest && e.target.closest('#kmkarte')) return; var mb = e.target.closest && e.target.closest(".bmore"); if(mb){ detail(mb.getAttribute("data-id")); return; } var b = e.target.closest && e.target.closest(".umsch button"); if(!b) return; AUSWAHL[b.getAttribute("data-p")] = b.getAttribute("data-v"); var y = window.scrollY; seite(); window.scrollTo(0,y); };
+  app.onclick = function(e){ var sa = e.target.closest && e.target.closest('[data-sa]'); if(sa && !(e.target.closest('a'))){ SA_OFFEN = SA_OFFEN===sa.getAttribute('data-sa') ? '' : sa.getAttribute('data-sa'); var y0 = window.scrollY; seite(); window.scrollTo(0,y0); return; } var go0 = e.target.closest && e.target.closest('#seitantritt [data-go]'); if(go0){ e.preventDefault(); kmSpringe(go0.getAttribute('data-go'), go0.getAttribute('data-ton')); return; } if(e.target.closest && e.target.closest('#kmkarte')) return; var mb = e.target.closest && e.target.closest(".bmore"); if(mb){ detail(mb.getAttribute("data-id")); return; } var b = e.target.closest && e.target.closest(".umsch button"); if(!b) return; AUSWAHL[b.getAttribute("data-p")] = b.getAttribute("data-v"); var y = window.scrollY; seite(); window.scrollTo(0,y); };
   kmInit();
   document.getElementById("hl").onchange = function(){ hl = this.value; seite(); };
 }

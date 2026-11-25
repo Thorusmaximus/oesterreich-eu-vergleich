@@ -109,6 +109,10 @@ function mockDaten(ind) {
 
 // Verbraucherpreise Österreich, Jahresinflation in % (Statistik Austria, laut WKÖ-Zusammenstellung), für die Inflationsbereinigung
 const INFLATION = { 2020: 1.4, 2021: 2.8, 2022: 8.6, 2023: 7.8, 2024: 2.9 };
+// Beginn der aktuellen Koalition (nicht der Wechsel der Landeshauptperson)
+const KOALITION_SEIT = { AT11: { basis: 2024, text: "Februar 2025" }, AT12: { basis: 2022, text: "März 2023" }, AT13: { basis: 2024, text: "Juni 2025" }, AT21: { basis: 2022, text: "2023" }, AT22: { basis: 2024, text: "Dezember 2024" },
+  AT31: { basis: 2021, text: "Oktober 2021" }, AT32: { basis: 2022, text: "2023" }, AT33: { basis: 2022, text: "November 2022" }, AT34: { basis: 2024, text: "Dezember 2024" } };
+// basis = Bezugsjahr: bei Beginn im ersten Halbjahr das Jahr davor, bei Beginn im zweiten Halbjahr das Jahr des Beginns (das zum Großteil noch die Vorgängerregierung betrifft)
 function auswerten(ind, daten) {
   const dez = ind.dez, typ = ind.typ, minL = ind.minLaender || MIN_LAENDER;
   const jahre = [...new Set(LAENDER.flatMap(l => Object.keys(daten[l.code] || {})))].sort();
@@ -341,7 +345,23 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
   const fp = i => JSON.stringify([i.periode ?? null, i.laender.map(z => [z.code, z.wert])]);
   ergebnis.forEach(i => { const p = !TEST && vorher && vorher.indikatoren && vorher.indikatoren.find(z => z.id === i.id);
     i.geaendert = p ? (fp(p) === fp(i) ? (p.geaendert || vorher.aktualisiert || heute) : heute) : heute; });
+  // Entwicklung seit Beginn der aktuellen Koalition: Basis = letztes volles Jahr davor, Vergleich mit dem neuesten Jahr der Zeitreihe (mind. 2 Jahre Abstand).
+  // Nur gewertete Indikatoren mit Zeitreihe; Wirtschaftsleistung und Einkommen (nominal) sowie Wachstumsraten gehen nicht ein.
+  const seitAntritt = LAENDER.map(l => {
+    const k = KOALITION_SEIT[l.code], basis = k.basis; let bis = null; const bes = [], sch = [], gl = [];
+    ergebnis.forEach(i => {
+      if (i.typ === "neutral" || i.ausgeblendet || !i.reihe || i.gegenSchnitt || i.reihe.einheitText || ["bip", "einkommen"].includes(i.id)) return;
+      const R = i.reihe, ia = R.jahre.indexOf(String(basis)), ib = R.jahre.length - 1, a = R.laender[l.code]?.[ia], b = R.laender[l.code]?.[ib];
+      if (ia < 0 || a == null || b == null || +R.jahre[ib] - basis < 2) return;
+      bis = Math.max(bis || 0, +R.jahre[ib]);
+      const d = b - a, sw = i.relativ ? Math.abs(a) * 0.03 : i.schwelle, up = d > sw, down = d < -sw;
+      const u = !up && !down ? "unverändert" : (up === (i.typ === "hoch")) ? "besser" : "schlechter";
+      (u === "besser" ? bes : u === "schlechter" ? sch : gl).push({ id: i.id, name: i.name });
+    });
+    const n = bes.length + sch.length + gl.length;
+    return { code: l.code, name: l.name, koalitionSeit: k.text, basis, bis, n, zuKurz: n < 5, besser: bes.length, schlechter: sch.length, unveraendert: gl.length, besserListe: bes, schlechterListe: sch };
+  });
   return { aktualisiert: new Date().toISOString().slice(0, 10), beispiel: TEST, quelle: "Eurostat (Regionaldaten, NUTS 2)", jahreTrend: JAHRE_TREND, gruppen: GRUPPEN,
-    laender: LAENDER.map(l => ({ ...l, regierung: REGIERUNGEN[l.code] })), staedte: STAEDTE, regierungenStand: REGIERUNGEN_STAND, indikatoren: ergebnis, bilanz, staedteBilanz };
+    laender: LAENDER.map(l => ({ ...l, regierung: REGIERUNGEN[l.code] })), staedte: STAEDTE, regierungenStand: REGIERUNGEN_STAND, indikatoren: ergebnis, bilanz, staedteBilanz, seitAntritt };
 }
 module.exports = { berechneBundeslaender };
