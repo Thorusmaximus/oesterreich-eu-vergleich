@@ -19,6 +19,7 @@ const REGIERUNGEN = {
   AT34: { chef: "Markus Wallner", partei: "ÖVP", koalition: ["ÖVP", "FPÖ"], wahl: 2024, naechsteWahl: 2029, seit: "Dezember 2024" }
 };
 const GRUPPEN = ["Wirtschaft und Arbeit", "Wohnen und Kosten", "Bevölkerung und Gesellschaft", "Bildung und Forschung", "Gesundheit", "Sicherheit"];
+const MIN_JAHR = 2024; // ältere Werte werden ausgeblendet (wie auf der Österreich-Seite)
 const SEIT = 2014, SCHWELLE_ANTEIL = 0.03, JAHRE_TREND = 5, MIN_LAENDER = 8;
 
 // Indikatoren. filter + alternativen wie bei den EU-Indikatoren; typ: niedrig = niedriger ist besser, hoch = höher ist besser, neutral = ohne Wertung
@@ -221,9 +222,10 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
   catch (e) { console.error("FEHLER Bundesland Handdaten: " + e.message); }
   try { const r = await schuldenProKopf({ TEST, BASE, parse }); ergebnis.push(r); console.log(`OK  Bundesland ${r.name}: ${r.periode}, ${r.anzahl} Länder, Platz 1 ${r.laender[0].name}`); }
   catch (e) { console.error("FEHLER Bundesland Schulden: " + e.message); }
+  ergebnis.forEach(i => { i.ausgeblendet = +String(i.periode).slice(0, 4) < MIN_JAHR; if (i.ausgeblendet) console.log(`   AUSGEBLENDET Bundesland: ${i.name} (jüngste Daten: ${i.periode})`); });
   // Gesamtbild: durchschnittlicher Rang über alle gewerteten Indikatoren, und wie viele Indikatoren sich verbessert/verschlechtert haben
   const bilanz = LAENDER.map(l => {
-    const mit = ergebnis.filter(i => i.typ !== "neutral").map(i => ({ i, x: i.laender.find(z => z.code === l.code) })).filter(a => a.x && a.x.rang != null);
+    const mit = ergebnis.filter(i => i.typ !== "neutral" && !i.ausgeblendet).map(i => ({ i, x: i.laender.find(z => z.code === l.code) })).filter(a => a.x && a.x.rang != null);
     const n = mit.length, summe = mit.reduce((s, a) => s + a.x.rang, 0);
     const z = u => mit.filter(a => a.x.urteil === u).length;
     return { code: l.code, name: l.name, kurz: l.kurz, n, durchschnittsrang: n ? runden(summe / n, 2) : null, besser: z("besser"), schlechter: z("schlechter"), unveraendert: z("unverändert"),
