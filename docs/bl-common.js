@@ -3,7 +3,7 @@ function fw(i, v){ return v==null ? "–" : v.toLocaleString("de-AT",{minimumFra
 var PAARE_BL = [
   { titel: "Arbeitsmarkt", ids: ["arbeitslosigkeitAms","arbeitslosigkeit","beschaeftigung"], labels: ["Arbeitslos (AMS)","Arbeitslos (Eurostat)","Jobquote"] },
   { titel: "Einkommen", ids: ["bip","einkommen"], labels: ["Wirtschaftsleistung","Haushalte"] },
-  { titel: "Bevölkerung", ids: ["bevoelkerung","bevoelkerung1","bevoelkerungsdichte","geburtenrate"], labels: ["5 Jahre","1 Jahr","Dichte","Geburten"] },
+  { titel: "Bevölkerung", ids: ["bevoelkerung1","bevoelkerung","bevoelkerungsdichte","geburtenrate"], labels: ["1 Jahr","5 Jahre","Dichte","Geburten"] },
   { titel: "Zuwanderung", ids: ["nettozuwanderung","zuzug","wegzug"], labels: ["Netto","Zuzug","Wegzug"] },
   { titel: "Unternehmen", ids: ["unternehmenswachstum","unternehmensdichte"], labels: ["Wachstum","Dichte"] },
   { titel: "Schulden", ids: ["schulden","schuldenGebarung"], labels: ["Weit gefasst","Landeshaushalt"] },
