@@ -283,7 +283,7 @@ const INDICATORS = [
     filter: "siec=G3000&nrg_cons=GJ20-199&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 20 bis 200 GJ Jahresverbrauch, inklusive aller Steuern und Abgaben
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",
     einheit: "Cent pro kWh, Haushalte mit 20 bis 200 Gigajoule Jahresverbrauch, inklusive Steuern und Abgaben (Halbjahreswerte)",
-    rangText: "Rang 1 = niedrigster Gaspreis", maxAlter: 14,
+    rangText: "Rang 1 = niedrigster Gaspreis", maxAlter: 14, minLaender: 20,
     hinweis: "Verglichen wird der Gaspreis. Fernwärme, die in Österreich viele Haushalte nutzen, ist in dieser Statistik nicht enthalten.",
     typ: "niedrig", schwelle: 1, mock: { base: 7, step: 1 } }
   ,{ id: "sicherheitsgefuehl", name: "Wahrgenommene Kriminalität im Wohnumfeld", takt: "jahr", dataset: "sdg_16_20",
@@ -406,7 +406,7 @@ const INDICATORS = [
     hinweis: "Der nicht börsennotierte Teil wird von den Statistikämtern geschätzt. In kleinen Ländern mit wenigen großen, international tätigen Konzernen ist der Wert pro Einwohner oft besonders hoch, ohne dass das etwas über den Wohlstand der Einwohner aussagt. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben.",
     mock: { base: 20000, step: 6000 } }
   ,{ id: "armut", name: "Armutsgefährdung", takt: "jahr", dataset: "ilc_li02",
-    filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PC&rskpovth=B_60", absolut: { art: "personen", filter: "age=TOTAL&sex=T&unit=THS_PER&indic_il=LI_R_MD60" },
+    filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PC&rskpovth=B_60",
     alternativen: [ { dataset: "ilc_li02", filter: "statinfo=MEAN_EI&age=TOTAL&sex=T&unit=PC&rskpovth=B_60" }, { dataset: "ilc_li02", filter: "indic_il=LI_R_MD60&age=TOTAL&sex=T&unit=PC" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "Anteil der Menschen mit weniger als 60 % des mittleren Einkommens (nach Sozialleistungen)", rangText: "Rang 1 = niedrigste Armutsgefährdung",
