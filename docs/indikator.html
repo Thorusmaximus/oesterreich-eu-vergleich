@@ -78,9 +78,9 @@ function detail(i){
        + '</div>' + linienChart(z.reihen, jj, cols)
        + '<p class="note">'+z.hinweis+' Quelle: '+z.quelle+'.</p></div>';
   }
-  if(!i.ohneTrend) h += '<div class="card"><h2>'+trendTitel+'</h2>'
+  if(!i.ohneTrend) h += '<div class="card"><h2>'+trendTitel+infoIcon(i.realText||trendText)+'</h2>'
      + '<div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+sgn(a.veraenderung)+' '+DIFF+', '+a.richtung+')</span></div>'
-     + '<p class="note">'+(rangDiff ? 'Der Rang hat sich seit '+periode(i.vorherPeriode)+' '+rangDiff+'. ' : '')+infoIcon(i.realText||trendText)+'</p></div>';
+     + (rangDiff ? '<p class="note">Der Rang hat sich seit '+periode(i.vorherPeriode)+' '+rangDiff+'.</p>' : '')+'</div>';
   var ss = i.seitStart;
   if(ss && D.regierung){
     var euZeile = '';
@@ -88,16 +88,15 @@ function detail(i){
       var eu = ss.euUrteil, euPf = eu==="besser" ? "↑" : eu==="schlechter" ? "↓" : "→";
       euZeile = '<div class="v '+urteilCls(eu)+'"><span class="ar" aria-hidden="true">'+euPf+'</span> '+(eu==="besser"?"besser als der EU-Schnitt":eu==="schlechter"?"schlechter als der EU-Schnitt":"wie der EU-Schnitt")+'</div>';
     }
-    h += '<div class="card"><h2>Seit der '+D.regierung.name+'</h2>'
+    h += '<div class="card"><h2>Seit der '+D.regierung.name+infoIcon('Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.')+'</h2>'
        + '<div class="v '+urteilCls(ss.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,ss.urteil,ss.richtung)+'</span> '+trendWort(ss.urteil)+' <span class="k">('+sgn(ss.veraenderung)+' '+DIFF+', '+ss.richtung+')</span></div>'
        + euZeile
-       + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+'). '+infoIcon('Verglichen wird der Wert bei Amtsantritt ('+periode(ss.t)+': '+f(ss.schnitt)+SUF+(i.takt==="jahr"?', letztes volles Jahr davor':'')+') mit dem aktuellen Wert ('+periode(i.periode)+': '+f(a.schnitt)+SUF+'). Die Zahlen zeigen, was sich seit dem Amtsantritt verändert hat. Sie sagen nichts darüber, wie viel davon auf politische Entscheidungen zurückgeht.')+'</p></div>';
+       + '<p class="note">Amtsantritt: '+datum(D.regierung.start)+' ('+D.regierung.parteien+').</p></div>';
   }
   var rv = (i.rangVergleich||[]).filter(Boolean);
   if(rv.length || (i.rangVerlauf||[]).length>1){
-    h += '<div class="card"><h2>Entwicklung des Rangs</h2>'
+    h += '<div class="card"><h2>Entwicklung des Rangs'+infoIcon('Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.')+'</h2>'
        + rv.map(function(v){ var r=rangTrend(a.rang,v.rang); return '<div class="v '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Platz '+a.rang+' statt Platz '+v.rang+' '+v.label+' <span class="k">('+periode(v.t)+', '+r.text+')</span></div>'; }).join('')
-       + '<p class="note">Info '+infoIcon('Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Pfeil nach oben = Österreich steht jetzt besser da als damals. Verglichen wird jeweils mit den damaligen Werten aller Länder.')+'</p>'
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
   if(i.verlauf && i.verlauf.length>1) h += '<div class="card"><h2>Verlauf der letzten 5 Jahre</h2>'+chart(i)+'</div>';
@@ -155,12 +154,12 @@ function detailInsolvenz(i){
      + '<div><div class="k">Höchster Wert</div><div class="v bad">'+zahl(a.hoechstes.wert)+'</div><div class="k">'+a.hoechstes.jahr+'</div></div>'
      + '<div><div class="k">Niedrigster Wert</div><div class="v good">'+zahl(a.niedrigstes.wert)+'</div><div class="k">'+a.niedrigstes.jahr+'</div></div>'
      + '</div></div>';
-  h += '<div class="card"><h2>Trend gegenüber dem Vorjahr</h2><div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+prozent(a.veraenderungProzent)+', '+zahl(a.wertVorher)+' auf '+zahl(a.wert)+')</span></div>'
+  h += '<div class="card"><h2>Trend gegenüber dem Vorjahr'+infoIcon('Weniger Insolvenzen gelten als besser. Eine Veränderung unter 3 % wird als unverändert gewertet. Pfeil = Richtung des Wertes (↑ steigt, ↓ sinkt), grün = besser, rot = schlechter.')+'</h2><div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+prozent(a.veraenderungProzent)+', '+zahl(a.wertVorher)+' auf '+zahl(a.wert)+')</span></div>'
      + (hj ? '<div class="v '+urteilCls(hj.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(hj.richtung)+'</span> 1. Halbjahr '+hj.jahr+': '+trendWort(hj.urteil)+' <span class="k">('+prozent(hj.veraenderungProzent)+', '+zahl(hj.wertVorher)+' auf '+zahl(hj.wert)+' im Vergleich zum 1. Halbjahr '+hj.vorjahr+')</span></div>' : '')
-     + '<p class="note">Wertung '+infoIcon('Weniger Insolvenzen gelten als besser. Eine Veränderung unter 3 % wird als unverändert gewertet. Pfeil = Richtung des Wertes (↑ steigt, ↓ sinkt), grün = besser, rot = schlechter.')+'</p></div>';
-  h += '<div class="card"><h2>Insolvenzen der letzten '+i.anzahlJahre+' Jahre</h2><div class="chartwrap" id="iwrap">'+insolvenzChart(i)+'<div class="tip r" id="itip" style="display:none"></div></div>'
-     + '<p class="note"><span style="color:var(--at)">■</span> eröffnete Verfahren &nbsp; <span style="color:var(--bar)">■</span> nicht eröffnet (mangels Vermögen)'+infoIcon('Eröffnet: Das Gericht eröffnet ein Insolvenzverfahren, weil das Vermögen des Unternehmens mindestens die Verfahrenskosten deckt. Es wird dann saniert oder verwertet. Nicht eröffnet (mangels Vermögen): Der Antrag wird abgewiesen, weil nicht einmal die Verfahrenskosten gedeckt wären. Solche Unternehmen werden meist aufgelöst und gelten ebenfalls als insolvent.')+'. Mit der Maus oder dem Finger über einen Balken fahren zeigt die Werte.</p>'
-     + '<p class="note">Krisen '+infoIcon('Die Krisen sind markiert. In den Corona-Jahren 2020 und 2021 lagen die Zahlen wegen staatlicher Hilfen und ausgesetzter Antragspflichten deutlich niedriger. Dass sie danach wieder stiegen, ist teilweise ein Aufholeffekt. Die hohen Verbindlichkeiten 2023 und 2024 gehen vor allem auf einzelne Großinsolvenzen zurück.')+'</p></div>';
+     + '</div>';
+  h += '<div class="card"><h2>Insolvenzen der letzten '+i.anzahlJahre+' Jahre'+infoIcon('Eröffnet: Das Gericht eröffnet ein Insolvenzverfahren, weil das Vermögen des Unternehmens mindestens die Verfahrenskosten deckt. Es wird dann saniert oder verwertet. Nicht eröffnet (mangels Vermögen): Der Antrag wird abgewiesen, weil nicht einmal die Verfahrenskosten gedeckt wären. Solche Unternehmen werden meist aufgelöst und gelten ebenfalls als insolvent.'+' '+'Die Krisen sind markiert. In den Corona-Jahren 2020 und 2021 lagen die Zahlen wegen staatlicher Hilfen und ausgesetzter Antragspflichten deutlich niedriger. Dass sie danach wieder stiegen, ist teilweise ein Aufholeffekt. Die hohen Verbindlichkeiten 2023 und 2024 gehen vor allem auf einzelne Großinsolvenzen zurück.')+'</h2><div class="chartwrap" id="iwrap">'+insolvenzChart(i)+'<div class="tip r" id="itip" style="display:none"></div></div>'
+     + '<p class="note"><span style="color:var(--at)">■</span> eröffnete Verfahren &nbsp; <span style="color:var(--bar)">■</span> nicht eröffnet (mangels Vermögen). Mit der Maus oder dem Finger über einen Balken fahren zeigt die Werte.</p>'
+     + '</div>';
   h += '<div class="card"><h2>Passiva der insolventen Unternehmen'+infoIcon('Passiva sind die Schulden, die insolvente Unternehmen zum Zeitpunkt der Insolvenz hatten, also offene Rechnungen, Kredite und andere Verbindlichkeiten. Hier die Summe pro Jahr in Milliarden Euro. Einzelne Großinsolvenzen können den Wert stark nach oben treiben, auch wenn es insgesamt nicht mehr Fälle gibt.')+'</h2>'+passivaChart(i)+'<p class="note">Milliarden Euro pro Jahr. Mit dem Finger oder der Maus über einen Balken fahren zeigt den Wert.</p></div>';
   h += '<div class="card"><details><summary><strong>Alle Zahlen als Tabelle</strong></summary><table class="rt"><thead><tr><th>Jahr</th><th>Gesamt</th><th>Eröffnet</th><th>Nicht eröffnet</th><th>Passiva (Mrd. €)</th><th>Dienstnehmer</th></tr></thead><tbody>'
      + i.jahre.slice().reverse().map(function(y){ return '<tr><td>'+y.jahr+'</td><td>'+zahl(y.gesamt)+'</td><td>'+zahl(y.eroeffnet)+'</td><td>'+zahl(y.nichtEroeffnet)+'</td><td>'+y.passivaMrd.toLocaleString("de-AT",{minimumFractionDigits:1})+'</td><td>'+zahl(y.dienstnehmer)+'</td></tr>'; }).join('')
@@ -172,11 +171,11 @@ function detailInsolvenz(i){
 }
 function detailVerurteilungen(i){
   var h = banner();
-  h += '<div class="card"><h2>'+i.name+'</h2><p class="note">'+i.einheit+'. Stand: '+periode(i.periode)+'. Nur Österreich, kein EU-Vergleich.</p>'
+  h += '<div class="card"><h2>'+i.name+infoIcon('Weniger Verurteilungen gelten hier als besser, eine Veränderung unter '+i.schwelleProzent+' % als unverändert. Pfeil = Richtung des Wertes, grün = besser, rot = schlechter. Weniger Verurteilungen können auch heißen, dass weniger aufgeklärt oder verurteilt wird. Das Fenster zählt deshalb in der Gesamtbilanz der Startseite nicht mit.')+'</h2><p class="note">'+i.einheit+'. Stand: '+periode(i.periode)+'. Nur Österreich, kein EU-Vergleich.</p>'
      + '<table class="rt"><thead><tr><th>Delikt</th><th>'+i.vorherPeriode+'</th><th>'+i.periode+'</th><th>Veränderung</th></tr></thead><tbody>'
      + i.delikte.map(function(d){ return '<tr><td>'+d.name+'</td><td>'+zahl(d.wertVorher)+'</td><td><b>'+zahl(d.wert)+'</b></td><td class="'+urteilCls(d.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(d.richtung)+'</span> '+prozent(d.veraenderungProzent)+' <span class="note">('+trendWort(d.urteil)+')</span></td></tr>'; }).join('')
      + '</tbody></table>'
-     + '<p class="note">Wertung '+infoIcon('Weniger Verurteilungen gelten hier als besser, eine Veränderung unter '+i.schwelleProzent+' % als unverändert. Pfeil = Richtung des Wertes, grün = besser, rot = schlechter. Weniger Verurteilungen können auch heißen, dass weniger aufgeklärt oder verurteilt wird. Das Fenster zählt deshalb in der Gesamtbilanz der Startseite nicht mit.')+'</p></div>';
+     + '</div>';
   h += '<div class="card"><h2>Verurteilte Personen insgesamt'+infoIcon('Alle Delikte zusammen. Eine Person kann wegen mehrerer Delikte verurteilt werden, deshalb ist die Zahl der Delikte höher.')+'</h2><table class="rt"><thead><tr><th>Jahr</th><th>Personen</th></tr></thead><tbody>'
      + Object.keys(i.gesamtPersonen).sort().reverse().map(function(y){ return '<tr><td>'+y+'</td><td>'+zahl(i.gesamtPersonen[y])+'</td></tr>'; }).join('')+'</tbody></table></div>';
   h += '<div class="card"><p class="note">'+i.hinweis+' Quelle: <a href="'+i.quelleUrl+'" target="_blank" rel="noopener">'+i.quelle+'</a>.</p></div>';
