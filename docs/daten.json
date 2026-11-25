@@ -19861,7 +19861,8 @@
     "value": 3.52,
     "rank": 1,
     "richtung": "stabil",
-    "urteil": "unverändert"
+    "urteil": "unverändert",
+    "zus": "19,9 Mrd. € (2024)"
    },
    "schlechteste": {
     "code": "MT",
@@ -19869,7 +19870,8 @@
     "value": 0.46,
     "rank": 26,
     "richtung": "sinkend",
-    "urteil": "schlechter"
+    "urteil": "schlechter",
+    "zus": "140 Mio. € (2024)"
    },
    "rangVerlauf": [
     {
@@ -19927,7 +19929,8 @@
      "value": 3.52,
      "rank": 1,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "19,9 Mrd. € (2024)"
     },
     {
      "code": "AT",
@@ -19935,7 +19938,8 @@
      "value": 3.36,
      "rank": 2,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "16,5 Mrd. € (2024)"
     },
     {
      "code": "BE",
@@ -19943,7 +19947,8 @@
      "value": 3.34,
      "rank": 3,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "20,2 Mrd. € (2024)"
     },
     {
      "code": "FI",
@@ -19951,7 +19956,8 @@
      "value": 3.32,
      "rank": 4,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "8,9 Mrd. € (2024)"
     },
     {
      "code": "DK",
@@ -19959,7 +19965,8 @@
      "value": 3.12,
      "rank": 5,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "12,6 Mrd. € (2024)"
     },
     {
      "code": "DE",
@@ -19967,7 +19974,8 @@
      "value": 3.07,
      "rank": 6,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "137,1 Mrd. € (2024)"
     },
     {
      "code": "NL",
@@ -19975,7 +19983,8 @@
      "value": 2.4,
      "rank": 7,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "26,4 Mrd. € (2024)"
     },
     {
      "code": "SI",
@@ -19983,7 +19992,8 @@
      "value": 2.37,
      "rank": 8,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "1,4 Mrd. € (2024)"
     },
     {
      "code": "FR",
@@ -19991,7 +20001,8 @@
      "value": 2.19,
      "rank": 9,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "64,1 Mrd. € (2024)"
     },
     {
      "code": "EE",
@@ -19999,7 +20010,8 @@
      "value": 2.08,
      "rank": 10,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "791 Mio. € (2024)"
     },
     {
      "code": "CZ",
@@ -20007,7 +20019,8 @@
      "value": 1.85,
      "rank": 11,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "5,8 Mrd. € (2024)"
     },
     {
      "code": "PT",
@@ -20015,7 +20028,8 @@
      "value": 1.81,
      "rank": 12,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "5 Mrd. € (2024)"
     },
     {
      "code": "EL",
@@ -20023,7 +20037,8 @@
      "value": 1.63,
      "rank": 13,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "3,6 Mrd. € (2024)"
     },
     {
      "code": "PL",
@@ -20031,7 +20046,8 @@
      "value": 1.5,
      "rank": 14,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "12 Mrd. € (2024)"
     },
     {
      "code": "IE",
@@ -20039,7 +20055,8 @@
      "value": 1.49,
      "rank": 15,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "8,9 Mrd. € (2024)"
     },
     {
      "code": "IT",
@@ -20047,7 +20064,8 @@
      "value": 1.37,
      "rank": 16,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "31 Mrd. € (2024)"
     },
     {
      "code": "HR",
@@ -20055,7 +20073,8 @@
      "value": 1.37,
      "rank": 16,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "1,2 Mrd. € (2024)"
     },
     {
      "code": "HU",
@@ -20063,7 +20082,8 @@
      "value": 1.31,
      "rank": 18,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "2,7 Mrd. € (2024)"
     },
     {
      "code": "LT",
@@ -20071,7 +20091,8 @@
      "value": 1.1,
      "rank": 19,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "885 Mio. € (2024)"
     },
     {
      "code": "SK",
@@ -20079,7 +20100,8 @@
      "value": 1.05,
      "rank": 20,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "1,3 Mrd. € (2024)"
     },
     {
      "code": "LU",
@@ -20087,7 +20109,8 @@
      "value": 1.04,
      "rank": 21,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "893 Mio. € (2024)"
     },
     {
      "code": "LV",
@@ -20095,7 +20118,8 @@
      "value": 1,
      "rank": 22,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "383 Mio. € (2024)"
     },
     {
      "code": "BG",
@@ -20103,7 +20127,8 @@
      "value": 0.74,
      "rank": 23,
      "richtung": "stabil",
-     "urteil": "unverändert"
+     "urteil": "unverändert",
+     "zus": "805 Mio. € (2024)"
     },
     {
      "code": "CY",
@@ -20111,7 +20136,8 @@
      "value": 0.58,
      "rank": 24,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "222 Mio. € (2024)"
     },
     {
      "code": "RO",
@@ -20119,7 +20145,8 @@
      "value": 0.52,
      "rank": 25,
      "richtung": "steigend",
-     "urteil": "besser"
+     "urteil": "besser",
+     "zus": "1,6 Mrd. € (2024)"
     },
     {
      "code": "MT",
@@ -20127,7 +20154,8 @@
      "value": 0.46,
      "rank": 26,
      "richtung": "sinkend",
-     "urteil": "schlechter"
+     "urteil": "schlechter",
+     "zus": "140 Mio. € (2024)"
     }
    ],
    "schweiz": {
