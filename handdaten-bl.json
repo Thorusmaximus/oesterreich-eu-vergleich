@@ -1,0 +1,23 @@
+{
+ "stand": "2026-11-25",
+ "kaufpreise": {
+  "quelle": "Statistik Austria, Immobilien-Durchschnittspreise 2025 (Medianpreise je m² Wohnfläche, Kaufverträge aus dem Grundbuch)",
+  "url": "https://www.statistik.at/fileadmin/announcement/2026/05/20260528Immobiliendurchschnittspreise2025.pdf",
+  "jahr": "2025", "vorjahr": "2024",
+  "wohnungen": { "AT11": [1859, 1850], "AT12": [3089, 2959], "AT13": [5212, 4940], "AT21": [3260, 3346], "AT22": [2750, 2749], "AT31": [3373, 3200], "AT32": [4968, 4926], "AT33": [4965, 4764], "AT34": [5000, 4978] },
+  "haeuser": { "AT11": [1889, 1804], "AT12": [2653, 2526], "AT13": [5376, 5462], "AT21": [2609, 2500], "AT22": [2421, 2408], "AT31": [2905, 2773], "AT32": [4766, 4974], "AT33": [4828, 4967], "AT34": [5077, 5075] }
+ },
+ "insolvenzen": {
+  "quelle": "KSV1870, Insolvenzstatistik Unternehmen 2025 (eröffnete und nicht eröffnete Verfahren)",
+  "url": "https://www.ksv.at/KSV1870_Insolvenzstatistik_Unternehmen_2025_final",
+  "jahr": "2025", "vorjahr": "2024",
+  "werte": { "AT11": [217, 325], "AT12": [1104, 1099], "AT13": [2599, 2490], "AT21": [354, 366], "AT22": [720, 741], "AT31": [842, 703], "AT32": [413, 343], "AT33": [406, 363], "AT34": [155, 157] }
+ },
+ "kriminalitaet": {
+  "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025 (Tabellen 31 bis 39)",
+  "url": "https://www.bundeskriminalamt.at/501/files/kriminalpolizeiliche_anzeigenstatistik_2025_bf.pdf",
+  "jahr": "2025", "vorjahr": "2024",
+  "anzeigen": { "AT11": [12026, 11776], "AT12": [76838, 76318], "AT13": [194625, 194981], "AT21": [25532, 26398], "AT22": [61372, 58378], "AT31": [66784, 67733], "AT32": [32708, 33617], "AT33": [42860, 41975], "AT34": [25911, 23017] },
+  "aufklaerung": { "AT11": [55.9, 53.9], "AT12": [54.6, 54.6], "AT13": [44.6, 43.4], "AT21": [61.3, 61.6], "AT22": [58.7, 57.9], "AT31": [60.7, 61.0], "AT32": [58.2, 55.8], "AT33": [59.5, 60.1], "AT34": [63.6, 64.2] }
+ }
+}

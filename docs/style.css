@@ -189,3 +189,5 @@ svg{width:100%;height:auto;display:block}
 .leiste select{font:inherit;font-size:.9rem;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink)}
 .bk .spk{margin:0 0 8px;text-align:left}.bk .row{grid-template-columns:9.6em 1fr var(--nw,3.4em) 1.2em}
 .bk .umsch{margin:0 0 10px}
+
+.bk .row .zs{display:block;font-size:.72rem;line-height:1.15}

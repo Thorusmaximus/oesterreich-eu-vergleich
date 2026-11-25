@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=aa6c2c2f">
+<link rel="stylesheet" href="style.css?v=52cdca62">
 </head>
 <body>
 <main>
@@ -23,7 +23,7 @@
 <p class="claim">Was sich verändert hat, nicht, wer schuld ist.</p>
 <div class="tabs seiten" role="tablist"><a role="tab" aria-selected="false" href="index.html">Österreich</a><a role="tab" aria-selected="true" class="on" href="bundeslaender.html">Bundesländer</a></div>
 <p class="frage">Wie stehen die Bundesländer da?</p>
-<p class="sub">Platz unter den neun Bundesländern, Entwicklung über fünf Jahre.</p>
+<p class="sub">Platz unter den neun Bundesländern und Entwicklung, meist über fünf Jahre.</p>
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="bl-daten.js"></script>
@@ -52,7 +52,11 @@ function gesamt(){
 var PAARE_BL = [
   { titel: "Arbeitsmarkt", ids: ["arbeitslosigkeit","beschaeftigung"], labels: ["Arbeitslos","Jobquote"] },
   { titel: "Einkommen", ids: ["bip","einkommen"], labels: ["Wirtschaftsleistung","Haushalte"] },
-  { titel: "Bevölkerung", ids: ["bevoelkerung","bevoelkerungsdichte","geburtenrate"], labels: ["Einwohner","Dichte","Geburten"] }
+  { titel: "Bevölkerung", ids: ["bevoelkerung","bevoelkerungsdichte","geburtenrate","nettozuwanderung"], labels: ["Wachstum","Dichte","Geburten","Zuwanderung"] },
+  { titel: "Wohnen", ids: ["kaufpreisWohnungen","kaufpreisHaeuser"], labels: ["Wohnungen","Häuser"] },
+  { titel: "Gesundheit", ids: ["sterberate","saeuglingssterblichkeit","krankenhausbetten"], labels: ["Sterberate","Säuglinge","Betten"] },
+  { titel: "Sicherheit", ids: ["straftaten","aufklaerung","verkehrstote"], labels: ["Straftaten","Aufklärung","Verkehr"] },
+  { titel: "Bildung", ids: ["tertiaer","schulabbruch"], labels: ["Hochschule","Frühe Abgänger"] }
 ], AUSWAHL = {};
 function paarBL(id){ for(var k=0;k<PAARE_BL.length;k++) if(PAARE_BL[k].ids.indexOf(id)>=0) return PAARE_BL[k]; return null; }
 function kartenListe(l){
@@ -72,10 +76,10 @@ function karte(i, kopf, tabs){
   var vals = i.laender.map(function(x){return x.wert}), mn = Math.min.apply(null, vals.concat([0])), mx = Math.max.apply(null, vals.concat([0])), span = (mx-mn)||1;
   var bar = function(v){ var left=(Math.min(v,0)-mn)/span*100, w=Math.max(.8,Math.abs(v)/span*100); return '<span class="trk"><span class="bb" style="left:'+left+'%;width:'+w+'%"></span></span>'; };
   var nw = Math.max.apply(null, i.laender.map(function(x){ return fw(i,x.wert).length; })), st = ' style="--nw:'+Math.max(3.4, Math.round(nw*0.58*10)/10)+'em"';
-  var t = '<div class="card bk"><h2>'+(kopf||i.name)+infoIcon(i.erklaerung+" Gewertet wird: "+(i.typ==="niedrig"?"ein niedrigerer Wert gilt als besser.":i.typ==="hoch"?"ein höherer Wert gilt als besser.":"nichts, der Wert hat keine Wertung.")+" "+(i.ohneTrend ? "Nur ein Jahr, deshalb ohne Trend." : "Pfeil = Veränderung über fünf Jahre ("+(i.vorPeriode||"?")+" bis "+i.periode+"), grün = besser, rot = schlechter. Eine Veränderung unter "+(i.relativ?"3 %":fw(i,i.schwelle)+" "+i.diffEinheit)+" gilt als unverändert."))+'</h2>'+(tabs ? tabs+'<p class="note spk"><b>'+i.name+'</b>. '+i.einheit : '<p class="note spk">'+i.einheit)+'. Stand: '+periode(i.periode)+(i.typ==="neutral"?'. Ohne Wertung.':'.')+'</p>';
+  var t = '<div class="card bk"><h2>'+(kopf||i.name)+infoIcon(i.erklaerung+" Gewertet wird: "+(i.typ==="niedrig"?"ein niedrigerer Wert gilt als besser.":i.typ==="hoch"?"ein höherer Wert gilt als besser.":"nichts, der Wert hat keine Wertung.")+" "+(i.ohneTrend ? "Nur ein Jahr, deshalb ohne Trend." : i.trendInfo ? i.trendInfo : "Pfeil = Veränderung von "+(i.vorPeriode||"?")+" bis "+i.periode+", grün = besser, rot = schlechter (nur wo gewertet). Eine Veränderung unter "+(i.relativ?"3 %":fw(i,i.schwelle)+" "+i.diffEinheit)+" gilt als unverändert."))+'</h2>'+(tabs ? tabs+'<p class="note spk"><b>'+i.name+'</b>. '+i.einheit : '<p class="note spk">'+i.einheit)+'. Stand: '+periode(i.periode)+(i.typ==="neutral"?'. Ohne Wertung.':'.')+'</p>';
   t += i.laender.map(function(x){
     var pf = x.richtung ? '<span class="ta '+urteilCls(x.urteil)+'" title="'+(x.urteil?trendWort(x.urteil):"")+'">'+pfeil(x.richtung)+'</span>' : '<span class="ta"></span>';
-    return '<div class="row'+(hl===x.code?" at":"")+'"'+st+'><span>'+x.rang+'. '+x.name+'</span>'+bar(x.wert)+'<span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
+    return '<div class="row'+(hl===x.code?" at":"")+'"'+st+'><span>'+x.rang+'. '+x.name+(x.zus?'<small class="note zs">'+x.zus+'</small>':'')+'</span>'+bar(x.wert)+'<span class="n">'+fw(i,x.wert)+'</span>'+pf+'</div>';
   }).join("");
   if(i.oesterreich) t += '<p class="note">Österreich insgesamt: '+fw(i,i.oesterreich.wert)+'</p>';
   return t + '</div>';
