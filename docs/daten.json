@@ -15549,8 +15549,8 @@
    "hinweis": "Zeigt die Altersstruktur. Eine höhere Quote bedeutet mehr Ältere je Erwerbsfähigem und damit mehr Druck auf das Pensionssystem. Sie hängt auch von der Zuwanderung und der Beschäftigung ab.",
    "umstritten": false,
    "trendNeutral": false,
-   "schwelle": 1,
-   "schwelleArt": "relativ",
+   "schwelle": 0.5,
+   "schwelleArt": "fest",
    "datensatz": "demo_pjanind",
    "zusatz": null,
    "takt": "jahr",
@@ -15569,8 +15569,8 @@
     "schnitt": 30.9,
     "schnittVorher": 30.2,
     "veraenderung": 0.7,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "steigend",
+    "urteil": "schlechter"
    },
    "eu": 34.4,
    "euMittelwert": false,
@@ -15587,8 +15587,8 @@
     "name": "Italien",
     "value": 39,
     "rank": 27,
-    "richtung": "stabil",
-    "urteil": "unverändert"
+    "richtung": "steigend",
+    "urteil": "schlechter"
    },
    "rangVerlauf": [
     {
@@ -15633,8 +15633,8 @@
     "n": 27,
     "schnitt": 30.2,
     "veraenderung": 0.7,
-    "richtung": "stabil",
-    "urteil": "unverändert",
+    "richtung": "steigend",
+    "urteil": "schlechter",
     "euVeraenderung": 0.5,
     "euUrteil": "unverändert"
    },
@@ -15669,24 +15669,24 @@
      "name": "Zypern",
      "value": 27.4,
      "rank": 4,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "SK",
      "name": "Slowakei",
      "value": 28.7,
      "rank": 5,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "AT",
      "name": "Österreich",
      "value": 30.9,
      "rank": 6,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "ES",
@@ -15717,8 +15717,8 @@
      "name": "Litauen",
      "value": 32.1,
      "rank": 10,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "HU",
@@ -15733,8 +15733,8 @@
      "name": "Niederlande",
      "value": 32.4,
      "rank": 12,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "CZ",
@@ -15749,8 +15749,8 @@
      "name": "Polen",
      "value": 32.7,
      "rank": 14,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "DK",
@@ -15765,8 +15765,8 @@
      "name": "Estland",
      "value": 32.9,
      "rank": 16,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "SE",
@@ -15781,24 +15781,24 @@
      "name": "Lettland",
      "value": 34.7,
      "rank": 18,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "SI",
      "name": "Slowenien",
      "value": 34.9,
      "rank": 19,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "FR",
      "name": "Frankreich",
      "value": 35.5,
      "rank": 20,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "PT",
@@ -15813,8 +15813,8 @@
      "name": "Deutschland",
      "value": 35.9,
      "rank": 22,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "HR",
@@ -15829,8 +15829,8 @@
      "name": "Griechenland",
      "value": 37.4,
      "rank": 24,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     },
     {
      "code": "FI",
@@ -15853,8 +15853,8 @@
      "name": "Italien",
      "value": 39,
      "rank": 27,
-     "richtung": "stabil",
-     "urteil": "unverändert"
+     "richtung": "steigend",
+     "urteil": "schlechter"
     }
    ],
    "schweiz": {
