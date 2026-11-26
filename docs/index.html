@@ -36,7 +36,10 @@ var app = document.getElementById("app");
 var versteckt = [];
 if(D && D.indikatoren){ versteckt = D.indikatoren.filter(function(i){ return i.ausgeblendet; }); D.indikatoren = D.indikatoren.filter(function(i){ return !i.ausgeblendet; }); }
 if(D && D.regierung){
-  document.getElementById("sub").textContent = D.indikatoren.filter(function(i){ return i.oesterreich; }).length+" Indikatoren im Vergleich mit den 27 EU-Ländern, seit dem "+datum(D.regierung.start)+" ("+D.regierung.name+": "+D.regierung.parteien+").";
+  (function(){
+    var n = D.indikatoren.filter(function(i){ return i.oesterreich; }).length;
+    document.getElementById("sub").innerHTML = "Seit dem "+datum(D.regierung.start)+" ("+D.regierung.name+": "+D.regierung.parteien+")"+infoIcon(n+" Indikatoren im Vergleich mit den 27 EU-Ländern. Bei einigen Indikatoren liefern nicht alle Länder Daten, dann steht „von …“ mit der tatsächlichen Zahl der Länder. Manche gibt es nur für Österreich (etwa Insolvenzen und Verurteilungen), sie lassen sich nicht mit anderen EU-Ländern vergleichen.");
+  })();
 }
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
 else {
