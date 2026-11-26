@@ -707,6 +707,7 @@ function berechne(ind0, js) {
     const d = sc(a) - sc(b);
     const dv = a - b; x.richtung = dv > ind.schwelle ? "steigend" : dv < -ind.schwelle ? "sinkend" : "stabil";
     x.urteil = urt(d, dv);
+    x.wertJetzt = Math.round(a * 1000) / 1000; x.wertVorher = Math.round(b * 1000) / 1000; // Vergleichswerte für die Tabelle
   });
   // Rang-Entwicklung von Österreich über den ganzen Verlauf (nur Perioden mit genug Ländern)
   const rangVerlauf = [];
