@@ -198,7 +198,7 @@ const INDICATORS = [
       { dataset: "lfsi_emp_q", filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP&s_adj=SA" },
       { dataset: "lfsi_emp_a", filter: "indic_em=EMP_LFS&sex=T&age=Y20-64&unit=PC_POP" } ],
     einheit: "% der 20- bis 64-Jährigen, saisonbereinigt", rangText: "Rang 1 = höchste Beschäftigungsquote",
-    maxAlter: 12, typ: "hoch", schwelle: 0.3, schwelleFix: true, mock: { base: 66, step: 1.2 } }
+    maxAlter: 12, typ: "hoch", schwelle: 0.2, schwelleFix: true, mock: { base: 66, step: 1.2 } }
   ,{ id: "bevoelkerung", name: "Bevölkerungswachstum", takt: "jahr", dataset: "demo_gind",
     filter: "indic_de=JAN", // Einwohner am 1. Jänner (demo_gind ist aktueller als demo_pjan); daraus wird das Wachstum zum Vorjahr berechnet
     alternativen: [ { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ],
@@ -333,7 +333,7 @@ const INDICATORS = [
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 24,
     einheit: "Teilzeitbeschäftigte 20 bis 64 Jahre in % aller Erwerbstätigen dieser Altersgruppe", rangText: "Rang 1 = höchste Teilzeitquote",
     hinweis: "Eine hohe Teilzeitquote kann freiwillig gewählt sein (etwa wegen Kinderbetreuung oder Work-Life-Balance) oder an fehlenden Vollzeitstellen liegen. Die Statistik unterscheidet das nicht.",
-    typ: "neutral", trendNeutral: true, schwelle: 0.5, mock: { base: 28, step: 0.6 } }
+    typ: "neutral", trendNeutral: true, schwelle: 0.3, schwelleFix: true, mock: { base: 28, step: 0.6 } }
   ,{ id: "beschaeftigung5564", name: "Beschäftigung der 55- bis 64-Jährigen", takt: "jahr", dataset: "lfsi_emp_a",
     filter: "indic_em=EMP_LFS&sex=T&age=Y55-64&unit=PC_POP", alternativen: [ { dataset: "lfsa_ergan", filter: "sex=T&age=Y55-64&unit=PC" }, { dataset: "lfsa_ergan", filter: "sex=T&age=Y55-64" } ],
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
@@ -547,7 +547,7 @@ const INDICATORS = [
     einheit: "Durchschnitt auf einer Skala von 0 (gar nicht zufrieden) bis 10 (völlig zufrieden)", rangText: "Rang 1 = höchste Lebenszufriedenheit",
     hinweis: "Die Zahl stammt aus einer Befragung, die nur alle paar Jahre durchgeführt wird.",
     ausblenden2025: true,
-    typ: "hoch", schwelle: 0.1, mock: { base: 10, step: 1 } }
+    typ: "hoch", schwelle: 0.15, schwelleFix: true, mock: { base: 10, step: 1 } }
   ,{ id: "gefaengnis", name: "Gefängnisauslastung", takt: "jahr", dataset: "crim_pris_cap",
     filter: "indic_cr=PRIS_ACT_CAP&unit=NR", // Platzhalter (im Test); echte Berechnung: Häftlinge geteilt durch offizielle Haftplätze
     verhaeltnis: { zaehler: "indic_cr=PRIS_ACT_CAP&unit=NR", nenner: "indic_cr=PRIS_OFF_CAP&unit=NR" },
