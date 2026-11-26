@@ -258,3 +258,13 @@ svg{width:100%;height:auto;display:block}
 .sust .vh{display:none}.sust.zeigv .vh{display:block;opacity:.7}
 .sust .svb{margin:10px 0 0}
 @media(max-width:480px){.zrow{gap:3px}.zrow .zb{padding:4px 6px;font-size:.72rem}}
+.sust>summary{padding:6px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);flex-wrap:wrap;position:relative;padding-right:84px}
+.sust>summary:hover{border-color:var(--eu)}
+.sust>summary::before{display:none}
+.sust>summary .auf{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:.78rem;font-weight:700;color:var(--eu);display:flex;align-items:center;gap:4px}
+.sust>summary .auf::before{content:"Aufklappen"}
+.sust>summary .auf::after{content:"▾";font-size:1rem}
+.sust[open]>summary .auf::before{content:"Zuklappen"}
+.sust[open]>summary .auf::after{content:"▴"}
+.sust[open]>summary{margin-bottom:8px}
+@media(max-width:480px){.sust>summary{padding-right:12px;padding-bottom:30px}.sust>summary .auf{top:auto;bottom:6px;transform:none}}
