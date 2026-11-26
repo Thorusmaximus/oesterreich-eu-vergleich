@@ -42,6 +42,17 @@ function pfeilFuer(i, u, r){ return i.pfeilModus==="wert" ? (r ? pfeil(r) : "") 
 function pfeilHinweis(i){ return i.trendNeutral ? "" : i.pfeilModus==="wert" ? "Grün = besser, rot = schlechter." : "↑ besser, → unverändert, ↓ schlechter."; }
 function trendWort(u){ return u==="besser" ? "besser" : u==="schlechter" ? "schlechter" : u==="höher" ? "höher" : u==="niedriger" ? "niedriger" : "unverändert"; }
 function trendVergleich(i){ return i.art==="rating" ? "seit Regierungsantritt" : i.takt==="quartal" ? (i.rueckblick===4 ? "zum gleichen Quartal des Vorjahres" : "zum Vorquartal") : i.takt==="jahr" ? "zum Vorjahr" : i.takt==="halbjahr" ? "zum gleichen Halbjahr des Vorjahres" : "zu vor 3 Monaten"; }
+// Vergleichswerte der Trend-Zeile (für das Info-Symbol bei Kacheln und Detailseite)
+function trendTextFuer(i){
+  setzeEinheit(i);
+  var a = i.oesterreich, q = i.takt==="quartal", j = i.takt==="jahr", hb = i.takt==="halbjahr";
+  return hb
+    ? 'Verglichen wird der Preis im aktuellen Halbjahr ('+f(a.schnitt)+SUF+') mit dem im gleichen Halbjahr des Vorjahres ('+f(a.schnittVorher)+SUF+'), damit Jahreszeiten den Vergleich nicht verzerren.'
+    : q
+    ? 'Verglichen wird die Wachstumsrate des aktuellen Quartals ('+f(a.schnitt)+SUF+') mit der des Vorquartals ('+f(a.schnittVorher)+SUF+'). Jede Rate misst das Quartal gegenüber dem gleichen Quartal des Vorjahres.'
+    : j ? 'Verglichen wird der Wert des aktuellen Jahres ('+f(a.schnitt)+SUF+') mit dem des Vorjahres ('+f(a.schnittVorher)+SUF+').'
+    : 'Verglichen werden die Durchschnitte der letzten 3 Monate ('+f(a.schnitt)+SUF+') und der 3 Monate davor ('+f(a.schnittVorher)+SUF+'), damit einzelne Ausreißer den Trend nicht verzerren.';
+}
 function urteilCls(u){ return u==="besser" ? "good" : u==="schlechter" ? "bad" : ""; }
 function banner(){
   return D.beispiel ? '<div class="banner">Beispieldaten. Das sind keine echten Zahlen. Mit „node update.js" lädst du die aktuellen Eurostat-Daten.</div>' : "";

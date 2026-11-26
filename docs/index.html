@@ -31,7 +31,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=226be887"></script>
+<script src="common.js?v=eb161ec9"></script>
 <script>
 var app = document.getElementById("app");
 // Indikatoren ohne Daten ab 2025 sind ausgeblendet (sie erscheinen automatisch wieder, sobald es neuere Daten gibt)
@@ -97,7 +97,7 @@ else {
       + (a.bestand!=null ? '<div class="note">Einwohner: <strong>'+a.bestand.toLocaleString("de-AT",{minimumFractionDigits:2,maximumFractionDigits:2})+' Mio.</strong></div>' : '')
       + (i.art==="rating" ? '<div class="note">Durchschnitt: <strong>'+a.schnittText+'</strong> (S&amp;P, Moody\'s, Fitch)</div>' : '')
       + '<div class="note">Stand: '+(i.art==="rating" ? datum(i.stand) : periode(i.periode))+(i.veraltet ? ' (Aktualisierung fehlgeschlagen)' : '')+' '+amtsPille(i)+'</div>'
-      + (a.urteil && !i.ohneTrend ? '<div class="trend '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> Trend: '+trendWort(a.urteil)+' <span class="note">('+trendVergleich(i)+')</span></div>' : '')
+      + (a.urteil && !i.ohneTrend ? '<div class="trend '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> Trend: '+trendWort(a.urteil)+' <span class="note">('+trendVergleich(i)+')</span>'+infoIcon(i.realText||trendTextFuer(i))+'</div>' : '')
       + (i.rangVergleich||[]).map(function(v){ if(!v) return ''; var r=rangTrend(a.rang,v.rang); return '<div class="rtrend '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Rang '+v.label+': Platz '+v.rang+' <span class="note">('+r.text+')</span></div>'; }).join('')
       + (i.typ==="neutral" ? '<div class="note">'+(i.rangText||"Rang 1 = höchster Wert")+'</div>' : '')
       + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
