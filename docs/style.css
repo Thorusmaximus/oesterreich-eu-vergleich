@@ -293,3 +293,7 @@ svg{width:100%;height:auto;display:block}
 .zrow:has(.zl) .zb{flex:0 0 calc((100% - 10px)/3)}
 }
 .sub[hidden]{display:none}
+.gh .bil .gb{font:inherit;color:inherit;background:none;border:1px solid transparent;border-radius:999px;padding:1px 7px;margin:0 -7px 0 0;cursor:pointer}
+.gh .bil .gb.good{color:var(--good)}.gh .bil .gb.bad{color:var(--bad)}
+@media (hover:hover){.gh .bil .gb:hover{border-color:var(--line)}}
+.gh .bil .gb.on{border-color:var(--eu);background:var(--card)}

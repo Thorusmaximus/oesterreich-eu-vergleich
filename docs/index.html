@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=1bfcb964">
+<link rel="stylesheet" href="style.css?v=b1948c50">
 </head>
 <body>
 <main>
@@ -115,7 +115,7 @@ else {
     var vl = versteckt.filter(function(i){ return (i.gruppe||"Weitere")===g; }).sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
     if(!liste.length && !vl.length) return "";
     var z = {besser:0, schlechter:0, gleich:0, neutral:0}; D.indikatoren.forEach(function(i){ if((i.gruppe||"Weitere")===g && (i.oesterreich || kombiVon(i))) bilanzen(i).forEach(function(b){ z[b]++; }); });
-    var bil = '<span class="bil">'+(z.besser?'<span class="good">'+z.besser+' besser</span>':'')+(z.schlechter?'<span class="bad">'+z.schlechter+' schlechter</span>':'')+(z.gleich?'<span>'+z.gleich+' unverändert</span>':'')+(z.neutral?'<span>'+z.neutral+' ohne Wertung</span>':'')+'</span>';
+    var bil = '<span class="bil">'+(z.besser?'<button type="button" class="gb good" data-gf="besser" aria-pressed="false">'+z.besser+' besser</button>':'')+(z.schlechter?'<button type="button" class="gb bad" data-gf="schlechter" aria-pressed="false">'+z.schlechter+' schlechter</button>':'')+(z.gleich?'<button type="button" class="gb" data-gf="gleich" aria-pressed="false">'+z.gleich+' unverändert</button>':'')+(z.neutral?'<button type="button" class="gb" data-gf="neutral" aria-pressed="false">'+z.neutral+' ohne Wertung</button>':'')+'</span>';
     return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+(vl.length?'<button type="button" class="vbtn" data-t="('+vl.length+' ausgeblendet)" aria-expanded="false" title="Diese Kacheln haben noch keine Daten ab 2025">('+vl.length+' ausgeblendet)</button>':'')+'</h2>'+(vl.length?'<div class="tiles vtiles" hidden><p class="note vnote">Noch keine Daten ab 2025, daher normalerweise ausgeblendet. Sie erscheinen automatisch regulär, sobald neuere Daten vorliegen.</p>'+vl.map(function(i){ var k; try{ k=kachel(i); }catch(e){ k='<a class="card tile" href="indikator.html?id='+i.id+'"><div class="t">'+i.name+'</div><div class="note">Jüngste Daten: '+periode(i.periode)+'</div><div class="more">Details →</div></a>'; } return '<div class="vk" data-n="'+i.name.toLowerCase().replace(/"/g,'')+'">'+k+'</div>'; }).join('')+'</div>':'')+'<div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-r="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return rangStatus(byId[id])||''; }).join(' ') : (rangStatus(i)||''))+'" data-b="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return bilanzen(byId[id]).join(' '); }).join(' ') : bilanzen(i).join(' '))+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var k=kombiVon(i); if(!k) return kachel(i); return k.v.map(function(id,n){ return '<div class="var" data-v="'+id+'" data-r="'+(rangStatus(byId[id])||'')+'" data-b="'+bilanzen(byId[id]).join(' ')+'" data-n="'+(byId[id].name+' '+id).toLowerCase().replace(/"/g,'')+'"'+(n?' style="display:none"':'')+'>'+kachel(byId[id])+'</div>'; }).join(''); })()+'</div>'; }).join('')+'</div></section>';
   }).join('');
   h += '<div class="leiste"><button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Gruppen filtern"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Gruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
@@ -172,12 +172,14 @@ else {
   function filtere(){
     var q = (document.getElementById("suche").value||"").trim().toLowerCase();
     document.querySelectorAll(".kw").forEach(function(w){
-      var bs = w.getAttribute("data-b").split(" "), rs = w.getAttribute("data-r").split(" "), passt = (fSt==="alle" || bs.indexOf(fSt)>=0) && (fRk==="alle" || rs.indexOf(fRk)>=0);
+      var sec = w.closest(".gruppe"), gf = (sec && sec.getAttribute("data-gf")) || "";
+      var okS = function(b){ return (fSt==="alle" || b.indexOf(fSt)>=0) && (!gf || b.indexOf(gf)>=0); };
+      var bs = w.getAttribute("data-b").split(" "), rs = w.getAttribute("data-r").split(" "), passt = okS(bs) && (fRk==="alle" || rs.indexOf(fRk)>=0);
       if(fSt==="ausgebl"){ w.style.display = "none"; return; }
       w.style.display = (passt && (!q || w.getAttribute("data-n").indexOf(q)>=0)) ? "" : "none";
       var vars = w.querySelectorAll(".var"); if(!vars.length) return;
       // Passende Variante: 1. Treffer der Suche (nach Name), 2. Wertungsfilter, 3. zuletzt gewählte (Standard: erste)
-      var okF = function(v){ return (fSt==="alle" || v.getAttribute("data-b").split(" ").indexOf(fSt)>=0) && (fRk==="alle" || v.getAttribute("data-r").split(" ").indexOf(fRk)>=0); }, zeige = null;
+      var okF = function(v){ return okS(v.getAttribute("data-b").split(" ")) && (fRk==="alle" || v.getAttribute("data-r").split(" ").indexOf(fRk)>=0); }, zeige = null;
       if(q) vars.forEach(function(v){ if(!zeige && okF(v) && v.getAttribute("data-n").indexOf(q)>=0) zeige = v; });
       if(!zeige){
         var cur = w.querySelector(".var:not([style*='none'])");
@@ -215,6 +217,13 @@ else {
     });
   });
   document.getElementById("suche").addEventListener("input", filtere);
+  app.addEventListener("click", function(e){
+    var b = e.target.closest && e.target.closest(".gb"); if(!b) return;
+    var sec = b.closest(".gruppe"), f = b.getAttribute("data-gf"), neu = sec.getAttribute("data-gf")===f ? "" : f;
+    if(neu) sec.setAttribute("data-gf", neu); else sec.removeAttribute("data-gf");
+    sec.querySelectorAll(".gb").forEach(function(x){ var on = x.getAttribute("data-gf")===neu; x.classList.toggle("on", on); x.setAttribute("aria-pressed", on ? "true" : "false"); });
+    b.blur(); filtere();
+  });
   document.addEventListener("click", function(e){
     var b = e.target.closest(".umsch button"); if(!b) return;
     e.preventDefault(); e.stopPropagation();
