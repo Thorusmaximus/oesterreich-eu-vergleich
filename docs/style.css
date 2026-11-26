@@ -240,3 +240,10 @@ svg{width:100%;height:auto;display:block}
 .vbtn:hover{color:inherit}
 .vtiles{margin-bottom:14px;opacity:.85}.vtiles[hidden]{display:none}.vnote{grid-column:1/-1;margin:0}
 .vk{display:contents}
+.sust{margin:6px 0 18px}.sust .gh{margin-top:6px}
+.sustg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sustg h3{margin:0 0 4px;font-size:.95rem}.sustg h3.good{color:var(--good)}.sustg h3.bad{color:var(--bad)}
+.sustg ul{list-style:none;margin:0;padding:0}.sustg li{border-top:1px solid var(--line)}
+.sustg a{display:flex;justify-content:space-between;gap:8px;padding:6px 0;color:inherit;text-decoration:none;font-size:.9rem}
+.sustg a:hover span{text-decoration:underline}.sustg b{white-space:nowrap}.sustg b.good{color:var(--good)}.sustg b.bad{color:var(--bad)}.sustg small{font-weight:400;color:var(--mut)}
+@media(max-width:640px){.sustg{grid-template-columns:1fr}}

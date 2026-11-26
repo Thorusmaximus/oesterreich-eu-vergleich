@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=bd742545">
+<link rel="stylesheet" href="style.css?v=91fbbb3d">
 </head>
 <body>
 <main>
@@ -119,6 +119,23 @@ else {
   h += fussnote();
   app.innerHTML = h;
   neuesteLeiste();
+  (function(){
+    // Stärken und Schwächen: Platz in den obersten bzw. untersten 5 (bis 20 Länder: 4, bis 15 Länder: 3)
+    var st=[], sw=[];
+    D.indikatoren.forEach(function(i){
+      var o=i.oesterreich, n=i.anzahlLaender; if(!o || !n || o.rang==null || !i.typ || i.typ==="neutral") return;
+      var k = n>20 ? 5 : n>15 ? 4 : 3;
+      if(o.rang<=k) st.push(i); else if(o.rang>=n-k+1) sw.push(i);
+    });
+    var rel=function(i){ return i.oesterreich.rang/i.anzahlLaender; };
+    st.sort(function(a,b){ return rel(a)-rel(b) || a.name.localeCompare(b.name,"de"); });
+    sw.sort(function(a,b){ return rel(b)-rel(a) || a.name.localeCompare(b.name,"de"); });
+    if(!st.length && !sw.length) return;
+    var li=function(l,ton){ return l.length ? '<ul>'+l.map(function(i){ return '<li><a href="indikator.html?id='+encodeURIComponent(i.id)+'"><span>'+i.name+'</span><b class="'+ton+'">Platz '+i.oesterreich.rang+' <small>von '+i.anzahlLaender+'</small></b></a></li>'; }).join('')+'</ul>' : '<p class="note">Keine.</p>'; };
+    var box=document.createElement("section"); box.className="sust";
+    box.innerHTML='<h2 class="gh">Stärken und Schwächen im EU-Vergleich'+infoIcon("Gezeigt werden Indikatoren mit Wertung, bei denen Österreich unter den obersten bzw. untersten Plätzen liegt: bei 21 bis 27 Ländern die ersten bzw. letzten fünf, bei 16 bis 20 Ländern vier, bei 15 oder weniger drei. Indikatoren ohne Wertung und ausgeblendete Indikatoren fehlen. Das ist eine Momentaufnahme des aktuellen Platzes. Sie sagt nichts darüber, wer dafür verantwortlich ist.")+'</h2><div class="sustg"><div><h3 class="good">Stärken</h3>'+li(st,"good")+'</div><div><h3 class="bad">Schwächen</h3>'+li(sw,"bad")+'</div></div>';
+    var ap=document.getElementById("app"); ap.parentNode.insertBefore(box,ap);
+  })();
   app.addEventListener("click", function(e){ var b=e.target.closest&&e.target.closest(".vbtn"); if(!b) return; var t=b.closest("section").querySelector(".vtiles"); var auf=b.getAttribute("aria-expanded")!=="true"; t.hidden=!auf && fSt!=="ausgebl"; b.setAttribute("aria-expanded",auf?"true":"false"); b.textContent=auf?"(ausgeblendete Kacheln verbergen)":b.getAttribute("data-t"); });
   (function(){
     var z = {besser:0, schlechter:0, gleich:0, neutral:0};
