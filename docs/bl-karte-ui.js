@@ -14,8 +14,8 @@ function kmHolen(code) { // Farbe + Kurztext je Land für die aktuelle Auswahl
   if (KM.ind === "gesamt") {
     if (!bi) return { c: KM_GRAU, t: "keine Daten" };
     if (KM.modus === "staerke") return { c: kmHsl((bi.platz - 1) / 8), t: "Gesamtbild Platz " + bi.platz + " von " + B.bilanz.length };
-    var s = bi.besser - bi.schlechter, m = Math.max.apply(null, B.bilanz.map(function (b) { return Math.abs(b.besser - b.schlechter); })) || 1;
-    return { c: s === 0 ? KM_GRAU : kmHsl(s > 0 ? 0.5 - 0.5 * s / m : 0.5 + 0.5 * -s / m), t: bi.besser + " besser, " + bi.schlechter + " schlechter" };
+    var s = bi.besser - bi.schlechter;
+    return { c: s === 0 ? KM_GRAU : s > 0 ? kmHsl(0) : kmHsl(1), t: bi.besser + " besser, " + bi.schlechter + " schlechter" };
   }
   var i = kmInd(), x = i && i.laender.filter(function (z) { return z.code === code; })[0];
   if (!x) return { c: KM_GRAU, t: "keine Daten" };
