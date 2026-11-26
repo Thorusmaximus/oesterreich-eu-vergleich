@@ -276,3 +276,11 @@ svg{width:100%;height:auto;display:block}
 .sust .sdrit h3{margin-top:10px;color:var(--mut)}
 @media(max-width:640px){.sust .sustg:has(.sdrit){grid-template-columns:1fr}.sust .sdrit{border-left:0;padding-left:0}}
 .sust .sdrit .vbtn{display:inline-block;max-width:calc(100% - 26px);vertical-align:middle;text-align:left}
+@media(max-width:480px){
+.zrow{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;align-items:center}
+.zrow .zb{padding:6px 2px;font-size:min(.8rem,3.2vw);white-space:nowrap;text-align:center;min-width:0}
+.zrow .zl{grid-column:1/3;flex:none}
+.zrow .zl ~ .info{order:1;justify-self:start}
+.zrow .zl ~ .zb{order:2}
+.zrow>.info{justify-self:start;margin-left:6px}
+}
