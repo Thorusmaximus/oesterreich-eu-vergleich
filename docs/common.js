@@ -47,7 +47,8 @@ function banner(){
   return D.beispiel ? '<div class="banner">Beispieldaten. Das sind keine echten Zahlen. Mit „node update.js" lädst du die aktuellen Eurostat-Daten.</div>' : "";
 }
 function fussnote(){
-  return '<p class="note">Quelle: '+D.quelle+'. Daten zuletzt abgerufen am '+datum(D.aktualisiert)+' <a href="methodik.html">Methodik</a>'+' · <a href="impressum.html">Impressum</a></p>';
+  var q = D.quellen || "Eurostat, Europäische Kommission, Statistik Austria, Bundeskriminalamt, KSV1870, Europol und weitere";
+  return '<p class="note">Quellen: '+q+' (je Indikator in der <a href="methodik.html">Methodik</a>). Daten zuletzt abgerufen am '+datum(D.aktualisiert)+' · <a href="methodik.html">Methodik</a>'+' · <a href="impressum.html">Impressum</a></p>';
 }
 
 // Rangvergleich: kleinerer Platz = besser (Pfeil nach oben)

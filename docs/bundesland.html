@@ -22,8 +22,8 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="bl-daten.js"></script>
-<script>window.DATEN = { beispiel: !!(window.BL && window.BL.beispiel), quelle: "Eurostat", aktualisiert: (window.BL && window.BL.aktualisiert) || new Date().toISOString().slice(0,10) };</script>
-<script src="common.js?v=092ee4ab"></script>
+<script>window.DATEN = { beispiel: !!(window.BL && window.BL.beispiel), quelle: "Eurostat", quellen: "Eurostat (Regionaldaten), Statistik Austria, AMS, Bundeskriminalamt, KSV1870, Sozialministerium und weitere", aktualisiert: (window.BL && window.BL.aktualisiert) || new Date().toISOString().slice(0,10) };</script>
+<script src="common.js?v=e06979dd"></script>
 <script src="bl-common.js?v=5ac0338f"></script>
 <script>
 var app = document.getElementById("app"), B = window.BL, qs = new URLSearchParams(location.search), hl = qs.get("hl") || "", id = qs.get("id");
