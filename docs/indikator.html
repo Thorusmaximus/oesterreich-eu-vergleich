@@ -13,7 +13,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=d07d4df3">
+<link rel="stylesheet" href="style.css?v=2aae17b0">
 </head>
 <body>
 <main>
@@ -288,7 +288,8 @@ function ranking(i){
     return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.zus?" mitb":"")+'"'+st+'><span>'+x.rank+'. '+x.name+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+'<span class="n">'+fv(x.value)+'</span>'+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null)+'</div>';
   }).join("");
   if(i.schweiz){
-    s += '<div class="row ch'+(i.schweiz.bestand!=null?" mitb":"")+'"'+st+'><span>'+infoIcon('Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Der Wert dient nur zum Vergleich'+(i.schweiz.periode!==i.periode ? ' (Stand: '+periode(i.schweiz.periode)+')' : '')+'.')+' Schweiz'+(i.schweiz.bestand!=null?' <small class="note">'+mioText(i.schweiz.bestand)+' Mio.</small>':'')+'</span>'+bar(i.schweiz.wert)+'<span class="n">'+fv(i.schweiz.wert)+'</span><span class="ta"></span></div>';
+    var mitb = i.schweiz.bestand!=null || i.laender.some(function(x){ return x.bestand!=null||x.zus; });
+    s += '<div class="row ch'+(mitb?" mitb":"")+'"'+st+'><span>'+infoIcon('Die Schweiz ist kein EU-Mitglied und zählt nicht zum Ranking. Der Wert dient nur zum Vergleich'+(i.schweiz.periode!==i.periode ? ' (Stand: '+periode(i.schweiz.periode)+')' : '')+'.')+' Schweiz'+(i.schweiz.bestand!=null?' <small class="note">'+mioText(i.schweiz.bestand)+' Mio.</small>':'')+'</span>'+bar(i.schweiz.wert)+'<span class="n">'+fv(i.schweiz.wert)+'</span><span class="ta"></span></div>';
   }
   return s;
 }

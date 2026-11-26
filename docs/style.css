@@ -33,7 +33,7 @@ svg{width:100%;height:auto;display:block}
 .row.at{font-weight:700}.row.at .bb{background:var(--at)}
 .row .n{text-align:right;font-variant-numeric:tabular-nums}
 .row.ch{border-top:1px dashed var(--line);margin-top:8px;padding-top:8px;color:var(--mut)}
-.row.ch .bb{background:repeating-linear-gradient(90deg,var(--bar) 0 6px,transparent 6px 10px)}
+.row.ch .bb{background:var(--bar);opacity:.55}
 .note{color:var(--mut);font-size:.85rem}
 
 .chartwrap{position:relative}
