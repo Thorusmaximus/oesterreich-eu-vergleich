@@ -297,3 +297,9 @@ svg{width:100%;height:auto;display:block}
 .gh .bil .gb.good{color:var(--good)}.gh .bil .gb.bad{color:var(--bad)}
 @media (hover:hover){.gh .bil .gb:hover{border-color:var(--line)}}
 .gh .bil .gb.on{border-color:var(--eu);background:var(--card)}
+.gh .bil{gap:6px}
+.gh .bil .gb{border-color:var(--line);background:var(--card);padding:2px 9px;margin:0}
+@media (hover:hover){.gh .bil .gb:hover{border-color:var(--eu)}}
+.gh .bil .gb.on{border-color:var(--eu);background:var(--bg,#f4f6fb)}
+.gh .bil{flex-wrap:wrap}.gh .bil .gb{white-space:nowrap}
+@media(max-width:480px){.gh .bil .gb{padding:2px 7px;font-size:.74rem}.gh .bil{gap:5px}}
