@@ -255,3 +255,5 @@ svg{width:100%;height:auto;display:block}
 .sust>summary::before{content:"▸";color:var(--mut);transition:transform .15s}
 .sust[open]>summary::before{transform:rotate(90deg)}
 .sust>summary .gh{margin:6px 0}.sust .sz{font-size:.78rem;font-weight:600;color:var(--mut)}
+.sust .vh{display:none}.sust.zeigv .vh{display:block;opacity:.7}
+.sust .svb{margin:10px 0 0}
