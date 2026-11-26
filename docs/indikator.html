@@ -23,7 +23,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=e06979dd"></script>
+<script src="common.js?v=226be887"></script>
 <script>
 var app = document.getElementById("app");
 var id = new URLSearchParams(location.search).get("id");
@@ -156,7 +156,7 @@ function detailInsolvenz(i){
      + '<div><div class="k">Höchster Wert</div><div class="v bad">'+zahl(a.hoechstes.wert)+'</div><div class="k">'+a.hoechstes.jahr+'</div></div>'
      + '<div><div class="k">Niedrigster Wert</div><div class="v good">'+zahl(a.niedrigstes.wert)+'</div><div class="k">'+a.niedrigstes.jahr+'</div></div>'
      + '</div></div>';
-  h += '<div class="card"><h2>Trend gegenüber dem Vorjahr'+infoIcon('Weniger Insolvenzen gelten als besser. Eine Veränderung unter 3 % wird als unverändert gewertet. Pfeil = Richtung des Wertes (↑ steigt, ↓ sinkt), grün = besser, rot = schlechter.')+'</h2><div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+prozent(a.veraenderungProzent)+', '+zahl(a.wertVorher)+' auf '+zahl(a.wert)+')</span></div>'
+  h += '<div class="card"><h2>Trend gegenüber dem Vorjahr'+infoIcon('Weniger Insolvenzen gelten als besser. Eine Veränderung unter 3 % wird als unverändert gewertet. Grün = besser, rot = schlechter.')+'</h2><div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(a.richtung)+'</span> '+trendWort(a.urteil)+' <span class="k">('+prozent(a.veraenderungProzent)+', '+zahl(a.wertVorher)+' auf '+zahl(a.wert)+')</span></div>'
      + (hj ? '<div class="v '+urteilCls(hj.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(hj.richtung)+'</span> 1. Halbjahr '+hj.jahr+': '+trendWort(hj.urteil)+' <span class="k">('+prozent(hj.veraenderungProzent)+', '+zahl(hj.wertVorher)+' auf '+zahl(hj.wert)+' im Vergleich zum 1. Halbjahr '+hj.vorjahr+')</span></div>' : '')
      + '</div>';
   h += '<div class="card"><h2>Insolvenzen der letzten '+i.anzahlJahre+' Jahre'+infoIcon('Eröffnet: Das Gericht eröffnet ein Insolvenzverfahren, weil das Vermögen des Unternehmens mindestens die Verfahrenskosten deckt. Es wird dann saniert oder verwertet. Nicht eröffnet (mangels Vermögen): Der Antrag wird abgewiesen, weil nicht einmal die Verfahrenskosten gedeckt wären. Solche Unternehmen werden meist aufgelöst und gelten ebenfalls als insolvent.'+' '+'Die Krisen sind markiert. In den Corona-Jahren 2020 und 2021 lagen die Zahlen wegen staatlicher Hilfen und ausgesetzter Antragspflichten deutlich niedriger. Dass sie danach wieder stiegen, ist teilweise ein Aufholeffekt. Die hohen Verbindlichkeiten 2023 und 2024 gehen vor allem auf einzelne Großinsolvenzen zurück.')+'</h2><div class="chartwrap" id="iwrap">'+insolvenzChart(i)+'<div class="tip r" id="itip" style="display:none"></div></div>'
@@ -173,7 +173,7 @@ function detailInsolvenz(i){
 }
 function detailVerurteilungen(i){
   var h = banner();
-  h += '<div class="card"><h2>'+i.name+infoIcon('Weniger Verurteilungen gelten hier als besser, eine Veränderung unter '+i.schwelleProzent+' % als unverändert. Pfeil = Richtung des Wertes, grün = besser, rot = schlechter. Weniger Verurteilungen können auch heißen, dass weniger aufgeklärt oder verurteilt wird. Das Fenster zählt deshalb in der Gesamtbilanz der Startseite nicht mit.')+'</h2><p class="note">'+i.einheit+'. Stand: '+periode(i.periode)+'. Nur Österreich, kein EU-Vergleich.</p>'
+  h += '<div class="card"><h2>'+i.name+infoIcon('Weniger Verurteilungen gelten hier als besser, eine Veränderung unter '+i.schwelleProzent+' % als unverändert. Grün = besser, rot = schlechter. Weniger Verurteilungen können auch heißen, dass weniger aufgeklärt oder verurteilt wird. Das Fenster zählt deshalb in der Gesamtbilanz der Startseite nicht mit.')+'</h2><p class="note">'+i.einheit+'. Stand: '+periode(i.periode)+'. Nur Österreich, kein EU-Vergleich.</p>'
      + '<table class="rt"><thead><tr><th>Delikt</th><th>'+i.vorherPeriode+'</th><th>'+i.periode+'</th><th>Veränderung</th></tr></thead><tbody>'
      + i.delikte.map(function(d){ return '<tr><td>'+d.name+'</td><td>'+zahl(d.wertVorher)+'</td><td><b>'+zahl(d.wert)+'</b></td><td class="'+urteilCls(d.urteil)+'"><span class="ar" aria-hidden="true">'+pfeil(d.richtung)+'</span> '+prozent(d.veraenderungProzent)+' <span class="note">('+trendWort(d.urteil)+')</span></td></tr>'; }).join('')
      + '</tbody></table>'
