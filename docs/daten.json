@@ -1,6 +1,6 @@
 {
  "beispiel": false,
- "aktualisiert": "2026-11-25",
+ "aktualisiert": "2026-11-26",
  "quelle": "Eurostat",
  "regierung": {
   "name": "Regierung Stocker",
@@ -23057,7 +23057,7 @@
    "dez": 1,
    "suffix": " %",
    "diffEinheit": "Prozentpunkte",
-   "hinweis": "Der unbereinigte Wert vergleicht alle Frauen mit allen Männern. Er berücksichtigt nicht, dass Frauen häufiger in Teilzeit und in schlechter bezahlten Branchen arbeiten.",
+   "hinweis": "Der unbereinigte Wert vergleicht alle Frauen mit allen Männern. Er vergleicht Stundenverdienste und rechnet Unterschiede bei Branche, Beruf, Position und Berufserfahrung nicht heraus.",
    "umstritten": false,
    "trendNeutral": false,
    "schwelle": 0.33,
@@ -23383,7 +23383,7 @@
    "geaendert": "2026-11-24",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "ausgeblendet": true,
-   "erklaerung": "Um wie viel Prozent die Stundenverdienste von Frauen im Schnitt unter denen der Männer liegen (unbereinigt). Der Wert vergleicht alle Frauen mit allen Männern und berücksichtigt nicht, dass Frauen häufiger in Teilzeit und in schlechter bezahlten Branchen arbeiten.",
+   "erklaerung": "Um wie viel Prozent der durchschnittliche Brutto-Stundenverdienst von Frauen unter dem der Männer liegt (unbereinigt, Unternehmen ab 10 Beschäftigten). Weil Stundenverdienste verglichen werden, wirken unterschiedliche Arbeitszeiten nicht direkt auf den Wert. Nicht herausgerechnet sind aber Unterschiede bei Branche, Beruf, Position und Berufserfahrung. Auch die Teilzeit hängt damit zusammen, denn Teilzeit ist häufiger in Branchen und Positionen mit niedrigerem Stundenlohn. Der Wert sagt daher nicht, ob für gleiche Arbeit unterschiedlich bezahlt wird.",
    "gruppe": "Gesellschaft"
   },
   {
