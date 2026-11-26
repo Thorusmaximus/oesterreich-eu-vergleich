@@ -284,3 +284,5 @@ svg{width:100%;height:auto;display:block}
 .zrow .zl ~ .zb{order:2}
 .zrow>.info{justify-self:start;margin-left:6px}
 }
+.sust>summary .gh{display:block}.sust>summary .sz{display:block;white-space:nowrap;margin-top:2px}
+@media(max-width:480px){.sust>summary .sz{font-size:min(.78rem,2.85vw)}}
