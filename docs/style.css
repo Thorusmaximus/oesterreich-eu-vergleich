@@ -247,3 +247,6 @@ svg{width:100%;height:auto;display:block}
 .sustg a{display:flex;justify-content:space-between;gap:8px;padding:6px 0;color:inherit;text-decoration:none;font-size:.9rem}
 .sustg a:hover span{text-decoration:underline}.sustg b{white-space:nowrap}.sustg b.good{color:var(--good)}.sustg b.bad{color:var(--bad)}.sustg small{font-weight:400;color:var(--mut)}
 @media(max-width:640px){.sustg{grid-template-columns:1fr}}
+.sust .gh.sn{margin-top:18px}
+.sust .gh.sn{margin-top:18px}
+.sust .gh.sn{margin-top:18px}
