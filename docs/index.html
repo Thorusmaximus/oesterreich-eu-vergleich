@@ -116,13 +116,20 @@ else {
     if(!liste.length && !vl.length) return "";
     var z = {besser:0, schlechter:0, gleich:0, neutral:0}; D.indikatoren.forEach(function(i){ if((i.gruppe||"Weitere")===g && (i.oesterreich || kombiVon(i))) bilanzen(i).forEach(function(b){ z[b]++; }); });
     var bil = '<span class="bil">'+(z.besser?'<button type="button" class="gb good" data-gf="besser" aria-pressed="false">'+z.besser+' besser</button>':'')+(z.schlechter?'<button type="button" class="gb bad" data-gf="schlechter" aria-pressed="false">'+z.schlechter+' schlechter</button>':'')+(z.gleich?'<button type="button" class="gb" data-gf="gleich" aria-pressed="false">'+z.gleich+' unverändert</button>':'')+(z.neutral?'<button type="button" class="gb" data-gf="neutral" aria-pressed="false">'+z.neutral+' ohne Wertung</button>':'')+'</span>';
-    return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+(vl.length?'<button type="button" class="vbtn" data-t="('+vl.length+' ausgeblendet)" aria-expanded="false" title="Diese Kacheln haben noch keine Daten ab 2025">('+vl.length+' ausgeblendet)</button>':'')+'</h2>'+(vl.length?'<div class="tiles vtiles" hidden><p class="note vnote">Noch keine Daten ab 2025, daher normalerweise ausgeblendet. Sie erscheinen automatisch regulär, sobald neuere Daten vorliegen.</p>'+vl.map(function(i){ var k; try{ k=kachel(i); }catch(e){ k='<a class="card tile" href="indikator.html?id='+i.id+'"><div class="t">'+i.name+'</div><div class="note">Jüngste Daten: '+periode(i.periode)+'</div><div class="more">Details →</div></a>'; } return '<div class="vk" data-n="'+i.name.toLowerCase().replace(/"/g,'')+'">'+k+'</div>'; }).join('')+'</div>':'')+'<div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-r="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return rangStatus(byId[id])||''; }).join(' ') : (rangStatus(i)||''))+'" data-b="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return bilanzen(byId[id]).join(' '); }).join(' ') : bilanzen(i).join(' '))+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var k=kombiVon(i); if(!k) return kachel(i); return k.v.map(function(id,n){ return '<div class="var" data-v="'+id+'" data-r="'+(rangStatus(byId[id])||'')+'" data-b="'+bilanzen(byId[id]).join(' ')+'" data-n="'+(byId[id].name+' '+id).toLowerCase().replace(/"/g,'')+'"'+(n?' style="display:none"':'')+'>'+kachel(byId[id])+'</div>'; }).join(''); })()+'</div>'; }).join('')+'</div></section>';
+    return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+(vl.length?'<button type="button" class="vbtn" data-t="('+vl.length+' ausgeblendet)" aria-expanded="false" title="Diese Kacheln haben noch keine Daten ab 2025">('+vl.length+' ausgeblendet)</button>':'')+'</h2>'+(vl.length?'<div class="tiles vtiles" hidden><p class="note vnote">Noch keine Daten ab 2025, daher normalerweise ausgeblendet. Sie erscheinen automatisch regulär, sobald neuere Daten vorliegen.</p>'+vl.map(function(i){ var k; try{ k=kachel(i); }catch(e){ k='<a class="card tile" href="indikator.html?id='+i.id+'"><div class="t">'+i.name+'</div><div class="note">Jüngste Daten: '+periode(i.periode)+'</div><div class="more">Details →</div></a>'; } return '<div class="vk" data-n="'+i.name.toLowerCase().replace(/"/g,'')+'">'+k+'</div>'; }).join('')+'</div>':'')+'<div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-k="'+i.name.replace(/"/g,'')+'" data-r="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return rangStatus(byId[id])||''; }).join(' ') : (rangStatus(i)||''))+'" data-b="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return bilanzen(byId[id]).join(' '); }).join(' ') : bilanzen(i).join(' '))+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var k=kombiVon(i); if(!k) return kachel(i); return k.v.map(function(id,n){ return '<div class="var" data-v="'+id+'" data-r="'+(rangStatus(byId[id])||'')+'" data-b="'+bilanzen(byId[id]).join(' ')+'" data-n="'+(byId[id].name+' '+id).toLowerCase().replace(/"/g,'')+'"'+(n?' style="display:none"':'')+'>'+kachel(byId[id])+'</div>'; }).join(''); })()+'</div>'; }).join('')+'</div></section>';
   }).join('');
   h += '<div class="leiste"><button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Gruppen filtern"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg><span>Gruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
-  + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>'
+  + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button><button data-g="__az">Alle A–Z</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>'
   + '<div class="suche"><input type="search" id="suche" placeholder="Indikator suchen" aria-label="Indikator suchen" autocomplete="off"></div></div>' + gruppenHtml;
   h += fussnote();
   app.innerHTML = h;
+  (function(){ // Flache Ansicht „Alle A–Z“: Kopien aller Kacheln, alphabetisch, ohne Gruppen
+    var alle = Array.prototype.slice.call(app.querySelectorAll(".gruppe .kw")).sort(function(a,b){ return a.getAttribute("data-k").localeCompare(b.getAttribute("data-k"),"de"); });
+    var sec = document.createElement("section"); sec.className = "az"; sec.id = "az"; sec.style.display = "none";
+    var t = document.createElement("div"); t.className = "tiles";
+    alle.forEach(function(k){ t.appendChild(k.cloneNode(true)); });
+    sec.appendChild(t); app.appendChild(sec);
+  })();
   neuesteLeiste();
   (function(){
     // Stärken und Schwächen: Platz in den obersten bzw. untersten 5 (bis 20 Länder: 4, bis 15 Länder: 3)
@@ -194,13 +201,14 @@ else {
       var ok = {}; vars.forEach(function(v){ ok[v.getAttribute("data-v")] = okF(v); });
       w.querySelectorAll(".umsch button").forEach(function(bt){ bt.style.display = ok[bt.getAttribute("data-v")] ? "" : "none"; });
     });
-    var av = fSt==="ausgebl";
+    var av = fSt==="ausgebl", az = document.getElementById("az");
+    if(az) az.style.display = fGr==="__az" && !av && az.querySelector(".kw:not([style*='none'])") ? "" : "none";
     document.querySelectorAll(".vtiles").forEach(function(t){
       var btn = t.closest("section").querySelector(".vbtn"), offen = btn && btn.getAttribute("aria-expanded")==="true";
       t.hidden = !(av || offen);
       t.querySelectorAll(".vk").forEach(function(k){ k.style.display = (!av || !q || k.getAttribute("data-n").indexOf(q)>=0) ? "" : "none"; });
     });
-    document.querySelectorAll(".gruppe").forEach(function(s){ var gOk = !fGr || s.getAttribute("data-g")===fGr; s.style.display = gOk && (s.querySelector(".kw:not([style*='none'])") || (av && s.querySelector(".vk:not([style*='none'])"))) ? "" : "none"; });
+    document.querySelectorAll(".gruppe").forEach(function(s){ var gOk = !fGr || s.getAttribute("data-g")===fGr || (av && fGr==="__az"); s.style.display = gOk && (s.querySelector(".kw:not([style*='none'])") || (av && s.querySelector(".vk:not([style*='none'])"))) ? "" : "none"; });
   }
   window.__st = function(f){
     if(f.charAt(0)==="r" && f!=="rgleich" || f==="rgleich") fRk = (fRk===f ? "alle" : f); else fSt = (fSt===f ? "alle" : f);
