@@ -130,7 +130,9 @@ else {
     var sec = document.createElement("section"); sec.className = "az"; sec.id = "az"; sec.style.display = "none";
     var t = document.createElement("div"); t.className = "tiles";
     alle.forEach(function(k){ t.appendChild(k.cloneNode(true)); });
-    sec.appendChild(t); app.appendChild(sec);
+    sec.appendChild(t);
+    var gr = app.querySelectorAll(".gruppe"), letzte = gr[gr.length-1];
+    if(letzte) letzte.parentNode.insertBefore(sec, letzte.nextSibling); else app.appendChild(sec);
   })();
   neuesteLeiste();
   (function(){
