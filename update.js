@@ -362,7 +362,7 @@ const INDICATORS = [
     maxAlter: 26, dez: 1, suffix: "", diffEinheit: "Personen je 100", minLaender: 20,
     einheit: "Menschen ab 65 je 100 Menschen im Alter von 15 bis 64 Jahren", rangText: "Rang 1 = niedrigste Quote",
     hinweis: "Zeigt die Altersstruktur. Eine höhere Quote bedeutet mehr Ältere je Erwerbsfähigem und damit mehr Druck auf das Pensionssystem. Sie hängt auch von der Zuwanderung und der Beschäftigung ab.",
-    typ: "niedrig", schwelle: 0.5, mock: { base: 28, step: 1.5 } }
+    typ: "niedrig", schwelle: 0.5, schwelleFix: true, mock: { base: 28, step: 1.5 } }
   ,{ id: "toetung", name: "Tötungsdelikte", takt: "jahr", dataset: "crim_off_cat",
     filter: "iccs=ICCS0101&unit=P_HTHAB", // vorsätzliche Tötung, von der Polizei erfasst, pro 100.000 Einwohner
     alternativen: [ { dataset: "crim_off_cat", filter: "iccs=ICCS0101&unit=P_HTHAB" } ],
