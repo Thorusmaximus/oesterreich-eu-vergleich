@@ -292,3 +292,4 @@ svg{width:100%;height:auto;display:block}
 .zrow:has(.zl)>.info{margin-left:0}.zrow:has(.zl)::after{content:"";flex:0 0 100%;order:1;height:0;margin-top:-5px}
 .zrow:has(.zl) .zb{flex:0 0 calc((100% - 10px)/3)}
 }
+.sub[hidden]{display:none}

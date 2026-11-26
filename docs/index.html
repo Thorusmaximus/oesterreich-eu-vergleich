@@ -14,7 +14,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=42c809de">
+<link rel="stylesheet" href="style.css?v=1bfcb964">
 </head>
 <body>
 <main>
@@ -38,7 +38,9 @@ if(D && D.indikatoren){ versteckt = D.indikatoren.filter(function(i){ return i.a
 if(D && D.regierung){
   (function(){
     var n = D.indikatoren.filter(function(i){ return i.oesterreich; }).length;
-    document.getElementById("sub").innerHTML = "Seit dem "+datum(D.regierung.start)+" ("+D.regierung.name+": "+D.regierung.parteien+")"+infoIcon(n+" Indikatoren im Vergleich mit den 27 EU-Ländern. Bei einigen Indikatoren liefern nicht alle Länder Daten, dann steht „von …“ mit der tatsächlichen Zahl der Länder. Manche gibt es nur für Österreich (etwa Insolvenzen und Verurteilungen), sie lassen sich nicht mit anderen EU-Ländern vergleichen.");
+    var f = document.getElementById("frage");
+    f.innerHTML = "Wie steht Österreich seit dem Regierungswechsel ("+datum(D.regierung.start)+") da?"+infoIcon("Amtsantritt der "+D.regierung.name+" am "+datum(D.regierung.start)+" ("+D.regierung.parteien+"). "+n+" Indikatoren im Vergleich mit den 27 EU-Ländern. Bei einigen Indikatoren liefern nicht alle Länder Daten, dann steht „von …“ mit der tatsächlichen Zahl der Länder. Manche gibt es nur für Österreich (etwa Insolvenzen und Verurteilungen), sie lassen sich nicht mit anderen EU-Ländern vergleichen.");
+    document.getElementById("sub").hidden = true;
   })();
 }
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
