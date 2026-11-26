@@ -101,7 +101,7 @@ function detail(i){
        + rv.map(function(v){ var r=rangTrend(a.rang,v.rang); return '<div class="v '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Platz '+a.rang+' statt Platz '+v.rang+' '+v.label+' <span class="k">('+periode(v.t)+', '+r.text+')</span></div>'; }).join('')
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
-  if(i.verlauf && i.verlauf.length>1) h += '<div class="card"><h2>Verlauf der letzten 5 Jahre'+infoIcon('Wie sich der Wert Österreichs in den letzten fünf Jahren entwickelt hat. Mit der Maus oder dem Finger über die Linie fahren zeigt die einzelnen Werte.')+'</h2>'+chart(i)+'</div>';
+  if(i.verlauf && i.verlauf.length>1) h += '<div class="card"><h2>Verlauf der letzten 5 Jahre'+infoIcon('Wie sich der Wert Österreichs in den letzten fünf Jahren entwickelt hat.')+'</h2>'+chart(i)+'</div>';
   if(i.oesterreich.anzahl!=null){
     h += '<div class="card"><h2>Anschläge in Zahlen</h2><div class="v">Österreich: '+i.oesterreich.anzahl+(i.oesterreich.anzahl===1?' Anschlag':' Anschläge')+' <span class="k">im Jahr '+i.periode+' (Vorjahr: '+i.oesterreich.anzahlVorher+')</span></div>'
        + '<div class="v">EU insgesamt: '+i.euGesamt+' <span class="k">gemeldete Anschläge '+i.periode+'</span></div>'
