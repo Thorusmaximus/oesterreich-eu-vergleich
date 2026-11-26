@@ -103,15 +103,12 @@ svg{width:100%;height:auto;display:block}
 /* Gruppenfilter */
 .filter.gr{margin:0 0 10px}
 
-/* Filter: am Handy hinter einer Lupe */
-.fbtn{display:none}
-@media (max-width:600px){
-  .fbtn{display:inline-flex;align-items:center;gap:6px;position:relative;margin:0 0 10px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-weight:600;font-size:.9rem;cursor:pointer}
-  .fbtn[aria-expanded="true"]{border-color:var(--eu);color:var(--eu)}
-  .fdot{position:absolute;top:-2px;right:-2px;width:10px;height:10px;border-radius:50%;background:var(--good);border:2px solid var(--bg)}
-  .fbox{display:none}
-  .fbox.offen{display:block}
-}
+/* Gruppen-Filter hinter einer Schaltfläche (Handy und PC) */
+.fbtn{display:inline-flex;align-items:center;gap:6px;position:relative;margin:0 0 10px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font:inherit;font-weight:600;font-size:.9rem;cursor:pointer}
+.fbtn[aria-expanded="true"]{border-color:var(--eu);color:var(--eu)}
+.fdot{position:absolute;top:-2px;right:-2px;width:10px;height:10px;border-radius:50%;background:var(--good);border:2px solid var(--bg)}
+.fbox{display:none}
+.fbox.offen{display:block}
 
 
 .info.pille{width:auto;height:auto;border-radius:999px;padding:.06em .4em;margin-left:.3em;font-weight:600;font-size:.78rem;line-height:1.3;font-family:inherit;font-style:normal;vertical-align:.25em;white-space:nowrap;display:inline-block}
@@ -169,7 +166,7 @@ svg{width:100%;height:auto;display:block}
 .leiste .suche{flex:1 1 150px;min-width:0}
 .leiste .fbox{order:3;width:100%}
 .leiste .fbtn{order:1}.leiste .suche{order:2}
-@media (min-width:701px){.leiste .fbox{order:1}.leiste .suche{order:2;flex:0 1 340px}}
+@media (min-width:701px){.leiste .suche{flex:0 1 340px}}
 @media (max-width:700px){.leiste .fbtn{align-self:stretch;margin-bottom:10px}}
 .row>span:first-child{white-space:nowrap}
 .spk{text-align:right;margin:0 0 6px;font-size:.78rem}
