@@ -282,9 +282,10 @@ function ranking(i){
   };
   var su = (i.suffix||'').replace(/ /g,'\u00a0'), fv = function(v){ return f(v)+su; };
   var nw = Math.max.apply(null, vals.map(function(v){ return fv(v).length; })), st = ' style="--nw:'+Math.max(3.4, Math.round(nw*0.58*10)/10)+'em"';
+  var vt = function(x){ var p1 = i.periode ? ' ('+periode(i.periode)+')' : '', p2 = i.vorherPeriode ? ' ('+periode(i.vorherPeriode)+')' : ''; return 'Aktuell'+p1+': '+fv(x.wertJetzt)+'. Vergleichswert'+p2+': '+fv(x.wertVorher)+'.'; };
   var bz = bezug(i), s = bz ? '<p class="note spk">'+bz.charAt(0).toUpperCase()+bz.slice(1)+'</p>' : '';
   s += i.laender.map(function(x){
-    return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.zus?" mitb":"")+'"'+st+'><span>'+x.rank+'. '+x.name+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+(function(){ var t = x.urteil && x.wertJetzt!=null ? 'Aktuell: '+fv(x.wertJetzt)+'. Vergleichswert: '+fv(x.wertVorher)+'.' : ''; return '<span class="n'+(t?' vgl':'')+'"'+(t?' tabindex="0" role="button" data-info="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")+'"':'')+'>'+fv(x.value)+'</span>'; })()+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null, x.wertJetzt!=null ? 'Aktuell: '+fv(x.wertJetzt)+'. Vergleichswert: '+fv(x.wertVorher)+'.' : '')+'</div>';
+    return '<div class="row'+(x.code==="AT"?" at":"")+(x.bestand!=null||x.zus?" mitb":"")+'"'+st+'><span>'+x.rank+'. '+x.name+(x.zus?' <small class="note">'+x.zus+'</small>':'')+(x.bestand!=null?' <small class="note">'+mioText(x.bestand)+' Mio.</small>':'')+'</span>'+bar(x.value)+(function(){ var t = x.urteil && x.wertJetzt!=null ? vt(x) : ''; return '<span class="n'+(t?' vgl':'')+'"'+(t?' tabindex="0" role="button" data-info="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")+'"':'')+'>'+fv(x.value)+'</span>'; })()+pfeilSpan(x.urteil, i.pfeilModus==='wert'?pfeil(x.richtung):null, x.wertJetzt!=null ? vt(x) : '')+'</div>';
   }).join("");
   if(i.schweiz){
     var mitb = i.schweiz.bestand!=null || i.laender.some(function(x){ return x.bestand!=null||x.zus; });
