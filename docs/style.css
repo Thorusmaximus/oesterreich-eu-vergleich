@@ -405,3 +405,4 @@ body{background:linear-gradient(180deg,#dde7f8 0,#e8eef9 420px,#eef2fa 100%) fix
 }
 .svs .svbr{display:none}
 @media(max-width:640px){.svs .svbr{display:inline}.svs .svsep{display:none}}
+.row.ch .bb{box-sizing:content-box;margin-left:-2px;padding-right:4px;overflow:hidden;border-radius:6px}
