@@ -139,7 +139,9 @@ else {
     var alle = Array.prototype.slice.call(app.querySelectorAll(".gruppe .kw")).sort(function(a,b){ return a.getAttribute("data-a").localeCompare(b.getAttribute("data-a"),"de"); });
     var sec = document.createElement("section"); sec.className = "az"; sec.id = "az"; sec.style.display = "none";
     var t = document.createElement("div"); t.className = "tiles";
-    alle.forEach(function(k){ t.appendChild(k.cloneNode(true)); });
+    var verst = Array.prototype.slice.call(app.querySelectorAll(".gruppe .vk")).map(function(v){ var w = document.createElement("div"); w.className = "kw"; var nm = (v.querySelector(".t")||{}).textContent || v.getAttribute("data-n"); w.setAttribute("data-k", nm); w.setAttribute("data-a", nm); w.setAttribute("data-c", ""); w.setAttribute("data-b", "ausgebl"); w.setAttribute("data-n", v.getAttribute("data-n")||""); w.setAttribute("data-r", ""); w.innerHTML = v.innerHTML; return w; });
+    var azAlle = alle.map(function(k){ return k.cloneNode(true); }).concat(verst).sort(function(a,b){ return a.getAttribute("data-a").localeCompare(b.getAttribute("data-a"),"de"); });
+    azAlle.forEach(function(k){ t.appendChild(k); });
     sec.appendChild(t);
     var gr = app.querySelectorAll(".gruppe"), letzte = gr[gr.length-1];
     if(letzte) letzte.parentNode.insertBefore(sec, letzte.nextSibling); else app.appendChild(sec);
