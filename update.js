@@ -1359,25 +1359,46 @@ function berechneVerurteilungen() {
   for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (r.absolutHochgerechnet && r.erklaerung) r.erklaerung += " Die Euro-Beträge in der Tabelle sind für " + r.periode + " hochgerechnet (Forschungsquote mal Wirtschaftsleistung), weil Eurostat die tatsächlichen Beträge erst später veröffentlicht."; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
   // Kennzahlen ohne Wertung: einheitlicher Hinweis im Info-Text, sofern nicht schon vorhanden
   for (const r of result) { if (r.typ === "neutral" && r.id !== "verurteilungen" && r.erklaerung && !/Ohne Wertung|keine Wertung/.test(r.erklaerung)) r.erklaerung += " Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet."; }
-  // Heizöl: Anteil von Erdöl und Erdölprodukten am Energieverbrauch der Haushalte als Zusatz in der Ländertabelle (nur Anzeige)
-  try {
-    const hz = result.find(x => x.id === "heizoel" && x.laender);
-    if (hz) {
-      let tot, oel;
-      if (TEST) { tot = {}; oel = {}; hz.laender.forEach((x, k) => { tot[x.code] = { 2024: 100 }; oel[x.code] = { 2024: 5 + k }; }); }
-      else {
-        const q = siec => fetch(`${BASE}nrg_bal_c?format=JSON&lang=EN&freq=A&nrg_bal=FC_OTH_HH_E&unit=TJ&siec=${siec}&sinceTimePeriod=${new Date().getFullYear() - 4}`).then(async r => { if (!r.ok) throw new Error("HTTP " + r.status); return parse(await r.json()); });
-        [tot, oel] = await Promise.all([q("TOTAL"), q("O4000XBIO")]);
-      }
+  // Kontext je Land (nur Anzeige im Tipp auf den Wert, geht nicht in Rang oder Trend ein): Wie viele Menschen eine Preis-Kennzahl überhaupt betrifft
+  const pz = (p, d = 0) => p.toLocaleString("de-AT", { maximumFractionDigits: p < 1 ? 1 : d });
+  const eurostat = (ds, filter) => TEST ? null : fetch(`${BASE}${ds}?format=JSON&lang=EN&freq=A&${filter}&sinceTimePeriod=${new Date().getFullYear() - 4}`).then(async r => { if (!r.ok) throw new Error("HTTP " + r.status); return parse(await r.json()); });
+  const KONTEXT = [
+    { id: "heizoel", zaehler: ["nrg_bal_c", "nrg_bal=FC_OTH_HH_E&unit=TJ&siec=O4000XBIO"], nenner: ["nrg_bal_c", "nrg_bal=FC_OTH_HH_E&unit=TJ&siec=TOTAL"],
+      text: (p, y) => `Erdöl und Erdölprodukte machen ${pz(p)} % des Energieverbrauchs der Haushalte aus (${y})`,
+      hinweis: "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent des Energieverbrauchs der Haushalte dort auf Erdöl und Erdölprodukte (überwiegend Heizöl) entfallen. So sieht man, wie viele Haushalte der Preis betrifft. Quelle: Eurostat." },
+    { id: "gaspreis", zaehler: ["nrg_bal_c", "nrg_bal=FC_OTH_HH_E&unit=TJ&siec=G3000"], nenner: ["nrg_bal_c", "nrg_bal=FC_OTH_HH_E&unit=TJ&siec=TOTAL"],
+      text: (p, y) => `Erdgas macht ${pz(p)} % des Energieverbrauchs der Haushalte aus (${y})`,
+      hinweis: "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent des Energieverbrauchs der Haushalte dort auf Erdgas entfallen. So sieht man, wie viele Haushalte der Preis betrifft. Quelle: Eurostat." },
+    { id: "mieten", zaehler: ["ilc_lvho02", "unit=PC&tenure=RENT&hhcomp=TOTAL&rskpovth=TOTAL"],
+      text: (p, y) => `${pz(p)} % der Bevölkerung wohnen zur Miete (${y})`,
+      hinweis: "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent der Bevölkerung dort zur Miete wohnen. So sieht man, wie viele Menschen die Mieten betreffen. Quelle: Eurostat." },
+    { id: "immobilien", zaehler: ["ilc_lvho02", "unit=PC&tenure=OWN&hhcomp=TOTAL&rskpovth=TOTAL"],
+      text: (p, y) => `${pz(p)} % der Bevölkerung wohnen im Eigentum (${y})`,
+      hinweis: "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent der Bevölkerung dort im Eigentum wohnen. So sieht man, wie viele Menschen steigende oder fallende Kaufpreise betreffen. Quelle: Eurostat." },
+    { id: "benzin", zaehler: ["road_eqs_carpda", "unit=NR&mot_nrg=PET&leg_form=TOTAL"], nenner: ["road_eqs_carpda", "unit=NR&mot_nrg=TOTAL&leg_form=TOTAL"],
+      text: (p, y) => `Benzin-Pkw machen ${pz(p)} % aller Pkw aus (${y})`,
+      hinweis: "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent aller Pkw dort mit Benzin fahren (ohne Hybridfahrzeuge). So sieht man, wie viele Autos der Preis betrifft. Quelle: Eurostat." },
+    { id: "diesel", zaehler: ["road_eqs_carpda", "unit=NR&mot_nrg=DIE&leg_form=TOTAL"], nenner: ["road_eqs_carpda", "unit=NR&mot_nrg=TOTAL&leg_form=TOTAL"],
+      text: (p, y) => `Diesel-Pkw machen ${pz(p)} % aller Pkw aus (${y})`,
+      hinweis: "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent aller Pkw dort mit Diesel fahren (ohne Hybridfahrzeuge). So sieht man, wie viele Autos der Preis betrifft. Quelle: Eurostat." }
+  ];
+  for (const K of KONTEXT) {
+    try {
+      const r0 = result.find(x => x.id === K.id && x.laender); if (!r0) continue;
+      let z, nn = null;
+      if (TEST) { z = {}; r0.laender.forEach((x, k) => { z[x.code] = { 2024: K.nenner ? 5 + k : 30 + k }; }); if (K.nenner) { nn = {}; r0.laender.forEach(x => { nn[x.code] = { 2024: 100 }; }); } }
+      else { [z, nn] = await Promise.all([eurostat(K.zaehler[0], K.zaehler[1]), K.nenner ? eurostat(K.nenner[0], K.nenner[1]) : null]); }
       let n = 0;
-      hz.laender.forEach(x => {
-        const jt = Object.keys(tot[x.code] || {}).filter(y => oel[x.code] && oel[x.code][y] != null && tot[x.code][y] > 0).sort(), y = jt[jt.length - 1];
-        if (y) { const p = 100 * oel[x.code][y] / tot[x.code][y]; x.kontext = "Erdöl und Erdölprodukte machen " + (p < 1 ? p.toLocaleString("de-AT", { maximumFractionDigits: 1 }) : Math.round(p).toLocaleString("de-AT")) + " % des Energieverbrauchs der Haushalte aus (" + y + ")"; n++; }
+      r0.laender.forEach(x => {
+        const ys = Object.keys(z[x.code] || {}).filter(y => z[x.code][y] != null && (!nn || (nn[x.code] && nn[x.code][y] > 0))).sort(), y = ys[ys.length - 1];
+        if (!y) return;
+        const p = nn ? 100 * z[x.code][y] / nn[x.code][y] : z[x.code][y];
+        if (p >= 0 && p <= 100) { x.kontext = K.text(p, y); n++; }
       });
-      hz.kontextHinweis = "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent des Energieverbrauchs der Haushalte dort auf Erdöl und Erdölprodukte (überwiegend Heizöl) entfallen. So sieht man, wie viele Haushalte der Preis betrifft. Quelle: Eurostat.";
-      console.log(`OK  Heizöl-Zusatz: Erdölanteil bei ${n} Ländern`);
-    }
-  } catch (e) { console.error("Hinweis: Heizöl-Zusatz (Erdölanteil) nicht berechnet: " + e.message); }
+      r0.kontextHinweis = K.hinweis;
+      console.log(`OK  Kontext ${K.id}: bei ${n} Ländern`);
+    } catch (e) { console.error(`Hinweis: Kontext ${K.id} nicht berechnet: ${e.message}`); }
+  }
   if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };
   fs.mkdirSync("docs", { recursive: true });
