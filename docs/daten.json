@@ -13773,7 +13773,7 @@
    "dez": 1,
    "suffix": " Jahre",
    "diffEinheit": "Jahre",
-   "hinweis": "Eurostat veröffentlicht das durchschnittliche Pensionsantrittsalter derzeit nicht mehr, deshalb zeigt diese Seite die Dauer des Erwerbslebens als Ersatz. Ob ein längeres Erwerbsleben besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber mehr Arbeitsjahre für den Einzelnen.",
+   "hinweis": null,
    "umstritten": true,
    "trendNeutral": true,
    "schwelle": 0.1,
@@ -14166,7 +14166,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie viele Jahre ein heute 15-Jähriger nach der Statistik im Lauf seines Lebens voraussichtlich erwerbstätig ist (Eurostat: Dauer des Erwerbslebens). Das Ergebnis hängt vom Pensionsantritt, vom Berufseinstieg und von Unterbrechungen ab. Es ist nicht das gesetzliche Pensionsantrittsalter.",
+   "erklaerung": "Wie viele Jahre ein heute 15-Jähriger nach der Statistik im Lauf seines Lebens voraussichtlich am Arbeitsmarkt aktiv ist, also erwerbstätig oder arbeitssuchend. Das Ergebnis hängt vom Pensionsantritt, vom Berufseinstieg und von Unterbrechungen ab. Es ist nicht das gesetzliche Pensionsantrittsalter. Ob ein längeres Erwerbsleben besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber mehr Arbeitsjahre für den Einzelnen.",
    "gruppe": "Pensionen und Alter"
   },
   {
