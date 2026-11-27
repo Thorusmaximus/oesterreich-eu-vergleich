@@ -1,4 +1,4 @@
-// Holt Indikatoren von Eurostat, berechnet EU-Ranking und Trend
+// Holt Kennzahlen von Eurostat, berechnet EU-Ranking und Trend
 // und schreibt docs/daten.js + docs/daten.json.
 // Aufruf: node update.js          (echte Daten, braucht Internet)
 //         node update.js --test   (Beispieldaten, ohne Internet)
@@ -38,9 +38,9 @@ const TAKT = {
   jahr:    { seit: "2019",    glaettung: 1, rueckblick: 1, verlaufN: 5,  maxAlter: 18 }
 };
 
-// ===== Neuer Indikator = neuer Eintrag in dieser Liste =====
+// ===== Neuer Kennzahl = neuer Eintrag in dieser Liste =====
 // takt: "monat", "quartal", "halbjahr" oder "jahr".  typ "niedrig": niedriger Wert ist besser.  typ "hoch": höherer Wert ist besser.
-// schwelle: feste Rückfallschwelle (in der Einheit des Indikators). Normalerweise gilt 3 % des EU-Durchschnitts (siehe SCHWELLE_ANTEIL), schwelleFix: true erzwingt die feste Schwelle.
+// schwelle: feste Rückfallschwelle (in der Einheit der Kennzahl). Normalerweise gilt 3 % des EU-Durchschnitts (siehe SCHWELLE_ANTEIL), schwelleFix: true erzwingt die feste Schwelle.
 // Themengruppen der Startseite (Reihenfolge = Reihenfolge auf der Seite)
 const GRUPPEN = ["Preise und Kosten", "Wirtschaft und Arbeit", "Staatsfinanzen", "Sicherheit", "Gesellschaft", "Pensionen und Alter", "Energie und Klima"]; // Reihenfolge: zuerst die Gruppen, deren Zahlen sich am häufigsten ändern (monatlich, quartalsweise, jährlich)
 const GRUPPE_VON = {
@@ -49,7 +49,7 @@ const GRUPPE_VON = {
   schulden: 2, defizit: 2, staatsquote: 2, abgabenquote: 2, rating: 2,
   inflation: 0, benzin: 0, diesel: 0, lebenshaltung: 0, immobilien: 0, strompreis: 0, "strompreis-industrie": 0, heizoel: 0, gaspreis: 0,
   bevoelkerung: 4, geburtenrate: 4, treibhausgase: 6, erneuerbare: 6, terror: 3, aktionaersquote: 1, kapitalmarkt: 1, armut: 4, ausgrenzung: 4, wohnkosten: 0, mieten: 0, jugendarbeitslosigkeit: 1, neet: 1, forschung: 1, ausgabenBildung: 2, ausgabenGesundheit: 2, ausgabenVerteidigung: 2, ausgabenSoziales: 2, genderPayGap: 4, energieabhaengigkeit: 6, nettozuwanderung: 4, asyl: 4, asylOffen: 4, lebenszufriedenheit: 4, kapitalNichtBoerse: 1, kapitalGesamt: 1, religion: 4, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 3, toetung: 3, koerperverletzung: 3, sexualdelikte: 3, raub: 3, einbruch: 3, gefaengnis: 3, verurteilungen: 3 };
-// Kurze Erklärung je Indikator (wird auf der Detailseite gezeigt)
+// Kurze Erklärung je Kennzahl (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
   inflation: "Wie viel mehr man heute für einen typischen Einkauf bezahlt als vor einem Jahr. Gemessen wird der Preisanstieg im Vergleich zum gleichen Monat des Vorjahres, über Lebensmittel, Wohnen, Verkehr und Dienstleistungen hinweg (harmonisierter Verbraucherpreisindex). 3 % bedeutet: Was letztes Jahr 100 Euro gekostet hat, kostet jetzt im Schnitt 103 Euro.",
@@ -92,7 +92,7 @@ const ERKLAERUNG = {
   ausgabenSoziales: "Wie viel der Staat für soziale Sicherung ausgibt (Pensionen, Arbeitslosengeld, Familienleistungen, Pflege), in Prozent der Wirtschaftsleistung. Das ist meist der größte Ausgabenblock des Staates.",
   genderPayGap: "Um wie viel Prozent der durchschnittliche Brutto-Stundenverdienst von Frauen unter dem der Männer liegt (unbereinigt, Unternehmen ab 10 Beschäftigten). Weil Stundenverdienste verglichen werden, wirken unterschiedliche Arbeitszeiten nicht direkt auf den Wert. Nicht herausgerechnet sind aber Unterschiede bei Branche, Beruf, Position und Berufserfahrung. Auch die Teilzeit hängt damit zusammen, denn Teilzeit ist häufiger in Branchen und Positionen mit niedrigerem Stundenlohn. Der Wert sagt daher nicht, ob für gleiche Arbeit unterschiedlich bezahlt wird.",
   treibhausgase: "Wie viele Treibhausgase (vor allem CO2, Methan und Lachgas, umgerechnet in CO2-Äquivalent) im Land im Jahr pro Einwohner ausgestoßen werden, in Tonnen. Ein niedrigerer Wert ist besser. Gezählt wird, was im Land entsteht, nicht was in importierten Waren steckt.",
-  erneuerbare: "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft macht in Österreich einen großen Teil aus. Ohne Wertung: Ob ein höherer Anteil besser ist, hängt davon ab, wie man Klimaschutz, Kosten und Versorgungssicherheit gewichtet. Dazu gibt es eigene Indikatoren: Treibhausgasemissionen, Strompreise und Energieabhängigkeit.",
+  erneuerbare: "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft macht in Österreich einen großen Teil aus. Ohne Wertung: Ob ein höherer Anteil besser ist, hängt davon ab, wie man Klimaschutz, Kosten und Versorgungssicherheit gewichtet. Dazu gibt es eigene Kennzahlen: Treibhausgasemissionen, Strompreise und Energieabhängigkeit.",
   energieabhaengigkeit: "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden.",
   nettozuwanderung: "Wie viele Menschen pro 1.000 Einwohner mehr zu- als wegziehen (Zuzüge minus Wegzüge, einschließlich statistischer Korrekturen). Ein negativer Wert heißt: Es ziehen mehr Menschen weg, als zuziehen.",
   asyl: "Wie viele Menschen pro 100.000 Einwohner in einem Jahr erstmals oder wiederholt einen Antrag auf Asyl stellen. Das zählt Anträge, nicht Entscheidungen und nicht, wie viele Menschen tatsächlich bleiben.",
@@ -246,7 +246,7 @@ const INDICATORS = [
     maxAlter: 26, dez: 0, suffix: " €", diffEinheit: "Euro",
     einheit: "Euro pro Jahr: Durchschnitt des verfügbaren Nettoeinkommens je Person (nach Haushaltsgröße gewichtet), EU-SILC-Erhebung",
     rangText: "Rang 1 = höchstes Durchschnittseinkommen (in Euro)", typ: "hoch", schwelle: 300, schwelleFix: true,
-    hinweis: "Der Durchschnitt liegt meist über dem Median, weil wenige sehr hohe Einkommen ihn nach oben ziehen. Je größer der Abstand zum Median, desto ungleicher sind die Einkommen verteilt. Beide Werte stehen als eigene Indikatoren bereit.",
+    hinweis: "Der Durchschnitt liegt meist über dem Median, weil wenige sehr hohe Einkommen ihn nach oben ziehen. Je größer der Abstand zum Median, desto ungleicher sind die Einkommen verteilt. Beide Werte stehen als eigene Kennzahlen bereit.",
     mock: { base: 9000, step: 2500 } }
   ,{ id: "kaufkraft", name: "Kaufkraft", takt: "jahr", dataset: "ilc_di03", real: "EU",
     filter: "statinfo=MED_EI&age=TOTAL&sex=T&unit=PPS", // Median-Nettoeinkommen in Kaufkraftstandards (PPS)
@@ -647,7 +647,7 @@ function mock(ind) {
 const REGIERUNG = { name: "Regierung Stocker", kurz: "Stocker", parteien: "ÖVP, SPÖ und NEOS", start: "2025-03-03" };
 
 const SCHWELLE_ANTEIL = 0.03; // Trend gilt als besser/schlechter ab 3 % des EU-Durchschnitts
-let DEZ = 1; // Dezimalstellen des aktuellen Indikators (Geburtenrate: 2)
+let DEZ = 1; // Dezimalstellen des aktuellen Kennzahl (Geburtenrate: 2)
 const r1 = x => Math.round(x * 10 ** DEZ) / 10 ** DEZ;
 const scoreOf = ind => v => ind.typ === "niedrig" || ind.rangNiedrigZuerst ? v : -v; // kleiner = besser; neutral: höchster Wert = Rang 1
 
@@ -1273,7 +1273,7 @@ function berechneVerurteilungen() {
   }
   try { const r = berechneVerurteilungen(); result.push(r); console.log(`OK  Verurteilungen: ${r.periode}, ${r.delikte.map(d => d.name + " " + d.wert).join(", ")}`); }
   catch (e) { fehler++; console.error(`FEHLER Verurteilungen: ${e.message}`); result.push(prev.verurteilungen ? { ...prev.verurteilungen, veraltet: true, fehler: e.message } : { id: "verurteilungen", name: "Verurteilungen", fehler: e.message }); }
-  // Wann bekam ein Indikator zuletzt eine neue Zahl? (neue Periode oder geänderter Wert; sonst bleibt das alte Datum)
+  // Wann bekam eine Kennzahl zuletzt eine neue Zahl? (neue Periode oder geänderter Wert; sonst bleibt das alte Datum)
   const heute = new Date().toISOString().slice(0, 10);
   let prevDatum = heute; try { prevDatum = JSON.parse(fs.readFileSync("docs/daten.json", "utf8")).aktualisiert || heute; } catch (e) {}
   const fingerabdruck = i => JSON.stringify([i.periode ?? i.stand ?? null, i.oesterreich?.wert ?? null, i.oesterreich?.schnitt ?? null]);
@@ -1291,13 +1291,13 @@ function berechneVerurteilungen() {
     if (Array.isArray(r.rangVerlauf)) { let k = 0; while (k < r.rangVerlauf.length - 2 && r.rangVerlauf[k].rang == null) k++; r.rangVerlauf = r.rangVerlauf.slice(k); }
     if (Array.isArray(r.verlauf)) { let k = 0; while (k < r.verlauf.length - 2 && r.verlauf[k].at == null) k++; r.verlauf = r.verlauf.slice(k); }
   }
-  // Österreich-Nachtrag (von Hand) für Indikatoren, bei denen Eurostat noch nichts Neueres hat
+  // Österreich-Nachtrag (von Hand) für Kennzahlen, bei denen Eurostat noch nichts Neueres hat
   try { const nt = JSON.parse(fs.readFileSync("at-nachtrag.json", "utf8"));
     for (const r of result) { const e = nt.eintraege[r.id], jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : 0;
       if ((r.datenHinweis || r.ohneTrend) && e && e.jahr > jahr) r.nachtrag = { ...e, stand: nt.stand, gesamtAufklaerung: ["toetung","raub","einbruch","sexualdelikte"].includes(r.id) ? nt.gesamtAufklaerung : null }; }
   } catch (e) { console.log("   (at-nachtrag.json nicht lesbar: " + e.message + ")"); }
   // Fenster ohne Daten ab 2025 (weder Eurostat noch Österreich-Nachtrag): ausblenden, erscheinen automatisch wieder, sobald neuere Daten vorliegen
-  // Einheitliche Regel für alle Indikatoren mit Jahresangabe (außer Bewertungen, Anteile, reine Österreich-Reihen); Ausnahme nur mit ausblenden2025: false
+  // Einheitliche Regel für alle Kennzahlen mit Jahresangabe (außer Bewertungen, Anteile, reine Österreich-Reihen); Ausnahme nur mit ausblenden2025: false
   for (const r of result) { const ind = INDICATORS.find(x => x.id === r.id) || {}, jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : 0;
     if (ind.ausblenden2025 !== false && !["rating", "anteile", "nurAT", "verurteilungen"].includes(r.art) && jahr && jahr < 2025 && !r.nachtrag) { r.ausgeblendet = true; console.log(`   AUSGEBLENDET: ${r.name} (jüngste Daten: ${jahr}, kein Nachtrag ab 2025)`); } }
   { // Beispiel Österreich: hohe Pensionsausgaben bedeuten nicht automatisch hohe Pensionen
@@ -1317,7 +1317,7 @@ function berechneVerurteilungen() {
   try { // Bundesländer-Vergleich (eigenes Modul); ein Fehler hier darf die EU-Daten nicht beeinträchtigen
     const bl = await require("./bundeslaender.js").berechneBundeslaender({ TEST, BASE, parse });
     if (bl.indikatoren.length) { fs.writeFileSync("docs/bl-daten.json", JSON.stringify(bl, null, 1)); fs.writeFileSync("docs/bl-daten.js", "window.BL = " + JSON.stringify(bl) + ";\n"); }
-    else console.error("FEHLER Bundesländer: kein Indikator konnte berechnet werden, bestehende Daten bleiben.");
+    else console.error("FEHLER Bundesländer: keine Kennzahl konnte berechnet werden, bestehende Daten bleiben.");
   } catch (e) { console.error("FEHLER Bundesländer: " + e.message); }
   if (fehler === INDICATORS.length + 7) process.exit(1);
 })();

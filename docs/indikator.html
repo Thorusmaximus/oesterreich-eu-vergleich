@@ -23,14 +23,14 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=8072b077"></script>
+<script src="common.js?v=764f1163"></script>
 <script>
 var app = document.getElementById("app");
 var id = new URLSearchParams(location.search).get("id");
 var ind = D && D.indikatoren.filter(function(i){return i.id===id})[0];
 var CS = null;
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
-else if(!ind){ app.innerHTML = '<p>Diesen Indikator gibt es nicht. Zurück zum <a href="index.html">Überblick</a>.</p>'; }
+else if(!ind){ app.innerHTML = '<p>Diese Kennzahl gibt es nicht. Zurück zum <a href="index.html">Überblick</a>.</p>'; }
 else if(!ind.oesterreich){ app.innerHTML = '<h1>'+ind.name+'</h1><p class="warn">Keine Daten verfügbar: '+(ind.fehler||"")+'</p>'; }
 else { document.title = ind.name + " | Regierungstracker Österreich"; if(ind.art==="rating") detailRating(ind); else if(ind.art==="nurAT") detailInsolvenz(ind); else if(ind.art==="verurteilungen") detailVerurteilungen(ind); else if(ind.art==="anteile") detailAnteile(ind); else detail(ind); }
 

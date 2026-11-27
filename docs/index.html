@@ -28,31 +28,32 @@
 <p class="claim">Was sich verändert hat, nicht, wer schuld ist.</p>
 <section class="hero">
 <p class="frage" id="frage">Wie steht Österreich seit dem Regierungswechsel da?</p>
-<p class="sub" id="sub">Platz unter den EU-Ländern, pro Indikator.</p>
+<p class="sub" id="sub">Platz unter den EU-Ländern, pro Kennzahl.</p>
 <div class="zahlen" id="zahlen" hidden></div>
 </section>
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=8072b077"></script>
+<script src="common.js?v=764f1163"></script>
 <script>
 var app = document.getElementById("app");
-// Indikatoren ohne Daten ab 2025 sind ausgeblendet (sie erscheinen automatisch wieder, sobald es neuere Daten gibt)
+// Kennzahlen ohne Daten ab 2025 sind ausgeblendet (sie erscheinen automatisch wieder, sobald es neuere Daten gibt)
 var versteckt = [];
 if(D && D.indikatoren){ versteckt = D.indikatoren.filter(function(i){ return i.ausgeblendet; }); D.indikatoren = D.indikatoren.filter(function(i){ return !i.ausgeblendet; }); }
 if(D && D.regierung){
   (function(){
     var n = D.indikatoren.filter(function(i){ return i.oesterreich; }).length;
     var f = document.getElementById("frage");
-    f.innerHTML = "Wie steht Österreich seit dem Regierungswechsel ("+datum(D.regierung.start)+") da?"+infoIcon("Amtsantritt der "+D.regierung.name+" am "+datum(D.regierung.start)+" ("+D.regierung.parteien+"). "+n+" Indikatoren im Vergleich mit den 27 EU-Ländern. Bei einigen Indikatoren liefern nicht alle Länder Daten, dann steht „von …“ mit der tatsächlichen Zahl der Länder. Manche gibt es nur für Österreich (etwa Insolvenzen und Verurteilungen), sie lassen sich nicht mit anderen EU-Ländern vergleichen.");
-    document.getElementById("sub").hidden = true;
+    f.innerHTML = "Wie steht Österreich seit dem Regierungswechsel ("+datum(D.regierung.start)+") da?"+infoIcon("Amtsantritt der "+D.regierung.name+" am "+datum(D.regierung.start)+" ("+D.regierung.parteien+"). "+n+" Kennzahlen im Vergleich mit den 27 EU-Ländern. Bei einigen Kennzahlen liefern nicht alle Länder Daten, dann steht „von …“ mit der tatsächlichen Zahl der Länder. Manche gibt es nur für Österreich (etwa Insolvenzen und Verurteilungen), sie lassen sich nicht mit anderen EU-Ländern vergleichen.");
+    var m = D.indikatoren.filter(function(i){ return i.oesterreich && i.laender && i.laender.length; }).length;
+    document.getElementById("sub").textContent = m+" Kennzahlen, verglichen mit 27 EU-Ländern";
   })();
 }
 if(!D){ app.innerHTML = '<p class="bad">Keine Daten gefunden. Bitte zuerst „node update.js" ausführen.</p>'; }
 else {
   var h = banner();
   var byId = {}; D.indikatoren.forEach(function(i){ byId[i.id]=i; });
-  // Kombi-Kacheln: nur Indikatoren mit Daten; sie erscheinen als eine Kachel an der Stelle des ersten
+  // Kombi-Kacheln: nur Kennzahlen mit Daten; sie erscheinen als eine Kachel an der Stelle des ersten
   function kombiVon(i){ var p = paarFuer(i.id); if(!p) return null; var v = p.ids.filter(function(id){ return byId[id] && byId[id].oesterreich; }); return v.length>1 ? { p:p, v:v } : null; }
   function kombiKopf(i){ var k = kombiVon(i); return k.p.titel+'<div class="umsch'+(k.v.length===4?' zwei mz':'')+'" role="group" aria-label="Ansicht">'+k.v.map(function(id){ var n=k.p.ids.indexOf(id); return '<button type="button" data-v="'+id+'" class="'+(id===i.id?'on':'')+'">'+k.p.labels[n]+'</button>'; }).join('')+'</div>'; }
   var kachel = function(i){
@@ -112,7 +113,7 @@ else {
   var GRUPPEN = D.gruppen || ["Wirtschaft und Arbeit","Staatsfinanzen","Preise und Kosten","Gesellschaft","Sicherheit"];
   var bilanz = function(i){ var u=i.oesterreich && i.oesterreich.urteil; if(u==null && i.oesterreich && i.typ && i.typ!=="neutral") return "gleich"; return u==="besser"?"besser":u==="schlechter"?"schlechter":u==="unverändert"?"gleich":"neutral"; };
   // Mit Wertung (Rang), aber neutralem Trend: erscheint bei "unverändert" und bei "ohne Wertung"
-  // Veränderung des EU-Platzes seit Amtsantritt (nur Indikatoren mit Wertung)
+  // Veränderung des EU-Platzes seit Amtsantritt (nur Kennzahlen mit Wertung)
   var rangStatus = function(i){ var e = (i.rangVergleich||[]).filter(function(v){ return v && v.regierung; })[0]; if(!e || !i.oesterreich) return null; var t = rangTrend(i.oesterreich.rang, e.rang); return t ? ({besser:"rbesser", schlechter:"rschlechter"}[t.u] || "rgleich") : null; };
   var bilanzen = function(i){ var b = bilanz(i); return (b==="neutral" && i.oesterreich && i.typ && i.typ!=="neutral") ? ["gleich","neutral"] : [b]; };
   var gruppenHtml = GRUPPEN.concat(["Weitere"]).map(function(g){
@@ -123,9 +124,9 @@ else {
     var bil = '<span class="bil">'+(z.besser?'<button type="button" class="gb good" data-gf="besser" aria-pressed="false">'+z.besser+' besser</button>':'')+(z.schlechter?'<button type="button" class="gb bad" data-gf="schlechter" aria-pressed="false">'+z.schlechter+' schlechter</button>':'')+(z.gleich?'<button type="button" class="gb" data-gf="gleich" aria-pressed="false">'+z.gleich+' unverändert</button>':'')+(z.neutral?'<button type="button" class="gb" data-gf="neutral" aria-pressed="false">'+z.neutral+' ohne Wertung</button>':'')+'</span>';
     return '<section class="gruppe" data-g="'+g+'"><h2 class="gh">'+g+bil+(vl.length?'<button type="button" class="vbtn" data-t="('+vl.length+' ausgeblendet)" aria-expanded="false" title="Diese Kacheln haben noch keine Daten ab 2025">('+vl.length+' ausgeblendet)</button>':'')+'</h2>'+(vl.length?'<div class="tiles vtiles" hidden><p class="note vnote">Noch keine Daten ab 2025, daher normalerweise ausgeblendet. Sie erscheinen automatisch regulär, sobald neuere Daten vorliegen.</p>'+vl.map(function(i){ var k; try{ k=kachel(i); }catch(e){ k='<a class="card tile" href="indikator.html?id='+i.id+'"><div class="t">'+i.name+'</div><div class="note">Jüngste Daten: '+periode(i.periode)+'</div><div class="more">Details →</div></a>'; } return '<div class="vk" data-n="'+i.name.toLowerCase().replace(/"/g,'')+'">'+k+'</div>'; }).join('')+'</div>':'')+'<div class="tiles">'+liste.map(function(i){ return '<div class="kw" data-k="'+i.name.replace(/"/g,'')+'" data-c="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return byId[id].geaendert||''; }).sort().pop() : (i.geaendert||''))+'" data-r="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return rangStatus(byId[id])||''; }).join(' ') : (rangStatus(i)||''))+'" data-b="'+(kombiVon(i) ? kombiVon(i).v.map(function(id){ return bilanzen(byId[id]).join(' '); }).join(' ') : bilanzen(i).join(' '))+'" data-n="'+(i.name+' '+(paarFuer(i.id)?paarFuer(i.id).suche:'')).toLowerCase().replace(/"/g,'')+'">'+(function(){ var k=kombiVon(i); if(!k) return kachel(i); return k.v.map(function(id,n){ return '<div class="var" data-v="'+id+'" data-r="'+(rangStatus(byId[id])||'')+'" data-b="'+bilanzen(byId[id]).join(' ')+'" data-n="'+(byId[id].name+' '+id).toLowerCase().replace(/"/g,'')+'"'+(n?' style="display:none"':'')+'>'+kachel(byId[id])+'</div>'; }).join(''); })()+'</div>'; }).join('')+'</div></section>';
   }).join('');
-  h += '<div class="leiste"><button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Indikatorgruppen filtern"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 6h5M14 6h7M3 12h9M18 12h3M3 18h3M12 18h9"/><circle cx="11" cy="6" r="2.4"/><circle cx="15" cy="12" r="2.4"/><circle cx="9" cy="18" r="2.4"/></svg><span>Indikatorgruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
-  + '<div class="filter gr" role="group" aria-label="Indikatorgruppen"><button class="on" data-g="">Alle Indikatorgruppen</button><button data-g="__neu">Neue Daten</button><button data-g="__az">Alle A–Z</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>'
-  + '<div class="suche"><input type="search" id="suche" placeholder="Indikator suchen" aria-label="Indikator suchen" autocomplete="off"></div></div>' + gruppenHtml;
+  h += '<div class="leiste"><button class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fbox" aria-label="Kennzahlengruppen filtern"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 6h5M14 6h7M3 12h9M18 12h3M3 18h3M12 18h9"/><circle cx="11" cy="6" r="2.4"/><circle cx="15" cy="12" r="2.4"/><circle cx="9" cy="18" r="2.4"/></svg><span>Kennzahlengruppen</span><i class="fdot" id="fdot" hidden></i></button><div class="fbox" id="fbox">'
+  + '<div class="filter gr" role="group" aria-label="Kennzahlengruppen"><button class="on" data-g="">Alle Kennzahlengruppen</button><button data-g="__neu">Neue Daten</button><button data-g="__az">Alle A–Z</button>'+GRUPPEN.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join('')+'</div></div>'
+  + '<div class="suche"><input type="search" id="suche" placeholder="Kennzahl suchen" aria-label="Kennzahl suchen" autocomplete="off"></div></div>' + gruppenHtml;
   h += fussnote();
   app.innerHTML = h;
   (function(){ // Flache Ansicht „Alle A–Z“: Kopien aller Kacheln, alphabetisch, ohne Gruppen
@@ -165,10 +166,10 @@ else {
     var li=function(l,ton,neu){ return l.length ? '<ul>'+l.map(function(i){ return '<li'+(i.ausgeblendet?' class="vh"':'')+'><a href="indikator.html?id='+encodeURIComponent(i.id)+'"><span>'+i.name+(i.ausgeblendet?' <small>(Daten bis '+periode(i.periode)+')</small>':(neu?' <small>(ohne Wertung)</small>':''))+'</span><b class="'+(neu?'':ton)+'">Platz '+i.oesterreich.rang+' <small>von '+i.anzahlLaender+'</small></b></a></li>'; }).join('')+'</ul>' : '<p class="note">Keine.</p>'; };
     var box=document.createElement("details"); box.className="sust";
     var SCALE='<svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M8 20h8M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0L5 7zM19 7l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg>';
-    box.innerHTML='<summary><span class="sk">'+SCALE+'</span><div class="stt"><h2 class="gh">Österreichs Stärken und Schwächen im EU-Vergleich'+infoIcon("Gezeigt werden Indikatoren mit Wertung, bei denen Österreich unter den obersten bzw. untersten Plätzen liegt: bei 21 bis 27 Ländern die ersten bzw. letzten fünf, bei 16 bis 20 Ländern vier, bei 15 oder weniger drei. Indikatoren ohne Wertung und ausgeblendete Indikatoren (noch keine Daten ab 2025) stehen unter „Ohne Wertung“ in der dritten Spalte.")+'</h2><span class="sz"><span class="sn"><b class="good">'+vis(st)+'</b> Stärken</span><span class="sn"><b class="bad">'+vis(sw)+'</b> Schwächen</span>'+(nv?'<span class="sn"><b>'+nv+'</b> ohne Wertung</span>':'')+'</span></div><span class="auf" aria-hidden="true"></span></summary><div class="sustg"><div><h3 class="good">Stärken</h3>'+li(st,"good")+'</div><div><h3 class="bad">Schwächen</h3>'+li(sw,"bad")+'</div>'
-      + ((nv||nst.length||nsw.length) ? '<div class="sdrit"><button type="button" class="vbtn" id="svt" aria-expanded="false">Ohne Wertung ('+nv+')</button>'+infoIcon("Ohne Wertung sind zwei Arten von Indikatoren: Indikatoren ohne Wertung (ob ein hoher oder niedriger Platz gut ist, wird nicht bewertet; Rang 1 steht je nach Indikator für den höchsten oder den niedrigsten Wert) und ausgeblendete Indikatoren, zu denen es noch keine Daten ab 2025 gibt (Hinweis „Daten bis 2024“). Beide stehen hier nur mit ihrem Platz. Es gelten dieselben Grenzen wie bei Stärken und Schwächen.")+'<div class="ow">'+(nst.length?'<h3>Ganz vorne</h3>'+li(nst,"",1):'')+(nsw.length?'<h3>Ganz hinten</h3>'+li(nsw,"",1):'')+'</div></div>' : '')
+    box.innerHTML='<summary><span class="sk">'+SCALE+'</span><div class="stt"><h2 class="gh">Österreichs Stärken und Schwächen im EU-Vergleich'+infoIcon("Gezeigt werden Kennzahlen mit Wertung, bei denen Österreich unter den obersten bzw. untersten Plätzen liegt: bei 21 bis 27 Ländern die ersten bzw. letzten fünf, bei 16 bis 20 Ländern vier, bei 15 oder weniger drei. Kennzahlen ohne Wertung und ausgeblendete Kennzahlen (noch keine Daten ab 2025) stehen unter „Ohne Wertung“ in der dritten Spalte.")+'</h2><span class="sz"><span class="sn"><b class="good">'+vis(st)+'</b> Stärken</span><span class="sn"><b class="bad">'+vis(sw)+'</b> Schwächen</span>'+(nv?'<span class="sn"><b>'+nv+'</b> ohne Wertung</span>':'')+'</span></div><span class="auf" aria-hidden="true"></span></summary><div class="sustg"><div><h3 class="good">Stärken</h3>'+li(st,"good")+'</div><div><h3 class="bad">Schwächen</h3>'+li(sw,"bad")+'</div>'
+      + ((nv||nst.length||nsw.length) ? '<div class="sdrit"><button type="button" class="vbtn" id="svt" aria-expanded="false">Ohne Wertung ('+nv+')</button>'+infoIcon("Ohne Wertung sind zwei Arten von Kennzahlen: Kennzahlen ohne Wertung (ob ein hoher oder niedriger Platz gut ist, wird nicht bewertet; Rang 1 steht je nach Kennzahl für den höchsten oder den niedrigsten Wert) und ausgeblendete Kennzahlen, zu denen es noch keine Daten ab 2025 gibt (Hinweis „Daten bis 2024“). Beide stehen hier nur mit ihrem Platz. Es gelten dieselben Grenzen wie bei Stärken und Schwächen.")+'<div class="ow">'+(nst.length?'<h3>Ganz vorne</h3>'+li(nst,"",1):'')+(nsw.length?'<h3>Ganz hinten</h3>'+li(nsw,"",1):'')+'</div></div>' : '')
       + '</div>';
-    // Vergleich mit einem anderen EU-Land: dieselben Grenzen, nur Indikatoren mit Wertung
+    // Vergleich mit einem anderen EU-Land: dieselben Grenzen, nur Kennzahlen mit Wertung
     var ländern = {}; D.indikatoren.forEach(function(i){ (i.laender||[]).forEach(function(x){ if(x.code!=="AT") ländern[x.code]=x.name; }); });
     var codes = Object.keys(ländern).sort(function(a,b){ return ländern[a].localeCompare(ländern[b],"de"); });
     var vb = document.createElement("div"); vb.className = "svgl";
@@ -187,7 +188,7 @@ else {
       var rl=function(e){ return e.r/e.n; };
       a.sort(function(p,q){ return rl(p)-rl(q) || p.i.name.localeCompare(q.i.name,"de"); }); b2.sort(function(p,q){ return rl(q)-rl(p) || p.i.name.localeCompare(q.i.name,"de"); });
       var lst=function(l,ton){ return l.length ? '<ul>'+l.map(function(e){ return '<li><a href="indikator.html?id='+encodeURIComponent(e.i.id)+'"><span>'+e.i.name+'</span><b class="'+ton+'">Platz '+e.r+' <small>von '+e.n+'</small></b></a></li>'; }).join('')+'</ul>' : '<p class="note">Keine.</p>'; };
-      svx.innerHTML = '<h3 class="svh">'+ländern[c]+'</h3><div class="sustg"><div><h3 class="good">Stärken ('+a.length+')</h3>'+lst(a,"good")+'</div><div><h3 class="bad">Schwächen ('+b2.length+')</h3>'+lst(b2,"bad")+'</div></div><p class="note">Gleiche Grenzen und gleiche Indikatoren mit Wertung wie bei Österreich. Ein Platz, den ein Land bei einem Indikator nicht hat, fehlt hier.</p>';
+      svx.innerHTML = '<h3 class="svh">'+ländern[c]+'</h3><div class="sustg"><div><h3 class="good">Stärken ('+a.length+')</h3>'+lst(a,"good")+'</div><div><h3 class="bad">Schwächen ('+b2.length+')</h3>'+lst(b2,"bad")+'</div></div><p class="note">Gleiche Grenzen und gleiche Kennzahlen mit Wertung wie bei Österreich. Ein Platz, den ein Land bei einem Kennzahl nicht hat, fehlt hier.</p>';
     });
     var svt=box.querySelector("#svt"); if(svt) svt.addEventListener("click", function(){ var an=box.classList.toggle("zeigv"); svt.setAttribute("aria-expanded",an?"true":"false"); svt.textContent=an?"Ohne Wertung verbergen":"Ohne Wertung ("+nv+")"; });
     box.querySelector("summary").addEventListener("click", function(e){ if(e.target.closest(".info")) e.preventDefault(); });
@@ -204,11 +205,11 @@ else {
     var mr = function(k, txt){ return '<button type="button" class="zb rb '+k+'" data-fz="'+k+'" aria-pressed="false"><b>'+r[k]+'</b> '+txt+'</button>'; };
     var TROPHY='<svg class="ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M8 6H5v1.5A3 3 0 0 0 8 10.5M16 6h3v1.5a3 3 0 0 1-3 3"/><path d="M12 13v4M8.5 20h7M10 17h4"/></svg>';
     var big = function(k, txt, src){ var v=src[k]; return '<button type="button" class="zb hb '+k+'" data-fz="'+k+'" aria-pressed="false"><b>'+v+'</b><span>'+txt+'</span></button>'; };
-    el.innerHTML = '<div class="hk">Entwicklung der Werte'+infoIcon("Gezählt wird jeder Indikator einzeln, bei zusammengeführten Fenstern jede Variante. Die Zahlen zeigen, wie sich Österreich seit dem Amtsantritt verändert hat, nicht, warum. „Ohne Wertung“ sind Indikatoren, bei denen nicht bewertet wird, ob ein höherer oder niedrigerer Wert besser ist. Ein Tipp auf eine Zahl zeigt nur die passenden Fenster, ein zweiter Tipp hebt den Filter wieder auf.")+'</div>'
+    el.innerHTML = '<div class="hk">Entwicklung der Werte'+infoIcon("Gezählt wird jede Kennzahl einzeln, bei zusammengeführten Fenstern jede Variante. Die Zahlen zeigen, wie sich Österreich seit dem Amtsantritt verändert hat, nicht, warum. „Ohne Wertung“ sind Kennzahlen, bei denen nicht bewertet wird, ob ein höherer oder niedrigerer Wert besser ist. Ein Tipp auf eine Zahl zeigt nur die passenden Fenster, ein zweiter Tipp hebt den Filter wieder auf.")+'</div>'
       + '<div class="hz h4">'+big("besser","verbessert",z)+big("schlechter","verschlechtert",z)+big("gleich","unverändert",z)+big("neutral","ohne Wertung",z)+'</div>'
-      + '<div class="hk">'+TROPHY+'<span>EU-Platzierung seit Amtsantritt</span>'+infoIcon("Hier zählt nur, ob sich Österreichs Platz unter den EU-Ländern seit dem Amtsantritt verbessert oder verschlechtert hat. Das ist unabhängig vom Trend der Werte. Nur Indikatoren mit Wertung werden gezählt. Einige Indikatoren gibt es nur für Österreich (etwa Insolvenzen und Verurteilungen). Sie lassen sich nicht mit anderen EU-Ländern vergleichen und kommen hier deshalb nicht vor.")+'</div>'
+      + '<div class="hk">'+TROPHY+'<span>EU-Platzierung seit Amtsantritt</span>'+infoIcon("Hier zählt nur, ob sich Österreichs Platz unter den EU-Ländern seit dem Amtsantritt verbessert oder verschlechtert hat. Das ist unabhängig vom Trend der Werte. Nur Kennzahlen mit Wertung werden gezählt. Einige Kennzahlen gibt es nur für Österreich (etwa Insolvenzen und Verurteilungen). Sie lassen sich nicht mit anderen EU-Ländern vergleichen und kommen hier deshalb nicht vor.")+'</div>'
       + '<div class="hz h3">'+big("rbesser","verbessert",r)+big("rschlechter","verschlechtert",r)+big("rgleich","unverändert",r)+'</div>'
-      + (versteckt.length ? '<div class="hf"><button type="button" class="zb hs ausgebl" data-fz="ausgebl" aria-pressed="false"><b>'+z.ausgebl+'</b> Indikatoren ausgeblendet (noch keine Daten ab 2025)</button></div>' : '');
+      + (versteckt.length ? '<div class="hf"><button type="button" class="zb hs ausgebl" data-fz="ausgebl" aria-pressed="false"><b>'+z.ausgebl+'</b> Kennzahlen ausgeblendet (noch keine Daten ab 2025)</button></div>' : '');
     el.hidden = false;
     el.addEventListener("click", function(e){
       var b = e.target.closest(".zb"); if(!b) return;

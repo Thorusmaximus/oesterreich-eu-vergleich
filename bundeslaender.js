@@ -34,7 +34,7 @@ const STADT_DATEN = {
 };
 const SEIT = 2014, SCHWELLE_ANTEIL = 0.03, JAHRE_TREND = 5, MIN_LAENDER = 8;
 
-// Indikatoren. filter + alternativen wie bei den EU-Indikatoren; typ: niedrig = niedriger ist besser, hoch = höher ist besser, neutral = ohne Wertung
+// Kennzahlen. filter + alternativen wie bei den EU-Kennzahlen; typ: niedrig = niedriger ist besser, hoch = höher ist besser, neutral = ohne Wertung
 const IND = [
   { id: "bip", gegenSchnitt: true, name: "Wirtschaftsleistung pro Kopf", gruppe: 0, dataset: "nama_10r_2gdp", filter: "unit=EUR_HAB", dez: 0, suffix: " €", typ: "hoch", diffEinheit: "Euro",
     einheit: "Bruttoinlandsprodukt (BRP) in Euro pro Einwohner und Jahr", rangText: "Rang 1 = höchste Wirtschaftsleistung pro Kopf",
@@ -53,7 +53,7 @@ const IND = [
     erklaerung: "Wie viel Geld den Haushalten nach Steuern und Sozialleistungen pro Kopf zur Verfügung steht, nach dem Wohnort der Haushalte (nicht dem Arbeitsort).", mock: { base: 21000, step: 900 } },
   { id: "armut", name: "Armut oder soziale Ausgrenzung", gruppe: 2, dataset: "ilc_peps11n", filter: "unit=PC", alternativen: [{ dataset: "ilc_peps11n", filter: "unit=PC&age=TOTAL" }], dez: 1, suffix: " %", typ: "niedrig", diffEinheit: "Prozentpunkte",
     einheit: "Anteil der Menschen, die armutsgefährdet, erheblich materiell benachteiligt oder in einem Haushalt mit sehr geringer Erwerbstätigkeit sind", rangText: "Rang 1 = geringster Anteil",
-    erklaerung: "Der Anteil der Bevölkerung, der von Armut oder sozialer Ausgrenzung bedroht ist (AROPE-Indikator). Er stammt aus einer Haushaltsbefragung, die Werte pro Bundesland sind daher ungenau.", mock: { base: 17, step: 1.2 } },
+    erklaerung: "Der Anteil der Bevölkerung, der von Armut oder sozialer Ausgrenzung bedroht ist (AROPE-Kennzahl). Sie stammt aus einer Haushaltsbefragung, die Werte pro Bundesland sind daher ungenau.", mock: { base: 17, step: 1.2 } },
   { id: "lebenserwartung", name: "Lebenserwartung bei Geburt", gruppe: 4, dataset: "demo_r_mlifexp", filter: "sex=T&age=Y_LT1&unit=YR", alternativen: [{ dataset: "demo_r_mlifexp", filter: "sex=T&age=Y_LT1" }], dez: 1, suffix: " Jahre", typ: "hoch", diffEinheit: "Jahre",
     einheit: "Durchschnittliche Lebenserwartung bei der Geburt in Jahren", rangText: "Rang 1 = höchste Lebenserwartung",
     erklaerung: "Wie alt ein neugeborenes Kind im Schnitt würde, wenn die heutigen Sterberaten dauerhaft gelten.", mock: { base: 80.5, step: 0.4 } },
@@ -320,7 +320,7 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
   for (const v of ["weit", "gebarung"]) try { const r = await schuldenProKopf({ TEST, BASE, parse }, v); ergebnis.push(r); console.log(`OK  Bundesland ${r.name}: ${r.periode}, ${r.anzahl} Länder, Platz 1 ${r.laender[0].name}`); }
   catch (e) { console.error("FEHLER Bundesland Schulden " + v + ": " + e.message); }
   ergebnis.forEach(i => { i.ausgeblendet = +String(i.periode).slice(0, 4) < MIN_JAHR; if (i.ausgeblendet) console.log(`   AUSGEBLENDET Bundesland: ${i.name} (jüngste Daten: ${i.periode})`); });
-  // Gesamtbild: durchschnittlicher Rang über alle gewerteten Indikatoren, und wie viele Indikatoren sich verbessert/verschlechtert haben
+  // Gesamtbild: durchschnittlicher Rang über alle gewerteten Kennzahlen, und wie viele Kennzahlen sich verbessert/verschlechtert haben
   const bilanz = LAENDER.map(l => {
     const mit = ergebnis.filter(i => i.typ !== "neutral" && !i.ausgeblendet).map(i => ({ i, x: i.laender.find(z => z.code === l.code) })).filter(a => a.x && a.x.rang != null);
     const n = mit.length, summe = mit.reduce((s, a) => s + a.x.rang, 0);
@@ -333,20 +333,20 @@ async function berechneBundeslaender({ TEST, BASE, parse }) {
     const z = u => mit.filter(a => a.urteil === u).length;
     return { code: c.code, name: c.name, hinweis: c.hinweis, n: mit.length, durchschnittsrang: mit.length ? runden(mit.reduce((t, a) => t + a.rangEinordnung, 0) / mit.length, 2) : null, besser: z("besser"), schlechter: z("schlechter") };
   });
-  // Gesamtbild zum Vergleichszeitpunkt (je Indikator der Vorplatz, mind. 8 Länder mit Vorjahresrang)
+  // Gesamtbild zum Vergleichszeitpunkt (je Kennzahl der Vorplatz, mind. 8 Länder mit Vorjahresrang)
   const vorInd = ergebnis.filter(i => i.typ !== "neutral" && !i.ausgeblendet && i.laender.filter(z => z.rangVor != null).length >= 8);
   const vorRang = Object.fromEntries(LAENDER.map(l => { const r = vorInd.map(i => i.laender.find(z => z.code === l.code)?.rangVor).filter(v => v != null); return [l.code, r.length ? r.reduce((a, b) => a + b, 0) / r.length : null]; }));
   bilanz.forEach(b => { b.durchschnittsrangVor = vorRang[b.code] != null ? runden(vorRang[b.code], 2) : null; });
   bilanz.forEach(b => { b.platzVor = b.durchschnittsrangVor == null ? null : 1 + bilanz.filter(z => z.durchschnittsrangVor != null && z.durchschnittsrangVor < b.durchschnittsrangVor).length; });
   bilanz.forEach((b, i) => { b.platz = 1 + bilanz.filter(z => z.durchschnittsrang < b.durchschnittsrang).length; });
-  // Wann bekam ein Indikator zuletzt neue Zahlen? (neuer Datenstand oder geänderte Werte; sonst bleibt das alte Datum)
+  // Wann bekam eine Kennzahl zuletzt neue Zahlen? (neuer Datenstand oder geänderte Werte; sonst bleibt das alte Datum)
   const heute = new Date().toISOString().slice(0, 10);
   let vorher = null; try { vorher = JSON.parse(require("fs").readFileSync(__dirname + "/docs/bl-daten.json", "utf8")); } catch (e) {}
   const fp = i => JSON.stringify([i.periode ?? null, i.laender.map(z => [z.code, z.wert])]);
   ergebnis.forEach(i => { const p = !TEST && vorher && vorher.indikatoren && vorher.indikatoren.find(z => z.id === i.id);
     i.geaendert = p ? (fp(p) === fp(i) ? (p.geaendert || vorher.aktualisiert || heute) : heute) : heute; });
   // Entwicklung seit Beginn der aktuellen Koalition: Basis = letztes volles Jahr davor, Vergleich mit dem neuesten Jahr der Zeitreihe (mind. 2 Jahre Abstand).
-  // Nur gewertete Indikatoren mit Zeitreihe; Wirtschaftsleistung und Einkommen (nominal) sowie Wachstumsraten gehen nicht ein.
+  // Nur gewertete Kennzahlen mit Zeitreihe; Wirtschaftsleistung und Einkommen (nominal) sowie Wachstumsraten gehen nicht ein.
   const seitBerechnen = (kf, minJahre = 2) => LAENDER.map(l => {
     const k = kf(l.code), basis = k.basis; let bis = null; const bes = [], sch = [], gl = [];
     ergebnis.forEach(i => {

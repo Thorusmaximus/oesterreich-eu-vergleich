@@ -1,6 +1,6 @@
 // Gemeinsame Hilfsfunktionen für Überblick und Detailseiten
 var D = window.DATEN;
-var FDEZ = 1, SUF = " %", DIFF = "Prozentpunkte"; // Dezimalstellen, Einheitszeichen und Differenz-Einheit des aktuellen Indikators
+var FDEZ = 1, SUF = " %", DIFF = "Prozentpunkte"; // Dezimalstellen, Einheitszeichen und Differenz-Einheit des aktuellen Kennzahl
 function setzeEinheit(i){ FDEZ = i.dez != null ? i.dez : 1; SUF = i.suffix != null ? i.suffix : " %"; DIFF = i.diffEinheit || "Prozentpunkte"; }
 function f(x){ return x==null ? "–" : x.toLocaleString("de-AT",{minimumFractionDigits:FDEZ,maximumFractionDigits:FDEZ}); }
 function sgn(x){ return (x>0?"+":"") + f(x); }
@@ -48,7 +48,7 @@ function banner(){
 }
 function fussnote(){
   var q = D.quellen || "Eurostat, Europäische Kommission, Statistik Austria, Bundeskriminalamt, KSV1870, Europol und weitere";
-  return '<p class="note">Quellen: '+q+' (je Indikator in der <a href="methodik.html">Methodik</a>). Daten zuletzt abgerufen am '+datum(D.aktualisiert)+' · <a href="methodik.html">Methodik</a>'+' · <a href="impressum.html">Impressum</a></p>';
+  return '<p class="note">Quellen: '+q+' (je Kennzahl in der <a href="methodik.html">Methodik</a>). Daten zuletzt abgerufen am '+datum(D.aktualisiert)+' · <a href="methodik.html">Methodik</a>'+' · <a href="impressum.html">Impressum</a></p>';
 }
 
 // Rangvergleich: kleinerer Platz = besser (Pfeil nach oben)
@@ -127,7 +127,7 @@ function infoIcon(text){
 }
 function rangInfo(i){ var t=i.rangText||""; return /\(|Gleichstand/.test(t) ? infoIcon(t) : ""; }
 function teilPille(i){
-  var t="Nur "+i.anzahlLaender+" von 27 EU-Ländern liefern Daten für diesen Indikator.";
+  var t="Nur "+i.anzahlLaender+" von 27 EU-Ländern liefern Daten für diese Kennzahl.";
   return '<span class="info pille" role="button" tabindex="0" aria-label="Erklärung anzeigen" data-info="'+t+'">von '+i.anzahlLaender+'</span>';
 }
 (function(){
@@ -164,7 +164,7 @@ function teilPille(i){
   if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",init); else init();
 })();
 
-// Zusammengeführte Kacheln: mehrere Indikatoren in einer Kachel, mit Umschalter (erster = Standardansicht)
+// Zusammengeführte Kacheln: mehrere Kennzahlen in einer Kachel, mit Umschalter (erster = Standardansicht)
 var PAARE = [
   { ids: ["einkommen","durchschnittseinkommen","kaufkraft"], titel: "Einkommen", labels: ["Median","Durchschnitt","Kaufkraft"], suche: "median durchschnitt einkommen kaufkraft pps" },
   { ids: ["schulden","defizit"], titel: "Staatshaushalt", labels: ["Schulden","Defizit"], suche: "staatshaushalt staatsschulden schuldenstand schulden defizit budgetsaldo budget haushalt" },

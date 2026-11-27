@@ -43,9 +43,9 @@ function kmPanel() {
       if (x.urteil) h += '<br>Trend: <span class="' + urteilCls(x.urteil) + '">' + pfeil(x.richtung) + ' ' + trendWort(x.urteil) + '</span>';
       if (x.zus) h += '<br><span class="note">' + x.zus + '</span>';
       h += '</p>';
-    } else h += '<p class="note">Für diesen Indikator liegen keine Daten für ' + l.name + ' vor.</p>';
+    } else h += '<p class="note">Für diese Kennzahl liegen keine Daten für ' + l.name + ' vor.</p>';
   }
-  if (bi) h += '<p><b>Gesamtbild:</b> Platz ' + bi.platz + ' (Ø ' + bi.durchschnittsrang.toLocaleString("de-AT", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ')' + (bi.platzVor != null ? ', früher Platz ' + bi.platzVor : '') + ', bei ' + bi.besser + ' Indikatoren besser und bei ' + bi.schlechter + ' schlechter als früher.</p>';
+  if (bi) h += '<p><b>Gesamtbild:</b> Platz ' + bi.platz + ' (Ø ' + bi.durchschnittsrang.toLocaleString("de-AT", { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ')' + (bi.platzVor != null ? ', früher Platz ' + bi.platzVor : '') + ', bei ' + bi.besser + ' Kennzahlen besser und bei ' + bi.schlechter + ' schlechter als früher.</p>';
   var gew = []; B.indikatoren.forEach(function (i) { if (i.ausgeblendet || i.typ === "neutral") return; var x = i.laender.filter(function (z) { return z.code === code; })[0]; if (x && x.rang != null) gew.push({ i: i, x: x }); });
   var st = gew.filter(function (g) { return g.x.rang <= 3; }).sort(function (a, b) { return a.x.rang - b.x.rang; });
   var sc = gew.filter(function (g) { return g.x.rang >= g.i.anzahl - 2; }).sort(function (a, b) { return (b.x.rang - b.i.anzahl) - (a.x.rang - a.i.anzahl); });
@@ -75,11 +75,11 @@ function kmSvg() {
 }
 function kmHtml() {
   if (!window.BLKARTE) return "";
-  var opts = '<option value="gesamt"' + (KM.ind === "gesamt" ? " selected" : "") + '>Gesamtbild (alle gewerteten Indikatoren)</option>';
+  var opts = '<option value="gesamt"' + (KM.ind === "gesamt" ? " selected" : "") + '>Gesamtbild (alle gewerteten Kennzahlen)</option>';
   B.gruppen.forEach(function (g) { var l = B.indikatoren.filter(function (i) { return i.gruppe === g && !i.ausgeblendet; }); if (!l.length) return;
     opts += '<optgroup label="' + g + '">' + l.map(function (i) { return '<option value="' + i.id + '"' + (KM.ind === i.id ? " selected" : "") + '>' + i.name + '</option>'; }).join("") + '</optgroup>'; });
-  var h = '<div class="card" id="kmkarte"><h2>Karte' + infoIcon("Wähle einen Indikator und eine Ansicht. Stärke und Schwäche färben die Länder nach ihrem Platz (grün = Spitze, rot = Schlusslicht, bei Indikatoren ohne Wertung nur nach der Höhe des Werts in Blau). Entwicklung zeigt, ob sich ein Land gegenüber früher verbessert oder verschlechtert hat. Tippe auf ein Land für Details. Das Gesamtbild nutzt alle Indikatoren mit Wertung. Karte: Statistik Austria (data.statistik.gv.at), CC BY 4.0, vereinfacht von Flooh Perlot. Salzburg, Tirol und Vorarlberg liegen im Westen.") + '</h2>';
-  h += '<div class="kmctl"><select id="kmind" aria-label="Indikator">' + opts + '</select><div class="umsch"><button type="button" data-km="staerke" class="' + (KM.modus === "staerke" ? "on" : "") + '">Stärke und Schwäche</button><button type="button" data-km="entwicklung" class="' + (KM.modus === "entwicklung" ? "on" : "") + '">Entwicklung</button></div></div>';
+  var h = '<div class="card" id="kmkarte"><h2>Karte' + infoIcon("Wähle eine Kennzahl und eine Ansicht. Stärke und Schwäche färben die Länder nach ihrem Platz (grün = Spitze, rot = Schlusslicht, bei Kennzahlen ohne Wertung nur nach der Höhe des Werts in Blau). Entwicklung zeigt, ob sich ein Land gegenüber früher verbessert oder verschlechtert hat. Tippe auf ein Land für Details. Das Gesamtbild nutzt alle Kennzahlen mit Wertung. Karte: Statistik Austria (data.statistik.gv.at), CC BY 4.0, vereinfacht von Flooh Perlot. Salzburg, Tirol und Vorarlberg liegen im Westen.") + '</h2>';
+  h += '<div class="kmctl"><select id="kmind" aria-label="Kennzahl">' + opts + '</select><div class="umsch"><button type="button" data-km="staerke" class="' + (KM.modus === "staerke" ? "on" : "") + '">Stärke und Schwäche</button><button type="button" data-km="entwicklung" class="' + (KM.modus === "entwicklung" ? "on" : "") + '">Entwicklung</button></div></div>';
   h += '<div class="kmwrap"><div id="kmkarteSvg">' + kmSvg() + kmLegende() + '</div><div id="kmpanel" class="kmpanel">' + kmPanel() + '</div></div></div>';
   return h;
 }

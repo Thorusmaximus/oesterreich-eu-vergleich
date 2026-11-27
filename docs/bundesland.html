@@ -25,7 +25,7 @@
 </main>
 <script src="bl-daten.js"></script>
 <script>window.DATEN = { beispiel: !!(window.BL && window.BL.beispiel), quelle: "Eurostat", quellen: "Eurostat (Regionaldaten), Statistik Austria, AMS, Bundeskriminalamt, KSV1870, Sozialministerium und weitere", aktualisiert: (window.BL && window.BL.aktualisiert) || new Date().toISOString().slice(0,10) };</script>
-<script src="common.js?v=8072b077"></script>
+<script src="common.js?v=764f1163"></script>
 <script src="bl-common.js?v=9871dcfe"></script>
 <script>
 var app = document.getElementById("app"), B = window.BL, qs = new URLSearchParams(location.search), hl = qs.get("hl") || "", id = qs.get("id");
@@ -33,7 +33,7 @@ var i = B && B.indikatoren && B.indikatoren.filter(function(z){ return z.id===id
 function link(x){ return 'bundesland.html?id='+encodeURIComponent(x)+(hl?'&hl='+hl:''); }
 function seite(){
   document.getElementById("zurueck").href = "bundeslaender.html" + (hl ? "?hl="+hl : "");
-  if(!i){ app.innerHTML = '<p>Diesen Indikator gibt es nicht. Zurück zu den <a href="bundeslaender.html">Bundesländern</a>.</p>'; return; }
+  if(!i){ app.innerHTML = '<p>Diese Kennzahl gibt es nicht. Zurück zu den <a href="bundeslaender.html">Bundesländern</a>.</p>'; return; }
   document.title = i.name + " | Bundesländer | Regierungstracker Österreich";
   var L = i.laender, x = hl ? L.filter(function(z){ return z.code===hl; })[0] : null, a = L[0], z = L[L.length-1], wertet = i.typ!=="neutral";
   var h = B.beispiel ? banner() : "";
