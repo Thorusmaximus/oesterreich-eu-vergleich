@@ -35534,7 +35534,7 @@
    "dez": 1,
    "suffix": " Punkte",
    "diffEinheit": "Punkte",
-   "hinweis": "Einschätzung einer privaten Studie, keine amtliche Statistik. Berücksichtigt unter anderem Pensionsvermögen, Altersstruktur, Staatsschulden und Erwerbsquote Älterer.",
+   "hinweis": "Einschätzung einer privaten Studie, keine amtliche Statistik.",
    "umstritten": false,
    "trendNeutral": false,
    "schwelle": 1.6,
@@ -35751,7 +35751,7 @@
    "stand": "2026-11-23",
    "quelle": "Marsh CFA Institute Global Pension Index 2026, Teilindex Nachhaltigkeit",
    "quelleUrl": "https://cri.georgetown.edu/wp-content/uploads/2026/10/pdf-2026-marsh-cfa-institute-global-pension-index-main.pdf",
-   "hinweisDaten": "Der Index bewertet nur 14 der 27 EU-Länder (Belgien, Dänemark, Deutschland, Finnland, Frankreich, Irland, Italien, Kroatien, Niederlande, Österreich, Polen, Portugal, Schweden, Spanien). Der Weltrang bezieht sich auf alle 55 untersuchten Systeme. Er misst die langfristige Finanzierbarkeit (Pensionsvermögen, Demografie, Staatsschulden, Erwerbsquote Älterer) und ist eine Einschätzung der Studie, keine amtliche Statistik. Von Hand gepflegt.",
+   "hinweisDaten": "Der Weltrang bezieht sich auf alle 55 untersuchten Systeme. Der Index misst die langfristige Finanzierbarkeit und ist eine Einschätzung der Studie, keine amtliche Statistik.",
    "geaendert": "2026-11-23",
    "erklaerung": "Wie gut ein Pensionssystem langfristig bezahlbar ist, laut dem Marsh CFA Institute Global Pension Index (Teilindex Nachhaltigkeit). Berücksichtigt werden unter anderem angespartes Pensionsvermögen, Altersstruktur, Staatsschulden und die Erwerbsquote Älterer. Der Index ist eine Bewertung einer Studie, keine amtliche Statistik, und enthält nur 14 der 27 EU-Länder.",
    "gruppe": "Pensionen und Alter"
