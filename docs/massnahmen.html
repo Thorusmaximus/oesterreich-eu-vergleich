@@ -90,7 +90,7 @@ var M=[
   v:{n:"Abstimmungsverhalten der Klubs in der Quelle nicht genannt."},
   u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-besiegelt-vorlaeufiges-Aus-fuer-Bildungskarenz"}
 ];
-// Streitwert: nur aus Quellenangaben. Je Klub "dagegen" = 1, "teils" = 0,5. Nicht genannte Klubs zählen nicht.
+// Gegenstimmen-Wert: nur aus Quellenangaben. Je Klub "dagegen" = 1, "teils" = 0,5. Nicht genannte Klubs zählen nicht.
 M.forEach(function(m){ var v=m.v||{}; m.s=(v.c||[]).length+0.5*(v.t||[]).length; });
 function jahr(m){ return +m.d.slice(0,4); }
 function rang(a,b){ return (b.h-a.h)||(b.s-a.s)||(a.d<b.d?1:-1); }
@@ -103,7 +103,7 @@ function kurz(){
   var n=3+(4-a.length);
   return a.concat(b.slice(0,n)).sort(function(x,y){ return x.d<y.d?1:x.d>y.d?-1:0; });
 }
-var TABS=[["kurz","Kurzansicht"],["alle","Alle"],["hoch","Hervorgehoben"],["streit","Streitpunkte"]];
+var TABS=[["kurz","Kurzansicht"],["alle","Alle"],["hoch","Hervorgehoben"],["streit","Stimmverhalten"]];
 var fT="kurz", fG="";
 function seite(){
   var gr=[]; M.forEach(function(m){ if(gr.indexOf(m.g)<0) gr.push(m.g); });
@@ -128,10 +128,10 @@ function stimmen(v){
 }
 function liste(){
   var J=new Date().getFullYear(), L, txt;
-  var tx={kurz:"Automatisch: die "+"4 interessantesten Beschlüsse "+J+" und die 3 interessantesten "+(J-1)+". „Interessant“ heißt hier: höchste Aufmerksamkeitsstufe, dann umstrittenste, dann neueste.",
+  var tx={kurz:"Ausgewählt werden automatisch vier Beschlüsse aus "+J+" und drei aus "+(J-1)+". Die Reihenfolge der Auswahl: Aufmerksamkeitsstufe, dann Anzahl der Gegenstimmen, dann Aktualität.",
     alle:"Alle erfassten Beschlüsse.",
     hoch:"Beschlüsse mit hoher Aufmerksamkeit (Stufe 3)."+infoIcon("Redaktionelle Einstufung in drei Stufen, kein gemessener Wert. Stufe 3: betrifft einen großen Teil der Bevölkerung oder Haushalte, hat ein Volumen im Milliardenbereich oder war ein zentrales, breit diskutiertes Thema. Stufe 2: betrifft eine klar abgegrenzte, aber große Gruppe oder wurde sichtbar diskutiert. Stufe 1: Fach- oder Verwaltungsgesetz. Ein automatisches Maß (etwa Medienzählung oder Suchanfragen) ist noch nicht eingebaut."),
-    streit:"Beschlüsse mit Gegenstimmen laut Quelle, die umstrittensten zuerst."+infoIcon("Streitwert: jede Partei, die laut Quelle dagegen stimmte, zählt 1, eine teilweise Zustimmung 0,5. Parteien, deren Verhalten die Quelle nicht nennt, zählen nicht. Die Liste kann deshalb Streitpunkte übersehen. Gemessen wird nur das Abstimmungsverhalten im Nationalrat, nicht die öffentliche Debatte.")};
+    streit:"Beschlüsse, bei denen laut Quelle mindestens eine Partei nicht oder nur teilweise zustimmte, geordnet nach der Zahl der Gegenstimmen."+infoIcon("Bewertung: jede Partei, die laut Quelle dagegen stimmte, zählt 1, eine teilweise Zustimmung 0,5. Parteien, deren Verhalten die Quelle nicht nennt, zählen nicht. Die Liste kann deshalb Beschlüsse mit Gegenstimmen auslassen. Berücksichtigt wird nur das Abstimmungsverhalten im Nationalrat, nicht die öffentliche Debatte.")};
   document.getElementById("tx").innerHTML=tx[fT];
   if(fT==="kurz") L=kurz();
   else if(fT==="alle") L=M.slice();
