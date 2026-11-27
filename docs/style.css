@@ -257,7 +257,7 @@ svg{width:100%;height:auto;display:block}
 .sust[open]>summary{margin-bottom:8px}
 @media(max-width:480px){.sust>summary{padding-right:12px;padding-bottom:30px}.sust>summary .auf{top:auto;bottom:6px;transform:none}}
 @media(max-width:480px){.zrow .zl{flex:0 0 100%}}
-.sust .ow{display:none}.sust.zeigv .ow{display:block}
+.sust .ow{display:block}
 .sust .sustg:has(.sdrit){grid-template-columns:1fr 1fr 1fr}
 .sust .sdrit{border-left:1px dashed var(--line);padding-left:12px}
 .sust .sdrit .vbtn{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--card)}
