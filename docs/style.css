@@ -445,3 +445,5 @@ body{background:linear-gradient(180deg,#dde7f8 0,#e8eef9 420px,#eef2fa 100%) fix
 .hero .pgbox a{color:inherit}
 h1 .hi,h2 .hi{display:inline-flex;vertical-align:-3px;margin-right:10px;color:var(--mut);opacity:.8}
 h1 a.home{color:inherit;text-decoration:none}
+.pg-h{font-size:.85rem;margin:14px 0 2px;padding-top:10px;border-top:1px solid rgba(128,128,128,.3)}
+.pg-f.neu{background:currentColor;opacity:.55}.pg-w.neu{color:inherit;opacity:.8}
