@@ -32518,6 +32518,753 @@
    "gruppe": "Sicherheit"
   },
   {
+   "id": "diebstahl",
+   "name": "Diebstahl",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 0,
+   "suffix": "",
+   "diffEinheit": "Fälle pro 100.000 Einwohner",
+   "hinweis": "Länder zählen unterschiedlich, und bei kleinen Diebstählen entscheidet oft die Anzeigebereitschaft. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+   "umstritten": false,
+   "trendNeutral": true,
+   "schwelle": 31,
+   "schwelleArt": "relativ",
+   "datensatz": "crim_off_cat",
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Von der Polizei erfasste Diebstähle ohne Gewalt und ohne Einbruch pro 100.000 Einwohner",
+   "rangText": "Rang 1 = niedrigste Quote",
+   "periode": "2024",
+   "vorherPeriode": "2023",
+   "anzahlLaender": 27,
+   "alter": 23,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 1179.99,
+    "rang": 16,
+    "wertVorher": 1212.1,
+    "rangVorher": 17,
+    "schnitt": 1180,
+    "schnittVorher": 1212,
+    "veraenderung": -32,
+    "richtung": "sinkend",
+    "urteil": "niedriger"
+   },
+   "eu": 1049.97,
+   "euMittelwert": true,
+   "beste": {
+    "code": "CY",
+    "name": "Zypern",
+    "value": 65.4,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert",
+    "wertJetzt": 65.4,
+    "wertVorher": 61.43
+   },
+   "schlechteste": {
+    "code": "LU",
+    "name": "Luxemburg",
+    "value": 2711.85,
+    "rank": 27,
+    "richtung": "sinkend",
+    "urteil": "niedriger",
+    "wertJetzt": 2711.85,
+    "wertVorher": 2785.07
+   },
+   "rangVerlauf": [
+    {
+     "t": "2020",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2021",
+     "rang": 16,
+     "n": 27
+    },
+    {
+     "t": "2022",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2023",
+     "rang": 17,
+     "n": 27
+    },
+    {
+     "t": "2024",
+     "rang": 16,
+     "n": 27
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 65.4,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 65.4,
+     "wertVorher": 61.43
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 142.85,
+     "rank": 2,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 142.85,
+     "wertVorher": 217.84
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 249.18,
+     "rank": 3,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 249.18,
+     "wertVorher": 318.83
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 269.02,
+     "rank": 4,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 269.02,
+     "wertVorher": 334.47
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 296.01,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 296.01,
+     "wertVorher": 326.7
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 300.91,
+     "rank": 6,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 300.91,
+     "wertVorher": 292.66
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 381.82,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 381.82,
+     "wertVorher": 405.62
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 409.51,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 409.51,
+     "wertVorher": 353.76
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 450.87,
+     "rank": 9,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 450.87,
+     "wertVorher": 462.37
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 606.64,
+     "rank": 10,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 606.64,
+     "wertVorher": 660.06
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 629.61,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 629.61,
+     "wertVorher": 530.58
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 649.59,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 649.59,
+     "wertVorher": 565.21
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 722.39,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 722.39,
+     "wertVorher": 714.33
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 731,
+     "rank": 14,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 731,
+     "wertVorher": 710.09
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 751.63,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 751.63,
+     "wertVorher": 685.54
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 1179.99,
+     "rank": 16,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 1179.99,
+     "wertVorher": 1212.1
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 1226.82,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 1226.82,
+     "wertVorher": 1175.83
+    },
+    {
+     "code": "NL",
+     "name": "Niederlande",
+     "value": 1330.5,
+     "rank": 18,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 1330.5,
+     "wertVorher": 1377.72
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 1334.7,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 1334.7,
+     "wertVorher": 1311.66
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 1376.67,
+     "rank": 20,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 1376.67,
+     "wertVorher": 1410.44
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 1552.26,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 1552.26,
+     "wertVorher": 1505.73
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 1657.97,
+     "rank": 22,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 1657.97,
+     "wertVorher": 1794.08
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 1911.46,
+     "rank": 23,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 1911.46,
+     "wertVorher": 1956.01
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 2277.01,
+     "rank": 24,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 2277.01,
+     "wertVorher": 2292.3
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 2510.19,
+     "rank": 25,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 2510.19,
+     "wertVorher": 2736.67
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 2623.31,
+     "rank": 26,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 2623.31,
+     "wertVorher": 2671.5
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 2711.85,
+     "rank": 27,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 2711.85,
+     "wertVorher": 2785.07
+    }
+   ],
+   "schweiz": {
+    "wert": 1966.09,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2020",
+     "at": 951.95,
+     "eu": 926.91
+    },
+    {
+     "t": "2021",
+     "at": 819.61,
+     "eu": 868.94
+    },
+    {
+     "t": "2022",
+     "at": 1081.86,
+     "eu": 1020.34
+    },
+    {
+     "t": "2023",
+     "at": 1212.1,
+     "eu": 1069.21
+    },
+    {
+     "t": "2024",
+     "at": 1179.99,
+     "eu": 1049.97
+    }
+   ],
+   "geaendert": "2026-11-27",
+   "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
+   "ausgeblendet": true,
+   "erklaerung": "Wie viele Diebstähle ohne Gewalt und ohne Einbruch (zum Beispiel Taschen-, Fahrrad-, Laden- und Autodiebstahl) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Das ist die häufigste Deliktart. Länder zählen unterschiedlich, und bei kleinen Diebstählen entscheidet oft die Anzeigebereitschaft. Ein höherer Wert heißt nicht automatisch mehr Taten. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
+   "gruppe": "Sicherheit"
+  },
+  {
+   "id": "computerdelikte",
+   "name": "Delikte gegen Computersysteme",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 0,
+   "suffix": "",
+   "diffEinheit": "Fälle pro 100.000 Einwohner",
+   "hinweis": "Länder fassen den Begriff unterschiedlich weit, und viele Taten werden nicht angezeigt. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+   "umstritten": false,
+   "trendNeutral": true,
+   "schwelle": 1.4,
+   "schwelleArt": "relativ",
+   "datensatz": "crim_off_cat",
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Von der Polizei erfasste Delikte gegen Computersysteme pro 100.000 Einwohner",
+   "rangText": "Rang 1 = niedrigste Quote",
+   "periode": "2024",
+   "vorherPeriode": "2023",
+   "anzahlLaender": 23,
+   "alter": 23,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 216.01,
+    "rang": 23,
+    "wertVorher": 225.08,
+    "rangVorher": 22,
+    "schnitt": 216,
+    "schnittVorher": 225,
+    "veraenderung": -9,
+    "richtung": "sinkend",
+    "urteil": "niedriger"
+   },
+   "eu": 46.35,
+   "euMittelwert": true,
+   "beste": {
+    "code": "LV",
+    "name": "Lettland",
+    "value": 0.64,
+    "rank": 1,
+    "richtung": "stabil",
+    "urteil": "unverändert",
+    "wertJetzt": 0.64,
+    "wertVorher": 0.48
+   },
+   "schlechteste": {
+    "code": "AT",
+    "name": "Österreich",
+    "value": 216.01,
+    "rank": 23,
+    "richtung": "sinkend",
+    "urteil": "niedriger",
+    "wertJetzt": 216.01,
+    "wertVorher": 225.08
+   },
+   "rangVerlauf": [
+    {
+     "t": "2020",
+     "rang": 24,
+     "n": 24
+    },
+    {
+     "t": "2021",
+     "rang": 24,
+     "n": 24
+    },
+    {
+     "t": "2022",
+     "rang": 24,
+     "n": 24
+    },
+    {
+     "t": "2023",
+     "rang": 22,
+     "n": 23
+    },
+    {
+     "t": "2024",
+     "rang": 23,
+     "n": 23
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 0.64,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 0.64,
+     "wertVorher": 0.48
+    },
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 0.83,
+     "rank": 1,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 0.83,
+     "wertVorher": 0.7
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 1.74,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 1.74,
+     "wertVorher": 1.61
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 1.54,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 1.54,
+     "wertVorher": 1.61
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 2.35,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 2.35,
+     "wertVorher": 1.5
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 12.08,
+     "rank": 6,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 12.08,
+     "wertVorher": 17.63
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 15.15,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 15.15,
+     "wertVorher": 15.72
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 15.94,
+     "rank": 8,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 15.94,
+     "wertVorher": 12.33
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 17.38,
+     "rank": 9,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 17.38,
+     "wertVorher": 19.81
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 19.92,
+     "rank": 10,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 19.92,
+     "wertVorher": 22.29
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 23.42,
+     "rank": 11,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 23.42,
+     "wertVorher": 23.89
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 24.04,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 24.04,
+     "wertVorher": 18.94
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 24.95,
+     "rank": 13,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 24.95,
+     "wertVorher": 26.29
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 28.31,
+     "rank": 14,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 28.31,
+     "wertVorher": 17.51
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 41.76,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 41.76,
+     "wertVorher": 301.64
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 44.15,
+     "rank": 16,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 44.15,
+     "wertVorher": 49.04
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 53.57,
+     "rank": 17,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 53.57,
+     "wertVorher": 43.83
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 63.28,
+     "rank": 18,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 63.28,
+     "wertVorher": 10.91
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 83.7,
+     "rank": 19,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 83.7,
+     "wertVorher": 82.83
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 84.84,
+     "rank": 20,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 84.84,
+     "wertVorher": 157.73
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 98.69,
+     "rank": 21,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 98.69,
+     "wertVorher": 107.93
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 191.81,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 191.81,
+     "wertVorher": 111.52
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 216.01,
+     "rank": 23,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 216.01,
+     "wertVorher": 225.08
+    }
+   ],
+   "schweiz": null,
+   "verlauf": [
+    {
+     "t": "2020",
+     "at": 141.39,
+     "eu": 28.1
+    },
+    {
+     "t": "2021",
+     "at": 168.92,
+     "eu": 31.84
+    },
+    {
+     "t": "2022",
+     "at": 244.73,
+     "eu": 38.26
+    },
+    {
+     "t": "2023",
+     "at": 225.08,
+     "eu": 55.25
+    },
+    {
+     "t": "2024",
+     "at": 216.01,
+     "eu": 46.35
+    }
+   ],
+   "geaendert": "2026-11-27",
+   "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
+   "ausgeblendet": true,
+   "erklaerung": "Wie viele Delikte gegen Computersysteme (zum Beispiel unbefugter Zugriff, Hacking und Schadsoftware) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Länder fassen den Begriff unterschiedlich weit, und viele Taten werden nicht angezeigt. Ein höherer Wert heißt nicht automatisch mehr Taten. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
+   "gruppe": "Sicherheit"
+  },
+  {
    "id": "strompreis",
    "name": "Strompreise für Haushalte",
    "pfeilModus": "wert",
