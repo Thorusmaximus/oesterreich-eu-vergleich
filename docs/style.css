@@ -363,4 +363,4 @@ svg{width:100%;height:auto;display:block}
 .svgl{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line);font-size:.9rem}
 .svgl select{font:inherit;font-size:.9rem;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);max-width:100%}
 .svgl .svh{margin:14px 0 6px;font-size:1.05rem}
-.hero .hd{margin:0 0 14px;font-size:.8rem;color:#a9b6d8}.hero .hd b{color:#eaf0ff;font-weight:600}
+.hero .hd{margin:-2px 0 10px;font-size:.8rem;color:#a9b6d8}.hero .hd b{color:#eaf0ff;font-weight:600}
