@@ -452,3 +452,4 @@ h1 a.home{color:inherit;text-decoration:none}
 .sust .stt{display:flex;flex-direction:column}
 .svhint{font-size:.78rem;font-weight:600;color:var(--eu);margin:2px 0 4px;text-decoration:underline;text-underline-offset:2px}
 .sust[open] .svhint{display:none}
+.sust>summary .gh{font-size:1.1rem;line-height:1.25}
