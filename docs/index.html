@@ -16,7 +16,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=731d2e4d">
+<link rel="stylesheet" href="style.css?v=2051cd21">
 </head>
 <body>
 <main>
@@ -204,11 +204,18 @@ else {
     D.indikatoren.forEach(function(i){ var s = rangStatus(i); if(s) r[s]++; });
     var mr = function(k, txt){ return '<button type="button" class="zb rb '+k+'" data-fz="'+k+'" aria-pressed="false"><b>'+r[k]+'</b> '+txt+'</button>'; };
     var TROPHY='<svg class="ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M8 6H5v1.5A3 3 0 0 0 8 10.5M16 6h3v1.5a3 3 0 0 1-3 3"/><path d="M12 13v4M8.5 20h7M10 17h4"/></svg>';
+    var avgHtml = ""; (function(){ // Durchschnittlicher Platz Österreichs (Kennzahlen mit Wertung), auf 27 Länder umgerechnet
+      var a=0, b=0, n=0;
+      D.indikatoren.forEach(function(i){ if(!i.typ || i.typ==="neutral" || !i.oesterreich || !i.anzahlLaender) return; var v=(i.rangVergleich||[]).filter(function(q){ return q && q.regierung; })[0]; if(!v || !v.n) return; a += i.oesterreich.rang/i.anzahlLaender; b += v.rang/v.n; n++; });
+      if(n<10) return; var f=function(x){ return (x/n*27).toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1}); };
+      avgHtml = 'Durchschnittlicher Platz: <b>'+f(b)+'</b> bei Amtsantritt, <b>'+f(a)+'</b> heute'+infoIcon("Mittelwert aller Plätze Österreichs bei den "+n+" Kennzahlen mit Wertung, für die es einen Platz bei Amtsantritt und heute gibt. Jede Kennzahl zählt gleich viel. Plätze bei Kennzahlen mit weniger als 27 Ländern sind auf 27 Länder umgerechnet. Das ist nur Österreichs eigener Durchschnitt, kein Gesamtplatz im Vergleich mit anderen Ländern, denn die Plätze der anderen Länder bei Amtsantritt liegen nicht vor. Eine niedrigere Zahl heißt: im Schnitt weiter vorne.");
+    })();
     var big = function(k, txt, src){ var v=src[k]; return '<button type="button" class="zb hb '+k+'" data-fz="'+k+'" aria-pressed="false"><b>'+v+'</b><span>'+txt+'</span></button>'; };
     el.innerHTML = '<div class="hk">Entwicklung der Werte'+infoIcon("Gezählt wird jede Kennzahl einzeln, bei zusammengeführten Fenstern jede Variante. Die Zahlen zeigen, wie sich Österreich seit dem Amtsantritt verändert hat, nicht, warum. „Ohne Wertung“ sind Kennzahlen, bei denen nicht bewertet wird, ob ein höherer oder niedrigerer Wert besser ist. Ein Tipp auf eine Zahl zeigt nur die passenden Fenster, ein zweiter Tipp hebt den Filter wieder auf.")+'</div>'
       + '<div class="hz h4">'+big("besser","verbessert",z)+big("schlechter","verschlechtert",z)+big("gleich","unverändert",z)+big("neutral","ohne Wertung",z)+'</div>'
       + '<div class="hk">'+TROPHY+'<span>EU-Platzierung seit Amtsantritt</span>'+infoIcon("Hier zählt nur, ob sich Österreichs Platz unter den EU-Ländern seit dem Amtsantritt verbessert oder verschlechtert hat. Das ist unabhängig vom Trend der Werte. Nur Kennzahlen mit Wertung werden gezählt. Einige Kennzahlen gibt es nur für Österreich (etwa Insolvenzen und Verurteilungen). Sie lassen sich nicht mit anderen EU-Ländern vergleichen und kommen hier deshalb nicht vor.")+'</div>'
       + '<div class="hz h3">'+big("rbesser","verbessert",r)+big("rschlechter","verschlechtert",r)+big("rgleich","unverändert",r)+'</div>'
+      + (avgHtml ? '<p class="hd">'+avgHtml+'</p>' : '')
       + (versteckt.length ? '<div class="hf"><button type="button" class="zb hs ausgebl" data-fz="ausgebl" aria-pressed="false"><b>'+z.ausgebl+'</b> Kennzahlen ausgeblendet (noch keine Daten ab 2025)</button></div>' : '');
     el.hidden = false;
     el.addEventListener("click", function(e){
