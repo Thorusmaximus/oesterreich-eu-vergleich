@@ -1105,7 +1105,7 @@ const HAND_IND = {
     typ: "neutral", trendNeutral: true, umstritten: true, schwelle: 0.5, maxAlter: 80, minLaender: 18, kurzHinweis: "Nur 22 von 27 EU-Ländern sind in der Erhebung. Der Rang gilt nur unter diesen 22." },
   marsh: { id: "marsh", name: "Finanzierbarkeit des Pensionssystems", takt: "jahr", pfeilModus: "wert", dez: 1, suffix: " Punkte", diffEinheit: "Punkte",
     einheit: "Teilindex Nachhaltigkeit des Marsh CFA Institute Global Pension Index (0 bis 100 Punkte)", rangText: "Rang 1 = beste Nachhaltigkeitsbewertung (nur 14 EU-Länder im Index)",
-    hinweis: "Einschätzung einer privaten Studie, keine amtliche Statistik. Berücksichtigt unter anderem Pensionsvermögen, Altersstruktur, Staatsschulden und Erwerbsquote Älterer.",
+    hinweis: "Einschätzung einer privaten Studie, keine amtliche Statistik.",
     typ: "hoch", schwelle: 1, maxAlter: 26, minLaender: 12, kurzHinweis: "Nur 14 von 27 EU-Ländern sind im Index. Der Rang gilt nur unter diesen 14." }
 };
 

@@ -49,7 +49,7 @@
    "jahr": 2026,
    "quelle": "Marsh CFA Institute Global Pension Index 2026, Teilindex Nachhaltigkeit",
    "url": "https://cri.georgetown.edu/wp-content/uploads/2026/10/pdf-2026-marsh-cfa-institute-global-pension-index-main.pdf",
-   "hinweis": "Der Index bewertet nur 14 der 27 EU-Länder (Belgien, Dänemark, Deutschland, Finnland, Frankreich, Irland, Italien, Kroatien, Niederlande, Österreich, Polen, Portugal, Schweden, Spanien). Der Weltrang bezieht sich auf alle 55 untersuchten Systeme. Er misst die langfristige Finanzierbarkeit (Pensionsvermögen, Demografie, Staatsschulden, Erwerbsquote Älterer) und ist eine Einschätzung der Studie, keine amtliche Statistik. Von Hand gepflegt.",
+   "hinweis": "Der Weltrang bezieht sich auf alle 55 untersuchten Systeme. Der Index misst die langfristige Finanzierbarkeit und ist eine Einschätzung der Studie, keine amtliche Statistik.",
    "werte": {
     "AT": 23.9,
     "BE": 41.2,
