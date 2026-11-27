@@ -1,5 +1,5 @@
 {
- "aktualisiert": "2026-11-26",
+ "aktualisiert": "2026-11-27",
  "beispiel": false,
  "quelle": "Eurostat (Regionaldaten, NUTS 2)",
  "jahreTrend": 5,
@@ -95,7 +95,7 @@
     ],
     "wahl": 2023,
     "naechsteWahl": 2028,
-    "seit": "April 2026 (Landeshauptmann; Koalition seit 2023)",
+    "seit": "April 2026 (Landeshauptmann; Koalition seit April 2023)",
     "vorher": {
      "koalition": [
       "SPÖ",
@@ -166,7 +166,7 @@
     ],
     "wahl": 2023,
     "naechsteWahl": 2028,
-    "seit": "Juli 2025 (Landeshauptfrau; Koalition seit 2023)",
+    "seit": "Juli 2025 (Landeshauptfrau; Koalition seit Juni 2023)",
     "vorher": {
      "koalition": [
       "ÖVP",
@@ -7835,7 +7835,7 @@
   {
    "code": "AT21",
    "name": "Kärnten",
-   "koalitionSeit": "2023",
+   "koalitionSeit": "April 2023",
    "basis": 2022,
    "bis": 2025,
    "n": 7,
@@ -7921,7 +7921,7 @@
   {
    "code": "AT32",
    "name": "Salzburg",
-   "koalitionSeit": "2023",
+   "koalitionSeit": "Juni 2023",
    "basis": 2022,
    "bis": 2025,
    "n": 7,

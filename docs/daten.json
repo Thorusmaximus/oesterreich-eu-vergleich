@@ -1,6 +1,6 @@
 {
  "beispiel": false,
- "aktualisiert": "2026-11-26",
+ "aktualisiert": "2026-11-27",
  "quelle": "Eurostat",
  "regierung": {
   "name": "Regierung Stocker",
@@ -14589,6 +14589,7 @@
    ],
    "geaendert": "2026-11-23",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
+   "ausgeblendet": true,
    "erklaerung": "Wie viel Prozent der Wirtschaftsleistung ein Land für Pensionen und ähnliche Alters- und Hinterbliebenenleistungen ausgibt. 15 % heißt: Von jedem erwirtschafteten Euro gehen 15 Cent in Pensionen. Der Wert hängt davon ab, wie alt die Bevölkerung ist und wie hoch die Pensionen sind.",
    "gruppe": "Pensionen und Alter"
   },
@@ -19842,7 +19843,7 @@
   },
   {
    "id": "kapitalGesamt",
-   "name": "Unternehmenswert gesamt pro Einwohner",
+   "name": "Kapitalgesellschaften gesamt pro Einwohner",
    "pfeilModus": "wert",
    "typ": "hoch",
    "dez": 0,
@@ -28027,7 +28028,8 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "wertJetzt": 1.209,
-    "wertVorher": 0.314
+    "wertVorher": 0.314,
+    "zus": "115 Anträge"
    },
    "schlechteste": {
     "code": "EL",
@@ -28037,7 +28039,8 @@
     "richtung": "sinkend",
     "urteil": "niedriger",
     "wertJetzt": 594.341,
-    "wertVorher": 710.282
+    "wertVorher": 710.282,
+    "zus": "61 630 Anträge"
    },
    "rangVerlauf": [
     {
@@ -28089,7 +28092,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 1.209,
-     "wertVorher": 0.314
+     "wertVorher": 0.314,
+     "zus": "115 Anträge"
     },
     {
      "code": "SK",
@@ -28099,7 +28103,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 3.047,
-     "wertVorher": 3.043
+     "wertVorher": 3.043,
+     "zus": "165 Anträge"
     },
     {
      "code": "RO",
@@ -28109,7 +28114,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 6.249,
-     "wertVorher": 12.595
+     "wertVorher": 12.595,
+     "zus": "1 190 Anträge"
     },
     {
      "code": "CZ",
@@ -28119,7 +28125,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 10.951,
-     "wertVorher": 12.471
+     "wertVorher": 12.471,
+     "zus": "1 195 Anträge"
     },
     {
      "code": "LT",
@@ -28129,7 +28136,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 13.153,
-     "wertVorher": 12.464
+     "wertVorher": 12.464,
+     "zus": "380 Anträge"
     },
     {
      "code": "PT",
@@ -28139,7 +28147,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 15.475,
-     "wertVorher": 23.814
+     "wertVorher": 23.814,
+     "zus": "1 765 Anträge"
     },
     {
      "code": "HR",
@@ -28149,7 +28158,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 30.45,
-     "wertVorher": 28.825
+     "wertVorher": 28.825,
+     "zus": "1 180 Anträge"
     },
     {
      "code": "DK",
@@ -28159,7 +28169,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 32.45,
-     "wertVorher": 38.648
+     "wertVorher": 38.648,
+     "zus": "1 950 Anträge"
     },
     {
      "code": "PL",
@@ -28169,7 +28180,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 36.331,
-     "wertVorher": 46.254
+     "wertVorher": 46.254,
+     "zus": "13 230 Anträge"
     },
     {
      "code": "FI",
@@ -28179,7 +28191,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 44.912,
-     "wertVorher": 52.314
+     "wertVorher": 52.314,
+     "zus": "2 535 Anträge"
     },
     {
      "code": "BG",
@@ -28189,7 +28202,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 60.573,
-     "wertVorher": 190.331
+     "wertVorher": 190.331,
+     "zus": "3 895 Anträge"
     },
     {
      "code": "EE",
@@ -28199,7 +28213,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 74.339,
-     "wertVorher": 98.736
+     "wertVorher": 98.736,
+     "zus": "1 015 Anträge"
     },
     {
      "code": "LV",
@@ -28209,7 +28224,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 79.608,
-     "wertVorher": 55.628
+     "wertVorher": 55.628,
+     "zus": "1 475 Anträge"
     },
     {
      "code": "MT",
@@ -28219,7 +28235,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 93.763,
-     "wertVorher": 123.056
+     "wertVorher": 123.056,
+     "zus": "545 Anträge"
     },
     {
      "code": "SE",
@@ -28229,7 +28246,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 100.221,
-     "wertVorher": 105.348
+     "wertVorher": 105.348,
+     "zus": "10 620 Anträge"
     },
     {
      "code": "NL",
@@ -28239,7 +28257,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 142.975,
-     "wertVorher": 186.262
+     "wertVorher": 186.262,
+     "zus": "25 860 Anträge"
     },
     {
      "code": "AT",
@@ -28249,7 +28268,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 181.066,
-     "wertVorher": 276.313
+     "wertVorher": 276.313,
+     "zus": "16 670 Anträge"
     },
     {
      "code": "SI",
@@ -28259,7 +28279,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 195.501,
-     "wertVorher": 264.877
+     "wertVorher": 264.877,
+     "zus": "4 170 Anträge"
     },
     {
      "code": "DE",
@@ -28269,7 +28290,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 201.683,
-     "wertVorher": 300.078
+     "wertVorher": 300.078,
+     "zus": "168 450 Anträge"
     },
     {
      "code": "FR",
@@ -28279,7 +28301,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 219.812,
-     "wertVorher": 229.077
+     "wertVorher": 229.077,
+     "zus": "151 665 Anträge"
     },
     {
      "code": "IT",
@@ -28289,7 +28312,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 229.857,
-     "wertVorher": 269.017
+     "wertVorher": 269.017,
+     "zus": "135 485 Anträge"
     },
     {
      "code": "IE",
@@ -28299,7 +28323,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 240.347,
-     "wertVorher": 344.052
+     "wertVorher": 344.052,
+     "zus": "13 160 Anträge"
     },
     {
      "code": "LU",
@@ -28309,7 +28334,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 268.039,
-     "wertVorher": 325.696
+     "wertVorher": 325.696,
+     "zus": "1 840 Anträge"
     },
     {
      "code": "BE",
@@ -28319,7 +28345,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 288.647,
-     "wertVorher": 330.625
+     "wertVorher": 330.625,
+     "zus": "34 405 Anträge"
     },
     {
      "code": "ES",
@@ -28329,7 +28356,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 291.162,
-     "wertVorher": 343.23
+     "wertVorher": 343.23,
+     "zus": "143 715 Anträge"
     },
     {
      "code": "CY",
@@ -28339,7 +28367,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 465.765,
-     "wertVorher": 942.374
+     "wertVorher": 942.374,
+     "zus": "4 610 Anträge"
     },
     {
      "code": "EL",
@@ -28349,7 +28378,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 594.341,
-     "wertVorher": 710.282
+     "wertVorher": 710.282,
+     "zus": "61 630 Anträge"
     }
    ],
    "schweiz": {
@@ -28431,7 +28461,8 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "wertJetzt": 0.333,
-    "wertVorher": 0.403
+    "wertVorher": 0.403,
+    "zus": "35 Personen"
    },
    "schlechteste": {
     "code": "CY",
@@ -28441,7 +28472,8 @@
     "richtung": "sinkend",
     "urteil": "niedriger",
     "wertJetzt": 2143.429,
-    "wertVorher": 2249.178
+    "wertVorher": 2249.178,
+    "zus": "21 005 Personen"
    },
    "rangVerlauf": [
     {
@@ -28768,7 +28800,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 0.333,
-     "wertVorher": 0.403
+     "wertVorher": 0.403,
+     "zus": "35 Personen"
     },
     {
      "code": "RO",
@@ -28778,7 +28811,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 1.505,
-     "wertVorher": 1.348
+     "wertVorher": 1.348,
+     "zus": "375 Personen"
     },
     {
      "code": "SK",
@@ -28788,7 +28822,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 1.908,
-     "wertVorher": 1.693
+     "wertVorher": 1.693,
+     "zus": "120 Personen"
     },
     {
      "code": "LT",
@@ -28798,7 +28833,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 4.442,
-     "wertVorher": 4.442
+     "wertVorher": 4.442,
+     "zus": "150 Personen"
     },
     {
      "code": "HR",
@@ -28808,7 +28844,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 14.967,
-     "wertVorher": 13.032
+     "wertVorher": 13.032,
+     "zus": "590 Personen"
     },
     {
      "code": "BG",
@@ -28818,7 +28855,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 16.459,
-     "wertVorher": 17.78
+     "wertVorher": 17.78,
+     "zus": "1 020 Personen"
     },
     {
      "code": "EE",
@@ -28828,7 +28866,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 25.878,
-     "wertVorher": 23.559
+     "wertVorher": 23.559,
+     "zus": "350 Personen"
     },
     {
      "code": "PL",
@@ -28838,7 +28877,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 30.28,
-     "wertVorher": 33.054
+     "wertVorher": 33.054,
+     "zus": "10 640 Personen"
     },
     {
      "code": "FI",
@@ -28848,7 +28888,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 43.967,
-     "wertVorher": 59.262
+     "wertVorher": 59.262,
+     "zus": "2 190 Personen"
     },
     {
      "code": "LV",
@@ -28858,7 +28899,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 41.018,
-     "wertVorher": 26.626
+     "wertVorher": 26.626,
+     "zus": "720 Personen"
     },
     {
      "code": "DK",
@@ -28868,7 +28910,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 41.409,
-     "wertVorher": 38.524
+     "wertVorher": 38.524,
+     "zus": "2 565 Personen"
     },
     {
      "code": "SE",
@@ -28878,7 +28921,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 53.114,
-     "wertVorher": 49.277
+     "wertVorher": 49.277,
+     "zus": "5 835 Personen"
     },
     {
      "code": "PT",
@@ -28888,7 +28932,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 72.42,
-     "wertVorher": 75.84
+     "wertVorher": 75.84,
+     "zus": "7 770 Personen"
     },
     {
      "code": "AT",
@@ -28898,7 +28943,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 160.936,
-     "wertVorher": 197.594
+     "wertVorher": 197.594,
+     "zus": "14 460 Personen"
     },
     {
      "code": "MT",
@@ -28908,7 +28954,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 180.645,
-     "wertVorher": 208.745
+     "wertVorher": 208.745,
+     "zus": "1 025 Personen"
     },
     {
      "code": "EL",
@@ -28918,7 +28965,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 261.312,
-     "wertVorher": 278.542
+     "wertVorher": 278.542,
+     "zus": "28 125 Personen"
     },
     {
      "code": "DE",
@@ -28928,7 +28976,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 323.587,
-     "wertVorher": 332.549
+     "wertVorher": 332.549,
+     "zus": "265 425 Personen"
     },
     {
      "code": "SI",
@@ -28938,7 +28987,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 212.301,
-     "wertVorher": 51.493
+     "wertVorher": 51.493,
+     "zus": "7 695 Personen"
     },
     {
      "code": "BE",
@@ -28948,7 +28998,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 482.309,
-     "wertVorher": 486.462
+     "wertVorher": 486.462,
+     "zus": "57 590 Personen"
     },
     {
      "code": "ES",
@@ -28958,7 +29009,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 550.097,
-     "wertVorher": 501.865
+     "wertVorher": 501.865,
+     "zus": "283 650 Personen"
     },
     {
      "code": "LU",
@@ -28968,7 +29020,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 595.805,
-     "wertVorher": 608.916
+     "wertVorher": 608.916,
+     "zus": "4 095 Personen"
     },
     {
      "code": "IE",
@@ -28978,7 +29031,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 608.051,
-     "wertVorher": 595.662
+     "wertVorher": 595.662,
+     "zus": "33 685 Personen"
     },
     {
      "code": "IT",
@@ -28988,7 +29042,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 618.585,
-     "wertVorher": 401.062
+     "wertVorher": 401.062,
+     "zus": "369 810 Personen"
     },
     {
      "code": "CY",
@@ -28998,7 +29053,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 2143.429,
-     "wertVorher": 2249.178
+     "wertVorher": 2249.178,
+     "zus": "21 005 Personen"
     }
    ],
    "schweiz": {
