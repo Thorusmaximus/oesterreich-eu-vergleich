@@ -11487,7 +11487,7 @@
    "dez": 1,
    "suffix": " ct",
    "diffEinheit": "Cent pro Liter",
-   "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie viele Haushalte mit Heizöl heizen, ist von Land zu Land sehr verschieden.",
+   "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie wichtig Heizöl ist, ist von Land zu Land sehr verschieden: Erdöl und Erdölprodukte (überwiegend Heizöl) machen in Österreich 8,2 % des Energieverbrauchs der Haushalte aus, in der EU reicht die Spanne von unter 1 % (zum Beispiel Slowakei, Niederlande) bis 42 % (Irland). Stand 2024, Quelle: Eurostat.",
    "umstritten": false,
    "trendNeutral": false,
    "schwelle": 5,
