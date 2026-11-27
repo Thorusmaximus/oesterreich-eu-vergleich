@@ -48,7 +48,7 @@ const GRUPPE_VON = {
   teilzeit: 1, industrie: 1,
   schulden: 2, defizit: 2, staatsquote: 2, abgabenquote: 2, rating: 2,
   inflation: 0, benzin: 0, diesel: 0, lebenshaltung: 0, immobilien: 0, strompreis: 0, "strompreis-industrie": 0, heizoel: 0, gaspreis: 0,
-  bevoelkerung: 4, geburtenrate: 4, treibhausgase: 6, erneuerbare: 6, terror: 3, betrug: 3, korruption: 3, bestechung: 3, geldwaesche: 3, aktionaersquote: 1, kapitalmarkt: 1, armut: 4, ausgrenzung: 4, wohnkosten: 0, mieten: 0, jugendarbeitslosigkeit: 1, neet: 1, forschung: 1, ausgabenBildung: 2, ausgabenGesundheit: 2, ausgabenVerteidigung: 2, ausgabenSoziales: 2, genderPayGap: 4, energieabhaengigkeit: 6, nettozuwanderung: 4, asyl: 4, asylOffen: 4, lebenszufriedenheit: 4, kapitalNichtBoerse: 1, kapitalGesamt: 1, religion: 4, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 3, toetung: 3, koerperverletzung: 3, sexualdelikte: 3, raub: 3, einbruch: 3, gefaengnis: 3, verurteilungen: 3 };
+  bevoelkerung: 4, geburtenrate: 4, treibhausgase: 6, erneuerbare: 6, terror: 3, betrug: 3, diebstahl: 3, computerdelikte: 3, korruption: 3, bestechung: 3, geldwaesche: 3, aktionaersquote: 1, kapitalmarkt: 1, armut: 4, ausgrenzung: 4, wohnkosten: 0, mieten: 0, jugendarbeitslosigkeit: 1, neet: 1, forschung: 1, ausgabenBildung: 2, ausgabenGesundheit: 2, ausgabenVerteidigung: 2, ausgabenSoziales: 2, genderPayGap: 4, energieabhaengigkeit: 6, nettozuwanderung: 4, asyl: 4, asylOffen: 4, lebenszufriedenheit: 4, kapitalNichtBoerse: 1, kapitalGesamt: 1, religion: 4, durchschnittsalter: 5, lebenserwartung: 5, gesundeJahre: 5, abhaengigkeit: 5, pensionsantrittsalter: 5, marsh: 5, erwerbsdauer: 5, pensionsausgaben: 5, ersatzquote: 5, altersarmut: 5, beschaeftigung5564: 5, sicherheitsgefuehl: 3, toetung: 3, koerperverletzung: 3, sexualdelikte: 3, raub: 3, einbruch: 3, gefaengnis: 3, verurteilungen: 3 };
 // Kurze Erklärung je Kennzahl (wird auf der Detailseite gezeigt)
 const ERKLAERUNG = {
   arbeitslosigkeit: "Wie viele von 100 Menschen, die arbeiten könnten und wollen, keine Arbeit haben, obwohl sie aktiv suchen. Gezählt werden Beschäftigte und Arbeitssuchende zusammen. Die Zahl folgt der internationalen ILO-Definition und ist damit in allen EU-Ländern gleich berechnet. Deshalb weicht sie von der AMS-Arbeitslosenquote ab, die auch Menschen in Schulungen und andere Gruppen anders zählt.",
@@ -102,6 +102,8 @@ const ERKLAERUNG = {
   verurteilungen: "Wie viele Delikte in Österreich pro Jahr zu einer rechtskräftigen Verurteilung geführt haben, getrennt nach Mord, Körperverletzung, Sexualdelikten und Raub. Weniger Verurteilungen gelten hier als besser, in der Gesamtbilanz auf der Startseite zählt das Fenster aber nicht mit.",
   koerperverletzung: "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Der Vergleich zwischen den Ländern ist schwierig: Die Zählweise und die Bereitschaft, Anzeige zu erstatten, unterscheiden sich stark. Die Zahl zeigt also nur bedingt, wo mehr Gewalt passiert.",
   betrug: "Wie viele Betrugsfälle die Polizei pro 100.000 Einwohner und Jahr erfasst hat, gleich ob Privatpersonen, Unternehmen oder der Staat betroffen sind. Die Länder definieren und zählen Betrug unterschiedlich, und gerade bei Internetbetrug ist die Anzeigebereitschaft verschieden. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+  diebstahl: "Wie viele Diebstähle ohne Gewalt und ohne Einbruch (zum Beispiel Taschen-, Fahrrad-, Laden- und Autodiebstahl) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Das ist die häufigste Deliktart. Länder zählen unterschiedlich, und bei kleinen Diebstählen entscheidet oft die Anzeigebereitschaft. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+  computerdelikte: "Wie viele Delikte gegen Computersysteme (zum Beispiel unbefugter Zugriff, Hacking und Schadsoftware) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Länder fassen den Begriff unterschiedlich weit, und viele Taten werden nicht angezeigt. Ein höherer Wert heißt nicht automatisch mehr Taten.",
   korruption: "Wie viele Korruptionsdelikte die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Die Länder fassen Korruption unterschiedlich weit, und Taten werden oft nur durch Ermittlungen entdeckt, nicht durch Anzeigen. Ein höherer Wert kann auch heißen, dass intensiver ermittelt wird.",
   bestechung: "Wie viele Fälle von Bestechung und Bestechlichkeit die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Es ist ein Teil der Korruptionsdelikte. Die Zahlen sind klein und schwanken stark, ein höherer Wert kann auch heißen, dass intensiver ermittelt wird.",
   geldwaesche: "Wie viele Fälle von Geldwäsche die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Die Zahlen hängen stark davon ab, wie intensiv kontrolliert und ermittelt wird und wie Banken Verdachtsfälle melden. Ein höherer Wert heißt nicht automatisch mehr Geldwäsche.",
@@ -603,6 +605,20 @@ const INDICATORS = [
     hinweis: "Die Zahlen hängen stark davon ab, wie intensiv kontrolliert wird und wie Verdachtsfälle gemeldet werden. Ein höherer Wert heißt nicht automatisch mehr Geldwäsche.",
     ausblenden2025: true,
     typ: "neutral", schwelle: 2, mock: { base: 10, step: 4 } }
+  ,{ id: "diebstahl", name: "Diebstahl", takt: "jahr", dataset: "crim_off_cat",
+    filter: "iccs=ICCS0502&unit=P_HTHAB", // Diebstahl (Polizeistatistik), pro 100.000 Einwohner
+    maxAlter: 26, dez: 0, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 15,
+    einheit: "Von der Polizei erfasste Diebstähle ohne Gewalt und ohne Einbruch pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote", rangNiedrigZuerst: true,
+    hinweis: "Länder zählen unterschiedlich, und bei kleinen Diebstählen entscheidet oft die Anzeigebereitschaft. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+    ausblenden2025: true,
+    typ: "neutral", schwelle: 50, mock: { base: 1000, step: 120 } }
+  ,{ id: "computerdelikte", name: "Delikte gegen Computersysteme", takt: "jahr", dataset: "crim_off_cat",
+    filter: "iccs=ICCS0903&unit=P_HTHAB", // Delikte gegen Computersysteme (Polizeistatistik), pro 100.000 Einwohner
+    maxAlter: 26, dez: 0, suffix: "", diffEinheit: "Fälle pro 100.000 Einwohner", minLaender: 15,
+    einheit: "Von der Polizei erfasste Delikte gegen Computersysteme pro 100.000 Einwohner", rangText: "Rang 1 = niedrigste Quote", rangNiedrigZuerst: true,
+    hinweis: "Länder fassen den Begriff unterschiedlich weit, und viele Taten werden nicht angezeigt. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+    ausblenden2025: true,
+    typ: "neutral", schwelle: 10, mock: { base: 150, step: 40 } }
   ,{ id: "strompreis", name: "Strompreise für Haushalte", takt: "halbjahr", dataset: "nrg_pc_204",
     filter: "siec=E7000&nrg_cons=KWH2500-4999&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 2.500 bis 5.000 kWh Jahresverbrauch, inklusive aller Steuern und Abgaben
     faktor: 100, dez: 1, suffix: " ct", diffEinheit: "Cent pro kWh",

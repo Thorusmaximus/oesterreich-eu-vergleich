@@ -181,7 +181,7 @@ var PAARE = [
   { ids: ["ausgabenBildung","ausgabenGesundheit","ausgabenVerteidigung","ausgabenSoziales"], titel: "Staatsausgaben", labels: ["Bildung","Gesundheit","Verteidigung","Soziales"], suche: "staatsausgaben ausgaben bildung gesundheit verteidigung militär soziales sozialausgaben cofog" },
   { ids: ["nettozuwanderung","asyl","asylOffen"], titel: "Zuwanderung", labels: ["Netto","Anträge","Laufende Verfahren"], suche: "zuwanderung migration nettozuwanderung asyl asylanträge flüchtlinge" },
 
-  { ids: ["raub","einbruch"], titel: "Eigentumsdelikte", labels: ["Raub","Einbruch"], suche: "raub raubdelikte wohnungseinbrüche einbruch eigentum kriminalität" },
+  { ids: ["raub","einbruch","diebstahl"], titel: "Eigentumsdelikte", labels: ["Raub","Einbruch","Diebstahl"], suche: "diebstahl taschendiebstahl autodiebstahl raub raubdelikte wohnungseinbrüche einbruch eigentum kriminalität" },
   { ids: ["betrug","korruption","bestechung","geldwaesche"], titel: "Betrug und Korruption", labels: ["Betrug","Korruption","Bestechung","Geldwäsche"], suche: "betrug betrugsdelikte korruption bestechung geldwäsche wirtschaftskriminalität kriminalität" },
   { ids: ["koerperverletzung","sexualdelikte","toetung"], titel: "Gewaltdelikte", labels: ["Schwere Körperverletzung","Sexual","Tötung"], suche: "tötungsdelikte mord schwere körperverletzung sexualdelikte gewalt kriminalität" },
   { ids: ["durchschnittsalter","abhaengigkeit"], titel: "Alter der Bevölkerung", labels: ["Alter","Abhängigkeit"], suche: "alter bevölkerung altersabhängigkeitsquote abhängigkeit durchschnittsalter" },
