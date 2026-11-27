@@ -152,7 +152,7 @@ else {
     var st=[], sw=[], nst=[], nsw=[];
     D.indikatoren.concat(versteckt).forEach(function(i){
       var o=i.oesterreich, n=i.anzahlLaender; if(!o || !n || o.rang==null || !i.typ) return;
-      var ohne = i.ausgeblendet || i.typ==="neutral" || bilanzen(i).indexOf("neutral")>=0; // ohne Wertung (wie im Filter „ohne Wertung“)
+      var ohne = i.ausgeblendet || i.typ==="neutral" || i.trendNeutral || bilanzen(i).indexOf("neutral")>=0; // ohne Wertung (wie im Filter „ohne Wertung“)
       var k = n>20 ? 5 : n>15 ? 4 : 3;
       if(o.rang<=k) (ohne?nst:st).push(i); else if(o.rang>=n-k+1) (ohne?nsw:sw).push(i);
     });
@@ -181,7 +181,7 @@ else {
       var c = sel.value; if(!c){ svx.innerHTML=""; return; }
       var a=[], b2=[];
       D.indikatoren.forEach(function(i){
-        if(i.ausgeblendet || i.typ==="neutral" || !i.typ || bilanzen(i).indexOf("neutral")>=0) return;
+        if(i.ausgeblendet || i.typ==="neutral" || i.trendNeutral || !i.typ || bilanzen(i).indexOf("neutral")>=0) return;
         var x=(i.laender||[]).filter(function(z){ return z.code===c; })[0], n=i.anzahlLaender; if(!x || !n || x.rank==null) return;
         var k = n>20 ? 5 : n>15 ? 4 : 3, e={i:i,r:x.rank,n:n};
         if(x.rank<=k) a.push(e); else if(x.rank>=n-k+1) b2.push(e);
