@@ -7371,7 +7371,7 @@
   },
   {
    "id": "immobilien",
-   "name": "Immobilienpreise",
+   "name": "Immobilienpreis-Entwicklung",
    "pfeilModus": "wert",
    "typ": "neutral",
    "dez": 1,
@@ -7751,7 +7751,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie stark die Preise für Wohnungen und Häuser (neu und gebraucht) seit dem Amtsantritt der Regierung gestiegen oder gefallen sind. Eurostat misst das mit einem Preisindex, also der Veränderung und nicht dem Preis pro Quadratmeter. 10 % heißt: Eine Immobilie kostet im Schnitt 10 % mehr als zu Beginn. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
+   "erklaerung": "Wie stark sich die Preise für gekaufte Wohnungen und Häuser (neu und gebraucht) seit dem Amtsantritt der Regierung verändert haben. Gezeigt wird die Veränderung, nicht der Preis pro Quadratmeter. 10 % heißt: Eine Immobilie kostet im Schnitt 10 % mehr als zu Beginn. Die Preise sind nicht um die Inflation bereinigt. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Preise und Kosten"
   },
   {
