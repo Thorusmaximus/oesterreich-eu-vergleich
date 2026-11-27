@@ -16,7 +16,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=88148bf2">
+<link rel="stylesheet" href="style.css?v=5be385bf">
 </head>
 <body>
 <main>
@@ -34,6 +34,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
+<script src="deko.js"></script>
 <script src="common.js?v=f693625d"></script>
 <script>
 var app = document.getElementById("app");
@@ -133,6 +134,7 @@ else {
   + '<div class="suche"><input type="search" id="suche" placeholder="Kennzahl suchen" aria-label="Kennzahl suchen" autocomplete="off"></div></div>' + gruppenHtml;
   h += fussnote();
   app.innerHTML = h;
+  if(window.dekoriere) dekoriere(D);
   (function(){ // Flache Ansicht „Alle A–Z“: Kopien aller Kacheln, alphabetisch, ohne Gruppen
     var alle = Array.prototype.slice.call(app.querySelectorAll(".gruppe .kw")).sort(function(a,b){ return a.getAttribute("data-a").localeCompare(b.getAttribute("data-a"),"de"); });
     var sec = document.createElement("section"); sec.className = "az"; sec.id = "az"; sec.style.display = "none";
@@ -233,6 +235,7 @@ else {
       + '<div class="hz h3">'+big("rbesser","verbessert",r)+big("rschlechter","verschlechtert",r)+big("rgleich","unverändert",r)+'</div>'
       + (versteckt.length ? '<div class="hf"><button type="button" class="zb hs ausgebl" data-fz="ausgebl" aria-pressed="false"><b>'+z.ausgebl+'</b> Kennzahlen ausgeblendet (noch keine Daten ab 2025)</button></div>' : '');
     el.hidden = false;
+    var pg = window.platzGrafik && platzGrafik(D); if(pg) el.appendChild(pg);
     el.addEventListener("click", function(e){
       var b = e.target.closest(".zb"); if(!b) return;
       if(window.__st) window.__st(b.getAttribute("data-fz")); b.blur();
