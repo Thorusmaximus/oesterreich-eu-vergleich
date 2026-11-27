@@ -6559,7 +6559,7 @@
    ],
    "bestandEU": 451.99,
    "geaendert": "2026-11-23",
-   "erklaerung": "Um wie viel Prozent die Einwohnerzahl im Vergleich zum Vorjahr (jeweils zum 1. Jänner) gewachsen oder geschrumpft ist. Das Wachstum entsteht aus Geburten, Sterbefällen und der Zuwanderung abzüglich der Abwanderung. Die Einwohnerzahl selbst steht darunter.",
+   "erklaerung": "Um wie viel Prozent die Einwohnerzahl im Vergleich zum Vorjahr (jeweils zum 1. Jänner) gewachsen oder geschrumpft ist. Das Wachstum entsteht aus Geburten, Sterbefällen und der Zuwanderung abzüglich der Abwanderung. Die Einwohnerzahl selbst steht darunter. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Gesellschaft"
   },
   {
@@ -7751,7 +7751,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie stark die Preise für Wohnungen und Häuser (neu und gebraucht) seit dem Amtsantritt der Regierung gestiegen oder gefallen sind. Eurostat misst das mit einem Preisindex, also der Veränderung und nicht dem Preis pro Quadratmeter. 10 % heißt: Eine Immobilie kostet im Schnitt 10 % mehr als zu Beginn.",
+   "erklaerung": "Wie stark die Preise für Wohnungen und Häuser (neu und gebraucht) seit dem Amtsantritt der Regierung gestiegen oder gefallen sind. Eurostat misst das mit einem Preisindex, also der Veränderung und nicht dem Preis pro Quadratmeter. 10 % heißt: Eine Immobilie kostet im Schnitt 10 % mehr als zu Beginn. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Preise und Kosten"
   },
   {
@@ -14166,7 +14166,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie viele Jahre ein heute 15-Jähriger nach der Statistik im Lauf seines Lebens voraussichtlich am Arbeitsmarkt aktiv ist, also erwerbstätig oder arbeitssuchend. Das Ergebnis hängt vom Pensionsantritt, vom Berufseinstieg und von Unterbrechungen ab. Es ist nicht das gesetzliche Pensionsantrittsalter. Ob ein längeres Erwerbsleben besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber mehr Arbeitsjahre für den Einzelnen.",
+   "erklaerung": "Wie viele Jahre ein heute 15-Jähriger nach der Statistik im Lauf seines Lebens voraussichtlich am Arbeitsmarkt aktiv ist, also erwerbstätig oder arbeitssuchend. Das Ergebnis hängt vom Pensionsantritt, vom Berufseinstieg und von Unterbrechungen ab. Es ist nicht das gesetzliche Pensionsantrittsalter. Ob ein längeres Erwerbsleben besser ist, ist politisch umstritten: Es entlastet die Pensionskassen, bedeutet aber mehr Arbeitsjahre für den Einzelnen. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -16634,7 +16634,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Das Alter, das die Bevölkerung in zwei gleich große Hälften teilt (Medianalter, zum 1. Jänner): Die eine Hälfte der Menschen ist jünger, die andere älter. Ein höherer Wert heißt: Die Bevölkerung ist im Schnitt älter.",
+   "erklaerung": "Das Alter, das die Bevölkerung in zwei gleich große Hälften teilt (Medianalter, zum 1. Jänner): Die eine Hälfte der Menschen ist jünger, die andere älter. Ein höherer Wert heißt: Die Bevölkerung ist im Schnitt älter. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -24693,7 +24693,7 @@
    "geaendert": "2026-11-24",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "ausgeblendet": true,
-   "erklaerung": "Wie viel der Staat für Bildung ausgibt (Schulen, Hochschulen, Kindergärten, Verwaltung), in Prozent der Wirtschaftsleistung. Bund, Länder und Gemeinden sind zusammengezählt. Die Zahl sagt nichts über die Qualität.",
+   "erklaerung": "Wie viel der Staat für Bildung ausgibt (Schulen, Hochschulen, Kindergärten, Verwaltung), in Prozent der Wirtschaftsleistung. Bund, Länder und Gemeinden sind zusammengezählt. Die Zahl sagt nichts über die Qualität. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Staatsfinanzen"
   },
   {
@@ -25117,7 +25117,7 @@
    "geaendert": "2026-11-24",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "ausgeblendet": true,
-   "erklaerung": "Wie viel der Staat für Gesundheit ausgibt (Spitäler, Ärzte, Medikamente, Prävention), in Prozent der Wirtschaftsleistung. Ausgaben der Sozialversicherung zählen dazu, private Zahlungen der Patienten nicht.",
+   "erklaerung": "Wie viel der Staat für Gesundheit ausgibt (Spitäler, Ärzte, Medikamente, Prävention), in Prozent der Wirtschaftsleistung. Ausgaben der Sozialversicherung zählen dazu, private Zahlungen der Patienten nicht. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Staatsfinanzen"
   },
   {
@@ -25541,7 +25541,7 @@
    "geaendert": "2026-11-24",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "ausgeblendet": true,
-   "erklaerung": "Wie viel der Staat für Verteidigung ausgibt (Militär, Rüstung, militärische Hilfe), in Prozent der Wirtschaftsleistung. Das ist nach der internationalen Staatsausgaben-Gliederung (COFOG) berechnet und kann von NATO-Angaben abweichen.",
+   "erklaerung": "Wie viel der Staat für Verteidigung ausgibt (Militär, Rüstung, militärische Hilfe), in Prozent der Wirtschaftsleistung. Das ist nach der internationalen Staatsausgaben-Gliederung (COFOG) berechnet und kann von NATO-Angaben abweichen. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Staatsfinanzen"
   },
   {
@@ -25965,7 +25965,7 @@
    "geaendert": "2026-11-24",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "ausgeblendet": true,
-   "erklaerung": "Wie viel der Staat für soziale Sicherung ausgibt (Pensionen, Arbeitslosengeld, Familienleistungen, Pflege), in Prozent der Wirtschaftsleistung. Das ist meist der größte Ausgabenblock des Staates.",
+   "erklaerung": "Wie viel der Staat für soziale Sicherung ausgibt (Pensionen, Arbeitslosengeld, Familienleistungen, Pflege), in Prozent der Wirtschaftsleistung. Das ist meist der größte Ausgabenblock des Staates. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Staatsfinanzen"
   },
   {
@@ -27577,7 +27577,7 @@
    "geaendert": "2026-11-24",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "ausgeblendet": true,
-   "erklaerung": "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden.",
+   "erklaerung": "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Energie und Klima"
   },
   {
@@ -27981,7 +27981,7 @@
     }
    ],
    "geaendert": "2026-11-24",
-   "erklaerung": "Wie viele Menschen pro 1.000 Einwohner mehr zu- als wegziehen (Zuzüge minus Wegzüge, einschließlich statistischer Korrekturen). Ein negativer Wert heißt: Es ziehen mehr Menschen weg, als zuziehen.",
+   "erklaerung": "Wie viele Menschen pro 1.000 Einwohner mehr zu- als wegziehen (Zuzüge minus Wegzüge, einschließlich statistischer Korrekturen). Ein negativer Wert heißt: Es ziehen mehr Menschen weg, als zuziehen. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Gesellschaft"
   },
   {
@@ -28414,7 +28414,7 @@
     }
    ],
    "geaendert": "2026-11-24",
-   "erklaerung": "Wie viele Menschen pro 100.000 Einwohner in einem Jahr erstmals oder wiederholt einen Antrag auf Asyl stellen. Das zählt Anträge, nicht Entscheidungen und nicht, wie viele Menschen tatsächlich bleiben.",
+   "erklaerung": "Wie viele Menschen pro 100.000 Einwohner in einem Jahr erstmals oder wiederholt einen Antrag auf Asyl stellen. Das zählt Anträge, nicht Entscheidungen und nicht, wie viele Menschen tatsächlich bleiben. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Gesellschaft"
   },
   {
@@ -29364,7 +29364,7 @@
     }
    ],
    "geaendert": "2026-11-24",
-   "erklaerung": "Wie viele Menschen pro 100.000 Einwohner am Monatsende auf eine Entscheidung über ihren Asylantrag im Land warten. Gezählt wird, wo der Antrag gestellt wurde. Wer schon Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr dazu.",
+   "erklaerung": "Wie viele Menschen pro 100.000 Einwohner am Monatsende auf eine Entscheidung über ihren Asylantrag im Land warten. Gezählt wird, wo der Antrag gestellt wurde. Wer schon Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr dazu. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Gesellschaft"
   },
   {
@@ -30578,7 +30578,7 @@
     "stand": "2026-11-24",
     "gesamtAufklaerung": null
    },
-   "erklaerung": "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Der Vergleich zwischen den Ländern ist schwierig: Die Zählweise und die Bereitschaft, Anzeige zu erstatten, unterscheiden sich stark. Die Zahl zeigt also nur bedingt, wo mehr Gewalt passiert.",
+   "erklaerung": "Wie viele Fälle schwerer Körperverletzung die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Der Vergleich zwischen den Ländern ist schwierig: Die Zählweise und die Bereitschaft, Anzeige zu erstatten, unterscheiden sich stark. Die Zahl zeigt also nur bedingt, wo mehr Gewalt passiert. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Sicherheit"
   },
   {
@@ -30990,7 +30990,7 @@
      "quelle": "Bundeskriminalamt, Kriminalpolizeiliche Anzeigenstatistik 2025"
     }
    },
-   "erklaerung": "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definitionen, Zählweise und Anzeigebereitschaft unterscheiden sich zwischen den Ländern stark, und viele Fälle werden nie angezeigt. Ein hoher Wert kann daher auch bedeuten, dass mehr angezeigt wird.",
+   "erklaerung": "Wie viele Fälle sexueller Gewalt (zum Beispiel Vergewaltigung und sexuelle Übergriffe) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Definitionen, Zählweise und Anzeigebereitschaft unterscheiden sich zwischen den Ländern stark, und viele Fälle werden nie angezeigt. Ein hoher Wert kann daher auch bedeuten, dass mehr angezeigt wird. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Sicherheit"
   },
   {
@@ -32603,7 +32603,7 @@
     }
    ],
    "geaendert": "2026-11-23",
-   "erklaerung": "Wie sich Schülerinnen und Schüler (Wiener Pflichtschulen) und die Bevölkerung Österreichs auf Religionen und Konfessionen verteilen. Die Religion wird in Österreich nur an den Schulen laufend erfasst. Bundesweit gibt es nur eine Befragung von 2021. Die Zahlen sind eine reine Übersicht.",
+   "erklaerung": "Wie sich Schülerinnen und Schüler (Wiener Pflichtschulen) und die Bevölkerung Österreichs auf Religionen und Konfessionen verteilen. Die Religion wird in Österreich nur an den Schulen laufend erfasst. Bundesweit gibt es nur eine Befragung von 2021. Die Zahlen sind eine reine Übersicht. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Gesellschaft"
   },
   {
@@ -32947,7 +32947,7 @@
    "quelleUrl": "https://www.etk.fi/en/the-pension-system/international-comparison/retirement-ages/",
    "hinweisDaten": "Gesetzliches Regelpensionsalter für Männer (Stand 2026), Monate als Dezimalzahl. Bei Frauen oder in einzelnen Ländern gelten andere Altersgrenzen, siehe Zusatzangabe. Bulgarien fehlt, weil die Quelle uneindeutig ist. Von Hand gepflegt.",
    "geaendert": "2026-11-23",
-   "erklaerung": "Ab welchem Alter man in dem jeweiligen Land nach dem Gesetz die reguläre Alterspension bekommt, hier für Männer. Wer früher in Pension geht, muss oft mit Abschlägen rechnen. Das tatsächliche Antrittsalter liegt häufig darunter. In Österreich gilt für Frauen derzeit ein niedrigeres Alter, das schrittweise steigt.",
+   "erklaerung": "Ab welchem Alter man in dem jeweiligen Land nach dem Gesetz die reguläre Alterspension bekommt, hier für Männer. Wer früher in Pension geht, muss oft mit Abschlägen rechnen. Das tatsächliche Antrittsalter liegt häufig darunter. In Österreich gilt für Frauen derzeit ein niedrigeres Alter, das schrittweise steigt. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Pensionen und Alter"
   },
   {
@@ -33252,7 +33252,7 @@
     "stand": "2026-11-24",
     "gesamtAufklaerung": null
    },
-   "erklaerung": "Wie viele von 100 Haushalten börsennotierte Aktien besitzen (direkt gehalten, ohne Fonds), laut der Haushaltsbefragung der EZB und der Notenbanken. Die Erhebung gibt es nur alle paar Jahre und nicht für alle EU-Länder. Der Wert zeigt, wie verbreitet das Investieren in Aktien ist.",
+   "erklaerung": "Wie viele von 100 Haushalten börsennotierte Aktien besitzen (direkt gehalten, ohne Fonds), laut der Haushaltsbefragung der EZB und der Notenbanken. Die Erhebung gibt es nur alle paar Jahre und nicht für alle EU-Länder. Der Wert zeigt, wie verbreitet das Investieren in Aktien ist. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
    "gruppe": "Wirtschaft und Arbeit"
   },
   {
