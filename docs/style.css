@@ -408,3 +408,7 @@ body{background:linear-gradient(180deg,#dde7f8 0,#e8eef9 420px,#eef2fa 100%) fix
 .row.ch .bb{box-sizing:content-box;margin-left:-2px;padding-right:4px;overflow:hidden;border-radius:6px}
 .sust>.svgl{margin:4px 0 10px;padding:0 0 10px;border-top:0;border-bottom:1px solid var(--line)}.sust>.svgl .svh{margin:14px 0 6px}
 .svgl2{margin-top:6px}
+.tile .umsch:not(.zwei),.kw .umsch:not(.zwei){flex-wrap:nowrap}
+.tile .umsch:not(.zwei) button,.kw .umsch:not(.zwei) button{flex:1 1 auto;min-width:0;text-align:center}
+@media(max-width:560px){.kw .umsch:not(.zwei) button{font-size:.64rem;padding:3px 4px}}
+@media(max-width:380px){.kw .umsch:not(.zwei) button{font-size:.6rem;padding:3px 2px}}
