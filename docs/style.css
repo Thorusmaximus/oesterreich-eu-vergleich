@@ -403,3 +403,5 @@ body{background:linear-gradient(180deg,#dde7f8 0,#e8eef9 420px,#eef2fa 100%) fix
  .svpar .svow{margin:8px 0 6px;font-size:.95rem;color:var(--mut)}
  .svpar .ow{display:block}
 }
+.svs .svbr{display:none}
+@media(max-width:640px){.svs .svbr{display:inline}.svs .svsep{display:none}}
