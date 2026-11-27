@@ -2,7 +2,7 @@
 (function(){
   var P={
     haus:'M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6',
-    prozent:'M19 5L5 19M8 9a1.7 1.7 0 1 0 0-.01M16 17a1.7 1.7 0 1 0 0-.01',
+    prozent:'M19 5L5 19M7.5 5.5a2.5 2.5 0 1 0 .01 0zM16.5 13.5a2.5 2.5 0 1 0 .01 0z',
     blitz:'M13 3L5 14h6l-1 7 8-11h-6z',
     zapfsaeule:'M5 21V5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v16M4 21h11M7 9h5M14 9h2.5A1.5 1.5 0 0 1 18 10.5V16a1.5 1.5 0 0 0 3 0V8l-3-3',
     koffer:'M4 8h16v11H4zM9 8V6h6v2M4 13h16',
@@ -54,6 +54,7 @@
     var last=pts[pts.length-1];
     return '<svg class="spark" viewBox="0 0 '+W+' '+H+'" width="100" height="24" role="img" aria-label="Verlauf der letzten Jahre"><polyline points="'+pts.map(function(q){ return q[0].toFixed(1)+','+q[1].toFixed(1); }).join(" ")+'" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".75"/><circle cx="'+last[0].toFixed(1)+'" cy="'+last[1].toFixed(1)+'" r="2.2" fill="currentColor"/></svg>';
   }
+  window.symbolFuer=function(id,gr,groesse){ var h=svg(T[id]||G[gr]||'kurs','ico'); return groesse? h.replace(/width="22" height="22"/,'width="'+groesse+'" height="'+groesse+'"'):h; };
   window.dekoriere=function(D){
     var byId={}; (D.indikatoren||[]).forEach(function(i){ byId[i.id]=i; });
     document.querySelectorAll(".gruppe").forEach(function(s){

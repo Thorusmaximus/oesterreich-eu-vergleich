@@ -15,7 +15,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=5be385bf">
+<link rel="stylesheet" href="style.css?v=7fe62b5e">
 </head>
 <body>
 <main>
@@ -23,6 +23,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
+<script src="deko.js"></script>
 <script src="common.js?v=f693625d"></script>
 <script>
 var app = document.getElementById("app");
@@ -367,6 +368,12 @@ function bindChart(){
   function dash(){ document.querySelectorAll(".row.ch .bb").forEach(function(b){ var w=b.getBoundingClientRect().width, n=Math.max(2,Math.floor((w+4)/10)); if(b.getAttribute("data-n")==n+"/"+Math.round(w)) return; b.setAttribute("data-n",n+"/"+Math.round(w)); var h=""; for(var k=0;k<n;k++) h+="<i></i>"; b.innerHTML=h; }); }
   new MutationObserver(function(){ dash(); }).observe(document.body,{childList:true,subtree:true});
   window.addEventListener("resize",dash); window.addEventListener("load",dash);
+})();
+</script>
+<script>
+(function(){ if(!window.ind) return; var done=false;
+  function setze(){ if(done) return; var h=document.querySelector("#app h1, #app .card h2"); if(!h||h.querySelector(".hi")) return; done=true; h.insertAdjacentHTML("afterbegin",'<span class="hi">'+symbolFuer(ind.id,ind.gruppe||"Weitere",28)+'</span>'); }
+  setze(); new MutationObserver(setze).observe(document.getElementById("app"),{childList:true,subtree:true});
 })();
 </script>
 </body>
