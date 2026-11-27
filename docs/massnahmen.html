@@ -27,30 +27,122 @@
 <script src="common.js?v=764f1163"></script>
 <script>
 var app=document.getElementById("app");
-// Beschlossene Maßnahmen des Bundes (Nationalrat), von Hand gepflegt. Quelle: parlament.gv.at. Eine Auswahl, keine Wertung.
+// Beschlossene Maßnahmen des Bundes (Nationalrat), von Hand gepflegt. Quelle: parlament.gv.at. Keine Wertung.
+// Felder: d Datum, g Gruppe, t Titel, x Text, u Hauptquelle, w weitere Quellen [{t,u}],
+// h Aufmerksamkeit 1-3 (Redaktionseinstufung, Kriterien siehe ⓘ), v Abstimmung laut Quelle {p: dafür, c: dagegen, t: teils, n: Hinweis}
+var P="ÖVP, SPÖ, NEOS".split(", ");
 var M=[
- {d:"2026-05-20",g:"Gesellschaft",t:"EU-Asyl- und Migrationspakt, Familiennachzug",x:"Umsetzung des EU-Asyl- und Migrationspakts, unter anderem mit einem Screening statt des bisherigen Zulassungsverfahrens und längeren Anhaltungen an den EU-Außengrenzen. Der Familiennachzug wird aus dem Asyl- ins Niederlassungsrecht überführt und in ein Quotensystem aufgenommen.",u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-ebnet-Weg-fuer-Quotenregelung-bei-Familiennachzug"},
- {d:"2025-12-11",g:"Gesellschaft",t:"Kopftuchverbot an Schulen bis 14 Jahre",x:"Verbot für Schülerinnen bis zum 14. Lebensjahr. Im selben Beschluss wird der Strafrahmen für ungerechtfertigtes Fernbleiben vom Unterricht von 110 bis 440 Euro auf 150 bis 800 Euro angehoben.",u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Kopftuchverbot-fuer-unter-14-jaehrige-Schuelerinnen"},
- {d:"2025-10-16",g:"Gesellschaft",t:"Pensionsanpassung 2026",x:"Pensionen bis 2.500 Euro im Monat steigen um die volle Inflationsrate von 2,7 Prozent, höhere Pensionen um einen Fixbetrag von 67,50 Euro im Monat. Wer 2025 in Pension geht, erhält die halbe Erhöhung.",u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Trinkgeld-Pauschalen-und-Weiterbildungsbeihilfe"},
- {d:"2025-10-16",g:"Wirtschaft und Arbeit",t:"Weiterbildungsbeihilfe",x:"Nachfolge der Bildungskarenz ab Jänner 2026: Mindestbetrag 1.212 Euro im Monat, 150 Millionen Euro pro Jahr, mit strengeren Auflagen zum Bildungsziel.",u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Trinkgeld-Pauschalen-und-Weiterbildungsbeihilfe"},
- {d:"2025-10-16",g:"Wirtschaft und Arbeit",t:"Einheitliche Trinkgeld-Pauschalen",x:"Ab 2026 gelten österreichweit einheitliche Pauschalen für die Sozialversicherungsbeiträge auf Trinkgelder. Trinkgeld bleibt steuerfrei.",u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Trinkgeld-Pauschalen-und-Weiterbildungsbeihilfe"},
- {d:"2025-06-18",g:"Staatsfinanzen",t:"Doppelbudget 2025 und 2026",x:"Geplante Ausgaben 2025: 123,2 Milliarden Euro bei Einnahmen von 105,1 Milliarden Euro (Defizit 18,1 Milliarden). 2026: 125,9 Milliarden Euro Ausgaben, 107,6 Milliarden Einnahmen (Defizit 18,3 Milliarden).",u:"https://www.parlament.gv.at/aktuelles/news/in-einfacher-sprache/Nationalrat-beschliesst-Budget-fuer-2025-und-2026"},
- {d:"2025-03-07",g:"Wirtschaft und Arbeit",t:"Bildungskarenz und Bildungsteilzeit gestrichen",x:"Im Budgetsanierungsmaßnahmengesetz 2025 wird die staatliche Förderung gestrichen, Weiterbildungsgeld und Bildungsteilzeitgeld laufen Ende März 2025 aus, mit Übergangsregeln für laufende Fälle.",u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-besiegelt-vorlaeufiges-Aus-fuer-Bildungskarenz"}
+ {d:"2026-10-14",g:"Wirtschaft und Arbeit",t:"Versorgungssicherheit bei Energie und Gütern, Gewerbeordnung entschlackt",h:1,
+  x:"Gas-Speicher- und Lenkungsregeln werden bis 2029 verlängert, Raffinerien müssen Versorgungskonzepte erstellen. Das Gesetz zur Vorratshaltung wichtiger Güter gilt bis 2035. Die Gewerbeordnung erlaubt unter Bedingungen genehmigungsfreie PV-Anlagen und E-Ladestationen.",
+  v:{p:["ÖVP","SPÖ","NEOS","FPÖ"],t:["Grüne"],n:"Energiegesetz: Grüne stimmten in Teilen zu. Vorratshaltung und Gewerbeordnung: alle Parteien dafür."},
+  u:"https://www.parlament.gv.at/aktuelles/pk/jahr_2026/pk0942"},
+ {d:"2026-09-23",g:"Wirtschaft und Arbeit",t:"Dürrehilfe für die Landwirtschaft",h:1,
+  x:"Betriebe erhalten für Oktober und November einen Beitragskredit, der die Sozialversicherungsbeiträge ersetzt (rund 140 Millionen Euro). Gegenfinanziert wird unter anderem über einen vorübergehend gesenkten Hebesatz in der bäuerlichen Krankenversicherung.",
+  v:{p:["ÖVP","SPÖ"],c:["Grüne"],n:"FPÖ nannte die Hilfe zu gering, ihr Stimmverhalten nennt die Quelle nicht."},
+  u:"https://www.parlament.gv.at/aktuelles/pk/jahr_2026/pk0839"},
+ {d:"2026-07-10",g:"Staatsfinanzen",t:"Doppelbudget 2027 und 2028",h:3,
+  x:"Defizitziel 3,5 Prozent der Wirtschaftsleistung 2027 und 3 Prozent 2028, damit soll das EU-Defizitverfahren enden. Geplant sind 2027 Einnahmen von 112,7 und Ausgaben von 128,2 Milliarden Euro, 2028 115,8 und 129 Milliarden. Enthalten sind unter anderem eine Paketsteuer, die Pensionsanpassung 2027 und eingefrorene Familienleistungen, dazu Investitionen von rund 32 Milliarden Euro in Bahn und Straße.",
+  v:{p:P,n:"Die Quelle nennt das Verhalten der Oppositionsparteien nicht."},
+  u:"https://www.parlament.gv.at/aktuelles/news/Hitzige-Debatte-ueber-das-Doppelbudget-2027-28",
+  w:[{t:"Beschluss und Eckzahlen (salzburg24)",u:"https://www.salzburg24.at/news/oesterreich/doppelbudget-20272028-beschlossen-wo-oesterreich-jetzt-spart-und-investiert-art-331479"}]},
+ {d:"2026-06-10",g:"Staatsfinanzen",t:"Budgetmaßnahmengesetz 2026",h:2,
+  x:"Acht Gesetze mit rund 100 Millionen Euro Einsparungen bis 2030: schärfere Regeln gegen Scheinfirmen, Pauschalgebühren für Aufenthaltstitel, die steuerfreie Mitarbeiterprämie sinkt von 1.000 auf 500 Euro, niedrigere Reisekostenzuschüsse im öffentlichen Dienst.",
+  v:{p:P,c:["Grüne"],n:"Das Kontenregister-Gesetz beschlossen Koalition und Grüne gemeinsam mit Zweidrittelmehrheit. FPÖ: nicht genannt."},
+  u:"https://www.parlament.gv.at/aktuelles/pk/jahr_2026/pk0531"},
+ {d:"2026-05-21",g:"Wirtschaft und Arbeit",t:"Weniger Mehrwertsteuer auf Grundnahrungsmittel",h:3,
+  x:"Der Steuersatz auf ausgewählte Grundnahrungsmittel wie Milch, Butter, Brot, Eier sowie viele Obst- und Gemüsesorten sinkt unbefristet von 10 auf 4,9 Prozent, gültig ab 1. Juli.",
+  v:{p:P,n:"Weitere Parteien nennt die Quelle nicht."},
+  u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Umsatzsteuersenkung-auf-Grundnahrungsmittel/"},
+ {d:"2026-05-20",g:"Gesellschaft",t:"EU-Asyl- und Migrationspakt, Familiennachzug",h:3,
+  x:"Umsetzung des EU-Asyl- und Migrationspakts, unter anderem mit einem Screening statt des bisherigen Zulassungsverfahrens und längeren Anhaltungen an den EU-Außengrenzen. Der Familiennachzug wird aus dem Asyl- ins Niederlassungsrecht überführt und in ein Quotensystem aufgenommen.",
+  v:{p:P,t:["Grüne"],n:"Die FPÖ kritisierte das Paket als „Unterwerfung unter die Europäische Union“, ihr Abstimmungsverhalten nennt die Quelle nicht."},
+  u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-ebnet-Weg-fuer-Quotenregelung-bei-Familiennachzug"},
+ {d:"2026-02-25",g:"Gesellschaft",t:"Gesetz gegen Shrinkflation („Mogelpackungen“)",h:2,
+  x:"Ab April 2026 muss der Handel darauf hinweisen, wenn bei gleicher Verpackungsgröße weniger Inhalt im Produkt ist.",
+  v:{p:["ÖVP","SPÖ","NEOS","Grüne"],c:["FPÖ"]},
+  u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Gesetz-zur-Shrinkflation"},
+ {d:"2025-12-11",g:"Gesellschaft",t:"Kopftuchverbot an Schulen bis 14 Jahre",h:3,
+  x:"Verbot für Schülerinnen bis zum 14. Lebensjahr. Im selben Beschluss wird der Strafrahmen für ungerechtfertigtes Fernbleiben vom Unterricht von 110 bis 440 Euro auf 150 bis 800 Euro angehoben.",
+  v:{p:["FPÖ","ÖVP","SPÖ","NEOS"],c:["Grüne"]},
+  u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Kopftuchverbot-fuer-unter-14-jaehrige-Schuelerinnen"},
+ {d:"2025-10-16",g:"Gesellschaft",t:"Pensionsanpassung 2026",h:3,
+  x:"Pensionen bis 2.500 Euro im Monat steigen um die volle Inflationsrate von 2,7 Prozent, höhere Pensionen um einen Fixbetrag von 67,50 Euro im Monat. Wer 2025 in Pension geht, erhält die halbe Erhöhung.",
+  v:{p:["ÖVP","SPÖ","NEOS","Grüne"],c:["FPÖ"],n:"Laut Quelle hat die FPÖ nicht zugestimmt."},
+  u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Trinkgeld-Pauschalen-und-Weiterbildungsbeihilfe"},
+ {d:"2025-10-16",g:"Wirtschaft und Arbeit",t:"Weiterbildungsbeihilfe",h:2,
+  x:"Nachfolge der Bildungskarenz ab Jänner 2026: Mindestbetrag 1.212 Euro im Monat, 150 Millionen Euro pro Jahr, mit strengeren Auflagen zum Bildungsziel.",
+  v:{n:"Mehrheitlich beschlossen, Abstimmungsverhalten der Klubs in der Quelle nicht genannt."},
+  u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Trinkgeld-Pauschalen-und-Weiterbildungsbeihilfe"},
+ {d:"2025-10-16",g:"Wirtschaft und Arbeit",t:"Einheitliche Trinkgeld-Pauschalen",h:1,
+  x:"Ab 2026 gelten österreichweit einheitliche Pauschalen für die Sozialversicherungsbeiträge auf Trinkgelder. Trinkgeld bleibt steuerfrei.",
+  v:{p:["ÖVP","SPÖ","NEOS","Grüne"],n:"FPÖ: nicht genannt."},
+  u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Trinkgeld-Pauschalen-und-Weiterbildungsbeihilfe"},
+ {d:"2025-07-09",g:"Gesellschaft",t:"Überwachung verschlüsselter Nachrichten (Messenger)",h:3,
+  x:"Die Direktion Staatsschutz und Nachrichtendienst darf unter eng gefassten Voraussetzungen, etwa bei Verdacht auf Anschlagspläne, auch verschlüsselte Chats mit Spionagesoftware auslesen, mit Kontrollmechanismen. Namentliche Abstimmung.",
+  v:{p:["ÖVP","SPÖ"],c:["FPÖ","Grüne"],t:["NEOS"],n:"NEOS stimmten in Teilen zu."},
+  u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-beschliesst-Messenger-Ueberwachung/"},
+ {d:"2025-06-18",g:"Staatsfinanzen",t:"Doppelbudget 2025 und 2026",h:2,
+  x:"Geplante Ausgaben 2025: 123,2 Milliarden Euro bei Einnahmen von 105,1 Milliarden Euro (Defizit 18,1 Milliarden). 2026: 125,9 Milliarden Euro Ausgaben, 107,6 Milliarden Einnahmen (Defizit 18,3 Milliarden).",
+  v:{n:"Abstimmungsverhalten in der Quelle nicht genannt."},
+  u:"https://www.parlament.gv.at/aktuelles/news/in-einfacher-sprache/Nationalrat-beschliesst-Budget-fuer-2025-und-2026"},
+ {d:"2025-03-07",g:"Wirtschaft und Arbeit",t:"Bildungskarenz und Bildungsteilzeit gestrichen",h:2,
+  x:"Im Budgetsanierungsmaßnahmengesetz 2025 wird die staatliche Förderung gestrichen, Weiterbildungsgeld und Bildungsteilzeitgeld laufen Ende März 2025 aus, mit Übergangsregeln für laufende Fälle.",
+  v:{n:"Abstimmungsverhalten der Klubs in der Quelle nicht genannt."},
+  u:"https://www.parlament.gv.at/aktuelles/news/Nationalrat-besiegelt-vorlaeufiges-Aus-fuer-Bildungskarenz"}
 ];
-var fG="";
+// Streitwert: nur aus Quellenangaben. Je Klub "dagegen" = 1, "teils" = 0,5. Nicht genannte Klubs zählen nicht.
+M.forEach(function(m){ var v=m.v||{}; m.s=(v.c||[]).length+0.5*(v.t||[]).length; });
+function jahr(m){ return +m.d.slice(0,4); }
+function rang(a,b){ return (b.h-a.h)||(b.s-a.s)||(a.d<b.d?1:-1); }
+// Kurzansicht: die 4 interessantesten Beschlüsse des laufenden Jahres und die 3 des Vorjahres.
+// Gibt es im laufenden Jahr weniger als 4 (z. B. im Jänner), werden die freien Plätze mit den nächsten des Vorjahres gefüllt.
+function kurz(){
+  var J=new Date().getFullYear();
+  var a=M.filter(function(m){ return jahr(m)===J; }).sort(rang).slice(0,4);
+  var b=M.filter(function(m){ return jahr(m)===J-1; }).sort(rang);
+  var n=3+(4-a.length);
+  return a.concat(b.slice(0,n)).sort(function(x,y){ return x.d<y.d?1:x.d>y.d?-1:0; });
+}
+var TABS=[["kurz","Kurzansicht"],["alle","Alle"],["hoch","Hervorgehoben"],["streit","Streitpunkte"]];
+var fT="kurz", fG="";
 function seite(){
   var gr=[]; M.forEach(function(m){ if(gr.indexOf(m.g)<0) gr.push(m.g); });
-  var h='<h1 class="lh">Beschlossene Maßnahmen</h1><p class="note">Gesetzesbeschlüsse des Nationalrats seit dem Amtsantritt der Bundesregierung am 3.3.2025, neueste zuerst.'+infoIcon("Eine Auswahl aus der vollständigen Liste der Gesetzesbeschlüsse des Nationalrats (XXVIII. Gesetzgebungsperiode, parlament.gv.at). Aufgenommen sind nur Beschlüsse mit Datum und Quelle, ohne Bewertung und ohne Aussage über die Wirkung. Ob und wie sich eine Maßnahme auf die Kennzahlen auswirkt, zeigt diese Liste nicht.")+'</p>'
-   + '<div class="filter gr" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle</button>'+gr.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join("")+'</div><div id="ml"></div>';
+  var J=new Date().getFullYear();
+  var h='<h1 class="lh">Beschlossene Maßnahmen</h1><p class="note">Gesetzesbeschlüsse des Nationalrats seit dem Amtsantritt der Bundesregierung am 3.3.2025, neueste zuerst.'
+   +infoIcon("Eine Auswahl aus den Gesetzesbeschlüssen des Nationalrats (XXVIII. Gesetzgebungsperiode). Aufgenommen sind nur Beschlüsse, die ich mit Datum und Quelle auf parlament.gv.at belegen konnte; die Liste ist nicht vollständig und nicht systematisch erhoben. Ohne Bewertung und ohne Aussage über die Wirkung. Ob und wie sich eine Maßnahme auf die Kennzahlen auswirkt, zeigt diese Liste nicht.")+'</p>'
+   +'<div class="filter" id="tt" role="tablist" aria-label="Ansicht">'+TABS.map(function(t){ return '<button data-t="'+t[0]+'"'+(t[0]===fT?' class="on"':'')+'>'+t[1]+'</button>'; }).join("")+'</div>'
+   +'<p class="note" id="tx"></p>'
+   +'<div class="filter gr" id="tg" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+gr.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join("")+'</div><div id="ml"></div>';
   app.innerHTML=h+fussnote();
-  var box=app.querySelector(".filter");
-  box.onclick=function(e){ var b=e.target.closest("button"); if(!b) return; box.querySelectorAll("button").forEach(function(x){ x.classList.toggle("on",x===b); }); fG=b.getAttribute("data-g"); liste(); };
+  document.getElementById("tt").onclick=function(e){ var b=e.target.closest("button"); if(!b) return; fT=b.getAttribute("data-t"); this.querySelectorAll("button").forEach(function(x){ x.classList.toggle("on",x===b); }); liste(); };
+  document.getElementById("tg").onclick=function(e){ var b=e.target.closest("button"); if(!b) return; this.querySelectorAll("button").forEach(function(x){ x.classList.toggle("on",x===b); }); fG=b.getAttribute("data-g"); liste(); };
   liste();
 }
+function stimmen(v){
+  if(!v) return "";
+  var r=[];
+  if(v.p&&v.p.length) r.push('<span class="mv ja">Dafür</span> '+v.p.join(", "));
+  if(v.t&&v.t.length) r.push('<span class="mv te">Teils</span> '+v.t.join(", "));
+  if(v.c&&v.c.length) r.push('<span class="mv ne">Dagegen</span> '+v.c.join(", "));
+  return '<p class="mst">'+(r.length?r.join(' &nbsp;·&nbsp; '):'')+(v.n?(r.length?'<br>':'')+'<span class="note">'+v.n+'</span>':'')+'</p>';
+}
 function liste(){
-  document.getElementById("ml").innerHTML=M.filter(function(m){ return !fG||m.g===fG; }).map(function(m){
-    return '<div class="card mn"><div class="md">'+datum(m.d)+' <span class="mg">'+m.g+'</span></div><h3>'+m.t+'</h3><p>'+m.x+'</p><p class="note">Quelle: <a href="'+m.u+'" rel="noopener">parlament.gv.at</a></p></div>';
-  }).join("");
+  var J=new Date().getFullYear(), L, txt;
+  var tx={kurz:"Automatisch: die "+"4 interessantesten Beschlüsse "+J+" und die 3 interessantesten "+(J-1)+". „Interessant“ heißt hier: höchste Aufmerksamkeitsstufe, dann umstrittenste, dann neueste.",
+    alle:"Alle erfassten Beschlüsse.",
+    hoch:"Beschlüsse mit hoher Aufmerksamkeit (Stufe 3)."+infoIcon("Redaktionelle Einstufung in drei Stufen, kein gemessener Wert. Stufe 3: betrifft einen großen Teil der Bevölkerung oder Haushalte, hat ein Volumen im Milliardenbereich oder war ein zentrales, breit diskutiertes Thema. Stufe 2: betrifft eine klar abgegrenzte, aber große Gruppe oder wurde sichtbar diskutiert. Stufe 1: Fach- oder Verwaltungsgesetz. Ein automatisches Maß (etwa Medienzählung oder Suchanfragen) ist noch nicht eingebaut."),
+    streit:"Beschlüsse mit Gegenstimmen laut Quelle, die umstrittensten zuerst."+infoIcon("Streitwert: jede Partei, die laut Quelle dagegen stimmte, zählt 1, eine teilweise Zustimmung 0,5. Parteien, deren Verhalten die Quelle nicht nennt, zählen nicht. Die Liste kann deshalb Streitpunkte übersehen. Gemessen wird nur das Abstimmungsverhalten im Nationalrat, nicht die öffentliche Debatte.")};
+  document.getElementById("tx").innerHTML=tx[fT];
+  if(fT==="kurz") L=kurz();
+  else if(fT==="alle") L=M.slice();
+  else if(fT==="hoch") L=M.filter(function(m){ return m.h>=3; });
+  else L=M.filter(function(m){ return m.s>0; }).sort(function(a,b){ return (b.s-a.s)||(a.d<b.d?1:-1); });
+  if(fT!=="streit") L.sort(function(a,b){ return a.d<b.d?1:a.d>b.d?-1:0; });
+  L=L.filter(function(m){ return !fG||m.g===fG; });
+  document.getElementById("ml").innerHTML=L.length?L.map(function(m){
+    var q='<a href="'+m.u+'" rel="noopener">parlament.gv.at</a>'+(m.w||[]).map(function(w){ return ', <a href="'+w.u+'" rel="noopener">'+w.t+'</a>'; }).join("");
+    return '<div class="card mn"><div class="md">'+datum(m.d)+' <span class="mg">'+m.g+'</span></div><h3>'+m.t+'</h3><p>'+m.x+'</p>'+stimmen(m.v)+'<p class="note">Quelle: '+q+'</p></div>';
+  }).join(""):'<p class="note">Keine Einträge.</p>';
 }
 seite();
 </script>
