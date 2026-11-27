@@ -2230,7 +2230,7 @@
      "richtung": "steigend",
      "urteil": "besser",
      "wertJetzt": 3.2,
-     "wertVorher": 2.3
+     "wertVorher": 2.2
     },
     {
      "code": "BG",
@@ -2310,7 +2310,7 @@
      "richtung": "sinkend",
      "urteil": "schlechter",
      "wertJetzt": 1.7,
-     "wertVorher": 2.3
+     "wertVorher": 2.4
     },
     {
      "code": "HU",
@@ -2647,7 +2647,7 @@
     },
     {
      "t": "2024-Q2",
-     "rang": 21,
+     "rang": 20,
      "n": 27
     },
     {
@@ -2725,10 +2725,20 @@
      "wertVorher": 19.4
     },
     {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 6.6,
+     "rank": 2,
+     "richtung": "steigend",
+     "urteil": "besser",
+     "wertJetzt": 6.6,
+     "wertVorher": 5.2
+    },
+    {
      "code": "PL",
      "name": "Polen",
      "value": 6.4,
-     "rank": 2,
+     "rank": 3,
      "richtung": "steigend",
      "urteil": "besser",
      "wertJetzt": 6.4,
@@ -2738,21 +2748,11 @@
      "code": "LV",
      "name": "Lettland",
      "value": 6.1,
-     "rank": 3,
+     "rank": 4,
      "richtung": "sinkend",
      "urteil": "schlechter",
      "wertJetzt": 6.1,
      "wertVorher": 6.6
-    },
-    {
-     "code": "SE",
-     "name": "Schweden",
-     "value": 5.1,
-     "rank": 4,
-     "richtung": "steigend",
-     "urteil": "besser",
-     "wertJetzt": 5.1,
-     "wertVorher": 4.6
     },
     {
      "code": "IE",
@@ -2947,12 +2947,12 @@
     {
      "code": "HR",
      "name": "Kroatien",
-     "value": -0.1,
+     "value": 0.1,
      "rank": 24,
      "richtung": "sinkend",
      "urteil": "schlechter",
-     "wertJetzt": -0.1,
-     "wertVorher": 1.7
+     "wertJetzt": 0.1,
+     "wertVorher": 1.8
     },
     {
      "code": "IT",
@@ -5329,12 +5329,12 @@
     {
      "code": "SE",
      "name": "Schweden",
-     "value": 40.98484063887259,
+     "value": 40.93501978549809,
      "rank": 18,
      "richtung": "stabil",
      "urteil": "unverändert",
-     "wertJetzt": 40.985,
-     "wertVorher": 41.435
+     "wertJetzt": 40.935,
+     "wertVorher": 41.413
     },
     {
      "code": "DE",
@@ -6809,6 +6809,16 @@
      "wertVorher": 1.7
     },
     {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 1.2,
+     "rank": 15,
+     "richtung": "sinkend",
+     "urteil": "schlechter",
+     "wertJetzt": 1.2,
+     "wertVorher": 1.7
+    },
+    {
      "code": "HU",
      "name": "Ungarn",
      "value": 1.2,
@@ -6822,7 +6832,7 @@
      "code": "SK",
      "name": "Slowakei",
      "value": 1.1,
-     "rank": 16,
+     "rank": 17,
      "richtung": "sinkend",
      "urteil": "schlechter",
      "wertJetzt": 1.1,
@@ -6832,21 +6842,11 @@
      "code": "NL",
      "name": "Niederlande",
      "value": 1,
-     "rank": 17,
+     "rank": 18,
      "richtung": "steigend",
      "urteil": "besser",
      "wertJetzt": 1,
      "wertVorher": 0.4
-    },
-    {
-     "code": "SE",
-     "name": "Schweden",
-     "value": 1,
-     "rank": 17,
-     "richtung": "sinkend",
-     "urteil": "schlechter",
-     "wertJetzt": 1,
-     "wertVorher": 1.7
     },
     {
      "code": "PT",
@@ -7413,7 +7413,8 @@
     "richtung": "steigend",
     "urteil": "höher",
     "wertJetzt": -1.704,
-    "wertVorher": -2.016
+    "wertVorher": -2.016,
+    "kontext": "67 % der Bevölkerung wohnen im Eigentum (2025)"
    },
    "schlechteste": {
     "code": "PT",
@@ -7423,7 +7424,8 @@
     "richtung": "steigend",
     "urteil": "höher",
     "wertJetzt": 22.012,
-    "wertVorher": 17.782
+    "wertVorher": 17.782,
+    "kontext": "71 % der Bevölkerung wohnen im Eigentum (2025)"
    },
    "rangVerlauf": [
     {
@@ -7464,7 +7466,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": -1.704,
-     "wertVorher": -2.016
+     "wertVorher": -2.016,
+     "kontext": "67 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "FR",
@@ -7474,7 +7477,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": -0.79,
-     "wertVorher": 0.016
+     "wertVorher": 0.016,
+     "kontext": "61 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "DE",
@@ -7484,7 +7488,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 1.454,
-     "wertVorher": 1.19
+     "wertVorher": 1.19,
+     "kontext": "47 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "BE",
@@ -7494,7 +7499,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 2.034,
-     "wertVorher": 1.894
+     "wertVorher": 1.894,
+     "kontext": "71 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "LU",
@@ -7504,7 +7510,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 2.432,
-     "wertVorher": 1.311
+     "wertVorher": 1.311,
+     "kontext": "64 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "SE",
@@ -7514,7 +7521,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 4.554,
-     "wertVorher": 2.611
+     "wertVorher": 2.611,
+     "kontext": "65 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "NL",
@@ -7524,7 +7532,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 5.873,
-     "wertVorher": 5.307
+     "wertVorher": 5.307,
+     "kontext": "69 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "CY",
@@ -7534,7 +7543,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 5.91,
-     "wertVorher": 3.388
+     "wertVorher": 3.388,
+     "kontext": "69 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "AT",
@@ -7544,7 +7554,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 6.206,
-     "wertVorher": 2.803
+     "wertVorher": 2.803,
+     "kontext": "54 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "IT",
@@ -7554,7 +7565,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 6.796,
-     "wertVorher": 5.119
+     "wertVorher": 5.119,
+     "kontext": "77 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "IE",
@@ -7564,7 +7576,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 7.355,
-     "wertVorher": 6.834
+     "wertVorher": 6.834,
+     "kontext": "71 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "PL",
@@ -7574,7 +7587,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 7.514,
-     "wertVorher": 5.952
+     "wertVorher": 5.952,
+     "kontext": "87 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "MT",
@@ -7584,7 +7598,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 8.498,
-     "wertVorher": 6.769
+     "wertVorher": 6.769,
+     "kontext": "71 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "EE",
@@ -7594,7 +7609,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 9.643,
-     "wertVorher": 5.938
+     "wertVorher": 5.938,
+     "kontext": "80 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "DK",
@@ -7604,7 +7620,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 11.278,
-     "wertVorher": 8.247
+     "wertVorher": 8.247,
+     "kontext": "58 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "CZ",
@@ -7614,7 +7631,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 12.012,
-     "wertVorher": 10.059
+     "wertVorher": 10.059,
+     "kontext": "75 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "RO",
@@ -7624,7 +7642,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 12.544,
-     "wertVorher": 7.827
+     "wertVorher": 7.827,
+     "kontext": "93 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "SI",
@@ -7634,7 +7653,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 12.551,
-     "wertVorher": 9.293
+     "wertVorher": 9.293,
+     "kontext": "74 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "HU",
@@ -7644,7 +7664,8 @@
      "richtung": "sinkend",
      "urteil": "niedriger",
      "wertJetzt": 12.575,
-     "wertVorher": 14.126
+     "wertVorher": 14.126,
+     "kontext": "90 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "LV",
@@ -7654,7 +7675,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 14.658,
-     "wertVorher": 10.317
+     "wertVorher": 10.317,
+     "kontext": "82 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "SK",
@@ -7664,7 +7686,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 16.089,
-     "wertVorher": 14.44
+     "wertVorher": 14.44,
+     "kontext": "94 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "ES",
@@ -7674,7 +7697,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 16.628,
-     "wertVorher": 12.826
+     "wertVorher": 12.826,
+     "kontext": "74 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "HR",
@@ -7684,7 +7708,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 17.35,
-     "wertVorher": 14.308
+     "wertVorher": 14.308,
+     "kontext": "91 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "LT",
@@ -7694,7 +7719,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 17.494,
-     "wertVorher": 11.902
+     "wertVorher": 11.902,
+     "kontext": "87 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "BG",
@@ -7704,7 +7730,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 19.891,
-     "wertVorher": 14.767
+     "wertVorher": 14.767,
+     "kontext": "86 % der Bevölkerung wohnen im Eigentum (2025)"
     },
     {
      "code": "PT",
@@ -7714,7 +7741,8 @@
      "richtung": "steigend",
      "urteil": "höher",
      "wertJetzt": 22.012,
-     "wertVorher": 17.782
+     "wertVorher": 17.782,
+     "kontext": "71 % der Bevölkerung wohnen im Eigentum (2025)"
     }
    ],
    "schweiz": null,
@@ -7752,7 +7780,8 @@
    ],
    "geaendert": "2026-11-23",
    "erklaerung": "Wie stark sich die Preise für gekaufte Wohnungen und Häuser (neu und gebraucht) seit dem Amtsantritt der Regierung verändert haben. Gezeigt wird die Veränderung, nicht der Preis pro Quadratmeter. 10 % heißt: Eine Immobilie kostet im Schnitt 10 % mehr als zu Beginn. Die Preise sind nicht um die Inflation bereinigt. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "kontextHinweis": "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent der Bevölkerung dort im Eigentum wohnen. So sieht man, wie viele Menschen steigende oder fallende Kaufpreise betreffen. Quelle: Eurostat."
   },
   {
    "id": "einkommen",
@@ -9137,7 +9166,7 @@
     },
     {
      "t": "2025-Q4",
-     "rang": 17,
+     "rang": 18,
      "n": 27
     },
     {
@@ -9217,12 +9246,12 @@
     {
      "code": "SE",
      "name": "Schweden",
-     "value": 2.5926445208941846,
+     "value": 2.648915513882139,
      "rank": 5,
      "richtung": "steigend",
      "urteil": "besser",
-     "wertJetzt": 2.593,
-     "wertVorher": 1.85
+     "wertJetzt": 2.649,
+     "wertVorher": 1.831
     },
     {
      "code": "BG",
@@ -9337,12 +9366,12 @@
     {
      "code": "HR",
      "name": "Kroatien",
-     "value": 1.2452627839775212,
+     "value": 1.1720530308774757,
      "rank": 17,
      "richtung": "sinkend",
      "urteil": "schlechter",
-     "wertJetzt": 1.245,
-     "wertVorher": 1.917
+     "wertJetzt": 1.172,
+     "wertVorher": 2.017
     },
     {
      "code": "NL",
@@ -9605,7 +9634,8 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "wertJetzt": 134,
-    "wertVorher": 134
+    "wertVorher": 134,
+    "kontext": "Benzin-Pkw machen 69 % aller Pkw aus (2025)"
    },
    "schlechteste": {
     "code": "DK",
@@ -9615,7 +9645,8 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "wertJetzt": 254,
-    "wertVorher": 240.533
+    "wertVorher": 240.533,
+    "kontext": "Benzin-Pkw machen 59 % aller Pkw aus (2025)"
    },
    "rangVerlauf": [
     {
@@ -9950,7 +9981,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 134,
-     "wertVorher": 134
+     "wertVorher": 134,
+     "kontext": "Benzin-Pkw machen 69 % aller Pkw aus (2025)"
     },
     {
      "code": "PL",
@@ -9960,7 +9992,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 157.667,
-     "wertVorher": 154.533
+     "wertVorher": 154.533,
+     "kontext": "Benzin-Pkw machen 45 % aller Pkw aus (2024)"
     },
     {
      "code": "SE",
@@ -9970,7 +10003,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 154.333,
-     "wertVorher": 146.533
+     "wertVorher": 146.533,
+     "kontext": "Benzin-Pkw machen 57 % aller Pkw aus (2025)"
     },
     {
      "code": "BG",
@@ -9980,7 +10014,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 161.033,
-     "wertVorher": 150.967
+     "wertVorher": 150.967,
+     "kontext": "Benzin-Pkw machen 37 % aller Pkw aus (2024)"
     },
     {
      "code": "SI",
@@ -9990,7 +10025,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 167.567,
-     "wertVorher": 160.633
+     "wertVorher": 160.633,
+     "kontext": "Benzin-Pkw machen 50 % aller Pkw aus (2025)"
     },
     {
      "code": "LU",
@@ -10000,7 +10036,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 176.567,
-     "wertVorher": 170.533
+     "wertVorher": 170.533,
+     "kontext": "Benzin-Pkw machen 55 % aller Pkw aus (2025)"
     },
     {
      "code": "AT",
@@ -10010,7 +10047,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 179.8,
-     "wertVorher": 175.667
+     "wertVorher": 175.667,
+     "kontext": "Benzin-Pkw machen 48 % aller Pkw aus (2025)"
     },
     {
      "code": "ES",
@@ -10020,7 +10058,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 177.7,
-     "wertVorher": 159.133
+     "wertVorher": 159.133,
+     "kontext": "Benzin-Pkw machen 46 % aller Pkw aus (2025)"
     },
     {
      "code": "CZ",
@@ -10030,7 +10069,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 178.067,
-     "wertVorher": 168.6
+     "wertVorher": 168.6,
+     "kontext": "Benzin-Pkw machen 58 % aller Pkw aus (2025)"
     },
     {
      "code": "CY",
@@ -10040,7 +10080,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 169.333,
-     "wertVorher": 154.7
+     "wertVorher": 154.7,
+     "kontext": "Benzin-Pkw machen 79 % aller Pkw aus (2025)"
     },
     {
      "code": "SK",
@@ -10060,7 +10101,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 171.5,
-     "wertVorher": 164.533
+     "wertVorher": 164.533,
+     "kontext": "Benzin-Pkw machen 65 % aller Pkw aus (2025)"
     },
     {
      "code": "HR",
@@ -10070,7 +10112,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 175.667,
-     "wertVorher": 164.367
+     "wertVorher": 164.367,
+     "kontext": "Benzin-Pkw machen 41 % aller Pkw aus (2025)"
     },
     {
      "code": "EE",
@@ -10080,7 +10123,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 186.733,
-     "wertVorher": 173.6
+     "wertVorher": 173.6,
+     "kontext": "Benzin-Pkw machen 55 % aller Pkw aus (2025)"
     },
     {
      "code": "LV",
@@ -10090,7 +10134,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 191.033,
-     "wertVorher": 181.533
+     "wertVorher": 181.533,
+     "kontext": "Benzin-Pkw machen 29 % aller Pkw aus (2025)"
     },
     {
      "code": "RO",
@@ -10100,7 +10145,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 185.633,
-     "wertVorher": 173.6
+     "wertVorher": 173.6,
+     "kontext": "Benzin-Pkw machen 47 % aller Pkw aus (2025)"
     },
     {
      "code": "LT",
@@ -10110,7 +10156,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 188.667,
-     "wertVorher": 174.7
+     "wertVorher": 174.7,
+     "kontext": "Benzin-Pkw machen 29 % aller Pkw aus (2025)"
     },
     {
      "code": "BE",
@@ -10120,7 +10167,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 192.267,
-     "wertVorher": 182.433
+     "wertVorher": 182.433,
+     "kontext": "Benzin-Pkw machen 64 % aller Pkw aus (2025)"
     },
     {
      "code": "PT",
@@ -10130,7 +10178,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 203.133,
-     "wertVorher": 193.833
+     "wertVorher": 193.833,
+     "kontext": "Benzin-Pkw machen 42 % aller Pkw aus (2025)"
     },
     {
      "code": "IE",
@@ -10140,7 +10189,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 194.867,
-     "wertVorher": 179.067
+     "wertVorher": 179.067,
+     "kontext": "Benzin-Pkw machen 45 % aller Pkw aus (2025)"
     },
     {
      "code": "IT",
@@ -10150,7 +10200,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 203.667,
-     "wertVorher": 192.367
+     "wertVorher": 192.367,
+     "kontext": "Benzin-Pkw machen 50 % aller Pkw aus (2025)"
     },
     {
      "code": "EL",
@@ -10170,7 +10221,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 219.367,
-     "wertVorher": 208.7
+     "wertVorher": 208.7,
+     "kontext": "Benzin-Pkw machen 66 % aller Pkw aus (2025)"
     },
     {
      "code": "FR",
@@ -10180,7 +10232,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 215.4,
-     "wertVorher": 201
+     "wertVorher": 201,
+     "kontext": "Benzin-Pkw machen 47 % aller Pkw aus (2024)"
     },
     {
      "code": "FI",
@@ -10190,7 +10243,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 227.133,
-     "wertVorher": 216.733
+     "wertVorher": 216.733,
+     "kontext": "Benzin-Pkw machen 71 % aller Pkw aus (2025)"
     },
     {
      "code": "NL",
@@ -10200,7 +10254,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 234.533,
-     "wertVorher": 229.833
+     "wertVorher": 229.833,
+     "kontext": "Benzin-Pkw machen 85 % aller Pkw aus (2024)"
     },
     {
      "code": "DK",
@@ -10210,7 +10265,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 254,
-     "wertVorher": 240.533
+     "wertVorher": 240.533,
+     "kontext": "Benzin-Pkw machen 59 % aller Pkw aus (2025)"
     }
    ],
    "schweiz": null,
@@ -10518,7 +10574,8 @@
    ],
    "geaendert": "2026-11-25",
    "erklaerung": "Was ein Liter Eurosuper 95 durchschnittlich an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die wöchentlichen Preise des Ölbulletins der EU-Kommission, hier als Monatsdurchschnitt. Der Preis hängt vom Ölpreis und von den Steuern des jeweiligen Landes ab.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "kontextHinweis": "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent aller Pkw dort mit Benzin fahren (ohne Hybridfahrzeuge). So sieht man, wie viele Autos der Preis betrifft. Quelle: Eurostat."
   },
   {
    "id": "diesel",
@@ -10564,7 +10621,8 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "wertJetzt": 121,
-    "wertVorher": 121
+    "wertVorher": 121,
+    "kontext": "Diesel-Pkw machen 27 % aller Pkw aus (2025)"
    },
    "schlechteste": {
     "code": "FI",
@@ -10574,7 +10632,8 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "wertJetzt": 250.867,
-    "wertVorher": 224.767
+    "wertVorher": 224.767,
+    "kontext": "Diesel-Pkw machen 24 % aller Pkw aus (2025)"
    },
    "rangVerlauf": [
     {
@@ -10909,7 +10968,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 121,
-     "wertVorher": 121
+     "wertVorher": 121,
+     "kontext": "Diesel-Pkw machen 27 % aller Pkw aus (2025)"
     },
     {
      "code": "PL",
@@ -10919,7 +10979,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 184.067,
-     "wertVorher": 163.433
+     "wertVorher": 163.433,
+     "kontext": "Diesel-Pkw machen 37 % aller Pkw aus (2024)"
     },
     {
      "code": "ES",
@@ -10929,7 +10990,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 187.267,
-     "wertVorher": 167.367
+     "wertVorher": 167.367,
+     "kontext": "Diesel-Pkw machen 51 % aller Pkw aus (2025)"
     },
     {
      "code": "BG",
@@ -10939,7 +11001,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 187.667,
-     "wertVorher": 163.7
+     "wertVorher": 163.7,
+     "kontext": "Diesel-Pkw machen 49 % aller Pkw aus (2025)"
     },
     {
      "code": "CZ",
@@ -10949,7 +11012,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 194.533,
-     "wertVorher": 167.233
+     "wertVorher": 167.233,
+     "kontext": "Diesel-Pkw machen 38 % aller Pkw aus (2025)"
     },
     {
      "code": "SI",
@@ -10959,7 +11023,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 192.233,
-     "wertVorher": 175.033
+     "wertVorher": 175.033,
+     "kontext": "Diesel-Pkw machen 47 % aller Pkw aus (2025)"
     },
     {
      "code": "SK",
@@ -10979,7 +11044,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 200.8,
-     "wertVorher": 172.9
+     "wertVorher": 172.9,
+     "kontext": "Diesel-Pkw machen 31 % aller Pkw aus (2025)"
     },
     {
      "code": "HU",
@@ -10989,7 +11055,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 193.467,
-     "wertVorher": 175.233
+     "wertVorher": 175.233,
+     "kontext": "Diesel-Pkw machen 32 % aller Pkw aus (2025)"
     },
     {
      "code": "CY",
@@ -10999,7 +11066,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 198.367,
-     "wertVorher": 170.3
+     "wertVorher": 170.3,
+     "kontext": "Diesel-Pkw machen 21 % aller Pkw aus (2025)"
     },
     {
      "code": "HR",
@@ -11009,7 +11077,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 197.467,
-     "wertVorher": 177.567
+     "wertVorher": 177.567,
+     "kontext": "Diesel-Pkw machen 56 % aller Pkw aus (2025)"
     },
     {
      "code": "LU",
@@ -11019,7 +11088,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 204.833,
-     "wertVorher": 178.5
+     "wertVorher": 178.5,
+     "kontext": "Diesel-Pkw machen 36 % aller Pkw aus (2025)"
     },
     {
      "code": "RO",
@@ -11029,7 +11099,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 202.633,
-     "wertVorher": 186.3
+     "wertVorher": 186.3,
+     "kontext": "Diesel-Pkw machen 51 % aller Pkw aus (2025)"
     },
     {
      "code": "LV",
@@ -11039,7 +11110,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 207.867,
-     "wertVorher": 182.533
+     "wertVorher": 182.533,
+     "kontext": "Diesel-Pkw machen 65 % aller Pkw aus (2025)"
     },
     {
      "code": "EE",
@@ -11049,7 +11121,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 207.133,
-     "wertVorher": 176.467
+     "wertVorher": 176.467,
+     "kontext": "Diesel-Pkw machen 43 % aller Pkw aus (2025)"
     },
     {
      "code": "AT",
@@ -11059,7 +11132,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 213.667,
-     "wertVorher": 189.7
+     "wertVorher": 189.7,
+     "kontext": "Diesel-Pkw machen 47 % aller Pkw aus (2025)"
     },
     {
      "code": "EL",
@@ -11079,7 +11153,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 214.833,
-     "wertVorher": 192.267
+     "wertVorher": 192.267,
+     "kontext": "Diesel-Pkw machen 52 % aller Pkw aus (2025)"
     },
     {
      "code": "IE",
@@ -11089,7 +11164,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 209.7,
-     "wertVorher": 181.833
+     "wertVorher": 181.833,
+     "kontext": "Diesel-Pkw machen 51 % aller Pkw aus (2025)"
     },
     {
      "code": "FR",
@@ -11099,7 +11175,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 228.733,
-     "wertVorher": 205.967
+     "wertVorher": 205.967,
+     "kontext": "Diesel-Pkw machen 49 % aller Pkw aus (2024)"
     },
     {
      "code": "LT",
@@ -11109,7 +11186,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 220.667,
-     "wertVorher": 190.067
+     "wertVorher": 190.067,
+     "kontext": "Diesel-Pkw machen 64 % aller Pkw aus (2025)"
     },
     {
      "code": "IT",
@@ -11119,7 +11197,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 223.567,
-     "wertVorher": 202.467
+     "wertVorher": 202.467,
+     "kontext": "Diesel-Pkw machen 39 % aller Pkw aus (2025)"
     },
     {
      "code": "DE",
@@ -11129,7 +11208,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 230.1,
-     "wertVorher": 203.433
+     "wertVorher": 203.433,
+     "kontext": "Diesel-Pkw machen 29 % aller Pkw aus (2025)"
     },
     {
      "code": "BE",
@@ -11139,7 +11219,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 233.4,
-     "wertVorher": 205.733
+     "wertVorher": 205.733,
+     "kontext": "Diesel-Pkw machen 29 % aller Pkw aus (2025)"
     },
     {
      "code": "NL",
@@ -11149,7 +11230,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 244.133,
-     "wertVorher": 223.2
+     "wertVorher": 223.2,
+     "kontext": "Diesel-Pkw machen 7 % aller Pkw aus (2024)"
     },
     {
      "code": "DK",
@@ -11159,7 +11241,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 247.467,
-     "wertVorher": 214.9
+     "wertVorher": 214.9,
+     "kontext": "Diesel-Pkw machen 23 % aller Pkw aus (2025)"
     },
     {
      "code": "FI",
@@ -11169,7 +11252,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 250.867,
-     "wertVorher": 224.767
+     "wertVorher": 224.767,
+     "kontext": "Diesel-Pkw machen 24 % aller Pkw aus (2025)"
     }
    ],
    "schweiz": null,
@@ -11477,7 +11561,8 @@
    ],
    "geaendert": "2026-11-25",
    "erklaerung": "Was ein Liter Diesel durchschnittlich an der Tankstelle kostet, inklusive Mineralölsteuer, CO2-Abgaben und Mehrwertsteuer, in Cent. Grundlage sind die wöchentlichen Preise des Ölbulletins der EU-Kommission, hier als Monatsdurchschnitt. Der Preis hängt vom Ölpreis und von den Steuern des jeweiligen Landes ab.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "kontextHinweis": "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent aller Pkw dort mit Diesel fahren (ohne Hybridfahrzeuge). So sieht man, wie viele Autos der Preis betrifft. Quelle: Eurostat."
   },
   {
    "id": "heizoel",
@@ -12476,7 +12561,8 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "wertJetzt": 3.3,
-    "wertVorher": 3.06
+    "wertVorher": 3.06,
+    "kontext": "Erdgas macht 46 % des Energieverbrauchs der Haushalte aus (2024)"
    },
    "schlechteste": {
     "code": "SE",
@@ -12486,7 +12572,8 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "wertJetzt": 22.01,
-    "wertVorher": 21.28
+    "wertVorher": 21.28,
+    "kontext": "Erdgas macht 0,3 % des Energieverbrauchs der Haushalte aus (2024)"
    },
    "rangVerlauf": [
     {
@@ -12571,7 +12658,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 3.3,
-     "wertVorher": 3.06
+     "wertVorher": 3.06,
+     "kontext": "Erdgas macht 46 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "HR",
@@ -12581,7 +12669,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 5.02,
-     "wertVorher": 4.61
+     "wertVorher": 4.61,
+     "kontext": "Erdgas macht 21 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "RO",
@@ -12591,7 +12680,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 5.94,
-     "wertVorher": 5.59
+     "wertVorher": 5.59,
+     "kontext": "Erdgas macht 35 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "LT",
@@ -12601,7 +12691,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 6.29,
-     "wertVorher": 6.67
+     "wertVorher": 6.67,
+     "kontext": "Erdgas macht 11 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "SK",
@@ -12611,7 +12702,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 6.26,
-     "wertVorher": 5.87
+     "wertVorher": 5.87,
+     "kontext": "Erdgas macht 43 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "BG",
@@ -12621,7 +12713,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 6.54,
-     "wertVorher": 7.65
+     "wertVorher": 7.65,
+     "kontext": "Erdgas macht 4 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "EL",
@@ -12631,7 +12724,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 7.71,
-     "wertVorher": 8.69
+     "wertVorher": 8.69,
+     "kontext": "Erdgas macht 9 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "ES",
@@ -12641,7 +12735,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 7.87,
-     "wertVorher": 8.74
+     "wertVorher": 8.74,
+     "kontext": "Erdgas macht 21 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "EE",
@@ -12651,7 +12746,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 7.96,
-     "wertVorher": 8.56
+     "wertVorher": 8.56,
+     "kontext": "Erdgas macht 6 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "LV",
@@ -12661,7 +12757,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 8.12,
-     "wertVorher": 8.04
+     "wertVorher": 8.04,
+     "kontext": "Erdgas macht 8 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "BE",
@@ -12671,7 +12768,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 8.46,
-     "wertVorher": 9.19
+     "wertVorher": 9.19,
+     "kontext": "Erdgas macht 41 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "LU",
@@ -12681,7 +12779,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 8.59,
-     "wertVorher": 9.29
+     "wertVorher": 9.29,
+     "kontext": "Erdgas macht 46 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "SI",
@@ -12691,7 +12790,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 8.59,
-     "wertVorher": 8.49
+     "wertVorher": 8.49,
+     "kontext": "Erdgas macht 7 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "CZ",
@@ -12701,7 +12801,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 9.01,
-     "wertVorher": 9.67
+     "wertVorher": 9.67,
+     "kontext": "Erdgas macht 23 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "IT",
@@ -12711,7 +12812,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 11.37,
-     "wertVorher": 12.4
+     "wertVorher": 12.4,
+     "kontext": "Erdgas macht 49 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "DE",
@@ -12721,7 +12823,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 11.56,
-     "wertVorher": 12.16
+     "wertVorher": 12.16,
+     "kontext": "Erdgas macht 37 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "IE",
@@ -12731,7 +12834,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 11.83,
-     "wertVorher": 11.95
+     "wertVorher": 11.95,
+     "kontext": "Erdgas macht 18 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "DK",
@@ -12741,7 +12845,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 12.11,
-     "wertVorher": 13.06
+     "wertVorher": 13.06,
+     "kontext": "Erdgas macht 10 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "AT",
@@ -12751,7 +12856,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 12.4,
-     "wertVorher": 12.2
+     "wertVorher": 12.2,
+     "kontext": "Erdgas macht 16 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "PT",
@@ -12761,7 +12867,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 12.56,
-     "wertVorher": 12.65
+     "wertVorher": 12.65,
+     "kontext": "Erdgas macht 9 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "FR",
@@ -12771,7 +12878,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 13.47,
-     "wertVorher": 12.99
+     "wertVorher": 12.99,
+     "kontext": "Erdgas macht 24 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "NL",
@@ -12781,7 +12889,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 16.22,
-     "wertVorher": 16.14
+     "wertVorher": 16.14,
+     "kontext": "Erdgas macht 61 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "SE",
@@ -12791,7 +12900,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 22.01,
-     "wertVorher": 21.28
+     "wertVorher": 21.28,
+     "kontext": "Erdgas macht 0,3 % des Energieverbrauchs der Haushalte aus (2024)"
     }
    ],
    "schweiz": null,
@@ -12849,7 +12959,8 @@
    ],
    "geaendert": "2026-11-25",
    "erklaerung": "Was eine Kilowattstunde Erdgas für einen Haushalt mit durchschnittlichem Verbrauch inklusive Steuern und Abgaben kostet, in Cent (Halbjahreswerte). Fernwärme ist nicht erfasst. Ein niedrigerer Preis ist besser.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "kontextHinweis": "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent des Energieverbrauchs der Haushalte dort auf Erdgas entfallen. So sieht man, wie viele Haushalte der Preis betrifft. Quelle: Eurostat."
   },
   {
    "id": "sicherheitsgefuehl",
@@ -21586,7 +21697,8 @@
     "richtung": "sinkend",
     "urteil": "besser",
     "wertJetzt": -0.067,
-    "wertVorher": 0.067
+    "wertVorher": 0.067,
+    "kontext": "33 % der Bevölkerung wohnen zur Miete (2025)"
    },
    "schlechteste": {
     "code": "RO",
@@ -21596,7 +21708,8 @@
     "richtung": "sinkend",
     "urteil": "besser",
     "wertJetzt": 39.233,
-    "wertVorher": 43.133
+    "wertVorher": 43.133,
+    "kontext": "7 % der Bevölkerung wohnen zur Miete (2025)"
    },
    "rangVerlauf": [
     {
@@ -21931,7 +22044,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": -0.067,
-     "wertVorher": 0.067
+     "wertVorher": 0.067,
+     "kontext": "33 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "LV",
@@ -21941,7 +22055,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 1.1,
-     "wertVorher": 4.133
+     "wertVorher": 4.133,
+     "kontext": "18 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "LU",
@@ -21951,7 +22066,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 1.367,
-     "wertVorher": 1.3
+     "wertVorher": 1.3,
+     "kontext": "36 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "FR",
@@ -21961,7 +22077,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 1.6,
-     "wertVorher": 1.6
+     "wertVorher": 1.6,
+     "kontext": "39 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "DE",
@@ -21971,7 +22088,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 2.2,
-     "wertVorher": 2.1
+     "wertVorher": 2.1,
+     "kontext": "53 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "DK",
@@ -21981,7 +22099,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 2.5,
-     "wertVorher": 2.7
+     "wertVorher": 2.7,
+     "kontext": "42 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "ES",
@@ -21991,7 +22110,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 2.533,
-     "wertVorher": 2.5
+     "wertVorher": 2.5,
+     "kontext": "26 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "BE",
@@ -22001,7 +22121,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 3.067,
-     "wertVorher": 3.333
+     "wertVorher": 3.333,
+     "kontext": "29 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "HU",
@@ -22011,7 +22132,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 2.667,
-     "wertVorher": 4.433
+     "wertVorher": 4.433,
+     "kontext": "10 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "SE",
@@ -22021,7 +22143,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 3.3,
-     "wertVorher": 3.4
+     "wertVorher": 3.4,
+     "kontext": "35 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "IT",
@@ -22031,7 +22154,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 3.4,
-     "wertVorher": 3.533
+     "wertVorher": 3.533,
+     "kontext": "23 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "AT",
@@ -22041,7 +22165,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 4,
-     "wertVorher": 4.8
+     "wertVorher": 4.8,
+     "kontext": "46 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "PL",
@@ -22051,7 +22176,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 3.6,
-     "wertVorher": 3.967
+     "wertVorher": 3.967,
+     "kontext": "13 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "HR",
@@ -22061,7 +22187,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 3.833,
-     "wertVorher": 40.333
+     "wertVorher": 40.333,
+     "kontext": "9 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "MT",
@@ -22071,7 +22198,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 3.7,
-     "wertVorher": 3.3
+     "wertVorher": 3.3,
+     "kontext": "29 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "EE",
@@ -22081,7 +22209,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 3.633,
-     "wertVorher": 2.333
+     "wertVorher": 2.333,
+     "kontext": "20 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "NL",
@@ -22091,7 +22220,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 4.4,
-     "wertVorher": 4.733
+     "wertVorher": 4.733,
+     "kontext": "31 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "SK",
@@ -22101,7 +22231,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 5.167,
-     "wertVorher": 5.633
+     "wertVorher": 5.633,
+     "kontext": "6 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "CY",
@@ -22111,7 +22242,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 4.5,
-     "wertVorher": 4.3
+     "wertVorher": 4.3,
+     "kontext": "31 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "PT",
@@ -22121,7 +22253,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 5.167,
-     "wertVorher": 5.233
+     "wertVorher": 5.233,
+     "kontext": "29 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "CZ",
@@ -22131,7 +22264,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 6.2,
-     "wertVorher": 6.1
+     "wertVorher": 6.1,
+     "kontext": "25 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "BG",
@@ -22141,7 +22275,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 7.133,
-     "wertVorher": 9.6
+     "wertVorher": 9.6,
+     "kontext": "14 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "EL",
@@ -22151,7 +22286,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 6.3,
-     "wertVorher": 7.2
+     "wertVorher": 7.2,
+     "kontext": "31 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "IE",
@@ -22161,7 +22297,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 6.267,
-     "wertVorher": 5.333
+     "wertVorher": 5.333,
+     "kontext": "29 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "LT",
@@ -22171,7 +22308,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 9.1,
-     "wertVorher": 6.3
+     "wertVorher": 6.3,
+     "kontext": "14 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "SI",
@@ -22181,7 +22319,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 11.1,
-     "wertVorher": 10.067
+     "wertVorher": 10.067,
+     "kontext": "26 % der Bevölkerung wohnen zur Miete (2025)"
     },
     {
      "code": "RO",
@@ -22191,7 +22330,8 @@
      "richtung": "sinkend",
      "urteil": "besser",
      "wertJetzt": 39.233,
-     "wertVorher": 43.133
+     "wertVorher": 43.133,
+     "kontext": "7 % der Bevölkerung wohnen zur Miete (2025)"
     }
    ],
    "schweiz": {
@@ -22502,7 +22642,8 @@
    ],
    "geaendert": "2026-11-24",
    "erklaerung": "Wie stark die tatsächlich gezahlten Mieten im Vergleich zum gleichen Monat des Vorjahres gestiegen sind (harmonisierter Verbraucherpreisindex, Position tatsächliche Mieten). Das ist die Preisentwicklung bestehender Mietverhältnisse, nicht die Höhe der Miete.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "kontextHinweis": "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent der Bevölkerung dort zur Miete wohnen. So sieht man, wie viele Menschen die Mieten betreffen. Quelle: Eurostat."
   },
   {
    "id": "jugendarbeitslosigkeit",
@@ -23913,7 +24054,7 @@
     "urteil": "unverändert",
     "wertJetzt": 3.52,
     "wertVorher": 3.53,
-    "zus": "21,1 Mrd. €"
+    "zus": "21,2 Mrd. €"
    },
    "schlechteste": {
     "code": "MT",
@@ -23985,7 +24126,7 @@
      "urteil": "unverändert",
      "wertJetzt": 3.52,
      "wertVorher": 3.53,
-     "zus": "21,1 Mrd. €"
+     "zus": "21,2 Mrd. €"
     },
     {
      "code": "AT",
