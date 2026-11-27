@@ -449,3 +449,6 @@ h1 a.home{color:inherit;text-decoration:none}
 .pg-f.neu{background:currentColor;opacity:.55}.pg-w.neu{color:inherit;opacity:.8}
 .kopf .tit .claim{margin:4px 0 0}
 .kopf{margin-bottom:18px}
+.sust .stt{display:flex;flex-direction:column}
+.svhint{font-size:.78rem;font-weight:600;color:var(--eu);margin:2px 0 4px;text-decoration:underline;text-underline-offset:2px}
+.sust[open] .svhint{display:none}

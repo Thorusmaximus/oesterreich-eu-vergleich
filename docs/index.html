@@ -16,7 +16,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=8e1e6dcb">
+<link rel="stylesheet" href="style.css?v=f20380eb">
 </head>
 <body>
 <main>
@@ -174,7 +174,7 @@ else {
     var li=function(l,ton,neu){ return l.length ? '<ul>'+l.map(function(i){ return '<li><a href="indikator.html?id='+encodeURIComponent(i.id)+'"><span>'+i.name+(i.ausgeblendet?' <small>(Daten bis '+periode(i.periode)+')</small>':(neu?' <small>(ohne Wertung)</small>':''))+'</span><b class="'+(neu?'':ton)+'">Platz '+i.oesterreich.rang+' <small>von '+i.anzahlLaender+'</small></b></a></li>'; }).join('')+'</ul>' : '<p class="note">Keine.</p>'; };
     var box=document.createElement("details"); box.className="sust";
     var SCALE='<svg class="ic" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M8 20h8M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0L5 7zM19 7l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg>';
-    box.innerHTML='<summary><span class="sk">'+SCALE+'</span><div class="stt"><h2 class="gh">Österreichs Stärken und Schwächen in der EU'+infoIcon("Gezeigt werden Kennzahlen mit Wertung, bei denen Österreich unter den obersten bzw. untersten Plätzen liegt: bei 21 bis 27 Ländern die ersten bzw. letzten fünf, bei 16 bis 20 Ländern vier, bei 15 oder weniger drei. Kennzahlen mit Wertung zählen auch dann, wenn es noch keine Daten ab 2025 gibt (Hinweis „Daten bis 2024“). Kennzahlen ohne Wertung stehen unter „Ohne Wertung“.")+'</h2><span class="sz"><span class="sn"><b class="good">'+st.length+'</b> Stärken</span><span class="sn"><b class="bad">'+sw.length+'</b> Schwächen</span>'+(nv?'<span class="sn"><b>'+nv+'</b> ohne Wertung</span>':'')+'</span></div><span class="auf" aria-hidden="true"></span></summary><div class="sustg"><div><h3 class="good">Stärken ('+st.length+')</h3>'+li(st,"good")+'</div><div><h3 class="bad">Schwächen ('+sw.length+')</h3>'+li(sw,"bad")+'</div>'
+    box.innerHTML='<summary><span class="sk">'+SCALE+'</span><div class="stt"><h2 class="gh">Österreichs Stärken und Schwächen in der EU'+infoIcon("Gezeigt werden Kennzahlen mit Wertung, bei denen Österreich unter den obersten bzw. untersten Plätzen liegt: bei 21 bis 27 Ländern die ersten bzw. letzten fünf, bei 16 bis 20 Ländern vier, bei 15 oder weniger drei. Kennzahlen mit Wertung zählen auch dann, wenn es noch keine Daten ab 2025 gibt (Hinweis „Daten bis 2024“). Kennzahlen ohne Wertung stehen unter „Ohne Wertung“.")+'</h2><span class="sz"><span class="sn"><b class="good">'+st.length+'</b> Stärken</span><span class="sn"><b class="bad">'+sw.length+'</b> Schwächen</span>'+(nv?'<span class="sn"><b>'+nv+'</b> ohne Wertung</span>':'')+'</span><span class="svhint" role="button" tabindex="0">\u21c4 Mit einem EU-Land vergleichen</span></div><span class="auf" aria-hidden="true"></span></summary><div class="sustg"><div><h3 class="good">Stärken ('+st.length+')</h3>'+li(st,"good")+'</div><div><h3 class="bad">Schwächen ('+sw.length+')</h3>'+li(sw,"bad")+'</div>'
       + ((nv||nst.length||nsw.length) ? '<div class="sdrit"><h3 class="svh">Ohne Wertung ('+nv+')'+infoIcon("Kennzahlen ohne Wertung: Ob ein hoher oder niedriger Platz gut ist, wird nicht bewertet. Rang 1 steht je nach Kennzahl für den höchsten oder den niedrigsten Wert. Es gelten dieselben Grenzen wie bei Stärken und Schwächen.")+'</h3><div class="ow">'+(nst.length?'<h3>Ganz vorne ('+nst.length+')</h3>'+li(nst,"",1):'')+(nsw.length?'<h3>Ganz hinten ('+nsw.length+')</h3>'+li(nsw,"",1):'')+'</div></div>' : '')
       + '</div>';
     // Vergleich mit einem anderen EU-Land: dieselben Grenzen, nur Kennzahlen mit Wertung
@@ -183,6 +183,8 @@ else {
     var vb = document.createElement("div"); vb.className = "svgl";
     vb.innerHTML = '<label for="svl">Mit einem anderen EU-Land vergleichen:</label> <select id="svl"><option value="">Kein Vergleich</option>'+codes.map(function(c){ return '<option value="'+c+'">'+ländern[c]+'</option>'; }).join('')+'</select>';
     box.insertBefore(vb, box.querySelector(".sustg"));
+    box.querySelector(".svhint").addEventListener("click", function(){ setTimeout(function(){ var l=box.querySelector("#svl"); if(box.open && l){ l.focus({preventScroll:true}); l.scrollIntoView({block:"center",behavior:"smooth"}); } },50); });
+    box.querySelector(".svhint").addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); this.click(); } });
     var sel = vb.querySelector("#svl"), svx = document.createElement("div"); svx.id="svx"; svx.className="svgl2"; box.appendChild(svx);
     sel.addEventListener("change", function(){
       var c = sel.value; box.classList.toggle("mitland",!!c); if(!c){ svx.innerHTML=""; return; }
