@@ -11487,7 +11487,7 @@
    "dez": 1,
    "suffix": " ct",
    "diffEinheit": "Cent pro Liter",
-   "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie wichtig Heizöl ist, ist von Land zu Land sehr verschieden: In der Tabelle steht je Land, wie viel Prozent des Energieverbrauchs der Haushalte auf Erdöl und Erdölprodukte entfallen (überwiegend Heizöl, Quelle: Eurostat).",
+   "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie wichtig Heizöl ist, ist von Land zu Land sehr verschieden: Bei den Ländern in der Tabelle zeigt ein Tipp auf den Wert, wie viel Prozent des Energieverbrauchs der Haushalte auf Erdöl und Erdölprodukte (überwiegend Heizöl) entfallen.",
    "umstritten": false,
    "trendNeutral": false,
    "schwelle": 5,
@@ -11524,7 +11524,7 @@
     "urteil": "unverändert",
     "wertJetzt": 100,
     "wertVorher": 100,
-    "zus": "Erdölanteil 9 % (2024)"
+    "kontext": "Erdöl und Erdölprodukte machen 9 % des Energieverbrauchs der Haushalte aus (2024)"
    },
    "schlechteste": {
     "code": "DK",
@@ -11535,7 +11535,7 @@
     "urteil": "schlechter",
     "wertJetzt": 243.6,
     "wertVorher": 219.3,
-    "zus": "Erdölanteil 3 % (2024)"
+    "kontext": "Erdöl und Erdölprodukte machen 3 % des Energieverbrauchs der Haushalte aus (2024)"
    },
    "rangVerlauf": [
     {
@@ -11871,7 +11871,7 @@
      "urteil": "unverändert",
      "wertJetzt": 100,
      "wertVorher": 100,
-     "zus": "Erdölanteil 9 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 9 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "BE",
@@ -11882,7 +11882,7 @@
      "urteil": "schlechter",
      "wertJetzt": 149.833,
      "wertVorher": 118.233,
-     "zus": "Erdölanteil 26 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 26 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "ES",
@@ -11893,7 +11893,7 @@
      "urteil": "schlechter",
      "wertJetzt": 146.3,
      "wertVorher": 117.133,
-     "zus": "Erdölanteil 16 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 16 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "CZ",
@@ -11904,7 +11904,7 @@
      "urteil": "schlechter",
      "wertJetzt": 150.067,
      "wertVorher": 123.333,
-     "zus": "Erdölanteil 0,9 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 0,9 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "IE",
@@ -11915,7 +11915,7 @@
      "urteil": "schlechter",
      "wertJetzt": 151.1,
      "wertVorher": 127.7,
-     "zus": "Erdölanteil 42 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 42 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "LU",
@@ -11926,7 +11926,7 @@
      "urteil": "schlechter",
      "wertJetzt": 153.467,
      "wertVorher": 125.7,
-     "zus": "Erdölanteil 27 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 27 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "EL",
@@ -11934,7 +11934,7 @@
      "value": 148.9,
      "rank": 7,
      "urteil": null,
-     "zus": "Erdölanteil 24 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 24 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "LT",
@@ -11945,7 +11945,7 @@
      "urteil": "schlechter",
      "wertJetzt": 156.4,
      "wertVorher": 127.333,
-     "zus": "Erdölanteil 4 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 4 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "RO",
@@ -11956,7 +11956,7 @@
      "urteil": "schlechter",
      "wertJetzt": 155.1,
      "wertVorher": 124.3,
-     "zus": "Erdölanteil 4 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 4 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "CY",
@@ -11967,7 +11967,7 @@
      "urteil": "schlechter",
      "wertJetzt": 158.733,
      "wertVorher": 140,
-     "zus": "Erdölanteil 26 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 26 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "SI",
@@ -11978,7 +11978,7 @@
      "urteil": "schlechter",
      "wertJetzt": 157.367,
      "wertVorher": 139.167,
-     "zus": "Erdölanteil 11 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 11 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "HR",
@@ -11989,7 +11989,7 @@
      "urteil": "schlechter",
      "wertJetzt": 162.2,
      "wertVorher": 125.9,
-     "zus": "Erdölanteil 4 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 4 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "PL",
@@ -12000,7 +12000,7 @@
      "urteil": "schlechter",
      "wertJetzt": 165.667,
      "wertVorher": 137.2,
-     "zus": "Erdölanteil 3 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 3 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "DE",
@@ -12011,7 +12011,7 @@
      "urteil": "schlechter",
      "wertJetzt": 167.033,
      "wertVorher": 125.867,
-     "zus": "Erdölanteil 19 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 19 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "EE",
@@ -12022,7 +12022,7 @@
      "urteil": "schlechter",
      "wertJetzt": 166.467,
      "wertVorher": 134.367,
-     "zus": "Erdölanteil 0,1 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 0,1 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "FR",
@@ -12033,7 +12033,7 @@
      "urteil": "schlechter",
      "wertJetzt": 185.067,
      "wertVorher": 158.467,
-     "zus": "Erdölanteil 9 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 9 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "AT",
@@ -12044,7 +12044,7 @@
      "urteil": "schlechter",
      "wertJetzt": 179.7,
      "wertVorher": 147.867,
-     "zus": "Erdölanteil 8 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 8 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "SE",
@@ -12055,7 +12055,7 @@
      "urteil": "schlechter",
      "wertJetzt": 183.767,
      "wertVorher": 154.7,
-     "zus": "Erdölanteil 2 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 2 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "LV",
@@ -12066,7 +12066,7 @@
      "urteil": "schlechter",
      "wertJetzt": 181.6,
      "wertVorher": 150.967,
-     "zus": "Erdölanteil 6 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 6 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "HU",
@@ -12077,7 +12077,7 @@
      "urteil": "schlechter",
      "wertJetzt": 193.467,
      "wertVorher": 175.233,
-     "zus": "Erdölanteil 1 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 1 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "FI",
@@ -12088,7 +12088,7 @@
      "urteil": "schlechter",
      "wertJetzt": 204.4,
      "wertVorher": 174.233,
-     "zus": "Erdölanteil 2 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 2 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "IT",
@@ -12099,7 +12099,7 @@
      "urteil": "schlechter",
      "wertJetzt": 203.467,
      "wertVorher": 175.833,
-     "zus": "Erdölanteil 5 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 5 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "PT",
@@ -12110,7 +12110,7 @@
      "urteil": "schlechter",
      "wertJetzt": 219.2,
      "wertVorher": 191.533,
-     "zus": "Erdölanteil 11 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 11 % des Energieverbrauchs der Haushalte aus (2024)"
     },
     {
      "code": "DK",
@@ -12121,7 +12121,7 @@
      "urteil": "schlechter",
      "wertJetzt": 243.6,
      "wertVorher": 219.3,
-     "zus": "Erdölanteil 3 % (2024)"
+     "kontext": "Erdöl und Erdölprodukte machen 3 % des Energieverbrauchs der Haushalte aus (2024)"
     }
    ],
    "schweiz": null,
@@ -12429,7 +12429,8 @@
    ],
    "geaendert": "2026-11-25",
    "erklaerung": "Was ein Liter Heizöl im Schnitt kostet, in Cent, inklusive Steuern. Die Werte kommen aus dem Weekly Oil Bulletin der EU-Kommission und sind der Monatsdurchschnitt der gemeldeten Wochenpreise. Ein niedrigerer Preis ist besser.",
-   "gruppe": "Preise und Kosten"
+   "gruppe": "Preise und Kosten",
+   "kontextHinweis": "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent des Energieverbrauchs der Haushalte dort auf Erdöl und Erdölprodukte (überwiegend Heizöl) entfallen. So sieht man, wie viele Haushalte der Preis betrifft. Quelle: Eurostat."
   },
   {
    "id": "gaspreis",
