@@ -37,6 +37,8 @@
 <script src="bl-common.js?v=9871dcfe"></script>
 <script src="bl-karte-ui.js"></script>
 <script>
+// Ganze Landesregierungs-Kachel öffnet die Detailseite (außer Parteien, ⓘ und Links)
+document.addEventListener("click",function(e){ var z=e.target.closest(".regz"); if(!z||e.target.closest("a,button,.info,.ppi,.pt,.popover")) return; var l=z.querySelector("a[href^='land.html']"); if(l) location.href=l.getAttribute("href"); });
 var app = document.getElementById("app"), B = window.BL, hl = new URLSearchParams(location.search).get("hl") || "";
 var PROPORZ = 'Proporz: Alle Parteien im Landtag ab einer bestimmten Stärke bekommen automatisch Sitze in der Landesregierung, im Verhältnis zu ihrem Wahlergebnis. Es wird keine Koalition verhandelt. In Niederösterreich und Oberösterreich gilt das bis heute, die übrigen Länder haben es abgeschafft.';
 function regierungen(){

@@ -384,3 +384,4 @@ body{background:linear-gradient(180deg,#dde7f8 0,#e8eef9 420px,#eef2fa 100%) fix
 .lh .info{width:1.2em;height:1.2em;font-size:.55em;border-width:1.2px;margin-left:.6em;vertical-align:.35em}
 .hero .hd .kt{display:none}
 @media (max-width:560px){.hero .hd .lg{display:none}.hero .hd .kt{display:inline}.hero .hd.avg{white-space:nowrap}}
+.regz{cursor:pointer}.regz:hover{border-color:var(--ic)}
