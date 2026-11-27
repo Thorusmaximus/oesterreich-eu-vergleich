@@ -373,3 +373,8 @@ body{background:linear-gradient(180deg,#dde7f8 0,#e8eef9 420px,#eef2fa 100%) fix
 .filter button.on,.tabs.seg a.on{box-shadow:none}
 .hero{box-shadow:0 14px 34px rgba(25,45,110,.22)}
 }
+@media (prefers-color-scheme:light){
+.hero{background:radial-gradient(120% 140% at 0% 0%,rgba(150,180,255,.30),transparent 55%),linear-gradient(145deg,#2f4a8e,#1d3068);box-shadow:0 12px 30px rgba(30,55,125,.24)}
+.hero .sub,.hero .hk,.hero .hd,.hero .zb.hb span,.hero .zb.hs{color:#c3cfee}
+.hero .zb.hb{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16)}
+}
