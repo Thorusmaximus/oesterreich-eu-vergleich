@@ -378,3 +378,4 @@ body{background:linear-gradient(180deg,#dde7f8 0,#e8eef9 420px,#eef2fa 100%) fix
 .hero .sub,.hero .hk,.hero .hd,.hero .zb.hb span,.hero .zb.hs{color:#c3cfee}
 .hero .zb.hb{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16)}
 }
+.mn{margin:0 0 12px}.mn h3{margin:2px 0 6px;font-size:1.05rem}.mn p{margin:0 0 6px}.md{font-size:.8rem;color:var(--mut);font-weight:600}.mg{margin-left:8px;padding:1px 8px;border:1px solid var(--line);border-radius:999px;font-weight:500}
