@@ -382,3 +382,5 @@ body{background:linear-gradient(180deg,#dde7f8 0,#e8eef9 420px,#eef2fa 100%) fix
 .mst{font-size:.88rem}.mv{display:inline-block;padding:0 7px;margin-right:2px;border-radius:999px;font-size:.74rem;font-weight:600;border:1px solid var(--line)}
 .mv.ja{color:var(--gut,#3fb27f)}.mv.ne{color:var(--schlecht,#e0645c)}.mv.te{color:var(--mut)}
 .lh .info{width:1.2em;height:1.2em;font-size:.55em;border-width:1.2px;margin-left:.6em;vertical-align:.35em}
+.hero .hd .kt{display:none}
+@media (max-width:560px){.hero .hd .lg{display:none}.hero .hd .kt{display:inline}.hero .hd.avg{white-space:nowrap}}
