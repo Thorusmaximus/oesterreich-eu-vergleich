@@ -178,7 +178,7 @@ else {
     box.insertBefore(vb, box.querySelector(".sustg"));
     var sel = vb.querySelector("#svl"), svx = document.createElement("div"); svx.id="svx"; svx.className="svgl2"; box.appendChild(svx);
     sel.addEventListener("change", function(){
-      var c = sel.value; box.classList.toggle("vgl",!!c); if(!c){ svx.innerHTML=""; return; }
+      var c = sel.value; box.classList.toggle("mitland",!!c); if(!c){ svx.innerHTML=""; return; }
       var a=[], b2=[], na=[], nb=[];
       D.indikatoren.concat(versteckt).forEach(function(i){
         if(!i.typ) return;
