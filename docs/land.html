@@ -51,10 +51,9 @@ function seite(){
   st.sort(by); sw.sort(function(a,b){ return b.x.rang-a.x.rang || a.i.name.localeCompare(b.i.name,"de"); });
   var li=function(l,ton){ return l.length ? '<ul>'+l.map(function(e){ return '<li><a href="bundesland.html?id='+encodeURIComponent(e.i.id)+'&hl='+code+'"><span>'+e.i.name+' <small>'+fw(e.i,e.x.wert)+'</small></span><b class="'+ton+'">Platz '+e.x.rang+' <small>von '+n+'</small></b></a></li>'; }).join('')+'</ul>' : '<p class="note">Keine.</p>'; };
   h += '<div class="card"><h2>Stärken und Schwächen'+infoIcon("Gezeigt werden Indikatoren mit Wertung, bei denen "+L.name+" unter den Bundesländern auf den ersten drei oder letzten drei Plätzen liegt. Das beschreibt, wo das Land steht, nicht, wer dafür verantwortlich ist. Viele Werte hängen von Lage, Größe und Wirtschaftsstruktur ab. Indikatoren ohne Wertung und ausgeblendete Indikatoren fehlen.")+'</h2><div class="sustg"><div><h3 class="good">Stärken</h3>'+li(st,"good")+'</div><div><h3 class="bad">Schwächen</h3>'+li(sw,"bad")+'</div></div></div>';
-  h += '<div class="card"><h2>Vorhaben der Landesregierung'+infoIcon("Zusammengefasst aus dem Regierungsprogramm nach Medienberichten und Landesquellen. Das sind angekündigte Vorhaben. Ob und wie sie umgesetzt wurden und was sie bewirken, sagt diese Liste nicht. Stand: "+datum((window.LANDINFO||{}).stand)+".")+'</h2>';
+  h += '<div class="card"><h2>Gestartete und umgesetzte Projekte'+infoIcon("Eine Auswahl bereits beschlossener, gestarteter oder umgesetzter Projekte der Landesregierung, zusammengefasst aus Medienberichten und Landesquellen. Die Liste ist nicht vollständig und bewertet nichts: Sie sagt weder, ob ein Projekt gelungen ist, noch, welche Wirkung es hat. Stand: "+datum((window.LANDINFO||{}).stand)+".")+'</h2>';
   if(info){
-    h += '<p class="note">'+info.titel+'</p>'+(info.punkte.length ? '<ul class="vor">'+info.punkte.map(function(p){ return '<li>'+p+'</li>'; }).join('')+'</ul>' : '<p class="note">'+(info.hinweis||'Keine Angaben.')+'</p>')
-      + '<p class="note">Quelle: <a href="'+info.quelle.u+'" rel="noopener">'+info.quelle.t+'</a></p>';
+    h += '<ul class="vor">'+info.punkte.map(function(p){ return '<li>'+p+'</li>'; }).join('')+'</ul><p class="note">Quelle: <a href="'+info.quelle.u+'" rel="noopener">'+info.quelle.t+'</a></p>';
   } else h += '<p class="note">Noch keine Angaben.</p>';
   h += '</div>';
   h += fussnote();
