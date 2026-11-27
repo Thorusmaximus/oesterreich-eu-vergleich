@@ -30994,6 +30994,388 @@
    "gruppe": "Sicherheit"
   },
   {
+   "id": "betrug",
+   "name": "Betrug",
+   "pfeilModus": "wert",
+   "typ": "neutral",
+   "dez": 0,
+   "suffix": "",
+   "diffEinheit": "Fälle pro 100.000 Einwohner",
+   "hinweis": "Die Länder definieren und zählen Betrug unterschiedlich, und bei Internetbetrug ist die Anzeigebereitschaft sehr verschieden. Ein höherer Wert heißt nicht automatisch mehr Taten.",
+   "umstritten": false,
+   "trendNeutral": true,
+   "schwelle": 17,
+   "schwelleArt": "relativ",
+   "datensatz": "crim_off_cat",
+   "zusatz": null,
+   "takt": "jahr",
+   "einheit": "Von der Polizei erfasste Betrugsfälle pro 100.000 Einwohner",
+   "rangText": "Rang 1 = niedrigste Quote",
+   "periode": "2024",
+   "vorherPeriode": "2023",
+   "anzahlLaender": 26,
+   "alter": 23,
+   "warnung": null,
+   "oesterreich": {
+    "wert": 872.42,
+    "rang": 19,
+    "wertVorher": 896.47,
+    "rangVorher": 18,
+    "schnitt": 872,
+    "schnittVorher": 896,
+    "veraenderung": -24,
+    "richtung": "sinkend",
+    "urteil": "niedriger"
+   },
+   "eu": 559.49,
+   "euMittelwert": true,
+   "beste": {
+    "code": "SK",
+    "name": "Slowakei",
+    "value": 26.71,
+    "rank": 1,
+    "richtung": "sinkend",
+    "urteil": "niedriger",
+    "wertJetzt": 26.71,
+    "wertVorher": 45.3
+   },
+   "schlechteste": {
+    "code": "SE",
+    "name": "Schweden",
+    "value": 2773.12,
+    "rank": 26,
+    "richtung": "sinkend",
+    "urteil": "niedriger",
+    "wertJetzt": 2773.12,
+    "wertVorher": 2807.63
+   },
+   "rangVerlauf": [
+    {
+     "t": "2020",
+     "rang": 20,
+     "n": 26
+    },
+    {
+     "t": "2021",
+     "rang": 19,
+     "n": 26
+    },
+    {
+     "t": "2022",
+     "rang": 20,
+     "n": 26
+    },
+    {
+     "t": "2023",
+     "rang": 18,
+     "n": 25
+    },
+    {
+     "t": "2024",
+     "rang": 19,
+     "n": 26
+    }
+   ],
+   "rangVergleich": [],
+   "seitStart": null,
+   "rueckblick": null,
+   "laender": [
+    {
+     "code": "SK",
+     "name": "Slowakei",
+     "value": 26.71,
+     "rank": 1,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 26.71,
+     "wertVorher": 45.3
+    },
+    {
+     "code": "BG",
+     "name": "Bulgarien",
+     "value": 42.63,
+     "rank": 2,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 42.63,
+     "wertVorher": 36.9
+    },
+    {
+     "code": "CY",
+     "name": "Zypern",
+     "value": 48.84,
+     "rank": 3,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 48.84,
+     "wertVorher": 60.8
+    },
+    {
+     "code": "RO",
+     "name": "Rumänien",
+     "value": 76.48,
+     "rank": 4,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 76.48,
+     "wertVorher": 67.34
+    },
+    {
+     "code": "EL",
+     "name": "Griechenland",
+     "value": 87.19,
+     "rank": 5,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 87.19,
+     "wertVorher": 86.08
+    },
+    {
+     "code": "HR",
+     "name": "Kroatien",
+     "value": 121.31,
+     "rank": 6,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 121.31,
+     "wertVorher": 97.33
+    },
+    {
+     "code": "LV",
+     "name": "Lettland",
+     "value": 152.14,
+     "rank": 7,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 152.14,
+     "wertVorher": 136.45
+    },
+    {
+     "code": "CZ",
+     "name": "Tschechien",
+     "value": 165,
+     "rank": 8,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 165,
+     "wertVorher": 156.32
+    },
+    {
+     "code": "LT",
+     "name": "Litauen",
+     "value": 170.35,
+     "rank": 9,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 170.35,
+     "wertVorher": 145.38
+    },
+    {
+     "code": "IE",
+     "name": "Irland",
+     "value": 215.02,
+     "rank": 10,
+     "urteil": null
+    },
+    {
+     "code": "EE",
+     "name": "Estland",
+     "value": 269.59,
+     "rank": 11,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 269.59,
+     "wertVorher": 238.53
+    },
+    {
+     "code": "SI",
+     "name": "Slowenien",
+     "value": 288.24,
+     "rank": 12,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 288.24,
+     "wertVorher": 204.68
+    },
+    {
+     "code": "MT",
+     "name": "Malta",
+     "value": 416.55,
+     "rank": 13,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 416.55,
+     "wertVorher": 526.7
+    },
+    {
+     "code": "PT",
+     "name": "Portugal",
+     "value": 427.52,
+     "rank": 14,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 427.52,
+     "wertVorher": 496.72
+    },
+    {
+     "code": "HU",
+     "name": "Ungarn",
+     "value": 435.62,
+     "rank": 15,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 435.62,
+     "wertVorher": 294.62
+    },
+    {
+     "code": "PL",
+     "name": "Polen",
+     "value": 471.03,
+     "rank": 16,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 471.03,
+     "wertVorher": 460.98
+    },
+    {
+     "code": "FR",
+     "name": "Frankreich",
+     "value": 504.66,
+     "rank": 17,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 504.66,
+     "wertVorher": 488.12
+    },
+    {
+     "code": "IT",
+     "name": "Italien",
+     "value": 732.67,
+     "rank": 18,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 732.67,
+     "wertVorher": 763.16
+    },
+    {
+     "code": "AT",
+     "name": "Österreich",
+     "value": 872.42,
+     "rank": 19,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 872.42,
+     "wertVorher": 896.47
+    },
+    {
+     "code": "DE",
+     "name": "Deutschland",
+     "value": 894.36,
+     "rank": 20,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 894.36,
+     "wertVorher": 911.54
+    },
+    {
+     "code": "LU",
+     "name": "Luxemburg",
+     "value": 949.63,
+     "rank": 21,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 949.63,
+     "wertVorher": 929.62
+    },
+    {
+     "code": "DK",
+     "name": "Dänemark",
+     "value": 1033.19,
+     "rank": 22,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 1033.19,
+     "wertVorher": 986.3
+    },
+    {
+     "code": "BE",
+     "name": "Belgien",
+     "value": 1041.93,
+     "rank": 23,
+     "richtung": "stabil",
+     "urteil": "unverändert",
+     "wertJetzt": 1041.93,
+     "wertVorher": 1037.19
+    },
+    {
+     "code": "ES",
+     "name": "Spanien",
+     "value": 1063.91,
+     "rank": 24,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 1063.91,
+     "wertVorher": 1109.23
+    },
+    {
+     "code": "FI",
+     "name": "Finnland",
+     "value": 1266.68,
+     "rank": 25,
+     "richtung": "steigend",
+     "urteil": "höher",
+     "wertJetzt": 1266.68,
+     "wertVorher": 1168.64
+    },
+    {
+     "code": "SE",
+     "name": "Schweden",
+     "value": 2773.12,
+     "rank": 26,
+     "richtung": "sinkend",
+     "urteil": "niedriger",
+     "wertJetzt": 2773.12,
+     "wertVorher": 2807.63
+    }
+   ],
+   "schweiz": {
+    "wert": 412.25,
+    "periode": "2024"
+   },
+   "verlauf": [
+    {
+     "t": "2020",
+     "at": 611.28,
+     "eu": 415.1
+    },
+    {
+     "t": "2021",
+     "at": 642.66,
+     "eu": 454.28
+    },
+    {
+     "t": "2022",
+     "at": 784.38,
+     "eu": 491.58
+    },
+    {
+     "t": "2023",
+     "at": 896.47,
+     "eu": 566.08
+    },
+    {
+     "t": "2024",
+     "at": 872.42,
+     "eu": 559.49
+    }
+   ],
+   "geaendert": "2026-11-27",
+   "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
+   "ausgeblendet": true,
+   "erklaerung": "Wie viele Betrugsfälle (zum Beispiel Warenbetrug, Anlage- und Internetbetrug) die Polizei pro 100.000 Einwohner und Jahr erfasst hat. Die Länder definieren und zählen Betrug unterschiedlich, und gerade bei Internetbetrug ist die Anzeigebereitschaft verschieden. Ein höherer Wert heißt nicht automatisch mehr Taten. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
+   "gruppe": "Sicherheit"
+  },
+  {
    "id": "strompreis",
    "name": "Strompreise für Haushalte",
    "pfeilModus": "wert",
