@@ -16,7 +16,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=m2611">
+<link rel="stylesheet" href="style.css?v=731d2e4d">
 </head>
 <body>
 <main>
@@ -33,18 +33,17 @@
 <script src="bl-daten.js"></script>
 <script src="bl-karte.js"></script>
 <script>window.DATEN = { beispiel: !!(window.BL && window.BL.beispiel), quelle: "Eurostat", quellen: "Eurostat (Regionaldaten), Statistik Austria, AMS, Bundeskriminalamt, KSV1870, Sozialministerium und weitere", aktualisiert: (window.BL && window.BL.aktualisiert) || new Date().toISOString().slice(0,10) };</script>
-<script src="common.js?v=78a31073"></script>
-<script src="bl-common.js?v=5ac0338f"></script>
+<script src="common.js?v=8072b077"></script>
+<script src="bl-common.js?v=9871dcfe"></script>
 <script src="bl-karte-ui.js"></script>
 <script>
 var app = document.getElementById("app"), B = window.BL, hl = new URLSearchParams(location.search).get("hl") || "";
-function pille(p){ return '<span class="pt p-'+p.replace(/[^A-Za-z]/g,"")+'">'+p+'</span>'; }
 var PROPORZ = 'Proporz: Alle Parteien im Landtag ab einer bestimmten Stärke bekommen automatisch Sitze in der Landesregierung, im Verhältnis zu ihrem Wahlergebnis. Es wird keine Koalition verhandelt. In Niederösterreich und Oberösterreich gilt das bis heute, die übrigen Länder haben es abgeschafft.';
 function regierungen(){
   var L = B.laender.slice().sort(function(a,b){ return a.name.localeCompare(b.name,"de"); });
-  var h = '<div class="card"><h2>Landesregierungen'+infoIcon("Wer in den Bundesländern regiert, mit Landeshauptperson und Koalition, darunter die Koalition der Regierungsperiode davor. Die Jahreszahl hinter der Partei ist das Jahr der letzten Landtagswahl. Stand: "+datum(B.regierungenStand)+". Das ist reine Information und fließt nicht in die Rangfolge ein.")+'</h2><div class="reg">';
+  var h = '<div class="card"><h2>Landesregierungen'+infoIcon("Wer in den Bundesländern regiert, mit Landeshauptperson und Koalition, darunter die Koalition der Regierungsperiode davor. Die Jahreszahl hinter der Partei ist das Jahr der letzten Landtagswahl. Stand: "+datum(B.regierungenStand)+". Ein Tipp auf eine Partei zeigt eine Kurzbeschreibung, ein Tipp auf „Details“ die Seite des Landes. Das ist reine Information und fließt nicht in die Rangfolge ein.")+'</h2><div class="reg">';
   h += L.map(function(l){ var r = l.regierung;
-    return '<div class="regz"><div class="regn">'+l.name+'</div><div class="regl">'+r.chef+' ('+r.partei+', '+r.wahl+')</div><div class="regk">'+r.koalition.map(pille).join(" ")+'</div>'+(r.hinweis?'<div class="note regv"><small>(Proporzregierung)</small>'+infoIcon(PROPORZ+' Hier: '+r.hinweis)+'</div>':'')+(r.vorher?'<div class="note regv">Davor ('+r.vorher.zeit+'): '+r.vorher.koalition.map(pille).join(" ")+(r.vorher.hinweis?(/Proporz/.test(r.vorher.hinweis)?' <small>(Proporzregierung)</small>'+infoIcon(PROPORZ+' Hier: '+r.vorher.hinweis):' <small>('+r.vorher.hinweis+')</small>'):'')+'</div>':'')+'<div class="note">Nächste Wahl '+r.naechsteWahl+'</div></div>';
+    return '<div class="regz"><div class="regn"><a href="land.html?code='+l.code+'">'+l.name+'</a></div><div class="regl">'+r.chef+' ('+r.partei+', '+r.wahl+')</div><div class="regk">'+r.koalition.map(pille).join(" ")+'</div>'+(r.hinweis?'<div class="note regv"><small>(Proporzregierung)</small>'+infoIcon(PROPORZ+' Hier: '+r.hinweis)+'</div>':'')+(r.vorher?'<div class="note regv">Davor ('+r.vorher.zeit+'): '+r.vorher.koalition.map(pille).join(" ")+(r.vorher.hinweis?(/Proporz/.test(r.vorher.hinweis)?' <small>(Proporzregierung)</small>'+infoIcon(PROPORZ+' Hier: '+r.vorher.hinweis):' <small>('+r.vorher.hinweis+')</small>'):'')+'</div>':'')+'<div class="note">Nächste Wahl '+r.naechsteWahl+'</div><a class="more regmore" href="land.html?code='+l.code+'">Details →</a></div>';
   }).join("");
   return h + '</div></div>';
 }
@@ -106,12 +105,13 @@ function seite(){
   var h = (B.beispiel ? banner() : "") + regierungen() + gesamt() + antritt() + kmHtml();
   h += '<div class="leiste"><label class="note" for="hl">Bundesland hervorheben: </label><select id="hl"><option value="">keines</option>'+B.laender.map(function(l){ return '<option value="'+l.code+'"'+(hl===l.code?" selected":"")+'>'+l.name+'</option>'; }).join("")+'</select></div>';
   var versteckt = B.indikatoren.filter(function(i){ return i.ausgeblendet; });
-  B.gruppen.forEach(function(g){ var l = B.indikatoren.filter(function(i){ return i.gruppe===g && !i.ausgeblendet; }); if(!l.length) return; h += '<h2 class="gh">'+g+'</h2>'+kartenListe(l); });
+  B.gruppen.forEach(function(g){ var l = B.indikatoren.filter(function(i){ return i.gruppe===g && !i.ausgeblendet; }), vl = versteckt.filter(function(i){ return i.gruppe===g; }); if(!l.length && !vl.length) return;
+    h += '<section class="gruppe"><h2 class="gh">'+g+(vl.length?'<button type="button" class="vbtn" data-t="('+vl.length+' ausgeblendet)" aria-expanded="false" title="Diese Kacheln haben noch keine Daten ab 2024">('+vl.length+' ausgeblendet)</button>':'')+'</h2>'+(vl.length?'<div class="vtiles" hidden><p class="note vnote">Noch keine Daten ab 2024, daher normalerweise ausgeblendet. Sie erscheinen automatisch regulär, sobald neuere Daten vorliegen.</p>'+kartenListe(vl)+'</div>':'')+kartenListe(l)+'</section>'; });
   h += '<div class="card"><p class="note">Quellen: Eurostat (Regionaldaten, NUTS 2) und weitere, je nach Indikator im jeweiligen Fenster genannt. Die Werte liegen später vor als bei den EU-Zahlen, meist mit zwei bis drei Jahren Verzögerung, und kommen zum Teil aus Stichproben, die pro Bundesland klein sind. Der Einfachheit halber werden im Bundesländer-Vergleich alle Werte als vergleichbar betrachtet. Der Vergleich zeigt, wo ein Land steht, nicht, wer dafür verantwortlich ist. Mehr dazu in der <a href="methodik.html">Methodik</a>. Kartengrundlage: Statistik Austria (data.statistik.gv.at), CC BY 4.0, vereinfacht von Flooh Perlot.</p></div>';
-  if(versteckt.length) h += '<p class="note" id="ausgeblendet">Derzeit ausgeblendet, weil es noch keine Daten ab 2024 gibt: '+versteckt.map(function(i){ return i.name+' (jüngste Daten: '+periode(i.periode)+')'; }).join(', ')+'. Sie erscheinen automatisch wieder, sobald neuere Daten vorliegen.</p>';
   h += fussnote();
   app.innerHTML = h;
   app.onclick = function(e){ var sa = e.target.closest && e.target.closest('[data-sa]'); if(sa && !(e.target.closest('a'))){ SA_OFFEN = SA_OFFEN===sa.getAttribute('data-sa') ? '' : sa.getAttribute('data-sa'); var y0 = window.scrollY; seite(); window.scrollTo(0,y0); return; } var go0 = e.target.closest && e.target.closest('#seitantritt [data-go], #seitbund [data-go]'); if(go0){ e.preventDefault(); kmSpringe(go0.getAttribute('data-go'), go0.getAttribute('data-ton')); return; } if(e.target.closest && e.target.closest('#kmkarte')) return; var mb = e.target.closest && e.target.closest(".bmore"); if(mb){ detail(mb.getAttribute("data-id")); return; } var b = e.target.closest && e.target.closest(".umsch button"); if(!b) return; AUSWAHL[b.getAttribute("data-p")] = b.getAttribute("data-v"); var y = window.scrollY; seite(); window.scrollTo(0,y); };
+  app.querySelectorAll('.vbtn').forEach(function(b){ b.onclick=function(){ var t=b.closest('section').querySelector('.vtiles'), auf=b.getAttribute('aria-expanded')!=='true'; t.hidden=!auf; b.setAttribute('aria-expanded',auf?'true':'false'); b.textContent=auf?'(ausgeblendete Kacheln verbergen)':b.getAttribute('data-t'); }; });
   kmInit();
   document.getElementById("hl").onchange = function(){ hl = this.value; seite(); };
 }

@@ -141,10 +141,10 @@ function teilPille(i){
     if(r.bottom+pop.offsetHeight+16>window.innerHeight && r.top>pop.offsetHeight+16) pop.style.top=(r.top+window.scrollY-pop.offsetHeight-8)+"px";
   }
   function verberge(){ if(pop) pop.style.display="none"; cur=null; pinned=false; }
-  document.addEventListener("mouseover",function(e){ if(!HOVER) return; var t=e.target.closest&&e.target.closest(".info,.vgl"); if(t&&!pinned) zeige(t); });
-  document.addEventListener("mouseout",function(e){ if(!HOVER||pinned) return; var t=e.target.closest&&e.target.closest(".info,.vgl"); if(t) verberge(); });
+  document.addEventListener("mouseover",function(e){ if(!HOVER) return; var t=e.target.closest&&e.target.closest(".info,.vgl,.ppi"); if(t&&!pinned) zeige(t); });
+  document.addEventListener("mouseout",function(e){ if(!HOVER||pinned) return; var t=e.target.closest&&e.target.closest(".info,.vgl,.ppi"); if(t) verberge(); });
   document.addEventListener("click",function(e){
-    var t=e.target.closest&&e.target.closest(".info,.vgl");
+    var t=e.target.closest&&e.target.closest(".info,.vgl,.ppi");
     if(t){ e.preventDefault(); e.stopPropagation(); if(cur===t&&pinned){ verberge(); } else { zeige(t); pinned=true; } return; }
     if(pop&&!(e.target.closest&&e.target.closest(".infopop"))) verberge();
   },true);
@@ -185,7 +185,7 @@ var PAARE = [
   { ids: ["koerperverletzung","sexualdelikte","toetung"], titel: "Gewaltdelikte", labels: ["Schwere Körperverletzung","Sexual","Tötung"], suche: "tötungsdelikte mord schwere körperverletzung sexualdelikte gewalt kriminalität" },
   { ids: ["durchschnittsalter","abhaengigkeit"], titel: "Alter der Bevölkerung", labels: ["Alter","Abhängigkeit"], suche: "alter bevölkerung altersabhängigkeitsquote abhängigkeit durchschnittsalter" },
   { ids: ["lebenserwartung","gesundeJahre"], titel: "Lebenserwartung", labels: ["Gesamt","Gesund"], suche: "lebenserwartung gesunde lebensjahre gesundheit" },
-  { ids: ["kapitalmarkt","kapitalNichtBoerse","kapitalGesamt","aktionaersquote"], titel: "Kapitalmarkt", labels: ["An der Börse","Nicht an der Börse","Alle Firmen","Aktionäre"], suche: "kapitalmarkt unternehmenswert unternehmen firmen börsennotiert nicht börsennotiert private börse börsenwert aktien aktionärsquote aktionäre kapital pro kopf einwohner" },
+  { ids: ["kapitalmarkt","kapitalNichtBoerse","kapitalGesamt","aktionaersquote"], titel: "Kapitalmarkt", labels: ["An der Börse","Nicht an der Börse","Gesamt","Aktionäre"], suche: "kapitalmarkt unternehmenswert unternehmen firmen börsennotiert nicht börsennotiert private börse börsenwert aktien aktionärsquote aktionäre kapital pro kopf einwohner" },
   { ids: ["pensionsausgaben","ersatzquote"], titel: "Pensionen", labels: ["Ausgaben","Höhe"], suche: "pensionen pensionsausgaben pensionshöhe ersatzquote rente" }
 ];
 function paarFuer(id){ for(var k=0;k<PAARE.length;k++) if(PAARE[k].ids.indexOf(id)>=0) return PAARE[k]; return null; }

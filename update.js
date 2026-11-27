@@ -398,7 +398,7 @@ const INDICATORS = [
     einheit: "Euro pro Einwohner (geschätzter Wert nicht börsennotierter Kapitalgesellschaften im Land, Stand Jahresende)", rangText: "Rang 1 = höchster Unternehmenswert pro Einwohner",
     hinweis: "Der Wert nicht börsennotierter Unternehmen wird von den Statistikämtern geschätzt, weil es keinen Börsenkurs gibt. Die Verfahren unterscheiden sich zwischen den Ländern. Der Vergleich ist daher weniger genau als beim Börsenwert. Luxemburg liegt weit vorn, weil dort viele internationale Holdinggesellschaften ihren Sitz haben. Das sagt wenig über die heimische Wirtschaft.",
     mock: { base: 12000, step: 4000 } }
-  ,{ id: "kapitalGesamt", name: "Unternehmenswert gesamt pro Einwohner", takt: "jahr", dataset: "nasa_10_f_bs",
+  ,{ id: "kapitalGesamt", name: "Kapitalgesellschaften gesamt pro Einwohner", takt: "jahr", dataset: "nasa_10_f_bs",
     filter: "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", // Platzhalter (im Test); echte Berechnung: berechneProKopf()
     proKopf: { zaehler: ["unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F511", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S12&na_item=F511", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S11&na_item=F512", "unit=MIO_EUR&co_nco=NCO&finpos=LIAB&sector=S12&na_item=F512"],
       nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], plausibel: [2000, 1500000], minLaender: 15 },
@@ -531,6 +531,7 @@ const INDICATORS = [
     einheit: "Asylanträge je 100.000 Einwohner", rangText: "Rang 1 = wenigste Asylanträge je Einwohner",
     hinweis: "Gezählt werden Anträge, nicht Entscheidungen, und zwar in dem Land, in dem sie gestellt wurden. Ob ein Antrag bewilligt wird, zeigt diese Zahl nicht.",
     proKopf: { zaehler: ["citizen=TOTAL&sex=T&age=TOTAL&applicant=TOTAL&unit=PER"], nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], faktor: 1e5, plausibel: [1, 8000], minLaender: 22 },
+    absolut: { art: "anzahl", einheit: "Anträge", filter: "citizen=TOTAL&sex=T&age=TOTAL&applicant=TOTAL&unit=PER" },
     ausblenden2025: true,
     typ: "neutral", rangNiedrigZuerst: true, trendNeutral: true, schwelle: 10, mock: { base: 10, step: 1 } }
   ,{ id: "asylOffen", name: "Laufende Asylverfahren", takt: "monat", dataset: "migr_asypenctzm",
@@ -538,6 +539,7 @@ const INDICATORS = [
     proKopf: { zaehler: ["citizen=TOTAL&sex=T&age=TOTAL&unit=PER"], nenner: [ { dataset: "demo_gind", filter: "indic_de=AVG" }, { dataset: "demo_pjan", filter: "age=TOTAL&sex=T&unit=NR" } ], faktor: 1e5, plausibel: [1, 10000], minLaender: 22 },
     maxAlter: 8, dez: 0, suffix: "", diffEinheit: "je 100.000 Einwohner", minLaender: 22,
     einheit: "Personen mit laufendem Asylverfahren je 100.000 Einwohner (Stand Monatsende)", rangText: "Rang 1 = wenigste laufende Verfahren je Einwohner",
+    absolut: { art: "anzahl", einheit: "Personen", filter: "citizen=TOTAL&sex=T&age=TOTAL&unit=PER" },
     hinweis: "Gezählt werden Personen, deren Asylantrag im jeweiligen Land noch nicht entschieden ist. Wer bereits Schutz erhalten hat oder abgelehnt wurde, zählt nicht mehr mit. Die Zahl zeigt also nicht, wie viele Schutzberechtigte im Land leben.",
     typ: "neutral", rangNiedrigZuerst: true, trendNeutral: true, schwelle: 5, mock: { base: 100, step: 10 } }
   ,{ id: "lebenszufriedenheit", name: "Lebenszufriedenheit", takt: "jahr", dataset: "ilc_pw01",
@@ -1220,6 +1222,7 @@ function berechneVerurteilungen() {
           else { const res = await fetch(`${BASE}${ds}?format=JSON&lang=EN&${filter}&sinceTimePeriod=${seit}`); if (!res.ok) throw new Error("HTTP " + res.status); ab = parse(await res.json()); }
           const fmt = v => { const a = Math.abs(v), vz = v < 0 ? "−" : "", z = n => n.toLocaleString("de-AT", { maximumFractionDigits: 1 });
             if (art === "mt") return vz + z(a) + " Mio. t";
+            if (art === "anzahl") return vz + Math.round(a).toLocaleString("de-AT") + " " + (A.einheit || "");
             if (art === "personen") return a >= 1000 ? vz + z(a / 1000) + " Mio. Personen" : vz + Math.round(a).toLocaleString("de-AT") + " Tsd. Personen";
             return a >= 1000 ? vz + z(a / 1000) + " Mrd. €" : vz + Math.round(a).toLocaleString("de-AT") + " Mio. €"; };
           let gdp = null; // fehlt der Betrag für das Datenjahr: Quote (% des BIP) mal BIP des Datenjahres, als hochgerechnet gekennzeichnet
@@ -1294,8 +1297,9 @@ function berechneVerurteilungen() {
       if ((r.datenHinweis || r.ohneTrend) && e && e.jahr > jahr) r.nachtrag = { ...e, stand: nt.stand, gesamtAufklaerung: ["toetung","raub","einbruch","sexualdelikte"].includes(r.id) ? nt.gesamtAufklaerung : null }; }
   } catch (e) { console.log("   (at-nachtrag.json nicht lesbar: " + e.message + ")"); }
   // Fenster ohne Daten ab 2025 (weder Eurostat noch Österreich-Nachtrag): ausblenden, erscheinen automatisch wieder, sobald neuere Daten vorliegen
-  for (const r of result) { const ind = INDICATORS.find(x => x.id === r.id), jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : 0;
-    if (ind && ind.ausblenden2025 && jahr && jahr < 2025 && !r.nachtrag) { r.ausgeblendet = true; console.log(`   AUSGEBLENDET: ${r.name} (jüngste Daten: ${jahr}, kein Nachtrag ab 2025)`); } }
+  // Einheitliche Regel für alle Indikatoren mit Jahresangabe (außer Bewertungen, Anteile, reine Österreich-Reihen); Ausnahme nur mit ausblenden2025: false
+  for (const r of result) { const ind = INDICATORS.find(x => x.id === r.id) || {}, jahr = /^\d{4}/.test(String(r.periode)) ? +String(r.periode).slice(0, 4) : 0;
+    if (ind.ausblenden2025 !== false && !["rating", "anteile", "nurAT", "verurteilungen"].includes(r.art) && jahr && jahr < 2025 && !r.nachtrag) { r.ausgeblendet = true; console.log(`   AUSGEBLENDET: ${r.name} (jüngste Daten: ${jahr}, kein Nachtrag ab 2025)`); } }
   { // Beispiel Österreich: hohe Pensionsausgaben bedeuten nicht automatisch hohe Pensionen
     const pa = result.find(x => x.id === "pensionsausgaben"), eq = result.find(x => x.id === "ersatzquote");
     if (pa?.oesterreich && eq?.oesterreich) {

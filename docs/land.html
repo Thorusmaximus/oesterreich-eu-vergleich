@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex, nofollow">
+<title>Landesregierung | Regierungstracker Österreich</title>
+<meta name="description" content="Landesregierung, Stärken und Schwächen eines Bundeslands im Vergleich und Vorhaben der Regierung.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Regierungstracker Österreich: Landesregierung">
+<meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
+<meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css?v=731d2e4d">
+</head>
+<body>
+<main>
+<a class="back" href="bundeslaender.html">← Bundesländer</a>
+<div id="app"><p>Lade Daten …</p></div>
+</main>
+<script src="bl-daten.js"></script>
+<script>window.DATEN = { beispiel: !!(window.BL && window.BL.beispiel), quelle: "Eurostat", quellen: "Eurostat (Regionaldaten), Statistik Austria, AMS, Bundeskriminalamt, KSV1870, Sozialministerium und weitere", aktualisiert: (window.BL && window.BL.aktualisiert) || new Date().toISOString().slice(0,10) };</script>
+<script src="common.js?v=8072b077"></script>
+<script src="bl-common.js?v=9871dcfe"></script>
+<script src="land-info.js"></script>
+<script>
+var app = document.getElementById("app"), B = window.BL, code = new URLSearchParams(location.search).get("code");
+function seite(){
+  var L = B && B.laender && B.laender.filter(function(l){ return l.code===code; })[0];
+  if(!L){ app.innerHTML = '<p>Dieses Bundesland gibt es nicht. Zurück zu den <a href="bundeslaender.html">Bundesländern</a>.</p>'; return; }
+  var r = L.regierung, info = (window.LANDINFO||{})[code], h = B.beispiel ? banner() : "";
+  document.title = L.name+" | Landesregierung | Regierungstracker Österreich";
+  h += '<h1 class="lh">'+L.name+'</h1>';
+  var gb = B.bilanz.filter(function(b){ return b.code===code; })[0];
+  h += '<div class="card"><h2>Landesregierung</h2><p class="regl"><b>'+r.chef+'</b> ('+r.partei+')</p><div class="regk">'+r.koalition.map(pille).join(" ")+'</div>'
+    + '<p class="note">Im Amt seit: '+r.seit+(r.vorher ? '. Davor ('+r.vorher.zeit+'): '+r.vorher.koalition.map(pille).join(" ")+(r.vorher.hinweis?' <small>('+r.vorher.hinweis+')</small>':'') : '')+'. Letzte Landtagswahl '+r.wahl+', nächste '+r.naechsteWahl+'.'+(r.hinweis?' '+r.hinweis+'.':'')+'</p>'
+    + (gb ? '<p class="note">Gesamtbild: Platz '+gb.platz+' von '+B.laender.length+' (Ø Platz '+gb.durchschnittsrang.toLocaleString("de-AT",{minimumFractionDigits:1,maximumFractionDigits:1})+' über alle Indikatoren mit Wertung).</p>' : '')+'</div>';
+  // Stärken und Schwächen: oberste bzw. unterste 3 Plätze unter den Ländern, nur Indikatoren mit Wertung
+  var st=[], sw=[], n=B.laender.length, k=3;
+  B.indikatoren.forEach(function(i){
+    if(i.ausgeblendet || i.typ==="neutral") return;
+    var x=i.laender.filter(function(z){ return z.code===code; })[0]; if(!x || x.rang==null) return;
+    var e={i:i,x:x}; if(x.rang<=k) st.push(e); else if(x.rang>=n-k+1) sw.push(e);
+  });
+  var by=function(a,b){ return a.x.rang-b.x.rang || a.i.name.localeCompare(b.i.name,"de"); };
+  st.sort(by); sw.sort(function(a,b){ return b.x.rang-a.x.rang || a.i.name.localeCompare(b.i.name,"de"); });
+  var li=function(l,ton){ return l.length ? '<ul>'+l.map(function(e){ return '<li><a href="bundesland.html?id='+encodeURIComponent(e.i.id)+'&hl='+code+'"><span>'+e.i.name+' <small>'+fw(e.i,e.x.wert)+'</small></span><b class="'+ton+'">Platz '+e.x.rang+' <small>von '+n+'</small></b></a></li>'; }).join('')+'</ul>' : '<p class="note">Keine.</p>'; };
+  h += '<div class="card"><h2>Stärken und Schwächen'+infoIcon("Gezeigt werden Indikatoren mit Wertung, bei denen "+L.name+" unter den Bundesländern auf den ersten drei oder letzten drei Plätzen liegt. Das beschreibt, wo das Land steht, nicht, wer dafür verantwortlich ist. Viele Werte hängen von Lage, Größe und Wirtschaftsstruktur ab. Indikatoren ohne Wertung und ausgeblendete Indikatoren fehlen.")+'</h2><div class="sustg"><div><h3 class="good">Stärken</h3>'+li(st,"good")+'</div><div><h3 class="bad">Schwächen</h3>'+li(sw,"bad")+'</div></div></div>';
+  h += '<div class="card"><h2>Vorhaben der Landesregierung'+infoIcon("Zusammengefasst aus dem Regierungsprogramm nach Medienberichten und Landesquellen. Das sind angekündigte Vorhaben. Ob und wie sie umgesetzt wurden und was sie bewirken, sagt diese Liste nicht. Stand: "+datum((window.LANDINFO||{}).stand)+".")+'</h2>';
+  if(info){
+    h += '<p class="note">'+info.titel+'</p>'+(info.punkte.length ? '<ul class="vor">'+info.punkte.map(function(p){ return '<li>'+p+'</li>'; }).join('')+'</ul>' : '<p class="note">'+(info.hinweis||'Keine Angaben.')+'</p>')
+      + '<p class="note">Quelle: <a href="'+info.quelle.u+'" rel="noopener">'+info.quelle.t+'</a></p>';
+  } else h += '<p class="note">Noch keine Angaben.</p>';
+  h += '</div>';
+  h += fussnote();
+  app.innerHTML = h;
+}
+seite();
+</script>
+</body>
+</html>

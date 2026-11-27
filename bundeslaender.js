@@ -11,10 +11,10 @@ const REGIERUNGEN = {
   AT11: { chef: "Hans Peter Doskozil", partei: "SPÖ", koalition: ["SPÖ", "Grüne"], wahl: 2025, naechsteWahl: 2030, seit: "Februar 2025", vorher: { koalition: ["SPÖ"], zeit: "2020–2025", hinweis: "SPÖ allein" } },
   AT12: { chef: "Johanna Mikl-Leitner", partei: "ÖVP", koalition: ["ÖVP", "FPÖ"], hinweis: "Proporzregierung: ÖVP und FPÖ mit Arbeitsübereinkommen, SPÖ ebenfalls in der Regierung", wahl: 2023, naechsteWahl: 2028, seit: "März 2023", vorher: { koalition: ["ÖVP"], zeit: "2018–2023", hinweis: "ÖVP, Proporzregierung mit SPÖ und FPÖ" } },
   AT13: { chef: "Michael Ludwig", partei: "SPÖ", koalition: ["SPÖ", "NEOS"], wahl: 2025, naechsteWahl: 2030, seit: "Juni 2025", vorher: { koalition: ["SPÖ","NEOS"], zeit: "2020–2025" } },
-  AT21: { chef: "Daniel Fellner", partei: "SPÖ", koalition: ["SPÖ", "ÖVP"], wahl: 2023, naechsteWahl: 2028, seit: "April 2026 (Landeshauptmann; Koalition seit 2023)", vorher: { koalition: ["SPÖ","ÖVP"], zeit: "2018–2023" } },
+  AT21: { chef: "Daniel Fellner", partei: "SPÖ", koalition: ["SPÖ", "ÖVP"], wahl: 2023, naechsteWahl: 2028, seit: "April 2026 (Landeshauptmann; Koalition seit April 2023)", vorher: { koalition: ["SPÖ","ÖVP"], zeit: "2018–2023" } },
   AT22: { chef: "Mario Kunasek", partei: "FPÖ", koalition: ["FPÖ", "ÖVP"], wahl: 2024, naechsteWahl: 2029, seit: "Dezember 2024", vorher: { koalition: ["ÖVP","SPÖ"], zeit: "2019–2024" } },
   AT31: { chef: "Thomas Stelzer", partei: "ÖVP", koalition: ["ÖVP", "FPÖ"], hinweis: "Proporzregierung: ÖVP und FPÖ mit Arbeitsübereinkommen, SPÖ und Grüne ebenfalls in der Regierung", wahl: 2021, naechsteWahl: 2027, seit: "Oktober 2021", vorher: { koalition: ["ÖVP","FPÖ"], zeit: "2015–2021", hinweis: "Proporzregierung: ÖVP und FPÖ mit Arbeitsübereinkommen, SPÖ und Grüne ebenfalls in der Regierung" } },
-  AT32: { chef: "Karoline Edtstadler", partei: "ÖVP", koalition: ["ÖVP", "FPÖ"], wahl: 2023, naechsteWahl: 2028, seit: "Juli 2025 (Landeshauptfrau; Koalition seit 2023)", vorher: { koalition: ["ÖVP","Grüne","NEOS"], zeit: "2018–2023" } },
+  AT32: { chef: "Karoline Edtstadler", partei: "ÖVP", koalition: ["ÖVP", "FPÖ"], wahl: 2023, naechsteWahl: 2028, seit: "Juli 2025 (Landeshauptfrau; Koalition seit Juni 2023)", vorher: { koalition: ["ÖVP","Grüne","NEOS"], zeit: "2018–2023" } },
   AT33: { chef: "Anton Mattle", partei: "ÖVP", koalition: ["ÖVP", "SPÖ"], wahl: 2022, naechsteWahl: 2027, seit: "November 2022", vorher: { koalition: ["ÖVP","Grüne"], zeit: "2018–2022" } },
   AT34: { chef: "Markus Wallner", partei: "ÖVP", koalition: ["ÖVP", "FPÖ"], wahl: 2024, naechsteWahl: 2029, seit: "Dezember 2024", vorher: { koalition: ["ÖVP","Grüne"], zeit: "2019–2024" } }
 };
@@ -110,8 +110,8 @@ function mockDaten(ind) {
 // Verbraucherpreise Österreich, Jahresinflation in % (Statistik Austria, laut WKÖ-Zusammenstellung), für die Inflationsbereinigung
 const INFLATION = { 2020: 1.4, 2021: 2.8, 2022: 8.6, 2023: 7.8, 2024: 2.9 };
 // Beginn der aktuellen Koalition (nicht der Wechsel der Landeshauptperson)
-const KOALITION_SEIT = { AT11: { basis: 2024, text: "Februar 2025" }, AT12: { basis: 2022, text: "März 2023" }, AT13: { basis: 2024, text: "Juni 2025" }, AT21: { basis: 2022, text: "2023" }, AT22: { basis: 2024, text: "Dezember 2024" },
-  AT31: { basis: 2021, text: "Oktober 2021" }, AT32: { basis: 2022, text: "2023" }, AT33: { basis: 2022, text: "November 2022" }, AT34: { basis: 2024, text: "Dezember 2024" } };
+const KOALITION_SEIT = { AT11: { basis: 2024, text: "Februar 2025" }, AT12: { basis: 2022, text: "März 2023" }, AT13: { basis: 2024, text: "Juni 2025" }, AT21: { basis: 2022, text: "April 2023" }, AT22: { basis: 2024, text: "Dezember 2024" },
+  AT31: { basis: 2021, text: "Oktober 2021" }, AT32: { basis: 2022, text: "Juni 2023" }, AT33: { basis: 2022, text: "November 2022" }, AT34: { basis: 2024, text: "Dezember 2024" } };
 // basis = Bezugsjahr: bei Beginn im ersten Halbjahr das Jahr davor, bei Beginn im zweiten Halbjahr das Jahr des Beginns (das zum Großteil noch die Vorgängerregierung betrifft)
 function auswerten(ind, daten) {
   const dez = ind.dez, typ = ind.typ, minL = ind.minLaender || MIN_LAENDER;

@@ -15,7 +15,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=39107bf6">
+<link rel="stylesheet" href="style.css?v=731d2e4d">
 </head>
 <body>
 <main>
@@ -23,7 +23,7 @@
 <div id="app"><p>Lade Daten …</p></div>
 </main>
 <script src="daten.js"></script>
-<script src="common.js?v=78a31073"></script>
+<script src="common.js?v=8072b077"></script>
 <script>
 var app = document.getElementById("app");
 if(!D){ app.innerHTML = '<p class="warn">Keine Daten gefunden.</p>'; }
@@ -61,7 +61,7 @@ else {
   h += '<div class="card"><h2>Fehler und Überprüfung</h2>'
     + '<p>Die Zahlen werden zum Teil automatisch abgerufen und zum Teil von Hand eingetragen. Trotz sorgfältiger Arbeit kann die Seite Fehler enthalten, etwa bei Zuordnungen, Rundungen oder veralteten Werten. Bitte prüfe Zahlen, die du weiterverwenden möchtest, vor der Verwendung anhand der angegebenen Originalquelle. Hinweise auf Fehler sind willkommen.</p></div>';
   h += '<div class="card"><h2>Wertungen sind Entscheidungen</h2>'
-    + '<p>Ob ein höherer oder niedrigerer Wert besser ist, ist bei manchen Indikatoren nicht eindeutig. Wo es Streit darüber gibt, steht ein Hinweis beim Indikator, zum Beispiel bei Staatsquote und Abgabenquote. Manche Indikatoren (zum Beispiel Teilzeitquote, Bevölkerung oder Durchschnittsalter) werden bewusst nicht gewertet. Die Liste unten zeigt für jeden Indikator, wie gewertet wird.</p></div>';
+    + '<p>Ob ein höherer oder niedrigerer Wert besser ist, ist bei manchen Indikatoren nicht eindeutig. Wo es Streit darüber gibt, steht ein Hinweis beim Indikator, zum Beispiel bei Staatsquote und Abgabenquote. Manche Indikatoren (zum Beispiel Teilzeitquote, Bevölkerung oder Durchschnittsalter) werden bewusst ohne Wertung. Die Liste unten zeigt für jeden Indikator, wie gewertet wird.</p></div>';
 
   var rows = {};
   D.gruppen.forEach(function(g){ rows[g]=[]; });
@@ -71,7 +71,7 @@ else {
     if(!rows[g].length) return;
     h += '<div class="card"><h3>'+g+'</h3>';
     rows[g].forEach(function(i){
-      var besser = i.typ==="niedrig" ? "Niedrigerer Wert" : i.typ==="hoch" ? "Höherer Wert" : "Keine Wertung";
+      var besser = i.typ==="niedrig" ? "Niedrigerer Wert" : i.typ==="hoch" ? "Höherer Wert" : "Ohne Wertung";
       var quelle = (i.art==="rating" ? "Presseberichte, Agenturen (von Hand)" : (i.quelle || D.quelle)) + (i.datensatz ? ' (Tabelle '+i.datensatz+')' : '');
       if(i.quelleUrl) quelle = '<a href="'+i.quelleUrl+'" rel="noopener">'+quelle+'</a>';
       var l = amtsLage(i);

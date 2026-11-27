@@ -51,3 +51,11 @@ function verlaufTeile(i){
   var tab='<div class="vtab"><table><thead><tr><th></th>'+R.jahre.map(function(y){return '<th>'+y+'</th>';}).join("")+'</tr></thead><tbody>'+B.laender.map(function(l){ return '<tr'+(hl===l.code?' class="at"':'')+'><th>'+l.kurz+'</th>'+(R.laender[l.code]||[]).map(function(v){return '<td>'+vw(i,v)+'</td>';}).join("")+'</tr>'; }).join("")+'</tbody></table></div>';
   return { svg: svg, leg: leg, tab: tab };
 }
+var PARTEI = {
+  "SPÖ": "SPÖ (Sozialdemokratische Partei Österreichs): Sozialdemokratische Partei, seit 1889 (ab 1945 unter diesem Namen). Auf Bundesebene seit März 2025 in der Regierung (mit ÖVP und NEOS).",
+  "ÖVP": "ÖVP (Österreichische Volkspartei): christdemokratisch-konservative Partei, gegründet 1945. Auf Bundesebene seit März 2025 in der Regierung (mit SPÖ und NEOS).",
+  "FPÖ": "FPÖ (Freiheitliche Partei Österreichs): rechte Partei, gegründet 1956. Auf Bundesebene in der Opposition, bei der Nationalratswahl 2024 stimmenstärkste Partei.",
+  "Grüne": "Die Grünen (Die Grüne Alternative): ökologisch und sozial ausgerichtete Partei, seit 1986 im Nationalrat. Auf Bundesebene in der Opposition (zuvor 2020 bis 2025 in der Regierung mit der ÖVP).",
+  "NEOS": "NEOS (Das Neue Österreich und Liberales Forum): liberale Partei, gegründet 2012. Auf Bundesebene seit März 2025 in der Regierung (mit ÖVP und SPÖ)."
+};
+function pille(p){ var t = PARTEI[p]; return '<span class="pt ppi p-'+p.replace(/[^A-Za-z]/g,"")+'"'+(t?' role="button" tabindex="0" aria-label="Kurzbeschreibung '+p+'" data-info="'+t.replace(/"/g,"&quot;")+'"':'')+'>'+p+'</span>'; }
