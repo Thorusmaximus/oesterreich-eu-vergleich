@@ -744,7 +744,7 @@ function berechne(ind0, js) {
       richtung: dd > ind.schwelle ? "steigend" : dd < -ind.schwelle ? "sinkend" : "stabil",
       urteil: urt(ds, dd), euVeraenderung: euDd != null ? r1(euDd) : null, euUrteil };
   }
-  const rangVergleich = seitStart && ind.typ !== "neutral" ? [{ label: "seit Regierungsantritt", t: startP, rang: seitStart.rang, n: seitStart.n, regierung: true }] : [];
+  const rangVergleich = seitStart && ind.typ !== "neutral" ? [{ label: "bei Regierungsantritt", t: startP, rang: seitStart.rang, n: seitStart.n, regierung: true }] : [];
   // Gibt es bei Eurostat keinen EU-Gesamtwert (z. B. Kriminalität), nehmen wir den einfachen Mittelwert der EU-Länder
   const euMittel = t => { const v = rankAt(data, t, sc).map(x => x.value).filter(x => x != null); return v.length >= MIN_LAENDER ? Math.round(v.reduce((p, q) => p + q, 0) / v.length * 100) / 100 : null; };
   const verlauf = [];

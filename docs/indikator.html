@@ -98,7 +98,7 @@ function detail(i){
   var rv = (i.rangVergleich||[]).filter(Boolean);
   if(rv.length || (i.rangVerlauf||[]).length>1){
     h += '<div class="card"><h2>Entwicklung des Rangs'+infoIcon('Der Rang zeigt, wo Österreich unter den EU-Ländern stand. Verglichen wird jeweils mit den damaligen Werten aller Länder.')+'</h2>'
-       + rv.map(function(v){ var r=rangTrend(a.rang,v.rang); return '<div class="v '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Platz '+a.rang+' statt Platz '+v.rang+' '+v.label+' <span class="k">('+periode(v.t)+', '+r.text+')</span></div>'; }).join('')
+       + rv.map(function(v){ var r=rangTrend(a.rang,v.rang); return '<div class="v '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Platz '+a.rang+' statt Platz '+v.rang+' '+v.label.replace(/^seit /,'bei ')+' <span class="k">('+periode(v.t)+', '+r.text+')</span></div>'; }).join('')
        + rangChart(i.rangVerlauf||[]) + '</div>';
   }
   if(i.verlauf && i.verlauf.length>1) h += '<div class="card"><h2>Verlauf der letzten 5 Jahre'+infoIcon('Wie sich der Wert Österreichs in den letzten fünf Jahren entwickelt hat.')+'</h2>'+chart(i)+'</div>';
