@@ -1,0 +1,18 @@
+name: Probe
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -s "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/crim_off_cat?format=JSON&lang=de&geo=AT&unit=P_HTHAB&lastTimePeriod=2" | python3 -c "
+          import json,sys
+          d=json.load(sys.stdin)
+          lab=d['dimension']['iccs']['category']['label']
+          idx=d['dimension']['iccs']['category']['index']
+          vals=d.get('value',{})
+          n=len(d['dimension']['time']['category']['index'])
+          for c,k in idx.items():
+              has=[vals.get(str(k*n+t)) for t in range(n)]
+              print(c,'|',lab[c],'|',has)
+          "
