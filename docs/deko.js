@@ -88,6 +88,7 @@
     var srt=function(l){ return l.slice().sort(function(a,b){ return (b.d-a.d)||a.i.name.localeCompare(b.i.name,"de"); }); };
     var ver=srt(rows).filter(function(r){ return r.d!==0; }), gl=srt(rows).filter(function(r){ return r.d===0; });
     var nver=srt(nrows).filter(function(r){ return r.d!==0; }), ngl=srt(nrows).filter(function(r){ return r.d===0; });
+    var alle=gl.concat(ngl).sort(function(a,b){ return a.i.name.localeCompare(b.i.name,'de'); });
     var lnk=function(l){ return l.map(function(r){ return '<a href="indikator.html?id='+encodeURIComponent(r.i.id)+'">'+r.i.name+'</a>'; }).join(', '); };
     var zeile=function(r){ var w=Math.abs(r.d)/mx*50, pos=r.d>0;
       return '<a class="pg-z" href="indikator.html?id='+encodeURIComponent(r.i.id)+'"><span class="pg-n">'+r.i.name+'</span><span class="pg-b"><span class="pg-m"></span><span class="pg-f '+(r.neu?'neu':pos?'good':'bad')+'" style="'+(pos?'left:50%':'right:50%')+';width:'+w+'%"></span></span><span class="pg-w '+(r.neu?'neu':pos?'good':'bad')+'">'+(pos?'+':'−')+Math.abs(r.d)+'</span><span class="pg-p">Platz '+r.von+' → '+r.nach+'</span></a>'; };
@@ -95,8 +96,8 @@
     box.innerHTML='<summary><span class="gi">'+svg("saeulen")+'</span><span class="pg-t">Platzveränderung je Kennzahl</span><span class="auf" aria-hidden="true"></span></summary>'
       +'<div class="pg-k"><span>\u2190 schlechter</span><span>besser \u2192</span></div>'
       +ver.map(zeile).join('')
-      +(gl.length?'<p class="note pg-g">Unverändert ('+gl.length+'): '+lnk(gl)+'</p>':'')
-      +(nrows.length?'<h3 class="pg-h">Ohne Wertung'+(window.infoIcon?infoIcon("Bei diesen Kennzahlen wird nicht gewertet, ob ein höherer oder niedrigerer Platz besser ist. Die Balken zeigen nur, ob die Platznummer kleiner (rechts) oder größer (links) geworden ist. Gezeigt werden Kennzahlen, für die ein Platz bei Regierungsantritt vorliegt."):'')+'</h3>'+nver.map(zeile).join('')+(ngl.length?'<p class="note pg-g">Unverändert ('+ngl.length+'): '+lnk(ngl)+'</p>':''):'')
+      +(nrows.length?'<h3 class="pg-h">Ohne Wertung'+(window.infoIcon?infoIcon("Bei diesen Kennzahlen wird nicht gewertet, ob ein höherer oder niedrigerer Platz besser ist. Die Balken zeigen nur, ob die Platznummer kleiner (rechts) oder größer (links) geworden ist. Gezeigt werden Kennzahlen, für die ein Platz bei Regierungsantritt vorliegt."):'')+'</h3>'+nver.map(zeile).join(''):'')
+      +(alle.length?'<p class="note pg-g">Unverändert ('+alle.length+'): '+lnk(alle)+'</p>':'')
       +'<p class="note">Veränderung des Platzes im EU-Vergleich von Regierungsantritt bis heute.</p>';
     return box;
   };
