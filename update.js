@@ -284,7 +284,7 @@ const INDICATORS = [
     oel: { produkt: "heating_oil" },
     einheit: "Cent pro Liter Heizöl (extraleicht), inklusive Steuern, Monatsdurchschnitt", suffix: " ct", diffEinheit: "Cent pro Liter", dez: 1,
     rangText: "Rang 1 = niedrigster Heizölpreis", maxAlter: 3,
-    hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie wichtig Heizöl ist, ist von Land zu Land sehr verschieden: Erdöl und Erdölprodukte (überwiegend Heizöl) machen in Österreich 8,2 % des Energieverbrauchs der Haushalte aus, in der EU reicht die Spanne von unter 1 % (zum Beispiel Slowakei, Niederlande) bis 42 % (Irland). Stand 2024, Quelle: Eurostat.",
+    hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie wichtig Heizöl ist, ist von Land zu Land sehr verschieden: In der Tabelle steht je Land, wie viel Prozent des Energieverbrauchs der Haushalte auf Erdöl und Erdölprodukte entfallen (überwiegend Heizöl, Quelle: Eurostat).",
     typ: "niedrig", schwelle: 2, mock: { base: 100, step: 4 } }
   ,{ id: "gaspreis", name: "Gaspreise für Haushalte", takt: "halbjahr", dataset: "nrg_pc_202",
     filter: "siec=G3000&nrg_cons=GJ20-199&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 20 bis 200 GJ Jahresverbrauch, inklusive aller Steuern und Abgaben
@@ -1359,6 +1359,24 @@ function berechneVerurteilungen() {
   for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (r.absolutHochgerechnet && r.erklaerung) r.erklaerung += " Die Euro-Beträge in der Tabelle sind für " + r.periode + " hochgerechnet (Forschungsquote mal Wirtschaftsleistung), weil Eurostat die tatsächlichen Beträge erst später veröffentlicht."; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
   // Kennzahlen ohne Wertung: einheitlicher Hinweis im Info-Text, sofern nicht schon vorhanden
   for (const r of result) { if (r.typ === "neutral" && r.id !== "verurteilungen" && r.erklaerung && !/Ohne Wertung|keine Wertung/.test(r.erklaerung)) r.erklaerung += " Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet."; }
+  // Heizöl: Anteil von Erdöl und Erdölprodukten am Energieverbrauch der Haushalte als Zusatz in der Ländertabelle (nur Anzeige)
+  try {
+    const hz = result.find(x => x.id === "heizoel" && x.laender);
+    if (hz) {
+      let tot, oel;
+      if (TEST) { tot = {}; oel = {}; hz.laender.forEach((x, k) => { tot[x.code] = { 2024: 100 }; oel[x.code] = { 2024: 5 + k }; }); }
+      else {
+        const q = siec => fetch(`${BASE}nrg_bal_c?format=JSON&lang=EN&freq=A&nrg_bal=FC_OTH_HH_E&unit=TJ&siec=${siec}&sinceTimePeriod=${new Date().getFullYear() - 4}`).then(async r => { if (!r.ok) throw new Error("HTTP " + r.status); return parse(await r.json()); });
+        [tot, oel] = await Promise.all([q("TOTAL"), q("O4000XBIO")]);
+      }
+      let n = 0;
+      hz.laender.forEach(x => {
+        const jt = Object.keys(tot[x.code] || {}).filter(y => oel[x.code] && oel[x.code][y] != null && tot[x.code][y] > 0).sort(), y = jt[jt.length - 1];
+        if (y) { const p = 100 * oel[x.code][y] / tot[x.code][y]; x.zus = "Erdölanteil " + (p < 1 ? p.toLocaleString("de-AT", { maximumFractionDigits: 1 }) : Math.round(p).toLocaleString("de-AT")) + " % (" + y + ")"; n++; }
+      });
+      console.log(`OK  Heizöl-Zusatz: Erdölanteil bei ${n} Ländern`);
+    }
+  } catch (e) { console.error("Hinweis: Heizöl-Zusatz (Erdölanteil) nicht berechnet: " + e.message); }
   if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };
   fs.mkdirSync("docs", { recursive: true });
