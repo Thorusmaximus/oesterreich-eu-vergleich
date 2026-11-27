@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="robots" content="noindex, nofollow">
-<title>Beschlossene Maßnahmen | Regierungstracker Österreich</title>
+<title>Beschlossene Gesetze | Regierungstracker Österreich</title>
 <meta name="description" content="Gesetzesbeschlüsse des Nationalrats seit dem Amtsantritt der Bundesregierung, mit Datum und Quelle.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" href="favicon-48.png" sizes="48x48" type="image/png">
 <link rel="icon" href="favicon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Regierungstracker Österreich: Beschlossene Maßnahmen">
+<meta property="og:title" content="Regierungstracker Österreich: Beschlossene Gesetze">
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Die neun Bundesländer im Vergleich.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -27,7 +27,7 @@
 <script src="common.js?v=764f1163"></script>
 <script>
 var app=document.getElementById("app");
-// Beschlossene Maßnahmen des Bundes (Nationalrat), von Hand gepflegt. Quelle: parlament.gv.at. Keine Wertung.
+// Beschlossene Gesetze des Bundes (Nationalrat), von Hand gepflegt. Quelle: parlament.gv.at. Keine Wertung.
 // Felder: d Datum, g Gruppe, t Titel, x Text, u Hauptquelle, w weitere Quellen [{t,u}],
 // h Aufmerksamkeit 1-3 (Redaktionseinstufung, Kriterien siehe ⓘ), v Abstimmung laut Quelle {p: dafür, c: dagegen, t: teils, n: Hinweis}
 var P="ÖVP, SPÖ, NEOS".split(", ");
@@ -108,7 +108,7 @@ var fT="kurz", fG="";
 function seite(){
   var gr=[]; M.forEach(function(m){ if(gr.indexOf(m.g)<0) gr.push(m.g); });
   var J=new Date().getFullYear();
-  var h='<h1 class="lh">Beschlossene <span style="white-space:nowrap">Maßnahmen'
+  var h='<h1 class="lh">Beschlossene <span style="white-space:nowrap">Gesetze'
    +infoIcon("Gesetzesbeschlüsse des Nationalrats seit dem Amtsantritt der Bundesregierung am 3.3.2025, neueste zuerst. Eine Auswahl aus den Gesetzesbeschlüssen des Nationalrats (XXVIII. Gesetzgebungsperiode). Aufgenommen sind nur Beschlüsse, die ich mit Datum und Quelle auf parlament.gv.at belegen konnte; die Liste ist nicht vollständig.")+'</span></h1>'
    +'<div class="filter" id="tt" role="tablist" aria-label="Ansicht">'+TABS.map(function(t){ return '<button data-t="'+t[0]+'"'+(t[0]===fT?' class="on"':'')+'>'+t[1]+'</button>'; }).join("")+'</div>'
    +'<p class="note" id="tx"></p>'
