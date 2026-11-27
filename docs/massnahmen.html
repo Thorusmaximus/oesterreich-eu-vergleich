@@ -129,7 +129,7 @@ function stimmen(v){
 function liste(){
   var J=new Date().getFullYear(), L, txt;
   var ATT="Redaktionelle Einstufung in drei Stufen, kein gemessener Wert. Stufe 3: betrifft einen großen Teil der Bevölkerung oder Haushalte, hat ein Volumen im Milliardenbereich oder war ein zentrales, breit diskutiertes Thema. Stufe 2: betrifft eine klar abgegrenzte, aber große Gruppe oder wurde sichtbar diskutiert. Stufe 1: Fach- oder Verwaltungsgesetz. Ein automatisches Maß (etwa Medienzählung oder Suchanfragen) ist noch nicht eingebaut.";
-  var tx={kurz:"Die jüngsten Beschlüsse im Überblick: bis zu vier aus dem laufenden Jahr und drei aus dem Vorjahr. Die Auswahl richtet sich nach Aufmerksamkeitsstufe, dann nach Gegenstimmen, dann nach Aktualität."+infoIcon(ATT),
+  var tx={kurz:"Die jüngsten Beschlüsse im Überblick: bis zu vier aus dem laufenden Jahr und drei aus dem Vorjahr. Vorrang haben Beschlüsse mit hoher Aufmerksamkeitsstufe, bei gleicher Stufe jene mit mehr Gegenstimmen, danach die aktuelleren."+infoIcon(ATT),
     alle:"Alle erfassten Beschlüsse.",
     hoch:"Beschlüsse mit hoher Aufmerksamkeit (Stufe 3)."+infoIcon(ATT),
     streit:"Beschlüsse, bei denen laut Quelle mindestens eine Partei nicht oder nur teilweise zustimmte, geordnet nach der Zahl der Gegenstimmen."+infoIcon("Bewertung: jede Partei, die laut Quelle dagegen stimmte, zählt 1, eine teilweise Zustimmung 0,5. Parteien, deren Verhalten die Quelle nicht nennt, zählen nicht. Die Liste kann deshalb Beschlüsse mit Gegenstimmen auslassen. Berücksichtigt wird nur das Abstimmungsverhalten im Nationalrat, nicht die öffentliche Debatte.")};
