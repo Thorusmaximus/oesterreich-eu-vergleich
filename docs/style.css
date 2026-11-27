@@ -34,7 +34,8 @@ svg{width:100%;height:auto;display:block}
 .row.at{font-weight:700}.row.at .bb{background:var(--at)}
 .row .n{text-align:right;font-variant-numeric:tabular-nums}
 .row.ch{border-top:1px dashed var(--line);margin-top:8px;padding-top:8px;color:var(--mut)}
-.row.ch .bb{background:linear-gradient(90deg,transparent 2px,var(--bar) 2px 8px,transparent 8px) 0 0/10px 100% space repeat;border-radius:0}
+.row.ch .bb{background:none;display:flex;justify-content:space-between;align-items:stretch;border-radius:0;overflow:visible}
+.row.ch .bb i{display:block;flex:none;width:6px;background:var(--bar);border-radius:0}.row.ch .bb i:first-child{border-radius:6px 0 0 6px}.row.ch .bb i:last-child{border-radius:0 6px 6px 0}
 .note{color:var(--mut);font-size:.85rem}
 
 .chartwrap{position:relative}
@@ -405,7 +406,6 @@ body{background:linear-gradient(180deg,#dde7f8 0,#e8eef9 420px,#eef2fa 100%) fix
 }
 .svs .svbr{display:none}
 @media(max-width:640px){.svs .svbr{display:inline}.svs .svsep{display:none}}
-.row.ch .bb{box-sizing:content-box;margin-left:-2px;padding-right:4px;overflow:hidden;border-radius:6px}
 .sust>.svgl{margin:4px 0 10px;padding:0 0 10px;border-top:0;border-bottom:1px solid var(--line)}.sust>.svgl .svh{margin:14px 0 6px}
 .svgl2{margin-top:6px}
 .kw .umsch:not(.zwei){display:flex;flex-wrap:wrap;gap:4px}

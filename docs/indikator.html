@@ -15,7 +15,7 @@
 <meta property="og:description" content="Was sich verändert hat, nicht, wer schuld ist. Platz unter 27 EU-Ländern und Entwicklung seit dem Regierungsantritt.">
 <meta property="og:image" content="https://thorusmaximus.github.io/oesterreich-eu-vergleich/vorschau.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="style.css?v=8efdc617">
+<link rel="stylesheet" href="style.css?v=88148bf2">
 </head>
 <body>
 <main>
@@ -365,6 +365,14 @@ function bindChart(){
   svg.addEventListener("blur", hide);
   document.addEventListener("pointerdown", function(e){ if(!svg.contains(e.target)) hide(); });
 }
+</script>
+<script>
+// Schweiz-Balken: gestrichelt mit gleich langen Abständen, erster und letzter Strich bündig und gleich breit
+(function(){
+  function dash(){ document.querySelectorAll(".row.ch .bb").forEach(function(b){ var w=b.getBoundingClientRect().width, n=Math.max(2,Math.floor((w+4)/10)); if(b.getAttribute("data-n")==n+"/"+Math.round(w)) return; b.setAttribute("data-n",n+"/"+Math.round(w)); var h=""; for(var k=0;k<n;k++) h+="<i></i>"; b.innerHTML=h; }); }
+  new MutationObserver(function(){ dash(); }).observe(document.body,{childList:true,subtree:true});
+  window.addEventListener("resize",dash); window.addEventListener("load",dash);
+})();
 </script>
 </body>
 </html>
