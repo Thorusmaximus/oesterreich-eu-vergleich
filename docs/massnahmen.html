@@ -108,8 +108,8 @@ var fT="kurz", fG="";
 function seite(){
   var gr=[]; M.forEach(function(m){ if(gr.indexOf(m.g)<0) gr.push(m.g); });
   var J=new Date().getFullYear();
-  var h='<h1 class="lh">Beschlossene Maßnahmen</h1><p class="note">Gesetzesbeschlüsse des Nationalrats seit dem Amtsantritt der Bundesregierung am 3.3.2025, neueste zuerst.'
-   +infoIcon("Eine Auswahl aus den Gesetzesbeschlüssen des Nationalrats (XXVIII. Gesetzgebungsperiode). Aufgenommen sind nur Beschlüsse, die ich mit Datum und Quelle auf parlament.gv.at belegen konnte; die Liste ist nicht vollständig und nicht systematisch erhoben. Ohne Bewertung und ohne Aussage über die Wirkung. Ob und wie sich eine Maßnahme auf die Kennzahlen auswirkt, zeigt diese Liste nicht.")+'</p>'
+  var h='<h1 class="lh">Beschlossene <span style="white-space:nowrap">Maßnahmen'
+   +infoIcon("Gesetzesbeschlüsse des Nationalrats seit dem Amtsantritt der Bundesregierung am 3.3.2025, neueste zuerst. Eine Auswahl aus den Gesetzesbeschlüssen des Nationalrats (XXVIII. Gesetzgebungsperiode). Aufgenommen sind nur Beschlüsse, die ich mit Datum und Quelle auf parlament.gv.at belegen konnte; die Liste ist nicht vollständig und nicht systematisch erhoben. Ohne Bewertung und ohne Aussage über die Wirkung. Ob und wie sich eine Maßnahme auf die Kennzahlen auswirkt, zeigt diese Liste nicht.")+'</span></h1>'
    +'<div class="filter" id="tt" role="tablist" aria-label="Ansicht">'+TABS.map(function(t){ return '<button data-t="'+t[0]+'"'+(t[0]===fT?' class="on"':'')+'>'+t[1]+'</button>'; }).join("")+'</div>'
    +'<p class="note" id="tx"></p>'
    +'<div class="filter gr" id="tg" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+gr.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join("")+'</div><div id="ml"></div>';
