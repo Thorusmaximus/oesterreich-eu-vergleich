@@ -11487,7 +11487,7 @@
    "dez": 1,
    "suffix": " ct",
    "diffEinheit": "Cent pro Liter",
-   "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie wichtig Heizöl ist, ist von Land zu Land sehr verschieden: Erdöl und Erdölprodukte (überwiegend Heizöl) machen in Österreich 8,2 % des Energieverbrauchs der Haushalte aus, in der EU reicht die Spanne von unter 1 % (zum Beispiel Slowakei, Niederlande) bis 42 % (Irland). Stand 2024, Quelle: Eurostat.",
+   "hinweis": "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie wichtig Heizöl ist, ist von Land zu Land sehr verschieden: In der Tabelle steht je Land, wie viel Prozent des Energieverbrauchs der Haushalte auf Erdöl und Erdölprodukte entfallen (überwiegend Heizöl, Quelle: Eurostat).",
    "umstritten": false,
    "trendNeutral": false,
    "schwelle": 5,
@@ -11523,7 +11523,8 @@
     "richtung": "stabil",
     "urteil": "unverändert",
     "wertJetzt": 100,
-    "wertVorher": 100
+    "wertVorher": 100,
+    "zus": "Erdölanteil 9 % (2024)"
    },
    "schlechteste": {
     "code": "DK",
@@ -11533,7 +11534,8 @@
     "richtung": "steigend",
     "urteil": "schlechter",
     "wertJetzt": 243.6,
-    "wertVorher": 219.3
+    "wertVorher": 219.3,
+    "zus": "Erdölanteil 3 % (2024)"
    },
    "rangVerlauf": [
     {
@@ -11868,7 +11870,8 @@
      "richtung": "stabil",
      "urteil": "unverändert",
      "wertJetzt": 100,
-     "wertVorher": 100
+     "wertVorher": 100,
+     "zus": "Erdölanteil 9 % (2024)"
     },
     {
      "code": "BE",
@@ -11878,7 +11881,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 149.833,
-     "wertVorher": 118.233
+     "wertVorher": 118.233,
+     "zus": "Erdölanteil 26 % (2024)"
     },
     {
      "code": "ES",
@@ -11888,7 +11892,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 146.3,
-     "wertVorher": 117.133
+     "wertVorher": 117.133,
+     "zus": "Erdölanteil 16 % (2024)"
     },
     {
      "code": "CZ",
@@ -11898,7 +11903,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 150.067,
-     "wertVorher": 123.333
+     "wertVorher": 123.333,
+     "zus": "Erdölanteil 0,9 % (2024)"
     },
     {
      "code": "IE",
@@ -11908,7 +11914,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 151.1,
-     "wertVorher": 127.7
+     "wertVorher": 127.7,
+     "zus": "Erdölanteil 42 % (2024)"
     },
     {
      "code": "LU",
@@ -11918,14 +11925,16 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 153.467,
-     "wertVorher": 125.7
+     "wertVorher": 125.7,
+     "zus": "Erdölanteil 27 % (2024)"
     },
     {
      "code": "EL",
      "name": "Griechenland",
      "value": 148.9,
      "rank": 7,
-     "urteil": null
+     "urteil": null,
+     "zus": "Erdölanteil 24 % (2024)"
     },
     {
      "code": "LT",
@@ -11935,7 +11944,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 156.4,
-     "wertVorher": 127.333
+     "wertVorher": 127.333,
+     "zus": "Erdölanteil 4 % (2024)"
     },
     {
      "code": "RO",
@@ -11945,7 +11955,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 155.1,
-     "wertVorher": 124.3
+     "wertVorher": 124.3,
+     "zus": "Erdölanteil 4 % (2024)"
     },
     {
      "code": "CY",
@@ -11955,7 +11966,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 158.733,
-     "wertVorher": 140
+     "wertVorher": 140,
+     "zus": "Erdölanteil 26 % (2024)"
     },
     {
      "code": "SI",
@@ -11965,7 +11977,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 157.367,
-     "wertVorher": 139.167
+     "wertVorher": 139.167,
+     "zus": "Erdölanteil 11 % (2024)"
     },
     {
      "code": "HR",
@@ -11975,7 +11988,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 162.2,
-     "wertVorher": 125.9
+     "wertVorher": 125.9,
+     "zus": "Erdölanteil 4 % (2024)"
     },
     {
      "code": "PL",
@@ -11985,7 +11999,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 165.667,
-     "wertVorher": 137.2
+     "wertVorher": 137.2,
+     "zus": "Erdölanteil 3 % (2024)"
     },
     {
      "code": "DE",
@@ -11995,7 +12010,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 167.033,
-     "wertVorher": 125.867
+     "wertVorher": 125.867,
+     "zus": "Erdölanteil 19 % (2024)"
     },
     {
      "code": "EE",
@@ -12005,7 +12021,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 166.467,
-     "wertVorher": 134.367
+     "wertVorher": 134.367,
+     "zus": "Erdölanteil 0,1 % (2024)"
     },
     {
      "code": "FR",
@@ -12015,7 +12032,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 185.067,
-     "wertVorher": 158.467
+     "wertVorher": 158.467,
+     "zus": "Erdölanteil 9 % (2024)"
     },
     {
      "code": "AT",
@@ -12025,7 +12043,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 179.7,
-     "wertVorher": 147.867
+     "wertVorher": 147.867,
+     "zus": "Erdölanteil 8 % (2024)"
     },
     {
      "code": "SE",
@@ -12035,7 +12054,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 183.767,
-     "wertVorher": 154.7
+     "wertVorher": 154.7,
+     "zus": "Erdölanteil 2 % (2024)"
     },
     {
      "code": "LV",
@@ -12045,7 +12065,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 181.6,
-     "wertVorher": 150.967
+     "wertVorher": 150.967,
+     "zus": "Erdölanteil 6 % (2024)"
     },
     {
      "code": "HU",
@@ -12055,7 +12076,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 193.467,
-     "wertVorher": 175.233
+     "wertVorher": 175.233,
+     "zus": "Erdölanteil 1 % (2024)"
     },
     {
      "code": "FI",
@@ -12065,7 +12087,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 204.4,
-     "wertVorher": 174.233
+     "wertVorher": 174.233,
+     "zus": "Erdölanteil 2 % (2024)"
     },
     {
      "code": "IT",
@@ -12075,7 +12098,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 203.467,
-     "wertVorher": 175.833
+     "wertVorher": 175.833,
+     "zus": "Erdölanteil 5 % (2024)"
     },
     {
      "code": "PT",
@@ -12085,7 +12109,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 219.2,
-     "wertVorher": 191.533
+     "wertVorher": 191.533,
+     "zus": "Erdölanteil 11 % (2024)"
     },
     {
      "code": "DK",
@@ -12095,7 +12120,8 @@
      "richtung": "steigend",
      "urteil": "schlechter",
      "wertJetzt": 243.6,
-     "wertVorher": 219.3
+     "wertVorher": 219.3,
+     "zus": "Erdölanteil 3 % (2024)"
     }
    ],
    "schweiz": null,
