@@ -189,3 +189,6 @@ var PAARE = [
   { ids: ["pensionsausgaben","ersatzquote"], titel: "Pensionen", labels: ["Ausgaben","Höhe"], suche: "pensionen pensionsausgaben pensionshöhe ersatzquote rente" }
 ];
 function paarFuer(id){ for(var k=0;k<PAARE.length;k++) if(PAARE[k].ids.indexOf(id)>=0) return PAARE[k]; return null; }
+
+// Kennzahlen ohne Wertung: Platz bei Regierungsantritt als reine Information (ohne Pfeil und Farbe)
+function startPlatz(i){ var s=i.seitStart; return (i.typ==="neutral" && !(i.rangVergleich||[]).length && s && s.rang!=null && s.n) ? s : null; }

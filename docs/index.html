@@ -105,6 +105,7 @@ else {
       + (a.urteil && !i.ohneTrend ? '<div class="trend '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+pfeilFuer(i,a.urteil,a.richtung)+'</span> Trend: '+trendWort(a.urteil)+' <span class="note">('+trendVergleich(i)+')</span></div>' : '')
       + (i.rangVergleich||[]).map(function(v){ if(!v) return ''; var r=rangTrend(a.rang,v.rang); return '<div class="rtrend '+urteilCls(r.u)+'"><span class="ar" aria-hidden="true">'+r.pfeil+'</span> Rang '+v.label.replace(/^seit /,'bei ')+': Platz '+v.rang+' <span class="note">('+r.text+')</span></div>'; }).join('')
       + (i.art==="rating" ? '<div class="note">Platz bei Regierungsantritt: nicht ermittelt</div>' : '')
+      + (startPlatz(i) ? '<div class="note">Platz bei Regierungsantritt: '+startPlatz(i).rang+' von '+startPlatz(i).n+'</div>' : '')
       + (i.typ==="neutral" ? '<div class="note">'+(i.rangText||"Rang 1 = höchster Wert")+'</div>' : '')
       + (i.warnung ? '<p class="warn">'+i.warnung+'</p>' : '')
       + (i.datenHinweis ? '<p class="altdaten">⏳ Neuere Eurostat-Daten noch nicht verfügbar</p>' : '')
