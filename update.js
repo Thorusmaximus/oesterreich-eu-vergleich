@@ -284,7 +284,7 @@ const INDICATORS = [
     oel: { produkt: "heating_oil" },
     einheit: "Cent pro Liter Heizöl (extraleicht), inklusive Steuern, Monatsdurchschnitt", suffix: " ct", diffEinheit: "Cent pro Liter", dez: 1,
     rangText: "Rang 1 = niedrigster Heizölpreis", maxAlter: 3,
-    hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie wichtig Heizöl ist, ist von Land zu Land sehr verschieden: In der Tabelle steht je Land, wie viel Prozent des Energieverbrauchs der Haushalte auf Erdöl und Erdölprodukte entfallen (überwiegend Heizöl, Quelle: Eurostat).",
+    hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie wichtig Heizöl ist, ist von Land zu Land sehr verschieden: Bei den Ländern in der Tabelle zeigt ein Tipp auf den Wert, wie viel Prozent des Energieverbrauchs der Haushalte auf Erdöl und Erdölprodukte (überwiegend Heizöl) entfallen.",
     typ: "niedrig", schwelle: 2, mock: { base: 100, step: 4 } }
   ,{ id: "gaspreis", name: "Gaspreise für Haushalte", takt: "halbjahr", dataset: "nrg_pc_202",
     filter: "siec=G3000&nrg_cons=GJ20-199&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 20 bis 200 GJ Jahresverbrauch, inklusive aller Steuern und Abgaben
@@ -1372,8 +1372,9 @@ function berechneVerurteilungen() {
       let n = 0;
       hz.laender.forEach(x => {
         const jt = Object.keys(tot[x.code] || {}).filter(y => oel[x.code] && oel[x.code][y] != null && tot[x.code][y] > 0).sort(), y = jt[jt.length - 1];
-        if (y) { const p = 100 * oel[x.code][y] / tot[x.code][y]; x.zus = "Erdölanteil " + (p < 1 ? p.toLocaleString("de-AT", { maximumFractionDigits: 1 }) : Math.round(p).toLocaleString("de-AT")) + " % (" + y + ")"; n++; }
+        if (y) { const p = 100 * oel[x.code][y] / tot[x.code][y]; x.kontext = "Erdöl und Erdölprodukte machen " + (p < 1 ? p.toLocaleString("de-AT", { maximumFractionDigits: 1 }) : Math.round(p).toLocaleString("de-AT")) + " % des Energieverbrauchs der Haushalte aus (" + y + ")"; n++; }
       });
+      hz.kontextHinweis = "Ein Tipp auf den Wert eines Landes zeigt zusätzlich, wie viel Prozent des Energieverbrauchs der Haushalte dort auf Erdöl und Erdölprodukte (überwiegend Heizöl) entfallen. So sieht man, wie viele Haushalte der Preis betrifft. Quelle: Eurostat.";
       console.log(`OK  Heizöl-Zusatz: Erdölanteil bei ${n} Ländern`);
     }
   } catch (e) { console.error("Hinweis: Heizöl-Zusatz (Erdölanteil) nicht berechnet: " + e.message); }
