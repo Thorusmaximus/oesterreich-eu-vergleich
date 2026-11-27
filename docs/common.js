@@ -182,7 +182,9 @@ var PAARE = [
   { ids: ["nettozuwanderung","asyl","asylOffen"], titel: "Zuwanderung", labels: ["Netto","Anträge","Laufende Verfahren"], suche: "zuwanderung migration nettozuwanderung asyl asylanträge flüchtlinge" },
 
   { ids: ["raub","einbruch","diebstahl"], titel: "Eigentumsdelikte", labels: ["Raub","Einbruch","Diebstahl"], suche: "diebstahl taschendiebstahl autodiebstahl raub raubdelikte wohnungseinbrüche einbruch eigentum kriminalität" },
-  { ids: ["betrug","korruption","bestechung","geldwaesche"], titel: "Betrug und Korruption", labels: ["Betrug","Korruption","Bestechung","Geldwäsche"], suche: "betrug betrugsdelikte korruption bestechung geldwäsche wirtschaftskriminalität kriminalität" },
+  { ids: ["betrug","computerdelikte"], titel: "Betrug und Cyber", labels: ["Betrug","Computer"], suche: "betrug betrugsdelikte computer cyber hacking computerkriminalität internet kriminalität" },
+  { ids: ["korruption","bestechung","geldwaesche"], titel: "Korruption und Geldwäsche", labels: ["Korruption","Bestechung","Geldwäsche"], suche: "korruption bestechung bestechlichkeit geldwäsche wirtschaftskriminalität kriminalität" },
+  { ids: ["gefaengnis","verurteilungen"], titel: "Strafjustiz", labels: ["Gefängnis","Urteile"], suche: "gefängnis haft auslastung verurteilungen verurteilte urteile justiz strafe kriminalität" },
   { ids: ["koerperverletzung","sexualdelikte","toetung"], titel: "Gewaltdelikte", labels: ["Schwere Körperverletzung","Sexual","Tötung"], suche: "tötungsdelikte mord schwere körperverletzung sexualdelikte gewalt kriminalität" },
   { ids: ["durchschnittsalter","abhaengigkeit"], titel: "Alter der Bevölkerung", labels: ["Alter","Abhängigkeit"], suche: "alter bevölkerung altersabhängigkeitsquote abhängigkeit durchschnittsalter" },
   { ids: ["lebenserwartung","gesundeJahre"], titel: "Lebenserwartung", labels: ["Gesamt","Gesund"], suche: "lebenserwartung gesunde lebensjahre gesundheit" },
