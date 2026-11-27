@@ -1,0 +1,29 @@
+name: Probe
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -s "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_bal_c?format=JSON&lang=de&nrg_bal=FC_OTH_HH_E&unit=TJ&siec=TOTAL&siec=O4000XBIO&lastTimePeriod=2" > /tmp/o.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('/tmp/o.json'))
+          if 'dimension' not in d: print(d); raise SystemExit
+          dim=d['dimension']; ids=d['id']; size=d['size']
+          print(ids,size)
+          geo=dim['geo']['category']; siec=dim['siec']['category']['index']; tm=dim['time']['category']['index']
+          vals=d['value']
+          def idx(g,s,t):
+              pos={'geo':geo['index'][g],'siec':siec[s],'time':tm[t]}
+              i=0
+              for k,n in zip(ids,size):
+                  i=i*n+pos.get(k,0)
+              return i
+          for g in sorted(geo['index'],key=lambda x:geo['label'][x]):
+              out=[]
+              for t in sorted(tm):
+                  a=vals.get(str(idx(g,'TOTAL',t))); b=vals.get(str(idx(g,'O4000XBIO',t)))
+                  out.append((t, round(100*b/a,1) if a and b is not None else None))
+              print(g,geo['label'][g],out)
+          PY
