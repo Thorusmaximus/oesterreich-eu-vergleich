@@ -27192,13 +27192,13 @@
    "id": "energieabhaengigkeit",
    "name": "Energieabhängigkeit",
    "pfeilModus": "wert",
-   "typ": "neutral",
+   "typ": "niedrig",
    "dez": 1,
    "suffix": " %",
    "diffEinheit": "Prozentpunkte",
    "hinweis": null,
    "umstritten": false,
-   "trendNeutral": true,
+   "trendNeutral": false,
    "schwelle": 1.7,
    "schwelleArt": "relativ",
    "datensatz": "nrg_ind_id",
@@ -27220,7 +27220,7 @@
     "schnittVorher": 60.3,
     "veraenderung": -7,
     "richtung": "sinkend",
-    "urteil": "niedriger"
+    "urteil": "besser"
    },
    "eu": 57.286,
    "euMittelwert": false,
@@ -27301,7 +27301,7 @@
      "value": 29.26,
      "rank": 3,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 29.26,
      "wertVorher": 32.716
     },
@@ -27311,7 +27311,7 @@
      "value": 30.356,
      "rank": 4,
      "richtung": "steigend",
-     "urteil": "höher",
+     "urteil": "schlechter",
      "wertJetzt": 30.356,
      "wertVorher": 27.863
     },
@@ -27321,7 +27321,7 @@
      "value": 32.973,
      "rank": 5,
      "richtung": "steigend",
-     "urteil": "höher",
+     "urteil": "schlechter",
      "wertJetzt": 32.973,
      "wertVorher": 29.709
     },
@@ -27341,7 +27341,7 @@
      "value": 39.32,
      "rank": 7,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 39.32,
      "wertVorher": 41.679
     },
@@ -27351,7 +27351,7 @@
      "value": 41.672,
      "rank": 8,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 41.672,
      "wertVorher": 44.773
     },
@@ -27361,7 +27361,7 @@
      "value": 41.936,
      "rank": 9,
      "richtung": "steigend",
-     "urteil": "höher",
+     "urteil": "schlechter",
      "wertJetzt": 41.936,
      "wertVorher": 39.512
     },
@@ -27371,7 +27371,7 @@
      "value": 45.669,
      "rank": 10,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 45.669,
      "wertVorher": 47.996
     },
@@ -27381,7 +27381,7 @@
      "value": 46.382,
      "rank": 11,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 46.382,
      "wertVorher": 49.26
     },
@@ -27391,7 +27391,7 @@
      "value": 48.943,
      "rank": 12,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 48.943,
      "wertVorher": 62.087
     },
@@ -27401,7 +27401,7 @@
      "value": 53.325,
      "rank": 13,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 53.325,
      "wertVorher": 60.317
     },
@@ -27411,7 +27411,7 @@
      "value": 53.501,
      "rank": 14,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 53.501,
      "wertVorher": 58.41
     },
@@ -27421,7 +27421,7 @@
      "value": 59.929,
      "rank": 15,
      "richtung": "steigend",
-     "urteil": "höher",
+     "urteil": "schlechter",
      "wertJetzt": 59.929,
      "wertVorher": 55.721
     },
@@ -27431,7 +27431,7 @@
      "value": 64.524,
      "rank": 16,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 64.524,
      "wertVorher": 66.866
     },
@@ -27441,7 +27441,7 @@
      "value": 66.014,
      "rank": 17,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 66.014,
      "wertVorher": 69.498
     },
@@ -27501,7 +27501,7 @@
      "value": 77.714,
      "rank": 23,
      "richtung": "steigend",
-     "urteil": "höher",
+     "urteil": "schlechter",
      "wertJetzt": 77.714,
      "wertVorher": 75.447
     },
@@ -27511,7 +27511,7 @@
      "value": 79.533,
      "rank": 24,
      "richtung": "steigend",
-     "urteil": "höher",
+     "urteil": "schlechter",
      "wertJetzt": 79.533,
      "wertVorher": 77.761
     },
@@ -27521,7 +27521,7 @@
      "value": 87.706,
      "rank": 25,
      "richtung": "sinkend",
-     "urteil": "niedriger",
+     "urteil": "besser",
      "wertJetzt": 87.706,
      "wertVorher": 92.205
     },
@@ -27577,7 +27577,7 @@
    "geaendert": "2026-11-24",
    "datenHinweis": "Neuere Daten hat Eurostat noch nicht veröffentlicht (jüngstes Jahr: 2024).",
    "ausgeblendet": true,
-   "erklaerung": "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden. Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet.",
+   "erklaerung": "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab, und Preise und Lieferungen liegen zum Teil in fremder Hand. Deshalb gilt ein niedrigerer Wert als besser. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden.",
    "gruppe": "Energie und Klima"
   },
   {
