@@ -182,6 +182,7 @@ var PAARE = [
   { ids: ["nettozuwanderung","asyl","asylOffen"], titel: "Zuwanderung", labels: ["Netto","Anträge","Laufende Verfahren"], suche: "zuwanderung migration nettozuwanderung asyl asylanträge flüchtlinge" },
 
   { ids: ["raub","einbruch"], titel: "Eigentumsdelikte", labels: ["Raub","Einbruch"], suche: "raub raubdelikte wohnungseinbrüche einbruch eigentum kriminalität" },
+  { ids: ["betrug","korruption","bestechung","geldwaesche"], titel: "Betrug und Korruption", labels: ["Betrug","Korruption","Bestechung","Geldwäsche"], suche: "betrug betrugsdelikte korruption bestechung geldwäsche wirtschaftskriminalität kriminalität" },
   { ids: ["koerperverletzung","sexualdelikte","toetung"], titel: "Gewaltdelikte", labels: ["Schwere Körperverletzung","Sexual","Tötung"], suche: "tötungsdelikte mord schwere körperverletzung sexualdelikte gewalt kriminalität" },
   { ids: ["durchschnittsalter","abhaengigkeit"], titel: "Alter der Bevölkerung", labels: ["Alter","Abhängigkeit"], suche: "alter bevölkerung altersabhängigkeitsquote abhängigkeit durchschnittsalter" },
   { ids: ["lebenserwartung","gesundeJahre"], titel: "Lebenserwartung", labels: ["Gesamt","Gesund"], suche: "lebenserwartung gesunde lebensjahre gesundheit" },
