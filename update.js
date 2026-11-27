@@ -1308,6 +1308,8 @@ function berechneVerurteilungen() {
     }
   }
   for (const r of result) { if (ERKLAERUNG[r.id]) r.erklaerung = ERKLAERUNG[r.id]; if (r.absolutHochgerechnet && r.erklaerung) r.erklaerung += " Die Euro-Beträge in der Tabelle sind für " + r.periode + " hochgerechnet (Forschungsquote mal Wirtschaftsleistung), weil Eurostat die tatsächlichen Beträge erst später veröffentlicht."; if (GRUPPE_VON[r.id] !== undefined) r.gruppe = GRUPPEN[GRUPPE_VON[r.id]]; }
+  // Kennzahlen ohne Wertung: einheitlicher Hinweis im Info-Text, sofern nicht schon vorhanden
+  for (const r of result) { if (r.typ === "neutral" && r.id !== "verurteilungen" && r.erklaerung && !/Ohne Wertung|keine Wertung/.test(r.erklaerung)) r.erklaerung += " Ohne Wertung: Ob ein höherer oder niedrigerer Wert besser ist, wird nicht bewertet."; }
   if (!TEST && fehler >= INDICATORS.length) { console.error("Eurostat nicht erreichbar: Die bestehenden Daten bleiben unverändert."); process.exit(1); }
   const out = { beispiel: TEST, aktualisiert: new Date().toISOString().slice(0, 10), quelle: "Eurostat", regierung: REGIERUNG, gruppen: GRUPPEN, indikatoren: result };
   fs.mkdirSync("docs", { recursive: true });
