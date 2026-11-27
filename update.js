@@ -284,7 +284,7 @@ const INDICATORS = [
     oel: { produkt: "heating_oil" },
     einheit: "Cent pro Liter Heizöl (extraleicht), inklusive Steuern, Monatsdurchschnitt", suffix: " ct", diffEinheit: "Cent pro Liter", dez: 1,
     rangText: "Rang 1 = niedrigster Heizölpreis", maxAlter: 3,
-    hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie viele Haushalte mit Heizöl heizen, ist von Land zu Land sehr verschieden.",
+    hinweis: "Quelle ist das Weekly Oil Bulletin der EU-Kommission (Wochenpreise, hier als Monatsdurchschnitt). Steuern und Abgaben unterscheiden sich zwischen den Ländern stark. Wie wichtig Heizöl ist, ist von Land zu Land sehr verschieden: Erdöl und Erdölprodukte (überwiegend Heizöl) machen in Österreich 8,2 % des Energieverbrauchs der Haushalte aus, in der EU reicht die Spanne von unter 1 % (zum Beispiel Slowakei, Niederlande) bis 42 % (Irland). Stand 2024, Quelle: Eurostat.",
     typ: "niedrig", schwelle: 2, mock: { base: 100, step: 4 } }
   ,{ id: "gaspreis", name: "Gaspreise für Haushalte", takt: "halbjahr", dataset: "nrg_pc_202",
     filter: "siec=G3000&nrg_cons=GJ20-199&unit=KWH&tax=I_TAX&currency=EUR", // Haushalte mit 20 bis 200 GJ Jahresverbrauch, inklusive aller Steuern und Abgaben
