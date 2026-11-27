@@ -174,9 +174,9 @@ else {
     var ländern = {}; D.indikatoren.forEach(function(i){ (i.laender||[]).forEach(function(x){ if(x.code!=="AT") ländern[x.code]=x.name; }); });
     var codes = Object.keys(ländern).sort(function(a,b){ return ländern[a].localeCompare(ländern[b],"de"); });
     var vb = document.createElement("div"); vb.className = "svgl";
-    vb.innerHTML = '<label for="svl">Mit einem anderen EU-Land vergleichen:</label> <select id="svl"><option value="">Kein Vergleich</option>'+codes.map(function(c){ return '<option value="'+c+'">'+ländern[c]+'</option>'; }).join('')+'</select><div id="svx"></div>';
-    box.appendChild(vb);
-    var sel = vb.querySelector("#svl"), svx = vb.querySelector("#svx");
+    vb.innerHTML = '<label for="svl">Mit einem anderen EU-Land vergleichen:</label> <select id="svl"><option value="">Kein Vergleich</option>'+codes.map(function(c){ return '<option value="'+c+'">'+ländern[c]+'</option>'; }).join('')+'</select>';
+    box.insertBefore(vb, box.querySelector(".sustg"));
+    var sel = vb.querySelector("#svl"), svx = document.createElement("div"); svx.id="svx"; svx.className="svgl2"; box.appendChild(svx);
     sel.addEventListener("change", function(){
       var c = sel.value; box.classList.toggle("vgl",!!c); if(!c){ svx.innerHTML=""; return; }
       var a=[], b2=[], na=[], nb=[];
