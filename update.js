@@ -93,7 +93,7 @@ const ERKLAERUNG = {
   genderPayGap: "Um wie viel Prozent der durchschnittliche Brutto-Stundenverdienst von Frauen unter dem der Männer liegt (unbereinigt, Unternehmen ab 10 Beschäftigten). Weil Stundenverdienste verglichen werden, wirken unterschiedliche Arbeitszeiten nicht direkt auf den Wert. Nicht herausgerechnet sind aber Unterschiede bei Branche, Beruf, Position und Berufserfahrung. Auch die Teilzeit hängt damit zusammen, denn Teilzeit ist häufiger in Branchen und Positionen mit niedrigerem Stundenlohn. Der Wert sagt daher nicht, ob für gleiche Arbeit unterschiedlich bezahlt wird.",
   treibhausgase: "Wie viele Treibhausgase (vor allem CO2, Methan und Lachgas, umgerechnet in CO2-Äquivalent) im Land im Jahr pro Einwohner ausgestoßen werden, in Tonnen. Ein niedrigerer Wert ist besser. Gezählt wird, was im Land entsteht, nicht was in importierten Waren steckt.",
   erneuerbare: "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft macht in Österreich einen großen Teil aus. Ohne Wertung: Ob ein höherer Anteil besser ist, hängt davon ab, wie man Klimaschutz, Kosten und Versorgungssicherheit gewichtet. Dazu gibt es eigene Kennzahlen: Treibhausgasemissionen, Strompreise und Energieabhängigkeit.",
-  energieabhaengigkeit: "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden.",
+  energieabhaengigkeit: "Wie viel Prozent des Energiebedarfs eines Landes aus dem Ausland eingeführt werden müssen. Ein hoher Wert heißt: Das Land hängt stark von Importen ab, und Preise und Lieferungen liegen zum Teil in fremder Hand. Deshalb gilt ein niedrigerer Wert als besser. Ein Wert über 100 % ist möglich, wenn Vorräte aufgebaut werden.",
   nettozuwanderung: "Wie viele Menschen pro 1.000 Einwohner mehr zu- als wegziehen (Zuzüge minus Wegzüge, einschließlich statistischer Korrekturen). Ein negativer Wert heißt: Es ziehen mehr Menschen weg, als zuziehen.",
   asyl: "Wie viele Menschen pro 100.000 Einwohner in einem Jahr erstmals oder wiederholt einen Antrag auf Asyl stellen. Das zählt Anträge, nicht Entscheidungen und nicht, wie viele Menschen tatsächlich bleiben.",
   lebenszufriedenheit: "Wie zufrieden Menschen ab 16 mit ihrem Leben insgesamt sind, auf einer Skala von 0 (gar nicht zufrieden) bis 10 (völlig zufrieden), laut Befragung. Die Erhebung findet nur alle paar Jahre statt.",
@@ -522,7 +522,7 @@ const INDICATORS = [
     maxAlter: 26, dez: 1, suffix: " %", diffEinheit: "Prozentpunkte", minLaender: 20,
     einheit: "% des Energiebedarfs, die aus dem Ausland importiert werden", rangText: "Rang 1 = niedrigste Importabhängigkeit", rangNiedrigZuerst: true,
     ausblenden2025: true,
-    typ: "neutral", trendNeutral: true, schwelle: 1, mock: { base: 10, step: 1 } }
+    typ: "niedrig", schwelle: 1, mock: { base: 10, step: 1 } }
   ,{ id: "nettozuwanderung", name: "Nettozuwanderung", takt: "jahr", dataset: "demo_gind",
     filter: "indic_de=CNMIGRATRT",
     alternativen: [ { dataset: "demo_gind", filter: "indic_de=CNMIGRATRT&freq=A" }, { dataset: "demo_gind", filter: "indic_de=CNMIGRAT" } ],
