@@ -109,7 +109,7 @@ function seite(){
   var gr=[]; M.forEach(function(m){ if(gr.indexOf(m.g)<0) gr.push(m.g); });
   var J=new Date().getFullYear();
   var h='<h1 class="lh">Beschlossene <span style="white-space:nowrap">Maßnahmen'
-   +infoIcon("Gesetzesbeschlüsse des Nationalrats seit dem Amtsantritt der Bundesregierung am 3.3.2025, neueste zuerst. Eine Auswahl aus den Gesetzesbeschlüssen des Nationalrats (XXVIII. Gesetzgebungsperiode). Aufgenommen sind nur Beschlüsse, die ich mit Datum und Quelle auf parlament.gv.at belegen konnte; die Liste ist nicht vollständig und nicht systematisch erhoben. Ohne Bewertung und ohne Aussage über die Wirkung. Ob und wie sich eine Maßnahme auf die Kennzahlen auswirkt, zeigt diese Liste nicht.")+'</span></h1>'
+   +infoIcon("Gesetzesbeschlüsse des Nationalrats seit dem Amtsantritt der Bundesregierung am 3.3.2025, neueste zuerst. Eine Auswahl aus den Gesetzesbeschlüssen des Nationalrats (XXVIII. Gesetzgebungsperiode). Aufgenommen sind nur Beschlüsse, die ich mit Datum und Quelle auf parlament.gv.at belegen konnte; die Liste ist nicht vollständig.")+'</span></h1>'
    +'<div class="filter" id="tt" role="tablist" aria-label="Ansicht">'+TABS.map(function(t){ return '<button data-t="'+t[0]+'"'+(t[0]===fT?' class="on"':'')+'>'+t[1]+'</button>'; }).join("")+'</div>'
    +'<p class="note" id="tx"></p>'
    +'<div class="filter gr" id="tg" role="group" aria-label="Gruppen"><button class="on" data-g="">Alle Gruppen</button>'+gr.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join("")+'</div><div id="ml"></div>';
@@ -128,9 +128,10 @@ function stimmen(v){
 }
 function liste(){
   var J=new Date().getFullYear(), L, txt;
-  var tx={kurz:"Die jüngsten Beschlüsse im Überblick: bis zu vier aus dem laufenden Jahr und drei aus dem Vorjahr. Die Auswahl richtet sich nach Aufmerksamkeitsstufe, dann nach Gegenstimmen, dann nach Aktualität.",
+  var ATT="Redaktionelle Einstufung in drei Stufen, kein gemessener Wert. Stufe 3: betrifft einen großen Teil der Bevölkerung oder Haushalte, hat ein Volumen im Milliardenbereich oder war ein zentrales, breit diskutiertes Thema. Stufe 2: betrifft eine klar abgegrenzte, aber große Gruppe oder wurde sichtbar diskutiert. Stufe 1: Fach- oder Verwaltungsgesetz. Ein automatisches Maß (etwa Medienzählung oder Suchanfragen) ist noch nicht eingebaut.";
+  var tx={kurz:"Die jüngsten Beschlüsse im Überblick: bis zu vier aus dem laufenden Jahr und drei aus dem Vorjahr. Die Auswahl richtet sich nach Aufmerksamkeitsstufe, dann nach Gegenstimmen, dann nach Aktualität."+infoIcon(ATT),
     alle:"Alle erfassten Beschlüsse.",
-    hoch:"Beschlüsse mit hoher Aufmerksamkeit (Stufe 3)."+infoIcon("Redaktionelle Einstufung in drei Stufen, kein gemessener Wert. Stufe 3: betrifft einen großen Teil der Bevölkerung oder Haushalte, hat ein Volumen im Milliardenbereich oder war ein zentrales, breit diskutiertes Thema. Stufe 2: betrifft eine klar abgegrenzte, aber große Gruppe oder wurde sichtbar diskutiert. Stufe 1: Fach- oder Verwaltungsgesetz. Ein automatisches Maß (etwa Medienzählung oder Suchanfragen) ist noch nicht eingebaut."),
+    hoch:"Beschlüsse mit hoher Aufmerksamkeit (Stufe 3)."+infoIcon(ATT),
     streit:"Beschlüsse, bei denen laut Quelle mindestens eine Partei nicht oder nur teilweise zustimmte, geordnet nach der Zahl der Gegenstimmen."+infoIcon("Bewertung: jede Partei, die laut Quelle dagegen stimmte, zählt 1, eine teilweise Zustimmung 0,5. Parteien, deren Verhalten die Quelle nicht nennt, zählen nicht. Die Liste kann deshalb Beschlüsse mit Gegenstimmen auslassen. Berücksichtigt wird nur das Abstimmungsverhalten im Nationalrat, nicht die öffentliche Debatte.")};
   document.getElementById("tx").innerHTML=tx[fT];
   if(fT==="kurz") L=kurz();
