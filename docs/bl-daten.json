@@ -1427,7 +1427,7 @@
    "diffEinheit": "Prozentpunkte",
    "einheit": "Anteil der Menschen, die armutsgefährdet, erheblich materiell benachteiligt oder in einem Haushalt mit sehr geringer Erwerbstätigkeit sind",
    "rangText": "Rang 1 = geringster Anteil",
-   "erklaerung": "Der Anteil der Bevölkerung, der von Armut oder sozialer Ausgrenzung bedroht ist (AROPE-Indikator). Er stammt aus einer Haushaltsbefragung, die Werte pro Bundesland sind daher ungenau.",
+   "erklaerung": "Der Anteil der Bevölkerung, der von Armut oder sozialer Ausgrenzung bedroht ist (AROPE-Kennzahl). Sie stammt aus einer Haushaltsbefragung, die Werte pro Bundesland sind daher ungenau.",
    "relativ": false,
    "ohneTrend": false,
    "trendInfo": null,

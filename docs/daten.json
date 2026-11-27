@@ -380,7 +380,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-03",
      "rang": 13,
      "n": 27,
@@ -1369,7 +1369,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-03",
      "rang": 15,
      "n": 27,
@@ -2131,7 +2131,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-Q1",
      "rang": 21,
      "n": 27,
@@ -2693,7 +2693,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-Q1",
      "rang": 23,
      "n": 27,
@@ -3257,7 +3257,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-Q1",
      "rang": 20,
      "n": 27,
@@ -3770,7 +3770,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 22,
      "n": 27,
@@ -4648,7 +4648,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 25,
      "n": 27,
@@ -5135,7 +5135,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-Q1",
      "rang": 24,
      "n": 27,
@@ -5697,7 +5697,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-Q1",
      "rang": 16,
      "n": 27,
@@ -6647,7 +6647,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 27,
      "n": 27,
@@ -7839,7 +7839,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 3,
      "n": 27,
@@ -8175,7 +8175,7 @@
    "dez": 0,
    "suffix": " €",
    "diffEinheit": "% real",
-   "hinweis": "Der Durchschnitt liegt meist über dem Median, weil wenige sehr hohe Einkommen ihn nach oben ziehen. Je größer der Abstand zum Median, desto ungleicher sind die Einkommen verteilt. Beide Werte stehen als eigene Indikatoren bereit.",
+   "hinweis": "Der Durchschnitt liegt meist über dem Median, weil wenige sehr hohe Einkommen ihn nach oben ziehen. Je größer der Abstand zum Median, desto ungleicher sind die Einkommen verteilt. Beide Werte stehen als eigene Kennzahlen bereit.",
    "umstritten": false,
    "trendNeutral": false,
    "schwelle": 300,
@@ -8252,7 +8252,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 3,
      "n": 27,
@@ -8665,7 +8665,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 2,
      "n": 27,
@@ -9153,7 +9153,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-Q1",
      "rang": 23,
      "n": 27,
@@ -9921,7 +9921,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-03",
      "rang": 13,
      "n": 27,
@@ -10880,7 +10880,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-03",
      "rang": 13,
      "n": 27,
@@ -11839,7 +11839,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-03",
      "rang": 14,
      "n": 24,
@@ -12515,7 +12515,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-S1",
      "rang": 16,
      "n": 23,
@@ -13386,7 +13386,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-Q1",
      "rang": 23,
      "n": 26,
@@ -14678,7 +14678,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 12,
      "n": 27,
@@ -15090,7 +15090,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 12,
      "n": 27,
@@ -15906,7 +15906,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 21,
      "n": 27,
@@ -17512,7 +17512,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 6,
      "n": 27,
@@ -19108,7 +19108,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 12,
      "n": 27,
@@ -19517,7 +19517,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 17,
      "n": 27,
@@ -19926,7 +19926,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 17,
      "n": 27,
@@ -20335,7 +20335,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 9,
      "n": 27,
@@ -20749,7 +20749,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 6,
      "n": 27,
@@ -21188,7 +21188,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 11,
      "n": 27,
@@ -21875,7 +21875,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-03",
      "rang": 13,
      "n": 27,
@@ -22837,7 +22837,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-03",
      "rang": 9,
      "n": 27,
@@ -23514,7 +23514,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 10,
      "n": 27,
@@ -23928,7 +23928,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 2,
      "n": 27,
@@ -26761,7 +26761,7 @@
     }
    ],
    "geaendert": "2026-11-24",
-   "erklaerung": "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft macht in Österreich einen großen Teil aus. Ohne Wertung: Ob ein höherer Anteil besser ist, hängt davon ab, wie man Klimaschutz, Kosten und Versorgungssicherheit gewichtet. Dazu gibt es eigene Indikatoren: Treibhausgasemissionen, Strompreise und Energieabhängigkeit.",
+   "erklaerung": "Wie groß der Anteil von Strom, Wärme und Treibstoff aus erneuerbaren Quellen (Wasser, Wind, Sonne, Biomasse) am gesamten Energieverbrauch ist. Wasserkraft macht in Österreich einen großen Teil aus. Ohne Wertung: Ob ein höherer Anteil besser ist, hängt davon ab, wie man Klimaschutz, Kosten und Versorgungssicherheit gewichtet. Dazu gibt es eigene Kennzahlen: Treibhausgasemissionen, Strompreise und Energieabhängigkeit.",
    "gruppe": "Energie und Klima"
   },
   {
@@ -29452,7 +29452,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 4,
      "n": 27,
@@ -31103,7 +31103,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-S1",
      "rang": 20,
      "n": 27,
@@ -31562,7 +31562,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2025-S1",
      "rang": 20,
      "n": 27,
@@ -33559,7 +33559,7 @@
    ],
    "rangVergleich": [
     {
-     "label": "seit Regierungsantritt",
+     "label": "bei Regierungsantritt",
      "t": "2024",
      "rang": 23,
      "n": 27,
