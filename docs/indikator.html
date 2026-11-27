@@ -134,7 +134,7 @@ function detailAnteile(i){
   i.bloecke.forEach(function(b){
     h += '<div class="card"><h2>'+b.titel+' <small>('+b.periode+')</small></h2>'
       + (b.scope ? '<p class="note"><b>'+b.scope+'</b></p>' : '')
-      + b.anteile.map(function(x){ return '<div class="v">'+x.name+': '+z(x.wert)+' %</div><div style="height:8px;background:var(--line);border-radius:4px;margin:2px 0 10px"><div style="height:8px;width:'+Math.min(100,x.wert)+'%;background:var(--at);border-radius:4px"></div></div>'; }).join('')
+      + b.anteile.map(function(x){ return '<div class="v">'+x.name+': '+z(x.wert)+' %</div><div style="height:8px;background:var(--line);border-radius:4px;margin:2px 0 10px"><div style="height:8px;width:'+Math.min(100,x.wert)+'%;background:var(--mut);opacity:.75;border-radius:4px"></div></div>'; }).join('')
       + '<p class="note">'+b.hinweis+' Quelle: <a href="'+b.url+'" target="_blank" rel="noopener">'+b.quelle+'</a>.</p></div>';
   });
   h += '<p class="note">Stand der Eingabe: '+datum(i.stand)+'. Kein EU-Vergleich.</p>';
