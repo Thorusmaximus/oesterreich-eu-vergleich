@@ -12,6 +12,7 @@
     hut:'M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5',
     muenzen:'M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 7v5c0 1.7 3.6 3 8 3s8-1.3 8-3V7M4 12v5c0 1.7 3.6 3 8 3s8-1.3 8-3v-5',
     uhr:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3 2',
+    pfeilhoch:'M3 17l6-6 4 4 8-8M15 7h6v6',
     spross:'M12 21v-9M12 12c0-4 3-6 7-6 0 4-3 6-7 6zM12 15c0-3-2-5-6-5 0 3 2 5 6 5z',
     saeulen:'M5 20v-8M12 20V8M19 20V4',
     stern:'M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.3 6.8 19l1-5.8L3.5 9.2l5.9-.9z',
@@ -29,7 +30,7 @@
     herz:'M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z',
     lachen:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM8 14a5 4 0 0 0 8 0M9 9.5v.5M15 9.5v.5',
     kuppel:'M4 21V12M20 21V12M4 12c0-5 4-8 8-8s8 3 8 8M12 4V2M2 21h20',
-    zuzug:'M3 12h13M12 7l5 5-5 5M20 5v14',
+    zuzug:'M10 11a3.5 3.5 0 1 0 .01 0zM3 20c0-3.5 3-6 7-6s7 2.5 7 6M19 8v6M16 11h6',
     sanduhr:'M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9',
     kalender:'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',
     puls:'M3 12h4l2-5 4 10 2-5h6',
@@ -42,7 +43,7 @@
     flamme:'M12 3c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-4 0-6 1-10z',
     blatt:'M5 19C5 9 10 4 20 4c0 10-5 15-15 15M5 19c3-5 6-8 10-10'
   };
-  var T={arbeitslosigkeit:"koffer",inflation:"prozent",wachstum:"saeulen",industrie:"fabrik",schulden:"muenzen",defizit:"haushalt",geburtenrate:"herz",staatsquote:"torte",abgabenquote:"steuer",beschaeftigung:"koffer",bevoelkerung:"leute","wachstum-pro-kopf":"spross",lebenshaltung:"prozent",immobilien:"haus",einkommen:"muenzen",durchschnittseinkommen:"muenzen",kaufkraft:"muenzen","wachstum-privat":"spross",benzin:"zapfsaeule",diesel:"zapfsaeule",heizoel:"flamme",gaspreis:"flamme",sicherheitsgefuehl:"auge",insolvenzenEU:"insolvenz",insolvenzen:"insolvenz",erwerbsdauer:"kalender",pensionsausgaben:"haushalt",ersatzquote:"muenzen",altersarmut:"boerse",teilzeit:"uhr",beschaeftigung5564:"koffer",durchschnittsalter:"sanduhr",lebenserwartung:"puls",gesundeJahre:"puls",abhaengigkeit:"leute",toetung:"schild",raub:"schloss",einbruch:"schloss",kapitalmarkt:"kurs",kapitalNichtBoerse:"kurs",kapitalGesamt:"kurs",armut:"boerse",ausgrenzung:"boerse",wohnkosten:"haus",mieten:"haus",jugendarbeitslosigkeit:"hut",neet:"hut",forschung:"kolben",ausgabenBildung:"buch",ausgabenGesundheit:"kreuz",ausgabenVerteidigung:"schild",ausgabenSoziales:"leute",genderPayGap:"waage",erneuerbare:"sonne",treibhausgase:"wolke",energieabhaengigkeit:"stecker",nettozuwanderung:"zuzug",asyl:"zuzug",asylOffen:"sanduhr",lebenszufriedenheit:"lachen",gefaengnis:"gitter",koerperverletzung:"schild",sexualdelikte:"schild",strompreis:"blitz","strompreis-industrie":"blitz",rating:"stern",religion:"kuppel",pensionsantrittsalter:"kalender",aktionaersquote:"kurs",marsh:"muenzen",terror:"warnung",verurteilungen:"waage"};
+  var T={arbeitslosigkeit:"koffer",inflation:"prozent",wachstum:"saeulen",industrie:"fabrik",schulden:"muenzen",defizit:"haushalt",geburtenrate:"herz",staatsquote:"torte",abgabenquote:"steuer",beschaeftigung:"koffer",bevoelkerung:"leute","wachstum-pro-kopf":"pfeilhoch",lebenshaltung:"prozent",immobilien:"haus",einkommen:"muenzen",durchschnittseinkommen:"muenzen",kaufkraft:"muenzen","wachstum-privat":"pfeilhoch",benzin:"zapfsaeule",diesel:"zapfsaeule",heizoel:"flamme",gaspreis:"flamme",sicherheitsgefuehl:"auge",insolvenzenEU:"insolvenz",insolvenzen:"insolvenz",erwerbsdauer:"kalender",pensionsausgaben:"haushalt",ersatzquote:"muenzen",altersarmut:"boerse",teilzeit:"uhr",beschaeftigung5564:"koffer",durchschnittsalter:"sanduhr",lebenserwartung:"puls",gesundeJahre:"puls",abhaengigkeit:"leute",toetung:"schild",raub:"schloss",einbruch:"schloss",kapitalmarkt:"kurs",kapitalNichtBoerse:"kurs",kapitalGesamt:"kurs",armut:"boerse",ausgrenzung:"boerse",wohnkosten:"haus",mieten:"haus",jugendarbeitslosigkeit:"hut",neet:"hut",forschung:"kolben",ausgabenBildung:"buch",ausgabenGesundheit:"kreuz",ausgabenVerteidigung:"schild",ausgabenSoziales:"leute",genderPayGap:"waage",erneuerbare:"sonne",treibhausgase:"wolke",energieabhaengigkeit:"stecker",nettozuwanderung:"zuzug",asyl:"zuzug",asylOffen:"sanduhr",lebenszufriedenheit:"lachen",gefaengnis:"gitter",koerperverletzung:"schild",sexualdelikte:"schild",strompreis:"blitz","strompreis-industrie":"blitz",rating:"stern",religion:"kuppel",pensionsantrittsalter:"kalender",aktionaersquote:"kurs",marsh:"muenzen",terror:"warnung",verurteilungen:"waage"};
   var G={"Preise und Kosten":"prozent","Wirtschaft und Arbeit":"koffer","Staatsfinanzen":"haushalt","Sicherheit":"schild","Gesellschaft":"leute","Pensionen und Alter":"sanduhr","Energie und Klima":"blatt","Weitere":"kurs"};
   var svg=function(n,cls){ return '<svg class="'+(cls||'ico')+'" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+(P[n]||P.kurs)+'"/></svg>'; };
   function spark(i){
