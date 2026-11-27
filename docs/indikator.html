@@ -240,7 +240,7 @@ function detailRating(i){
      + '</div></div>';
   if(a.urteil){
     h += '<div class="card"><h2>Trend seit Regierungsantritt</h2><div class="v '+urteilCls(a.urteil)+'"><span class="ar" aria-hidden="true">'+trendPfeil(a.urteil)+'</span> '+trendWort(a.urteil)+' <span class="k">(Notenstufe '+f2(a.schnittVorher)+' auf '+f2(a.schnitt)+')</span></div>'
-       + '<p class="note">Verglichen wird der Durchschnitt heute mit dem Stand vom '+datum(a.vorherStand)+' (Amtsantritt der Regierung). Eine kleinere Stufe ist besser. Der Vergleich ist nur für Länder hinterlegt, deren damalige Ratings belegt sind (siehe Tabelle).</p></div>';
+       + '<p class="note">Verglichen wird der Durchschnitt heute mit dem Stand vom '+datum(a.vorherStand)+' (Amtsantritt der Regierung). Eine kleinere Stufe ist besser. Der Vergleich ist nur für Länder hinterlegt, deren damalige Ratings belegt sind (siehe Tabelle). Einen Platz bei Regierungsantritt gibt es deshalb nicht: Die damaligen Ratings sind erst für wenige EU-Länder hinterlegt.</p></div>';
   }
   h += '<div class="card"><h2>Die Notenskala</h2>'
      + '<div class="grid"><div><div class="k">Bestwert</div><div class="v good">AAA</div><div class="k">Moody\'s: Aaa (Stufe 1). Ein „AAA+“ gibt es nicht.</div></div>'
